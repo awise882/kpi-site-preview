@@ -9,8 +9,8 @@
 <meta property="og:description" content="More than 10,000 always-on questions, over 1 million answers a day. Ask, hear back, build the audience, put it on the air. Then ask again.">
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-mark.png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r20">
-<link rel="stylesheet" href="assets/css/segments.css?v=r20">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r21">
+<link rel="stylesheet" href="assets/css/segments.css?v=r21">
 <style>
   /* Light, centered, airy hero, same standard as the home page: display headline
      in the green-to-teal gradient with the layered offset, the lede, two buttons,
@@ -80,6 +80,23 @@
   /* The two ways in: syndicated beside bespoke, both carried by the media
      investment. No pricing prints anywhere on this page by design. */
   .offer-avail { margin: 1.1rem 0 0; }
+  /* Ruling 49b: the low-friction segment-list ask, and the deal-ID button leading
+     the basket footer with the small actions on one row beneath it. */
+  .mini-ask { margin: 2.2rem auto 0; max-width: 560px; text-align: left;
+    background: var(--white); border: 1px solid var(--rule); border-radius: var(--r-lg);
+    padding: 1.05rem 1.15rem 1.1rem; box-shadow: 0 1px 2px rgba(13,46,74,.05), 0 6px 18px rgba(13,46,74,.06); }
+  .mini-ask__lab { display: block; font-size: .88rem; line-height: 1.5; color: var(--ink-2); margin-bottom: .65rem; }
+  .mini-ask__lab b { color: var(--navy-deep); }
+  .mini-ask__row { display: flex; flex-wrap: wrap; gap: .5rem; }
+  .mini-ask__row input { flex: 1 1 200px; font-family: var(--sans); font-size: 1rem; padding: .7rem .85rem;
+    color: var(--ink); border: 1px solid var(--rule); border-radius: var(--r); background: var(--white); min-width: 0; }
+  .mini-ask__row input:focus { border-color: var(--blue); outline: 3px solid color-mix(in srgb, var(--teal) 35%, transparent); outline-offset: 0; }
+  .mini-ask__status { font-size: .85rem; line-height: 1.5; margin: .7rem 0 0; padding: .5rem .8rem;
+    border-left: 3px solid var(--navy); background: var(--paper-warm); }
+  .mini-ask__done { font-size: .95rem; line-height: 1.55; color: var(--ink-2); margin: 0; }
+  .mini-ask__done b { color: var(--navy-deep); }
+  .sx-basket__ft-row { display: flex; gap: .5rem; }
+  .sx-basket__ft-row .btn { flex: 1 1 0; }
   /* P10 (R4, same class as the home hero): the page's own h1 clamp overrode the
      system's mobile downsizing. Restore it at the system breakpoint. */
   @media (max-width: 560px) {
@@ -146,6 +163,20 @@
     </div>
     <div class="stamp" style="text-align:left"><b>Source</b> CivicScience partner-published figures, as
       of August 2026. A profile is a survey-answering record, not a verified person.</div>
+
+    <!-- Ruling 49b: the low-friction ask. Email only, wired to the same /api/contact
+         with the subject prefilled; mailto is the fallback and the no-JS action. -->
+    <form class="mini-ask" id="seg-ask" method="post" enctype="text/plain"
+          action="mailto:info@kpipolitical.com?subject=Send%20the%2048-segment%20list">
+      <label class="mini-ask__lab" for="seg-email"><b>Want the 48 curated political segments?</b>
+        Email only; the list comes back, no call attached.</label>
+      <div class="mini-ask__row">
+        <input type="email" id="seg-email" name="email" required autocomplete="email" maxlength="150"
+               placeholder="you@yourfirm.com" aria-label="Work email for the 48-segment list">
+        <button class="btn btn--navy" type="submit">Send me the 48-segment list</button>
+      </div>
+      <p class="mini-ask__status" id="seg-status" role="status" aria-live="polite" hidden></p>
+    </form>
   </div>
 </header>
 
@@ -305,9 +336,12 @@
           <div class="sx-basket__hd"><h3>Your shortlist</h3><span><span id="sx-basket-n">0</span> picked</span></div>
           <ul id="sx-basket-list"></ul>
           <div class="sx-basket__ft">
-            <button class="btn btn--outline btn--sm" id="sx-copy" disabled>Copy shortlist</button>
-            <button class="btn btn--outline btn--sm" id="sx-clear" disabled>Clear</button>
-            <a class="btn btn--navy btn--sm" id="sx-email" href="mailto:info@kpipolitical.com?subject=Deal%20ID%20request">Email to turn on deal IDs</a>
+            <!-- Ruling 49b: the deal-ID ask leads the footer, full-strength. -->
+            <a class="btn btn--lime" id="sx-email" href="mailto:info@kpipolitical.com?subject=Deal%20ID%20request">Email to turn on deal IDs</a>
+            <div class="sx-basket__ft-row">
+              <button class="btn btn--outline btn--sm" id="sx-copy" disabled>Copy shortlist</button>
+              <button class="btn btn--outline btn--sm" id="sx-clear" disabled>Clear</button>
+            </div>
           </div>
         </div>
 
@@ -390,8 +424,8 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r20"></script>
-<script src="assets/js/segments.js?v=r20" defer></script>
+<script src="assets/js/site.js?v=r21"></script>
+<script src="assets/js/segments.js?v=r21" defer></script>
 <script>
 /* R6 (item 74): on a narrow phone the long placeholder clips mid-number, so it
    swaps to the short form before the field ever renders a cut digit. */
@@ -400,6 +434,68 @@
   if (q && window.matchMedia && matchMedia('(max-width: 480px)').matches) {
     q.setAttribute('placeholder', 'Search the library');
   }
+})();
+/* Ruling 49b: the 48-segment list ask. Email-only, posted as JSON to the same
+   same-origin /api/contact endpoint the demo form uses (subject prefilled, the
+   email carried in the payload, name = the email's prefix). Success, error and
+   mailto-fallback follow the contact form's pattern; the form's own mailto
+   action covers JS-off. */
+(function () {
+  var f = document.getElementById('seg-ask');
+  if (!f) return;
+  var input = document.getElementById('seg-email');
+  var status = document.getElementById('seg-status');
+  var btn = f.querySelector('button[type="submit"]');
+  var say = function (msg) { if (status) { status.hidden = false; status.textContent = msg; } };
+  var restore = function () {
+    if (btn) { btn.disabled = false; btn.textContent = 'Send me the 48-segment list'; }
+  };
+  var showDone = function (email) {
+    f.innerHTML = '';
+    var p = document.createElement('p');
+    p.className = 'mini-ask__done';
+    var b = document.createElement('b');
+    b.textContent = 'On its way. ';
+    p.appendChild(b);
+    p.appendChild(document.createTextNode(
+      'The 48-segment list goes to ' + email + '. Nothing else rides along.'));
+    f.appendChild(p);
+  };
+  f.addEventListener('submit', function (e) {
+    if (!f.checkValidity()) return;
+    e.preventDefault();
+    var email = input ? input.value.trim() : '';
+    var cap = function (s, n) { return s.length > n ? s.slice(0, n) : s; };
+    var payload = {
+      name: cap(email.split('@')[0] || 'Segment list request', 150),
+      email: cap(email, 150),
+      subject: 'Send the 48-segment list',
+      description: 'Please send the 48 curated political segments list to ' + cap(email, 150) +
+        '. Requested from the Real-Time Polling page.'
+    };
+    if (btn) { btn.disabled = true; btn.textContent = 'Sending'; }
+    if (status) { status.hidden = true; status.textContent = ''; }
+    fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    }).then(function (res) {
+      return res.json().then(function (data) { return { status: res.status, data: data }; });
+    }).then(function (r) {
+      if (r.data && r.data.success === true) { showDone(email); return; }
+      restore();
+      say((r.data && r.data.message) ||
+        'We could not send that right now. Please try again, or write to info@kpipolitical.com with the subject "Send the 48-segment list".');
+    }).catch(function () {
+      /* No handler answered (a static preview, an offline moment): compose the
+         message instead, so the typed address is never silently discarded. */
+      restore();
+      window.location.href = 'mailto:info@kpipolitical.com?subject=' +
+        encodeURIComponent('Send the 48-segment list') + '&body=' +
+        encodeURIComponent('Please send the 48-segment list to: ' + email);
+      say('We opened the request in your email program instead. Send it and the list comes back to you.');
+    });
+  });
 })();
 /* The deal-ID email: the shortlist travels in the mailto body, so the request
    arrives at info@ as actionable text with QIDs, not a screenshot. */

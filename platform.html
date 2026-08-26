@@ -9,7 +9,7 @@
 <meta property="og:description" content="Open to the race that changed. Read what the other side aired, booked and abandoned. Leave with the export.">
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-mark.png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r20">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r21">
 <style>
   /* The "what it exports" line that closes each app section. */
   .exports { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; margin-top: 1.3rem; }
@@ -110,9 +110,10 @@
         <div class="mini__row"><span>Broadcast</span><i style="width:74%"></i><b class="num">74%</b></div>
         <div class="mini__row"><span>Local cable</span><i style="width:20%;background:var(--teal)"></i><b class="num">20%</b></div>
         <div class="mini__row"><span>Radio</span><i style="width:6%;background:var(--blue-light)"></i><b class="num">6%</b></div>
-        <div class="mini__row mini__row--est"><span>Streaming &amp; Digital &middot; caught<em class="mini__tag">Est. minimum</em></span><i style="width:15%"></i><b class="mini__na">no share</b></div>
-        <div class="mini__row mini__row--est"><span>Streaming &amp; Digital &middot; modeled<em class="mini__tag">Estimated</em></span><i style="width:12%"></i><b class="mini__na">no share</b></div>
-        <p class="mini__key">Shares split posted money only: broadcast, local cable, radio. The Streaming &amp; Digital family prints dashed on its two bases, caught floor and modeled estimate, never silently summed &middot; dashed width = estimated dollars against the posted total, for scale only.</p>
+<!-- Ruling 50j: one Streaming & Digital row per lane chart; the caught-vs-modeled
+     split moves to the fine print. -->
+        <div class="mini__row mini__row--est"><span>Streaming &amp; Digital<em class="mini__tag">Estimated</em></span><i style="width:27%"></i><b class="mini__na">&asymp; &middot; no share</b></div>
+        <p class="mini__key">Shares split posted money only: broadcast, local cable, radio. Streaming &amp; Digital prints dashed and marked &asymp;, never summed into the posted total: a caught floor with the modeled estimate beside it, the split stated in the product &middot; dashed width = estimated dollars against the posted total, for scale only.</p>
       </div>
       <p class="feed__note">Synthetic race. Illustrative figures.</p>
     </div>
@@ -123,28 +124,29 @@
   <div class="wrap mt3">
     <div class="lmap">
       <ol class="lmap__rail">
+        <!-- Ruling 50f: names + chips + 3-4 word glosses; the chips are the content. -->
         <li class="lmap__layer">
           <span class="lmap__name">Detect</span>
-          <span class="lmap__what">The monitoring network catches the airing, the order and the creative.</span>
+          <span class="lmap__what">Airings, orders, creative.</span>
           <span class="lmap__items"><a class="chip" href="#coverage">Monitoring network</a><a class="chip" href="#streaming-capture">Streaming &amp; Digital capture</a></span>
         </li>
         <li class="lmap__layer">
           <span class="lmap__name">Measure</span>
-          <span class="lmap__what">Where the numbers come from: the public file.</span>
+          <span class="lmap__what">The public file.</span>
           <span class="lmap__items"><a class="chip" href="index.html#fcc-rates" title="Opens on the home page">FCC pricing &#8599;</a></span>
         </li>
         <li class="lmap__layer">
           <span class="lmap__name">Target</span>
-          <span class="lmap__what">Who to reach, built from declared answers, delivered where you buy.</span>
+          <span class="lmap__what">Declared answers, delivered.</span>
           <span class="lmap__items"><a class="chip" href="polling.html">Real-time polling</a><a class="chip" href="#audiences">Audiences + deal IDs</a></span>
         </li>
         <li class="lmap__layer">
           <span class="lmap__name">Decide</span>
-          <span class="lmap__what">The screens you drive, and every read leaves with an export.</span>
+          <span class="lmap__what">Screens + exports.</span>
           <span class="lmap__items"><a class="chip" href="#scoreboard">Scoreboard</a><a class="chip" href="#creative-matrix">Creative Matrix</a><a class="chip" href="#buy-sheet">Buy Sheet</a><a class="chip" href="#creative-explorer">Creative Explorer</a><a class="chip" href="#sellers">The seller's week</a><a class="chip" href="#class-gap">Streaming share</a></span>
         </li>
       </ol>
-      <a class="lmap__baker" href="#baker"><b>Baker</b><span>the ask-anything layer across all four: plain-language questions on everything the platform tracks, the through-date attached</span></a>
+      <a class="lmap__baker" href="#baker"><b>Baker</b><span>ask anything the platform tracks, through-date attached</span></a>
     </div>
   </div>
 </header>
@@ -2170,6 +2172,6 @@ tbody th.rc-buysheet-m{font-weight:400;background:transparent}
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r20"></script>
+<script src="assets/js/site.js?v=r21"></script>
 </body>
 </html>
