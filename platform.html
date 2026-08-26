@@ -9,7 +9,7 @@
 <meta property="og:description" content="Open to the race that changed. Read what the other side aired, booked and abandoned. Leave with the export.">
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-mark.png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r21">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r23">
 <style>
   /* The "what it exports" line that closes each app section. */
   .exports { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; margin-top: 1.3rem; }
@@ -18,10 +18,33 @@
   .exports__t { font-size: .87rem; line-height: 1.5; color: var(--ink-2); flex: 1 1 260px; margin: 0; }
   /* A stamp inside a card hugs the card rather than the section. */
   .card .stamp { margin-top: .8rem; margin-bottom: .9rem; }
-  /* The lane and contest tables carry five dense columns. */
-  table.tbl.tbl--lanes { min-width: 940px; }
-  .tbl--lanes .lane-name, .tbl--contests .row-h { font-family: var(--label); text-transform: uppercase;
+  .tbl--contests .row-h { font-family: var(--label); text-transform: uppercase;
     letter-spacing: .08em; font-size: .78rem; font-weight: 700; color: var(--navy-deep); white-space: nowrap; }
+  /* Paths pass: the five-column lane table is retired for a card stack that
+     never scrolls sideways. Per lane: the merged detect+dollars read with its
+     basis chip, ONE highlighted where-the-signal-thins callout, and the cadence
+     fine print folded into a disclosure. */
+  .lanefams { display: grid; gap: 1rem; }
+  .lanefam { background: var(--white); border: 1px solid var(--rule); border-radius: var(--r-lg);
+    padding: 1.05rem 1.15rem 1rem; box-shadow: 0 1px 2px rgba(13,46,74,.05), 0 6px 18px rgba(13,46,74,.06); }
+  .lanefam__head { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem .8rem; margin-bottom: .6rem; }
+  .lanefam__name { margin: 0; font-family: var(--label); text-transform: uppercase;
+    letter-spacing: .08em; font-size: .84rem; font-weight: 700; color: var(--navy-deep); }
+  .lanefam__body { display: grid; gap: .8rem 2rem; }
+  @media (min-width: 900px) {
+    .lanefam__body { grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); align-items: start; }
+  }
+  .lanefam__what { margin: 0; font-size: .9rem; line-height: 1.6; color: var(--ink-2); }
+  .lanefam__thins { margin: 0; font-size: .85rem; line-height: 1.55; color: var(--ink-2);
+    background: color-mix(in srgb, var(--lime) 9%, var(--white)); border-left: 3px solid var(--lime-dark);
+    padding: .6rem .8rem; }
+  .lanefam__thins b { display: block; font-family: var(--label); text-transform: uppercase;
+    letter-spacing: .1em; font-size: .62rem; color: var(--navy); margin-bottom: .25rem; }
+  .lanefam__more { margin-top: .7rem; border-top: 1px solid var(--rule-soft); padding-top: .5rem; }
+  .lanefam__more summary { cursor: pointer; font-family: var(--label); text-transform: uppercase;
+    letter-spacing: .1em; font-size: .64rem; font-weight: 700; color: var(--ink-3); }
+  .lanefam__more summary:hover { color: var(--navy); }
+  .lanefam__more p { margin: .5rem 0 0; }
   /* Anchor chips on the light hero: white cards, navy on hover. */
   .hero .chip { background: var(--white); border-color: var(--rule); color: var(--ink-2); text-decoration: none; }
   .hero .chip:hover { border-color: var(--navy); color: var(--navy-deep); }
@@ -41,9 +64,9 @@
   .mini__row i { display: block; height: 12px; border-radius: 2px; background: var(--blue); }
   .mini__row b { font-weight: 700; color: #fff; text-align: right; font-family: var(--mono); }
   .mini__tag { display: block; font-style: normal; font-family: var(--mono); font-size: .56rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: #8FA9BE; }
-  .mini__row--est { color: #9DB4C6; }
+  .mini__row--est { color: #9DB4C6; grid-template-columns: 84px minmax(0, 1fr) max-content; }
   .mini__row--est i { background: transparent; border: 1px dashed rgba(189,210,226,.6); height: 10px; }
-  .mini__na { font-family: var(--mono); font-size: .58rem; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: #8FA9BE; text-align: right; white-space: nowrap; }
+  .mini__na { font-family: var(--mono); font-size: .58rem; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: #8FA9BE; text-align: right; white-space: nowrap; padding-right: 2px; }
   .mini__key { margin: .6rem 0 0; font-size: .64rem; line-height: 1.5; color: #8FA9BE; }
   .hero-float .feed__note { text-align: right; margin-top: .6rem; }
   /* Live recreations replace the static screenshots. Each card is self-contained
@@ -129,21 +152,25 @@
           <span class="lmap__name">Detect</span>
           <span class="lmap__what">Airings, orders, creative.</span>
           <span class="lmap__items"><a class="chip" href="#coverage">Monitoring network</a><a class="chip" href="#streaming-capture">Streaming &amp; Digital capture</a></span>
+          <span class="lmap__stat"><b class="num">210</b> markets monitored</span>
         </li>
         <li class="lmap__layer">
           <span class="lmap__name">Measure</span>
           <span class="lmap__what">The public file.</span>
           <span class="lmap__items"><a class="chip" href="index.html#fcc-rates" title="Opens on the home page">FCC pricing &#8599;</a></span>
+          <span class="lmap__stat"><b class="num">312,197</b> FCC rate cells</span>
         </li>
         <li class="lmap__layer">
           <span class="lmap__name">Target</span>
           <span class="lmap__what">Declared answers, delivered.</span>
           <span class="lmap__items"><a class="chip" href="polling.html">Real-time polling</a><a class="chip" href="#audiences">Audiences + deal IDs</a></span>
+          <span class="lmap__stat"><b class="num">3,537</b> orderable questions</span>
         </li>
         <li class="lmap__layer">
           <span class="lmap__name">Decide</span>
           <span class="lmap__what">Screens + exports.</span>
           <span class="lmap__items"><a class="chip" href="#scoreboard">Scoreboard</a><a class="chip" href="#creative-matrix">Creative Matrix</a><a class="chip" href="#buy-sheet">Buy Sheet</a><a class="chip" href="#creative-explorer">Creative Explorer</a><a class="chip" href="#sellers">The seller's week</a><a class="chip" href="#class-gap">Streaming share</a></span>
+          <span class="lmap__stat"><b class="num">6</b> screens, every read exports</span>
         </li>
       </ol>
       <a class="lmap__baker" href="#baker"><b>Baker</b><span>ask anything the platform tracks, through-date attached</span></a>
@@ -182,97 +209,113 @@
       </div>
     </div>
 
-    <h3 class="mt3">Lane by lane: where the dollars come from, how fast they land, and where the signal thins</h3>
-    <p class="small tbl-hint">Swipe the table sideways to see every column.</p>
-    <div class="tbl-scroll" tabindex="0" role="group" aria-label="Four lane families, basis, cadence and edges, scrolls sideways">
-      <table class="tbl tbl--lanes">
-        <thead>
-          <tr>
-            <th style="width:11%">Lane</th>
-            <th style="width:21%">What we detect</th>
-            <th style="width:17%">Where the dollars come from</th>
-            <th style="width:17%">Cadence</th>
-            <th class="us" style="width:34%">Where the signal thins</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row" class="lane-name">Broadcast TV</th>
-            <td>Every airing on monitored stations, with the creative itself, an AI-generated transcript, the
-              air date and the market list.</td>
-            <td><span class="chip chip--lime">Order by order</span>
-              <p class="small mt1">FCC-verified spend, read off filed station documents. No ratings-based
-                estimate sits underneath it.</p></td>
-            <td>Detections run continuously. Dollars firm up as stations file.</td>
-            <td class="us">A station that files late leaves its market reading lighter than it ran until the
-              filing lands, which is why the through-date sits on the figure. Channel depth is thinner in the
-              smallest markets and on low-power stations.</td>
-          </tr>
-          <tr>
-            <th scope="row" class="lane-name">Local cable</th>
-            <td>Placed orders by system, week and daypart, in the same grid as broadcast, plus the spots
-              running against them. Collected at system, week and daypart; ships in the export at
-              market &times; week, dollars only.</td>
-            <td><span class="chip chip--lime">Order by order</span>
-              <p class="small mt1">Collected order by order, so each dollar traces to a document instead of
-                to a modeled share of a market total.</p></td>
-            <td>Detections run continuously. Orders post as they are collected; the
-              posted-through date on the figure is the check.</td>
-            <td class="us">Coverage follows the systems and interconnects that report. A zone bought outside
-              them will not appear, and an incomplete week is marked insufficient signal rather than read as
-              a smaller buy.</td>
-          </tr>
-          <tr>
-            <th scope="row" class="lane-name">Radio</th>
-            <td>Placed radio orders and the audio behind them, joined to the same race and advertiser records
-              as television. Ships in the export at market &times; week, dollars only.</td>
-            <td><span class="chip chip--lime">Orders first</span>
-              <p class="small mt1">Built from orders where they exist. Where they do not, the dollars come
-                from what we caught on air, and the page says so. Radio dollars built from caught airings
-                print as estimated and stay out of the posted total.</p></td>
-            <td>Detections run continuously. Dollars post more slowly than television.</td>
-            <td class="us">Station coverage is deepest in larger markets. Small-market, non-commercial and
-              religious-format stations are the thinnest part of the lane.</td>
-          </tr>
-          <tr>
-            <th scope="row" class="lane-name">Streaming &amp; Digital &middot; caught on the apps</th>
-            <td>Direct creative capture on CTV, including spots that never touch broadcast. Capture inside
-              streaming apps is early and growing; where we catch a spot you get the tape, the platform and
-              the transcript.</td>
-            <td><span class="chip chip--warn">Estimated minimum</span>
-              <p class="small mt1">Detection first: the airings are what we caught. Dollars are estimated
-                from measured delivery and print as a minimum, with the depth of the capture stated
-                alongside. Where we cannot see, we say so.</p></td>
-            <td>Detections run continuously across platforms in coverage. Dollar figures refresh on the
-              measurement cycle.</td>
-            <td class="us">Fewer than 10% of platforms publish a political ad library
-              (<a href="https://competeeverywhere.com/2025/12/december-2025-ho-ho-ho-political-ad-transparency-heading-into-2026/" rel="noopener">COMPETE, December
-              2025</a>), so no public record exists to reconcile against. A lane-level zero here is reported as
-              an insufficient-signal state, never as an absence of advertising. Streaming is addressable, so
-              detection samples from measured households; narrowly targeted buys under-detect more than broad
-              ones, another reason the dollar figure is a floor.</td>
-          </tr>
-          <tr>
-            <th scope="row" class="lane-name">Streaming &amp; Digital &middot; measured beyond the capture</th>
-            <!-- O2 ANSWERED by ruling 45 (Adam, 8/25): streaming and digital are ONE lane
-                 family in the marketing taxonomy, presented at app grain; the two BASES in
-                 this table stay separate (caught floor vs modeled estimate) and are never
-                 summed. Methodology keeps the formal two-lane definitions of record. -->
-            <td>Competitive digital activity in the race, estimated from measured smart-TV viewing, sitting
-              beside the broadcast and cable tracking. One family, two bases: the caught side prints app by
-              app as a minimum; this measured side covers sources beyond the capture, always estimated and
-              never a minimum.</td>
-            <td><span class="chip">Estimated</span>
-              <p class="small mt1">Estimated from detected delivery, and the word estimated rides on every
-                figure it produces. A digital share means share of the sources we measure, with the
-                source list on the <a href="methodology.html#covered-sources">methodology page</a>.</p></td>
-            <td>Refreshes on the estimation cycle. There is no order feed underneath it.</td>
-            <td class="us">A digital dollar is an estimate and never an order on file, so it should not be
-              read with the confidence of a booked television week. Walled-garden placements are visible only
-              to the extent the platform discloses them.</td>
-          </tr>
-        </tbody>
-      </table>
+    <h3 class="mt3">Lane by lane: where the dollars come from, and where the signal thins</h3>
+    <div class="lanefams mt1" role="group" aria-label="Four lane families: what we detect, where the dollars come from, and where each signal thins">
+      <article class="lanefam">
+        <div class="lanefam__head">
+          <h4 class="lanefam__name">Broadcast TV</h4>
+          <span class="chip chip--lime">Order by order</span>
+        </div>
+        <div class="lanefam__body">
+          <p class="lanefam__what">Every airing on monitored stations, with the creative itself, an
+            AI-generated transcript, the air date and the market list. Dollars are FCC-verified spend,
+            read off filed station documents; no ratings-based estimate sits underneath.</p>
+          <p class="lanefam__thins"><b>Where the signal thins</b> A station that files late leaves its
+            market reading lighter than it ran until the filing lands, which is why the through-date
+            sits on the figure. Channel depth is thinner in the smallest markets and on low-power
+            stations.</p>
+        </div>
+        <details class="lanefam__more"><summary>Cadence + the fine print</summary>
+          <p class="small">Detections run continuously. Dollars firm up as stations file.</p>
+        </details>
+      </article>
+      <article class="lanefam">
+        <div class="lanefam__head">
+          <h4 class="lanefam__name">Local cable</h4>
+          <span class="chip chip--lime">Order by order</span>
+        </div>
+        <div class="lanefam__body">
+          <p class="lanefam__what">Placed orders by system, week and daypart, in the same grid as
+            broadcast, plus the spots running against them. Collected order by order, so each dollar
+            traces to a document instead of to a modeled share of a market total.</p>
+          <p class="lanefam__thins"><b>Where the signal thins</b> Coverage follows the systems and
+            interconnects that report. A zone bought outside them will not appear, and an incomplete
+            week is marked insufficient signal rather than read as a smaller buy.</p>
+        </div>
+        <details class="lanefam__more"><summary>Cadence + the fine print</summary>
+          <p class="small">Collected at system, week and daypart; ships in the export at
+            market &times; week, dollars only. Detections run continuously. Orders post as they are
+            collected; the posted-through date on the figure is the check.</p>
+        </details>
+      </article>
+      <article class="lanefam">
+        <div class="lanefam__head">
+          <h4 class="lanefam__name">Radio</h4>
+          <span class="chip chip--lime">Orders first</span>
+        </div>
+        <div class="lanefam__body">
+          <p class="lanefam__what">Placed radio orders and the audio behind them, joined to the same
+            race and advertiser records as television. Built from orders where they exist. Where they
+            do not, the dollars come from what we caught on air, and the page says so: radio dollars
+            built from caught airings print as estimated and stay out of the posted total.</p>
+          <p class="lanefam__thins"><b>Where the signal thins</b> Station coverage is deepest in larger
+            markets. Small-market, non-commercial and religious-format stations are the thinnest part
+            of the lane.</p>
+        </div>
+        <details class="lanefam__more"><summary>Cadence + the fine print</summary>
+          <p class="small">Ships in the export at market &times; week, dollars only. Detections run
+            continuously. Dollars post more slowly than television.</p>
+        </details>
+      </article>
+      <article class="lanefam">
+        <div class="lanefam__head">
+          <h4 class="lanefam__name">Streaming &amp; Digital &middot; caught on the apps</h4>
+          <span class="chip chip--warn">Estimated minimum</span>
+        </div>
+        <div class="lanefam__body">
+          <p class="lanefam__what">Direct creative capture on CTV, including spots that never touch
+            broadcast. Capture inside streaming apps is early and growing; where we catch a spot you
+            get the tape, the platform and the transcript. Dollars are estimated from measured delivery
+            and print as a minimum, with the depth of the capture stated alongside. Where we cannot
+            see, we say so.</p>
+          <p class="lanefam__thins"><b>Where the signal thins</b> Fewer than 10% of platforms publish a
+            political ad library
+            (<a href="https://competeeverywhere.com/2025/12/december-2025-ho-ho-ho-political-ad-transparency-heading-into-2026/" rel="noopener">COMPETE, December
+            2025</a>), so no public record exists to reconcile against. A lane-level zero here is
+            reported as an insufficient-signal state, never as an absence of advertising. Streaming is
+            addressable, so detection samples from measured households; narrowly targeted buys
+            under-detect more than broad ones, another reason the dollar figure is a floor.</p>
+        </div>
+        <details class="lanefam__more"><summary>Cadence + the fine print</summary>
+          <p class="small">Detection first: the airings are what we caught. Detections run continuously
+            across platforms in coverage. Dollar figures refresh on the measurement cycle.</p>
+        </details>
+      </article>
+      <article class="lanefam">
+        <div class="lanefam__head">
+          <h4 class="lanefam__name">Streaming &amp; Digital &middot; measured beyond the capture</h4>
+          <span class="chip">Estimated</span>
+        </div>
+        <!-- O2 ANSWERED by ruling 45 (Adam, 8/25): streaming and digital are ONE lane
+             family in the marketing taxonomy, presented at app grain; the two BASES in
+             this stack stay separate (caught floor vs modeled estimate) and are never
+             summed. Methodology keeps the formal two-lane definitions of record. -->
+        <div class="lanefam__body">
+          <p class="lanefam__what">Competitive digital activity in the race, estimated from measured
+            smart-TV viewing, sitting beside the broadcast and cable tracking. One family, two bases:
+            the caught side prints app by app as a minimum; this measured side covers sources beyond
+            the capture, always estimated and never a minimum. The word estimated rides on every figure
+            it produces.</p>
+          <p class="lanefam__thins"><b>Where the signal thins</b> A digital dollar is an estimate and
+            never an order on file, so it should not be read with the confidence of a booked television
+            week. Walled-garden placements are visible only to the extent the platform discloses them.</p>
+        </div>
+        <details class="lanefam__more"><summary>Cadence + the fine print</summary>
+          <p class="small">Refreshes on the estimation cycle. There is no order feed underneath it. A
+            digital share means share of the sources we measure, with the source list on the
+            <a href="methodology.html#covered-sources">methodology page</a>.</p>
+        </details>
+      </article>
     </div>
     <p class="tbl-note band-note">We do not print one hours-or-days cadence figure, because one
       number covering 210 markets and every lane would be wrong in several of them. What you get
@@ -2172,6 +2215,6 @@ tbody th.rc-buysheet-m{font-weight:400;background:transparent}
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r21"></script>
+<script src="assets/js/site.js?v=r23"></script>
 </body>
 </html>

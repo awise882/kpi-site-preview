@@ -1,4 +1,4 @@
-@import url("fonts.css?v=r21");
+@import url("fonts.css?v=r23");
 
 /* ==========================================================================
    Kinetiq Political Insights - site design system
@@ -878,14 +878,11 @@ a.chip:hover { border-color: var(--blue); color: var(--navy); background: var(--
   display: inline-block; position: relative; isolation: isolate;
   color: var(--navy-deep); font-weight: 900;
 }
-/* R6 (item 16): the echo pins to the line box (left:0/top:0/width:100%) and
-   offsets by transform, so a wrapped line echoes in place instead of printing
-   the whole data-t string at the first line's offset. */
-.ht .ht__l::before {
-  content: attr(data-t); position: absolute; left: 0; top: 0; width: 100%; z-index: -1;
-  transform: translate(.045em, .055em);
-  background: none; -webkit-text-fill-color: rgba(13,46,74,.10); color: rgba(13,46,74,.10);
-}
+/* Paths pass (2026-08-26, art director): the offset echo under the display
+   lines is gone. Flat, confident type is the standard; the gradient accent
+   line already carries the flourish. The data-t attributes stay in the markup
+   so the echo can be restored by reinstating this one rule. */
+.ht .ht__l::before { content: none; }
 .ht .ht__l--accent {
   background: linear-gradient(94deg, var(--lime-text) 0%, #007A8A 100%);
   -webkit-background-clip: text; background-clip: text; color: transparent;
@@ -1167,6 +1164,16 @@ a.chip:hover { border-color: var(--blue); color: var(--navy); background: var(--
 .lmap__name { display: block; font-family: var(--label); text-transform: uppercase; letter-spacing: .14em; font-size: .72rem; font-weight: 700; color: var(--navy); }
 .lmap__what { display: block; margin-top: .25rem; font-size: .85rem; line-height: 1.5; color: var(--ink-2); }
 .lmap__items { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .65rem; }
+/* Paths pass: each layer owns one quiet number, seated at the card foot so the
+   equal-height cards carry weight instead of white space. The layer becomes a
+   flex column so margin-top:auto pins the stat to the foot. */
+.lmap__layer { display: flex; flex-direction: column; align-items: flex-start; }
+.lmap__stat { display: block; align-self: stretch; margin-top: auto; padding-top: .55rem;
+  border-top: 1px solid var(--rule-soft);
+  font-family: var(--mono); font-size: .78rem; color: var(--ink-3);
+  font-variant-numeric: tabular-nums lining-nums; }
+.lmap__items { padding-bottom: .7rem; }
+.lmap__stat b { font-size: 1.05rem; font-weight: 700; color: var(--navy-deep); }
 .lmap__baker { display: flex; flex-wrap: wrap; align-items: baseline; gap: .3rem .6rem; justify-content: center; margin-top: 1.4rem; padding: .8rem 1.1rem; border: 1.5px dashed color-mix(in srgb, var(--teal) 55%, transparent); border-radius: var(--r-lg); background: color-mix(in srgb, var(--teal) 6%, var(--white)); text-decoration: none; }
 .lmap__baker b { font-family: var(--label); text-transform: uppercase; letter-spacing: .12em; font-size: .72rem; color: var(--navy-deep); }
 .lmap__baker span { font-size: .85rem; color: var(--ink-2); }
@@ -1459,3 +1466,34 @@ a.chip:hover { border-color: var(--blue); color: var(--navy); background: var(--
 @media (prefers-reduced-motion: reduce) {
   .wk__scenes::before, .wk__scene::before { animation: none; transform: none; opacity: 1; }
 }
+
+/* Paths pass (2026-08-26): the settle belt's landing state. site.js adds
+   .is-settled to any scroll-reveal element a broken embedded pane has left
+   stuck invisible (claims view() support, never advances the timeline). The
+   element simply becomes its own final frame. */
+.is-settled { animation: none !important; opacity: 1 !important; transform: none !important; }
+
+/* ============ Ruling 53: the modeling defense block (index digital cluster +
+   cross-screen mechanism). The case for the modeled number, stated as discipline;
+   the drawn figure carries the observed-solid / modeled-dashed encoding law. ============ */
+.mdef { margin-top: 1.6rem; background: var(--white); border: 1px solid var(--rule);
+  border-left: 4px solid var(--lime-dark); border-radius: var(--r);
+  padding: 1.1rem 1.2rem 1.15rem; box-shadow: var(--shadow); }
+.mdef__k { font-family: var(--label); text-transform: uppercase; letter-spacing: .12em;
+  font-size: .7rem; font-weight: 700; color: var(--blue-text); margin: 0 0 .7rem; }
+.mdef__fig { display: block; width: 100%; height: auto; margin: .2rem 0 .7rem; }
+/* Paths pass: the drawn figure ships in two compositions. The wide one scales
+   its 560-unit frame down illegibly on a phone, so under 700px the vertical
+   restack takes over: dots block, arrow, dots block, arrow, plate, every label
+   at or above 11px rendered. */
+.mdef__fig--tall { display: none; max-width: 340px; margin-inline: auto; }
+@media (max-width: 699px) {
+  .mdef__fig--wide { display: none; }
+  .mdef__fig--tall { display: block; }
+}
+.mdef ul { margin: .4rem 0 0; padding-left: 1.1em; font-size: .88rem; line-height: 1.55;
+  color: var(--ink-2); }
+.mdef li { margin-bottom: .4em; }
+.mdef li:last-child { margin-bottom: 0; }
+.mdef li b { color: var(--navy-deep); }
+.mdef__law { margin: .7rem 0 0; font-size: .82rem; color: var(--ink-3); }

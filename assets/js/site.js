@@ -72,6 +72,61 @@
      2026-08-24 auto-motion ruling: nothing on the site moves its own content,
      so there is nothing left to pause. */
 
+  /* ---- scroll-reveal settle belt (paths-pass blocker, 2026-08-26) ----
+     Some embedded Chromium panes claim animation-timeline support but never
+     advance a scroll timeline, so a view()-driven reveal holds its element at
+     opacity 0 (or scaleX 0) forever and whole scenes render blank. The belt:
+     a rAF-throttled scroll check plus a slow interval walks the animated
+     candidates; any element that has sat at least 40% in-viewport for ~300ms
+     while still computing opacity < 0.1 (or a collapsed scaleX) gets
+     .is-settled, which forces animation:none / opacity:1 / transform:none in
+     CSS. Real Chrome keeps its motion (healthy elements never test stuck);
+     IntersectionObserver is deliberately NOT used here, because the broken
+     panes are the same ones where IO never fires. Reduced-motion pages are
+     already static and are skipped. */
+  try {
+    if (window.CSS && CSS.supports && CSS.supports('animation-timeline: view()') &&
+        !(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) {
+      var beltSel = '[data-rise] > *, .wk__art, .fig__svg rect, .fig__svg g[data-u], ' +
+                    '.aw__fill, .ledger__rule, .ew__rule';
+      var beltEls = [].slice.call(document.querySelectorAll(beltSel));
+      var beltSeen = [];
+      var beltStuck = function (el) {
+        var cs = getComputedStyle(el);
+        if (parseFloat(cs.opacity) < 0.1) return true;
+        var m = /^matrix\(([-\d.e]+),/.exec(cs.transform || '');
+        return !!(m && Math.abs(parseFloat(m[1])) < 0.05);
+      };
+      var beltTick = function () {
+        if (!beltEls.length) { clearInterval(beltIv); return; }
+        var vh = window.innerHeight || document.documentElement.clientHeight;
+        var now = Date.now();
+        for (var i = beltEls.length - 1; i >= 0; i--) {
+          var el = beltEls[i];
+          var r = el.getBoundingClientRect();
+          if (!r.height && !r.width) { continue; } /* hidden tab panel: skip, keep watching */
+          var vis = Math.min(r.bottom, vh) - Math.max(r.top, 0);
+          if (vis / (r.height || 1) >= 0.4) {
+            if (!beltSeen[i]) { beltSeen[i] = now; continue; }
+            if (now - beltSeen[i] >= 300) {
+              if (beltStuck(el)) el.classList.add('is-settled');
+              beltEls.splice(i, 1); beltSeen.splice(i, 1);
+            }
+          } else {
+            beltSeen[i] = 0;
+          }
+        }
+      };
+      var beltIv = setInterval(beltTick, 350);
+      var beltRaf = 0;
+      window.addEventListener('scroll', function () {
+        if (beltRaf) return;
+        beltRaf = requestAnimationFrame(function () { beltRaf = 0; beltTick(); });
+      }, { passive: true });
+      beltTick();
+    }
+  } catch (e) { /* the belt is optional; base content was never hidden by JS */ }
+
   /* ---- mark the current page in the nav ---- */
   var here = location.pathname.split('/').pop() || 'index.html';
   [].forEach.call(document.querySelectorAll('.nav__links a'), function (a) {
