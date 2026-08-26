@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Request a Demo · Kinetiq Political Insights</title>
+<meta name="description" content="Name a race you already know and we pull it before the walkthrough, so the demo runs on your contest instead of a canned dataset. Request a demo, reach press, or log in as a subscriber.">
+<meta property="og:title" content="Request a demo · Kinetiq Political Insights">
+<meta property="og:description" content="Name the race when you book. We pull it before the call and you judge it against what you already know.">
+<meta property="og:type" content="website">
+<link rel="icon" href="assets/img/kpi-mark.png">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r20">
+<style>
+  /* contact.html only. Built from existing custom properties, no new colors. */
+  .form-shell { background: var(--paper); border: 1px solid var(--rule); border-radius: var(--r-lg); padding: clamp(20px, 3vw, 32px); }
+  .form-shell h2 { font-size: clamp(1.5rem, 2.4vw, 1.9rem); }
+  .field-row { display: grid; gap: 0 clamp(14px, 2vw, 22px); }
+  @media (min-width: 620px) { .field-row { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  .form-key { font-size: .82rem; color: var(--ink-3); margin: 0 0 1.2rem; }
+  .form-note { font-size: .82rem; color: var(--ink-3); margin-top: .95rem; line-height: 1.5; max-width: 60ch; }
+  .form-status { font-size: .88rem; line-height: 1.5; margin: 0 0 1.1rem; padding: .55rem .85rem; border-left: 3px solid var(--navy); background: var(--paper-warm); max-width: 60ch; }
+  .field-hint { font-size: .78rem; color: var(--ink-3); margin: .3rem 0 0; line-height: 1.45; }
+  .form-done h2 { margin-top: 0; }
+  .form-done p { max-width: 60ch; }
+  .card-col { display: grid; gap: clamp(14px, 1.8vw, 20px); align-content: start; }
+  /* Keeps the sequence figure legible on a phone. The container scrolls, the page never does. */
+  .fig-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .fig-scroll .fig__svg { min-width: 720px; }
+  .fig-scroll:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
+  /* A cut with no cue reads as broken rather than scrollable, so say which way to
+     move and dissolve the edge instead of guillotining a word. Same treatment as
+     the figures on the index, coverage and methodology pages. */
+  .fig-swipe { position: relative; }
+  .fig-hint { display: none; margin-bottom: .6rem; }
+  @media (max-width: 880px) {
+    .fig-hint { display: block; }
+    /* The fade has to end in the figure's OWN background or it stops reading as
+       "more to the right" and starts reading as a light leak. This figure sits
+       on a .section--tint ground, so the fade ends in the tint. */
+    .fig-swipe::after {
+      content: ""; position: absolute; top: 0; right: 0; bottom: 0; width: 46px;
+      pointer-events: none;
+    }
+    .section--tint .fig-swipe::after { background: linear-gradient(to right, transparent, var(--tint)); }
+    .fig--light .fig-swipe::after { background: linear-gradient(to right, transparent, var(--white)); }
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ============ NAV ============ -->
+<nav class="nav nav--light" data-open="false">
+  <div class="wrap nav__in">
+    <a class="nav__brand" href="index.html" aria-label="Kinetiq Political Insights, home">
+      <img src="assets/img/kpi-logo.png" alt="Kinetiq Political Insights">
+    </a>
+    <ul class="nav__links">
+      <li><a href="platform.html">Platform</a></li>
+      <li><a href="index.html#sell-side">Sell-Side</a></li>
+      <li><a href="polling.html">Real-Time Polling</a></li>
+      <li><a href="methodology.html">Methodology</a></li>
+      <li class="nav__login"><a href="https://portal.kpipolitical.com">Log in</a></li>
+    </ul>
+    <div class="nav__cta">
+      <a class="btn btn--outline btn--sm" href="https://portal.kpipolitical.com">Log in</a>
+      <a class="btn btn--lime btn--sm" href="contact.html" aria-current="page">Request a demo</a>
+    </div>
+    <button class="nav__toggle" aria-expanded="false" aria-label="Menu">Menu</button>
+  </div>
+</nav>
+
+<main id="main">
+
+<!-- CLAIM: Point it at a race you already know and check whether it tells you
+     something you did not. -->
+
+<!-- ============ OPENER + FORM ============ -->
+<section class="section hero-wash">
+  <div class="wrap">
+    <p class="eyebrow">Request a demo</p>
+    <h1>Point it at a race you <span class="serif-accent">already know</span>.</h1>
+    <p class="lede">Open it on a contest you have watched all cycle and see whether it tells you anything
+      you did not already have. Name the race or the state when you book and we pull it before the call.
+      History runs 9 years deep, so the same seat from the last cycle sits next to it.</p>
+
+    <!-- The honesty stamp, applied to the demo itself. What we open in front of you
+         carries the same basis language every figure in the product carries. -->
+    <div class="stamp" style="max-width:78ch">
+      <span><b>Posted through</b> the most recent complete day in each lane</span>
+      <span><b>Lanes</b> broadcast, local cable, radio at order grain</span>
+      <span><b>Booked forward</b> a separate line, orders on file rather than delivery posted</span>
+      <span><b>Streaming</b> detected, with dollars estimated and stated as a floor</span>
+      <span><b>Thin signal</b> labeled insufficient instead of printed as a zero</span>
+    </div>
+
+    <div class="split split--wide-left mt3">
+
+      <!-- PUBLISH CHECKLIST (rulings 47b/48, 8/25): WIRING DONE. The form posts as JSON to
+           same-origin /api/contact, the live endpoint on the same host per
+           NMiQ/KPIPolitical.com's server.js (SendGrid; fields name/email/subject/description,
+           caps 150/150/150/1000; from info@notice.kpipolitical.com to info@kpipolitical.com).
+           Client-side mapping: subject = the race/market line ("Demo request" when blank);
+           organization, role and the race line fold into description under the 1000-character
+           cap. Success and error states follow the endpoint's JSON shape ({success:true},
+           400 {errors}, 500 {message}); when fetch fails or no handler answers, the script
+           falls back to composing a mail message, and the form's own mailto action covers
+           JS-off. AT DEPLOY: replace the contents of public/ in NMiQ/KPIPolitical.com with
+           this site's files, keep server.js untouched, and push via branch + PR, never
+           straight to main without Adam's nod. -->
+      <div class="form-shell" id="demo-shell">
+        <h2>Tell us the race and we will have it open when you dial in.</h2>
+        <p class="form-key">Fields marked <span class="req">*</span> are required.</p>
+
+        <form id="demo-form" method="post" enctype="text/plain"
+              action="mailto:info@kpipolitical.com?subject=Demo%20request">
+          <div class="field-row">
+            <div class="field">
+              <label for="c-name">Name <span class="req">*</span></label>
+              <input type="text" id="c-name" name="name" autocomplete="name" maxlength="150" required>
+            </div>
+            <div class="field">
+              <label for="c-email">Work email <span class="req">*</span></label>
+              <input type="email" id="c-email" name="email" autocomplete="email" maxlength="150" required>
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="c-org">Organization <span class="req">*</span></label>
+              <input type="text" id="c-org" name="organization" autocomplete="organization" maxlength="150" required>
+            </div>
+            <div class="field">
+              <label for="c-role">Role</label>
+              <select id="c-role" name="role">
+                <option value="">Select one</option>
+                <option>General consultant</option>
+                <option>Media buyer</option>
+                <option>Digital strategist</option>
+                <option>Committee or IE staff</option>
+                <option>Station or platform sales</option>
+                <option>Press</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="c-race">A race or state you want us to pull</label>
+            <input type="text" id="c-race" name="race" aria-describedby="c-race-hint" maxlength="150"
+                   placeholder="A state and an office, or the market you sell">
+            <p class="field-hint" id="c-race-hint">Give us the state and the office. You do not need to name
+              the contest in writing.</p>
+          </div>
+
+          <div class="field">
+            <label for="c-need">What you are trying to solve <span class="req">*</span></label>
+            <textarea id="c-need" name="need" required aria-describedby="c-need-hint" maxlength="600" placeholder="The question you want the walkthrough to answer"></textarea>
+            <p class="field-hint" id="c-need-hint">A sentence is enough. Please leave out anything your client
+              would consider confidential, and we will take the detail on the call.</p>
+          </div>
+
+          <p class="form-status" id="form-status" role="status" aria-live="polite" hidden></p>
+
+          <button class="btn btn--lime" type="submit">Request the walkthrough</button>
+
+          <!-- Notice at collection. Keep this visible at the point of collection. The privacy page
+               (privacy.html) carries the retention term and is linked from every footer. COUNSEL TO
+               CONFIRM the retention term and the full notice before deploy. -->
+          <p class="form-note">We use what you send to prepare and run your walkthrough and to reply to you.
+            The recipient is Kinetiq Political Insights. We do not sell it, and we do not share it with a
+            campaign or a committee. We keep it while we are in contact with you about a walkthrough, no
+            longer than 24 months, and we delete it on request. To see what we hold, correct it, or have it
+            deleted, write to <a href="mailto:info@kpipolitical.com">info@kpipolitical.com</a>. Full notice:
+            <a href="privacy.html">privacy</a>.</p>
+        </form>
+      </div>
+
+      <div class="card-col">
+        <div class="card card--flag">
+          <div class="card__k">Request a demo</div>
+          <p class="small">The form reaches the analysts who run the walkthroughs, so the first reply is
+            usually a question about your race rather than a scheduling link. Tell us which lanes matter to
+            you, since a down-ballot seat and a statewide are pulled differently. Station
+            sellers: name your market instead, and we pull the full order flow across
+            every race and committee in it. Platform sellers: name the states or races you
+            compete in, and we pull the streaming read around you.</p>
+        </div>
+
+        <div class="card" id="press">
+          <div class="card__k">Press inquiries</div>
+          <p class="small">Reporters can ask us to source a figure. We send what it is posted through,
+            which lanes it covers, and what is projected rather than aired. Write to
+            <a href="mailto:press@kpipolitical.com">press@kpipolitical.com</a>. Answered within
+            1 business day, same day on deadline. Preferred credit: "Kinetiq Political
+            Insights, data posted through [date]."</p>
+        </div>
+
+        <div class="card">
+          <div class="card__k">Existing subscriber</div>
+          <p class="small">Already have a seat? Go straight to the scoreboard, the creative matrix and your
+            saved races at <a href="https://portal.kpipolitical.com">portal.kpipolitical.com</a>. Support
+            requests from inside the product route to your analyst.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHAT HAPPENS NEXT ============ -->
+<section class="section section--tint">
+  <div class="wrap">
+    <div class="split">
+      <div>
+        <p class="eyebrow">What happens next</p>
+        <h2>Most of the work happens before the call.</h2>
+        <p class="lede">A product tour can be run on anything. A walkthrough of your race cannot, which is why
+          the pull comes first and the screen share comes second. Timing depends on the week, and in the loud
+          stretch of a cycle it takes longer. We will tell you where it sits rather than book a slot we cannot
+          prepare for.</p>
+      </div>
+
+      <ol class="steps">
+        <li>
+          <h4>We reply with a question, not a calendar</h4>
+          <p class="small">We confirm the race or state, the office, and who should be on the call. If the
+            contest is quiet enough that the screen would be thin, we say so before you spend the time.</p>
+        </li>
+        <li>
+          <h4>Your race gets built in advance</h4>
+          <p class="small">Spend by lane and market, the creative with transcripts, and the booking horizon,
+            each carrying its own through-date. Where coverage is thin, the screen says insufficient signal.</p>
+        </li>
+        <li>
+          <h4>You judge it against what you already know</h4>
+          <p class="small">You have watched this contest for months. Check the numbers against that. If it
+            confirms what you had and adds nothing, that is a real answer and worth knowing early.</p>
+        </li>
+      </ol>
+    </div>
+
+    <!-- Two rows, one shared timeline. The argument is where the top row stops:
+         a canned tour has nothing to check, because nothing in it is yours. -->
+    <figure class="fig mt3">
+      <p class="small fig-hint">Swipe the figure sideways to see all five stages.</p>
+      <div class="fig-swipe">
+      <div class="fig-scroll" tabindex="0" role="group" aria-label="A canned product tour compared with a walkthrough built on your race, scrolls sideways">
+      <svg viewBox="0 0 1000 330" role="img" aria-labelledby="walk-t walk-d" class="fig__svg">
+        <title id="walk-t">A canned product tour compared with a walkthrough built on your race</title>
+        <desc id="walk-d">Five stages on one timeline. A canned product tour has nothing at the first two
+          stages, begins at the screen share, and ends there, leaving nothing for the viewer to check and
+          nothing to keep. The KPI walkthrough covers all five stages: you name the race, it is pulled in
+          advance, the session opens on your contest, you check it against what you know, and you keep the
+          pull with its stamp.</desc>
+
+        <!-- shared stage headers: one grid read twice -->
+        <g font-family="Barlow Condensed, sans-serif" font-size="16" font-weight="600" fill="#5B7085" letter-spacing="1.4">
+          <text x="98" y="20" text-anchor="middle">YOU NAME THE RACE</text>
+          <text x="299" y="20" text-anchor="middle">WE PULL IT</text>
+          <text x="500" y="20" text-anchor="middle">THE SESSION</text>
+          <text x="701" y="20" text-anchor="middle">YOU CHECK IT</text>
+          <text x="902" y="20" text-anchor="middle">YOU KEEP IT</text>
+        </g>
+        <line x1="6" y1="32" x2="994" y2="32" stroke="#DCE4EC" stroke-width="1"/>
+
+        <!-- row 1: a canned product tour -->
+        <text x="6" y="56" font-family="Inter, sans-serif" font-size="14.5" fill="#40566A">
+          A canned product tour <tspan fill="#5B7085">· what it can actually show you</tspan>
+        </text>
+        <rect x="6" y="68" width="184" height="58" fill="none" stroke="#A7B8C6" stroke-width="1.5" stroke-dasharray="5 4" rx="2"/>
+        <rect x="207" y="68" width="184" height="58" fill="none" stroke="#A7B8C6" stroke-width="1.5" stroke-dasharray="5 4" rx="2"/>
+        <rect x="408" y="68" width="184" height="58" fill="#1B4F72" rx="2"/>
+        <rect x="609" y="68" width="184" height="58" fill="none" stroke="#A7B8C6" stroke-width="1.5" stroke-dasharray="5 4" rx="2"/>
+        <rect x="810" y="68" width="184" height="58" fill="none" stroke="#A7B8C6" stroke-width="1.5" stroke-dasharray="5 4" rx="2"/>
+        <g font-family="Inter, sans-serif" font-size="13" fill="#5B7085" text-anchor="middle">
+          <text x="98" y="103">nobody asked</text>
+          <text x="299" y="103">nothing to pull</text>
+          <text x="500" y="103" fill="#fff">the sample race</text>
+          <text x="701" y="97">not your contest,</text>
+          <text x="701" y="114">nothing to check</text>
+          <text x="902" y="103">the tour just ends</text>
+        </g>
+
+        <!-- row 2: same x-grid, so the comparison is spatial rather than remembered -->
+        <text x="6" y="176" font-family="Inter, sans-serif" font-size="14.5" fill="#14232F" font-weight="600">
+          A KPI walkthrough <tspan fill="#5B7085" font-weight="400">· built on the race you named</tspan>
+        </text>
+        <rect x="6" y="188" width="184" height="58" fill="#A8D14E" rx="2"/>
+        <rect x="207" y="188" width="184" height="58" fill="#A8D14E" rx="2"/>
+        <rect x="408" y="188" width="184" height="58" fill="#A8D14E" rx="2"/>
+        <rect x="609" y="188" width="184" height="58" fill="#A8D14E" rx="2"/>
+        <rect x="810" y="188" width="184" height="58" fill="#A8D14E" fill-opacity=".78" rx="2"/>
+        <g font-family="Inter, sans-serif" font-size="13" fill="#0D2E4A" text-anchor="middle" font-weight="500">
+          <text x="98" y="223">the race, by name</text>
+          <text x="299" y="223">pulled beforehand</text>
+          <text x="500" y="223">opens on your race</text>
+          <text x="701" y="223">against what you know</text>
+          <text x="902" y="217">the pull, stamped</text>
+          <text x="902" y="234">and dated</text>
+        </g>
+
+        <!-- annotations carry cause and stake, never shape -->
+        <line x1="299" y1="250" x2="299" y2="268" stroke="#7CB342" stroke-width="1.5"/>
+        <text x="299" y="288" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" fill="#4F7A25" font-weight="600">The pull happens before the call</text>
+        <text x="299" y="308" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" fill="#5B7085">which is why the session can open on your contest</text>
+        <line x1="701" y1="250" x2="701" y2="268" stroke="#7CB342" stroke-width="1.5"/>
+        <text x="701" y="288" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" fill="#4F7A25" font-weight="600">This is the stage that decides it</text>
+        <text x="701" y="308" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" fill="#5B7085">and a tour of sample data never reaches it</text>
+      </svg>
+      </div>
+      </div>
+      <figcaption class="fig__cap">
+        Illustrative sequence describing how a walkthrough is run. It is not a measurement, and it carries no
+        campaign figures. Anything shown on the call is your own contest, stamped with what it is posted
+        through and where signal is insufficient.
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__grid">
+      <div class="foot__brand">
+        <img src="assets/img/kpi-logo-reverse.png" alt="Kinetiq Political Insights">
+        <p class="small" style="color:#8FA9BE;max-width:34ch">Kinetiq Political Insights is a
+          political ad intelligence platform built on Kinetiq's national monitoring network.
+          Press: <a href="mailto:press@kpipolitical.com">press@kpipolitical.com</a></p>
+      </div>
+      <div>
+        <h4>Platform</h4>
+        <ul>
+          <li><a href="platform.html">The platform</a></li>
+          <li><a href="index.html#sell-side">Sell-side intelligence</a></li>
+          <li><a href="polling.html">Real-time polling</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Proof</h4>
+        <ul>
+          <li><a href="methodology.html">Methodology</a></li>
+          <li><a href="methodology.html#how-we-count">How we count</a></li>
+          <li><a href="index.html#press">Press coverage</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Get in touch</h4>
+        <ul>
+          <li><a href="contact.html">Request a demo</a></li>
+          <li><a href="mailto:info@kpipolitical.com">info@kpipolitical.com</a></li>
+          <li><a href="https://portal.kpipolitical.com">Subscriber log in</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot__base">
+      <span>© 2026 Kinetiq Political Insights. All rights reserved.</span>
+      <span>Coverage and scale figures as of August 2026.</span>
+      <span>Non-partisan by design. We sell to both sides and say so.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* contact.html only. The form posts as JSON to same-origin /api/contact (rulings 47b/48;
+   the live endpoint in the production repo's server.js: fields name/email/subject/description,
+   caps 150/150/150/1000). Mapping: subject = the race/market line; organization, role and the
+   race line fold into description. When fetch fails or no handler answers, the script composes
+   a mail message instead, so a filled-in request is never silently discarded. The form's own
+   mailto action is the no-script fallback. */
+(function () {
+  var form = document.getElementById('demo-form');
+  var shell = document.getElementById('demo-shell');
+  if (!form || !shell) return;
+
+  /* A question carried in from the Baker composer pre-fills the ask, so the
+     thread from "try an example" to "book the walkthrough" never drops it. */
+  try {
+    var prompt = new URLSearchParams(location.search).get('prompt');
+    var need = document.getElementById('c-need');
+    if (prompt && need && !need.value) need.value = prompt;
+  } catch (e) { /* optional nicety */ }
+
+  var v = function (id) { var el = document.getElementById(id); return el ? el.value.trim() : ''; };
+  var cap = function (s, n) { return s.length > n ? s.slice(0, n) : s; };
+
+  /* Build the endpoint payload. The textarea's 600-character cap plus the folded
+     lines stays under the endpoint's 1000-character description cap; cap() is the
+     guard either way. */
+  var buildPayload = function () {
+    var parts = ['Organization: ' + v('c-org')];
+    if (v('c-role')) parts.push('Role: ' + v('c-role'));
+    if (v('c-race')) parts.push('Race or state to pull: ' + v('c-race'));
+    parts.push('', 'What they are trying to solve:', v('c-need'));
+    return {
+      name: cap(v('c-name'), 150),
+      email: cap(v('c-email'), 150),
+      subject: cap(v('c-race') || 'Demo request', 150),
+      description: cap(parts.join('\n'), 1000)
+    };
+  };
+
+  var status = document.getElementById('form-status');
+  var say = function (msg) { if (status) { status.hidden = false; status.textContent = msg; } };
+  var hush = function () { if (status) { status.hidden = true; status.textContent = ''; } };
+  var btn = form.querySelector('button[type="submit"]');
+  var restore = function () {
+    if (btn) { btn.disabled = false; btn.textContent = 'Request the walkthrough'; }
+  };
+
+  var showSent = function () {
+    shell.className = 'form-shell form-done';
+    shell.innerHTML =
+      '<h2 tabindex="-1" id="demo-done">Your request is in.</h2>' +
+      '<p>It goes to the analysts who run the walkthroughs, and they pull the race before the call. ' +
+      'The first reply is usually a question about your race rather than a scheduling link.</p>' +
+      '<p>Anything to add in the meantime, write to ' +
+      '<a href="mailto:info@kpipolitical.com">info@kpipolitical.com</a> with the state and the office.</p>';
+    var h = document.getElementById('demo-done');
+    if (h) h.focus();
+  };
+
+  /* Mail fallback: same content, composed as a message, for when no handler answers
+     (a static preview, an offline moment) so nothing typed is lost. */
+  var showMailReady = function (p) {
+    var lines = ['Name: ' + p.name, 'Work email: ' + p.email, '', p.description].join('\r\n');
+    var subject = 'Demo request' + (v('c-org') ? ', ' + v('c-org') : '');
+    window.location.href = 'mailto:info@kpipolitical.com?subject=' +
+      encodeURIComponent(subject) + '&body=' + encodeURIComponent(lines);
+    shell.className = 'form-shell form-done';
+    shell.innerHTML =
+      '<h2 tabindex="-1" id="demo-done">Your request is ready to send.</h2>' +
+      '<p>We have opened a message in your email program with what you entered. It reaches the analysts ' +
+      'who run the walkthroughs once you send it, and they pull the race before the call.</p>' +
+      '<p>The first reply is usually a question about your race rather than a scheduling link. If nothing ' +
+      'opened, write to <a href="mailto:info@kpipolitical.com">info@kpipolitical.com</a> with the state and ' +
+      'the office.</p>';
+    var h = document.getElementById('demo-done');
+    if (h) h.focus();
+  };
+
+  form.addEventListener('submit', function (e) {
+    if (!form.checkValidity()) return;
+    e.preventDefault();
+    hush();
+    var p = buildPayload();
+    if (btn) { btn.disabled = true; btn.textContent = 'Sending'; }
+
+    fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(p)
+    }).then(function (res) {
+      /* Non-JSON (a static host answering 404/501) rejects here and lands in catch. */
+      return res.json().then(function (data) { return { status: res.status, data: data }; });
+    }).then(function (r) {
+      if (r.data && r.data.success === true) { showSent(); return; }
+      restore();
+      if (r.status === 400 && r.data && r.data.errors) {
+        var msgs = [];
+        for (var k in r.data.errors) {
+          if (Object.prototype.hasOwnProperty.call(r.data.errors, k)) msgs.push(r.data.errors[k]);
+        }
+        say('Please check the form. ' + msgs.join('. ') + '.');
+      } else {
+        say((r.data && r.data.message) ||
+          'We could not send your request right now. Please try again, or write to info@kpipolitical.com with the state and the office.');
+      }
+    }).catch(function () {
+      restore();
+      showMailReady(p);
+    });
+  });
+})();
+</script>
+<script src="assets/js/site.js?v=r20"></script>
+</body>
+</html>

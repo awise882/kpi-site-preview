@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Real-Time Polling: Always-On Questions, Declared Audiences | Kinetiq Political Insights</title>
+<meta name="description" content="Real-time polling through our CivicScience partnership: more than 10,000 always-on questions, over 1 million answers a day, 165 million U.S. consumer profiles. Search 3,537 orderable questions, build an audience from what people actually said, and activate it as a deal ID.">
+<meta property="og:title" content="Real-Time Polling | Kinetiq Political Insights">
+<meta property="og:description" content="More than 10,000 always-on questions, over 1 million answers a day. Ask, hear back, build the audience, put it on the air. Then ask again.">
+<meta property="og:type" content="website">
+<link rel="icon" href="assets/img/kpi-mark.png">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r20">
+<link rel="stylesheet" href="assets/css/segments.css?v=r20">
+<style>
+  /* Light, centered, airy hero, same standard as the home page: display headline
+     in the green-to-teal gradient with the layered offset, the lede, two buttons,
+     and the partnership figures in the first fold. */
+  .hero--poll { padding-top: 0; }
+  .hero--poll .hero-center { text-align: center; padding: clamp(64px, 9vw, 120px) 0 clamp(40px, 6vw, 72px); }
+  .hero--poll .eyebrow { justify-content: center; }
+  .hero--poll h1 { max-width: none; margin-inline: auto; font-size: clamp(2.8rem, 6.2vw, 5.2rem); }
+  .hero--poll .lede { margin: 1.4rem auto 0; max-width: 62ch; }
+  .hero--poll .btn-row { justify-content: center; margin-top: 2.1rem; }
+  /* Stats sit inside the centered hero column; the cells read left-aligned. */
+  .hero--poll .stats { text-align: left; }
+  /* Explorer controls get thumb-sized targets on a phone. */
+  @media (max-width: 999px) {
+    .sx-add { width: 44px; height: 44px; font-size: 1.25rem; }
+    .sx-drop { width: 44px; height: 44px; }
+    .sx-basket li { grid-template-columns: 48px 1fr; }
+    .sx-chip { padding: .78rem .9rem; }
+    .sx-examples button { padding: .82rem .25rem; }
+  }
+  /* THE LOOP. Six steps in a cycle: across the top, down the right edge, back
+     along the bottom, up to the start. Every step is fully visible with no JS
+     and no motion; the animation only walks a highlight around the ring, so a
+     reduced-motion reader sees the same six steps, still. Square cards, depth
+     from shadow, never tilt. */
+  .loop { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr; gap: 2.9rem; counter-reset: loopstep; }
+  .loop__step { position: relative; align-self: start; background: var(--white); border: 1.5px solid var(--rule); border-radius: var(--r-lg); padding: 1.35rem 1.4rem 1.45rem; box-shadow: 0 1px 2px rgba(13,46,74,.05), 0 6px 18px rgba(13,46,74,.06); }
+  .loop__n { display: inline-grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; font-family: var(--mono); font-weight: 800; font-size: .95rem; color: var(--navy-deep); border: 1.5px solid var(--rule); background: var(--paper); margin-bottom: .7rem; }
+  .loop__step h3 { margin: 0 0 .35rem; font-size: 1.05rem; }
+  .loop__step p { margin: 0; font-size: .92rem; line-height: 1.55; color: var(--ink-2); }
+  .loop__step ul { margin: 0; padding-left: 1.15em; font-size: .92rem; line-height: 1.55; color: var(--ink-2); }
+  .loop__step li { margin-bottom: .45em; }
+  .loop__step li:last-child { margin-bottom: 0; }
+  .loop__step::after { content: "\2193"; position: absolute; left: 50%; bottom: -2.35rem; transform: translateX(-50%); font-weight: 800; font-size: 1.4rem; line-height: 1; color: var(--lime-dark); }
+  .loop__step:last-child::after { content: none; }
+  .loop__again { margin: 1.5rem 0 0; text-align: center; font-size: .9rem; color: var(--ink-3); }
+  @media (min-width: 880px) {
+    .loop { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 3rem 3rem; }
+    .loop__step:nth-child(1) { grid-area: 1 / 1; }
+    .loop__step:nth-child(2) { grid-area: 1 / 2; }
+    .loop__step:nth-child(3) { grid-area: 1 / 3; }
+    .loop__step:nth-child(4) { grid-area: 2 / 3; }
+    .loop__step:nth-child(5) { grid-area: 2 / 2; }
+    .loop__step:nth-child(6) { grid-area: 2 / 1; }
+    .loop__step:nth-child(1)::after, .loop__step:nth-child(2)::after { content: "\2192"; left: auto; right: -2.45rem; top: 50%; bottom: auto; transform: translateY(-50%); }
+    .loop__step:nth-child(3)::after { content: "\2193"; left: 50%; right: auto; top: auto; bottom: -2.45rem; transform: translateX(-50%); }
+    /* R6 (item 76): the bottom row's side arrows pin to one band near the card
+       tops instead of floating at 50% of unequal card heights. */
+    .loop__step:nth-child(4)::after, .loop__step:nth-child(5)::after { content: "\2190"; left: -2.45rem; right: auto; top: 2.6rem; bottom: auto; transform: none; }
+    .loop__step:nth-child(6)::after { content: "\2191"; left: 50%; right: auto; top: -2.45rem; bottom: auto; transform: translateX(-50%); }
+    .loop__again { display: none; }
+  }
+  /* The highlight walks the ring once, then rests: motion is meaning, never
+     ambience, and an infinite cycle fails the no-auto-motion ruling. */
+  @media (prefers-reduced-motion: no-preference) {
+    .loop__step { --d: calc((var(--i) - 1) * .75s); animation: loop-hot 4.5s linear var(--d) 1; }
+    .loop__step .loop__n { animation: loop-hot-n 4.5s linear var(--d) 1; }
+    @keyframes loop-hot {
+      0%, 11% { border-color: var(--lime-dark); background: color-mix(in srgb, var(--lime) 9%, var(--white)); box-shadow: 0 14px 34px rgba(124,179,66,.26), 0 1px 2px rgba(13,46,74,.05); }
+      18%, 100% { border-color: var(--rule); background: var(--white); box-shadow: 0 1px 2px rgba(13,46,74,.05), 0 6px 18px rgba(13,46,74,.06); }
+    }
+    @keyframes loop-hot-n {
+      0%, 11% { background: var(--lime); border-color: var(--lime-dark); color: var(--navy-ink); }
+      18%, 100% { background: var(--paper); border-color: var(--rule); color: var(--navy-deep); }
+    }
+  }
+  /* The two ways in: syndicated beside bespoke, both carried by the media
+     investment. No pricing prints anywhere on this page by design. */
+  .offer-avail { margin: 1.1rem 0 0; }
+  /* P10 (R4, same class as the home hero): the page's own h1 clamp overrode the
+     system's mobile downsizing. Restore it at the system breakpoint. */
+  @media (max-width: 560px) {
+    .hero--poll .hero-center { padding: clamp(36px, 8vw, 56px) 0 clamp(28px, 6vw, 44px); }
+    .hero--poll h1 { font-size: clamp(2.1rem, 9.5vw, 2.7rem); }
+    .hero--poll .btn-row { margin-top: 1.4rem; }
+    /* R5: the library controls breathe at phone width; domain chips run two-up. */
+    .sx-chips { display: flex; flex-wrap: wrap; gap: .5rem; }
+    .sx-chip { width: auto; flex: 0 1 auto; }
+    .sx-examples { line-height: 1.9; }
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+
+<nav class="nav nav--light" data-open="false">
+  <div class="wrap nav__in">
+    <a class="nav__brand" href="index.html" aria-label="Kinetiq Political Insights, home">
+      <img src="assets/img/kpi-logo.png" alt="Kinetiq Political Insights">
+    </a>
+    <ul class="nav__links">
+      <li><a href="platform.html">Platform</a></li>
+      <li><a href="index.html#sell-side">Sell-Side</a></li>
+      <li><a href="polling.html" aria-current="page">Real-Time Polling</a></li>
+      <li><a href="methodology.html">Methodology</a></li>
+      <li class="nav__login"><a href="https://portal.kpipolitical.com">Log in</a></li>
+    </ul>
+    <div class="nav__cta">
+      <a class="btn btn--outline btn--sm" href="https://portal.kpipolitical.com">Log in</a>
+      <a class="btn btn--lime btn--sm" href="contact.html">Request a demo</a>
+    </div>
+    <button class="nav__toggle" aria-expanded="false" aria-label="Menu">Menu</button>
+  </div>
+</nav>
+
+<main id="main">
+<!-- CLAIM: The poll never closes. Questions stay in the field, answers stream back,
+     and the audience you buy against is built from what people actually said. -->
+
+<!-- ============ HERO ============ -->
+<header class="hero hero--light hero--poll">
+  <div class="wrap hero-center">
+    <p class="eyebrow eyebrow--plain">Real-time polling</p>
+    <h1 class="ht">
+      <span class="ht__l" data-t="The Poll That">The Poll That</span><br>
+      <span class="ht__l ht__l--accent" data-t="Never Closes">Never Closes</span>
+    </h1>
+    <p class="lede">Through our CivicScience partnership: more than <span class="num w-measured">10,000</span> always-on
+      questions in the field every day, over <span class="num w-measured">1 million</span> answers a day coming back, and
+      <span class="num w-measured">165 million</span> U.S. consumer profiles underneath. Ask what your race needs to
+      know, build the audience from the answers, put it on the air. Then ask again.</p>
+    <div class="btn-row">
+      <a class="btn btn--navy btn--lg" href="#explorer">Search the question library</a>
+      <a class="btn btn--outline btn--lg" href="contact.html">Request a demo</a>
+    </div>
+
+    <div class="stats mt3" data-rise>
+      <div class="stat"><div class="stat__v">10,000+</div><div class="stat__l">Always-on questions</div></div>
+      <div class="stat"><div class="stat__v">1M+</div><div class="stat__l">Answers per day</div></div>
+      <div class="stat"><div class="stat__v">165M</div><div class="stat__l">U.S. consumer profiles</div></div>
+      <div class="stat"><div class="stat__v">48</div><div class="stat__l">Curated political segments</div></div>
+    </div>
+    <div class="stamp" style="text-align:left"><b>Source</b> CivicScience partner-published figures, as
+      of August 2026. A profile is a survey-answering record, not a verified person.</div>
+  </div>
+</header>
+
+<!-- ============ THE LOOP ============ -->
+<section class="section section--tint" id="loop">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:3rem" data-rise>
+      <p class="eyebrow eyebrow--plain" style="justify-content:center"><span class="folio">01</span>The loop</p>
+      <h2>One loop, run for the life of the flight.</h2>
+      <p class="lede">Most polling is a report that arrives after the argument. This one stays
+        in the field: the question keeps running, the answers keep coming, and the buy shifts
+        while it still matters.</p>
+    </div>
+
+    <ol class="loop" aria-label="The optimization loop: six steps that repeat">
+      <li class="loop__step" style="--i:1">
+        <span class="loop__n num" aria-hidden="true">1</span>
+        <h3>Field the question</h3>
+        <p>Pick it from the syndicated library or write it for your race. It joins the
+          always-on stream and starts collecting the same day it clears.</p>
+      </li>
+      <li class="loop__step" style="--i:2">
+        <span class="loop__n num" aria-hidden="true">2</span>
+        <h3>Answers stream back</h3>
+        <p>Over <span class="num w-measured">1 million</span> answers a day flow across the network. Yours ride the
+          same stream, so the read builds in days, not field weeks.</p>
+      </li>
+      <li class="loop__step" style="--i:3">
+        <span class="loop__n num" aria-hidden="true">3</span>
+        <h3>Build the audience</h3>
+        <p>Built from what people actually said, not what a cookie guessed. Every question
+          and answer option that built it is named, so you can audit it.</p>
+      </li>
+      <li class="loop__step" style="--i:4">
+        <span class="loop__n num" aria-hidden="true">4</span>
+        <h3>Activate</h3>
+        <ul>
+          <li>It lands as a private-marketplace deal ID in the DSP you already buy
+            through: your seat or ours both count, and managed service is optional,
+            never required. Either way it is on the air, not in a deck.</li>
+          <li>What you run stays behind the subscriber firewall; the full statement,
+            including the one rate-calibration exception, is on the
+            <a href="privacy.html">privacy page</a>.</li>
+        </ul>
+      </li>
+      <li class="loop__step" style="--i:5">
+        <span class="loop__n num" aria-hidden="true">5</span>
+        <h3>Read delivery</h3>
+        <p>Run the media through us, or share your delivery report. It prints on the same
+          grid the competitive money does, so your delivery and their spend sit side by
+          side. Your delivery is labeled advertiser-reported, so your numbers and our
+          detections never blur into one basis.</p>
+      </li>
+      <li class="loop__step" style="--i:6">
+        <span class="loop__n num" aria-hidden="true">6</span>
+        <h3>Re-field and optimize</h3>
+        <p>Ask again, read what moved, shift the buy. The question goes back into the
+          field and the loop starts over.</p>
+      </li>
+    </ol>
+    <p class="loop__again" aria-hidden="true">&#8635; and back to step 1: the question returns to the field.</p>
+  </div>
+</section>
+
+<!-- ============ TWO WAYS IN ============ -->
+<section class="section" id="offerings">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:3rem" data-rise>
+      <p class="eyebrow eyebrow--plain" style="justify-content:center"><span class="folio">02</span>Two ways in</p>
+      <h2>Syndicated when the question exists. Bespoke when it does not.</h2>
+    </div>
+    <div class="grid grid--2" data-rise>
+      <div class="card card--lead">
+        <p class="card__k">Syndicated</p>
+        <h3>3,537 orderable questions. 48 political segments, ready today.</h3>
+        <p class="small">The library below is live now. Search the exact wording, build a
+          shortlist, and send it to us. The audience comes back in days, ready to buy
+          against.</p>
+        <p class="offer-avail"><span class="chip chip--lime">Included with a media investment, your DSP seat or ours</span></p>
+      </div>
+      <div class="card card--flag">
+        <p class="card__k">Bespoke</p>
+        <h3>Custom questions, written for your race.</h3>
+        <p class="small">When the argument in your race is not in the library, we write the
+          question with you and field it to a known audience before anything is built. It
+          comes back the same way: an audience you can audit, delivered where you buy.</p>
+        <p class="offer-avail"><span class="chip chip--lime">Included with a media investment, your DSP seat or ours</span></p>
+      </div>
+    </div>
+    <div class="callout callout--lime mt3">
+      <h4>Declared first. Modeled only if you ask.</h4>
+      <!-- N3 CLOSED (ruling 34): the decay figure ships ONLY in the presser shape with
+           "by industry estimates" attached, verbatim below. Never as a bare stat. -->
+      <p class="small mb0">The seed stays declared, the expansion is modeled, and we say
+        which is which. A modeled lookalike extension is optional and always labeled
+        modeled, and the declared core does not decay the way a modeled lookalike does:
+        by some industry estimates, a lookalike model sheds 30 to 60 percent of its lift
+        within 90 days of being built.</p>
+    </div>
+    <p class="small center mt2" style="max-width:72ch;margin-inline:auto">CivicScience's
+      case studies show declared audiences outperforming third-party controls: 36 to 80
+      percent higher click-through and 45 to 62 percent higher conversion in matched
+      commercial tests. Those are the partner's case studies, not a promise about any
+      single flight.</p>
+    <p class="small center mt2">Run the media on a KPI plan, your seat or ours, and both come
+      with it. Standalone research is by rate card, on <a href="contact.html">request</a>.</p>
+  </div>
+</section>
+
+<!-- ============ THE QUESTION LIBRARY ============ -->
+<section class="section section--tint" id="library">
+  <div class="wrap">
+    <p class="eyebrow"><span class="folio">03</span>The question library</p>
+    <h2 id="explorer">Search the orderable library. All 3,537 questions of it.</h2>
+    <p class="dek" style="margin-bottom:1.4rem">Read the exact wording, build a shortlist,
+      send it to us. This is the list an audience actually gets built from, not a sample:
+      3,537 of the network's 10,000+ always-on questions are cleared for political
+      ordering.</p>
+
+    <div id="sx" data-ready="false">
+      <div>
+        <div class="sx-controls">
+          <div class="sx-search">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+            <input id="sx-q" type="search" placeholder="Search 3,537 orderable questions" autocomplete="off" aria-label="Search the question library">
+          </div>
+          <div class="sx-filters">
+            <div class="sx-chips" id="sx-domains"></div>
+            <select id="sx-cats" aria-label="Filter by category"></select>
+          </div>
+          <p class="sx-examples" id="sx-examples">Try:
+            <button data-ex="inflation">inflation</button>
+            <button data-ex="grocery">grocery</button>
+            <button data-ex="medicare">medicare</button>
+            <button data-ex="energy">energy</button>
+            <button data-ex="streaming">streaming</button>
+            <button data-ex="local news">local news</button>
+          </p>
+        </div>
+        <p class="sx-count" id="sx-count" aria-live="polite"></p>
+        <ul class="sx-list" id="sx-results"></ul>
+        <div id="sx-empty" style="display:none">No question matches that. The library is large
+          but it is not infinite, and a custom question is the answer when the topic is not in
+          it.</div>
+
+        <div class="stamp">
+          <span><b>Source</b> the current syndicated question library</span>
+          <span><b>Covers</b> 6 domains, 38 categories</span>
+          <span><b>Confirmed</b> availability is checked when the audience is built</span>
+        </div>
+        <p class="tbl-note">Search runs in your browser. The shortlist stays on this page until
+          you copy it or send it to us.</p>
+      </div>
+
+      <aside class="sx-side">
+        <div class="sx-basket" id="sx-basket" data-has="false">
+          <div class="sx-basket__hd"><h3>Your shortlist</h3><span><span id="sx-basket-n">0</span> picked</span></div>
+          <ul id="sx-basket-list"></ul>
+          <div class="sx-basket__ft">
+            <button class="btn btn--outline btn--sm" id="sx-copy" disabled>Copy shortlist</button>
+            <button class="btn btn--outline btn--sm" id="sx-clear" disabled>Clear</button>
+            <a class="btn btn--navy btn--sm" id="sx-email" href="mailto:info@kpipolitical.com?subject=Deal%20ID%20request">Email to turn on deal IDs</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card__k">Deal-ID activation</div>
+          <p class="small">Email the shortlist with the button above. It comes back as a
+            private-marketplace deal ID: accept it in your seat, attach it to a line item,
+            and it delivers, or use ours. Syndicated audiences come back in days; a
+            custom question takes about two weeks from question to in-market. Every deal
+            returns the ID, the matched audience size and a composition read; the
+            identifier basis is confirmed in writing before the insertion order.
+            Streaming and CTV line items qualify like any other. Every question that
+            built the audience is named, so you can audit it.</p>
+          <p class="small mb0">Topic not in the library? That is a custom question, fielded
+            to a known audience first: included with a media investment; standalone, by
+            rate card on <a href="contact.html">request</a>.</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section class="section section--mega cta-final">
+  <div class="wrap center">
+    <p class="eyebrow eyebrow--plain" style="justify-content:center">Next step</p>
+    <h2>Bring the question your race is arguing about.</h2>
+    <p class="lede" style="margin-inline:auto">We will check it against the library on the
+      call, and show what an audience built from the answers looks like on a buy. The
+      competitive side of the same product is on the <a href="platform.html">platform
+      page</a>.</p>
+    <div class="btn-row mt2" style="justify-content:center">
+      <a class="btn btn--lime btn--lg" href="contact.html">Request a demo</a>
+      <a class="btn btn--outline btn--lg" href="mailto:info@kpipolitical.com">Talk to us</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__grid">
+      <div class="foot__brand">
+        <img src="assets/img/kpi-logo-reverse.png" alt="Kinetiq Political Insights">
+        <p class="small" style="color:#8FA9BE;max-width:34ch">Kinetiq Political Insights is a
+          political ad intelligence platform built on Kinetiq's national monitoring network.
+          Press: <a href="mailto:press@kpipolitical.com">press@kpipolitical.com</a></p>
+      </div>
+      <div>
+        <h4>Platform</h4>
+        <ul>
+          <li><a href="platform.html">The platform</a></li>
+          <li><a href="index.html#sell-side">Sell-side intelligence</a></li>
+          <li><a href="polling.html">Real-time polling</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Proof</h4>
+        <ul>
+          <li><a href="methodology.html">Methodology</a></li>
+          <li><a href="methodology.html#how-we-count">How we count</a></li>
+          <li><a href="index.html#press">Press coverage</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Get in touch</h4>
+        <ul>
+          <li><a href="contact.html">Request a demo</a></li>
+          <li><a href="mailto:info@kpipolitical.com">info@kpipolitical.com</a></li>
+          <li><a href="https://portal.kpipolitical.com">Subscriber log in</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot__base">
+      <span>© 2026 Kinetiq Political Insights. All rights reserved.</span>
+      <span>Coverage and scale figures as of August 2026.</span>
+      <span>Non-partisan by design. We sell to both sides and say so.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/site.js?v=r20"></script>
+<script src="assets/js/segments.js?v=r20" defer></script>
+<script>
+/* R6 (item 74): on a narrow phone the long placeholder clips mid-number, so it
+   swaps to the short form before the field ever renders a cut digit. */
+(function () {
+  var q = document.getElementById('sx-q');
+  if (q && window.matchMedia && matchMedia('(max-width: 480px)').matches) {
+    q.setAttribute('placeholder', 'Search the library');
+  }
+})();
+/* The deal-ID email: the shortlist travels in the mailto body, so the request
+   arrives at info@ as actionable text with QIDs, not a screenshot. */
+(function () {
+  var btn = document.getElementById('sx-email');
+  var list = document.getElementById('sx-basket-list');
+  if (!btn || !list) return;
+  btn.addEventListener('click', function () {
+    var items = [].map.call(list.querySelectorAll('li'), function (li) {
+      return '- ' + li.textContent.replace(/\s+/g, ' ').replace(/^\s*×\s*/, '').trim();
+    });
+    var body = 'Please turn on deal IDs for these declared-audience questions:%0D%0A%0D%0A'
+      + encodeURIComponent(items.join('\r\n'))
+      + '%0D%0A%0D%0ADSP and seat: %0D%0AChannels: %0D%0AFlight: ';
+    if (items.length) {
+      btn.setAttribute('href', 'mailto:info@kpipolitical.com?subject='
+        + encodeURIComponent('Deal ID request: ' + items.length + (items.length === 1 ? ' question' : ' questions'))
+        + '&body=' + body);
+    }
+  });
+})();
+</script>
+</body>
+</html>

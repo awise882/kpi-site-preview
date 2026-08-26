@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Methodology and Standards | Kinetiq Political Insights</title>
+<meta name="description" content="How KPI publishes a number: a through-date on every figure, aired and booked-forward kept on separate lines, a measured floor where detection is partial, and an insufficient-signal state instead of a zero.">
+<meta property="og:title" content="Methodology | Kinetiq Political Insights">
+<meta property="og:description" content="Every number we publish carries a basis, a through-date and a floor, including the ones that are thin.">
+<meta property="og:type" content="website">
+<link rel="icon" href="assets/img/kpi-mark.png">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r20">
+<style>
+  /* Keeps the eight-week figure legible on a phone. It scrolls inside its own
+     frame instead of shrinking its labels below a readable size. At 820px the
+     14.5px labels still render near 12px on a 375px screen; below that they
+     stop being readable, so the fix for the cut edge is an affordance, not a
+     smaller figure. */
+  .fig-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .fig-scroll > svg { min-width: 820px; }
+  .fig-scroll:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
+  .fig-swipe { position: relative; }
+  .fig-hint { display: none; color: var(--ink-3); margin-bottom: .6rem; }
+  /* Below the figure's natural width the right edge is a cut, so mark it as one:
+     a fade reads as more-to-come, and the line above says which way to move. */
+  @media (max-width: 880px) {
+    .fig-hint { display: block; }
+    .fig-swipe::after {
+      content: ""; position: absolute; top: 0; right: 0; bottom: 0; width: 46px;
+      background: linear-gradient(to right, transparent, var(--white));
+      pointer-events: none;
+    }
+  }
+  /* In-page jump list for a long page, same component the platform page uses.
+     On a phone this page runs about twenty viewports; the anchors give the long
+     middle a way in. */
+  .anchors { display: grid; gap: .55rem; grid-template-columns: 1fr; margin-top: 1.6rem; }
+  @media (min-width: 700px) { .anchors { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (min-width: 1000px) { .anchors { grid-template-columns: repeat(5, minmax(0, 1fr)); } }
+  .anchors a { display: block; text-decoration: none; padding: .8rem .9rem; border-radius: var(--r);
+               border: 1px solid var(--rule); background: var(--white); }
+  .anchors a:hover { border-color: var(--lime-dark); box-shadow: var(--shadow); }
+  .anchors b { display: block; font-family: var(--label); text-transform: uppercase; letter-spacing: .1em;
+               font-size: .84rem; font-weight: 600; color: var(--blue-text); margin-bottom: .15rem; }
+  .anchors span { display: block; font-size: .84rem; line-height: 1.4; color: var(--ink-2); }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ============ NAV ============ -->
+<nav class="nav nav--light" data-open="false">
+  <div class="wrap nav__in">
+    <a class="nav__brand" href="index.html" aria-label="Kinetiq Political Insights, home">
+      <img src="assets/img/kpi-logo.png" alt="Kinetiq Political Insights">
+    </a>
+    <ul class="nav__links">
+      <li><a href="platform.html">Platform</a></li>
+      <li><a href="index.html#sell-side">Sell-Side</a></li>
+      <li><a href="polling.html">Real-Time Polling</a></li>
+      <li><a href="methodology.html" aria-current="page">Methodology</a></li>
+      <li class="nav__login"><a href="https://portal.kpipolitical.com">Log in</a></li>
+    </ul>
+    <div class="nav__cta">
+      <a class="btn btn--outline btn--sm" href="https://portal.kpipolitical.com">Log in</a>
+      <a class="btn btn--lime btn--sm" href="contact.html">Request a demo</a>
+    </div>
+    <button class="nav__toggle" aria-expanded="false" aria-label="Menu">Menu</button>
+  </div>
+</nav>
+
+<main id="main">
+
+<!-- CLAIM: Every number we publish carries a basis, a through-date and a floor,
+     including the ones that are thin. This page is the standards document that
+     makes that claim checkable rather than asserted. -->
+
+<!-- ============ HERO ============ -->
+<header class="hero" style="padding-bottom:clamp(52px,7vw,92px)">
+  <div class="wrap">
+    <div class="split split--wide-left" style="align-items:center">
+      <div>
+        <p class="eyebrow">Methodology and standards</p>
+        <h1>Built so you can brief a client <em>without hedging</em>.</h1>
+        <p class="lede">The most complete monitoring operation in politics: all 210 markets, about 1.5
+          million airings a day, 9 years of history. The airings count covers all ad
+          categories on the monitoring network, not political alone. And the discipline that makes
+          its numbers safe to say out loud: what a figure is posted through, how aired money stays separate
+          from booked-forward money, and what we do when coverage is not good enough to support a number.
+          This page is the full statement of how we count.</p>
+        <div class="btn-row mt2">
+          <a class="btn btn--navy" href="contact.html">Ask us the hard version</a>
+          <a class="btn btn--outline" href="platform.html#coverage">See coverage by lane</a>
+        </div>
+      </div>
+
+      <!-- The hardest case first: a cell where the honest answer is a floor, not a total.
+           The homepage receipt shows a strong number. This one shows a thin one. -->
+      <aside class="receipt" aria-label="Example of how KPI prints a figure where detection is partial">
+        <div class="receipt__hd">
+          <span class="caps">Sample read</span>
+          <span class="caps receipt__live">Streaming lane</span>
+        </div>
+        <div class="receipt__body">
+          <p class="receipt__label">Streaming spend, one state</p>
+          <p class="receipt__num num">$412K</p>
+          <p class="receipt__split">Estimated floor. Reads as <b>at least this much</b>, never as exactly this much.</p>
+          <ul class="receipt__stamp">
+            <li><b>Posted through</b> Aug 9, 2026</li>
+            <li><b>Basis</b> measured delivered impressions at calibrated rates, no modeled fill</li>
+            <li><b>Excluded</b> platforms outside the detected set</li>
+            <li><b>Below floor</b> insufficient signal, never a zero</li>
+          </ul>
+        </div>
+        <p class="receipt__ft">Illustrative figure. The stamp is not.</p>
+      </aside>
+    </div>
+
+    <!-- Ruling 16: the Evidentiary Weight object. The first instrument printed at
+         the size it earns, with the weight-equals-basis law beside it as specimens. -->
+    <div class="ew mt3" data-rise>
+      <div>
+        <p class="ew__k">Instrument 01, at display scale</p>
+        <p class="ew__date"><span class="ew__dim">Posted through</span><br>Aug 9, 2026</p>
+        <div class="ew__rule" aria-hidden="true"></div>
+        <p class="ew__sub">The last date on which delivery is confirmed. It travels with the
+          number into every export, chart and email, because a figure that leaves the
+          product without it becomes undatable the moment it is pasted into a deck.</p>
+      </div>
+      <div class="ew__legend" role="list" aria-label="How type weight encodes what stands under a number">
+        <div class="ew__w" role="listitem">
+          <span class="ew__spec ew__spec--measured num">$9.6M</span>
+          <p class="ew__def"><b>Measured prints heavy</b>Aired weight, on filed orders. A document states it.</p>
+        </div>
+        <div class="ew__w" role="listitem">
+          <span class="ew__spec ew__spec--floor num">$412K</span>
+          <p class="ew__def"><b>Estimated floor prints medium</b>At least this much. The detected volume rises only with coverage; a rate recalibration publishes as a versioned restatement, never a silent move.</p>
+        </div>
+        <div class="ew__w" role="listitem">
+          <span class="ew__spec ew__spec--est num">&asymp;$2.6M</span>
+          <p class="ew__def"><b>Estimated prints light, on a dashed rule</b>Modeled, labeled, and never silently summed: a combined figure always prints &asymp;, dashed, and splits back into its parts.</p>
+        </div>
+      </div>
+    </div>
+
+    <nav class="anchors" aria-label="Jump to a section">
+      <a href="#grammar"><b>The grammar</b><span>Four instruments every figure carries</span></a>
+      <a href="#pipeline"><b>Detection to publication</b><span>Six steps, the source list and the footprint</span></a>
+      <a href="#restatement"><b>Restatement</b><span>History moves, and it is versioned</span></a>
+      <a href="#accuracy"><b>Accuracy claims</b><span>Estimator, panel, universe, grain</span></a>
+      <a href="#glossary"><b>Glossary</b><span>The terms, as our outputs use them</span></a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ WHY THIS EXISTS ============ -->
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="split">
+      <div>
+        <p class="eyebrow">Why this page exists</p>
+        <h2>Every figure we publish names its basis, so you can check it.</h2>
+      </div>
+      <div>
+        <p class="lede">Competitive figures get used to move money. A buyer shifts weight between markets, a
+          manager decides whether to answer a spot, a committee re-cuts a reserve. Every one of those calls
+          depends on knowing which part of a total already ran and which part is a reservation someone can
+          still cancel.</p>
+        <p>So we publish the basis with the figure rather than in a footnote or a sales call. Four instruments
+          do that work. They appear in the products, in the exports, in the weekly memo and in anything a KPI
+          analyst hands you. Where our coverage is thin, they are the reason you can tell.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THE GRAMMAR ============ -->
+<section class="section section--tint" id="grammar">
+  <div class="wrap">
+    <div class="split" style="margin-bottom:2.2rem">
+      <div>
+        <p class="eyebrow">The grammar</p>
+        <h2>Four instruments carry the basis, and every figure we publish uses them.</h2>
+      </div>
+      <div>
+        <p class="lede">Each one exists because a specific error is expensive. Read them as the four ways a
+          competitive number goes wrong, and the four marks that stop it.</p>
+      </div>
+    </div>
+
+    <!-- Anchor figure. One week grid, two rows: the blended total, and the same
+         money split at the through-date. The break is the argument. -->
+    <figure class="fig fig--light">
+      <p class="small fig-hint">Swipe the figure sideways to see the full eight weeks.</p>
+      <div class="fig-swipe">
+      <div class="fig-scroll" tabindex="0" role="group" aria-label="One blended total compared with the same money printed with the grammar, scrolls sideways">
+      <svg viewBox="0 0 1000 300" role="img" aria-labelledby="brk-t brk-d" class="fig__svg">
+        <title id="brk-t">One eight-week total compared with the same total split at its through-date</title>
+        <desc id="brk-d">Two rows share one eight-week grid. The top row is a single blended bar of 14.2
+          million dollars with no internal division. The bottom row splits the same money at a dashed break on
+          August 9: 9.6 million dollars aired through that date, 4.6 million dollars booked forward after it,
+          and a final week with no order on file that is marked insufficient signal rather than zero.
+          Figures are illustrative.</desc>
+
+        <!-- shared week grid: both rows are read against the same x axis -->
+        <g font-family="Barlow Condensed, sans-serif" font-size="15" font-weight="600" fill="#5B7085" letter-spacing="1.2" text-anchor="middle">
+          <text x="117.5" y="22">JUL 7</text>
+          <text x="232.5" y="22">JUL 14</text>
+          <text x="347.5" y="22">JUL 21</text>
+          <text x="462.5" y="22">JUL 28</text>
+          <text x="577.5" y="22">AUG 4</text>
+          <text x="692.5" y="22">AUG 11</text>
+          <text x="807.5" y="22">AUG 18</text>
+          <text x="922.5" y="22">AUG 25</text>
+        </g>
+        <line x1="60" y1="32" x2="980" y2="32" stroke="#DCE4EC" stroke-width="1"/>
+
+        <!-- row 1: the blended total -->
+        <text x="60" y="58" font-family="Inter, sans-serif" font-size="14.5" fill="#40566A">
+          One blended total<tspan fill="#5B7085">, the way a competitive number usually arrives</tspan>
+        </text>
+        <rect x="60" y="68" width="920" height="40" fill="#1B4F72" rx="2"/>
+        <text x="520" y="94" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="17" font-weight="700" fill="#FFFFFF">$14.2M</text>
+        <text x="60" y="130" font-family="Inter, sans-serif" font-size="13" fill="#5B7085">
+          Nothing in this bar says where delivery stops and reservation begins.
+        </text>
+
+        <!-- row 2: same money, same grid, split at the through-date -->
+        <text x="60" y="162" font-family="Inter, sans-serif" font-size="14.5" font-weight="600" fill="#14232F">
+          The same money, printed with the grammar
+        </text>
+        <rect x="60" y="172" width="542" height="46" fill="#A8D14E" rx="2"/>
+        <rect x="602" y="172" width="263" height="46" fill="#A8D14E" fill-opacity=".22" stroke="#7CB342" stroke-width="1.5" stroke-dasharray="5 4" rx="2"/>
+        <rect x="865" y="172" width="115" height="46" fill="#F2F5F8" stroke="#6B8299" stroke-width="1.5" stroke-dasharray="3 4" rx="2"/>
+        <g stroke="#FFFFFF" stroke-opacity=".55" stroke-width="1">
+          <line x1="175" y1="172" x2="175" y2="218"/>
+          <line x1="290" y1="172" x2="290" y2="218"/>
+          <line x1="405" y1="172" x2="405" y2="218"/>
+          <line x1="520" y1="172" x2="520" y2="218"/>
+        </g>
+        <g stroke="#7CB342" stroke-opacity=".4" stroke-width="1">
+          <line x1="635" y1="172" x2="635" y2="218"/>
+          <line x1="750" y1="172" x2="750" y2="218"/>
+        </g>
+        <text x="331" y="200" text-anchor="middle" font-family="Inter, sans-serif" font-size="14.5" font-weight="600" fill="#0D2E4A">Aired $9.6M</text>
+        <text x="733" y="200" text-anchor="middle" font-family="Inter, sans-serif" font-size="14.5" font-weight="600" fill="#40566A">Booked forward $4.6M</text>
+        <text x="922.5" y="203" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="18" fill="#5B7085">?</text>
+
+        <!-- the break: the point of the figure -->
+        <polygon points="602,44 596,54 608,54" fill="#14232F"/>
+        <line x1="602" y1="48" x2="602" y2="240" stroke="#14232F" stroke-width="1.5" stroke-dasharray="4 4"/>
+        <text x="602" y="258" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-size="15" font-weight="600" fill="#14232F" letter-spacing="1.3">POSTED THROUGH AUG 9</text>
+
+        <text x="980" y="238" text-anchor="end" font-family="Inter, sans-serif" font-size="12.5" fill="#5B7085">No order on file for this week</text>
+        <text x="980" y="254" text-anchor="end" font-family="Inter, sans-serif" font-size="12.5" fill="#5B7085">insufficient signal, not a zero</text>
+
+        <text x="60" y="288" font-family="Inter, sans-serif" font-size="13.5" fill="#14232F">
+          A decision made off the top bar spends against money that has not run yet, and treats a gap in the
+          filings as an empty week.
+        </text>
+      </svg>
+      </div>
+      </div>
+      <figcaption class="fig__cap">Figures and dates are illustrative. The grammar is not: the break, the
+        split and the state of each cell appear on every figure we publish.</figcaption>
+      <div class="stamp">
+        <span><b>Posted through</b> Aug 9, 2026</span>
+        <span><b>Basis</b> FCC-verified where the filing exists</span>
+        <span><b>Lanes</b> broadcast, local cable, radio</span>
+        <span><b>Streaming</b> estimated floor, stated separately</span>
+        <span><b>Figures</b> illustrative</span>
+      </div>
+    </figure>
+
+    <div class="grid grid--2 mt3">
+
+      <div class="card card--flag">
+        <div class="card__k">Instrument 01 · Through-date</div>
+        <h3>Every figure names the date it is posted through</h3>
+        <div class="callout mt1">
+          <p class="caps small mb0" style="color:var(--ink-2)">As printed</p>
+          <p class="card__n">$9.6M</p>
+          <div class="stamp">
+            <span><b>Posted through</b> Aug 9, 2026</span>
+            <span><b>Refreshed</b> Aug 12, 2026</span>
+          </div>
+        </div>
+        <p class="small mt1"><span class="chip">Prevents</span> Mixing what happened with what is projected.
+          A report run on Aug 12 does not make an order posted through Aug 2 into delivered weight.</p>
+      </div>
+
+      <div class="card card--flag">
+        <div class="card__k">Instrument 02 · Aired versus booked</div>
+        <h3>Money that ran and money on the books forward are never one number</h3>
+        <p class="small">Both are real and they answer different questions. Aired weight is what the electorate
+          has already seen. Booked-forward weight is a reservation that can be moved, added to or cancelled,
+          and it is the part that tells you how much runway is left.</p>
+        <div class="callout mt1">
+          <p class="caps small mb0" style="color:var(--ink-2)">As printed</p>
+          <p class="card__n">$14.2M</p>
+          <p class="small mb0">Aired <b>$9.6M</b> &nbsp;·&nbsp; Booked forward <b>$4.6M</b></p>
+          <div class="stamp">
+            <span><b>Split</b> at the through-date, never blended</span>
+            <span><b>Booked</b> cancellable, stated as such</span>
+          </div>
+        </div>
+        <p class="small mt1"><span class="chip">Prevents</span> A forward reservation reading as delivered
+          weight, which is how a campaign concludes it has been outspent in a week nobody has run yet.</p>
+      </div>
+
+      <div class="card card--flag">
+        <div class="card__k">Instrument 03 · The floor</div>
+        <h3>Where detection is partial we publish the floor and call it a floor</h3>
+        <p class="small">A floor is built only from airings we detected. Nothing is filled in behind it. It
+          reads as at least this much, and the detected volume rises only when coverage improves. The
+          dollar translation prices measured delivered impressions at rates calibrated against invoices
+          from media we placed ourselves, used with those clients' written consent, priced at the
+          conservative end of the
+          calibrated rate range, so the translation errs low. That calibration is the one place client
+          media touches the competitive product, and it is taken with written consent: rates only and in
+          aggregate, never plans, placements or delivery. The firewall holds everywhere else: subscriber
+          queries, saved races, saved audiences, delivery reports and
+          exports are never visible to or used by any media-buying engagement other than your own, and
+          no buyer's plan
+          feeds the competitive surfaces. The figure carries the word estimated wherever it prints,
+          and a rate recalibration publishes as a versioned restatement, never a silent move. We walk
+          through the calibration on a call.</p>
+        <div class="callout callout--lime mt1">
+          <p class="caps small mb0" style="color:var(--ink-2)">As printed</p>
+          <p class="card__n">$412K</p>
+          <div class="stamp">
+            <span><b>Reads as</b> at least this much</span>
+            <span><b>Fill</b> none, detection only</span>
+            <span><b>Dollars</b> estimated, at the conservative end of the calibrated rate range, so the translation errs low</span>
+            <span><b>Volume raised by</b> coverage only</span>
+            <span><b>Rate recalibration</b> a versioned restatement, never silent</span>
+          </div>
+        </div>
+        <p class="small mt1"><span class="chip">Prevents</span> A model presented as a measurement. Detected
+          impressions multiplied by a market rate can be a reasonable estimate, and it is still not a
+          detection.</p>
+      </div>
+
+      <div class="card card--flag">
+        <div class="card__k">Instrument 04 · Insufficient signal</div>
+        <h3>Where coverage is inadequate, the cell says so instead of printing a zero</h3>
+        <p class="small">A zero is a claim: it asserts that no advertising ran. When we cannot support that
+          claim, the cell carries an insufficient-signal state, and it stays out of totals, rankings and
+          share-of-race denominators rather than quietly counting as nothing.</p>
+        <div class="callout mt1">
+          <p class="caps small mb0" style="color:var(--ink-2)">As printed</p>
+          <p class="card__n" style="font-size:1.35rem">Insufficient signal</p>
+          <div class="stamp">
+            <span><b>Meaning</b> coverage cannot support a number here</span>
+            <span><b>Totals</b> cell excluded, exclusion disclosed</span>
+          </div>
+        </div>
+        <p class="small mt1"><span class="chip">Prevents</span> Absence of detection being read as absence of
+          advertising, which is the most expensive error in this category.</p>
+      </div>
+
+    </div>
+    <p class="tbl-note mt2">The figures and dates in the four cards above are illustrative, used to show what
+      each instrument looks like when it is printed. The marks themselves appear on every real figure.</p>
+  </div>
+</section>
+
+<!-- ============ DOLLAR TO NUMBER ============ -->
+<section class="section section--band" id="pipeline"><span id="how-we-count"></span>
+  <div class="wrap">
+    <div class="split" style="margin-bottom:2.4rem">
+      <div>
+        <p class="eyebrow">From detection to publication</p>
+        <h2>A dollar becomes a number in six steps, and the figure names which ones applied.</h2>
+      </div>
+      <div>
+        <p class="lede">The sequence matters more than any single stage. Each step either holds a distinction
+          the next step could blur, or it hands the figure a label it has to carry to the page.</p>
+      </div>
+    </div>
+
+    <div class="split">
+      <div>
+        <ol class="steps">
+          <li>
+            <h4>An airing is detected</h4>
+            <p class="small">The spot is identified from the transmission itself as it runs, not inferred from
+              a posted schedule or reconstructed from a survey. Detection is the atomic event, and everything
+              published is an aggregation of detections.</p>
+          </li>
+          <li>
+            <h4>The airing is matched to a market and a channel</h4>
+            <p class="small">It lands in a geography and a lane rather than a national bucket, which is what
+              allows a figure to be read at the level a buy is actually placed.</p>
+          </li>
+          <li>
+            <h4>Airings are grouped to the order that placed them</h4>
+            <p class="small">Order grain is what makes the aired and booked split possible. Without it there is
+              no principled way to say where delivery ends, because the only thing left to divide is a total.</p>
+          </li>
+          <li>
+            <h4>Spend is attached on an FCC-verified basis where the filing exists</h4>
+            <p class="small">Where a public filing covers the order, the dollars stand on it. Where no filing
+              exists for that lane, the figure states the basis it does stand on, and does not borrow the
+              credibility of a filing that was never made.</p>
+          </li>
+          <li>
+            <h4>Orders carry their own through-dates</h4>
+            <p class="small">A single race can hold orders posted through different dates. The published
+              through-date is the one the whole figure can stand behind, which means it is the earliest one in
+              the set, never the most flattering one.</p>
+          </li>
+          <li>
+            <h4>The published figure states which of the four instruments apply</h4>
+            <p class="small">Through-date, aired and booked split, whether a floor is in play, and whether any
+              cell is insufficient signal. If a figure leaves the product, those marks leave with it.</p>
+          </li>
+        </ol>
+      </div>
+
+      <div class="stack">
+        <div class="callout">
+          <h4>What we do not do at any step</h4>
+          <p class="small">We do not fill an undetected week from a neighboring week. We do not spread a
+            cycle-level estimate across markets and present the result at market grain. We do not let a
+            projection inherit the through-date of a posted figure it sits next to.</p>
+        </div>
+        <div class="callout" id="covered-sources">
+          <h4>The covered digital source list, published</h4>
+          <!-- N2 closed (ruling 33e, ignore permanently): YouTube stays "TV screens";
+               the stated basis is smart-TV household measurement. -->
+          <p class="small">Every digital share we publish is share of measured digital sources, never of all
+            of digital, and this is the current list: ad-supported streaming apps on smart TVs, premium and
+            free ad-supported, and YouTube delivery on TV screens. Dynamically inserted ads inside
+            live-TV streaming services are contracted and in validation, and they join the list when they
+            start printing numbers, not before. Mobile, desktop and walled-garden social sit outside this
+            instrument. The list expands as measurement expands, and this page gets a
+            version note when it does.</p>
+          <!-- R8 fix 6 + O2 ANSWERED by ruling 45 (Adam, 8/25): streaming and digital are one
+               lane family at app grain in marketing surfaces; this covered-source definition
+               stays the formal instrument of record and the exclusion sentence stands. -->
+        </div>
+        <div class="callout" id="streaming-detection">
+          <h4>How a streaming airing is detected</h4>
+          <p class="small">Streaming is addressable, so detection samples from measured households: the
+            capture happens on the CTV glass, in homes we measure, not from a platform feed. Narrowly
+            targeted buys under-detect more than broad ones, which is one reason the streaming dollar
+            figure prints as a floor. The floor rises only as coverage rises, never from modeled fill.
+            Extrapolating from measured households to the household universe is one reason the dollar
+            prints as estimated; that is not modeled fill, which would mean inventing platforms, creatives
+            or weeks that were never detected.</p>
+        </div>
+        <div class="callout" id="measurement-footprint">
+          <h4>Where the delivered-impressions measurement runs</h4>
+          <p class="small">Delivered-impressions measurement covers the top 58 U.S. media markets by household
+            count. Races outside that footprint show booked and aired figures only, and the screen says so
+            rather than substituting a guess. Monitoring of broadcast, local cable and radio runs in all 210
+            media markets regardless; the two footprints are different things and every figure names the one
+            it stands on.</p>
+        </div>
+        <div class="callout" id="latency">
+          <h4>Latency is stated per lane, and the lag is printed</h4>
+          <p class="small">Lanes do not refresh at the same speed, and a single "real time" badge across all
+            of them would be false in at least one. Coverage and cadence are published lane by lane on the
+            <a href="platform.html#coverage">coverage summary</a>, including where they are slower than we would like.</p>
+          <p class="small">The lag is on the figure itself. Every number carries the date it is posted through
+            and the date it was refreshed, and the days between those two dates are that lane's lag on that
+            read. It is a measured gap you can check on any export, which is why we publish it that way
+            instead of quoting one service level that would go stale the week a station files late.
+            Streaming settlement runs on its own cadence, and that cadence varies; the paired dates on every
+            figure are the check there too. Ask for
+            the current gap in a lane you buy, or in the market you sell, and we will give it to you in
+            days.</p>
+          <!-- R8 fix 27 / O-14 (owner): upgrade the settlement-cadence sentence to the typical
+               cycle in days + as-of date when Adam supplies it. -->
+        </div>
+        <div class="callout">
+          <h4>Where you can see this working</h4>
+          <p class="small">Every export and every app screen carries the marks. Open any figure in the
+            <a href="platform.html">platform</a> and the basis is on the same screen as the number, not in a
+            methods appendix nobody opens.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RESTATEMENT ============ -->
+<section class="section" id="restatement">
+  <div class="wrap">
+    <div class="split" style="margin-bottom:2.2rem">
+      <div>
+        <p class="eyebrow">Restatement policy</p>
+        <h2>History moves when better source data lands, so every figure carries the version of the basis it
+          was computed on.</h2>
+      </div>
+      <div>
+        <p class="lede">Filings arrive after the flight. A file covering a week in June can post in August, and
+          when it does, the June number was wrong and is now right. We restate, we version, and we say so.</p>
+        <p>Versioning is what makes two reads reconcilable. If a figure pulled in July and a figure pulled in
+          August disagree, the version tells you whether the race changed or the basis did. Without it, the
+          two reads become an argument between two people holding screenshots.</p>
+      </div>
+    </div>
+
+    <p class="small tbl-hint">Swipe the table sideways to see every column.</p>
+    <div class="tbl-scroll" tabindex="0" role="group" aria-label="What a restatement moves, and what carries the version it was computed on, scrolls sideways">
+      <table class="tbl">
+        <thead>
+          <tr>
+            <th style="width:16%">Read taken</th>
+            <th style="width:13%">Basis version</th>
+            <th style="width:15%">Posted through</th>
+            <th class="n" style="width:14%">Market total</th>
+            <th style="width:42%">What moved, and why</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row" class="row-h">Jul 2, 2026</th>
+            <td>v1</td>
+            <td>Jun 27, 2026</td>
+            <td class="n">$2.41M</td>
+            <td>First read of the market. Broadcast and radio filings in hand, local cable partially filed.</td>
+          </tr>
+          <tr>
+            <th scope="row" class="row-h">Aug 6, 2026</th>
+            <td>v2</td>
+            <td>Aug 1, 2026</td>
+            <td class="n">$3.46M</td>
+            <td>Of the $1.05M increase, $0.74M is new weight in July and $0.31M is restated June history from
+              cable filings that posted late. The June total in v2 is higher than the June total in v1.</td>
+          </tr>
+          <tr>
+            <th scope="row" class="row-h">Aug 6, 2026</th>
+            <td>v2</td>
+            <td>Aug 1, 2026</td>
+            <td class="n">Insufficient signal</td>
+            <td>Same read, separate cell. One station's June weeks remain unfiled. Those weeks are held out of the market total rather
+              than counted as zero, and the holdout is named on the export.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="tbl-note">Illustrative figures on one market, Des Moines here, used to show the shape of a
+      restatement. Real restatements are published with the same columns.</p>
+
+    <div class="grid grid--3 mt3">
+      <div class="card card--tint">
+        <div class="card__k">What triggers one</div>
+        <p class="small">A filing posts for a week already published, a correction lands on an existing order,
+          or coverage improves in a lane where we had been standing on a floor.</p>
+      </div>
+      <div class="card card--tint">
+        <div class="card__k">What we publish</div>
+        <p class="small">The restated figure, the prior figure, the basis version of each, and one line naming
+          which weeks and which lanes moved. A restatement is announced, not slipped in.</p>
+      </div>
+      <div class="card card--tint">
+        <div class="card__k">Why this is a feature</div>
+        <p class="small">A series that never restates is either fully filed at the moment of publication or it
+          is not looking. Ours restates because it keeps checking, and the version is how you tell the
+          difference.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ACCURACY CLAIMS ============ -->
+<section class="section section--tint" id="accuracy">
+  <div class="wrap">
+    <div class="split" style="margin-bottom:2.2rem">
+      <div>
+        <p class="eyebrow">Accuracy claims</p>
+        <h2>An accuracy figure that does not name its estimator, its panel and its universe is not an accuracy
+          figure.</h2>
+      </div>
+      <div>
+        <p class="lede">This category advertises accuracy percentages more often than it defines them. Our
+          rule applies to us first: any accuracy claim we make names what was computed, what it was graded
+          against, and the scope it was measured over.</p>
+      </div>
+    </div>
+
+    <p class="small tbl-hint">Swipe the table sideways to see every column.</p>
+    <div class="tbl-scroll" tabindex="0" role="group" aria-label="What an accuracy claim must name to be checkable, scrolls sideways">
+      <table class="tbl">
+        <thead>
+          <tr>
+            <th style="width:22%">A claim must name</th>
+            <th style="width:39%">Why a buyer needs it</th>
+            <th style="width:39%">What its absence hides</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row" class="row-h">The estimator</th>
+            <td>Which quantity was computed. Spend, points, impressions and reach are four different
+              estimators, and being accurate on one says nothing about the others.</td>
+            <td>An accuracy figure earned on a total being read as accuracy on the line item you buy.</td>
+          </tr>
+          <tr>
+            <th scope="row" class="row-h">The panel or source it was graded against</th>
+            <td>Something has to stand in for truth. A filed invoice, a station affidavit and a viewership
+              panel are not interchangeable standards.</td>
+            <td>A comparison against a source with the same blind spot as the estimate, which grades agreement
+              rather than accuracy.</td>
+          </tr>
+          <tr>
+            <th scope="row" class="row-h">The universe</th>
+            <td>Which markets, lanes, dates and races were in scope. Accuracy in the top markets on broadcast
+              is a claim about the easiest part of the problem.</td>
+            <td>A result measured on the well-covered slice and quoted as if it held down-ballot and off
+              broadcast.</td>
+          </tr>
+          <tr>
+            <th scope="row" class="row-h">The grain it was graded at</th>
+            <td>Per market and per week is the grain a buy is placed at. That is the grain worth grading.</td>
+            <td>One cycle-level projection compared with one cycle-level actual, which is a single observation
+              dressed as a rate.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="tbl-note">A validation is only as good as the pool it was run on. Where a result comes from a
+      pool chosen after the fact, that has to be disclosed and discounted going forward.</p>
+
+    <div class="callout callout--lime mt3">
+      <h4>The rule, stated plainly</h4>
+      <p>We do not publish a headline accuracy percentage that grades a different quantity than the one a
+        buyer uses. Where we have a validation, it names the estimator, the panel, the universe and the grain,
+        and we will walk through it on a call rather than compress it into a badge. Where we have not run one
+        for a lane, we say that too.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GLOSSARY ============ -->
+<section class="section" id="glossary">
+  <div class="wrap">
+    <div class="split" style="margin-bottom:2.2rem">
+      <div>
+        <p class="eyebrow">Glossary</p>
+        <h2>These are the terms our outputs use, defined the way we use them.</h2>
+      </div>
+      <div>
+        <p class="lede">Several of these words are used loosely across the category. If a vendor's definition
+          differs from one of these, that difference is usually where the two numbers diverge.</p>
+      </div>
+    </div>
+
+    <p class="small tbl-hint">Swipe the table sideways to see every column.</p>
+    <div class="tbl-scroll" tabindex="0" role="group" aria-label="These are the terms our outputs use, defined the way we use them, scrolls sideways">
+      <table class="tbl">
+        <thead>
+          <tr>
+            <th style="width:24%">Term</th>
+            <th style="width:76%">What it means in a KPI output</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row" class="row-h">Airing</th>
+            <td>One transmission of one ad on one channel at one time. The atomic unit of the dataset, and the
+              thing every published figure is an aggregation of.</td>
+          </tr>
+          <tr>
+            <th scope="row" class="row-h">Detection</th>
+            <td>Identification of an airing from the transmission itself, by matching the spot as it runs,
+              rather than inferring it from a posted schedule, a media plan or a panel diary.</td>
+          </tr>
+          <tr>
+            <th scope="row" class="row-h">Order grain</th>
+            <td>Spend attached to the specific placement contract behind the airings, so a dollar traces to a
+              station, a flight and a buyer instead of to a market-level average.</td>
+          </tr>
+          <tr>
+            <th scope="row" class="row-h">Posted through</th>
+            <td>The last date on which delivery is confirmed for that figure. At or before it, the money ran.
+              After it, the money is reserved or projected.</td>
+          </tr>
+          <tr>
+            <th scope="row" class="row-h">Filed through</th>
+            <td>The last date covered by the public filings behind an FCC-verified figure. Filings post on a
+              lag, so a filed-through date can trail the posted-through date on the same screen; the gap is
+              the lane's lag on that read.</td>
+          </tr>
+          <tr>
+            <th scope="row" class="row-h">Settled through</th>
+            <td>The last date the streaming measurement cycle is complete for that figure. Later detections
+              can still accrue for dates after it, and when they do the figure moves as a restatement,
+              never a silent change.</td>
+          </tr>
+          <tr>
+            <th scope="row" class="row-h">Booked forward</th>
+            <td>Money committed on a station's books for dates after the through-date, in the broadcast, local
+              cable and radio lanes where a filing exists. It is real and it is cancellable, so it is reported
+              as runway rather than as weight. Streaming and digital carry no order document, so no forward
+              book is published for those lanes.</td>
+          </tr>
+          <tr>
+            <th scope="row" class="row-h">Committed</th>
+            <td>Aired plus booked ahead: money that has already run plus money on a station's books for
+              dates after the through-date. Where a figure reads committed, the aired and booked-forward
+              parts stay visible on their own lines, never blended away.</td>
+          </tr>
+          <tr>
+            <th scope="row" class="row-h">Points (GRPs)</th>
+            <td>Gross rating points. One point is one percent of the stated target universe reached once.
+              Points are household points on the market universe unless the export names a demo in the column
+              header. Demo-specific points are available by request, and the demo travels in the header
+              wherever it applies. Points are specific to a market's universe, so they are population weighted
+              when combined and never simply summed across markets.</td>
+          </tr>
+          <tr>
+            <th scope="row" class="row-h">Impression</th>
+            <td>One ad delivery to one device or screen, before any deduplication. Impressions are a delivery
+              count, so they never stand in for how many households or people were reached.</td>
+          </tr>
+          <tr>
+            <th scope="row" class="row-h">Reach</th>
+            <td>Households reached at least once inside the measured footprint. It is reported in households
+              and never in persons, because the measurement is of a household's screens.</td>
+          </tr>
+          <tr>
+            <th scope="row" class="row-h">Frequency</th>
+            <td>Impressions served per household reached inside the measured footprint. A household is not a
+              person, and we never restate a household frequency as a per-person number.</td>
+          </tr>
+          <tr>
+            <th scope="row" class="row-h">Deduplication</th>
+            <td>Counting a household once when it saw the ad on both linear and streaming. It is built on
+              observed viewing and modeled linkage, which makes it an estimate with a range around it, and it
+              is quoted as a shape you can move budget against rather than to the last household.</td>
+          </tr>
+          <tr>
+            <th scope="row" class="row-h">Lane</th>
+            <td>One distribution channel treated as its own measurement unit: broadcast, local cable, radio,
+              streaming or digital. Basis, coverage and latency differ by lane, so every figure names the
+              lanes it covers.</td>
+          </tr>
+          <!-- O2 ANSWERED by ruling 45 (Adam, 8/25): one lane family ("Streaming & Digital",
+               app grain) on marketing surfaces; the formal two-lane definition below stays as
+               the measurement definition of record. Bases never merge. -->
+          <tr>
+            <th scope="row" class="row-h">Streaming lane vs digital lane</th>
+            <td>The streaming lane is detected creative on named ad-supported streaming apps, with dollars an
+              estimated minimum built from those detections. The digital lane covers the measured sources
+              beyond those named apps, always estimated and never a minimum, with the covered-source list
+              published on this page.</td>
+          </tr>
+          <tr>
+            <th scope="row" class="row-h">Floor</th>
+            <td>The number we can stand behind where detection is partial, built only from detected airings
+              with no modeled fill. It reads as at least this much, and it rises when coverage improves.</td>
+          </tr>
+          <tr>
+            <th scope="row" class="row-h">Estimated</th>
+            <td>The label on modeled spending. A dollar figure modeled from detected creative activity and
+              measured delivery, published where no order and no public price signal exists. Every modeled
+              figure carries the word estimated, an estimate is never merged into a posted total, and a
+              disclosure and an estimate are never silently blended.</td>
+          </tr>
+          <tr>
+            <th scope="row" class="row-h">Projected</th>
+            <td>The label on forward inference: any figure past the last order on file, an expectation about
+              weeks that have no document behind them yet. Useful for planning, never evidence, and never
+              merged into an aired total. Distinct from estimated, which labels modeled dollars for activity
+              that was detected.</td>
+          </tr>
+          <tr>
+            <th scope="row" class="row-h">Insufficient signal</th>
+            <td>A published state meaning coverage in that cell cannot support a number. It appears instead of
+              a zero, and the cell is held out of totals and rankings with the exclusion disclosed.</td>
+          </tr>
+          <tr>
+            <th scope="row" class="row-h">Restatement</th>
+            <td>A revision of an already published historical figure after better source data lands, most
+              often a filing that posts late. Restatements are versioned, announced and reconcilable against
+              the prior read.</td>
+          </tr>
+          <tr>
+            <th scope="row" class="row-h">Share of race money</th>
+            <td>One advertiser's spend as a percentage of all spend in that race on the same stated basis:
+              aired, committed, or detected. The basis, the window and the lanes travel with the number,
+              because the denominator travels with it and moves when any of them changes.</td>
+          </tr>
+          <tr id="definitional-advantage">
+            <th scope="row" class="row-h">Definitional advantage</th>
+            <td>The weight one side put behind an argument before the other side answered it on the same
+              subject, expressed as a share of total weight on that argument. It measures who set the terms of
+              the race rather than who spent more in total.</td>
+          </tr>
+          <tr>
+            <th scope="row" class="row-h">Declared audience</th>
+            <td>An audience built from the answers people gave to a named question rather than from a model of
+              people who resemble them. The question that defines it is visible, so you can judge whether it means
+              what you need it to mean.</td>
+          </tr>
+          <tr>
+            <th scope="row" class="row-h">Deal ID</th>
+            <td>The identifier a curated audience and its inventory are delivered under, so the audience
+              activates in the buying seat you already use.</td>
+          </tr>
+          <tr>
+            <th scope="row" class="row-h">Undercard</th>
+            <td>Races below the top of the ticket. Local cable and radio frequently carry the majority of the
+              weight there, which is why a broadcast-only view can miss most of an undercard buy.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="tbl-note">Definitions are the ones enforced in the products and exports. If an output uses a
+      term that is not on this list and the meaning is not obvious, tell us and we will either define it here
+      or stop using it.</p>
+  </div>
+</section>
+
+<!-- ============ SIX QUESTIONS (moved from index, ruling 27) ============ -->
+<section class="section" id="six-questions">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:3rem">
+      <p class="eyebrow eyebrow--plain" style="justify-content:center">How to shop this category</p>
+      <h2>Six questions to ask any ad intelligence vendor.</h2>
+      <p class="lede">Including us. The answers are where the category actually differs.</p>
+    </div>
+
+    <p class="small tbl-hint tbl-hint--stack">Swipe sideways for the full table.</p>
+    <div class="tbl-scroll tbl-scroll--stack" tabindex="0" role="group"
+         aria-label="Six questions comparison table">
+      <table class="tbl tbl--stack">
+        <thead>
+          <tr>
+            <th scope="col" style="width:34%">Ask</th>
+            <th scope="col" class="us" style="width:36%">What KPI answers</th>
+            <th scope="col" style="width:30%">Why it decides a buy</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row" class="row-h">What date is this number posted through?</th>
+            <td class="us" data-label="What KPI answers">Printed on every figure. Aired and booked-forward stay on separate lines.</td><td data-label="Why it decides a buy">A spend figure without a through-date mixes what happened with what is projected. You cannot
+              tell which half you are reacting to.</td>
+          </tr>
+          <tr>
+            <th scope="row" class="row-h">Do you monitor local cable?</th>
+            <td class="us" data-label="What KPI answers">Yes, order by order, with radio in the same grid.</td><td data-label="Why it decides a buy">In a down-ballot race, local cable is frequently the largest single lane. Missing it is not a
+              rounding error, it is the wrong answer.</td>
+          </tr>
+          <tr>
+            <th scope="row" class="row-h">Is a zero a real zero, or the edge of your coverage?</th>
+            <td class="us" data-label="What KPI answers">We say when we cannot see. A zero we cannot stand behind is marked that
+              way rather than printed as a fact.</td><td data-label="Why it decides a buy">Survey panels projected from a few thousand homes go blind inside third-party streaming apps. Reporting that blindness as an absence of
+              advertising is the most expensive error in the category.</td>
+          </tr>
+          <tr>
+            <th scope="row" class="row-h">How is the streaming number produced?</th>
+            <td class="us" data-label="What KPI answers">Detection first. We tell you what we saw, what we estimate it cost as
+              a floor, and when we cannot see.</td><td data-label="Why it decides a buy">Detected impressions multiplied by a market CPM is a model. It can be a reasonable model, but
+              it is not a detection, and the difference compounds.</td>
+          </tr>
+          <tr>
+            <th scope="row" class="row-h">What is the latency, honestly?</th>
+            <td class="us" data-label="What KPI answers">Cadence stated per lane, with the through-date on the page rather than in a sales
+              deck.</td><td data-label="Why it decides a buy">"Real time" covers everything from minutes to two days to ten weeks. Your rotation decision
+              depends on which one it is.</td>
+          </tr>
+          <tr>
+            <th scope="row" class="row-h">When you publish an accuracy figure, accuracy of what?</th>
+            <td class="us" data-label="What KPI answers">Any accuracy figure comes with what it measured, the panel it ran on,
+              and what it was checked against.</td><td data-label="Why it decides a buy">A single cycle-total projection graded against a single actual is not per-market accuracy, and
+              per-market is what you buy against.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="tbl-note">These are the questions our own analysts ask before trusting a figure.</p>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="section section--mega cta-final">
+  <div class="wrap center">
+    <h2>Ask us the hard version of any of these on a call.</h2>
+    <p class="lede" style="margin-inline:auto">Where the floor sits in a lane you care about, which markets
+      carry an insufficient-signal state today, what our last restatement moved, how a validation was scoped.
+      Those answers are more useful than a page, and we would rather give them before you buy than after.</p>
+    <div class="btn-row mt2" style="justify-content:center">
+      <a class="btn btn--lime" href="contact.html">Request a demo</a>
+      <a class="btn btn--outline" href="mailto:info@kpipolitical.com">Talk to us</a>
+    </div>
+    <p class="small mt2">Lane-by-lane coverage, including where it thins, is on the
+      <a href="platform.html#coverage">coverage summary</a>.</p>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__grid">
+      <div class="foot__brand">
+        <img src="assets/img/kpi-logo-reverse.png" alt="Kinetiq Political Insights">
+        <p class="small" style="color:#8FA9BE;max-width:34ch">Kinetiq Political Insights is a
+          political ad intelligence platform built on Kinetiq's national monitoring network.
+          Press: <a href="mailto:press@kpipolitical.com">press@kpipolitical.com</a></p>
+      </div>
+      <div>
+        <h4>Platform</h4>
+        <ul>
+          <li><a href="platform.html">The platform</a></li>
+          <li><a href="index.html#sell-side">Sell-side intelligence</a></li>
+          <li><a href="polling.html">Real-time polling</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Proof</h4>
+        <ul>
+          <li><a href="methodology.html">Methodology</a></li>
+          <li><a href="methodology.html#how-we-count">How we count</a></li>
+          <li><a href="index.html#press">Press coverage</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Get in touch</h4>
+        <ul>
+          <li><a href="contact.html">Request a demo</a></li>
+          <li><a href="mailto:info@kpipolitical.com">info@kpipolitical.com</a></li>
+          <li><a href="https://portal.kpipolitical.com">Subscriber log in</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot__base">
+      <span>© 2026 Kinetiq Political Insights. All rights reserved.</span>
+      <span>Coverage and scale figures as of August 2026.</span>
+      <span>Non-partisan by design. We sell to both sides and say so.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/site.js?v=r20"></script>
+</body>
+</html>

@@ -1,0 +1,2175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Platform: Detection In, Decisions Out | Kinetiq Political Insights</title>
+<meta name="description" content="Scoreboard, Creative Matrix, Buy Sheet and Creative Explorer. Every race on one screen, every cut by market, the competitive buy at station grain, and every detected spot with the transcript and the tape. Plus declared audiences, searchable on the Real-Time Polling page.">
+<meta property="og:title" content="The KPI Platform: Detection In, Decisions Out">
+<meta property="og:description" content="Open to the race that changed. Read what the other side aired, booked and abandoned. Leave with the export.">
+<meta property="og:type" content="website">
+<link rel="icon" href="assets/img/kpi-mark.png">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r20">
+<style>
+  /* The "what it exports" line that closes each app section. */
+  .exports { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; margin-top: 1.3rem; }
+  .exports__k { font-family: var(--label); text-transform: uppercase; letter-spacing: .1em;
+    font-size: .68rem; font-weight: 700; color: var(--ink-3); }
+  .exports__t { font-size: .87rem; line-height: 1.5; color: var(--ink-2); flex: 1 1 260px; margin: 0; }
+  /* A stamp inside a card hugs the card rather than the section. */
+  .card .stamp { margin-top: .8rem; margin-bottom: .9rem; }
+  /* The lane and contest tables carry five dense columns. */
+  table.tbl.tbl--lanes { min-width: 940px; }
+  .tbl--lanes .lane-name, .tbl--contests .row-h { font-family: var(--label); text-transform: uppercase;
+    letter-spacing: .08em; font-size: .78rem; font-weight: 700; color: var(--navy-deep); white-space: nowrap; }
+  /* Anchor chips on the light hero: white cards, navy on hover. */
+  .hero .chip { background: var(--white); border-color: var(--rule); color: var(--ink-2); text-decoration: none; }
+  .hero .chip:hover { border-color: var(--navy); color: var(--navy-deep); }
+  /* Split hero: content left, one product surface anchored right, so the first
+     fold carries product instead of empty ground. Card reuses the index lane-mix
+     mini. It sits still: the ambient float died with the auto-motion ruling. */
+  .hero__grid { display: grid; gap: clamp(28px, 4vw, 64px); align-items: center; grid-template-columns: 1fr; }
+  .hero-float { max-width: 440px; width: 100%; justify-self: center; }
+  @media (min-width: 960px) {
+    .hero__grid { grid-template-columns: 1.2fr .8fr; }
+    .hero-float { justify-self: end; }
+  }
+  .mini { background: linear-gradient(180deg, #0F3A5F 0%, var(--navy-deep) 100%); border: 1px solid rgba(255,255,255,.22); border-radius: var(--r-lg); padding: 1.15rem 1.25rem; box-shadow: 0 24px 56px rgba(13,46,74,.24), 0 3px 10px rgba(13,46,74,.12); }
+  .mini__k { font-family: var(--label); text-transform: uppercase; letter-spacing: .12em; font-size: .66rem; font-weight: 700; color: #8FA9BE; margin: 0 0 .7rem; display: flex; justify-content: space-between; align-items: baseline; gap: .6rem; flex-wrap: wrap; }
+  .mini__stamp { font-family: var(--mono); font-size: .58rem; font-weight: 600; letter-spacing: .08em; color: #7D97AC; white-space: nowrap; font-variant-numeric: tabular-nums lining-nums; }
+  .mini__row { display: grid; grid-template-columns: 84px 1fr 52px; align-items: center; gap: .55rem; margin-bottom: .55rem; font-size: .84rem; color: #BDD2E2; }
+  .mini__row i { display: block; height: 12px; border-radius: 2px; background: var(--blue); }
+  .mini__row b { font-weight: 700; color: #fff; text-align: right; font-family: var(--mono); }
+  .mini__tag { display: block; font-style: normal; font-family: var(--mono); font-size: .56rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: #8FA9BE; }
+  .mini__row--est { color: #9DB4C6; }
+  .mini__row--est i { background: transparent; border: 1px dashed rgba(189,210,226,.6); height: 10px; }
+  .mini__na { font-family: var(--mono); font-size: .58rem; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: #8FA9BE; text-align: right; white-space: nowrap; }
+  .mini__key { margin: .6rem 0 0; font-size: .64rem; line-height: 1.5; color: #8FA9BE; }
+  .hero-float .feed__note { text-align: right; margin-top: .6rem; }
+  /* Live recreations replace the static screenshots. Each card is self-contained
+     (own style block, rc- prefixed classes); the stage centers it on the same dark
+     ground the screenshots used and carries the full-screen link. */
+  .rc-stage { display: grid; justify-items: center; gap: 1rem; }
+  .rc-stage .rc-scoreboard, .rc-stage .rc-matrix { max-width: 560px; }
+  /* R5: at desktop the recreations earn the width the export tables get. */
+  @media (min-width: 1024px) {
+    .rc-stage .rc-scoreboard, .rc-stage .rc-matrix { max-width: clamp(560px, 72vw, 880px); }
+  }
+  .rc-full { margin: 0; font-size: .82rem; text-align: center; }
+  .rc-full a { color: var(--ink-3); }
+  .rc-full a:hover { color: var(--navy); }
+  /* R6 (item 71): coverage cards hug their own copy instead of stretching to
+     the tallest card in the row. */
+  #coverage .grid--3 { align-items: start; }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<nav class="nav nav--light" data-open="false">
+  <div class="wrap nav__in">
+    <a class="nav__brand" href="index.html" aria-label="Kinetiq Political Insights, home">
+      <img src="assets/img/kpi-logo.png" alt="Kinetiq Political Insights">
+    </a>
+    <ul class="nav__links">
+      <li><a href="platform.html" aria-current="page">Platform</a></li>
+      <li><a href="index.html#sell-side">Sell-Side</a></li>
+      <li><a href="polling.html">Real-Time Polling</a></li>
+      <li><a href="methodology.html">Methodology</a></li>
+      <li class="nav__login"><a href="https://portal.kpipolitical.com">Log in</a></li>
+    </ul>
+    <div class="nav__cta">
+      <a class="btn btn--outline btn--sm" href="https://portal.kpipolitical.com">Log in</a>
+      <a class="btn btn--lime btn--sm" href="contact.html">Request a demo</a>
+    </div>
+    <button class="nav__toggle" aria-expanded="false" aria-label="Menu">Menu</button>
+  </div>
+</nav>
+
+<main id="main">
+<!-- CLAIM: Everything the monitoring network catches becomes a decision here, and every read leaves with an export. -->
+
+<!-- ============ PAGE HERO ============ -->
+<header class="hero" style="padding-bottom:clamp(40px,5vw,64px)">
+  <div class="wrap hero__grid">
+    <div>
+      <p class="eyebrow">The platform</p>
+      <h1>Every detection, every order, every market. <em>One platform.</em></h1>
+      <p class="lede">One dataset underneath: airings detected on the monitoring network, orders
+        on file, spend FCC-verified where a filing exists. Four layers sit on it: what we
+        detect, what the numbers stand on, who you target, and the screens where you
+        decide. Each app answers a question subscribers used to assemble by hand, and
+        each one exports.</p>
+      <div class="btn-row mt1">
+        <a class="btn btn--lime btn--lg" href="contact.html">Request a demo</a>
+      </div>
+    </div>
+    <div class="hero-float" aria-label="Product surface: posted money by lane for one race, estimated lanes on their own dashed rows">
+      <div class="mini">
+        <p class="mini__k"><span>Lane mix · one race</span><span class="mini__stamp num">posted through Aug 18, 2026</span></p>
+        <div class="mini__row"><span>Broadcast</span><i style="width:74%"></i><b class="num">74%</b></div>
+        <div class="mini__row"><span>Local cable</span><i style="width:20%;background:var(--teal)"></i><b class="num">20%</b></div>
+        <div class="mini__row"><span>Radio</span><i style="width:6%;background:var(--blue-light)"></i><b class="num">6%</b></div>
+        <div class="mini__row mini__row--est"><span>Streaming &amp; Digital &middot; caught<em class="mini__tag">Est. minimum</em></span><i style="width:15%"></i><b class="mini__na">no share</b></div>
+        <div class="mini__row mini__row--est"><span>Streaming &amp; Digital &middot; modeled<em class="mini__tag">Estimated</em></span><i style="width:12%"></i><b class="mini__na">no share</b></div>
+        <p class="mini__key">Shares split posted money only: broadcast, local cable, radio. The Streaming &amp; Digital family prints dashed on its two bases, caught floor and modeled estimate, never silently summed &middot; dashed width = estimated dollars against the posted total, for scale only.</p>
+      </div>
+      <p class="feed__note">Synthetic race. Illustrative figures.</p>
+    </div>
+  </div>
+
+  <!-- Ruling 42c: the platform as four layers. The map is the page's table of
+       contents; each section below sits under its layer. -->
+  <div class="wrap mt3">
+    <div class="lmap">
+      <ol class="lmap__rail">
+        <li class="lmap__layer">
+          <span class="lmap__name">Detect</span>
+          <span class="lmap__what">The monitoring network catches the airing, the order and the creative.</span>
+          <span class="lmap__items"><a class="chip" href="#coverage">Monitoring network</a><a class="chip" href="#streaming-capture">Streaming &amp; Digital capture</a></span>
+        </li>
+        <li class="lmap__layer">
+          <span class="lmap__name">Measure</span>
+          <span class="lmap__what">Where the numbers come from: the public file.</span>
+          <span class="lmap__items"><a class="chip" href="index.html#fcc-rates" title="Opens on the home page">FCC pricing &#8599;</a></span>
+        </li>
+        <li class="lmap__layer">
+          <span class="lmap__name">Target</span>
+          <span class="lmap__what">Who to reach, built from declared answers, delivered where you buy.</span>
+          <span class="lmap__items"><a class="chip" href="polling.html">Real-time polling</a><a class="chip" href="#audiences">Audiences + deal IDs</a></span>
+        </li>
+        <li class="lmap__layer">
+          <span class="lmap__name">Decide</span>
+          <span class="lmap__what">The screens you drive, and every read leaves with an export.</span>
+          <span class="lmap__items"><a class="chip" href="#scoreboard">Scoreboard</a><a class="chip" href="#creative-matrix">Creative Matrix</a><a class="chip" href="#buy-sheet">Buy Sheet</a><a class="chip" href="#creative-explorer">Creative Explorer</a><a class="chip" href="#sellers">The seller's week</a><a class="chip" href="#class-gap">Streaming share</a></span>
+        </li>
+      </ol>
+      <a class="lmap__baker" href="#baker"><b>Baker</b><span>the ask-anything layer across all four: plain-language questions on everything the platform tracks, the through-date attached</span></a>
+    </div>
+  </div>
+</header>
+
+<!-- ============ COVERAGE ============ -->
+<section class="section section--band section--mega" id="coverage">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:3rem" data-rise>
+      <p class="eyebrow eyebrow--plain" style="justify-content:center">Detect &middot; Coverage</p>
+      <h2 class="h-display">Every lane we track, and the evidence under each.</h2>
+      <p class="lede" style="margin-inline:auto">Broadcast, local cable and radio at order
+        grain in all 210 markets, and Streaming &amp; Digital as one lane family, read app
+        by app the way TV reads station by station.
+        Each figure labeled by what stands under it, so you can act on it without hedging.</p>
+    </div>
+    <div class="grid grid--2" data-rise>
+      <div class="card card--flag">
+        <p class="card__k">Order by order</p>
+        <h3>Broadcast, local cable, radio</h3>
+        <p class="small">Dollars from orders on file across all 210 media markets,
+          FCC-verified where a filing exists. Aired and booked-forward on separate lines.</p>
+      </div>
+      <!-- Ruling 45: one lane family, two bases, app grain. Merges the former
+           Streaming and Digital cards; the denominators never merge. -->
+      <div class="card card--flag" id="streaming-capture">
+        <p class="card__k">What we caught, what we measure</p>
+        <h3>Streaming &amp; Digital</h3>
+        <p class="small">One lane family, two bases, at app grain. Where we catch a spot,
+          the airings print as caught and the dollars as
+          a minimum. The measured sources beyond the capture print as estimated, with the
+          source list public on the methodology page. Both bases named on the figure,
+          never summed.</p>
+      </div>
+    </div>
+
+    <h3 class="mt3">Lane by lane: where the dollars come from, how fast they land, and where the signal thins</h3>
+    <p class="small tbl-hint">Swipe the table sideways to see every column.</p>
+    <div class="tbl-scroll" tabindex="0" role="group" aria-label="Four lane families, basis, cadence and edges, scrolls sideways">
+      <table class="tbl tbl--lanes">
+        <thead>
+          <tr>
+            <th style="width:11%">Lane</th>
+            <th style="width:21%">What we detect</th>
+            <th style="width:17%">Where the dollars come from</th>
+            <th style="width:17%">Cadence</th>
+            <th class="us" style="width:34%">Where the signal thins</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row" class="lane-name">Broadcast TV</th>
+            <td>Every airing on monitored stations, with the creative itself, an AI-generated transcript, the
+              air date and the market list.</td>
+            <td><span class="chip chip--lime">Order by order</span>
+              <p class="small mt1">FCC-verified spend, read off filed station documents. No ratings-based
+                estimate sits underneath it.</p></td>
+            <td>Detections run continuously. Dollars firm up as stations file.</td>
+            <td class="us">A station that files late leaves its market reading lighter than it ran until the
+              filing lands, which is why the through-date sits on the figure. Channel depth is thinner in the
+              smallest markets and on low-power stations.</td>
+          </tr>
+          <tr>
+            <th scope="row" class="lane-name">Local cable</th>
+            <td>Placed orders by system, week and daypart, in the same grid as broadcast, plus the spots
+              running against them. Collected at system, week and daypart; ships in the export at
+              market &times; week, dollars only.</td>
+            <td><span class="chip chip--lime">Order by order</span>
+              <p class="small mt1">Collected order by order, so each dollar traces to a document instead of
+                to a modeled share of a market total.</p></td>
+            <td>Detections run continuously. Orders post as they are collected; the
+              posted-through date on the figure is the check.</td>
+            <td class="us">Coverage follows the systems and interconnects that report. A zone bought outside
+              them will not appear, and an incomplete week is marked insufficient signal rather than read as
+              a smaller buy.</td>
+          </tr>
+          <tr>
+            <th scope="row" class="lane-name">Radio</th>
+            <td>Placed radio orders and the audio behind them, joined to the same race and advertiser records
+              as television. Ships in the export at market &times; week, dollars only.</td>
+            <td><span class="chip chip--lime">Orders first</span>
+              <p class="small mt1">Built from orders where they exist. Where they do not, the dollars come
+                from what we caught on air, and the page says so. Radio dollars built from caught airings
+                print as estimated and stay out of the posted total.</p></td>
+            <td>Detections run continuously. Dollars post more slowly than television.</td>
+            <td class="us">Station coverage is deepest in larger markets. Small-market, non-commercial and
+              religious-format stations are the thinnest part of the lane.</td>
+          </tr>
+          <tr>
+            <th scope="row" class="lane-name">Streaming &amp; Digital &middot; caught on the apps</th>
+            <td>Direct creative capture on CTV, including spots that never touch broadcast. Capture inside
+              streaming apps is early and growing; where we catch a spot you get the tape, the platform and
+              the transcript.</td>
+            <td><span class="chip chip--warn">Estimated minimum</span>
+              <p class="small mt1">Detection first: the airings are what we caught. Dollars are estimated
+                from measured delivery and print as a minimum, with the depth of the capture stated
+                alongside. Where we cannot see, we say so.</p></td>
+            <td>Detections run continuously across platforms in coverage. Dollar figures refresh on the
+              measurement cycle.</td>
+            <td class="us">Fewer than 10% of platforms publish a political ad library
+              (<a href="https://competeeverywhere.com/2025/12/december-2025-ho-ho-ho-political-ad-transparency-heading-into-2026/" rel="noopener">COMPETE, December
+              2025</a>), so no public record exists to reconcile against. A lane-level zero here is reported as
+              an insufficient-signal state, never as an absence of advertising. Streaming is addressable, so
+              detection samples from measured households; narrowly targeted buys under-detect more than broad
+              ones, another reason the dollar figure is a floor.</td>
+          </tr>
+          <tr>
+            <th scope="row" class="lane-name">Streaming &amp; Digital &middot; measured beyond the capture</th>
+            <!-- O2 ANSWERED by ruling 45 (Adam, 8/25): streaming and digital are ONE lane
+                 family in the marketing taxonomy, presented at app grain; the two BASES in
+                 this table stay separate (caught floor vs modeled estimate) and are never
+                 summed. Methodology keeps the formal two-lane definitions of record. -->
+            <td>Competitive digital activity in the race, estimated from measured smart-TV viewing, sitting
+              beside the broadcast and cable tracking. One family, two bases: the caught side prints app by
+              app as a minimum; this measured side covers sources beyond the capture, always estimated and
+              never a minimum.</td>
+            <td><span class="chip">Estimated</span>
+              <p class="small mt1">Estimated from detected delivery, and the word estimated rides on every
+                figure it produces. A digital share means share of the sources we measure, with the
+                source list on the <a href="methodology.html#covered-sources">methodology page</a>.</p></td>
+            <td>Refreshes on the estimation cycle. There is no order feed underneath it.</td>
+            <td class="us">A digital dollar is an estimate and never an order on file, so it should not be
+              read with the confidence of a booked television week. Walled-garden placements are visible only
+              to the extent the platform discloses them.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="tbl-note band-note">We do not print one hours-or-days cadence figure, because one
+      number covering 210 markets and every lane would be wrong in several of them. What you get
+      instead is the posted-through date on every figure.</p>
+
+    <h3 class="mt3">Which contests are in the grid</h3>
+    <p class="small tbl-hint">Swipe the table sideways to see every column.</p>
+    <div class="tbl-scroll" tabindex="0" role="group" aria-label="Which contests are tracked and where each thins, scrolls sideways">
+      <table class="tbl tbl--contests">
+        <thead>
+          <tr>
+            <th style="width:22%">Contest</th>
+            <th style="width:40%">What is tracked</th>
+            <th class="us" style="width:38%">Where the signal thins</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row" class="row-h">U.S. Senate and U.S. House</th>
+            <td>In the standard universe. Detected in every lane above and attributed to the contest.</td>
+            <td class="us">Nothing particular to the office. The lane limits above are the limits.</td>
+          </tr>
+          <tr>
+            <th scope="row" class="row-h">Governor and other statewide</th>
+            <td>In the standard universe, counted the same way as federal contests.</td>
+            <td class="us">Down-ballot statewide offices draw issue-group money that never names the office,
+              which lands as an advertiser record rather than as race spend.</td>
+          </tr>
+          <tr>
+            <th scope="row" class="row-h">State legislative</th>
+            <td>Airings captured the same way. Attribution to a named seat is scoped by state and contest
+              list rather than assumed.</td>
+            <td class="us">The hardest attribution on the page. A spot that names no office, in a market
+              spanning many districts, can be seen clearly and still not be assignable to one seat.</td>
+          </tr>
+          <tr>
+            <th scope="row" class="row-h">Ballot measures and judicial</th>
+            <td>Captured, and attributed where the creative or the filed order names the measure or the
+              seat.</td>
+            <td class="us">Committee names frequently bear no resemblance to the measure they support, so
+              some money sits under an advertiser record until it can be tied, and is not forced into a
+              total to make one look complete.</td>
+          </tr>
+          <tr>
+            <th scope="row" class="row-h">Special and off-cycle</th>
+            <td>Treated exactly as the regular contest for that office. The calendar does not change how
+              we count.</td>
+            <td class="us">The first days of a new flight are where insufficient-signal states appear most,
+              and a special is nearly all first days.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="tbl-note band-note">Which contests appear in your views is set when a subscription
+      is scoped, not assumed. Name the seats you actually watch before you sign, and we will say which we can
+      stand behind and which sit in the thin part of this table.</p>
+    <div class="callout mt3">
+      <h4>What a zero means here</h4>
+      <p class="small mb0">A zero we can stand behind prints as a zero. A zero we cannot
+        stand behind prints as an insufficient-signal state instead of a fact. The full
+        lane-by-lane statement, including where our signal thins, is on the
+        <a href="methodology.html">methodology page</a>.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ DECLARED AUDIENCES ============ -->
+<section class="section section--tint" id="audiences">
+  <div class="wrap">
+    <div class="split" style="margin-bottom:2rem">
+      <div>
+        <p class="eyebrow">Target &middot; Declared audiences</p>
+        <h2>Audiences built from what people actually said.</h2>
+      </div>
+      <div>
+        <p class="lede">Through our CivicScience partnership: more than <span class="num w-measured">10,000</span> always-on
+          questions, over <span class="num w-measured">1 million</span> answers a day, <span class="num w-measured">165 million</span> U.S. consumer profiles. 48
+          curated political segments, or build your own from the question library.</p>
+      </div>
+    </div>
+
+    <div class="stats" style="margin-bottom:1rem">
+      <div class="stat"><div class="stat__v">10,000+</div><div class="stat__l">Always-on questions</div></div>
+      <div class="stat"><div class="stat__v">1M+</div><div class="stat__l">Answers per day</div></div>
+      <div class="stat"><div class="stat__v">165M</div><div class="stat__l">U.S. consumer profiles</div></div>
+      <div class="stat"><div class="stat__v">48</div><div class="stat__l">Curated political segments</div></div>
+    </div>
+    <div class="stamp" style="margin-bottom:2.4rem"><b>Source</b> CivicScience partner-published figures, as
+      of August 2026. A profile is a survey-answering record, not a verified person.</div>
+
+    <h3 id="explorer">Search the orderable library. All 3,537 questions of it.</h3>
+    <p class="dek" style="margin-bottom:1.4rem">Read the exact wording, build a shortlist,
+      send it to us. It comes back as a deal ID in the DSP you already buy through, or we
+      run the media. Audiences are keyed on declared answers; a modeled lookalike extension
+      is optional and always labeled. The full explorer lives on the Real-Time Polling page.</p>
+    <div class="btn-row">
+      <a class="btn btn--navy" href="polling.html#explorer">Search the question library</a>
+      <a class="btn btn--outline" href="polling.html">How real-time polling works</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SCOREBOARD ============ -->
+<section class="section" id="scoreboard">
+  <div class="wrap">
+    <div class="split" style="margin-bottom:1.8rem">
+      <div>
+        <p class="eyebrow">Decide &middot; Scoreboard</p>
+        <h2>The race that changed this week is already at the top.</h2>
+      </div>
+      <div>
+      <p class="lede">Every race on one screen. Aired and booked-forward stay on separate
+        lines, with share of race money by side. A seat with nothing on the air and four
+        weeks booked ahead is a different problem than a race with nothing at all, and the
+        grid shows both.</p>
+      <p class="small">Federal and statewide contests are the standard universe; other
+        contest types are scoped when a subscription is set up. The
+        <a href="#coverage">contest table below</a> says where each type thins.</p>
+      </div>
+    </div>
+    <!-- Ruling 22: shown as a cropped glimpse; the demo is the reveal. -->
+    <div class="shot-stage shot-stage--l rc-stage glimpse glimpse--h420">
+<div class="rc rc-scoreboard">
+  <div class="rc-scoreboard-titlebar">
+    <span class="rc-scoreboard-dot" aria-hidden="true"></span>
+    <span class="rc-scoreboard-title">Scoreboard</span>
+    <span class="rc-scoreboard-scope">&middot; National &middot; 8-race synthetic sample</span>
+    <span class="rc-scoreboard-stamp">Posted through Aug 21, 2026</span>
+  </div>
+
+  <!-- Portal-true filter row (notes §8): the live board's five labeled dropdowns. -->
+  <div class="rc-scoreboard-filters" aria-hidden="true">
+    <span class="rc-scoreboard-filter"><i>Cycle</i>2026 &#9662;</span>
+    <span class="rc-scoreboard-filter"><i>Race</i>All &#9662;</span>
+    <span class="rc-scoreboard-filter"><i>Market</i>All &#9662;</span>
+    <span class="rc-scoreboard-filter"><i>Advertiser Name</i>All &#9662;</span>
+    <span class="rc-scoreboard-filter"><i>Stage</i>General &#9662;</span>
+  </div>
+
+  <div class="rc-scoreboard-pills" aria-hidden="true">
+    <button type="button" class="rc-scoreboard-pill rc-scoreboard-pill-on" tabindex="-1">All 8</button>
+    <button type="button" class="rc-scoreboard-pill" tabindex="-1">Gov 3</button>
+    <button type="button" class="rc-scoreboard-pill" tabindex="-1">House 4</button>
+    <button type="button" class="rc-scoreboard-pill" tabindex="-1">AG 1</button>
+    <button type="button" class="rc-scoreboard-export" tabindex="-1">&#8595; Excel</button>
+  </div>
+
+  <div class="rc-scoreboard-cols">
+    <span>Race</span>
+    <span class="rc-scoreboard-colmid">D &#8592; share of committed money &#8594; R</span>
+    <span class="rc-scoreboard-colwk">Added &middot; wk of 8.17, to date &#8595;</span>
+  </div>
+
+  <div class="rc-scoreboard-body">
+
+    <div class="rc-scoreboard-row rc-scoreboard-lead-r rc-scoreboard-toprow">
+      <div class="rc-scoreboard-l1">
+        <span class="rc-scoreboard-tag">AG</span>
+        <span class="rc-scoreboard-name">Midstate Attorney General</span>
+        <span class="rc-scoreboard-wk">+$3.3M</span>
+      </div>
+      <div class="rc-scoreboard-l2">
+        <span class="rc-scoreboard-money">D <b>$11.6M</b> &middot; R <b>$17.6M</b> committed</span>
+        <span class="rc-scoreboard-pct rc-scoreboard-pd">40%</span>
+        <span class="rc-scoreboard-bar"><span class="rc-scoreboard-fd" style="width:40%"></span><span class="rc-scoreboard-fr" style="width:60%"></span><span class="rc-scoreboard-mid"></span></span>
+        <span class="rc-scoreboard-pct rc-scoreboard-pr">60%</span>
+      </div>
+      <div class="rc-scoreboard-l3">
+        <span class="rc-scoreboard-split rc-scoreboard-split-d">D aired $6.2M &middot; booked fwd $5.4M</span>
+        <span class="rc-scoreboard-split rc-scoreboard-split-r">R aired $9.8M &middot; booked fwd $7.8M</span>
+      </div>
+      <div class="rc-scoreboard-l3">
+        <span class="rc-scoreboard-split">streaming &asymp;$1.1M est. beside &middot; YouTube + premium apps + FAST &middot; never summed</span>
+      </div>
+    </div>
+
+    <div class="rc-scoreboard-row rc-scoreboard-lead-r">
+      <div class="rc-scoreboard-l1">
+        <span class="rc-scoreboard-tag">GOV</span>
+        <span class="rc-scoreboard-name">Midstate Governor</span>
+        <span class="rc-scoreboard-wk">+$2.3M</span>
+      </div>
+      <div class="rc-scoreboard-l2">
+        <span class="rc-scoreboard-money">D <b>$8.4M</b> &middot; R <b>$10.9M</b> committed</span>
+        <span class="rc-scoreboard-pct rc-scoreboard-pd">44%</span>
+        <span class="rc-scoreboard-bar"><span class="rc-scoreboard-fd" style="width:44%"></span><span class="rc-scoreboard-fr" style="width:56%"></span><span class="rc-scoreboard-mid"></span></span>
+        <span class="rc-scoreboard-pct rc-scoreboard-pr">56%</span>
+      </div>
+      <div class="rc-scoreboard-l3">
+        <span class="rc-scoreboard-split rc-scoreboard-split-d">D aired $4.6M &middot; booked fwd $3.8M</span>
+        <span class="rc-scoreboard-split rc-scoreboard-split-r">R aired $6.1M &middot; booked fwd $4.8M</span>
+      </div>
+    </div>
+
+    <div class="rc-scoreboard-row rc-scoreboard-lead-r">
+      <div class="rc-scoreboard-l1">
+        <span class="rc-scoreboard-tag">GOV</span>
+        <span class="rc-scoreboard-name">North River Governor</span>
+        <span class="rc-scoreboard-wk">+$1.8M</span>
+      </div>
+      <div class="rc-scoreboard-l2">
+        <span class="rc-scoreboard-money">D <b>$6.8M</b> &middot; R <b>$7.3M</b> committed</span>
+        <span class="rc-scoreboard-pct rc-scoreboard-pd">48%</span>
+        <span class="rc-scoreboard-bar"><span class="rc-scoreboard-fd" style="width:48%"></span><span class="rc-scoreboard-fr" style="width:52%"></span><span class="rc-scoreboard-mid"></span></span>
+        <span class="rc-scoreboard-pct rc-scoreboard-pr">52%</span>
+      </div>
+    </div>
+
+    <div class="rc-scoreboard-row rc-scoreboard-lead-d">
+      <div class="rc-scoreboard-l1">
+        <span class="rc-scoreboard-tag">HOUSE</span>
+        <span class="rc-scoreboard-name">District 4 Special</span>
+        <span class="rc-scoreboard-wk">+$1.4M</span>
+      </div>
+      <div class="rc-scoreboard-l2">
+        <span class="rc-scoreboard-money">D <b>$5.3M</b> &middot; R <b>$4.9M</b> committed</span>
+        <span class="rc-scoreboard-pct rc-scoreboard-pd">52%</span>
+        <span class="rc-scoreboard-bar"><span class="rc-scoreboard-fd" style="width:52%"></span><span class="rc-scoreboard-fr" style="width:48%"></span><span class="rc-scoreboard-mid"></span></span>
+        <span class="rc-scoreboard-pct rc-scoreboard-pr">48%</span>
+      </div>
+    </div>
+
+    <div class="rc-scoreboard-row rc-scoreboard-lead-d">
+      <div class="rc-scoreboard-l1">
+        <span class="rc-scoreboard-tag">HOUSE</span>
+        <span class="rc-scoreboard-name">District 7 Special</span>
+        <span class="rc-scoreboard-wk">+$1.0M</span>
+      </div>
+      <div class="rc-scoreboard-l2">
+        <span class="rc-scoreboard-money">D <b>$4.1M</b> &middot; R <b>$3.9M</b> committed</span>
+        <span class="rc-scoreboard-pct rc-scoreboard-pd">51%</span>
+        <span class="rc-scoreboard-bar"><span class="rc-scoreboard-fd" style="width:51%"></span><span class="rc-scoreboard-fr" style="width:49%"></span><span class="rc-scoreboard-mid"></span></span>
+        <span class="rc-scoreboard-pct rc-scoreboard-pr">49%</span>
+      </div>
+    </div>
+
+    <div class="rc-scoreboard-row rc-scoreboard-lead-r">
+      <div class="rc-scoreboard-l1">
+        <span class="rc-scoreboard-tag">HOUSE</span>
+        <span class="rc-scoreboard-name">District 9 Special</span>
+        <span class="rc-scoreboard-wk">+$800K</span>
+      </div>
+      <div class="rc-scoreboard-l2">
+        <span class="rc-scoreboard-money">D <b>$2.9M</b> &middot; R <b>$3.1M</b> committed</span>
+        <span class="rc-scoreboard-pct rc-scoreboard-pd">48%</span>
+        <span class="rc-scoreboard-bar"><span class="rc-scoreboard-fd" style="width:48%"></span><span class="rc-scoreboard-fr" style="width:52%"></span><span class="rc-scoreboard-mid"></span></span>
+        <span class="rc-scoreboard-pct rc-scoreboard-pr">52%</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="rc-scoreboard-foot">
+    <span>Illustrative figures &middot; synthetic races &middot; share = share of committed dollars (aired + booked forward), stated window &middot; Added = committed dollars added so far in the week of Aug 17, a week still in progress</span>
+    <span>2 more of the 8 synthetic races below the crop &middot; the demo shows the full grid</span>
+  </div>
+</div>
+
+<style>
+.rc-scoreboard{
+  box-sizing:border-box; width:100%; max-width:100%; overflow:hidden;
+  background:#ffffff; color:#0D2E4A;
+  border:1px solid rgba(13,46,74,.16); border-top:3px solid #08243B;
+  font-family:Inter,'Helvetica Neue',Arial,sans-serif;
+  font-size:10px; line-height:1.25;
+  padding:9px 12px 7px;
+}
+.rc-scoreboard *, .rc-scoreboard *::before, .rc-scoreboard *::after{ box-sizing:border-box; }
+
+/* title bar */
+.rc-scoreboard-titlebar{ display:flex; align-items:center; gap:5px; margin-bottom:7px; }
+.rc-scoreboard-dot{
+  width:6px; height:6px; border-radius:50%; background:#A8D14E;
+  outline:1px solid rgba(8,36,59,.25); flex:0 0 auto;
+  animation:rc-scoreboard-pulse 2.4s ease-out 2;
+}
+.rc-scoreboard-title{ font-size:11px; font-weight:700; letter-spacing:.2px; color:#08243B; }
+.rc-scoreboard-scope{ font-size:8.5px; color:#5b7186; font-weight:500; }
+.rc-scoreboard-stamp{
+  margin-left:auto;
+  font-family:'JetBrains Mono','SF Mono',Menlo,monospace;
+  font-size:8.5px; font-weight:600; letter-spacing:.4px; text-transform:uppercase;
+  color:#1B4F72; border:1px solid rgba(27,79,114,.35);
+  padding:2px 4px; white-space:nowrap;
+  font-variant-numeric:tabular-nums lining-nums;
+}
+
+/* portal-true filter dropdowns (notes §8) */
+.rc-scoreboard-filters{ display:flex; flex-wrap:wrap; gap:3px; margin-bottom:5px; }
+.rc-scoreboard-filter{
+  display:inline-flex; align-items:baseline; gap:4px;
+  font-size:8.5px; font-weight:600; color:#0D2E4A;
+  background:#F4F8FB; border:1px solid rgba(13,46,74,.18); border-radius:2px;
+  padding:2.5px 6px; white-space:nowrap;
+}
+.rc-scoreboard-filter i{
+  font-style:normal; font-family:'JetBrains Mono','SF Mono',Menlo,monospace;
+  font-size:8.5px; font-weight:600; letter-spacing:.5px; text-transform:uppercase;
+  color:#5b7186;
+}
+
+/* filter pills + export */
+.rc-scoreboard-pills{ display:flex; align-items:center; gap:3px; margin-bottom:7px; }
+.rc-scoreboard-pill{
+  appearance:none; font:inherit; font-size:8.5px; font-weight:600; cursor:default;
+  color:#1B4F72; background:#fff; border:1px solid rgba(27,79,114,.3);
+  border-radius:2px; padding:2.5px 6px; line-height:1; white-space:nowrap;
+}
+.rc-scoreboard-pill-on{ background:#1B4F72; border-color:#1B4F72; color:#fff; }
+.rc-scoreboard-export{
+  appearance:none; font:inherit; margin-left:auto; cursor:default;
+  font-size:8.5px; font-weight:700; letter-spacing:.2px;
+  color:#08243B; background:#A8D14E; border:1px solid #8fb83c; border-radius:2px;
+  padding:2.5px 7px; line-height:1; white-space:nowrap;
+}
+
+/* column header */
+.rc-scoreboard-cols{
+  display:flex; align-items:baseline; justify-content:space-between;
+  font-family:'JetBrains Mono','SF Mono',Menlo,monospace;
+  font-size:8.5px; font-weight:600; letter-spacing:.5px; text-transform:uppercase;
+  color:#5b7186; border-bottom:1px solid rgba(13,46,74,.16);
+  padding-bottom:3px;
+}
+.rc-scoreboard-colmid{ color:#2D8BBA; }
+.rc-scoreboard-colwk{ color:#08243B; }
+
+/* rows */
+.rc-scoreboard-row{
+  padding:5px 0 5px 6px; border-bottom:1px solid rgba(13,46,74,.08);
+  border-left:2px solid transparent;
+}
+.rc-scoreboard-row:hover{ background:#F4F8FB; }
+.rc-scoreboard-lead-d{ border-left-color:#2C5F9E; }
+.rc-scoreboard-lead-r{ border-left-color:#B03A48; }
+.rc-scoreboard-toprow{ animation:rc-scoreboard-settle 1.8s ease-out .2s both; }
+
+.rc-scoreboard-l1{ display:flex; align-items:baseline; gap:5px; }
+.rc-scoreboard-tag{
+  font-family:'JetBrains Mono','SF Mono',Menlo,monospace;
+  font-size:8.5px; font-weight:700; letter-spacing:.6px;
+  color:#1B4F72; background:rgba(27,79,114,.08);
+  padding:1px 3px; flex:0 0 auto;
+}
+.rc-scoreboard-name{
+  font-size:10px; font-weight:600; color:#0D2E4A;
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis; min-width:0;
+}
+.rc-scoreboard-wk{
+  margin-left:auto; flex:0 0 auto;
+  font-family:'JetBrains Mono','SF Mono',Menlo,monospace;
+  font-size:9px; font-weight:700; color:#08243B;
+  font-variant-numeric:tabular-nums lining-nums; white-space:nowrap;
+}
+
+.rc-scoreboard-l2{ display:flex; align-items:center; gap:5px; margin-top:3px; }
+.rc-scoreboard-money{
+  flex:0 0 auto;
+  font-family:'JetBrains Mono','SF Mono',Menlo,monospace;
+  font-size:8.5px; color:#5b7186;
+  font-variant-numeric:tabular-nums lining-nums; white-space:nowrap;
+}
+.rc-scoreboard-money b{ font-weight:700; color:#0D2E4A; }
+.rc-scoreboard-pct{
+  flex:0 0 auto;
+  font-family:'JetBrains Mono','SF Mono',Menlo,monospace;
+  font-size:8.5px; font-weight:700;
+  font-variant-numeric:tabular-nums lining-nums;
+}
+.rc-scoreboard-pd{ color:#2C5F9E; }
+.rc-scoreboard-pr{ color:#B03A48; }
+
+/* aired v booked split line: only some rows carry it, demonstrating the separation */
+.rc-scoreboard-l3{ display:flex; justify-content:space-between; gap:6px; margin-top:2px; flex-wrap:wrap; }
+.rc-scoreboard-split{
+  font-family:'JetBrains Mono','SF Mono',Menlo,monospace;
+  font-size:8.5px; color:#5b7186;
+  font-variant-numeric:tabular-nums lining-nums; white-space:nowrap;
+}
+.rc-scoreboard-split-d{ color:#2C5F9E; }
+.rc-scoreboard-split-r{ color:#B03A48; }
+
+/* share-of-money bar: D fills from left, R from right */
+.rc-scoreboard-bar{
+  position:relative; display:flex; flex:1 1 auto; min-width:60px; height:6px;
+  background:#EDF1F5; overflow:hidden;
+}
+.rc-scoreboard-fd{
+  display:block; height:100%; background:#2C5F9E;
+  box-shadow:1px 0 0 #ffffff;
+  transform-origin:left center;
+  animation:rc-scoreboard-draw .7s ease-out;
+}
+.rc-scoreboard-fr{
+  display:block; height:100%; background:#B03A48;
+  transform-origin:right center;
+  animation:rc-scoreboard-draw .7s ease-out;
+}
+.rc-scoreboard-mid{
+  position:absolute; left:50%; top:-1px; width:1px; height:8px;
+  background:rgba(8,36,59,.55);
+}
+.rc-scoreboard-row:nth-child(2) .rc-scoreboard-fd,
+.rc-scoreboard-row:nth-child(2) .rc-scoreboard-fr{ animation-delay:.06s; }
+.rc-scoreboard-row:nth-child(3) .rc-scoreboard-fd,
+.rc-scoreboard-row:nth-child(3) .rc-scoreboard-fr{ animation-delay:.12s; }
+.rc-scoreboard-row:nth-child(4) .rc-scoreboard-fd,
+.rc-scoreboard-row:nth-child(4) .rc-scoreboard-fr{ animation-delay:.18s; }
+.rc-scoreboard-row:nth-child(5) .rc-scoreboard-fd,
+.rc-scoreboard-row:nth-child(5) .rc-scoreboard-fr{ animation-delay:.24s; }
+.rc-scoreboard-row:nth-child(6) .rc-scoreboard-fd,
+.rc-scoreboard-row:nth-child(6) .rc-scoreboard-fr{ animation-delay:.30s; }
+
+/* footer */
+.rc-scoreboard-foot{
+  display:flex; justify-content:space-between; gap:6px; flex-wrap:wrap;
+  padding-top:5px; font-size:9px; color:#5A6B7C;
+}
+
+@keyframes rc-scoreboard-draw{ from{ transform:scaleX(0); } }
+@keyframes rc-scoreboard-settle{
+  0%{ background:rgba(168,209,78,.22); }
+  100%{ background:rgba(168,209,78,0); }
+}
+@keyframes rc-scoreboard-pulse{
+  0%,100%{ box-shadow:0 0 0 0 rgba(168,209,78,.55); }
+  55%{ box-shadow:0 0 0 4px rgba(168,209,78,0); }
+}
+
+/* R5: desktop scale. The wider stage carries a larger type ramp so the board
+   reads in the same size class as the export tables (11 rows / 10 foot / 9 pills). */
+@media (min-width:1024px){
+  .rc-scoreboard{ font-size:11px; }
+  .rc-scoreboard-title{ font-size:12px; }
+  .rc-scoreboard-scope{ font-size:9.5px; }
+  .rc-scoreboard-stamp{ font-size:8.5px; }
+  .rc-scoreboard-filter{ font-size:8.5px; }
+  .rc-scoreboard-filter i{ font-size:8.5px; }
+  .rc-scoreboard-pill, .rc-scoreboard-export{ font-size:9px; }
+  .rc-scoreboard-cols{ font-size:8.5px; }
+  .rc-scoreboard-name{ font-size:11px; }
+  .rc-scoreboard-tag{ font-size:8.5px; }
+  .rc-scoreboard-wk{ font-size:10px; }
+  .rc-scoreboard-money{ font-size:8.6px; }
+  .rc-scoreboard-pct{ font-size:8.5px; }
+  .rc-scoreboard-split{ font-size:8.5px; }
+  .rc-scoreboard-bar{ height:8px; }
+  .rc-scoreboard-foot{ font-size:10px; }
+}
+
+@media (prefers-reduced-motion:reduce){
+  .rc-scoreboard, .rc-scoreboard *{ animation:none !important; transition:none !important; }
+}
+</style>
+    </div>
+      <p class="glimpse-cap">Cropped on purpose. The full grid, race by race, opens in the demo.
+        <a href="contact.html">Request one</a> &middot;
+        <a href="assets/apps/app-scoreboard.webp" target="_blank" rel="noopener">See the real screen</a></p>
+    <div class="exports">
+      <span class="exports__k">What it exports</span>
+      <span class="chip">Excel workbook</span>
+      <p class="exports__t">The full race grid, aired and booked-forward as separate columns,
+        the posted-through date written into the sheet.</p>
+    </div>
+    <div class="stamp">
+      <span><b>Posted through</b> Aug 21, 2026</span>
+      <span><b>Booked forward</b> ordered, not delivered, its own line</span>
+      <span><b>Lanes</b> broadcast, local cable, radio at order grain</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CREATIVE MATRIX ============ -->
+<section class="section section--tint" id="creative-matrix">
+  <div class="wrap">
+    <div class="split split--rev" style="margin-bottom:1.8rem">
+      <div>
+        <p class="eyebrow">Decide &middot; Creative Matrix</p>
+        <h2>The case for a candidate, separated from the case against.</h2>
+      </div>
+      <div>
+      <p class="lede">Every spot in a race is sorted into the case for each candidate and the
+        case against, kept apart rather than averaged into a tone score. What both sides are
+        arguing, and what it cost to argue it.</p>
+      <ul class="small">
+        <li>Each theme carries the dollars behind it and the air dates of every cut under it</li>
+        <li>The archive shows an argument get tested, dropped, and brought back harder</li>
+        <li>See who set the terms: <a href="methodology.html#definitional-advantage">the weight
+          behind an argument before the other side answered it</a></li>
+        <li>Spots that do not speak to the matchup ride an undercard bucket, never forced onto a side</li>
+        <li>Cuts captured on streaming file into the same matrix as the TV cuts, the capture platform attached</li>
+      </ul>
+      </div>
+    </div>
+    <!-- Ruling 22: shown as a cropped glimpse; the demo is the reveal. -->
+    <div class="shot-stage shot-stage--r rc-stage glimpse glimpse--h340">
+<div class="rc rc-matrix">
+  <div class="rc-matrix-chrome">
+    <span class="rc-matrix-dot" aria-hidden="true"></span>
+    <span class="rc-matrix-app">Creative Matrix</span>
+    <span class="rc-matrix-pill rc-matrix-pill-on">North River Senate</span>
+    <span class="rc-matrix-pill">General</span>
+    <span class="rc-matrix-export">Export</span>
+  </div>
+  <div class="rc-matrix-body">
+    <div class="rc-matrix-titlerow">
+      <div class="rc-matrix-titleleft">
+        <div class="rc-matrix-title">Hale vs Ellery: the matchup</div>
+        <div class="rc-matrix-sub">detections + booked dollars &middot; $7.2M tracked in this general &middot; $4.4M more rides the undercard</div>
+      </div>
+      <span class="rc-matrix-stamp">THROUGH<br>AUG 12, 2026</span>
+    </div>
+    <div class="rc-matrix-split">
+      <div class="rc-matrix-splitlabels">
+        <span class="rc-matrix-sl-for">D-ALIGNED &middot; $4.1M &middot; 57%</span>
+        <span class="rc-matrix-sl-against">43% &middot; $3.1M &middot; R-ALIGNED</span>
+      </div>
+      <div class="rc-matrix-splitbar" role="img" aria-label="D-aligned money 4.1 million dollars, 57 percent; R-aligned money 3.1 million dollars, 43 percent">
+        <span class="rc-matrix-seg rc-matrix-seg-for" style="width:57%"></span>
+        <span class="rc-matrix-seg rc-matrix-seg-against" style="width:43%"></span>
+      </div>
+      <div class="rc-matrix-legend">attacks run one way so far: $2.4M against Hale, $0 against Ellery &middot; the empty archive prints as empty</div>
+    </div>
+    <div class="rc-matrix-cols">
+      <div class="rc-matrix-col rc-matrix-col-against">
+        <div class="rc-matrix-colhead"><span class="rc-matrix-sw rc-matrix-sw-against"></span>THE CASE AGAINST HALE &middot; $2.4M</div>
+        <div class="rc-matrix-colmeta"><span class="rc-matrix-livedot"></span>4 ads on air today &middot; +$410K vs last wk</div>
+        <div class="rc-matrix-row">
+          <div class="rc-matrix-rowtop"><span class="rc-matrix-theme">"A rule they wrote"</span><span class="rc-matrix-spend">$1.1M</span></div>
+          <div class="rc-matrix-barrow"><div class="rc-matrix-bar"><span class="rc-matrix-fill rc-matrix-fill-against" style="width:46%"></span></div><span class="rc-matrix-share">46%</span></div>
+        </div>
+        <div class="rc-matrix-row">
+          <div class="rc-matrix-rowtop"><span class="rc-matrix-theme">Taxes &amp; Spending</span><span class="rc-matrix-spend">$800K</span></div>
+          <div class="rc-matrix-barrow"><div class="rc-matrix-bar"><span class="rc-matrix-fill rc-matrix-fill-against" style="width:33%"></span></div><span class="rc-matrix-share">33%</span></div>
+        </div>
+        <div class="rc-matrix-row">
+          <div class="rc-matrix-rowtop"><span class="rc-matrix-theme">Party Leadership</span><span class="rc-matrix-spend">$500K</span></div>
+          <div class="rc-matrix-barrow"><div class="rc-matrix-bar"><span class="rc-matrix-fill rc-matrix-fill-against" style="width:21%"></span></div><span class="rc-matrix-share">21%</span></div>
+        </div>
+        <div class="rc-matrix-more">the top theme was tested for eleven days in the spring, dropped, and is back with a harder edit</div>
+      </div>
+      <div class="rc-matrix-col rc-matrix-col-for">
+        <div class="rc-matrix-colhead"><span class="rc-matrix-sw rc-matrix-sw-for"></span>THE CASE AGAINST ELLERY &middot; $0</div>
+        <div class="rc-matrix-colmeta"><span class="rc-matrix-livedot"></span>0 ads on air today</div>
+        <div class="rc-matrix-more">no attack money against Ellery detected &middot; that archive is empty, and it says so</div>
+        <div class="rc-matrix-more">the two positive cases, $4.1M for Hale and $700K for Ellery (detections + booked), are the other two blocks &middot; the demo shows all four</div>
+      </div>
+    </div>
+    <div class="rc-matrix-foot">Illustrative figures on a synthetic race. The stamp is not. The ad cards, the positive-case views and the theme archive are in the product; the demo shows the rest.</div>
+  </div>
+</div>
+<style>
+.rc-matrix{
+  --rcm-navy1:#1B4F72; --rcm-navy2:#0D2E4A; --rcm-navy3:#08243B;
+  --rcm-lime:#A8D14E; --rcm-blue:#2D8BBA; --rcm-blue2:#5B9BD5; --rcm-teal:#00ACC1;
+  --rcm-ink:#14232F; --rcm-mute:#5A6B7C; --rcm-track:#E8EFF5; --rcm-line:#D7E1EA;
+  --rcm-mono:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;
+  font-family:Inter,-apple-system,'Segoe UI',sans-serif;
+  max-width:100%;width:100%;background:#FFFFFF;border:1px solid var(--rcm-line);
+  border-radius:10px;overflow:hidden;color:var(--rcm-ink);
+  box-shadow:0 6px 18px rgba(8,36,59,.10);line-height:1.25;text-align:left;
+}
+.rc-matrix *,.rc-matrix *::before,.rc-matrix *::after{box-sizing:border-box;min-width:0;margin:0;padding:0}
+.rc-matrix .rc-matrix-chrome{display:flex;align-items:center;gap:5px;background:var(--rcm-navy3);padding:6px 10px}
+.rc-matrix .rc-matrix-dot{width:6px;height:6px;border-radius:50%;background:var(--rcm-lime);flex:0 0 auto;animation:rc-matrix-pulse 2.4s ease-in-out 2}
+.rc-matrix .rc-matrix-app{font-size:8.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#EAF2F8;white-space:nowrap;margin-right:2px}
+.rc-matrix .rc-matrix-pill{font-family:var(--rcm-mono);font-size:8.5px;color:#A9C3D6;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:9px;padding:2px 7px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rc-matrix .rc-matrix-pill-on{color:#DCEDF7;border-color:var(--rcm-teal);background:rgba(0,172,193,.16)}
+.rc-matrix .rc-matrix-export{margin-left:auto;font-family:var(--rcm-mono);font-size:8.5px;color:var(--rcm-lime);border:1px solid rgba(168,209,78,.55);border-radius:4px;padding:2px 7px;white-space:nowrap;flex:0 0 auto}
+.rc-matrix .rc-matrix-body{padding:8px 10px 7px}
+.rc-matrix .rc-matrix-titlerow{display:flex;align-items:flex-start;gap:8px}
+.rc-matrix .rc-matrix-titleleft{flex:1 1 auto;min-width:0}
+.rc-matrix .rc-matrix-title{font-size:11px;font-weight:700;color:var(--rcm-navy2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rc-matrix .rc-matrix-sub{font-family:var(--rcm-mono);font-variant-numeric:tabular-nums lining-nums;font-size:8.5px;color:var(--rcm-mute);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rc-matrix .rc-matrix-stamp{flex:0 0 auto;font-family:var(--rcm-mono);font-size:8.5px;letter-spacing:.06em;color:var(--rcm-navy2);border:1px solid var(--rcm-teal);border-radius:3px;padding:2px 5px;text-align:center;background:rgba(0,172,193,.07)}
+.rc-matrix .rc-matrix-split{margin-top:7px}
+.rc-matrix .rc-matrix-splitlabels{display:flex;justify-content:space-between;gap:6px;font-family:var(--rcm-mono);font-variant-numeric:tabular-nums lining-nums;font-size:8.5px;font-weight:700}
+.rc-matrix .rc-matrix-sl-for{color:var(--rcm-blue);white-space:nowrap}
+.rc-matrix .rc-matrix-sl-against{color:var(--rcm-navy3);white-space:nowrap}
+.rc-matrix .rc-matrix-splitbar{display:flex;gap:2px;height:8px;margin-top:3px;border-radius:2px;overflow:hidden}
+.rc-matrix .rc-matrix-seg{display:block;height:100%}
+.rc-matrix .rc-matrix-seg-for{background:var(--rcm-blue)}
+.rc-matrix .rc-matrix-seg-against{background:var(--rcm-navy3)}
+.rc-matrix .rc-matrix-legend{font-family:var(--rcm-mono);font-size:9px;color:var(--rcm-mute);text-align:center;margin-top:4px;line-height:1.4}
+.rc-matrix .rc-matrix-cols{display:grid;grid-template-columns:1fr 1fr;gap:0 12px;margin-top:6px}
+.rc-matrix .rc-matrix-col{min-width:0;padding-top:4px}
+.rc-matrix .rc-matrix-col-for{border-top:2px solid var(--rcm-blue)}
+.rc-matrix .rc-matrix-col-against{border-top:2px solid var(--rcm-navy3)}
+.rc-matrix .rc-matrix-colhead{display:flex;align-items:center;gap:4px;font-size:8.5px;font-weight:700;letter-spacing:.05em;color:var(--rcm-navy2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rc-matrix .rc-matrix-sw{width:6px;height:6px;border-radius:1px;flex:0 0 auto}
+.rc-matrix .rc-matrix-sw-for{background:var(--rcm-blue)}
+.rc-matrix .rc-matrix-sw-against{background:var(--rcm-navy3)}
+.rc-matrix .rc-matrix-colmeta{display:flex;align-items:center;gap:4px;font-family:var(--rcm-mono);font-size:8.5px;color:var(--rcm-mute);margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rc-matrix .rc-matrix-livedot{width:5px;height:5px;border-radius:50%;background:var(--rcm-lime);flex:0 0 auto}
+.rc-matrix .rc-matrix-row{margin-top:6px;border-radius:5px;padding:2px 3px}
+.rc-matrix .rc-matrix-rowtop{display:flex;justify-content:space-between;align-items:baseline;gap:6px}
+.rc-matrix .rc-matrix-theme{font-size:9px;font-weight:600;color:var(--rcm-ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rc-matrix .rc-matrix-spend{font-family:var(--rcm-mono);font-variant-numeric:tabular-nums lining-nums;font-size:9px;font-weight:700;color:var(--rcm-navy2);flex:0 0 auto}
+.rc-matrix .rc-matrix-barrow{display:flex;align-items:center;gap:5px;margin-top:3px}
+.rc-matrix .rc-matrix-bar{flex:1 1 auto;height:5px;background:var(--rcm-track);border-radius:2px;overflow:hidden}
+.rc-matrix .rc-matrix-fill{display:block;height:100%;border-radius:2px;transform-origin:left center;animation:rc-matrix-draw .8s cubic-bezier(.22,.9,.35,1) both}
+.rc-matrix .rc-matrix-fill-for{background:var(--rcm-blue2)}
+.rc-matrix .rc-matrix-fill-against{background:var(--rcm-navy1)}
+.rc-matrix .rc-matrix-share{font-family:var(--rcm-mono);font-variant-numeric:tabular-nums lining-nums;font-size:8.5px;color:#4A6274;flex:0 0 26px;text-align:right}
+.rc-matrix .rc-matrix-more{font-family:var(--rcm-mono);font-size:9px;color:var(--rcm-mute);margin-top:6px;padding:0 3px;line-height:1.45}
+.rc-matrix .rc-matrix-row + .rc-matrix-row .rc-matrix-fill{animation-delay:.07s}
+.rc-matrix .rc-matrix-row + .rc-matrix-row + .rc-matrix-row .rc-matrix-fill{animation-delay:.14s}
+.rc-matrix .rc-matrix-row + .rc-matrix-row + .rc-matrix-row + .rc-matrix-row .rc-matrix-fill{animation-delay:.21s}
+.rc-matrix .rc-matrix-foot{font-family:var(--rcm-mono);font-size:9px;line-height:1.5;color:var(--rcm-mute);border-top:1px solid var(--rcm-line);margin-top:8px;padding-top:5px}
+@keyframes rc-matrix-draw{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes rc-matrix-pulse{0%,100%{box-shadow:0 0 0 0 rgba(168,209,78,.45)}50%{box-shadow:0 0 0 4px rgba(168,209,78,0)}}
+/* R5: desktop scale, same size class as the export tables. */
+@media (min-width:1024px){
+  .rc-matrix .rc-matrix-app{font-size:9.5px}
+  .rc-matrix .rc-matrix-pill{font-size:9px}
+  .rc-matrix .rc-matrix-export{font-size:9px}
+  .rc-matrix .rc-matrix-title{font-size:13px}
+  .rc-matrix .rc-matrix-sub{font-size:8.5px}
+  .rc-matrix .rc-matrix-stamp{font-size:8.5px}
+  .rc-matrix .rc-matrix-splitlabels{font-size:8.5px}
+  .rc-matrix .rc-matrix-legend{font-size:9.5px}
+  .rc-matrix .rc-matrix-colhead{font-size:8.5px}
+  .rc-matrix .rc-matrix-colmeta{font-size:8.5px}
+  .rc-matrix .rc-matrix-theme,.rc-matrix .rc-matrix-spend{font-size:11px}
+  .rc-matrix .rc-matrix-share{font-size:8.5px}
+  .rc-matrix .rc-matrix-bar{height:6px}
+  .rc-matrix .rc-matrix-more{font-size:9.5px}
+  .rc-matrix .rc-matrix-foot{font-size:10px}
+}
+@media (prefers-reduced-motion:reduce){
+  .rc-matrix,.rc-matrix *{animation:none !important}
+}
+</style>
+    </div>
+      <p class="glimpse-cap">Both sides' full case opens in the demo.
+        <a href="contact.html">Request one</a> &middot;
+        <a href="assets/apps/app-creative-matrix.webp" target="_blank" rel="noopener">See the real screen</a></p>
+    <div class="exports">
+      <span class="exports__k">What it exports</span>
+      <span class="chip">PDF brief</span><span class="chip">Excel workbook</span>
+      <p class="exports__t">The rotation grid with cut-level dates and dollars, ready for the
+        Monday client note.</p>
+    </div>
+    <div class="stamp">
+      <span><b>Grain</b> creative × market × week</span>
+      <span><b>Artifacts</b> the actual creative and its AI transcript, one click away</span>
+      <span><b>Posted through</b> stamped on the grid</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BUY SHEET ============ -->
+<section class="section" id="buy-sheet">
+  <div class="wrap">
+    <div class="split" style="margin-bottom:1.8rem">
+      <div>
+        <p class="eyebrow">Decide &middot; Buy Sheet</p>
+        <h2>The competitive buy at station grain: markets down, weeks across, points and dollars in the cells.</h2>
+      </div>
+      <div>
+      <p class="lede">Broadcast, local cable and radio in one grid rather than three
+        exports you reconcile yourself. Station grain because that is the level orders
+        are placed at: it settles where a competitor is actually weighted, down to which
+        station got the money.</p>
+      <ul class="small">
+        <li>Blocks break out per advertiser, per team or per party</li>
+        <li>Excel workbook with formatting intact, plus a print sheet sized to hand across a table</li>
+        <li>The streaming lane rides beside the grid at state grain, estimated, never in these totals</li>
+        <li>Sellers read the same grid from the other side: <a href="index.html#sell-side">the full seller read</a></li>
+      </ul>
+      </div>
+    </div>
+    <!-- Ruling 22: shown as a cropped glimpse; the demo is the reveal. -->
+    <div class="shot-stage shot-stage--l rc-stage glimpse glimpse--h420">
+<div class="rc rc-buysheet">
+  <div class="rc-buysheet-top">
+    <svg class="rc-buysheet-glyph" width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><rect x="0" y="0" width="10" height="10" fill="none" stroke="#A8D14E" stroke-width="1.4"/><line x1="0" y1="3.4" x2="10" y2="3.4" stroke="#A8D14E" stroke-width="1"/><line x1="0" y1="6.8" x2="10" y2="6.8" stroke="#A8D14E" stroke-width="1"/><line x1="3.4" y1="0" x2="3.4" y2="10" stroke="#A8D14E" stroke-width="1"/></svg>
+    <span class="rc-buysheet-appname">Buy Sheet</span>
+    <span class="rc-buysheet-illus">Illustrative figures</span>
+    <span class="rc-buysheet-stamp"><i class="rc-buysheet-dot"></i>BOOKED, FILED $ &middot; POSTED THRU AUG 30, 2026</span>
+  </div>
+
+  <div class="rc-buysheet-toolbar">
+    <span class="rc-buysheet-seg"><span class="rc-buysheet-on">Grouped</span><span>Flat</span></span>
+    <span class="rc-buysheet-seg"><span class="rc-buysheet-on">Advertiser</span><span>Team</span></span>
+    <span class="rc-buysheet-seg"><span class="rc-buysheet-on">Party first</span><span>Spend</span></span>
+    <span class="rc-buysheet-export">Export to Excel</span>
+  </div>
+
+  <div class="rc-buysheet-flight">
+    <span class="rc-buysheet-flight-k">Whole flight</span>
+    <span class="rc-buysheet-flight-d">D $1.50M</span>
+    <span class="rc-buysheet-flight-bar"><i class="rc-buysheet-flight-fd" style="width:52%"></i><i class="rc-buysheet-flight-fr" style="width:48%"></i></span>
+    <span class="rc-buysheet-flight-r">R $1.37M</span>
+    <span class="rc-buysheet-flight-note">D = Alpha $1.24M + 1 more committee $260K &middot; R = Beta $950K + Gamma PAC $420K &middot; unresolved booked $100K, neither side yet</span>
+  </div>
+
+  <div class="rc-buysheet-body">
+
+    <section class="rc-buysheet-block">
+      <header class="rc-buysheet-bh rc-buysheet-bh-r">
+        <span class="rc-buysheet-bt">Beta Action Fund (R)</span>
+        <span class="rc-buysheet-bn">$950K &middot; Aug 31 &#8594; Nov 3 &middot; 10 wks</span>
+      </header>
+      <p class="small tbl-hint rc-buysheet-hint">Swipe the grid sideways to see every week.</p>
+      <div class="rc-buysheet-scroll" tabindex="0" role="group" aria-label="Booked weeks by market and lane, scrolls sideways">
+      <table class="rc-buysheet-grid">
+        <colgroup>
+          <col class="rc-buysheet-cm"><col class="rc-buysheet-cfp"><col class="rc-buysheet-cfd">
+          <col class="rc-buysheet-cwp"><col class="rc-buysheet-cwd">
+          <col class="rc-buysheet-cwp"><col class="rc-buysheet-cwd">
+          <col class="rc-buysheet-cwp"><col class="rc-buysheet-cwd">
+        </colgroup>
+        <thead>
+          <tr>
+            <th class="rc-buysheet-hm" rowspan="2" scope="col">Market<span>weeks of</span></th>
+            <th class="rc-buysheet-hf" colspan="2" scope="colgroup">Flight total</th>
+            <th class="rc-buysheet-hw rc-buysheet-hwb" colspan="2" scope="colgroup">8.31<span>booked</span></th>
+            <th class="rc-buysheet-hw rc-buysheet-hwb" colspan="2" scope="colgroup">9.7<span>booked</span></th>
+            <th class="rc-buysheet-hw rc-buysheet-hwb" colspan="2" scope="colgroup">9.14<span>booked</span></th>
+          </tr>
+          <tr class="rc-buysheet-hu">
+            <th scope="col">pts A35+</th><th scope="col">$</th>
+            <th class="rc-buysheet-bc" scope="col">pts</th><th class="rc-buysheet-bc" scope="col">$</th>
+            <th class="rc-buysheet-bc" scope="col">pts</th><th class="rc-buysheet-bc" scope="col">$</th>
+            <th class="rc-buysheet-bc" scope="col">pts</th><th class="rc-buysheet-bc" scope="col">$</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="rc-buysheet-lane"><td colspan="9">BROADCAST</td></tr>
+          <tr class="rc-buysheet-r rc-buysheet-flash">
+            <th class="rc-buysheet-m" scope="row">Columbus</th>
+            <td class="rc-buysheet-p rc-buysheet-f">1,033</td><td class="rc-buysheet-d rc-buysheet-f">$604.3k</td>
+            <td class="rc-buysheet-p rc-buysheet-bc">169</td><td class="rc-buysheet-d rc-buysheet-bc">$98.9k</td>
+            <td class="rc-buysheet-p rc-buysheet-bc">170</td><td class="rc-buysheet-d rc-buysheet-bc">$99.5k</td>
+            <td class="rc-buysheet-p rc-buysheet-bc">137</td><td class="rc-buysheet-d rc-buysheet-bc">$80.1k</td>
+          </tr>
+          <tr class="rc-buysheet-r">
+            <th class="rc-buysheet-m" scope="row">Cleveland</th>
+            <td class="rc-buysheet-p rc-buysheet-f">440</td><td class="rc-buysheet-d rc-buysheet-f">$184.8k</td>
+            <td class="rc-buysheet-p rc-buysheet-bc">72</td><td class="rc-buysheet-d rc-buysheet-bc">$30.2k</td>
+            <td class="rc-buysheet-p rc-buysheet-bc">73</td><td class="rc-buysheet-d rc-buysheet-bc">$30.7k</td>
+            <td class="rc-buysheet-p rc-buysheet-bc">58</td><td class="rc-buysheet-d rc-buysheet-bc">$24.4k</td>
+          </tr>
+          <tr class="rc-buysheet-r">
+            <th class="rc-buysheet-m" scope="row">Toledo</th>
+            <td class="rc-buysheet-p rc-buysheet-f">220</td><td class="rc-buysheet-d rc-buysheet-f">$50.6k</td>
+            <td class="rc-buysheet-p rc-buysheet-bc">36</td><td class="rc-buysheet-d rc-buysheet-bc">$8.3k</td>
+            <td class="rc-buysheet-p rc-buysheet-bc">36</td><td class="rc-buysheet-d rc-buysheet-bc">$8.3k</td>
+            <td class="rc-buysheet-p rc-buysheet-bc">29</td><td class="rc-buysheet-d rc-buysheet-bc">$6.7k</td>
+          </tr>
+          <tr class="rc-buysheet-sub">
+            <th class="rc-buysheet-m" scope="row">All Broadcast<i>$ only</i></th>
+            <td class="rc-buysheet-p"></td><td class="rc-buysheet-d rc-buysheet-f">$839.7k</td>
+            <td class="rc-buysheet-p rc-buysheet-bc"></td><td class="rc-buysheet-d rc-buysheet-bc">$137.4k</td>
+            <td class="rc-buysheet-p rc-buysheet-bc"></td><td class="rc-buysheet-d rc-buysheet-bc">$138.5k</td>
+            <td class="rc-buysheet-p rc-buysheet-bc"></td><td class="rc-buysheet-d rc-buysheet-bc">$111.2k</td>
+          </tr>
+          <tr class="rc-buysheet-lane"><td colspan="9">CABLE</td></tr>
+          <tr class="rc-buysheet-r">
+            <th class="rc-buysheet-m" scope="row">Columbus</th>
+            <td class="rc-buysheet-p"></td><td class="rc-buysheet-d rc-buysheet-f">$82.9k</td>
+            <td class="rc-buysheet-p rc-buysheet-bc"></td><td class="rc-buysheet-d rc-buysheet-bc">$13.5k</td>
+            <td class="rc-buysheet-p rc-buysheet-bc"></td><td class="rc-buysheet-d rc-buysheet-bc">$13.7k</td>
+            <td class="rc-buysheet-p rc-buysheet-bc"></td><td class="rc-buysheet-d rc-buysheet-bc">$11.0k</td>
+          </tr>
+          <tr class="rc-buysheet-lane"><td colspan="9">RADIO</td></tr>
+          <tr class="rc-buysheet-r">
+            <th class="rc-buysheet-m" scope="row">Cleveland</th>
+            <td class="rc-buysheet-p"></td><td class="rc-buysheet-d rc-buysheet-f">$27.6k</td>
+            <td class="rc-buysheet-p rc-buysheet-bc"></td><td class="rc-buysheet-d rc-buysheet-bc">$4.5k</td>
+            <td class="rc-buysheet-p rc-buysheet-bc"></td><td class="rc-buysheet-d rc-buysheet-bc">$4.6k</td>
+            <td class="rc-buysheet-p rc-buysheet-bc"></td><td class="rc-buysheet-d rc-buysheet-bc">$3.7k</td>
+          </tr>
+          <tr class="rc-buysheet-tot">
+            <th class="rc-buysheet-m" scope="row">TOTAL<i>$ only</i></th>
+            <td class="rc-buysheet-p"></td><td class="rc-buysheet-d rc-buysheet-f">$950.2k</td>
+            <td class="rc-buysheet-p"></td><td class="rc-buysheet-d">$155.4k</td>
+            <td class="rc-buysheet-p"></td><td class="rc-buysheet-d">$156.8k</td>
+            <td class="rc-buysheet-p"></td><td class="rc-buysheet-d">$125.9k</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+      <div class="rc-buysheet-cap">
+        <span class="rc-buysheet-sw rc-buysheet-swb"></span>Every week shown is booked forward, not yet aired
+        <em>7 more weeks &#8594; Nov 3 in the export</em>
+      </div>
+    </section>
+
+    <section class="rc-buysheet-block rc-buysheet-peek" aria-hidden="true">
+      <header class="rc-buysheet-bh rc-buysheet-bh-d">
+        <span class="rc-buysheet-bt">Alpha Committee (D)</span>
+        <span class="rc-buysheet-bn">$1.24M &middot; Aug 31 &#8594; Nov 3 &middot; 10 wks</span>
+      </header>
+      <div class="rc-buysheet-scroll">
+      <table class="rc-buysheet-grid rc-buysheet-grid-d">
+        <colgroup>
+          <col class="rc-buysheet-cm"><col class="rc-buysheet-cfp"><col class="rc-buysheet-cfd">
+          <col class="rc-buysheet-cwp"><col class="rc-buysheet-cwd">
+          <col class="rc-buysheet-cwp"><col class="rc-buysheet-cwd">
+          <col class="rc-buysheet-cwp"><col class="rc-buysheet-cwd">
+        </colgroup>
+        <thead>
+          <tr>
+            <th class="rc-buysheet-hm" scope="col">Market<span>weeks of</span></th>
+            <th class="rc-buysheet-hf" colspan="2" scope="colgroup">Flight total</th>
+            <th class="rc-buysheet-hw" colspan="2" scope="colgroup">8.31<span>booked</span></th>
+            <th class="rc-buysheet-hw" colspan="2" scope="colgroup">9.7<span>booked</span></th>
+            <th class="rc-buysheet-hw" colspan="2" scope="colgroup">9.14<span>booked</span></th>
+          </tr>
+        </thead>
+      </table>
+      </div>
+    </section>
+
+  </div>
+  <div class="rc-buysheet-fade"></div>
+</div>
+<style>
+.rc-buysheet{
+  --rcbs-navy:#1B4F72; --rcbs-deep:#0D2E4A; --rcbs-ink:#08243B;
+  --rcbs-lime:#A8D14E; --rcbs-blue:#2D8BBA; --rcbs-sky:#5B9BD5; --rcbs-teal:#00ACC1;
+  --rcbs-rep:#B32626; --rcbs-repsoft:#F7E2E2; --rcbs-reptext:#7C2222;
+  --rcbs-dem:#3B66A0;
+  --rcbs-sans:Inter,"Inter var",-apple-system,"Segoe UI",Roboto,sans-serif;
+  --rcbs-mono:"JetBrains Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  position:relative; box-sizing:border-box; width:100%; max-width:640px; max-height:430px;
+  overflow:hidden; background:#FFFFFF; border:1px solid rgba(13,46,74,.18);
+  font-family:var(--rcbs-sans); color:var(--rcbs-deep); text-align:left;
+  container-type:inline-size;
+}
+.rc-buysheet *,.rc-buysheet *::before,.rc-buysheet *::after{box-sizing:border-box;margin:0;padding:0}
+
+/* One scale factor drives the type ramp. The card is its own size container:
+   when the column gives it room the type steps up with it, and below ~460px the
+   grid pans sideways inside the card chrome instead of clipping numerals. */
+.rc-buysheet-top,.rc-buysheet-toolbar,.rc-buysheet-flight,.rc-buysheet-body{--rcbs-s:1}
+@container (min-width:500px){
+  .rc-buysheet-top,.rc-buysheet-toolbar,.rc-buysheet-flight,.rc-buysheet-body{--rcbs-s:1.15}
+}
+@container (min-width:620px){
+  .rc-buysheet-top,.rc-buysheet-toolbar,.rc-buysheet-flight,.rc-buysheet-body{--rcbs-s:1.45}
+}
+/* The card is the size container, so its own max-height cannot answer a
+   container query; the viewport step tracks the same widths where the type
+   ramp engages, keeping the whole booked block above the fade. */
+@media (min-width:560px){
+  .rc-buysheet{max-height:560px}
+}
+.rc-buysheet-scroll{overflow:hidden}
+.rc-buysheet-hint{display:none}
+@container (max-width:459px){
+  .rc-buysheet-scroll{overflow-x:auto;scrollbar-width:thin;-webkit-overflow-scrolling:touch}
+  .rc-buysheet-grid{min-width:460px}
+  .rc-buysheet .rc-buysheet-top{white-space:normal;flex-wrap:wrap} /* R7 close: the posted-through stamp wraps to its own line instead of clipping the date */
+  .rc-buysheet .rc-buysheet-flight-note{white-space:normal;overflow:visible;text-overflow:clip}
+  .rc-buysheet-hint{display:block;font-size:9px;line-height:1.4;margin:5px 8px 0;color:#5A6B7C}
+  .rc-buysheet .rc-buysheet-cap{white-space:normal;overflow:visible;flex-wrap:wrap}
+  .rc-buysheet .rc-buysheet-cap em{margin-left:0}
+}
+
+/* top chrome */
+.rc-buysheet-top{display:flex;align-items:center;gap:calc(5px*var(--rcbs-s,1));padding:calc(5px*var(--rcbs-s,1)) calc(8px*var(--rcbs-s,1));background:var(--rcbs-ink);white-space:nowrap;overflow:hidden}
+.rc-buysheet-glyph{flex:0 0 auto;width:calc(10px*var(--rcbs-s,1));height:calc(10px*var(--rcbs-s,1))}
+.rc-buysheet-appname{font-size:calc(10px*var(--rcbs-s,1));font-weight:700;letter-spacing:.02em;color:#FFFFFF}
+.rc-buysheet-illus{font-size:calc(5.5px*var(--rcbs-s,1));font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#9FB6C9;border:1px solid rgba(255,255,255,.25);padding:2px 4px}
+.rc-buysheet-stamp{margin-left:auto;display:inline-flex;align-items:center;gap:4px;font-family:var(--rcbs-mono);font-size:calc(6.5px*var(--rcbs-s,1));font-weight:700;letter-spacing:.08em;color:#FFFFFF;background:var(--rcbs-navy);padding:3px 6px;font-variant-numeric:tabular-nums lining-nums}
+.rc-buysheet-dot{width:calc(5px*var(--rcbs-s,1));height:calc(5px*var(--rcbs-s,1));border-radius:50%;background:var(--rcbs-lime);display:inline-block}
+
+/* toolbar */
+.rc-buysheet-toolbar{display:flex;align-items:center;gap:calc(4px*var(--rcbs-s,1));padding:calc(5px*var(--rcbs-s,1)) calc(6px*var(--rcbs-s,1));background:#F4F7FA;border-bottom:1px solid rgba(13,46,74,.12);white-space:nowrap;overflow:hidden}
+.rc-buysheet-seg{display:inline-flex;border:1px solid rgba(13,46,74,.28);background:#FFFFFF}
+.rc-buysheet-seg span{padding:calc(2.5px*var(--rcbs-s,1)) calc(5px*var(--rcbs-s,1));font-size:calc(6.5px*var(--rcbs-s,1));font-weight:600;color:#46647E}
+.rc-buysheet-seg span+span{border-left:1px solid rgba(13,46,74,.18)}
+.rc-buysheet-seg .rc-buysheet-on{background:var(--rcbs-navy);color:#FFFFFF}
+.rc-buysheet-export{margin-left:auto;display:inline-block;padding:calc(3px*var(--rcbs-s,1)) calc(6px*var(--rcbs-s,1));font-size:calc(6.5px*var(--rcbs-s,1));font-weight:700;color:var(--rcbs-ink);background:var(--rcbs-lime);border:1px solid #8FBC38;cursor:default;transition:filter .15s ease}
+.rc-buysheet-export:hover{filter:brightness(1.06)}
+
+/* whole-flight strip: booked, filed dollars, both sides on one bar */
+.rc-buysheet-flight{display:flex;align-items:center;flex-wrap:wrap;gap:calc(5px*var(--rcbs-s,1));padding:calc(5px*var(--rcbs-s,1)) calc(8px*var(--rcbs-s,1));border-bottom:1px solid rgba(13,46,74,.12);background:#FFFFFF}
+.rc-buysheet-flight-k{font-size:calc(5.5px*var(--rcbs-s,1));font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#5A7286}
+.rc-buysheet-flight-d{font-family:var(--rcbs-mono);font-size:calc(7.5px*var(--rcbs-s,1));font-weight:700;color:var(--rcbs-dem);font-variant-numeric:tabular-nums lining-nums;white-space:nowrap}
+.rc-buysheet-flight-r{font-family:var(--rcbs-mono);font-size:calc(7.5px*var(--rcbs-s,1));font-weight:700;color:var(--rcbs-rep);font-variant-numeric:tabular-nums lining-nums;white-space:nowrap}
+.rc-buysheet-flight-bar{display:flex;flex:1 1 60px;min-width:60px;height:calc(6px*var(--rcbs-s,1));overflow:hidden;background:#EDF1F5}
+.rc-buysheet-flight-fd{display:inline-block;height:100%;background:var(--rcbs-dem);box-shadow:1px 0 0 #fff}
+.rc-buysheet-flight-fr{display:inline-block;height:100%;background:var(--rcbs-rep)}
+.rc-buysheet-flight-note{flex:1 1 100%;font-family:var(--rcbs-mono);font-size:calc(5.8px*var(--rcbs-s,1));color:#5A7286;font-variant-numeric:tabular-nums lining-nums;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* body + blocks */
+.rc-buysheet-body{padding:calc(6px*var(--rcbs-s,1))}
+.rc-buysheet-block+.rc-buysheet-block{margin-top:calc(7px*var(--rcbs-s,1))}
+.rc-buysheet-bh{display:flex;align-items:baseline;gap:6px;padding:calc(4px*var(--rcbs-s,1)) calc(6px*var(--rcbs-s,1));white-space:nowrap;overflow:hidden}
+.rc-buysheet-bh-r{background:var(--rcbs-rep)}
+.rc-buysheet-bh-d{background:var(--rcbs-dem)}
+.rc-buysheet-bt{font-size:calc(8px*var(--rcbs-s,1));font-weight:700;color:#FFFFFF}
+.rc-buysheet-bn{margin-left:auto;font-size:calc(6px*var(--rcbs-s,1));font-weight:500;color:rgba(255,255,255,.85);font-variant-numeric:tabular-nums lining-nums}
+
+/* grid */
+.rc-buysheet-grid{width:100%;table-layout:fixed;border-collapse:collapse;border:1px solid rgba(13,46,74,.14);border-top:none}
+.rc-buysheet-cm{width:20%}.rc-buysheet-cfp{width:10%}.rc-buysheet-cfd{width:12.5%}
+.rc-buysheet-cwp{width:7%}.rc-buysheet-cwd{width:12.2%}
+.rc-buysheet-grid th,.rc-buysheet-grid td{overflow:hidden}
+
+.rc-buysheet-hm{background:var(--rcbs-rep);color:#FFFFFF;font-size:calc(6.5px*var(--rcbs-s,1));font-weight:700;text-align:right;padding:calc(2px*var(--rcbs-s,1)) calc(4px*var(--rcbs-s,1));vertical-align:middle}
+.rc-buysheet-hm span{display:block;font-size:calc(5px*var(--rcbs-s,1));font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.75)}
+.rc-buysheet-hf{background:var(--rcbs-rep);color:#FFFFFF;font-size:calc(6px*var(--rcbs-s,1));font-weight:700;text-align:center;padding:calc(2px*var(--rcbs-s,1)) 1px}
+.rc-buysheet-hw{background:var(--rcbs-repsoft);color:var(--rcbs-reptext);font-family:var(--rcbs-mono);font-size:calc(7px*var(--rcbs-s,1));font-weight:700;text-align:center;padding:calc(2.5px*var(--rcbs-s,1)) 1px;border-left:1px solid rgba(13,46,74,.10);border-bottom:2px solid var(--rcbs-rep);font-variant-numeric:tabular-nums lining-nums}
+.rc-buysheet-hw span{display:block;font-family:var(--rcbs-sans);font-size:calc(4.5px*var(--rcbs-s,1));font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--rcbs-blue)}
+.rc-buysheet-hwb{background:repeating-linear-gradient(135deg,#FFFFFF 0 3px,#EAF1F7 3px 6px);color:var(--rcbs-navy);border-bottom:2px dashed var(--rcbs-sky)}
+.rc-buysheet-hu th{background:#FBF1F1;color:var(--rcbs-reptext);font-size:calc(5px*var(--rcbs-s,1));font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-align:right;padding:calc(1.5px*var(--rcbs-s,1)) calc(3px*var(--rcbs-s,1));border-bottom:1px solid rgba(13,46,74,.14)}
+.rc-buysheet-hu th.rc-buysheet-bc{background:#F4F9FC;color:var(--rcbs-navy)}
+
+.rc-buysheet-lane td{background:#EFF3F7;color:#33526B;font-size:calc(5.5px*var(--rcbs-s,1));font-weight:700;letter-spacing:.14em;padding:calc(2px*var(--rcbs-s,1)) calc(5px*var(--rcbs-s,1));border-top:1px solid rgba(13,46,74,.10)}
+.rc-buysheet-r td,.rc-buysheet-r th{border-top:1px solid rgba(13,46,74,.07);padding:calc(2.5px*var(--rcbs-s,1)) calc(3px*var(--rcbs-s,1))}
+.rc-buysheet-sub td,.rc-buysheet-sub th{background:#F7F9FB;border-top:1px solid rgba(13,46,74,.12);padding:calc(2.5px*var(--rcbs-s,1)) calc(3px*var(--rcbs-s,1));font-weight:600}
+tbody th.rc-buysheet-m{font-weight:400;background:transparent}
+.rc-buysheet-sub th.rc-buysheet-m{font-weight:600}
+.rc-buysheet-m{font-size:calc(7px*var(--rcbs-s,1));color:var(--rcbs-deep);text-align:right;padding-right:calc(4px*var(--rcbs-s,1)) !important;white-space:nowrap}
+.rc-buysheet-m i{font-style:normal;font-size:calc(4.5px*var(--rcbs-s,1));letter-spacing:.04em;text-transform:uppercase;color:#5A6B7C;margin-left:2px}
+.rc-buysheet-sub .rc-buysheet-m{font-size:calc(6.5px*var(--rcbs-s,1))}
+.rc-buysheet-p,.rc-buysheet-d{font-family:var(--rcbs-mono);font-size:calc(7px*var(--rcbs-s,1));text-align:right;color:var(--rcbs-deep);font-variant-numeric:tabular-nums lining-nums;white-space:nowrap}
+.rc-buysheet-p{border-left:1px solid rgba(13,46,74,.08);color:#33526B}
+.rc-buysheet-f{font-weight:700;color:var(--rcbs-ink)}
+.rc-buysheet-bc{background:#F4F9FC}
+.rc-buysheet-p.rc-buysheet-bc{border-left:1px solid rgba(91,155,213,.45)}
+.rc-buysheet-tot td,.rc-buysheet-tot th{background:var(--rcbs-rep);color:#FFFFFF;font-weight:700;padding:calc(3px*var(--rcbs-s,1));border-top:1px solid var(--rcbs-rep)}
+.rc-buysheet-tot .rc-buysheet-m{color:#FFFFFF;font-size:calc(6.5px*var(--rcbs-s,1));letter-spacing:.06em;font-weight:700}
+.rc-buysheet-tot .rc-buysheet-m i{color:rgba(255,255,255,.75)}
+.rc-buysheet-tot .rc-buysheet-p,.rc-buysheet-tot .rc-buysheet-d{color:#FFFFFF;border-left:1px solid rgba(255,255,255,.18);font-size:calc(6.5px*var(--rcbs-s,1))}
+.rc-buysheet-tot .rc-buysheet-bc{background:var(--rcbs-rep)}
+.rc-buysheet-r:hover td,.rc-buysheet-r:hover th{background:rgba(168,209,78,.14)}
+.rc-buysheet-r:hover td.rc-buysheet-bc{background:rgba(168,209,78,.20)}
+
+/* caption */
+.rc-buysheet-cap{display:flex;align-items:center;gap:calc(4px*var(--rcbs-s,1));padding:calc(4px*var(--rcbs-s,1)) 1px 0;font-size:max(9px,calc(5.5px*var(--rcbs-s,1)));color:#5A6B7C;white-space:nowrap;overflow:hidden}
+.rc-buysheet-cap em{margin-left:auto;font-style:normal;letter-spacing:.1em;text-transform:uppercase;color:#5A6B7C}
+.rc-buysheet-sw{width:calc(9px*var(--rcbs-s,1));height:calc(6px*var(--rcbs-s,1));display:inline-block;flex:0 0 auto}
+.rc-buysheet-swp{background:var(--rcbs-repsoft);border-bottom:2px solid var(--rcbs-rep)}
+.rc-buysheet-swb{background:repeating-linear-gradient(135deg,#FFFFFF 0 2px,#EAF1F7 2px 4px);border:1px dashed var(--rcbs-sky)}
+
+/* dem peek block */
+.rc-buysheet-grid-d .rc-buysheet-hm{background:var(--rcbs-dem)}
+.rc-buysheet-grid-d .rc-buysheet-hf{background:var(--rcbs-dem)}
+.rc-buysheet-grid-d .rc-buysheet-hw{background:repeating-linear-gradient(135deg,#FFFFFF 0 3px,#EAF1F7 3px 6px);color:#2C4E7C;border-bottom:2px dashed var(--rcbs-sky)}
+
+/* bottom fade over the clipped peek block */
+.rc-buysheet-fade{position:absolute;left:0;right:0;bottom:0;height:24px;background:linear-gradient(180deg,rgba(255,255,255,0),#FFFFFF 88%);pointer-events:none}
+
+/* motion: additive only, base state fully visible without it */
+@media (prefers-reduced-motion:no-preference){
+  .rc-buysheet-dot{animation:rc-buysheet-pulse 2.4s ease-in-out 2}
+  .rc-buysheet-flash td,.rc-buysheet-flash th{animation:rc-buysheet-settle 2.6s ease-out .5s both}
+}
+@keyframes rc-buysheet-pulse{
+  0%,100%{box-shadow:0 0 0 0 rgba(168,209,78,.55)}
+  50%{box-shadow:0 0 0 3px rgba(168,209,78,0)}
+}
+@keyframes rc-buysheet-settle{
+  from{background-color:rgba(168,209,78,.32)}
+  to{background-color:rgba(168,209,78,0)}
+}
+@media (prefers-reduced-motion:reduce){
+  .rc-buysheet *{animation:none !important;transition:none !important}
+}
+</style>
+    </div>
+      <p class="glimpse-cap">The full market block, week by week, opens in the demo.
+        <a href="contact.html">Request one</a> &middot;
+        <a href="assets/apps/app-buy-sheet.webp" target="_blank" rel="noopener">See the real screen</a></p>
+
+    <h3 class="mt3">One market block, as it comes out of the export</h3>
+    <p class="dek">One advertiser's block: Alpha Committee (D), household points, posted through
+      Aug 30, 2026. Illustrative figures for an illustrative race. What is real
+      here is the shape: the week the
+      posting stops is visible in the column headers themselves, and the station × daypart rows under the
+      market line are the grain the export ships at.</p>
+    <p class="small tbl-hint">Swipe the table sideways to see every column.</p>
+    <div class="tbl-scroll" tabindex="0" role="group" aria-label="One market block, as it comes out of the export, scrolls sideways">
+      <table class="tbl">
+        <thead>
+          <tr>
+            <th>Market</th>
+            <th>Lane · daypart</th>
+            <th class="n">Aug 10<br>pts posted</th>
+            <th class="n">Aug 17<br>pts posted</th>
+            <th class="n">Aug 24<br>pts posted</th>
+            <th class="n">Aug 31<br>pts booked</th>
+            <th class="n">Sep 7<br>pts booked</th>
+            <th class="n">Flight pts</th>
+            <th class="n">Flight $</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row" class="row-h">Columbus</th><td>Broadcast</td><td class="n">412</td><td class="n">468</td><td class="n">501</td><td class="n">480</td><td class="n">480</td><td class="n">2,341</td><td class="n">$612,400</td></tr>
+          <tr><th scope="row" class="row-h">Columbus · WQZL</th><td>Broadcast · PR</td><td class="n">96</td><td class="n">104</td><td class="n">112</td><td class="n">108</td><td class="n">108</td><td class="n">528</td><td class="n">$214,600</td></tr>
+          <tr><th scope="row" class="row-h">Columbus · WQZL</th><td>Broadcast · EM</td><td class="n">44</td><td class="n">52</td><td class="n">55</td><td class="n">52</td><td class="n">52</td><td class="n">255</td><td class="n">$38,200</td></tr>
+          <tr><th scope="row" class="row-h">Columbus · WXQK</th><td>Broadcast · LN</td><td class="n">38</td><td class="n">41</td><td class="n">44</td><td class="n">42</td><td class="n">42</td><td class="n">207</td><td class="n">$47,900</td></tr>
+          <tr><td colspan="9" style="font-size:.78rem;color:var(--ink-3)">+ 11 more station × daypart rows under Columbus in the export</td></tr>
+          <!-- O3 gate (owner): cable/radio export grain shown as market × week dollars, matching the
+               Grain stamp below; O3 must confirm that grain before deploy. -->
+          <tr><th scope="row" class="row-h">Columbus</th><td>Local cable</td><td class="n">$16.4K</td><td class="n">$17.8K</td><td class="n">$18.2K</td><td class="n">$16.5K</td><td class="n">$16.0K</td><td class="n"></td><td class="n">$84,900</td></tr>
+          <tr><th scope="row" class="row-h">Columbus</th><td>Radio</td><td class="n">$6.1K</td><td class="n">$6.4K</td><td class="n">$6.6K</td><td class="n">$6.2K</td><td class="n">$5.9K</td><td class="n"></td><td class="n">$31,200</td></tr>
+          <tr><th scope="row" class="row-h">Cleveland</th><td>Broadcast</td><td class="n">388</td><td class="n">402</td><td class="n">455</td><td class="n">440</td><td class="n">0</td><td class="n">1,685</td><td class="n">$498,700</td></tr>
+          <tr><th scope="row" class="row-h">Cleveland</th><td>Local cable</td><td class="n">$11.2K</td><td class="n">$11.8K</td><td class="n">$12.1K</td><td class="n">$11.4K</td><td class="n">$10.8K</td><td class="n"></td><td class="n">$57,300</td></tr>
+          <tr><th scope="row" class="row-h">Toledo</th><td>Broadcast</td><td class="n">210</td><td class="n">228</td><td class="n">241</td><td class="n">0</td><td class="n">0</td><td class="n">679</td><td class="n">$141,800</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="tbl-note">Illustrative figures. The market row is the lane total; the station rows under it are
+      the export grain, three of fourteen shown, with the daypart in the lane column (EM early morning, PR
+      prime, LN late news). Points total across weeks within a market and lane and are never
+      summed across markets, because a cross-market points figure requires population weighting to mean
+      anything. Points here are household points on the market universe; when a demo applies it is named in
+      the column header, as in the A35+ grid above. Flight totals are committed figures, posted plus booked
+      weeks; the split sits in the weekly columns. Dollars sum across the block. A zero in a booked week means no order on file for that week,
+      which is a different statement than a market we do not monitor. Local cable and radio carry dollars and
+      no points. We do not carry a rated universe for cable and radio, so those cells print dollars only
+      rather than a derived point: weekly dollars, each cell marked with its dollar sign, collected at
+      system, week and daypart, shipped in the export at market × week.</p>
+    <h3 class="mt3">The drill: which station got the money</h3>
+    <p class="dek">The same sheet pivots to station share: one row per station under its
+      market and affiliate, one column per advertiser, the share of that advertiser's
+      dollars in the cell. Ruling out a station takes one glance down its column.</p>
+    <div class="rc-stage">
+<div class="rc rc-stnshare">
+  <div class="rc-stnshare-toolbar">
+    <span class="rc-stnshare-brand"><span class="rc-stnshare-dot"></span>KPI &middot; Buy Sheet &middot; Station Share</span>
+    <span class="rc-stnshare-stamp">Shares of booked, filed $ &middot; posted thru Aug 30, 2026</span>
+  </div>
+  <p class="small tbl-hint">Swipe the pivot sideways to see every column.</p>
+  <div class="rc-stnshare-scroll" tabindex="0" role="group" aria-label="Station share pivot: market, affiliate and station rows against advertiser columns, scrolls sideways">
+  <table class="rc-stnshare-grid">
+    <thead>
+      <tr>
+        <th scope="col">DMA &middot; Aff &middot; Station</th>
+        <th class="rc-stnshare-hn" scope="col">Beta Action Fund <i>(R)</i><span>share of buy</span></th>
+        <th class="rc-stnshare-hn" scope="col">Alpha Committee <i>(D)</i><span>share of buy</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="rc-stnshare-band"><th scope="row">COLUMBUS &middot; BROADCAST</th><td class="rc-stnshare-n rc-stnshare-f34">64%</td><td class="rc-stnshare-n rc-stnshare-f24">49%</td></tr>
+      <tr><th scope="row"><i>ABC</i> WQZL</th><td class="rc-stnshare-n rc-stnshare-f24">28%</td><td class="rc-stnshare-n rc-stnshare-f18">19%</td></tr>
+      <tr><th scope="row"><i>NBC</i> WXQK</th><td class="rc-stnshare-n rc-stnshare-f16">20%</td><td class="rc-stnshare-n rc-stnshare-f10">11%</td></tr>
+      <tr><th scope="row"><i>CBS</i> WKMD</th><td class="rc-stnshare-n rc-stnshare-f10">11%</td><td class="rc-stnshare-n rc-stnshare-f14">14%</td></tr>
+      <tr><th scope="row"><i>FOX</i> WTLF</th><td class="rc-stnshare-n">5%</td><td class="rc-stnshare-n">5%</td></tr>
+      <tr class="rc-stnshare-more"><td colspan="3">Cleveland and Toledo band the same way below &middot; the demo shows every market, affiliate and station</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="rc-stnshare-foot">
+    <p>Real market; synthetic stations, advertisers and shares &middot; cell = the station's share of that advertiser's flight dollars, on the green share scale; the band row is the market's broadcast share &middot; Columbus across all lanes is 72% of Beta's and 54% of Alpha's flight dollars, reconciling to the buy sheet above</p>
+    <p>Station rows are broadcast only; cable carries no stations and ships at market &times; week; radio has its own FM/AM mirror, read from order-grain collection even though its export ships at market &times; week &middot; columns do not sum to 100%</p>
+    <p>Filterable by cycle, state, race, advertiser and market in the product</p>
+  </div>
+</div>
+<style>
+.rc-stnshare{
+  --rcss-navy:#1B4F72; --rcss-navy2:#0D2E4A; --rcss-navy3:#08243B;
+  --rcss-lime:#A8D14E; --rcss-mute:var(--mock-dim, #5A6B7C); --rcss-line:var(--mock-rule, #D9E2E9); --rcss-track:#EBF1F5;
+  --rcss-mono:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,Consolas,monospace;
+  box-sizing:border-box; width:100%; max-width:560px; overflow:hidden;
+  background:#fff; border:1px solid var(--rcss-line); border-top:3px solid var(--rcss-navy2);
+  padding:10px 12px 9px; font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif; color:var(--rcss-navy2);
+  box-shadow:0 1px 3px rgba(8,36,59,.08);
+}
+.rc-stnshare *,.rc-stnshare *::before,.rc-stnshare *::after{box-sizing:border-box;min-width:0;margin:0;padding:0}
+.rc-stnshare .rc-stnshare-toolbar{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.rc-stnshare .rc-stnshare-brand{display:inline-flex;align-items:center;gap:5px;font-size:8.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--rcss-navy);white-space:nowrap}
+.rc-stnshare .rc-stnshare-dot{width:6px;height:6px;border-radius:50%;background:var(--rcss-lime);flex:0 0 auto}
+.rc-stnshare .rc-stnshare-stamp{font-family:var(--rcss-mono);font-variant-numeric:tabular-nums lining-nums;font-size:8.5px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--rcss-mute);border:1px solid var(--rcss-line);padding:2px 5px;white-space:nowrap}
+.rc-stnshare .rc-stnshare-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:8px}
+.rc-stnshare .rc-stnshare-grid{width:100%;min-width:340px;border-collapse:collapse}
+.rc-stnshare .rc-stnshare-grid thead th{font-family:var(--rcss-mono);font-size:8.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--rcss-navy);text-align:left;padding:2px 5px 3px;border-bottom:1px solid var(--rcss-line);white-space:nowrap;vertical-align:bottom}
+.rc-stnshare .rc-stnshare-grid thead th i{font-style:normal;color:var(--rcss-mute)}
+.rc-stnshare .rc-stnshare-grid thead th span{display:block;font-weight:500;letter-spacing:.06em;color:var(--rcss-mute)}
+.rc-stnshare .rc-stnshare-hn{text-align:right}
+.rc-stnshare .rc-stnshare-grid td,.rc-stnshare .rc-stnshare-grid tbody th{font-size:9.5px;font-weight:500;color:var(--rcss-navy3);padding:4px 5px;border-bottom:1px solid var(--rcss-track);white-space:nowrap;text-align:left}
+.rc-stnshare .rc-stnshare-grid tbody th i{font-style:normal;font-family:var(--rcss-mono);font-size:8.5px;font-weight:600;letter-spacing:.06em;color:var(--rcss-mute);margin-right:4px}
+.rc-stnshare .rc-stnshare-n{font-family:var(--rcss-mono);font-variant-numeric:tabular-nums lining-nums;font-weight:600;text-align:right}
+.rc-stnshare .rc-stnshare-band th,.rc-stnshare .rc-stnshare-band td{background:rgba(13,46,74,.06);font-weight:700;font-family:var(--rcss-mono);font-size:8.5px;letter-spacing:.06em}
+.rc-stnshare .rc-stnshare-band .rc-stnshare-n{font-size:9.5px}
+/* Share-scale fills: lime at fixed alpha steps, one class per step (no inline styles).
+   td-qualified and placed after the band rule so the fill wins on the band row too. */
+.rc-stnshare td.rc-stnshare-f34{background:rgba(168,209,78,.34)}
+.rc-stnshare td.rc-stnshare-f24{background:rgba(168,209,78,.24)}
+.rc-stnshare td.rc-stnshare-f18{background:rgba(168,209,78,.18)}
+.rc-stnshare td.rc-stnshare-f16{background:rgba(168,209,78,.16)}
+.rc-stnshare td.rc-stnshare-f14{background:rgba(168,209,78,.14)}
+.rc-stnshare td.rc-stnshare-f10{background:rgba(168,209,78,.10)}
+.rc-stnshare .rc-stnshare-more td{color:var(--rcss-mute);font-family:var(--rcss-mono);font-size:8.5px;white-space:normal}
+.rc-stnshare .rc-stnshare-foot{margin-top:7px;border-top:1px solid var(--rcss-line);padding-top:5px}
+.rc-stnshare .rc-stnshare-foot p{font-size:9px;line-height:1.45;color:var(--rcss-mute)}
+.rc-stnshare .tbl-hint{font-size:9px;line-height:1.4;margin:6px 0 0}
+@media (min-width:1024px){
+  .rc-stnshare{max-width:640px}
+  .rc-stnshare .rc-stnshare-grid thead th{font-size:8.5px}
+  .rc-stnshare .rc-stnshare-grid td,.rc-stnshare .rc-stnshare-grid tbody th{font-size:11px;padding:5px 6px}
+  .rc-stnshare .rc-stnshare-band th,.rc-stnshare .rc-stnshare-band td{font-size:9.5px}
+  .rc-stnshare .rc-stnshare-more td{font-size:8.5px}
+  .rc-stnshare .rc-stnshare-foot p{font-size:10px}
+}
+</style>
+    </div>
+    <div class="exports">
+      <span class="exports__k">What it exports</span>
+      <span class="chip">Excel workbook</span><span class="chip">Buyer-format sheet</span>
+      <p class="exports__t">One market block per sheet, points and dollars at station grain,
+        with the posted-through date in the header row.</p>
+    </div>
+    <div class="stamp">
+      <span><b>Basis</b> orders on file, FCC-verified where the filing exists</span>
+      <span><b>Grain</b> broadcast at station × week × daypart; cable and radio at market × week, dollars only</span>
+      <span><b>Clocks</b> every screen posts its own stamp: the scoreboard posted through 8.21, the matrix through 8.12, this export through 8.30</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CREATIVE EXPLORER ============ -->
+<section class="section section--tint" id="creative-explorer">
+  <div class="wrap">
+    <div class="split split--rev" style="margin-bottom:1.8rem">
+      <div>
+        <p class="eyebrow">Decide &middot; Creative Explorer</p>
+        <h2>Every detected spot ships with the tape, the transcript and the markets.</h2>
+      </div>
+      <div>
+      <p class="lede">A new ad drops and the first question is what it says, the second is
+        where it is running, the third is how much weight is behind it. All three answer in
+        the same place, without a request queue in between.</p>
+      <ul class="small">
+        <li>Every spot carries the tape, the AI transcript, first and last detection, the market list and the points behind it</li>
+        <li>Filter by advertiser, party, team, on-air status and flight window</li>
+        <li>Search by what the ad says: transcripts are searchable across all 9 years</li>
+      </ul>
+      </div>
+    </div>
+    <!-- Ruling 22: shown as a cropped glimpse; the demo is the reveal. -->
+    <div class="shot-stage shot-stage--r rc-stage glimpse glimpse--h340">
+<div class="rc rc-explorer">
+  <div class="rc-explorer-chrome">
+    <span class="rc-explorer-stamp">Posted through <span class="rc-explorer-mono">Aug 10, 2026</span></span>
+    <span class="rc-explorer-btns" aria-hidden="true">
+      <button class="rc-explorer-export rc-explorer-export-ghost" type="button" tabindex="-1">Print sheet</button>
+      <button class="rc-explorer-export" type="button" tabindex="-1">
+        <svg viewBox="0 0 10 10" width="8" height="8" aria-hidden="true"><path d="M5 1v6M2.4 4.6 5 7.2 7.6 4.6" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Excel
+      </button>
+    </span>
+  </div>
+
+  <div class="rc-explorer-bar">
+    <nav class="rc-explorer-tabs" aria-label="Explorer views">
+      <span class="rc-explorer-tab rc-explorer-tab-on">Gallery</span>
+      <span class="rc-explorer-tab">Detail Table</span>
+      <span class="rc-explorer-tab">Rotation</span>
+    </nav>
+    <div class="rc-explorer-pills" role="group" aria-label="Status filter">
+      <span class="rc-explorer-pill rc-explorer-pill-on"><span class="rc-explorer-dot" aria-hidden="true"></span>On Air</span>
+      <span class="rc-explorer-pill">Off Air</span>
+      <span class="rc-explorer-pill">All</span>
+    </div>
+  </div>
+
+  <div class="rc-explorer-card">
+    <div class="rc-explorer-scope"><b>Scope</b> on air + last 14 days &middot; 7 of 12 ads &middot; <span class="rc-explorer-link">widen to all history</span></div>
+    <div class="rc-explorer-scope">transcript: "a rule they wrote" &#8594; 2 spots &middot; $724K behind them</div>
+
+    <div class="rc-explorer-case rc-explorer-case-d">
+      <div class="rc-explorer-casehead">The case against the Republican</div>
+      <p class="rc-explorer-caseempty">no attack money against Ellery detected</p>
+    </div>
+    <div class="rc-explorer-case rc-explorer-case-r">
+      <div class="rc-explorer-casehead">The case against the Democrat</div>
+      <p class="rc-explorer-caseempty">2 ads on air &middot; $724K behind them</p>
+    </div>
+    <p class="rc-explorer-casemore">two more case blocks in the product &middot; the demo shows all four</p>
+
+    <div class="rc-explorer-under">
+      <div class="rc-explorer-underhead">The undercard &middot; <span class="rc-explorer-mono">318 pts ($4.4M)</span> &middot; 7 ads not aimed at either side of the general</div>
+      <div class="rc-explorer-ucards">
+        <div class="rc-explorer-ucard">
+          <span class="rc-explorer-thumb" aria-hidden="true">HC</span>
+          <span class="rc-explorer-ucnums"><b>$2.5M</b> &middot; 136 pts</span>
+          <span class="rc-explorer-uctitle">Hale Crime Policies</span>
+          <span class="rc-explorer-ucsince">Buckeye Public Safety Fund &middot; since Aug 12, '25</span>
+        </div>
+        <div class="rc-explorer-ucard">
+          <span class="rc-explorer-thumb" aria-hidden="true">EG<i class="rc-explorer-new">new</i></span>
+          <span class="rc-explorer-ucnums"><b>$967.0K</b> &middot; 85 pts</span>
+          <span class="rc-explorer-uctitle">Extreme Gender Policy Ad</span>
+          <span class="rc-explorer-ucsince">Restore the Heartland PAC &middot; since Oct 22, '25</span>
+        </div>
+        <div class="rc-explorer-ucard">
+          <span class="rc-explorer-thumb" aria-hidden="true">MR</span>
+          <span class="rc-explorer-ucnums"><b>$223.7K</b> &middot; 21 pts</span>
+          <span class="rc-explorer-uctitle">Map Rigging</span>
+          <span class="rc-explorer-ucsince">Citizens for Fair Elections &middot; since Feb 15, '26</span>
+        </div>
+      </div>
+      <p class="rc-explorer-ucmore">+4 more undercard ads &middot; each opens to the tape, the AI transcript and the market list &middot; pts population-weighted across markets, HH universe &middot; sorted by first detection, not spend</p>
+    </div>
+  </div>
+
+  <div class="rc-explorer-foot">
+    <span>Digital-only: none attributed to this race yet &middot; settled through Aug 10, '26</span>
+    <span class="rc-explorer-footright">Illustrative &middot; synthetic race</span>
+  </div>
+</div>
+<style>
+  .rc-explorer{
+    --rce-navy:#1B4F72; --rce-deep:#0D2E4A; --rce-ink:#08243B;
+    --rce-lime:#A8D14E; --rce-blue:#2D8BBA; --rce-sky:#5B9BD5; --rce-teal:#00ACC1;
+    --rce-dem:#2C5F9E; --rce-rep:#B03A48;
+    --rce-mute:rgba(13,46,74,.72); --rce-faint:rgba(13,46,74,.68); --rce-line:rgba(13,46,74,.12);
+    --rce-mono:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;
+    font-family:'Inter',-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;
+    width:100%; max-width:560px; box-sizing:border-box;
+    background:#fff; border:1px solid var(--rce-line); border-radius:10px;
+    color:var(--rce-ink); font-size:11px; line-height:1.35; overflow:hidden;
+    box-shadow:0 1px 3px rgba(8,36,59,.08);
+    container-type:inline-size;
+  }
+  .rc-explorer *,.rc-explorer *::before,.rc-explorer *::after{box-sizing:border-box;margin:0;padding:0}
+  .rc-explorer .rc-explorer-mono{font-family:var(--rce-mono);font-variant-numeric:tabular-nums lining-nums}
+
+  /* Size container: the type ramp steps up when the column gives the card room. */
+  .rc-explorer>*{--rce-s:1}
+  @container (min-width:480px){
+    .rc-explorer>*{--rce-s:1.25}
+  }
+
+  /* chrome */
+  .rc-explorer .rc-explorer-chrome{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:7px 10px 6px;border-bottom:1px solid var(--rce-line)}
+  .rc-explorer .rc-explorer-stamp{font-size:calc(9px*var(--rce-s,1));color:var(--rce-mute);letter-spacing:.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .rc-explorer .rc-explorer-btns{flex:none;display:inline-flex;gap:4px}
+  .rc-explorer .rc-explorer-export{display:inline-flex;align-items:center;gap:4px;font-family:'Inter',sans-serif;font-size:calc(9px*var(--rce-s,1));font-weight:600;line-height:1;color:var(--rce-ink);background:var(--rce-lime);border:none;border-radius:4px;padding:5px 8px;cursor:default}
+  .rc-explorer .rc-explorer-export-ghost{background:#fff;border:1px solid var(--rce-line);color:var(--rce-mute)}
+
+  /* tabs + pills */
+  .rc-explorer .rc-explorer-bar{display:flex;align-items:stretch;justify-content:space-between;gap:6px;padding:0 10px;border-bottom:1px solid var(--rce-line)}
+  .rc-explorer .rc-explorer-tabs{display:flex;gap:11px}
+  .rc-explorer .rc-explorer-tab{font-size:calc(9.5px*var(--rce-s,1));font-weight:500;color:var(--rce-mute);padding:7px 0 6px;border-bottom:2px solid transparent;white-space:nowrap}
+  .rc-explorer .rc-explorer-tab-on{color:var(--rce-navy);font-weight:700;border-bottom-color:var(--rce-navy)}
+  .rc-explorer .rc-explorer-pills{display:flex;align-items:center;gap:3px;padding:4px 0}
+  .rc-explorer .rc-explorer-pill{display:inline-flex;align-items:center;gap:4px;font-size:calc(8.5px*var(--rce-s,1));font-weight:600;color:var(--rce-mute);border:1px solid var(--rce-line);border-radius:999px;padding:2px 7px;white-space:nowrap}
+  .rc-explorer .rc-explorer-pill-on{background:var(--rce-navy);border-color:var(--rce-navy);color:#fff}
+  .rc-explorer .rc-explorer-dot{width:5px;height:5px;border-radius:50%;background:var(--rce-lime);animation:rc-explorer-pulse 2.4s ease-out 2}
+
+  /* card */
+  .rc-explorer .rc-explorer-card{padding:8px 10px 7px}
+  .rc-explorer .rc-explorer-scope{font-family:var(--rce-mono);font-variant-numeric:tabular-nums lining-nums;font-size:calc(8px*var(--rce-s,1));color:var(--rce-mute);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .rc-explorer .rc-explorer-scope b{font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:calc(7px*var(--rce-s,1));color:var(--rce-navy)}
+  .rc-explorer .rc-explorer-link{text-decoration:underline;color:var(--rce-blue)}
+
+  /* the four-case blocks, two shown: the honest empty states are the point */
+  .rc-explorer .rc-explorer-case{margin-top:7px;border:1px solid var(--rce-line);border-radius:5px;padding:5px 8px 6px}
+  .rc-explorer .rc-explorer-case-d{border-top:2px solid var(--rce-dem)}
+  .rc-explorer .rc-explorer-case-r{border-top:2px solid var(--rce-rep)}
+  .rc-explorer .rc-explorer-casehead{font-family:var(--rce-mono);font-size:calc(8px*var(--rce-s,1));font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--rce-deep)}
+  .rc-explorer .rc-explorer-caseempty{font-size:calc(9px*var(--rce-s,1));color:var(--rce-mute);margin-top:3px}
+  .rc-explorer .rc-explorer-casemore{font-family:var(--rce-mono);font-size:max(9px,calc(7.5px*var(--rce-s,1)));color:var(--rce-faint);margin-top:5px;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+  /* the undercard strip */
+  .rc-explorer .rc-explorer-under{margin-top:7px;background:rgba(13,46,74,.035);border:1px solid var(--rce-line);border-radius:5px;padding:6px 8px 7px}
+  .rc-explorer .rc-explorer-underhead{font-family:var(--rce-mono);font-size:calc(7.5px*var(--rce-s,1));font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--rce-deep);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .rc-explorer .rc-explorer-underhead .rc-explorer-mono{font-size:calc(7.5px*var(--rce-s,1))}
+  .rc-explorer .rc-explorer-ucards{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:6px}
+  .rc-explorer .rc-explorer-ucard{display:flex;flex-direction:column;gap:2px;min-width:0;background:#fff;border:1px solid var(--rce-line);border-radius:4px;padding:5px 6px 6px}
+  .rc-explorer .rc-explorer-thumb{position:relative;display:flex;align-items:center;justify-content:center;height:calc(26px*var(--rce-s,1));border-radius:3px;background:rgba(13,46,74,.06);font-family:var(--rce-mono);font-size:calc(9px*var(--rce-s,1));font-weight:700;letter-spacing:.2em;color:var(--rce-faint)}
+  .rc-explorer .rc-explorer-new{position:absolute;top:3px;right:3px;font-style:normal;font-family:var(--rce-mono);font-size:calc(6px*var(--rce-s,1));font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#3E6A16;background:rgba(168,209,78,.35);border-radius:2px;padding:0 3px}
+  .rc-explorer .rc-explorer-ucnums{font-family:var(--rce-mono);font-variant-numeric:tabular-nums lining-nums;font-size:calc(8.5px*var(--rce-s,1));color:var(--rce-mute);margin-top:2px;white-space:nowrap}
+  .rc-explorer .rc-explorer-ucnums b{font-weight:700;color:var(--rce-ink)}
+  .rc-explorer .rc-explorer-uctitle{font-size:calc(9px*var(--rce-s,1));font-weight:600;color:var(--rce-ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .rc-explorer .rc-explorer-ucsince{font-family:var(--rce-mono);font-variant-numeric:tabular-nums lining-nums;font-size:calc(7px*var(--rce-s,1));color:var(--rce-faint);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .rc-explorer .rc-explorer-ucmore{font-family:var(--rce-mono);font-size:max(9px,calc(7.5px*var(--rce-s,1)));line-height:1.5;color:var(--rce-faint);margin-top:5px}
+
+  .rc-explorer .rc-explorer-foot{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:5px 10px 6px;border-top:1px solid var(--rce-line);font-size:max(9px,calc(8px*var(--rce-s,1)));color:var(--rce-faint)}
+  .rc-explorer .rc-explorer-foot span:first-child{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .rc-explorer .rc-explorer-footright{font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--rce-mute);white-space:nowrap;flex:none}
+
+  @container (max-width:379px){
+    .rc-explorer .rc-explorer-ucards{grid-template-columns:1fr}
+    .rc-explorer .rc-explorer-export-ghost{display:none}
+  }
+
+  @keyframes rc-explorer-pulse{
+    0%{box-shadow:0 0 0 0 rgba(168,209,78,.55)}
+    70%{box-shadow:0 0 0 5px rgba(168,209,78,0)}
+    100%{box-shadow:0 0 0 0 rgba(168,209,78,0)}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .rc-explorer .rc-explorer-dot{animation:none}
+  }
+</style>
+    </div>
+      <p class="glimpse-cap">The tape and the full market list open in the demo.
+        <a href="contact.html">Request one</a> &middot;
+        <a href="assets/apps/app-creative-explorer.webp" target="_blank" rel="noopener">See the real screen</a></p>
+    <div class="exports">
+      <span class="exports__k">What it exports</span>
+      <span class="chip">Clip link</span><span class="chip">Transcript</span><span class="chip">Excel workbook</span>
+      <p class="exports__t">A shareable clip with its transcript and detection detail, plus
+        the full detail table to Excel or a print sheet.</p>
+    </div>
+    <div class="stamp">
+      <span><b>Depth</b> 9 years of history</span>
+      <span><b>Artifacts</b> tape, transcript, air dates, market list</span>
+    </div>
+    <p class="tbl-note">Screens show synthetic and illustrative races. Client data never
+      appears in marketing material.</p>
+  </div>
+</section>
+
+<!-- ============ THE WEEK, START TO FINISH ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="split" style="margin-bottom:2.2rem">
+      <div>
+        <p class="eyebrow">The week, start to finish</p>
+        <h2>One set of detections carries Monday's read all the way to Friday's client brief.</h2>
+      </div>
+      <p class="lede">The screens are four grains on the same data, and the reason they sit
+        together is that a normal week walks through all of them in order.</p>
+    </div>
+
+    <div class="day-rail" aria-hidden="true">
+      <span><b>Mon</b>Scoreboard</span>
+      <span><b>Tue</b>Buy Sheet</span>
+      <span><b>Wed</b>Creative Matrix</span>
+      <span><b>Thu</b>Creative Explorer</span>
+      <span><b>Fri</b>The brief ships</span>
+    </div>
+
+    <ol class="steps">
+      <li>
+        <h4>Monday morning, read the scoreboard</h4>
+        <p>Sorted by what moved in the last seven days. Three races changed, one of them because a committee
+          booked four weeks forward without airing a spot yet. That race did not move on aired dollars at all,
+          which is exactly why the two lines stay apart.</p>
+      </li>
+      <li>
+        <h4>Open the race that moved and check the weight</h4>
+        <p>Buy sheet by market, lane and week. The booking concentrates in two markets rather than spreading
+          statewide, and roughly a third of it is local cable. Broadcast alone would have shown you two thirds
+          of the story.</p>
+      </li>
+      <li>
+        <h4>Read the argument behind the money</h4>
+        <p>Creative matrix for the race. The new weight is landing on one theme in the case against your
+          candidate, and the same theme was tested for eleven days in the spring and dropped. It is back with a
+          harder edit and more money.</p>
+      </li>
+      <li>
+        <h4>Pull the tape and the transcript</h4>
+        <p>Creative explorer, filtered to spots on air in those two markets. Watch the cut, copy the
+          transcript, take the market list and the points posted. That is the response memo, and it took
+          minutes rather than a request queue.</p>
+      </li>
+      <li>
+        <h4>Ship the brief</h4>
+        <p>Export the buy sheet workbook, generate the PDF creative brief, and send the race brief to the
+          client. Every figure in all three carries its posted-through date, which lanes it covers, and which
+          markets had insufficient signal.</p>
+      </li>
+    </ol>
+    <div class="mt3" id="sellers">
+      <div class="split" style="margin-bottom:1.6rem">
+        <div>
+          <p class="eyebrow">The seller's week</p>
+          <h3>Sellers run the same week in reverse.</h3>
+        </div>
+        <p class="lede" style="font-size:1.05rem">Station and platform sellers open the same
+          grid buyers do, pointed at the market they sell instead of a race they watch. The
+          read is revenue, not response. Stations see their own air beside the market;
+          platform sellers see the market around them, never their own logs read back to
+          them. The week is one chain, four beats: see the skew, find the under-allocated,
+          know who to talk to, substantiate the buy.</p>
+      </div>
+      <div class="day-rail day-rail--rev" aria-hidden="true">
+        <span><b>Mon</b>Market Order Flow</span>
+        <span><b>Tue</b>The call list</span>
+        <span><b>Wed</b>The win-back call</span>
+        <span><b>Thu</b>The streaming pitch</span>
+        <span><b>Fri</b>The rate call</span>
+      </div>
+      <ol class="steps">
+        <li>
+          <h4>Monday morning, read the market instead of the race</h4>
+          <p>Market Order Flow, the scoreboard scoped to your market, is its full political
+            order flow: every
+            advertiser and committee with money in it, lane by lane. For a station that
+            includes your own air, so your share of the political money is a number both
+            sides of the table can check. For a platform seller it is the market around
+            you: the budgets in play and where they sit, never your own numbers back.</p>
+        </li>
+        <li>
+          <h4>The booking horizon is the call list</h4>
+          <p>Money booked into the market that is not on your books yet is the first call of
+            the week, with the weeks and dollars already attached. The horizon exists where
+            orders exist: broadcast, local cable and radio. The lag is printed on every
+            figure; <a href="methodology.html#latency">ask for the current gap in the market
+            you sell</a> and get it in days.</p>
+        </li>
+        <li>
+          <h4>The went-dark row is the win-back call</h4>
+          <p>A committee that stopped airing in your market left a record: when it stopped
+            and what was still booked when it did. The reason to call is already on the
+            screen.</p>
+        </li>
+        <li>
+          <h4>The streaming pitch reads from the spend, not the horizon</h4>
+          <p>For a platform seller the call list is the spend-by-service read: advertisers
+            sitting heavy on TV in the state you compete in and light or undetected in the covered
+            service set. Undetected prints as undetected, so the pitch never rests on a zero we
+            cannot stand behind. That is money committed to television with no streaming
+            presence detected in the covered service set, which is the incremental pitch,
+            with the TV dollars as the evidence. The service-level read buyers see is built from measured
+            households and prints as a floor, never from your logs or your reporting; what
+            you see is the market around you.</p>
+        </li>
+        <li>
+          <h4>Friday is the rate call</h4>
+          <p>Defend the quarter's rate from the same public file the buyer reads,
+            <a href="index.html#fcc-rates">FCC rate intelligence</a>, daypart by daypart,
+            and the print-sheet export goes to ownership with the posted-through date in
+            the header.</p>
+        </li>
+      </ol>
+      <!-- P12: the platform-seller glimpse (R6). The streaming pitch list, mirrored with
+           synthetic advertisers per the tease doctrine: a glimpse, not a full surface.
+           TV aired beside the streaming floor, platform-class mix at class grain only.
+           The firewall line prints in the foot: we never show a platform its own logs. -->
+      <div class="rc-pitchlist-stage" data-rise>
+<div class="rc rc-pitchlist">
+  <div class="rc-pitchlist-toolbar">
+    <span class="rc-pitchlist-brand"><span class="rc-pitchlist-dot"></span>KPI &middot; The streaming pitch list</span>
+    <button class="rc-pitchlist-export" type="button" tabindex="-1" aria-hidden="true">&#8595; Excel</button>
+    <span class="rc-pitchlist-stamp">TV posted Jun 1&ndash;Aug 18, 2026</span>
+    <span class="rc-pitchlist-stamp">Streaming est. Jun 1&ndash;Aug 11, 2026 &middot; state grain</span>
+  </div>
+  <p class="rc-pitchlist-sub">Ohio &middot; the state you compete in &middot; advertisers ranked by TV aired</p>
+  <p class="small tbl-hint">Swipe the list sideways to see every column.</p>
+  <div class="rc-pitchlist-scroll" tabindex="0" role="group" aria-label="Streaming pitch list: advertisers ranked by TV aired dollars beside the estimated streaming floor and platform-class mix, scrolls sideways">
+  <table class="rc-pitchlist-grid">
+    <thead>
+      <tr>
+        <th scope="col">Advertiser</th><th class="rc-pitchlist-hn" scope="col">TV aired <span class="rc-pitchlist-sort">&#9660;</span></th><th class="rc-pitchlist-hn" scope="col">Streaming, est. floor</th><th scope="col">Platform-class mix, detected</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><th class="rc-pitchlist-adv" scope="row">Nora Hale for Senate <i>(D)</i></th><td class="rc-pitchlist-n">$2.10M</td><td class="rc-pitchlist-und" colspan="2">undetected in the covered service set &middot; the pitch never rests on a zero</td></tr>
+      <tr><th class="rc-pitchlist-adv" scope="row">Ellery for Senate <i>(R)</i></th><td class="rc-pitchlist-n">$1.74M</td><td class="rc-pitchlist-und" colspan="2">undetected in the covered service set</td></tr>
+      <tr><th class="rc-pitchlist-adv" scope="row">Granite State Forward PAC</th><td class="rc-pitchlist-n">$1.42M</td><td class="rc-pitchlist-und" colspan="2">undetected in the covered service set</td></tr>
+      <tr><th class="rc-pitchlist-adv" scope="row">Heartland Priorities PAC</th><td class="rc-pitchlist-n">$0 posted</td><td class="rc-pitchlist-n">&asymp;$780K</td><td class="rc-pitchlist-mix">premium apps 55% &middot; FAST 45%</td></tr>
+      <tr class="rc-pitchlist-more"><td>+ 2 more advertisers in this state &middot; the demo shows the rest</td><td class="rc-pitchlist-n">$1.05M</td><td class="rc-pitchlist-und" colspan="2"></td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="rc-pitchlist-foot">
+    <p>Real state; synthetic advertisers, illustrative dollars &middot; TV aired from posted orders, rolled up statewide; streaming floor reads as at least this much, never as exactly this much &middot; three advertisers heavy on TV with nothing detected on streaming, plus one already streaming-first, is the incremental pitch</p>
+    <p>Platform sellers see the market around them; we never show a platform its own logs &middot; platform-class shares are shares of measured streaming spend in the state, stated window &middot; the state grain in the stamp is the launch grain for streaming and digital estimates; this list is drawn at it</p>
+  </div>
+</div>
+
+<style>
+.rc-pitchlist-stage{display:grid;grid-template-columns:minmax(0,1fr);justify-items:center;margin:1.8rem 0 0}
+.rc-pitchlist{
+  --rcp-navy:#1B4F72; --rcp-navy2:#0D2E4A; --rcp-navy3:#08243B;
+  --rcp-lime:#A8D14E; --rcp-mute:#46586A; /* W1 R7: one step darker than --mock-dim; this card sits under the crop fade and read gray-on-gray */ --rcp-line:var(--mock-rule, #D9E2E9); --rcp-track:#EBF1F5;
+  --rcp-sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+  --rcp-mono:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,Consolas,monospace;
+  box-sizing:border-box; width:100%; max-width:640px; overflow:hidden;
+  background:#fff; border:1px solid var(--rcp-line); border-top:3px solid var(--rcp-navy2);
+  padding:10px 12px 9px; font-family:var(--rcp-sans); color:var(--rcp-navy2);
+  box-shadow:0 1px 3px rgba(8,36,59,.08);
+}
+.rc-pitchlist *,.rc-pitchlist *::before,.rc-pitchlist *::after{box-sizing:border-box;min-width:0;margin:0;padding:0}
+.rc-pitchlist .rc-pitchlist-toolbar{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.rc-pitchlist .rc-pitchlist-brand{display:inline-flex;align-items:center;gap:5px;font-size:8.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--rcp-navy);white-space:nowrap}
+.rc-pitchlist .rc-pitchlist-dot{width:6px;height:6px;border-radius:50%;background:var(--rcp-lime);flex:0 0 auto}
+.rc-pitchlist .rc-pitchlist-export{margin-left:auto;font-family:var(--rcp-sans);font-size:8.5px;font-weight:700;color:var(--rcp-navy3);background:var(--rcp-lime);border:1px solid #93BC3E;border-radius:3px;padding:3px 8px;line-height:1.2;cursor:default;white-space:nowrap}
+.rc-pitchlist .rc-pitchlist-stamp{font-family:var(--rcp-mono);font-variant-numeric:tabular-nums lining-nums;font-size:8.5px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--rcp-mute);border:1px solid var(--rcp-line);padding:2px 5px;white-space:nowrap}
+.rc-pitchlist .rc-pitchlist-sub{font-size:9px;font-weight:600;color:var(--rcp-navy3);margin-top:7px}
+.rc-pitchlist .rc-pitchlist-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:8px}
+.rc-pitchlist .rc-pitchlist-grid{width:100%;min-width:470px;border-collapse:collapse}
+.rc-pitchlist .rc-pitchlist-grid thead th{font-family:var(--rcp-mono);font-size:8.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--rcp-navy);text-align:left;padding:2px 5px 3px;border-bottom:1px solid var(--rcp-line);white-space:nowrap}
+.rc-pitchlist .rc-pitchlist-hn{text-align:right}
+.rc-pitchlist .rc-pitchlist-sort{font-size:8.5px;color:var(--rcp-mute)}
+.rc-pitchlist .rc-pitchlist-grid td,.rc-pitchlist .rc-pitchlist-grid tbody th{font-size:9px;font-weight:500;color:var(--rcp-navy3);padding:4px 5px;border-bottom:1px solid var(--rcp-track);white-space:nowrap;text-align:left}
+.rc-pitchlist .rc-pitchlist-adv{font-weight:600}
+.rc-pitchlist .rc-pitchlist-adv i{font-style:normal;font-weight:500;color:var(--rcp-mute)}
+.rc-pitchlist .rc-pitchlist-n{font-family:var(--rcp-mono);font-variant-numeric:tabular-nums lining-nums;font-weight:600;text-align:right}
+.rc-pitchlist .rc-pitchlist-mix{font-family:var(--rcp-mono);font-variant-numeric:tabular-nums lining-nums;font-size:8.5px;color:var(--rcp-mute)}
+.rc-pitchlist .rc-pitchlist-und{font-family:var(--rcp-mono);font-size:8.5px;color:var(--rcp-mute)}
+.rc-pitchlist .rc-pitchlist-more td{color:var(--rcp-mute);font-family:var(--rcp-mono);font-size:8.5px}
+.rc-pitchlist .rc-pitchlist-foot{margin-top:7px;border-top:1px solid var(--rcp-line);padding-top:5px}
+.rc-pitchlist .rc-pitchlist-foot p{font-size:9px;line-height:1.45;color:var(--rcp-mute)}
+.rc-pitchlist .tbl-hint{font-size:9px;line-height:1.4;margin:6px 0 0}
+/* R6 (item 63): at desktop the list earns the width the measured 804px scrollWidth
+   wants, so nothing scrolls where nothing needs to. */
+@media (min-width:900px){
+  .rc-pitchlist{max-width:840px}
+}
+@media (min-width:1024px){
+  .rc-pitchlist .rc-pitchlist-brand{font-size:9px}
+  .rc-pitchlist .rc-pitchlist-export{font-size:9px}
+  .rc-pitchlist .rc-pitchlist-stamp{font-size:8.5px}
+  .rc-pitchlist .rc-pitchlist-sub{font-size:10.5px}
+  .rc-pitchlist .rc-pitchlist-grid thead th{font-size:8.5px}
+  .rc-pitchlist .rc-pitchlist-grid td,.rc-pitchlist .rc-pitchlist-grid tbody th{font-size:11px;padding:5px 6px}
+  .rc-pitchlist .rc-pitchlist-mix{font-size:9.5px}
+  .rc-pitchlist .rc-pitchlist-und{font-size:9px}
+  .rc-pitchlist .rc-pitchlist-more td{font-size:8.5px}
+  .rc-pitchlist .rc-pitchlist-foot p{font-size:10px}
+}
+</style>
+      </div>
+      <!-- Ruling 40f: the platform seller's read. One buyer's digital mix by platform
+           class against the market's mix; the underweighted class is the pitch. Class
+           grain only; the never-your-own-logs line prints in the foot. -->
+      <div class="rc-classgap-stage" data-rise id="class-gap">
+<div class="rc rc-classgap">
+  <div class="rc-classgap-toolbar">
+    <span class="rc-classgap-brand"><span class="rc-classgap-dot"></span>KPI &middot; Streaming share &middot; one buyer vs the market</span>
+    <span class="rc-classgap-stamp">Streaming est. thru Aug 11, 2026</span>
+  </div>
+  <p class="rc-classgap-sub">North Carolina &middot; Blue Ridge Prosperity Fund&rsquo;s estimated streaming mix beside the measured market&rsquo;s &middot; shares of measured streaming spend, by platform class</p>
+  <div class="rc-classgap-rows">
+    <div class="rc-classgap-row">
+      <span class="rc-classgap-name">YouTube (TV screens)</span>
+      <span class="rc-classgap-pair">
+        <span class="rc-classgap-line"><i class="rc-classgap-who">this buyer</i><span class="rc-classgap-track"><span class="rc-classgap-fill rc-classgap-fill-b" style="width:46%"></span></span><b class="rc-classgap-v">46%</b></span>
+        <span class="rc-classgap-line"><i class="rc-classgap-who">the market</i><span class="rc-classgap-track"><span class="rc-classgap-fill rc-classgap-fill-m" style="width:38%"></span></span><b class="rc-classgap-v">38%</b></span>
+      </span>
+    </div>
+    <div class="rc-classgap-row">
+      <span class="rc-classgap-name">Premium streaming</span>
+      <span class="rc-classgap-pair">
+        <span class="rc-classgap-line"><i class="rc-classgap-who">this buyer</i><span class="rc-classgap-track"><span class="rc-classgap-fill rc-classgap-fill-b" style="width:34%"></span></span><b class="rc-classgap-v">34%</b></span>
+        <span class="rc-classgap-line"><i class="rc-classgap-who">the market</i><span class="rc-classgap-track"><span class="rc-classgap-fill rc-classgap-fill-m" style="width:27%"></span></span><b class="rc-classgap-v">27%</b></span>
+      </span>
+    </div>
+    <div class="rc-classgap-row rc-classgap-row-gap">
+      <span class="rc-classgap-name">Free ad-supported TV<span class="rc-classgap-flag">the starved class</span></span>
+      <span class="rc-classgap-pair">
+        <span class="rc-classgap-line"><i class="rc-classgap-who">this buyer</i><span class="rc-classgap-track"><span class="rc-classgap-fill rc-classgap-fill-b" style="width:4%"></span></span><b class="rc-classgap-v">4%</b></span>
+        <span class="rc-classgap-line"><i class="rc-classgap-who">the market</i><span class="rc-classgap-track"><span class="rc-classgap-fill rc-classgap-fill-m" style="width:18%"></span></span><b class="rc-classgap-v">18%</b></span>
+      </span>
+    </div>
+    <div class="rc-classgap-row">
+      <span class="rc-classgap-name">Smart-TV channels</span>
+      <span class="rc-classgap-pair">
+        <span class="rc-classgap-line"><i class="rc-classgap-who">this buyer</i><span class="rc-classgap-track"><span class="rc-classgap-fill rc-classgap-fill-b" style="width:16%"></span></span><b class="rc-classgap-v">16%</b></span>
+        <span class="rc-classgap-line"><i class="rc-classgap-who">the market</i><span class="rc-classgap-track"><span class="rc-classgap-fill rc-classgap-fill-m" style="width:17%"></span></span><b class="rc-classgap-v">17%</b></span>
+      </span>
+    </div>
+  </div>
+  <p class="rc-classgap-read">The market gives free ad-supported TV 18% of its measured streaming dollars; this buyer gives it 4%. That gap is the pitch.</p>
+  <div class="rc-classgap-foot">
+    <p>Real state; synthetic advertiser and shares &middot; shares of measured streaming spend at platform-class grain, stated window, estimated &middot; each column of shares sums to 100%</p>
+    <p>Platform sellers see the market around them; we never show a platform its own logs &middot; the class a buyer underserves is read from the measured market, never from any platform&rsquo;s reporting</p>
+  </div>
+</div>
+<style>
+.rc-classgap-stage{display:grid;grid-template-columns:minmax(0,1fr);justify-items:center;margin:1.4rem 0 0}
+.rc-classgap{
+  --rcg-navy:#1B4F72; --rcg-navy2:#0D2E4A; --rcg-navy3:#08243B;
+  --rcg-lime:#A8D14E; --rcg-lime-deep:#5A7A1E; --rcg-blue:#2D8BBA;
+  --rcg-mute:#46586A; --rcg-line:var(--mock-rule, #D9E2E9); --rcg-track:#EBF1F5;
+  --rcg-mono:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,Consolas,monospace;
+  box-sizing:border-box; width:100%; max-width:640px; overflow:hidden;
+  background:#fff; border:1px solid var(--rcg-line); border-top:3px solid var(--rcg-navy2);
+  padding:10px 12px 9px; font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif; color:var(--rcg-navy2);
+  box-shadow:0 1px 3px rgba(8,36,59,.08);
+}
+.rc-classgap *,.rc-classgap *::before,.rc-classgap *::after{box-sizing:border-box;min-width:0;margin:0;padding:0}
+.rc-classgap .rc-classgap-toolbar{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.rc-classgap .rc-classgap-brand{display:inline-flex;align-items:center;gap:5px;font-size:8.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--rcg-navy);white-space:nowrap}
+.rc-classgap .rc-classgap-dot{width:6px;height:6px;border-radius:50%;background:var(--rcg-lime);flex:0 0 auto}
+.rc-classgap .rc-classgap-stamp{font-family:var(--rcg-mono);font-variant-numeric:tabular-nums lining-nums;font-size:8.5px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--rcg-mute);border:1px solid var(--rcg-line);padding:2px 5px;white-space:nowrap}
+.rc-classgap .rc-classgap-sub{font-size:9px;font-weight:600;color:var(--rcg-navy3);margin-top:7px;line-height:1.5}
+.rc-classgap .rc-classgap-rows{margin-top:8px;display:flex;flex-direction:column}
+.rc-classgap .rc-classgap-row{display:grid;grid-template-columns:minmax(96px,.42fr) minmax(0,1fr);gap:8px;align-items:center;padding:5px 2px;border-bottom:1px solid var(--rcg-track)}
+.rc-classgap .rc-classgap-name{font-size:9.5px;font-weight:600;color:var(--rcg-navy3);line-height:1.3}
+.rc-classgap .rc-classgap-flag{display:block;font-family:var(--rcg-mono);font-size:6.8px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--rcg-lime-deep);margin-top:1px}
+.rc-classgap .rc-classgap-pair{display:flex;flex-direction:column;gap:2px}
+.rc-classgap .rc-classgap-line{display:grid;grid-template-columns:52px minmax(0,1fr) 34px;gap:6px;align-items:center}
+.rc-classgap .rc-classgap-who{font-style:normal;font-family:var(--rcg-mono);font-size:6.8px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--rcg-mute);white-space:nowrap}
+.rc-classgap .rc-classgap-track{display:block;height:8px;background:var(--rcg-track)}
+.rc-classgap .rc-classgap-fill{display:block;height:100%;transform-origin:left center}
+.rc-classgap .rc-classgap-fill-b{background:var(--rcg-navy)}
+.rc-classgap .rc-classgap-fill-m{background:var(--rcg-blue)}
+.rc-classgap .rc-classgap-v{font-family:var(--rcg-mono);font-variant-numeric:tabular-nums lining-nums;font-size:8.5px;font-weight:600;color:var(--rcg-navy3);text-align:right;white-space:nowrap}
+.rc-classgap .rc-classgap-row-gap{background:rgba(168,209,78,.10);border-bottom-color:rgba(90,122,30,.4)}
+.rc-classgap .rc-classgap-read{margin-top:8px;font-size:10px;font-weight:650;color:var(--rcg-navy3);line-height:1.5}
+.rc-classgap .rc-classgap-foot{margin-top:7px;border-top:1px solid var(--rcg-line);padding-top:5px}
+.rc-classgap .rc-classgap-foot p{font-size:9px;line-height:1.45;color:var(--rcg-mute)}
+@keyframes rc-classgap-draw{from{transform:scaleX(0)}}
+@media (prefers-reduced-motion: no-preference){
+  .rc-classgap-stage.in-view .rc-classgap-fill{animation:rc-classgap-draw .65s cubic-bezier(.25,.6,.3,1) backwards}
+  .rc-classgap-stage.in-view .rc-classgap-row:nth-child(2) .rc-classgap-fill{animation-delay:.08s}
+  .rc-classgap-stage.in-view .rc-classgap-row:nth-child(3) .rc-classgap-fill{animation-delay:.16s}
+  .rc-classgap-stage.in-view .rc-classgap-row:nth-child(4) .rc-classgap-fill{animation-delay:.24s}
+}
+@media (min-width:1024px){
+  .rc-classgap{max-width:720px}
+  .rc-classgap .rc-classgap-sub{font-size:10.5px}
+  .rc-classgap .rc-classgap-name{font-size:11px}
+  .rc-classgap .rc-classgap-flag{font-size:7.5px}
+  .rc-classgap .rc-classgap-who{font-size:7.5px}
+  .rc-classgap .rc-classgap-v{font-size:9.5px}
+  .rc-classgap .rc-classgap-read{font-size:11.5px}
+  .rc-classgap .rc-classgap-foot p{font-size:10px}
+}
+</style>
+      </div>
+      <p class="small mt2">The demo runs the same way for sellers: name the market you sell
+        when you <a href="contact.html">book the walkthrough</a> and we pull its full order
+        flow across every race and committee in it. Advertiser and committee names come from
+        the order and the creative; we do not print who buys on whose behalf. Sellers may put
+        KPI figures in front of an advertiser or its agency with the credit and the
+        posted-through date attached. Preferred credit: "Kinetiq Political Insights, data
+        posted through [date]."</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BAKER (ruling 36a, portal notes §10) ============ -->
+<!-- Baker is the KPI conversational research assistant over the whole tracked
+     dataset: creatives, placements, advertisers, races. Teased per the trailer
+     doctrine (ruling 22): the composer and the example prompts, never a fake
+     chat transcript. Chrome mirrors the live app: BAKER wordmark, ASSISTANT
+     ONLINE chip, teal accent. The rate apps keep their own names (FCC Pricing
+     Intel, Rate Details); Baker is NOT the rate engine. -->
+<section class="section section--tint" id="baker">
+  <div class="wrap">
+    <div class="split" style="margin-bottom:1.8rem">
+      <div>
+        <p class="eyebrow">Baker &middot; across every layer</p>
+        <h2>Ask the whole air war a question.</h2>
+      </div>
+      <div>
+        <p class="lede">Baker is the research assistant over everything the platform
+          tracks: the creatives, the placements, the advertisers and the races. Ask in
+          plain language and the answer comes from the same posted data every screen
+          reads, carrying the same stamps. The screens are the ones you drive;
+          Baker is the analyst you ask.</p>
+        <ul class="small">
+          <li>One question spans the dataset: no filter path to learn first</li>
+          <li>Answers stand on the posted data, with the through-date attached</li>
+          <li>Where the posted data cannot answer, Baker returns the gap, not a guess</li>
+          <li>Below, four example questions with illustrative answers; the demo runs your own questions live</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="rc-stage">
+<div class="rc rc-baker">
+  <div class="rc-baker-strap">
+    <span class="rc-baker-word">Baker</span>
+    <span class="rc-baker-viewpill">Assistant</span>
+  </div>
+  <div class="rc-baker-hero">
+    <span class="rc-baker-name">BAKER</span>
+    <span class="rc-baker-sub">KINETIQ POLITICAL INSIGHTS</span>
+    <span class="rc-baker-online"><i></i>Assistant online</span>
+  </div>
+  <div class="rc-baker-exk">Try these examples</div>
+  <div class="rc-baker-examples">
+    <button class="rc-baker-ex" type="button">Any new creatives today?</button>
+    <button class="rc-baker-ex" type="button">What advertisers placed today?</button>
+    <button class="rc-baker-ex" type="button">What does the creative rotation look like in the North River Senate?</button>
+  </div>
+  <div class="rc-baker-composer">
+    <span class="rc-baker-input">Enter your media research query&hellip;</span>
+    <a class="rc-baker-send" href="contact.html">Send</a>
+  </div>
+  <div class="rc-baker-foot">
+    <p>Recreation of the live assistant &middot; pick an example and Send carries your question into the demo request &middot; the answers open in the product, on a race you name</p>
+  </div>
+</div>
+
+<style>
+.rc-baker{
+  --rcb-navy:#1B4F72; --rcb-navy2:#0D2E4A; --rcb-navy3:#08243B;
+  --rcb-teal:#00ACC1; --rcb-lime:#A8D14E;
+  --rcb-mute:var(--mock-dim, #5A6B7C); --rcb-line:var(--mock-rule, #D9E2E9);
+  --rcb-sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+  --rcb-serif:Georgia,'Times New Roman',serif;
+  --rcb-mono:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,Consolas,monospace;
+  box-sizing:border-box; width:100%; max-width:640px; overflow:hidden;
+  background:#fff; border:1px solid var(--rcb-line);
+  font-family:var(--rcb-sans); color:var(--rcb-navy2);
+  box-shadow:0 6px 18px rgba(8,36,59,.10);
+}
+.rc-baker *,.rc-baker *::before,.rc-baker *::after{box-sizing:border-box;min-width:0;margin:0;padding:0}
+.rc-baker .rc-baker-strap{display:flex;align-items:center;gap:8px;background:#101820;padding:6px 12px}
+.rc-baker .rc-baker-word{font-family:var(--rcb-serif);font-size:13px;font-weight:600;letter-spacing:.02em;color:#F4F7FA}
+.rc-baker .rc-baker-viewpill{font-family:var(--rcb-mono);font-size:8.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#BFD6E4;border:1px solid rgba(255,255,255,.28);border-radius:9px;padding:2px 7px}
+.rc-baker .rc-baker-hero{display:flex;flex-direction:column;align-items:center;gap:3px;padding:18px 14px 14px;background:linear-gradient(160deg,#134066 0%,#0D2E4A 55%,#08243B 100%);border-bottom:2px solid var(--rcb-teal)}
+.rc-baker .rc-baker-name{font-size:19px;font-weight:800;letter-spacing:.42em;text-indent:.42em;color:#fff}
+.rc-baker .rc-baker-sub{font-family:var(--rcb-mono);font-size:8.5px;font-weight:600;letter-spacing:.3em;text-indent:.3em;color:#9FC0D4;text-transform:uppercase}
+.rc-baker .rc-baker-online{display:inline-flex;align-items:center;gap:5px;margin-top:7px;font-family:var(--rcb-mono);font-size:8.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#CDEDF2;background:rgba(0,172,193,.16);border:1px solid rgba(0,172,193,.5);border-radius:9px;padding:2.5px 8px}
+.rc-baker .rc-baker-online i{width:6px;height:6px;border-radius:50%;background:var(--rcb-teal)}
+.rc-baker .rc-baker-exk{font-family:var(--rcb-mono);font-size:8.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--rcb-mute);padding:10px 12px 0}
+.rc-baker .rc-baker-examples{display:flex;flex-wrap:wrap;gap:5px;padding:6px 12px 2px}
+.rc-baker .rc-baker-ex{font-family:var(--rcb-sans);font-size:8.5px;font-weight:500;color:var(--rcb-navy2);background:#fff;border:1px solid var(--rcb-line);border-radius:3px;padding:5px 8px;line-height:1.35;cursor:pointer;text-align:left}
+.rc-baker .rc-baker-ex:hover{border-color:var(--rcb-teal);color:var(--rcb-navy3)}
+.rc-baker .rc-baker-composer{display:flex;align-items:center;gap:6px;margin:10px 12px 0;border:1px solid var(--rcb-line);border-radius:4px;padding:6px 6px 6px 10px;background:#FAFCFD}
+.rc-baker .rc-baker-input{flex:1 1 auto;font-size:9px;color:var(--rcb-mute);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rc-baker .rc-baker-input.rc-baker-input-filled{color:var(--rcb-navy3);font-weight:600}
+.rc-baker .rc-baker-send{font:inherit;font-size:8.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:var(--rcb-navy);border:none;border-radius:3px;padding:5px 12px;cursor:pointer;white-space:nowrap;text-decoration:none}
+.rc-baker .rc-baker-send:hover{background:var(--rcb-navy2);color:#fff}
+.rc-baker .rc-baker-foot{margin:8px 12px 9px;border-top:1px solid var(--rcb-line);padding-top:5px}
+.rc-baker .rc-baker-foot p{font-size:9px;line-height:1.45;color:var(--rcb-mute)}
+/* R5: the assistant is a payoff moment; at desktop it reads at chip 11 / foot 10 / pill 9. */
+@media (min-width:1024px){
+  .rc-baker .rc-baker-word{font-size:14px}
+  .rc-baker .rc-baker-viewpill{font-size:8.5px}
+  .rc-baker .rc-baker-name{font-size:22px}
+  .rc-baker .rc-baker-sub{font-size:8.5px}
+  .rc-baker .rc-baker-online{font-size:8.5px}
+  .rc-baker .rc-baker-exk{font-size:8.5px}
+  .rc-baker .rc-baker-ex{font-size:11px;padding:7px 10px}
+  .rc-baker .rc-baker-input{font-size:11px}
+  .rc-baker .rc-baker-send{font-size:9px;padding:7px 14px}
+  .rc-baker .rc-baker-foot p{font-size:10px}
+}
+@media (prefers-reduced-motion:no-preference){
+  .rc-baker .rc-baker-online i{animation:rc-baker-pulse 2.6s ease-out 2}
+}
+/* R6 (item 14): the live Baker controls get the 44px comfort floor on a phone. */
+@media (max-width:880px){
+  .rc-baker .rc-baker-ex{min-height:44px;font-size:11px;padding:.55rem .7rem}
+  .rc-baker .rc-baker-send{min-height:44px;font-size:10px;padding:.55rem 1rem;display:inline-flex;align-items:center}
+}
+@keyframes rc-baker-pulse{
+  0%,100%{box-shadow:0 0 0 0 rgba(0,172,193,.5)}
+  55%{box-shadow:0 0 0 4px rgba(0,172,193,0)}
+}
+</style>
+    </div>
+    <p class="glimpse-cap" style="text-align:center">The live assistant answers on your
+      races; the demo runs your own questions. <a href="contact.html">Request one</a></p>
+
+    <!-- Ruling 43: Baker in action. Pre-written example answers on the canonical
+         synthetic universe, modeling the honesty grammar. Click a question to reveal
+         its answer; the first pair renders by default and nothing advances on its
+         own. JS-off: the first pair shows statically. -->
+    <div class="rc-stage mt2">
+<div class="rc rc-bdemo" data-bdemo>
+  <p class="rc-bdemo-k">Baker in action &middot; example questions, illustrative answers</p>
+  <div class="rc-bdemo-chips" role="tablist" aria-label="Example questions, illustrative answers">
+    <button class="rc-bdemo-chip" type="button" role="tab" id="bd-q1" aria-selected="true" aria-controls="bd-a1">What moved in the North River Senate this week?</button>
+    <button class="rc-bdemo-chip" type="button" role="tab" id="bd-q2" aria-selected="false" aria-controls="bd-a2" tabindex="-1">Which stations carry the &ldquo;rule they wrote&rdquo; theme?</button>
+    <button class="rc-bdemo-chip" type="button" role="tab" id="bd-q3" aria-selected="false" aria-controls="bd-a3" tabindex="-1">Where does digital sit against TV in this race?</button>
+    <button class="rc-bdemo-chip" type="button" role="tab" id="bd-q4" aria-selected="false" aria-controls="bd-a4" tabindex="-1">Any new creatives today?</button>
+  </div>
+  <div class="rc-bdemo-a" id="bd-a1" role="tabpanel" aria-labelledby="bd-q1">
+    <p class="rc-bdemo-q">What moved in the North River Senate this week?</p>
+    <p class="rc-bdemo-ans">Two changes carried the week: Granite State Forward PAC booked
+      $84K into Cleveland on Monday before airing a spot, and the case against Hale added
+      $410K behind &ldquo;A rule they wrote,&rdquo; a theme tested in the spring and
+      dropped. Aired money across the three markets stands at $5.5M in the posted lanes.</p>
+    <p class="rc-bdemo-receipt">Posted through Aug 14, 2026 &middot; posted lanes: broadcast, local cable, radio &middot; streaming floor $960K beside, estimated</p>
+  </div>
+  <div class="rc-bdemo-a" id="bd-a2" role="tabpanel" aria-labelledby="bd-q2" hidden>
+    <p class="rc-bdemo-q">Which stations carry the &ldquo;rule they wrote&rdquo; theme?</p>
+    <p class="rc-bdemo-ans">Six stations carry it: four in Columbus and two in Cleveland,
+      with WQZL holding 41% of the theme&rsquo;s Columbus points. Both cuts under the theme
+      are :30s; the tape and the AI transcript for each are one click away.</p>
+    <p class="rc-bdemo-receipt">Detections posted through Aug 12, 2026 &middot; station grain, Columbus + Cleveland &middot; points are household points on the market universe</p>
+  </div>
+  <div class="rc-bdemo-a" id="bd-a3" role="tabpanel" aria-labelledby="bd-q3" hidden>
+    <p class="rc-bdemo-q">Where does digital sit against TV in this race?</p>
+    <p class="rc-bdemo-ans">Heartland Priorities PAC is the digital story: an estimated
+      &asymp;$740K on streaming against $0 posted on TV, while both candidates sit heavy
+      on TV and undetected in the covered streaming set. The streaming figure is a floor
+      at state grain and never sums into the TV totals.</p>
+    <p class="rc-bdemo-receipt">TV posted through Aug 12 &middot; streaming estimated through Aug 5, 2026 &middot; estimates labeled, never blended</p>
+  </div>
+  <div class="rc-bdemo-a" id="bd-a4" role="tabpanel" aria-labelledby="bd-q4" hidden>
+    <p class="rc-bdemo-q">Any new creatives today?</p>
+    <p class="rc-bdemo-ans">One: &ldquo;First Light,&rdquo; a :30 from Heartland Priorities
+      PAC, captured on Hulu at 7:15 AM ET this morning with zero broadcast airings so far.
+      The tape, the AI transcript and the alert card are attached.</p>
+    <p class="rc-bdemo-receipt">Captured Aug 11, 2026 &middot; 7:15 AM ET &middot; streaming capture at app grain, early and growing</p>
+  </div>
+  <div class="rc-bdemo-foot">
+    <p>Example questions, illustrative answers &middot; synthetic races and advertisers, real markets &middot; live answers stand on the posted data and carry its stamps, like these do</p>
+  </div>
+</div>
+<style>
+.rc-bdemo{
+  --rcbd-navy:#1B4F72; --rcbd-navy2:#0D2E4A; --rcbd-navy3:#08243B;
+  --rcbd-teal:#00ACC1; --rcbd-lime:#A8D14E;
+  --rcbd-mute:var(--mock-dim, #5A6B7C); --rcbd-line:var(--mock-rule, #D9E2E9);
+  --rcbd-mono:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,Consolas,monospace;
+  box-sizing:border-box; width:100%; max-width:640px; overflow:hidden;
+  background:#fff; border:1px solid var(--rcbd-line); border-top:3px solid var(--rcbd-navy2);
+  padding:10px 12px 9px; font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif; color:var(--rcbd-navy2);
+  box-shadow:0 1px 3px rgba(8,36,59,.08);
+}
+.rc-bdemo *,.rc-bdemo *::before,.rc-bdemo *::after{box-sizing:border-box;min-width:0;margin:0;padding:0}
+.rc-bdemo .rc-bdemo-k{font-family:var(--rcbd-mono);font-size:8.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--rcbd-mute)}
+.rc-bdemo .rc-bdemo-chips{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}
+.rc-bdemo .rc-bdemo-chip{font-family:inherit;font-size:10px;font-weight:600;color:var(--rcbd-navy2);background:#fff;border:1px solid var(--rcbd-line);border-radius:3px;padding:6px 9px;line-height:1.35;cursor:pointer;text-align:left}
+.rc-bdemo .rc-bdemo-chip:hover{border-color:var(--rcbd-teal);color:var(--rcbd-navy3)}
+.rc-bdemo .rc-bdemo-chip[aria-selected="true"]{color:#fff;background:var(--rcbd-navy);border-color:var(--rcbd-navy)}
+.rc-bdemo .rc-bdemo-chip:focus-visible{outline:2px solid var(--rcbd-teal);outline-offset:2px}
+.rc-bdemo .rc-bdemo-a{margin-top:9px;border:1px solid var(--rcbd-line);border-left:3px solid var(--rcbd-teal);background:#FAFCFD;padding:9px 11px 8px}
+.rc-bdemo .rc-bdemo-q{font-size:10px;font-weight:700;color:var(--rcbd-navy3)}
+.rc-bdemo .rc-bdemo-ans{font-size:10.5px;line-height:1.6;color:var(--rcbd-navy2);margin-top:5px}
+.rc-bdemo .rc-bdemo-receipt{font-family:var(--rcbd-mono);font-variant-numeric:tabular-nums lining-nums;font-size:8.5px;letter-spacing:.04em;color:var(--rcbd-mute);border-top:1px dashed var(--rcbd-line);margin-top:7px;padding-top:5px}
+.rc-bdemo .rc-bdemo-foot{margin-top:8px;border-top:1px solid var(--rcbd-line);padding-top:5px}
+.rc-bdemo .rc-bdemo-foot p{font-size:9px;line-height:1.45;color:var(--rcbd-mute)}
+@media (min-width:1024px){
+  .rc-bdemo{max-width:720px}
+  .rc-bdemo .rc-bdemo-chip{font-size:11px}
+  .rc-bdemo .rc-bdemo-q{font-size:11px}
+  .rc-bdemo .rc-bdemo-ans{font-size:12px}
+  .rc-bdemo .rc-bdemo-receipt{font-size:9px}
+  .rc-bdemo .rc-bdemo-foot p{font-size:10px}
+}
+@media (max-width:880px){
+  .rc-bdemo .rc-bdemo-chip{min-height:44px}
+}
+</style>
+    </div>
+    <div class="stamp">
+      <span><b>Scope</b> creatives, placements, advertisers, races: the whole tracked dataset</span>
+      <span><b>Basis</b> answers stand on posted data and carry its through-date</span>
+      <span><b>Prompts shown</b> the live app's own example shapes, on a synthetic race</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section class="section section--mega cta-final">
+  <div class="wrap center">
+    <p class="eyebrow eyebrow--plain" style="justify-content:center">Next step</p>
+    <h2>Bring a race you already know.</h2>
+    <p class="lede" style="margin-inline:auto">We will open the scoreboard on it. If the read
+      does not match what you lived, you will know in the first five minutes. Prefer to
+      read first? Start with <a href="methodology.html">how we count</a>.</p>
+    <div class="btn-row mt2" style="justify-content:center">
+      <a class="btn btn--lime btn--lg" href="contact.html">Request a demo</a>
+      <a class="btn btn--outline btn--lg" href="mailto:info@kpipolitical.com">Talk to us</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__grid">
+      <div class="foot__brand">
+        <img src="assets/img/kpi-logo-reverse.png" alt="Kinetiq Political Insights">
+        <p class="small" style="color:#8FA9BE;max-width:34ch">Kinetiq Political Insights is a
+          political ad intelligence platform built on Kinetiq's national monitoring network.
+          Press: <a href="mailto:press@kpipolitical.com">press@kpipolitical.com</a></p>
+      </div>
+      <div>
+        <h4>Platform</h4>
+        <ul>
+          <li><a href="platform.html">The platform</a></li>
+          <li><a href="index.html#sell-side">Sell-side intelligence</a></li>
+          <li><a href="polling.html">Real-time polling</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Proof</h4>
+        <ul>
+          <li><a href="methodology.html">Methodology</a></li>
+          <li><a href="methodology.html#how-we-count">How we count</a></li>
+          <li><a href="index.html#press">Press coverage</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Get in touch</h4>
+        <ul>
+          <li><a href="contact.html">Request a demo</a></li>
+          <li><a href="mailto:info@kpipolitical.com">info@kpipolitical.com</a></li>
+          <li><a href="https://portal.kpipolitical.com">Subscriber log in</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot__base">
+      <span>© 2026 Kinetiq Political Insights. All rights reserved.</span>
+      <span>Coverage and scale figures as of August 2026.</span>
+      <span>Non-partisan by design. We sell to both sides and say so.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/site.js?v=r20"></script>
+</body>
+</html>

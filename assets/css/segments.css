@@ -1,0 +1,83 @@
+/* Syndicated segment explorer - layout only. Colors come from kpi.css tokens. */
+
+#sx { display: grid; gap: 1.5rem; grid-template-columns: 1fr; }
+@media (min-width: 1000px) { #sx { grid-template-columns: minmax(0, 1fr) 320px; align-items: start; } }
+
+.sx-controls { display: grid; gap: .85rem; margin-bottom: 1.1rem; }
+.sx-search { position: relative; }
+.sx-search input {
+  width: 100%; font-family: var(--sans); font-size: 1.05rem; padding: .95rem 1rem .95rem 2.9rem;
+  border: 1.5px solid var(--rule); border-radius: var(--r); background: var(--white); color: var(--ink);
+}
+.sx-search input:focus { border-color: var(--blue); outline: 3px solid color-mix(in srgb, var(--teal) 32%, transparent); }
+.sx-search input::placeholder { text-overflow: ellipsis; }
+.sx-search svg { position: absolute; left: .95rem; top: 50%; transform: translateY(-50%); width: 18px; height: 18px; color: var(--ink-3); pointer-events: none; }
+
+.sx-filters { display: flex; flex-wrap: wrap; gap: .8rem; align-items: center; }
+.sx-chips { display: flex; flex-wrap: wrap; gap: .4rem; }
+.sx-chip {
+  font-family: var(--label); text-transform: uppercase; letter-spacing: .07em; font-size: .8rem; font-weight: 600;
+  padding: .32rem .6rem; border: 1px solid var(--rule); background: var(--white); color: var(--ink-2);
+  border-radius: 2px; cursor: pointer; line-height: 1.3;
+}
+.sx-chip:hover { border-color: var(--blue); color: var(--navy); }
+.sx-chip.is-on { background: var(--navy); border-color: var(--navy); color: #fff; }
+.sx-chip .num { opacity: .65; font-size: .78rem; }
+.sx-chip.is-on .num { opacity: .8; }
+/* 1rem (>=16px) so iOS never zooms the page when the select opens. */
+#sx-cats { font-family: var(--sans); font-size: 1rem; padding: .42rem .6rem; border: 1px solid var(--rule); border-radius: var(--r); background: var(--white); color: var(--ink); max-width: 100%; }
+
+.sx-examples { display: flex; flex-wrap: wrap; gap: .4rem; align-items: baseline; font-size: .87rem; color: var(--ink-3); }
+.sx-examples button {
+  font-family: var(--sans); font-size: .87rem; background: none; border: 0; cursor: pointer;
+  color: var(--navy); text-decoration: underline; text-decoration-color: color-mix(in srgb, var(--navy) 30%, transparent);
+  text-underline-offset: .18em; padding: 0;
+}
+.sx-examples button:hover { color: var(--blue); }
+
+.sx-count { font-size: .9rem; color: var(--ink-3); margin: 0 0 .6rem; }
+.sx-count b { color: var(--navy); font-weight: 700; }
+
+.sx-list { list-style: none; margin: 0; padding: 0; border: 1px solid var(--rule); border-radius: var(--r-lg); background: var(--white); max-height: 620px; overflow-y: auto; }
+.sx-row { display: flex; gap: .8rem; padding: .8rem .95rem; border-bottom: 1px solid var(--rule-soft); align-items: flex-start; }
+.sx-row:last-child { border-bottom: 0; }
+.sx-row.is-on { background: color-mix(in srgb, var(--lime) 11%, transparent); }
+.sx-add {
+  flex: none; width: 26px; height: 26px; border-radius: 3px; border: 1px solid var(--rule);
+  background: var(--white); color: var(--navy); font-size: 1rem; line-height: 1; cursor: pointer;
+  display: grid; place-items: center; font-family: var(--sans); margin-top: .1rem;
+}
+.sx-add:hover { border-color: var(--blue); background: var(--paper); }
+.sx-row.is-on .sx-add { background: var(--lime-dark); border-color: var(--lime-dark); color: #fff; }
+.sx-body { min-width: 0; }
+.sx-q { margin: 0 0 .25rem; font-size: .95rem; line-height: 1.45; color: var(--ink); }
+.sx-q mark { background: color-mix(in srgb, var(--lime) 48%, transparent); color: inherit; padding: 0 .1em; border-radius: 2px; }
+.sx-meta { margin: 0; display: flex; flex-wrap: wrap; gap: .4rem .7rem; font-size: .78rem; color: var(--ink-3); align-items: baseline; }
+.sx-cat { font-family: var(--label); text-transform: uppercase; letter-spacing: .08em; font-weight: 600; color: var(--blue-text); }
+.sx-sub { color: var(--ink-3); }
+.sx-qid { color: var(--ink-3); font-size: .74rem; }
+.sx-more { padding: 1rem; text-align: center; border-bottom: 0; }
+.sx-fail, .sx-basket-empty { padding: 1.1rem; font-size: .9rem; color: var(--ink-3); }
+#sx-empty { padding: 1.4rem; border: 1px dashed var(--rule); border-radius: var(--r-lg); color: var(--ink-3); font-size: .92rem; background: var(--paper); }
+
+.sx-side { position: sticky; top: calc(var(--nav-h) + 16px); display: grid; gap: 1rem; }
+.sx-basket { border: 1px solid var(--rule); border-radius: var(--r-lg); background: var(--white); overflow: hidden; }
+.sx-basket[data-has="true"] { border-color: var(--lime-dark); }
+.sx-basket__hd { padding: .8rem 1rem; background: var(--navy); color: #fff; display: flex; align-items: baseline; justify-content: space-between; gap: .5rem; }
+.sx-basket__hd h3 { margin: 0; font-size: 1rem; color: #fff; font-family: var(--label); text-transform: uppercase; letter-spacing: .1em; font-weight: 600; }
+.sx-basket__hd span { font-family: var(--mono); font-size: .86rem; color: var(--lime); }
+.sx-basket ul { list-style: none; margin: 0; padding: 0; max-height: 300px; overflow-y: auto; }
+.sx-basket li { display: grid; grid-template-columns: 22px 1fr; gap: .5rem; align-items: start; padding: .6rem .9rem; border-bottom: 1px solid var(--rule-soft); font-size: .86rem; }
+.sx-basket li:last-child { border-bottom: 0; }
+.sx-basket-empty { display: block !important; grid-template-columns: 1fr !important; }
+.sx-drop { grid-row: span 2; width: 20px; height: 20px; border: 1px solid var(--rule); background: var(--white); border-radius: 2px; cursor: pointer; color: var(--ink-3); line-height: 1; }
+/* Remove affordance uses the warm caution tone, never --rep: partisan colors
+   mean party and nothing else, anywhere on this site. */
+.sx-drop:hover { border-color: #8A6A16; color: #8A6A16; }
+.sx-basket-q { line-height: 1.4; }
+.sx-basket li .sx-qid { grid-column: 2; }
+.sx-basket__ft { padding: .85rem .9rem; border-top: 1px solid var(--rule); display: grid; gap: .5rem; background: var(--paper); }
+/* Copy/Clear read as inert until something is picked; the email path stays live. */
+.sx-basket__ft .btn:disabled { opacity: .45; cursor: not-allowed; transform: none; box-shadow: none; }
+
+@media (max-width: 999px) { .sx-side { position: static; } .sx-list { max-height: none; } }
