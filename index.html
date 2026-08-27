@@ -104,8 +104,10 @@
      under the chip. */
   .hero-banner__in { display: flex; align-items: baseline; gap: .6rem; }
   .hero-banner__txt { min-width: 0; }
-  /* R6: the receipt's stat phrases never break mid-phrase; the line breaks
-     only at the separators. */
+  /* R6 + round-3 panel (CMO): the receipt is a wrapping flex row — phrases
+     never break mid-phrase (per-span nowrap), and the line always breaks
+     BETWEEN items, so the substantiation line never clips at any width. */
+  .hero-receipt { display: flex; flex-wrap: wrap; justify-content: center; }
   .hero-receipt span { white-space: nowrap; }
   /* R5: the held release date renders as a mono pill, not a bracketed slug. */
   .press-rel__date--pill { border: 1px solid var(--rule); padding: .08rem .5rem;
@@ -175,7 +177,7 @@
       <span class="ht__l" data-t="Political Ad Intelligence">Political Ad Intelligence</span><br>
       <span class="ht__l ht__l--accent" data-t="Platform">Platform</span>
     </h1>
-    <p class="hero-receipt"><span>The basis: all 210 markets</span><span class="hr-x"> &middot; TV, cable + radio order by order</span><span class="hr-x"> &middot; streaming caught on screens, not filings</span><span> &middot; ~1.5M airings a day, every ad category</span><span class="hr-x"> &middot; 9 years</span></p>
+    <p class="hero-receipt"><span>The basis: all 210 markets</span><span class="hr-x"> &middot; TV, cable + radio order by order</span><span class="hr-x"> &middot; streaming caught on screens, not filings</span><span> &middot; ~1.5M airings a day, every category</span><span class="hr-x"> &middot; 9 years</span></p>
     <p class="lede">KPI tracks political ads and the money behind them &mdash; on TV,
       cable, radio and streaming, in every U.S. media market. When the other side
       moves, you know the same morning.</p>
