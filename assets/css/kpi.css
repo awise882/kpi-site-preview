@@ -1,4 +1,4 @@
-@import url("fonts.css?v=r23");
+@import url("fonts.css?v=r26");
 
 /* ==========================================================================
    Kinetiq Political Insights - site design system
@@ -1497,3 +1497,370 @@ a.chip:hover { border-color: var(--blue); color: var(--navy); background: var(--
 .mdef li:last-child { margin-bottom: 0; }
 .mdef li b { color: var(--navy-deep); }
 .mdef__law { margin: .7rem 0 0; font-size: .82rem; color: var(--ink-3); }
+
+/* ==========================================================================
+   r25: shared scene components, promoted from the index page style so the
+   hub-and-spoke pages (index, monitoring, week) share one source. The
+   creative-alert card, the calendar timeline, the week scoreboard and
+   cross-screen cards, and the Pass E scene layer (wire stagger, alert
+   assembly, contour, diagonal).
+   ========================================================================== */
+  /* The creative alert, in the shape it arrives: logo masthead, the alert pill,
+     a neutral player still (drawn, never a real spot's frame), text-only action
+     controls, two-column ad details with small-caps labels, the transcript on a
+     soft panel with the AI disclaimer. Square. Depth is shadow, never tilt. */
+  .ac { max-width: 680px; margin-inline: auto; background: var(--white); border: 1px solid var(--rule); border-radius: var(--r-lg); box-shadow: var(--shadow-lg); overflow: hidden; }
+  .ac__mast { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem clamp(18px, 3vw, 28px); border-bottom: 1px solid var(--rule-soft); }
+  .ac__mast img { height: 38px; width: auto; }
+  .ac__pill { font-family: var(--label); text-transform: uppercase; letter-spacing: .12em; font-size: .7rem; font-weight: 700; color: #3E6A16; background: color-mix(in srgb, var(--lime) 24%, transparent); border: 1px solid color-mix(in srgb, var(--lime-dark) 45%, transparent); border-radius: 999px; padding: .32rem .75rem; white-space: nowrap; }
+  .ac__body { padding: clamp(18px, 3vw, 28px); }
+  .ac__race { font-size: 1.3rem; font-weight: 800; color: var(--navy-deep); letter-spacing: -.01em; margin: 0 0 .15rem; }
+  .ac__who { font-size: .93rem; color: var(--ink-2); margin: 0 0 1rem; }
+  .ac__frame { position: relative; aspect-ratio: 16 / 9; border-radius: 12px; background: var(--navy-ink); overflow: hidden; display: grid; place-items: center; }
+  /* Final perf pass (ruling 39a): the blur(9px) filter here sat inside the
+     scroll-animated .wk__art and forced an expensive raster at layer creation
+     mid-scroll. The soft-focus look is pre-blended into the gradients instead;
+     no filter remains on any animated subtree. */
+  .ac__still { position: absolute; inset: -18px; background:
+    radial-gradient(64% 96% at 27% 40%, rgba(91,155,213,.52), rgba(91,155,213,.10) 62%, transparent 78%),
+    radial-gradient(54% 80% at 74% 26%, rgba(0,172,193,.32), rgba(0,172,193,.07) 60%, transparent 80%),
+    radial-gradient(80% 70% at 56% 88%, rgba(168,209,78,.14), transparent 72%),
+    linear-gradient(160deg, #134066 0%, #0D2E4A 55%, #08243B 100%); }
+  .ac__lower { position: absolute; left: 0; right: 0; bottom: 0; height: 34%; background: linear-gradient(180deg, rgba(8,36,59,0), rgba(8,36,59,.72)); }
+  .ac__play { position: relative; filter: drop-shadow(0 2px 4px rgba(8,36,59,.5)); }
+  .ac__tc { position: absolute; bottom: 10px; left: 12px; font-size: .78rem; color: rgba(255,255,255,.85); }
+  .ac__dur { position: absolute; bottom: 10px; right: 12px; font-size: .78rem; color: #fff; background: rgba(8,36,59,.75); border-radius: 3px; padding: .1rem .35rem; }
+  .ac__scrub { position: absolute; left: 0; right: 0; bottom: 0; height: 3px; background: rgba(255,255,255,.18); }
+  .ac__scrub span { display: block; height: 100%; background: var(--lime); }
+  .ac__framenote { margin: .5rem 0 0; font-size: .76rem; color: var(--ink-3); }
+  .ac__actions { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1.1rem; }
+  .ac__actions .btn { cursor: default; }
+  .ac__dl { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .95rem 1.6rem; margin: 1.3rem 0 0; border-top: 1px solid var(--rule-soft); padding-top: 1.2rem; }
+  .ac__dl > div { min-width: 0; }
+  .ac__dl dt { font-family: var(--label); text-transform: uppercase; letter-spacing: .1em; font-size: .66rem; font-weight: 700; color: var(--ink-3); margin: 0 0 .18rem; }
+  .ac__dl dd { margin: 0; font-size: .95rem; color: var(--ink); }
+  .ac__tr { background: var(--paper); border-radius: 12px; padding: 1rem 1.15rem; margin-top: 1.25rem; }
+  .ac__tr p { font-style: italic; font-size: .95rem; line-height: 1.6; color: var(--ink-2); margin: 0 0 .6rem; }
+  .ac__ai { display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; font-size: .78rem; color: var(--ink-3); }
+  .ac__aitag { font-family: var(--label); text-transform: uppercase; letter-spacing: .08em; font-size: .64rem; font-weight: 700; color: var(--blue-text); border: 1px solid color-mix(in srgb, var(--teal) 45%, transparent); border-radius: 3px; padding: .08rem .35rem; }
+  @media (max-width: 560px) { .ac__dl { grid-template-columns: 1fr; } }
+  /* The Spend-by-app figure is a live recreation now; self-contained, rc- prefixed. */
+  .rc-spot { margin-top: 1.4rem; }
+  /* ===== Ruling 52a: the calendar timeline (buy path, beat 1) =====
+     Default render everywhere: a swipeable horizontal strip, all five stations
+     reachable, nothing hidden. Where CSS scroll-driven animation is supported, on
+     a wide screen, with motion allowed, the strip pins and the reader's vertical
+     scroll pans it: sticky + animation-timeline, so the wheel always moves the
+     page 1:1 and nothing is ever trapped. Reduced motion = the static strip. */
+  .tl { margin: 1.4rem 0 2.6rem; }
+  .tl__pin { background: var(--white); border: 1px solid var(--rule); border-radius: var(--r-lg);
+    box-shadow: var(--shadow-lg); padding: clamp(16px, 2.5vw, 26px); }
+  .tl__head { margin-bottom: 1.1rem; }
+  .tl__big { max-width: none; }
+  .tl__hint { color: var(--ink-3); margin: .45rem 0 0; }
+  .tl__hint-scroll { display: none; }
+  /* Paths pass: the resting frame carries the whole span. A thin JUN-to-NOV rail
+     sits above the cards, always visible, with the walked moments dotted, so a
+     three-second glance reads "this runs to Election Day" before any scrolling. */
+  .tl__rail { display: flex; align-items: flex-start; margin: .9rem 0 .2rem; padding-top: 7px;
+    position: relative; }
+  .tl__rail::before { content: ""; position: absolute; left: 0; right: 0; top: 6px; height: 2px;
+    background: var(--rule); }
+  .tl__rail-mo { flex: 1 1 0; position: relative; font-family: var(--mono); font-size: .7rem;
+    font-weight: 600; letter-spacing: .08em; color: var(--ink-3); padding-top: .5rem;
+    font-variant-numeric: tabular-nums lining-nums; }
+  .tl__rail-mo::before { content: ""; position: absolute; left: 0; top: -4px; width: 2px;
+    height: 8px; background: var(--rule); }
+  .tl__rail-mo i { position: absolute; top: -8px; width: 10px; height: 10px; border-radius: 50%;
+    background: var(--lime); border: 2px solid var(--lime-dark); font-style: normal; }
+  .tl__rail-mo:last-child { flex: 0 0 auto; }
+  .tl__rail-mo:last-child::before { background: var(--navy-deep); }
+  .tl__cal { list-style: none; margin: 0; padding: .2rem 0 .7rem; display: flex;
+    gap: clamp(26px, 3vw, 34px); overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .tl__cal:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
+  /* Paths pass: 66vw (not 78) so ~24px of the next card peeks at phone width,
+     making the sideways affordance visible without the scrollbar. */
+  .tl__mo { flex: 0 0 auto; width: min(66vw, 330px); border: 1px solid var(--rule);
+    border-radius: var(--r-lg); background: var(--paper); padding: 1rem 1.05rem 1.1rem;
+    position: relative; }
+  .tl__mo::after { content: "\2192"; position: absolute; right: -1.5rem; top: 40px;
+    color: var(--lime-dark); font-weight: 800; font-size: 1.2rem; width: 1.5rem;
+    text-align: center; }
+  .tl__mo:last-child::after { content: none; }
+  .tl__mon { display: inline-block; font-family: var(--mono); font-size: .7rem; font-weight: 700;
+    letter-spacing: .1em; color: var(--blue-text); border: 1px solid var(--rule);
+    background: var(--white); padding: .18rem .5rem; border-radius: 3px;
+    font-variant-numeric: tabular-nums lining-nums; }
+  .tl__h { margin: .6rem 0 .25rem; font-size: 1.12rem; color: var(--navy-deep); }
+  .tl__p { margin: 0 0 .8rem; font-size: .88rem; line-height: 1.5; color: var(--ink-2); }
+  .tl__doc { box-shadow: none; }
+  .tl__mo--end { background: var(--navy-deep); border-color: var(--navy-deep); }
+  .tl__mo--end .tl__h { color: #fff; }
+  .tl__mo--end .tl__p { color: #BDD2E2; }
+  .tl__mo--end .tl__mon { background: transparent; color: var(--lime); border-color: rgba(255,255,255,.3); }
+  /* Paths pass: the terminal card carries the grid its copy promises, all 22
+     weeks Jun 8 to Nov 2 with the walked moments marked. */
+  .tl__grid { display: flex; gap: 2px; margin-top: .8rem; }
+  .tl__gw { flex: 1 1 0; height: 16px; border-radius: 2px; background: rgba(255,255,255,.16); }
+  .tl__gw--aired { background: var(--lime); }
+  .tl__gw--fwd { background: repeating-linear-gradient(45deg, rgba(168,209,78,.55) 0 3px, transparent 3px 6px);
+    box-shadow: inset 0 0 0 1px rgba(168,209,78,.7); }
+  .tl__gw--none { background: transparent; box-shadow: inset 0 0 0 1px rgba(255,255,255,.35); }
+  .tl__gw--end { background: #fff; box-shadow: 0 0 0 2px var(--lime); }
+  .tl__grid-months { display: flex; justify-content: space-between; margin-top: .35rem;
+    font-family: var(--mono); font-size: .62rem; letter-spacing: .06em; color: #8FA9BE; }
+  .tl__grid-cap { margin: .45rem 0 0; font-family: var(--mono); font-size: .68rem; line-height: 1.5;
+    color: #BDD2E2; }
+  .tl__weeks { display: grid; grid-template-columns: repeat(4, 1fr); gap: 5px; }
+  .tl__wk { font-family: var(--mono); font-size: .6rem; font-weight: 600; letter-spacing: .03em;
+    color: var(--navy-ink); background: var(--lime); border: 1px solid transparent;
+    border-radius: 3px; padding: .55rem .3rem .3rem; white-space: nowrap; }
+  .tl__wk--fwd { background: repeating-linear-gradient(45deg,
+      color-mix(in srgb, var(--lime) 38%, var(--white)) 0 4px, var(--white) 4px 8px);
+    border: 1px dashed var(--lime-dark); color: var(--ink-2); }
+  .tl__wk--none { background: var(--white); border: 1px dashed var(--rule); color: var(--ink-3); }
+  .tl__cap { margin: .5rem 0 0; font-family: var(--mono); font-size: .68rem; letter-spacing: .04em;
+    color: var(--ink-3); line-height: 1.5; white-space: normal; }
+  @supports (animation-timeline: view()) {
+    @media (min-width: 1000px) and (prefers-reduced-motion: no-preference) {
+      /* Pass E §8.6: the walk gets its 4vh runway (was 230vh), with an
+         establish plateau before the pan starts and a release plateau after
+         it lands, so the stage sets before anything moves. */
+      .tl__scroller { height: 390vh; view-timeline: --tlv block; }
+      .tl__pin { position: sticky; top: 84px; overflow: hidden; container-type: inline-size; }
+      .tl__cal { overflow: visible; width: max-content;
+        animation: tl-pan linear both; animation-timeline: --tlv;
+        animation-range: contain 7% contain 91%; will-change: transform; }
+      .tl__mo { width: 340px; }
+      .tl__hint-scroll { display: inline; }
+      .tl__hint-swipe { display: none; }
+    }
+  }
+  @keyframes tl-pan { from { transform: translateX(0); } to { transform: translateX(calc(-100% + 100cqw)); } }
+  /* ===== Ruling 51: beat-2 scoreboard + beat-3 cross-screen creative cards ===== */
+  .wk-score__race, .wk-xsc__t { margin: .15rem 0 .5rem; font-size: .95rem; color: var(--navy-deep); }
+  .wk-score__race span, .wk-xsc__t span { color: var(--ink-3); font-size: .85rem; font-weight: 400; }
+  .wk-score__row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(60px, 38%) max-content;
+    gap: .6rem; align-items: center; padding: .32rem 0; border-top: 1px solid var(--rule-soft);
+    font-size: .88rem; }
+  .wk-score__row i { font-style: normal; color: var(--ink-3); }
+  .wk-score__name { color: var(--navy-deep); font-weight: 600; }
+  .wk-score__track { display: block; height: 9px; background: var(--paper-warm); }
+  .wk-score__track span { display: block; height: 100%; background: var(--blue); }
+  .wk-score__row--more .wk-score__name { color: var(--ink-3); font-weight: 500; }
+  .wk-score__row b { font-family: var(--mono); font-weight: 600; color: var(--navy-ink); }
+  .wk-score__lanes { margin-top: .6rem; border-top: 1px solid var(--rule-soft); padding-top: .55rem;
+    font-size: .78rem; color: var(--ink-2); }
+  .wk-score__est { color: var(--ink-3); }
+  .wk-score__foot { display: flex; flex-wrap: wrap; gap: .3rem 1.2rem; margin-top: .45rem;
+    font-size: .78rem; color: var(--ink-3); }
+  .wk-xsc__lane { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 2px 10px;
+    align-items: center; margin-top: .5rem; }
+  .wk-xsc__name { font-size: .78rem; font-weight: 700; color: var(--navy-deep); line-height: 1.2; }
+  .wk-xsc__name i { display: block; font-style: normal; font-size: .6rem; font-weight: 600;
+    letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); }
+  .wk-xsc__track { position: relative; display: block; height: 12px; background: var(--paper-warm); }
+  .wk-xsc__fill { position: absolute; top: 0; bottom: 0; }
+  .wk-xsc__fill--st { background: var(--teal); }
+  .wk-xsc__fill--tv { background: var(--navy); }
+  .wk-xsc__note { grid-column: 2; font-size: .68rem; color: var(--ink-3); }
+  .wk-xsc__axis { display: flex; justify-content: space-between; margin-top: .45rem;
+    padding-left: 106px; font-size: .62rem; color: var(--ink-3); }
+  .wk-xsc__read { margin: .55rem 0 0; border-top: 1px dashed var(--rule); padding-top: .5rem;
+    font-size: .85rem; font-weight: 650; color: var(--navy-deep); }
+  .wk-xsc__tr { margin-top: .6rem; background: var(--paper); border-radius: 8px; padding: .6rem .75rem; }
+  .wk-xsc__tr p { margin: 0; font-style: italic; font-size: .85rem; color: var(--ink-2); }
+  .wk-xsc__tr span { display: block; margin-top: .3rem; font-family: var(--mono); font-size: .6rem;
+    letter-spacing: .05em; text-transform: uppercase; color: var(--ink-3); }
+  @media (max-width: 560px) {
+    .wk-xsc__lane { grid-template-columns: 78px 1fr; }
+    .wk-xsc__axis { padding-left: 88px; }
+  }
+
+  /* ==================================================================
+     PASS E (story & design brief, 2026-08-27). The buyer arc reads
+     ALERT -> ORIENT -> ANALYZE -> ACT; the seller arc reads PRICE ->
+     GAP -> CALL -> ALERT. Stage doctrine (§7): space before motion,
+     one focal object per viewport, static end-states everywhere, the
+     scroll never captured. Techniques from the §8 catalog only.
+     ================================================================== */
+
+  /* -- §8.1 the wire opens the arc: ticker items slide in on page load,
+     timestamps staggering. One shot, then still. Base state visible. -- */
+  @media (prefers-reduced-motion: no-preference) {
+    .is-loaded .dstrip__i { animation: rise .55s var(--smooth) backwards; }
+    .is-loaded .dstrip__i:nth-child(2) { animation-delay: .5s; }
+    .is-loaded .dstrip__i:nth-child(3) { animation-delay: .72s; }
+    .is-loaded .dstrip__i:nth-child(4) { animation-delay: .94s; }
+  }
+
+  /* -- §8.1 the alert assembles on entry: race, then the tape frame, then
+     the transcript. Clip reveal + rise on the card's own parts; ends whole
+     and still. The base state IS the whole card (JS-off, reduced motion,
+     print all render it complete); .in-view only ADDS the assembly. -- */
+  .wk__art--noscrub { animation: none !important; }
+  @media (prefers-reduced-motion: no-preference) {
+    .acs.in-view .ac__mast { animation: acs-in .45s var(--smooth) backwards; }
+    .acs.in-view .ac__race,
+    .acs.in-view .ac__who { animation: acs-in .5s var(--smooth) .22s backwards; }
+    .acs.in-view .ac__frame,
+    .acs.in-view .ac__framenote { animation: acs-clip .65s var(--smooth) .5s backwards; }
+    .acs.in-view .ac__actions,
+    .acs.in-view .ac__dl { animation: acs-in .55s var(--smooth) .95s backwards; }
+    .acs.in-view .ac__tr { animation: acs-clip .6s var(--smooth) 1.25s backwards; }
+  }
+  @keyframes acs-in { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+  @keyframes acs-clip { from { opacity: 0; clip-path: inset(0 0 86% 0); } to { opacity: 1; clip-path: inset(0 0 0 0); } }
+
+  /* -- seller beat 4: the alerts artifact. wk-doc grammar; the alert kind
+     prints as a small caps chip in the row. -- */
+  .wk-doc__kind { font-family: var(--label); text-transform: uppercase; letter-spacing: .1em;
+    font-size: .6rem; font-weight: 700; color: var(--blue-text);
+    border: 1px solid color-mix(in srgb, var(--blue) 35%, transparent);
+    border-radius: 3px; padding: .12rem .4rem; white-space: nowrap; }
+
+  /* ==================================================================
+     §6.2 THE RADIO CONTOUR MAP — buyer beat 4, the page's feel moment.
+     Default render everywhere: the finished map, whole and still, with
+     the annotation set. With IO + motion allowed, entry plays the draw
+     once. On a wide screen where scroll-driven animation is supported,
+     the map pins and the reader's own scroll draws the contours across
+     the geography (4.2 viewport-heights of runway, §8.2), releasing
+     onto a still frame; the wheel always moves the page 1:1.
+     ================================================================== */
+  .ct { margin: 1.5rem 0 0; }
+  .ct__pin { background: var(--white); border: 1px solid var(--rule); border-radius: var(--r-lg);
+    box-shadow: var(--shadow-lg); padding: clamp(14px, 2.4vw, 26px); }
+  .ct__bar { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between;
+    gap: .3rem .9rem; margin-bottom: .6rem; }
+  .ct__brand { font-family: var(--label); text-transform: uppercase; letter-spacing: .13em;
+    font-size: .66rem; font-weight: 700; color: var(--navy); }
+  .ct__stamp { font-family: var(--mono); font-size: .68rem; letter-spacing: .06em;
+    text-transform: uppercase; color: var(--ink-3); border: 1px solid var(--rule);
+    padding: .12rem .4rem; white-space: nowrap; font-variant-numeric: tabular-nums lining-nums; }
+  @media (max-width: 560px) { .ct__stamp { white-space: normal; line-height: 1.5; } }
+  .ct__svg { width: 100%; height: auto; display: block; }
+  .ct__ring { fill: none; stroke-dasharray: 1; stroke-dashoffset: 0; }
+  .ct__lede { margin: .45rem 0 0; font-size: .95rem; line-height: 1.55; color: var(--ink-2); max-width: 62ch; }
+  .ct__hint { display: none; color: var(--ink-3); margin: .45rem 0 0; }
+  /* The annotation inside the SVG carries the release on wide screens; under
+     700px the same sentence prints as HTML below the map instead, where it
+     stays legible. Both are in the markup; the width decides which shows. */
+  .ct__note { display: none; margin: .7rem 0 0; font-size: .9rem; line-height: 1.5;
+    color: var(--ink); font-weight: 600; max-width: 58ch; }
+  .ct__note b { color: var(--lime-text); }
+  @media (max-width: 699px) {
+    .ct__ann { display: none; }
+    .ct__note { display: block; }
+  }
+  .ct__cap { margin: .55rem 0 0; font-family: var(--mono); font-size: .68rem;
+    line-height: 1.55; color: var(--ink-3); }
+  /* Entry draw (IO adds .in-view to .ct-stage): contours sweep out from the
+     transmitter, near ring first, the gap hatch lights as the outer ring
+     lands, the annotation last. One shot, then still. */
+  @media (prefers-reduced-motion: no-preference) {
+    .ct-stage.in-view .ct__ring--f1 { animation: ct-draw .7s var(--smooth) .15s backwards; }
+    .ct-stage.in-view .ct__ring--f2 { animation: ct-draw .8s var(--smooth) .4s backwards; }
+    .ct-stage.in-view .ct__ring--f3 { animation: ct-draw .9s var(--smooth) .65s backwards; }
+    .ct-stage.in-view .ct__gaphatch { animation: fade-in .7s ease-out 1.1s backwards; }
+    .ct-stage.in-view .ct__ring--m1 { animation: ct-draw .7s var(--smooth) 1.5s backwards; }
+    .ct-stage.in-view .ct__ring--m2 { animation: ct-draw .7s var(--smooth) 1.7s backwards; }
+    .ct-stage.in-view .ct__ring--m3 { animation: ct-draw .8s var(--smooth) 1.9s backwards; }
+    .ct-stage.in-view .ct__ann, .ct-stage.in-view .ct__note { animation: acs-in .6s var(--smooth) 2.5s backwards; }
+  }
+  @keyframes ct-draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+  /* The pinned, scrubbed rendition (§8.2): desktop, timeline support, motion
+     allowed. Establish ~22% of the runway before the first stroke moves;
+     develop draws metro then fringe contours; the hatch and the annotation
+     land with a still release from 86%. Ranges never overlap the establish
+     of the next scene: the scroller ends before the wk-links row. */
+  @supports (animation-timeline: view()) {
+    @media (min-width: 1000px) and (prefers-reduced-motion: no-preference) {
+      .ct__scroller { height: 420vh; view-timeline: --ctv block; }
+      .ct__pin { position: sticky; top: 88px; }
+      /* The pinned frame must seat whole in the viewport: the map yields width
+         on short screens rather than pushing the caption below the fold. */
+      .ct__svg { max-width: min(880px, calc((100vh - 415px) * 1.524)); margin-inline: auto; }
+      .ct__hint { display: block; }
+      .ct-stage.in-view .ct__ring--f1, .ct__ring--f1 { animation: ct-draw linear both; animation-timeline: --ctv; animation-range: contain 22% contain 34%; animation-delay: 0s; }
+      .ct-stage.in-view .ct__ring--f2, .ct__ring--f2 { animation: ct-draw linear both; animation-timeline: --ctv; animation-range: contain 28% contain 42%; animation-delay: 0s; }
+      .ct-stage.in-view .ct__ring--f3, .ct__ring--f3 { animation: ct-draw linear both; animation-timeline: --ctv; animation-range: contain 34% contain 50%; animation-delay: 0s; }
+      .ct-stage.in-view .ct__gaphatch, .ct__gaphatch { animation: fade-in linear both; animation-timeline: --ctv; animation-range: contain 46% contain 58%; animation-delay: 0s; }
+      .ct-stage.in-view .ct__ring--m1, .ct__ring--m1 { animation: ct-draw linear both; animation-timeline: --ctv; animation-range: contain 58% contain 66%; animation-delay: 0s; }
+      .ct-stage.in-view .ct__ring--m2, .ct__ring--m2 { animation: ct-draw linear both; animation-timeline: --ctv; animation-range: contain 62% contain 70%; animation-delay: 0s; }
+      .ct-stage.in-view .ct__ring--m3, .ct__ring--m3 { animation: ct-draw linear both; animation-timeline: --ctv; animation-range: contain 66% contain 76%; animation-delay: 0s; }
+      .ct-stage.in-view .ct__ann, .ct__ann { animation: acs-in linear both; animation-timeline: --ctv; animation-range: contain 78% contain 86%; animation-delay: 0s; }
+    }
+  }
+
+  /* ==================================================================
+     §6.3 THE SHARE DIAGONAL — the seller's digital board. Spend share
+     against viewing-time share, per service; under the line is lit.
+     Default: the finished chart. Entry: dots settle, the diagonal
+     draws, under-the-line ignites, the annotation lands (3vh runway
+     when pinned on desktop, §8.3). Numbers illustrative.
+     ================================================================== */
+  .sd { max-width: 900px; margin-inline: auto; }
+  .sd__pin { background: var(--white); border: 1px solid var(--rule); border-radius: var(--r-lg);
+    box-shadow: var(--shadow-lg); padding: clamp(14px, 2.4vw, 26px); }
+  .sd__svg { width: 100%; height: auto; display: block; }
+  .sd__hint { display: none; color: var(--ink-3); margin: .5rem 0 0; }
+  .sd__note { display: none; margin: .7rem 0 0; font-size: .9rem; line-height: 1.5;
+    color: var(--ink); font-weight: 600; max-width: 58ch; }
+  @media (max-width: 699px) {
+    .sd__ann { display: none; }
+    .sd__note { display: block; }
+  }
+  .sd__cap { margin: .55rem 0 0; font-family: var(--mono); font-size: .68rem;
+    line-height: 1.55; color: var(--ink-3); }
+  .sd__diag { stroke-dasharray: 1; stroke-dashoffset: 0; }
+  @media (prefers-reduced-motion: no-preference) {
+    .sd-stage.in-view .sd__dots circle { animation: acs-in .55s var(--smooth) backwards; }
+    .sd-stage.in-view .sd__dots circle:nth-of-type(2) { animation-delay: .07s; }
+    .sd-stage.in-view .sd__dots circle:nth-of-type(3) { animation-delay: .14s; }
+    .sd-stage.in-view .sd__dots circle:nth-of-type(4) { animation-delay: .21s; }
+    .sd-stage.in-view .sd__dots circle:nth-of-type(5) { animation-delay: .28s; }
+    .sd-stage.in-view .sd__dots circle:nth-of-type(6) { animation-delay: .35s; }
+    .sd-stage.in-view .sd__dots circle:nth-of-type(7) { animation-delay: .42s; }
+    .sd-stage.in-view .sd__diag { animation: ct-draw .7s var(--smooth) .6s backwards; }
+    .sd-stage.in-view .sd__diag-lab { animation: fade-in .4s ease-out 1.1s backwards; }
+    .sd-stage.in-view .sd__under { animation: sd-pop .55s var(--spring) 1.35s backwards; transform-origin: center; transform-box: fill-box; }
+    .sd-stage.in-view .sd__under--2 { animation-delay: 1.5s; }
+    .sd-stage.in-view .sd__under--3 { animation-delay: 1.65s; }
+    .sd-stage.in-view .sd__ann, .sd-stage.in-view .sd__note { animation: acs-in .55s var(--smooth) 2s backwards; }
+  }
+  @keyframes sd-pop { from { opacity: 0; transform: scale(.35); } to { opacity: 1; transform: scale(1); } }
+  @supports (animation-timeline: view()) {
+    @media (min-width: 1000px) and (prefers-reduced-motion: no-preference) {
+      .sd__scroller { height: 300vh; view-timeline: --sdv block; }
+      .sd__pin { position: sticky; top: 88px; }
+      .sd__svg { max-width: min(760px, calc((100vh - 330px) * 1.393)); margin-inline: auto; }
+      .sd__hint { display: block; }
+      .sd-stage.in-view .sd__dots circle, .sd__dots circle { animation: acs-in linear both; animation-timeline: --sdv; animation-range: contain 18% contain 30%; animation-delay: 0s; }
+      .sd-stage.in-view .sd__dots circle:nth-of-type(2), .sd__dots circle:nth-of-type(2) { animation-range: contain 20% contain 32%; }
+      .sd-stage.in-view .sd__dots circle:nth-of-type(3), .sd__dots circle:nth-of-type(3) { animation-range: contain 22% contain 34%; }
+      .sd-stage.in-view .sd__dots circle:nth-of-type(4), .sd__dots circle:nth-of-type(4) { animation-range: contain 24% contain 36%; }
+      .sd-stage.in-view .sd__dots circle:nth-of-type(5), .sd__dots circle:nth-of-type(5) { animation-range: contain 26% contain 38%; }
+      .sd-stage.in-view .sd__dots circle:nth-of-type(6), .sd__dots circle:nth-of-type(6) { animation-range: contain 28% contain 40%; }
+      .sd-stage.in-view .sd__dots circle:nth-of-type(7), .sd__dots circle:nth-of-type(7) { animation-range: contain 30% contain 42%; }
+      .sd-stage.in-view .sd__diag, .sd__diag { animation: ct-draw linear both; animation-timeline: --sdv; animation-range: contain 40% contain 52%; animation-delay: 0s; }
+      .sd-stage.in-view .sd__diag-lab, .sd__diag-lab { animation: fade-in linear both; animation-timeline: --sdv; animation-range: contain 50% contain 56%; animation-delay: 0s; }
+      .sd-stage.in-view .sd__under, .sd__under { animation: sd-pop linear both; animation-timeline: --sdv; animation-range: contain 56% contain 64%; animation-delay: 0s; }
+      .sd-stage.in-view .sd__under--2, .sd__under--2 { animation-range: contain 60% contain 68%; }
+      .sd-stage.in-view .sd__under--3, .sd__under--3 { animation-range: contain 64% contain 72%; }
+      .sd-stage.in-view .sd__ann, .sd__ann { animation: acs-in linear both; animation-timeline: --sdv; animation-range: contain 76% contain 85%; animation-delay: 0s; }
+    }
+  }
+
+
+/* Penciled quotes (Adam, 8/27): draft wording awaiting the named source's
+   sign-off renders visibly marked as penciled — smaller than a real quote, on a
+   dashed rule, with a pending tag. Swap in the approved wording and drop the
+   tag; nothing unlabeled ships (no-invention rule). */
+.quote--draft { margin-top: 1.8rem; border-left: 2px dashed var(--rule); padding-left: 1.1rem; }
+.quote--draft::before { content: none; }
+.quote--draft p { font-size: clamp(1.05rem, 1.7vw, 1.35rem); font-weight: 600; }
+.quote-draft-tag { display: inline-block; margin-left: .5rem; font-family: var(--label);
+  text-transform: uppercase; letter-spacing: .09em; font-size: .62rem; font-weight: 700;
+  color: #7A5410; background: #FFF4E0; border: 1px solid #E8CF9E; border-radius: 3px;
+  padding: .14rem .45rem; vertical-align: middle; }

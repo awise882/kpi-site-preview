@@ -4,12 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Request a Demo · Kinetiq Political Insights</title>
-<meta name="description" content="Name a race you already know and we pull it before the walkthrough, so the demo runs on your contest instead of a canned dataset. Request a demo, reach press, or log in as a subscriber.">
+<meta name="description" content="Name a race you already know — or the market you sell — and we pull it before the walkthrough, so the demo runs on your contest instead of a canned dataset. Request a demo, reach press, or log in as a subscriber.">
 <meta property="og:title" content="Request a demo · Kinetiq Political Insights">
 <meta property="og:description" content="Name the race when you book. We pull it before the call and you judge it against what you already know.">
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-mark.png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r23">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r26">
 <style>
   /* contact.html only. Built from existing custom properties, no new colors. */
   .form-shell { background: var(--paper); border: 1px solid var(--rule); border-radius: var(--r-lg); padding: clamp(20px, 3vw, 32px); }
@@ -55,8 +55,9 @@
     </a>
     <ul class="nav__links">
       <li><a href="platform.html">Platform</a></li>
-      <li><a href="index.html#sell-side">Sell-Side</a></li>
-      <li><a href="polling.html">Real-Time Polling</a></li>
+      <li><a href="monitoring.html">Monitoring</a></li>
+      <li><a href="week.html">Buyers &amp; Sellers</a></li>
+      <li><a href="polling.html">Polling</a></li>
       <li><a href="methodology.html">Methodology</a></li>
       <li class="nav__login"><a href="https://portal.kpipolitical.com">Log in</a></li>
     </ul>
@@ -78,7 +79,7 @@
   <div class="wrap">
     <p class="eyebrow">Request a demo</p>
     <h1 style="font-size:clamp(2.2rem,4.8vw,3.6rem)">Point it at a race you <span class="serif-accent">already know</span>.</h1>
-    <p class="lede">Name the race or the state when you book and we pull it before the call.</p>
+    <p class="lede">Name the race &mdash; or the market you sell &mdash; when you book and we pull it before the call.</p>
 
     <div class="split split--wide-left mt2">
 
@@ -95,7 +96,7 @@
            this site's files, keep server.js untouched, and push via branch + PR, never
            straight to main without Adam's nod. -->
       <div class="form-shell" id="demo-shell">
-        <h2>Tell us the race and we will have it open when you dial in.</h2>
+        <h2>Tell us the race &mdash; or the market &mdash; and we will have it open when you dial in.</h2>
         <p class="form-key">Fields marked <span class="req">*</span> are required.</p>
 
         <form id="demo-form" method="post" enctype="text/plain"
@@ -172,9 +173,9 @@
         <div class="card card--flag">
           <div class="card__k">What happens next</div>
           <ol class="nextlines">
-            <li>Name your race.</li>
+            <li>Name your race or your market.</li>
             <li>We pull it before the call.</li>
-            <li>The session opens on your contest.</li>
+            <li>The session opens on your contest &mdash; or your market's order flow.</li>
           </ol>
         </div>
 
@@ -187,7 +188,7 @@
             1 business day, same day on deadline. Preferred credit: "Kinetiq Political
             Insights, data posted through [date]." Posted figures come from orders on file;
             estimated figures are labeled estimated and never blend into posted totals.
-            Streaming dollars are floors: cite as "at least $X, estimated."</p>
+            Streaming dollars are estimated minimums: cite as "at least $X, estimated."</p>
         </div>
 
         <div class="card">
@@ -203,7 +204,7 @@
          carries the same basis language every figure in the product carries. -->
     <div class="stamp mt3" style="max-width:78ch">
       <span><b>Posted through</b> the most recent complete day in each lane</span>
-      <span><b>Lanes</b> broadcast, local cable, radio at order grain</span>
+      <span><b>Lanes</b> broadcast, local cable, radio order by order</span>
       <span><b>Booked forward</b> a separate line, orders on file rather than delivery posted</span>
       <span><b>Streaming</b> detected, with dollars estimated and stated as a floor</span>
       <span><b>Thin signal</b> labeled insufficient instead of printed as a zero</span>
@@ -227,7 +228,8 @@
         <h4>Platform</h4>
         <ul>
           <li><a href="platform.html">The platform</a></li>
-          <li><a href="index.html#sell-side">Sell-side intelligence</a></li>
+          <li><a href="monitoring.html">Monitoring</a></li>
+          <li><a href="week.html">For buyers &amp; sellers</a></li>
           <li><a href="polling.html">Real-time polling</a></li>
         </ul>
       </div>
@@ -318,10 +320,10 @@
     shell.className = 'form-shell form-done';
     shell.innerHTML =
       '<h2 tabindex="-1" id="demo-done">Your request is in.</h2>' +
-      '<p>It goes to the analysts who run the walkthroughs, and they pull the race before the call. ' +
+      '<p>It goes to the analysts who run the walkthroughs, and they pull the race — or the market — before the call. ' +
       'The first reply is usually a question about your race rather than a scheduling link.</p>' +
       '<p>Anything to add in the meantime, write to ' +
-      '<a href="mailto:info@kpipolitical.com">info@kpipolitical.com</a> with the state and the office.</p>';
+      '<a href="mailto:info@kpipolitical.com">info@kpipolitical.com</a> with the state and the office, or the market you sell.</p>';
     var h = document.getElementById('demo-done');
     if (h) h.focus();
   };
@@ -337,10 +339,10 @@
     shell.innerHTML =
       '<h2 tabindex="-1" id="demo-done">Your request is ready to send.</h2>' +
       '<p>We have opened a message in your email program with what you entered. It reaches the analysts ' +
-      'who run the walkthroughs once you send it, and they pull the race before the call.</p>' +
+      'who run the walkthroughs once you send it, and they pull the race — or the market — before the call.</p>' +
       '<p>The first reply is usually a question about your race rather than a scheduling link. If nothing ' +
       'opened, write to <a href="mailto:info@kpipolitical.com">info@kpipolitical.com</a> with the state and ' +
-      'the office.</p>';
+      'the office, or the market you sell.</p>';
     var h = document.getElementById('demo-done');
     if (h) h.focus();
   };
@@ -379,6 +381,6 @@
   });
 })();
 </script>
-<script src="assets/js/site.js?v=r23"></script>
+<script src="assets/js/site.js?v=r26"></script>
 </body>
 </html>

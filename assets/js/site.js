@@ -63,8 +63,12 @@
       }, { rootMargin: '0px 0px -8% 0px' });
       /* .ledger is observed directly (never via a data-rise parent): its numeral
          must never move, so .in-view only draws its baseline rule and fades its
-         hanging stamp. Both are fully visible without JS. */
-      [].forEach.call(document.querySelectorAll('[data-rise], .fig--light, .ledger'), function (el) { io.observe(el); });
+         hanging stamp. Both are fully visible without JS. Pass E adds the new
+         entry-triggered stages: the alert assembly (.acs), the contour and
+         diagonal scenes (.ct-stage/.sd-stage — their scrubbed desktop variants
+         override these one-shots), the matrix pieces (.mxt/.mxs) and the
+         platform vignettes (.vig). All are fully visible without JS. */
+      [].forEach.call(document.querySelectorAll('[data-rise], .fig--light, .ledger, .acs, .ct-stage, .sd-stage, .mxt, .mxs, .vig'), function (el) { io.observe(el); });
     }
   } catch (e) { /* motion is optional; content was never hidden */ }
 
@@ -88,12 +92,21 @@
     if (window.CSS && CSS.supports && CSS.supports('animation-timeline: view()') &&
         !(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) {
       var beltSel = '[data-rise] > *, .wk__art, .fig__svg rect, .fig__svg g[data-u], ' +
-                    '.aw__fill, .ledger__rule, .ew__rule';
+                    '.aw__fill, .ledger__rule, .ew__rule, ' +
+                    '.ct__ring, .ct__gaphatch, .ct__ann, .ct__note, ' +
+                    '.sd__dots circle, .sd__under, .sd__diag, .sd__ann, .sd__note, ' +
+                    '.mxs__stage path, .id__node, .id__arrow';
       var beltEls = [].slice.call(document.querySelectorAll(beltSel));
       var beltSeen = [];
       var beltStuck = function (el) {
         var cs = getComputedStyle(el);
         if (parseFloat(cs.opacity) < 0.1) return true;
+        /* Pass E: draw-on strokes park at dashoffset 1 (of a pathLength-1 dash)
+           when a claimed-but-dead timeline never advances; that is invisible
+           too, so the belt reads it the same way. */
+        var so = parseFloat(cs.strokeDashoffset);
+        var sa = parseFloat(cs.strokeDasharray);
+        if (!isNaN(so) && !isNaN(sa) && sa <= 1.5 && so > 0.9) return true;
         var m = /^matrix\(([-\d.e]+),/.exec(cs.transform || '');
         return !!(m && Math.abs(parseFloat(m[1])) < 0.05);
       };
@@ -230,7 +243,20 @@
           wkActivate(wkTabs[(i + d + wkTabs.length) % wkTabs.length], true);
         });
       });
-      wkActivate(wkTabs[0]);
+      /* Round-1 panel fix (seller): #wk-sell and #wk-buy are deep links — a
+         forwarded link opens the right desk instead of always the buyer's. */
+      var wkHash = (location.hash === '#wk-sell' || location.hash === '#wk-buy') ? location.hash.slice(1) : null;
+      var wkInit = null;
+      if (wkHash) {
+        wkTabs.forEach(function (t) { if (t.getAttribute('aria-controls') === wkHash) wkInit = t; });
+      }
+      wkActivate(wkInit || wkTabs[0]);
+      if (wkInit) {
+        requestAnimationFrame(function () {
+          var el = document.getElementById(wkHash);
+          if (el) el.scrollIntoView();
+        });
+      }
     }
   }
 
@@ -270,6 +296,20 @@
       });
     }
   }
+
+  /* ---- Pass E §9: vignette replay. A vignette plays its <=3 beats once on
+     entry (IO adds .in-view). Hovering the card replays the same beats by
+     re-adding the class; reduced-motion never replays, and with JS off the
+     vignette simply rests on its final beat. ---- */
+  [].forEach.call(document.querySelectorAll('[data-replay]'), function (v) {
+    v.addEventListener('pointerenter', function () {
+      if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      if (!v.classList.contains('in-view')) return;
+      v.classList.remove('in-view');
+      void v.offsetWidth;
+      v.classList.add('in-view');
+    });
+  });
 
   var baker = document.querySelector('.rc-baker');
   if (baker) {
