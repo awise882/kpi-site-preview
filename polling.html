@@ -9,8 +9,8 @@
 <meta property="og:description" content="More than 10,000 always-on questions, over 1 million answers a day. Ask, hear back, build the audience, put it on the air. Then ask again.">
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-mark.png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r23">
-<link rel="stylesheet" href="assets/css/segments.css?v=r23">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r24">
+<link rel="stylesheet" href="assets/css/segments.css?v=r24">
 <style>
   /* Light, centered, airy hero, same standard as the home page: display headline
      in the green-to-teal gradient with the layered offset, the lede, two buttons,
@@ -155,6 +155,152 @@
     .sx-chip { width: auto; flex: 0 1 auto; }
     .sx-examples { line-height: 1.9; }
   }
+
+  /* ==================================================================
+     PASS E §4: the polling story. Five scenes — a question is asked,
+     the answers arrive, THE SPARSE MATRIX at scale, the contrast
+     panel, the audience lands as a deal ID. Stage doctrine: one focal
+     object per viewport, establish/develop/release, static end-states
+     everywhere, the scroll never captured.
+     ================================================================== */
+
+  /* -- scene 1: the question card, rendered as it fields -- */
+  .qcard { background: var(--white); border: 1px solid var(--rule); border-radius: var(--r-lg);
+    box-shadow: var(--shadow-lg); padding: 1.15rem 1.25rem 1.1rem; max-width: 460px; }
+  .qcard__meta { display: flex; flex-wrap: wrap; gap: .3rem .8rem; align-items: baseline;
+    font-family: var(--mono); font-size: .68rem; letter-spacing: .05em; text-transform: uppercase;
+    color: var(--ink-3); margin-bottom: .7rem; font-variant-numeric: tabular-nums lining-nums; }
+  .qcard__live { color: var(--lime-text); font-weight: 700; }
+  .qcard__q { font-size: 1.08rem; font-weight: 700; color: var(--navy-deep); line-height: 1.35;
+    margin: 0 0 .8rem; }
+  .qcard__opts { list-style: none; margin: 0 0 .9rem; padding: 0; display: grid; gap: .35rem; }
+  .qcard__opts li { display: flex; align-items: center; gap: .6rem; font-size: .92rem;
+    color: var(--ink-2); border: 1px solid var(--rule); border-radius: var(--r);
+    padding: .5rem .7rem; }
+  .qcard__opts li i { flex: none; width: 15px; height: 15px; border-radius: 50%;
+    border: 1.5px solid var(--rule); background: var(--white); font-style: normal; }
+  .qcard__opts li.on { border-color: var(--lime-dark); background: color-mix(in srgb, var(--lime) 10%, var(--white)); color: var(--navy-deep); font-weight: 600; }
+  .qcard__opts li.on i { border-color: var(--lime-dark); background: radial-gradient(circle at center, var(--lime-dark) 0 4.5px, var(--white) 5px); }
+  .qcard__foot { display: flex; align-items: center; justify-content: space-between; gap: .8rem;
+    border-top: 1px solid var(--rule-soft); padding-top: .75rem; }
+  .qcard__foot .btn { pointer-events: none; cursor: default; }
+  .qcard__count { font-family: var(--mono); font-size: .72rem; color: var(--ink-3); }
+
+  /* -- scene 2: the answers arrive. Rows slide in once on entry, then still.
+     Base state: all rows present (JS-off, reduced motion, print). -- */
+  .ast { background: var(--white); border: 1px solid var(--rule); border-top: 3px solid var(--navy);
+    box-shadow: var(--shadow); padding: .85rem 1rem .9rem; max-width: 520px; }
+  .ast__row { display: flex; flex-wrap: wrap; align-items: baseline; gap: .3rem .8rem;
+    padding: .42rem 0; border-top: 1px solid var(--rule-soft); font-size: .9rem; }
+  .ast__row:first-of-type { border-top: 0; }
+  .ast__a { font-weight: 650; color: var(--navy-deep); }
+  .ast__w { margin-left: auto; font-family: var(--mono); font-size: .74rem; color: var(--ink-3);
+    font-variant-numeric: tabular-nums lining-nums; white-space: nowrap; }
+  .ast__plate { margin-top: .7rem; border-top: 1px dashed var(--rule); padding-top: .65rem;
+    font-size: .95rem; font-weight: 650; color: var(--navy-deep); }
+  @media (prefers-reduced-motion: no-preference) {
+    .wk__art--ast.in-view .ast__row { animation: ast-in .5s var(--smooth) backwards; }
+    .wk__art--ast.in-view .ast__row:nth-child(2) { animation-delay: .18s; }
+    .wk__art--ast.in-view .ast__row:nth-child(3) { animation-delay: .36s; }
+    .wk__art--ast.in-view .ast__row:nth-child(4) { animation-delay: .54s; }
+    .wk__art--ast.in-view .ast__row:nth-child(5) { animation-delay: .72s; }
+    .wk__art--ast.in-view .ast__plate { animation: fade-in .5s ease-out 1s backwards; }
+  }
+  @keyframes ast-in { from { opacity: 0; transform: translateX(-14px); } to { opacity: 1; transform: none; } }
+
+  /* -- scene 3: THE SPARSE MATRIX, the signature visual (§6.5). Default:
+     lit whole. Entry (IO): stages fade in once. On screens >=700px where
+     scroll-driven animation is supported, the frame pins and the reader's
+     scroll fills the grid (5.5 viewport-heights, §8.5), with a dwell
+     plateau at full scale where the annotation lands, then a still
+     release. The wheel is never captured. -- */
+  .mxs { margin: 0; }
+  .mxs__pin { background: var(--white); border: 1px solid var(--rule); border-radius: var(--r-lg);
+    box-shadow: var(--shadow-lg); padding: clamp(14px, 2.4vw, 26px); }
+  .mxs__bar { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between;
+    gap: .3rem .9rem; margin-bottom: .6rem; }
+  .mxs__brand { font-family: var(--label); text-transform: uppercase; letter-spacing: .13em;
+    font-size: .66rem; font-weight: 700; color: var(--navy); }
+  .mxs__stamp { font-family: var(--mono); font-size: .68rem; letter-spacing: .06em;
+    text-transform: uppercase; color: var(--ink-3); border: 1px solid var(--rule);
+    padding: .12rem .4rem; white-space: nowrap; font-variant-numeric: tabular-nums lining-nums; }
+  @media (max-width: 560px) { .mxs__stamp { white-space: normal; line-height: 1.5; } }
+  .mxs__svg { width: 100%; height: auto; display: block; }
+  .mxs__hint { display: none; color: var(--ink-3); margin: .5rem 0 0; }
+  .mxs__ann { margin: .8rem 0 0; }
+  .mxs__ann-big { display: block; font-family: var(--mono); font-weight: 800;
+    font-size: clamp(1.15rem, 2.6vw, 1.9rem); letter-spacing: -.02em; color: var(--navy-deep);
+    font-variant-numeric: tabular-nums lining-nums; }
+  .mxs__ann-sub { display: block; margin-top: .25rem; font-size: .95rem; color: var(--ink-2); max-width: 62ch; }
+  .mxs__cap { margin: .6rem 0 0; font-family: var(--mono); font-size: .68rem; line-height: 1.55;
+    color: var(--ink-3); }
+  @media (prefers-reduced-motion: no-preference) {
+    .mxs.in-view .mxs__s1 { animation: fade-in .5s ease-out .1s backwards; }
+    .mxs.in-view .mxs__s2 { animation: fade-in .5s ease-out .35s backwards; }
+    .mxs.in-view .mxs__s3 { animation: fade-in .5s ease-out .6s backwards; }
+    .mxs.in-view .mxs__s4 { animation: fade-in .5s ease-out .85s backwards; }
+    .mxs.in-view .mxs__s5 { animation: fade-in .5s ease-out 1.1s backwards; }
+    .mxs.in-view .mxs__today { animation: fade-in .5s ease-out 1.5s backwards; }
+    .mxs.in-view .mxs__ann { animation: mxs-in .55s var(--smooth) 1.8s backwards; }
+  }
+  @keyframes mxs-in { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+  @supports (animation-timeline: view()) {
+    @media (min-width: 700px) and (prefers-reduced-motion: no-preference) {
+      .mxs__scroller { height: 550vh; view-timeline: --mxv block; }
+      .mxs__pin { position: sticky; top: 88px; }
+      .mxs__svg { max-width: min(960px, calc((100vh - 380px) * 1.786)); margin-inline: auto; }
+      .mxs__hint { display: block; }
+      .mxs.in-view .mxs__s1, .mxs__s1 { animation: fade-in linear both; animation-timeline: --mxv; animation-range: contain 15% contain 29%; animation-delay: 0s; }
+      .mxs.in-view .mxs__s2, .mxs__s2 { animation: fade-in linear both; animation-timeline: --mxv; animation-range: contain 27% contain 42%; animation-delay: 0s; }
+      .mxs.in-view .mxs__s3, .mxs__s3 { animation: fade-in linear both; animation-timeline: --mxv; animation-range: contain 40% contain 55%; animation-delay: 0s; }
+      .mxs.in-view .mxs__s4, .mxs__s4 { animation: fade-in linear both; animation-timeline: --mxv; animation-range: contain 52% contain 66%; animation-delay: 0s; }
+      .mxs.in-view .mxs__s5, .mxs__s5 { animation: fade-in linear both; animation-timeline: --mxv; animation-range: contain 62% contain 76%; animation-delay: 0s; }
+      .mxs.in-view .mxs__today, .mxs__today { animation: fade-in linear both; animation-timeline: --mxv; animation-range: contain 80% contain 85%; animation-delay: 0s; }
+      .mxs.in-view .mxs__ann, .mxs__ann { animation: mxs-in linear both; animation-timeline: --mxv; animation-range: contain 85% contain 91%; animation-delay: 0s; }
+    }
+    @media (min-width: 700px) and (max-width: 999px) and (prefers-reduced-motion: no-preference) {
+      /* mobile/tablet runway compresses ~40% (§7) */
+      .mxs__scroller { height: 340vh; }
+    }
+  }
+
+  /* -- scene 4: the contrast panel. A vs B, mirrored bands with a divider.
+     Static; the entrance is the shared rise. -- */
+  .pcmp { display: grid; gap: 1.6rem; max-width: 980px; margin-inline: auto; }
+  @media (min-width: 880px) {
+    .pcmp { grid-template-columns: 1fr 1fr; gap: 0; }
+    .pcmp__side--l { padding-right: clamp(20px, 3vw, 44px); border-right: 1px solid var(--rule); }
+    .pcmp__side--r { padding-left: clamp(20px, 3vw, 44px); }
+  }
+  .pcmp__k { font-family: var(--label); text-transform: uppercase; letter-spacing: .13em;
+    font-size: .68rem; font-weight: 700; margin: 0 0 .9rem; }
+  .pcmp__k--model { color: var(--ink-3); }
+  .pcmp__k--declared { color: var(--lime-text); }
+  .pcopy { position: relative; padding-bottom: .4rem; }
+  .pcopy__sheet { background: var(--white); border: 1px solid var(--rule); border-radius: var(--r);
+    padding: .7rem .85rem; max-width: 380px; box-shadow: var(--shadow); }
+  .pcopy__sheet + .pcopy__sheet { margin-top: .55rem; }
+  .pcopy__sheet b { display: block; font-size: .88rem; color: var(--navy-deep); }
+  .pcopy__sheet span { display: block; margin-top: .15rem; font-family: var(--mono); font-size: .7rem; color: var(--ink-3); }
+  .pcopy__sheet--2 { opacity: .62; border-style: dashed; margin-left: 1.1rem; }
+  .pcopy__sheet--3 { opacity: .34; border-style: dashed; margin-left: 2.2rem; }
+  .pcmp__decay { margin: 1rem 0 0; font-size: .88rem; line-height: 1.55; color: var(--ink-2); max-width: 44ch; }
+  .pcmp__chipwrap { background: var(--white); border: 1px solid var(--rule); border-radius: var(--r);
+    box-shadow: var(--shadow); padding: .7rem .8rem; max-width: 380px; }
+  .pcmp__chipcap { margin: .5rem 0 0; font-family: var(--mono); font-size: .7rem; color: var(--ink-3); line-height: 1.5; }
+  .pcmp__fresh { margin: 1rem 0 0; font-size: .88rem; line-height: 1.55; color: var(--ink-2); max-width: 44ch; }
+
+  /* -- scene 5: the deal-ID landing (chip grammar from the index targeting steps) -- */
+  .tstep-art { margin-top: .8rem; border: 1px solid var(--rule); background: var(--white);
+    border-radius: var(--r); padding: .7rem .8rem .75rem; max-width: 400px; box-shadow: var(--shadow); }
+  .tstep-art__row { display: flex; flex-wrap: wrap; align-items: center; gap: .3rem .7rem; margin: 0; }
+  .dealid { font-family: var(--mono); font-size: .95rem; font-weight: 700; color: var(--navy-deep);
+    letter-spacing: .02em; font-variant-numeric: tabular-nums lining-nums; }
+  .dealid-tag { font-family: var(--label); text-transform: uppercase; letter-spacing: .1em;
+    font-size: .6rem; font-weight: 700; color: var(--lime-text); border: 1px solid var(--lime-dark);
+    border-radius: 3px; padding: .12rem .4rem; white-space: nowrap; }
+  .tstep-art__meta { display: block; margin-top: .4rem; font-family: var(--mono); font-size: .72rem;
+    line-height: 1.5; color: var(--ink-3); font-variant-numeric: tabular-nums lining-nums; }
 </style>
 </head>
 <body>
@@ -227,11 +373,209 @@
   </div>
 </header>
 
+<!-- ============ THE STORY (Pass E §4) ============ -->
+<!-- The page opens as a narrative, not a spec sheet: a question is asked today,
+     the answers arrive, the sparse matrix at scale, the contrast with the modeled
+     path, and the audience landing as a deal ID in the buyer's own seat. Scenes
+     are fully readable with JS off and motion off; the one pinned scene (the
+     matrix) is CSS scroll-driven and never captures the wheel. -->
+<section class="section" id="story">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:1.6rem">
+      <p class="eyebrow eyebrow--plain" style="justify-content:center"><span class="folio">01</span>How it works</p>
+      <h2>One question, asked today.</h2>
+      <p class="lede">Follow it from the field to your buying seat.</p>
+    </div>
+
+    <div class="wk__scenes">
+      <article class="wk__scene">
+        <div class="wk__when">
+          <span class="wk__day">Scene 1 &middot; In the field, now</span>
+          <span class="wk__stampline num">One of 10,000+ always-on questions</span>
+          <span class="wk__big">A question is asked today.</span>
+          <div class="wk__copy">
+            <p>Not fielded for a week and closed; in the field always. This one is
+              real, and orderable in the library below.</p>
+          </div>
+        </div>
+        <div class="wk__art">
+          <div class="qcard">
+            <p class="qcard__meta"><span class="qcard__live">&#9679; In the field now</span><span>QID 494 &middot; People, Civic &amp; Life &middot; Politics</span></p>
+            <p class="qcard__q">Which of the following best describes your political leanings?</p>
+            <ul class="qcard__opts" aria-label="Answer options, one selected, illustrative">
+              <li><i aria-hidden="true"></i>Very conservative</li>
+              <li class="on"><i aria-hidden="true"></i>Somewhat conservative</li>
+              <li><i aria-hidden="true"></i>Moderate</li>
+              <li><i aria-hidden="true"></i>Somewhat liberal</li>
+              <li><i aria-hidden="true"></i>Very liberal</li>
+            </ul>
+            <div class="qcard__foot">
+              <button class="btn btn--navy btn--sm" type="button" tabindex="-1" aria-hidden="true">Answer</button>
+              <span class="qcard__count num">real question, real wording &middot; answer illustrative</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="wk__scene">
+        <div class="wk__when">
+          <span class="wk__day">Scene 2 &middot; Every day after</span>
+          <span class="wk__stampline num">1M+ answers a day, network-wide</span>
+          <span class="wk__big">The answers arrive.</span>
+          <div class="wk__copy">
+            <p>From people in the moment they form the opinion, not weeks later in a
+              callback. The read builds in days, not field weeks.</p>
+          </div>
+        </div>
+        <div class="wk__art wk__art--ast acs">
+          <div class="ast" role="group" aria-label="A moment of the answer stream, synthetic">
+            <div class="ast__row"><span class="ast__a">Somewhat liberal</span><span class="ast__w num">6:41 AM &middot; Columbus OH</span></div>
+            <div class="ast__row"><span class="ast__a">Moderate</span><span class="ast__w num">6:41 AM &middot; Mesa AZ</span></div>
+            <div class="ast__row"><span class="ast__a">Very conservative</span><span class="ast__w num">6:42 AM &middot; Erie PA</span></div>
+            <div class="ast__row"><span class="ast__a">Moderate</span><span class="ast__w num">6:42 AM &middot; Tampa FL</span></div>
+            <div class="ast__row"><span class="ast__a">Somewhat conservative</span><span class="ast__w num">6:43 AM &middot; Reno NV</span></div>
+            <p class="ast__plate">Over <span class="num w-measured">1 million</span> answers a day, every day.</p>
+          </div>
+          <p class="small" style="margin-top:.6rem">Synthetic moment; the volume figure is the partner's published rate.</p>
+        </div>
+      </article>
+    </div>
+
+    <!-- ===== §6.5 THE SPARSE MATRIX, at scale ===== -->
+    <div class="mxs-block mt3" id="matrix">
+      <div class="center" style="margin-bottom:1.2rem">
+        <span class="wk__day">Scene 3 &middot; What it adds up to</span>
+        <h3 class="wk__big" style="max-width:none">The sparse matrix: every cell is a person who answered.</h3>
+      </div>
+      <div class="mxs">
+        <div class="mxs__scroller">
+          <div class="mxs__pin">
+            <div class="mxs__bar">
+              <span class="mxs__brand">KPI &times; CivicScience &middot; The declared matrix</span>
+              <span class="mxs__stamp">answers accrue daily &middot; figures as of Aug 2026</span>
+            </div>
+            <svg class="mxs__svg" viewBox="0 0 1000 560" role="img" aria-labelledby="mxs-t mxs-d">
+              <title id="mxs-t">The sparse matrix: 165 million people by more than ten thousand questions, cells lit where a person actually answered</title>
+              <desc id="mxs-d">A vast grid fills as the page scrolls. Rows are 165 million
+                people; columns are more than ten thousand always-on questions; the grid
+                is drawn sampled, with density illustrative. Scattered cells light where
+                a person actually answered a question, filling in waves; a final scatter
+                of lime cells marks answers that landed today. The annotation reads:
+                165,000,000 people by 10,000-plus questions, a cell lights only where a
+                person actually answered. Declared, not inferred.</desc>
+              <defs>
+                <pattern id="mxsGrid" x="2" y="4" width="6" height="6" patternUnits="userSpaceOnUse">
+                  <rect x="0" y="0" width="3" height="3" fill="#E9EFF4"/>
+                </pattern>
+              </defs>
+              <text x="104" y="26" font-family="Inter, sans-serif" font-size="12" font-weight="700" letter-spacing="1.2" fill="#1F6E96">10,000+ ALWAYS-ON QUESTIONS &#8594;</text>
+              <text x="104" y="44" font-family="Inter, sans-serif" font-size="10.5" fill="#5B7085">3,537 of them cleared for political ordering, searchable below</text>
+              <text transform="rotate(-90 58 262)" x="58" y="262" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="700" letter-spacing="1.2" fill="#1F6E96">165M PEOPLE &#8595;</text>
+              <text transform="rotate(-90 78 262)" x="78" y="262" text-anchor="middle" font-family="Inter, sans-serif" font-size="10.5" fill="#5B7085">plus consumer data on everybody</text>
+              <rect x="100" y="60" width="836" height="402" fill="url(#mxsGrid)" stroke="#DCE4EC" stroke-width="1"/>
+              <path class="mxs__s1" d="M836 136h3v3h-3zM146 298h3v3h-3zM272 160h3v3h-3zM806 268h3v3h-3zM872 100h3v3h-3zM488 394h3v3h-3zM380 328h3v3h-3zM224 280h3v3h-3zM434 328h3v3h-3zM122 208h3v3h-3zM128 160h3v3h-3zM224 340h3v3h-3zM260 322h3v3h-3zM632 250h3v3h-3zM104 232h3v3h-3zM128 430h3v3h-3zM464 100h3v3h-3zM806 430h3v3h-3zM524 436h3v3h-3zM158 136h3v3h-3zM152 310h3v3h-3zM182 334h3v3h-3zM674 346h3v3h-3zM752 88h3v3h-3zM230 226h3v3h-3zM494 208h3v3h-3zM644 154h3v3h-3zM380 424h3v3h-3zM122 112h3v3h-3zM518 406h3v3h-3zM362 118h3v3h-3zM632 106h3v3h-3zM296 94h3v3h-3zM344 244h3v3h-3zM278 88h3v3h-3zM812 340h3v3h-3zM710 130h3v3h-3zM626 304h3v3h-3zM824 436h3v3h-3zM374 322h3v3h-3zM770 268h3v3h-3zM482 316h3v3h-3zM200 178h3v3h-3zM866 406h3v3h-3zM140 256h3v3h-3zM536 130h3v3h-3zM848 178h3v3h-3zM242 298h3v3h-3zM752 190h3v3h-3zM830 160h3v3h-3zM896 430h3v3h-3zM584 100h3v3h-3zM308 82h3v3h-3zM590 382h3v3h-3zM194 214h3v3h-3zM668 364h3v3h-3zM500 70h3v3h-3zM122 220h3v3h-3zM470 130h3v3h-3zM632 400h3v3h-3zM434 430h3v3h-3zM314 106h3v3h-3zM194 238h3v3h-3zM770 172h3v3h-3zM344 220h3v3h-3zM890 430h3v3h-3zM722 394h3v3h-3zM434 82h3v3h-3zM554 94h3v3h-3zM344 346h3v3h-3zM386 112h3v3h-3zM104 292h3v3h-3zM296 268h3v3h-3zM122 436h3v3h-3zM440 376h3v3h-3zM608 178h3v3h-3zM458 262h3v3h-3zM452 142h3v3h-3zM788 76h3v3h-3zM116 64h3v3h-3zM728 250h3v3h-3zM506 64h3v3h-3zM848 388h3v3h-3zM284 412h3v3h-3zM116 148h3v3h-3zM368 454h3v3h-3zM254 64h3v3h-3zM224 154h3v3h-3zM278 418h3v3h-3zM122 136h3v3h-3zM332 394h3v3h-3zM452 400h3v3h-3zM884 214h3v3h-3zM116 256h3v3h-3zM782 370h3v3h-3zM110 340h3v3h-3zM350 304h3v3h-3zM524 94h3v3h-3zM236 136h3v3h-3zM302 202h3v3h-3zM338 364h3v3h-3zM584 268h3v3h-3zM884 292h3v3h-3zM116 262h3v3h-3zM188 388h3v3h-3zM404 292h3v3h-3zM698 118h3v3h-3zM326 196h3v3h-3zM398 310h3v3h-3zM206 346h3v3h-3zM740 388h3v3h-3zM620 274h3v3h-3zM854 154h3v3h-3zM602 226h3v3h-3zM296 262h3v3h-3zM494 196h3v3h-3zM158 70h3v3h-3zM254 448h3v3h-3zM902 298h3v3h-3zM494 292h3v3h-3zM128 280h3v3h-3zM704 436h3v3h-3zM788 172h3v3h-3zM842 370h3v3h-3zM908 268h3v3h-3zM740 316h3v3h-3zM506 82h3v3h-3zM710 274h3v3h-3zM842 250h3v3h-3zM134 286h3v3h-3zM482 454h3v3h-3zM212 346h3v3h-3zM608 202h3v3h-3zM302 268h3v3h-3zM512 262h3v3h-3zM116 190h3v3h-3zM908 196h3v3h-3z" fill="#1B4F72"/>
+              <path class="mxs__s2" d="M416 262h3v3h-3zM260 370h3v3h-3zM380 76h3v3h-3zM644 412h3v3h-3zM182 298h3v3h-3zM272 322h3v3h-3zM788 148h3v3h-3zM176 130h3v3h-3zM320 196h3v3h-3zM140 436h3v3h-3zM668 340h3v3h-3zM644 364h3v3h-3zM734 448h3v3h-3zM230 94h3v3h-3zM296 424h3v3h-3zM920 298h3v3h-3zM368 262h3v3h-3zM320 94h3v3h-3zM686 166h3v3h-3zM110 322h3v3h-3zM338 220h3v3h-3zM812 268h3v3h-3zM536 292h3v3h-3zM884 70h3v3h-3zM104 388h3v3h-3zM596 88h3v3h-3zM242 82h3v3h-3zM398 340h3v3h-3zM740 430h3v3h-3zM350 142h3v3h-3zM128 340h3v3h-3zM422 112h3v3h-3zM770 346h3v3h-3zM164 184h3v3h-3zM458 256h3v3h-3zM128 82h3v3h-3zM524 382h3v3h-3zM560 424h3v3h-3zM920 388h3v3h-3zM158 232h3v3h-3zM266 148h3v3h-3zM116 238h3v3h-3zM896 232h3v3h-3zM740 448h3v3h-3zM314 100h3v3h-3zM554 364h3v3h-3zM464 130h3v3h-3zM452 154h3v3h-3zM716 352h3v3h-3zM176 358h3v3h-3zM200 346h3v3h-3zM770 196h3v3h-3zM242 322h3v3h-3zM104 196h3v3h-3zM716 292h3v3h-3zM110 364h3v3h-3zM608 310h3v3h-3zM338 124h3v3h-3zM794 448h3v3h-3zM206 442h3v3h-3zM260 124h3v3h-3zM116 196h3v3h-3zM818 190h3v3h-3zM428 250h3v3h-3zM764 280h3v3h-3zM320 178h3v3h-3zM272 418h3v3h-3zM656 256h3v3h-3zM344 196h3v3h-3zM512 268h3v3h-3zM368 64h3v3h-3zM752 106h3v3h-3zM518 292h3v3h-3zM542 178h3v3h-3zM608 322h3v3h-3zM530 328h3v3h-3zM104 76h3v3h-3zM698 76h3v3h-3zM104 424h3v3h-3zM386 436h3v3h-3zM686 412h3v3h-3zM572 322h3v3h-3zM500 124h3v3h-3zM398 238h3v3h-3zM392 148h3v3h-3zM278 376h3v3h-3zM632 274h3v3h-3zM158 352h3v3h-3zM488 250h3v3h-3zM782 190h3v3h-3zM134 190h3v3h-3zM302 280h3v3h-3zM116 118h3v3h-3zM476 208h3v3h-3zM110 238h3v3h-3zM236 142h3v3h-3zM146 256h3v3h-3zM146 310h3v3h-3zM806 64h3v3h-3zM380 154h3v3h-3zM194 88h3v3h-3zM674 256h3v3h-3zM740 106h3v3h-3zM134 334h3v3h-3zM122 88h3v3h-3zM764 244h3v3h-3zM752 412h3v3h-3zM728 136h3v3h-3zM386 352h3v3h-3zM218 196h3v3h-3zM110 208h3v3h-3zM122 106h3v3h-3zM878 88h3v3h-3zM176 394h3v3h-3zM632 286h3v3h-3zM452 166h3v3h-3zM284 136h3v3h-3zM266 430h3v3h-3zM542 418h3v3h-3zM398 436h3v3h-3zM308 436h3v3h-3zM284 352h3v3h-3zM350 400h3v3h-3zM776 136h3v3h-3zM140 328h3v3h-3zM182 346h3v3h-3zM830 178h3v3h-3zM134 424h3v3h-3zM476 304h3v3h-3zM560 388h3v3h-3zM266 424h3v3h-3zM170 430h3v3h-3zM356 226h3v3h-3zM296 250h3v3h-3zM224 178h3v3h-3zM428 364h3v3h-3zM242 238h3v3h-3z" fill="#1B4F72"/>
+              <path class="mxs__s3" d="M572 178h3v3h-3zM140 382h3v3h-3zM488 208h3v3h-3zM158 286h3v3h-3zM494 274h3v3h-3zM698 286h3v3h-3zM650 136h3v3h-3zM188 76h3v3h-3zM158 112h3v3h-3zM332 142h3v3h-3zM752 196h3v3h-3zM476 70h3v3h-3zM776 418h3v3h-3zM218 322h3v3h-3zM380 196h3v3h-3zM206 334h3v3h-3zM224 418h3v3h-3zM380 292h3v3h-3zM128 364h3v3h-3zM206 268h3v3h-3zM818 88h3v3h-3zM368 274h3v3h-3zM416 124h3v3h-3zM170 436h3v3h-3zM104 64h3v3h-3zM866 106h3v3h-3zM740 202h3v3h-3zM608 274h3v3h-3zM758 82h3v3h-3zM464 268h3v3h-3zM332 454h3v3h-3zM224 376h3v3h-3zM800 220h3v3h-3zM410 220h3v3h-3zM746 202h3v3h-3zM920 442h3v3h-3zM188 202h3v3h-3zM440 262h3v3h-3zM632 196h3v3h-3zM926 232h3v3h-3zM476 64h3v3h-3zM794 358h3v3h-3zM866 364h3v3h-3zM908 346h3v3h-3zM116 418h3v3h-3zM560 358h3v3h-3zM782 184h3v3h-3zM170 310h3v3h-3zM608 238h3v3h-3zM776 376h3v3h-3zM464 106h3v3h-3zM332 256h3v3h-3zM314 190h3v3h-3zM374 406h3v3h-3zM716 298h3v3h-3zM464 286h3v3h-3zM104 316h3v3h-3zM476 232h3v3h-3zM902 412h3v3h-3zM164 304h3v3h-3zM452 196h3v3h-3zM356 142h3v3h-3zM368 178h3v3h-3zM776 238h3v3h-3zM782 442h3v3h-3zM422 130h3v3h-3zM104 322h3v3h-3zM620 202h3v3h-3zM680 388h3v3h-3zM884 226h3v3h-3zM698 424h3v3h-3zM512 316h3v3h-3zM122 352h3v3h-3zM686 298h3v3h-3zM122 424h3v3h-3zM146 196h3v3h-3zM212 238h3v3h-3zM602 130h3v3h-3zM434 178h3v3h-3zM656 364h3v3h-3zM740 112h3v3h-3zM596 274h3v3h-3zM104 370h3v3h-3zM290 226h3v3h-3zM242 328h3v3h-3zM224 100h3v3h-3zM116 142h3v3h-3zM548 154h3v3h-3zM560 292h3v3h-3zM230 244h3v3h-3zM410 226h3v3h-3zM338 442h3v3h-3zM368 148h3v3h-3zM386 268h3v3h-3zM806 88h3v3h-3zM914 334h3v3h-3zM446 286h3v3h-3zM434 442h3v3h-3zM662 190h3v3h-3zM332 238h3v3h-3zM542 160h3v3h-3zM110 406h3v3h-3zM836 316h3v3h-3zM116 124h3v3h-3zM146 418h3v3h-3zM146 394h3v3h-3zM200 202h3v3h-3zM716 304h3v3h-3zM284 94h3v3h-3zM212 334h3v3h-3zM116 370h3v3h-3zM296 208h3v3h-3zM788 430h3v3h-3zM158 82h3v3h-3zM878 340h3v3h-3zM104 220h3v3h-3zM152 286h3v3h-3zM638 400h3v3h-3zM326 406h3v3h-3zM710 424h3v3h-3zM872 310h3v3h-3zM524 148h3v3h-3zM176 196h3v3h-3zM692 298h3v3h-3zM512 298h3v3h-3zM608 406h3v3h-3zM266 352h3v3h-3zM374 166h3v3h-3zM128 226h3v3h-3zM872 388h3v3h-3zM128 382h3v3h-3zM488 322h3v3h-3zM416 304h3v3h-3zM128 394h3v3h-3zM656 268h3v3h-3zM830 124h3v3h-3zM734 136h3v3h-3z" fill="#1B4F72"/>
+              <path class="mxs__s4" d="M662 178h3v3h-3zM302 106h3v3h-3zM122 76h3v3h-3zM614 328h3v3h-3zM572 448h3v3h-3zM566 208h3v3h-3zM308 358h3v3h-3zM158 76h3v3h-3zM194 400h3v3h-3zM434 334h3v3h-3zM680 352h3v3h-3zM296 88h3v3h-3zM302 424h3v3h-3zM242 142h3v3h-3zM476 226h3v3h-3zM224 382h3v3h-3zM860 340h3v3h-3zM716 178h3v3h-3zM362 154h3v3h-3zM182 88h3v3h-3zM110 76h3v3h-3zM740 256h3v3h-3zM194 346h3v3h-3zM782 202h3v3h-3zM542 376h3v3h-3zM260 394h3v3h-3zM494 244h3v3h-3zM914 244h3v3h-3zM854 310h3v3h-3zM602 196h3v3h-3zM824 160h3v3h-3zM602 82h3v3h-3zM320 424h3v3h-3zM128 214h3v3h-3zM272 298h3v3h-3zM554 274h3v3h-3zM272 268h3v3h-3zM710 76h3v3h-3zM710 238h3v3h-3zM440 436h3v3h-3zM284 88h3v3h-3zM236 100h3v3h-3zM158 256h3v3h-3zM200 154h3v3h-3zM326 304h3v3h-3zM416 298h3v3h-3zM212 118h3v3h-3zM878 448h3v3h-3zM194 292h3v3h-3zM536 340h3v3h-3zM626 208h3v3h-3zM656 328h3v3h-3zM620 154h3v3h-3zM446 184h3v3h-3zM500 370h3v3h-3zM800 358h3v3h-3zM518 238h3v3h-3zM266 334h3v3h-3zM392 184h3v3h-3zM452 310h3v3h-3zM644 268h3v3h-3zM470 262h3v3h-3zM158 142h3v3h-3zM158 388h3v3h-3zM212 328h3v3h-3zM158 154h3v3h-3zM908 94h3v3h-3zM224 70h3v3h-3zM230 196h3v3h-3zM146 250h3v3h-3zM464 244h3v3h-3zM836 202h3v3h-3zM152 370h3v3h-3zM230 358h3v3h-3zM230 346h3v3h-3zM362 352h3v3h-3zM590 346h3v3h-3zM302 88h3v3h-3zM638 430h3v3h-3zM710 82h3v3h-3zM452 358h3v3h-3zM110 370h3v3h-3zM794 340h3v3h-3zM524 214h3v3h-3zM650 106h3v3h-3zM344 274h3v3h-3zM428 172h3v3h-3zM470 70h3v3h-3zM782 262h3v3h-3zM440 244h3v3h-3zM776 268h3v3h-3zM746 178h3v3h-3zM530 358h3v3h-3zM398 166h3v3h-3zM446 256h3v3h-3zM818 406h3v3h-3zM788 280h3v3h-3zM374 124h3v3h-3zM320 130h3v3h-3zM344 370h3v3h-3zM848 298h3v3h-3zM116 112h3v3h-3zM176 406h3v3h-3zM674 178h3v3h-3zM644 442h3v3h-3zM128 334h3v3h-3zM236 364h3v3h-3zM314 208h3v3h-3zM782 436h3v3h-3zM242 244h3v3h-3zM134 196h3v3h-3zM338 64h3v3h-3zM464 376h3v3h-3zM110 82h3v3h-3zM212 394h3v3h-3zM488 226h3v3h-3zM344 106h3v3h-3zM782 328h3v3h-3zM116 406h3v3h-3zM518 298h3v3h-3zM206 172h3v3h-3zM764 298h3v3h-3zM230 448h3v3h-3zM326 358h3v3h-3zM290 394h3v3h-3zM692 238h3v3h-3zM668 142h3v3h-3zM512 412h3v3h-3zM254 160h3v3h-3zM236 214h3v3h-3zM272 310h3v3h-3zM560 130h3v3h-3zM638 376h3v3h-3zM140 64h3v3h-3zM554 226h3v3h-3zM374 184h3v3h-3zM422 172h3v3h-3z" fill="#1B4F72"/>
+              <path class="mxs__s5" d="M266 340h3v3h-3zM248 376h3v3h-3zM104 208h3v3h-3zM566 250h3v3h-3zM866 88h3v3h-3zM308 172h3v3h-3zM902 442h3v3h-3zM404 280h3v3h-3zM356 310h3v3h-3zM134 406h3v3h-3zM128 274h3v3h-3zM164 448h3v3h-3zM902 196h3v3h-3zM872 148h3v3h-3zM452 160h3v3h-3zM602 364h3v3h-3zM158 148h3v3h-3zM398 292h3v3h-3zM872 184h3v3h-3zM236 226h3v3h-3zM266 442h3v3h-3zM248 268h3v3h-3zM704 112h3v3h-3zM788 358h3v3h-3zM140 412h3v3h-3zM242 148h3v3h-3zM128 172h3v3h-3zM446 280h3v3h-3zM794 442h3v3h-3zM806 166h3v3h-3zM638 142h3v3h-3zM272 124h3v3h-3zM386 454h3v3h-3zM560 88h3v3h-3zM422 202h3v3h-3zM758 250h3v3h-3zM638 244h3v3h-3zM236 430h3v3h-3zM236 244h3v3h-3zM536 106h3v3h-3zM248 298h3v3h-3zM830 262h3v3h-3zM254 238h3v3h-3zM548 142h3v3h-3zM704 304h3v3h-3zM698 184h3v3h-3zM842 154h3v3h-3zM380 316h3v3h-3zM542 184h3v3h-3zM152 232h3v3h-3zM764 70h3v3h-3zM530 196h3v3h-3zM578 274h3v3h-3zM764 388h3v3h-3zM188 118h3v3h-3zM146 376h3v3h-3zM506 376h3v3h-3zM200 310h3v3h-3zM752 130h3v3h-3zM170 388h3v3h-3zM188 238h3v3h-3zM794 226h3v3h-3zM296 232h3v3h-3zM146 352h3v3h-3zM566 298h3v3h-3zM608 106h3v3h-3zM296 178h3v3h-3zM692 448h3v3h-3zM848 310h3v3h-3zM674 82h3v3h-3zM620 112h3v3h-3zM662 322h3v3h-3zM728 418h3v3h-3zM650 184h3v3h-3zM716 268h3v3h-3zM176 334h3v3h-3zM560 82h3v3h-3zM890 238h3v3h-3zM146 382h3v3h-3zM104 142h3v3h-3zM224 316h3v3h-3zM110 430h3v3h-3zM506 328h3v3h-3zM368 238h3v3h-3zM608 142h3v3h-3zM662 310h3v3h-3zM110 178h3v3h-3zM266 298h3v3h-3zM188 214h3v3h-3zM860 286h3v3h-3zM260 334h3v3h-3zM446 130h3v3h-3zM662 274h3v3h-3zM254 346h3v3h-3zM560 298h3v3h-3zM116 430h3v3h-3zM104 262h3v3h-3zM848 304h3v3h-3zM110 394h3v3h-3zM746 154h3v3h-3zM452 370h3v3h-3zM332 244h3v3h-3zM308 388h3v3h-3zM860 130h3v3h-3zM680 376h3v3h-3zM524 304h3v3h-3zM842 286h3v3h-3zM140 184h3v3h-3zM374 232h3v3h-3zM914 100h3v3h-3zM128 286h3v3h-3zM320 148h3v3h-3zM692 232h3v3h-3zM770 340h3v3h-3zM122 124h3v3h-3zM128 448h3v3h-3zM140 124h3v3h-3zM800 364h3v3h-3zM896 436h3v3h-3zM194 124h3v3h-3zM206 358h3v3h-3zM896 382h3v3h-3zM914 340h3v3h-3zM302 292h3v3h-3zM506 406h3v3h-3zM110 142h3v3h-3zM818 178h3v3h-3zM290 124h3v3h-3zM530 262h3v3h-3zM326 148h3v3h-3zM656 76h3v3h-3zM110 448h3v3h-3zM524 454h3v3h-3zM800 100h3v3h-3zM434 316h3v3h-3z" fill="#1B4F72"/>
+              <path class="mxs__today" d="M254 430h3v3h-3zM266 304h3v3h-3zM740 238h3v3h-3zM404 208h3v3h-3zM752 124h3v3h-3zM128 100h3v3h-3zM260 406h3v3h-3zM818 400h3v3h-3zM554 148h3v3h-3zM308 130h3v3h-3zM488 352h3v3h-3zM728 118h3v3h-3zM752 454h3v3h-3zM224 130h3v3h-3zM560 136h3v3h-3zM704 166h3v3h-3zM902 238h3v3h-3zM410 430h3v3h-3zM350 376h3v3h-3zM314 340h3v3h-3zM452 388h3v3h-3zM584 352h3v3h-3zM482 148h3v3h-3zM698 292h3v3h-3zM728 436h3v3h-3zM146 286h3v3h-3z" fill="#7CB342"/>
+              <text x="936" y="486" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="11" fill="#4F7A25">lime = answered today</text>
+              <text x="100" y="486" font-family="Inter, sans-serif" font-size="10.5" fill="#5B7085">grid sampled for display &middot; density illustrative &middot; the counts are not</text>
+            </svg>
+            <p class="mxs__hint small">Keep scrolling: the matrix fills as answers land.</p>
+            <div class="mxs__ann">
+              <span class="mxs__ann-big num">165,000,000 people &times; 10,000+ questions.</span>
+              <span class="mxs__ann-sub">A cell lights only where a person actually answered.
+                Declared, not inferred.</span>
+            </div>
+            <p class="mxs__cap">Source: CivicScience partner-published figures, as of Aug
+              2026 &middot; a profile is a survey-answering record, not a verified person
+              &middot; answers accrue daily; audiences build from the answers, and every
+              question that builds one is named</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== the contrast panel: modeled decay vs the matrix refilling ===== -->
+    <div class="mt3" data-rise>
+      <div class="center" style="margin-bottom:1.4rem">
+        <span class="wk__day">Scene 4 &middot; The other way this is done</span>
+        <h3 class="wk__big" style="max-width:none">A lookalike model decays from the day it ships. The declared matrix adds over a million answers a day.</h3>
+      </div>
+      <div class="pcmp">
+        <div class="pcmp__side pcmp__side--l">
+          <p class="pcmp__k pcmp__k--model">The modeled path</p>
+          <div class="pcopy" role="img" aria-label="Three stacked sheets, each a fainter copy of the one above: a segment two cycles old, a lookalike of it, and a lookalike of the lookalike">
+            <div class="pcopy__sheet"><b>The segment</b><span>built two cycles ago</span></div>
+            <div class="pcopy__sheet pcopy__sheet--2"><b>A lookalike of it</b><span>modeled on the segment</span></div>
+            <div class="pcopy__sheet pcopy__sheet--3"><b>A lookalike of the lookalike</b><span>modeled on the model</span></div>
+          </div>
+          <p class="pcmp__decay">By some industry estimates, a lookalike model sheds 30 to
+            60 percent of its lift within 90 days of being built &mdash; and the decay is
+            invisible from inside the buy.</p>
+        </div>
+        <div class="pcmp__side pcmp__side--r">
+          <p class="pcmp__k pcmp__k--declared">The declared path</p>
+          <div class="pcmp__chipwrap">
+            <svg viewBox="0 0 258 168" role="img" aria-label="A small cut of the declared matrix, refilled daily; a scatter of cells is lit and a few lime cells landed today" style="display:block;width:100%;height:auto">
+              <defs>
+                <pattern id="pcGrid" x="0" y="0" width="6" height="6" patternUnits="userSpaceOnUse">
+                  <rect x="0" y="0" width="3" height="3" fill="#E9EFF4"/>
+                </pattern>
+              </defs>
+              <rect x="0" y="0" width="258" height="162" fill="url(#pcGrid)" stroke="#DCE4EC" stroke-width="1"/>
+              <path d="M192 24h3v3h-3zM30 102h3v3h-3zM60 96h3v3h-3zM114 150h3v3h-3zM234 84h3v3h-3zM222 108h3v3h-3zM48 24h3v3h-3zM48 6h3v3h-3zM168 66h3v3h-3zM18 12h3v3h-3zM126 90h3v3h-3zM48 120h3v3h-3zM18 42h3v3h-3zM48 90h3v3h-3zM114 12h3v3h-3zM30 72h3v3h-3zM18 6h3v3h-3zM246 126h3v3h-3zM114 36h3v3h-3zM204 108h3v3h-3zM90 30h3v3h-3zM210 66h3v3h-3zM180 42h3v3h-3zM120 90h3v3h-3zM60 36h3v3h-3zM18 48h3v3h-3zM108 138h3v3h-3zM234 42h3v3h-3zM90 36h3v3h-3zM246 12h3v3h-3zM6 42h3v3h-3zM126 96h3v3h-3zM36 126h3v3h-3zM168 42h3v3h-3zM24 150h3v3h-3zM48 132h3v3h-3zM54 30h3v3h-3zM114 42h3v3h-3zM126 42h3v3h-3zM108 132h3v3h-3zM30 138h3v3h-3zM102 120h3v3h-3zM120 126h3v3h-3zM96 12h3v3h-3zM150 96h3v3h-3zM102 18h3v3h-3zM18 18h3v3h-3zM24 102h3v3h-3zM228 30h3v3h-3zM204 144h3v3h-3zM36 90h3v3h-3zM6 150h3v3h-3zM24 90h3v3h-3zM150 84h3v3h-3zM42 54h3v3h-3zM54 36h3v3h-3zM42 150h3v3h-3zM240 114h3v3h-3zM24 42h3v3h-3zM210 54h3v3h-3zM36 78h3v3h-3zM66 84h3v3h-3zM30 90h3v3h-3zM168 90h3v3h-3zM144 114h3v3h-3zM180 54h3v3h-3zM24 72h3v3h-3zM228 60h3v3h-3zM18 78h3v3h-3zM102 24h3v3h-3zM6 126h3v3h-3zM18 84h3v3h-3zM222 36h3v3h-3zM72 24h3v3h-3zM222 102h3v3h-3zM96 144h3v3h-3zM78 6h3v3h-3zM120 24h3v3h-3zM234 114h3v3h-3zM90 48h3v3h-3zM132 6h3v3h-3zM120 150h3v3h-3zM30 132h3v3h-3zM6 66h3v3h-3zM42 90h3v3h-3zM90 90h3v3h-3zM30 144h3v3h-3zM132 48h3v3h-3zM6 30h3v3h-3zM78 48h3v3h-3zM66 144h3v3h-3zM156 144h3v3h-3z" fill="#1B4F72"/>
+              <path d="M42 102h3v3h-3zM186 6h3v3h-3zM96 66h3v3h-3zM12 24h3v3h-3zM114 90h3v3h-3zM72 66h3v3h-3zM216 120h3v3h-3z" fill="#7CB342"/>
+            </svg>
+            <p class="pcmp__chipcap">the same cut of the matrix, tomorrow: more cells, not fainter ones &middot; lime = landed today</p>
+          </div>
+          <p class="pcmp__fresh">The declared core does not decay the way a modeled
+            lookalike does: over 1M answers land every day, and the audience rebuilds
+            from what people are saying now. A modeled extension stays optional and
+            always prints labeled modeled.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== the landing: the audience in the buyer's own seat ===== -->
+    <div class="wk__scenes mt3">
+      <article class="wk__scene">
+        <div class="wk__when">
+          <span class="wk__day">Scene 5 &middot; Then the buy</span>
+          <span class="wk__stampline num">days from shortlist to in-market</span>
+          <span class="wk__big">The audience gets built, and lands where you already buy.</span>
+          <div class="wk__copy">
+            <p>Every question that builds it is named, so you can audit it before a
+              dollar moves; it arrives as a deal ID in the DSP seat you already run.</p>
+          </div>
+        </div>
+        <div class="wk__art">
+          <div class="wk-doc">
+            <div class="wk-doc__bar"><span class="wk-doc__brand">KPI &middot; Audience build</span><span class="wk-doc__stamp">auditable before a dollar moves</span></div>
+            <div class="wk-doc__row"><b>&ldquo;Which of the following best describes your political leanings?&rdquo;</b><span class="wk-doc__dim num">QID 494 &middot; two answers picked</span></div>
+            <div class="wk-doc__row"><b>&ldquo;How do you receive television service?&rdquo;</b><span class="wk-doc__dim num">QID 1516 &middot; streaming-only picked</span></div>
+            <div class="wk-doc__row"><span class="wk-doc__dim">Every question named. No black box between the answers and the segment.</span></div>
+          </div>
+          <div class="tstep-art" role="img" aria-label="Illustrative deal ID as it lands in a DSP seat, with the matched audience size attached">
+            <p class="tstep-art__row"><span class="dealid">KPI-PMP-2026-0841</span><span class="dealid-tag">Deal ID &middot; in your seat</span></p>
+            <span class="tstep-art__meta num">matched audience 412,000 devices &middot; composition read attached &middot; illustrative</span>
+          </div>
+          <div class="btn-row mt2">
+            <a class="btn btn--navy" href="#explorer">Search the 3,537 questions</a>
+            <a class="btn btn--outline" href="contact.html">Request a demo</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
 <!-- ============ THE LOOP ============ -->
 <section class="section section--tint" id="loop">
   <div class="wrap">
     <div class="center" style="margin-bottom:2.4rem" data-rise>
-      <p class="eyebrow eyebrow--plain" style="justify-content:center"><span class="folio">01</span>The loop</p>
+      <p class="eyebrow eyebrow--plain" style="justify-content:center"><span class="folio">02</span>The loop</p>
       <h2>One loop, run for the life of the flight.</h2>
       <p class="lede">Most polling is a report that arrives after the argument. This one
         stays in the field.</p>
@@ -308,7 +652,7 @@
 <section class="section" id="offerings">
   <div class="wrap">
     <div class="center" style="margin-bottom:3rem" data-rise>
-      <p class="eyebrow eyebrow--plain" style="justify-content:center"><span class="folio">02</span>Two ways in</p>
+      <p class="eyebrow eyebrow--plain" style="justify-content:center"><span class="folio">03</span>Two ways in</p>
       <h2>Syndicated when the question exists. Bespoke when it does not.</h2>
     </div>
     <div class="grid grid--2" data-rise>
@@ -352,7 +696,7 @@
 <!-- ============ THE QUESTION LIBRARY ============ -->
 <section class="section section--tint" id="library">
   <div class="wrap">
-    <p class="eyebrow"><span class="folio">03</span>The question library</p>
+    <p class="eyebrow"><span class="folio">04</span>The question library</p>
     <h2 id="explorer">Search the orderable library. All 3,537 questions of it.</h2>
     <p class="dek" style="margin-bottom:1.4rem">Read the exact wording, build a shortlist,
       send it to us. This is the list an audience actually gets built from, not a sample:
@@ -487,8 +831,8 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r23"></script>
-<script src="assets/js/segments.js?v=r23" defer></script>
+<script src="assets/js/site.js?v=r24"></script>
+<script src="assets/js/segments.js?v=r24" defer></script>
 <script>
 /* R6 (item 74): on a narrow phone the long placeholder clips mid-number, so it
    swaps to the short form before the field ever renders a cut digit. */

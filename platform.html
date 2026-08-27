@@ -9,7 +9,7 @@
 <meta property="og:description" content="Open to the race that changed. Read what the other side aired, booked and abandoned. Leave with the export.">
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-mark.png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r23">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r24">
 <style>
   /* The "what it exports" line that closes each app section. */
   .exports { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; margin-top: 1.3rem; }
@@ -84,6 +84,92 @@
   /* R6 (item 71): coverage cards hug their own copy instead of stretching to
      the tallest card in the row. */
   #coverage .grid--3 { align-items: start; }
+
+  /* ==================================================================
+     PASS E §9: the vignette rail. Three abstracted product-motion
+     vignettes — one verb each (Drill / Filter / Export), <=3 beats,
+     then still. Real chrome only: the KPI title bar, the through-date
+     stamp chip and the ≈ mark render faithfully; rows and values are
+     simplified blocks with illustrative figures, so nothing on screen
+     is reconstructable and nothing can go stale. Entry-triggered (IO
+     adds .in-view), replayed on hover (data-replay); the base state IS
+     the final beat, so JS-off, reduced-motion and print all read the
+     finished move. The count is the claim.
+     ================================================================== */
+  .vig { background: var(--white); border: 1px solid var(--rule); border-radius: var(--r-lg);
+    box-shadow: 0 1px 2px rgba(13,46,74,.05), 0 6px 18px rgba(13,46,74,.06);
+    padding: 1rem 1.05rem 1.05rem; display: flex; flex-direction: column; }
+  .vig__bar { display: flex; justify-content: space-between; align-items: baseline; gap: .5rem;
+    font-family: var(--label); text-transform: uppercase; letter-spacing: .12em;
+    font-size: .62rem; font-weight: 700; color: var(--navy); margin-bottom: .7rem; }
+  .vig__stamp { font-family: var(--mono); font-size: .6rem; letter-spacing: .05em; color: var(--ink-3);
+    border: 1px solid var(--rule); padding: .1rem .35rem; white-space: nowrap;
+    font-variant-numeric: tabular-nums lining-nums; text-transform: none; }
+  .vig__stage { position: relative; flex: 1 0 auto; }
+  .vig__stage--drill { min-height: 248px; }
+  .vig__count { margin: .85rem 0 0; border-top: 1px dashed var(--rule); padding-top: .6rem;
+    font-family: var(--mono); font-size: .8rem; font-weight: 700; color: var(--lime-text);
+    font-variant-numeric: tabular-nums lining-nums; }
+  .vig__what { margin: .3rem 0 0; font-size: .84rem; line-height: 1.5; color: var(--ink-3); }
+  /* the descent: three levels, each sliding from the last, ending on the stamp */
+  .vig__layer { position: absolute; left: 0; right: 24%; top: 0; background: var(--white);
+    border: 1px solid var(--rule); border-radius: var(--r);
+    box-shadow: 0 2px 6px rgba(13,46,74,.09), 0 10px 24px rgba(13,46,74,.10);
+    padding: .5rem .6rem .55rem; }
+  .vig__layer--2 { left: 12%; right: 12%; top: 56px; }
+  .vig__layer--3 { left: 24%; right: 0; top: 112px; }
+  .vig__lk { display: block; font-family: var(--label); text-transform: uppercase; letter-spacing: .1em;
+    font-size: .56rem; font-weight: 700; color: var(--blue-text); margin-bottom: .25rem; }
+  .vig__row { display: flex; justify-content: space-between; align-items: baseline; gap: .5rem;
+    font-size: .78rem; color: var(--ink-2); padding: .18rem .25rem; border-top: 1px solid var(--rule-soft); }
+  .vig__row b { color: var(--navy-deep); font-weight: 650; }
+  .vig__row .num { font-family: var(--mono); font-size: .74rem; }
+  .vig__row--hit { background: color-mix(in srgb, var(--lime) 14%, transparent); }
+  .vig__more { display: block; margin-top: .2rem; font-family: var(--mono); font-size: .62rem; color: var(--ink-3); }
+  /* the two-click: filter chips, then the answer card */
+  .vig__chips { display: flex; gap: .35rem; flex-wrap: wrap; margin-bottom: .6rem; }
+  .vig__chip { font-size: .7rem; font-weight: 600; color: var(--ink-2);
+    border: 1px solid var(--rule); border-radius: 3px; padding: .24rem .5rem; background: #FAFCFD; }
+  .vig__chip--set { color: var(--navy-deep); border-color: var(--navy); background: var(--white); font-weight: 700; }
+  .vig__ansr { border: 1px solid var(--rule); border-top: 3px solid var(--navy); border-radius: var(--r);
+    box-shadow: var(--shadow); padding: .6rem .75rem .65rem; }
+  .vig__big { display: block; font-family: var(--mono); font-weight: 800; font-size: 1.4rem;
+    color: var(--navy-deep); letter-spacing: -.02em; font-variant-numeric: tabular-nums lining-nums; }
+  .vig__bigsub { display: block; margin-top: .15rem; font-family: var(--mono); font-size: .68rem; color: var(--ink-3); }
+  /* the export: the board, the XLSX card, the far side of the table */
+  .vig__sheet { position: relative; z-index: 1; border: 1px solid var(--rule); border-radius: var(--r);
+    background: var(--white); box-shadow: var(--shadow); padding: .5rem .6rem .55rem; max-width: 72%; }
+  .vig__x { position: relative; margin: -14px 0 0 26%; background: var(--white);
+    border: 1px solid var(--lime-dark); border-radius: var(--r);
+    box-shadow: 0 6px 18px rgba(13,46,74,.14); padding: .5rem .65rem .55rem; z-index: 2; }
+  .vig__xk { display: flex; align-items: baseline; justify-content: space-between; gap: .5rem; }
+  .vig__xtag { font-family: var(--mono); font-size: .66rem; font-weight: 700; color: var(--navy-ink);
+    background: var(--lime); border-radius: 3px; padding: .12rem .4rem; }
+  .vig__xdate { font-family: var(--mono); font-size: .62rem; color: var(--ink-2);
+    font-variant-numeric: tabular-nums lining-nums; }
+  .vig__desk { display: flex; align-items: baseline; justify-content: space-between; gap: .6rem;
+    margin-top: .7rem; border-top: 2px solid var(--rule); padding-top: .35rem;
+    font-family: var(--label); text-transform: uppercase; letter-spacing: .1em;
+    font-size: .56rem; font-weight: 700; color: var(--ink-3); }
+  /* the click ripple: appears, rings, disappears — a transient beat, so its
+     keyframes END hidden, which is also its base state. */
+  .vig__click { position: absolute; width: 16px; height: 16px; border: 2.5px solid var(--blue);
+    border-radius: 50%; opacity: 0; pointer-events: none; }
+  @media (prefers-reduced-motion: no-preference) {
+    .vig.in-view .vig__b1 { animation: vig-in .45s var(--smooth) .1s backwards; }
+    .vig.in-view .vig__b2 { animation: vig-in .5s var(--smooth) .85s backwards; }
+    .vig.in-view .vig__b3 { animation: vig-in .55s var(--smooth) 1.6s backwards; }
+    .vig.in-view .vig__click--1 { animation: vig-click .55s ease-out .5s both; }
+    .vig.in-view .vig__click--2 { animation: vig-click .55s ease-out 1.25s both; }
+    .vig.in-view .vig__chip-unset { animation: vig-swap 1.5s ease-out both; }
+    .vig.in-view .vig__stamp--land { animation: vig-land .6s ease-out 2.15s backwards; }
+  }
+  @keyframes vig-in { from { opacity: 0; transform: translate(12px, 10px); } to { opacity: 1; transform: none; } }
+  @keyframes vig-click { 0% { opacity: 0; transform: scale(.4); } 30% { opacity: 1; } 100% { opacity: 0; transform: scale(1.7); } }
+  /* transient: visible early, ends hidden (= base state) */
+  .vig__chip-unset { opacity: 0; position: absolute; }
+  @keyframes vig-swap { 0% { opacity: 1; } 55% { opacity: 1; } 75% { opacity: 0; } 100% { opacity: 0; } }
+  @keyframes vig-land { 0% { box-shadow: 0 0 0 0 rgba(168,209,78,.55); } 100% { box-shadow: 0 0 0 8px rgba(168,209,78,0); } }
 </style>
 </head>
 <body>
@@ -177,6 +263,101 @@
     </div>
   </div>
 </header>
+
+<!-- ============ THE VIGNETTE RAIL (Pass E §9) ============ -->
+<!-- MOCK-BOARD INVENTORY (Pass E §10, binding fidelity ladder — proof renders
+     whole, capability renders abstracted, nothing in between):
+       index:    .ac alert card = SPECIMEN, whole (the one proof object) ·
+                 rc-seller = ANCHOR surface, full (ruling 22) · rc-digital,
+                 rc-ratebook, rc-leadlist = STILL (one glance, entrance draw
+                 only, link onward)
+       platform: rc-scoreboard, rc-matrix, rc-buysheet, rc-explorer,
+                 rc-pitchlist = STILL inside glimpse crops · rc-stnshare,
+                 rc-classgap = STILL · rc-baker, rc-bdemo = the page's live
+                 toys (chips only) · the three .vig blocks below = VIGNETTE
+                 (a verb + <=3 beats + still)
+     The four "See the real screen" screenshot links are retired: a real
+     screenshot discloses column taxonomies and goes stale with every release;
+     abstraction is the firewall, not a downgrade. -->
+<section class="section section--tight" id="moves">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:2rem" data-rise>
+      <p class="eyebrow eyebrow--plain" style="justify-content:center">Three moves, counted</p>
+      <h2 style="font-size:clamp(1.7rem,3vw,2.5rem)">Two clicks to the order. Two to the answer. One dated export.</h2>
+      <p class="lede" style="margin-inline:auto">Drill, filter, export &mdash; drawn as
+        abstracted re-creations, one verb each. Synthetic chrome, illustrative figures.
+        The counts are the claim.</p>
+    </div>
+    <div class="grid grid--3">
+
+      <div class="vig" data-replay>
+        <div class="vig__bar"><span>KPI &middot; Drill</span><span class="vig__stamp num">posted thru Aug 14, 2026</span></div>
+        <div class="vig__stage vig__stage--drill" role="img" aria-label="Three levels sliding open: a market, its stations, one order — ending on the posted-through stamp. The drill keeps going below what is drawn.">
+          <div class="vig__layer vig__b1">
+            <span class="vig__lk">Level 1 &middot; Market</span>
+            <div class="vig__row vig__row--hit"><b>Columbus</b><span class="num">$3.6M aired</span></div>
+            <span class="vig__click vig__click--1" style="right:14%;top:26px" aria-hidden="true"></span>
+          </div>
+          <div class="vig__layer vig__layer--2 vig__b2">
+            <span class="vig__lk">Level 2 &middot; Station</span>
+            <div class="vig__row vig__row--hit"><b>WZQV</b><span class="num">$1.24M &middot; 214 spots</span></div>
+            <span class="vig__click vig__click--2" style="right:12%;top:24px" aria-hidden="true"></span>
+          </div>
+          <div class="vig__layer vig__layer--3 vig__b3">
+            <span class="vig__lk">Level 3 &middot; Order</span>
+            <div class="vig__row"><b>Granite State Forward PAC</b><span class="num">$84K &middot; 2 wks</span></div>
+            <span class="vig__more">&#8942; the drill keeps going &middot; the demo shows the bottom</span>
+          </div>
+        </div>
+        <p class="vig__count">two clicks to the order</p>
+        <p class="vig__what">Market to station to order, each level sliding from the
+          last, and the stamp rides every one.</p>
+      </div>
+
+      <div class="vig" data-replay>
+        <div class="vig__bar"><span>KPI &middot; Filter</span><span class="vig__stamp num">posted thru Aug 14, 2026</span></div>
+        <div class="vig__stage" role="img" aria-label="Two filter chips set — race, then market — and the answer card lands carrying its date and its approximate mark.">
+          <div class="vig__chips vig__b1">
+            <span style="position:relative"><span class="vig__chip vig__chip-unset" aria-hidden="true">Race &#9662;</span><span class="vig__chip vig__chip--set">North River Senate</span><span class="vig__click vig__click--1" style="left:34%;top:-4px" aria-hidden="true"></span></span>
+            <span style="position:relative"><span class="vig__chip vig__chip-unset" aria-hidden="true">Market &#9662;</span><span class="vig__chip vig__chip--set vig__b2">Toledo</span><span class="vig__click vig__click--2" style="left:30%;top:-4px" aria-hidden="true"></span></span>
+            <span class="vig__chip">Stage: General</span>
+          </div>
+          <div class="vig__ansr vig__b3">
+            <span class="vig__lk">Streaming &amp; Digital &middot; Toledo &middot; this race</span>
+            <span class="vig__big">&asymp;$740K</span>
+            <span class="vig__bigsub">estimated minimum &middot; est. thru Aug 5 &middot; not in posted totals</span>
+          </div>
+        </div>
+        <p class="vig__count">two clicks to the answer</p>
+        <p class="vig__what">Pick the race, pick the market. The answer arrives
+          carrying its date and its &asymp;.</p>
+      </div>
+
+      <div class="vig" data-replay>
+        <div class="vig__bar"><span>KPI &middot; Export</span><span class="vig__stamp num">posted thru Aug 14, 2026</span></div>
+        <div class="vig__stage" role="img" aria-label="A board exports: the XLSX card slides out with the posted-through date in its header and lands across the table.">
+          <div class="vig__sheet vig__b1">
+            <span class="vig__lk">Market Order Flow &middot; Columbus</span>
+            <div class="vig__row"><b>6 advertisers</b><span class="num">aired + booked fwd</span></div>
+            <div class="vig__row"><span>your air marked</span><span class="num">25% share</span></div>
+          </div>
+          <div class="vig__x vig__b2">
+            <div class="vig__xk"><span class="vig__xtag">XLSX</span><span class="vig__xdate vig__stamp--land">posted through Aug 14, 2026 &middot; in the header</span></div>
+            <div class="vig__row" style="border-top:0;margin-top:.3rem"><span>aired / booked as separate columns</span></div>
+          </div>
+          <div class="vig__desk vig__b3" aria-hidden="true"><span>your side of the table</span><span>their side</span></div>
+        </div>
+        <p class="vig__count">one export, dated in the header</p>
+        <p class="vig__what">You only export what you would defend: the
+          posted-through date rides row one, across the table.</p>
+      </div>
+
+    </div>
+    <p class="small center mt2">Hover a card to replay its move. Abstracted on purpose:
+      re-creations, never screenshots, so nothing here can go stale or leak a
+      subscriber's screen.</p>
+  </div>
+</section>
 
 <!-- ============ COVERAGE ============ -->
 <section class="section section--band section--mega" id="coverage">
@@ -773,8 +954,7 @@
 </style>
     </div>
       <p class="glimpse-cap">Cropped on purpose. The full grid, race by race, opens in the demo.
-        <a href="contact.html">Request one</a> &middot;
-        <a href="assets/apps/app-scoreboard.webp" target="_blank" rel="noopener">See the real screen</a></p>
+        <a href="contact.html">Request one</a></p>
     <div class="exports">
       <span class="exports__k">What it exports</span>
       <span class="chip">Excel workbook</span>
@@ -952,8 +1132,7 @@
 </style>
     </div>
       <p class="glimpse-cap">Both sides' full case opens in the demo.
-        <a href="contact.html">Request one</a> &middot;
-        <a href="assets/apps/app-creative-matrix.webp" target="_blank" rel="noopener">See the real screen</a></p>
+        <a href="contact.html">Request one</a></p>
     <div class="exports">
       <span class="exports__k">What it exports</span>
       <span class="chip">PDF brief</span><span class="chip">Excel workbook</span>
@@ -1285,8 +1464,7 @@ tbody th.rc-buysheet-m{font-weight:400;background:transparent}
 </style>
     </div>
       <p class="glimpse-cap">The full market block, week by week, opens in the demo.
-        <a href="contact.html">Request one</a> &middot;
-        <a href="assets/apps/app-buy-sheet.webp" target="_blank" rel="noopener">See the real screen</a></p>
+        <a href="contact.html">Request one</a></p>
 
     <h3 class="mt3">One market block, as it comes out of the export</h3>
     <p class="dek">One advertiser's block: Alpha Committee (D), household points, posted through
@@ -1615,8 +1793,7 @@ tbody th.rc-buysheet-m{font-weight:400;background:transparent}
 </style>
     </div>
       <p class="glimpse-cap">The tape and the full market list open in the demo.
-        <a href="contact.html">Request one</a> &middot;
-        <a href="assets/apps/app-creative-explorer.webp" target="_blank" rel="noopener">See the real screen</a></p>
+        <a href="contact.html">Request one</a></p>
     <div class="exports">
       <span class="exports__k">What it exports</span>
       <span class="chip">Clip link</span><span class="chip">Transcript</span><span class="chip">Excel workbook</span>
@@ -1694,19 +1871,28 @@ tbody th.rc-buysheet-m{font-weight:400;background:transparent}
           grid buyers do, pointed at the market they sell instead of a race they watch. The
           read is revenue, not response. Stations see their own air beside the market;
           platform sellers see the market around them, never their own logs read back to
-          them. The week is one chain, four beats: see the skew, find the under-allocated,
-          know who to talk to, substantiate the buy.</p>
+          them. The week is one chain, in the seller's actual order of operations: price
+          the market, find the gap, make the call, and let the alerts keep the loop
+          running between Mondays.</p>
       </div>
-      <div class="day-rail day-rail--rev" aria-hidden="true">
-        <span><b>Mon</b>Market Order Flow</span>
-        <span><b>Tue</b>The call list</span>
-        <span><b>Wed</b>The win-back call</span>
-        <span><b>Thu</b>The streaming pitch</span>
-        <span><b>Fri</b>The rate call</span>
+      <div class="day-rail" aria-hidden="true">
+        <span><b>Mon</b>The rate call</span>
+        <span><b>Tue</b>Market Order Flow</span>
+        <span><b>Wed</b>The call list</span>
+        <span><b>Thu</b>The win-back call</span>
+        <span><b>Fri</b>The streaming pitch</span>
       </div>
       <ol class="steps">
         <li>
-          <h4>Monday morning, read the market instead of the race</h4>
+          <h4>Monday opens on the rate call</h4>
+          <p>Rate is the conversation you are already in, so the week starts holding the
+            same public file the buyer reads:
+            <a href="index.html#fcc-rates">FCC rate intelligence</a>, daypart by daypart,
+            and the print-sheet export goes to ownership with the posted-through date in
+            the header.</p>
+        </li>
+        <li>
+          <h4>Then read the market instead of the race</h4>
           <p>Market Order Flow, the scoreboard scoped to your market, is its full political
             order flow: every
             advertiser and committee with money in it, lane by lane. For a station that
@@ -1739,13 +1925,7 @@ tbody th.rc-buysheet-m{font-weight:400;background:transparent}
             households and prints as a floor, never from your logs or your reporting; what
             you see is the market around you.</p>
         </li>
-        <li>
-          <h4>Friday is the rate call</h4>
-          <p>Defend the quarter's rate from the same public file the buyer reads,
-            <a href="index.html#fcc-rates">FCC rate intelligence</a>, daypart by daypart,
-            and the print-sheet export goes to ownership with the posted-through date in
-            the header.</p>
-        </li>
+
       </ol>
       <!-- P12: the platform-seller glimpse (R6). The streaming pitch list, mirrored with
            synthetic advertisers per the tease doctrine: a glimpse, not a full surface.
@@ -2215,6 +2395,6 @@ tbody th.rc-buysheet-m{font-weight:400;background:transparent}
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r23"></script>
+<script src="assets/js/site.js?v=r24"></script>
 </body>
 </html>
