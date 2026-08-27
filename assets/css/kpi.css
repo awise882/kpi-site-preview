@@ -280,6 +280,13 @@ p .num, .lede .num, .hero-banner .num { white-space: nowrap; }
   .nav__brand img { height: 40px; }
   .nav__cta .btn { font-size: .82rem; padding: .5rem .7rem; }
 }
+/* At 320-360px even that row runs ~5px wide: tighten the gaps and the CTA once more. */
+@media (max-width: 360px) {
+  .nav__in { gap: .45rem; }
+  .nav__cta { gap: .4rem; }
+  .nav__brand img { height: 36px; }
+  .nav__cta .btn { font-size: .78rem; padding: .5rem .55rem; }
+}
 
 /* ---------- buttons ---------- */
 .btn {
@@ -1100,6 +1107,7 @@ a.chip:hover { border-color: var(--blue); color: var(--navy); background: var(--
   border: 1px solid var(--rule); padding: .2rem .5rem; white-space: nowrap;
   font-variant-numeric: tabular-nums lining-nums;
 }
+@media (max-width: 560px) { .aw__stamp { white-space: normal; } }
 .aw__readline { font-size: 1rem; line-height: 1.55; color: var(--ink-2); margin: 0 0 1.1rem; max-width: 64ch; }
 .aw__lanes { display: grid; gap: .4rem; }
 .aw__lane {
@@ -1287,6 +1295,7 @@ a.chip:hover { border-color: var(--blue); color: var(--navy); background: var(--
 .wk-doc__brand { font-family: var(--label); text-transform: uppercase; letter-spacing: .13em; font-size: .64rem; font-weight: 700; color: var(--navy); }
 .wk-doc__stamp { font-family: var(--mono); font-size: .68rem; letter-spacing: .06em; text-transform: uppercase;
   color: var(--ink-3); border: 1px solid var(--rule); padding: .12rem .4rem; white-space: nowrap; font-variant-numeric: tabular-nums lining-nums; }
+@media (max-width: 360px) { .wk-doc__stamp { white-space: normal; } }
 .wk-doc__row { display: flex; flex-wrap: wrap; align-items: baseline; gap: .3rem .8rem; padding: .45rem 0; border-top: 1px solid var(--rule-soft); }
 .wk-doc__row b { color: var(--navy-deep); font-weight: 650; }
 .wk-doc__row .num { font-family: var(--mono); font-variant-numeric: tabular-nums lining-nums; }
