@@ -85,6 +85,9 @@
     .hero--home .hero-center { padding: clamp(28px, 6.5vw, 44px) 0 16px; }
     .hero--home h1 { font-size: clamp(2.1rem, 9.5vw, 2.7rem); }
     .hero--home .hero-receipt { margin-top: .8rem; }
+    /* Round-2 panel (CMO): the phone receipt carries two items, not five lines;
+       the full basis lives one scroll down in the scale band. */
+    .hero-receipt .hr-x { display: none; }
     .hero--home .lede { margin-top: 1.05rem; }
     .hero--home .btn-row { margin-top: 1.25rem; }
     /* R5: the announcement banner condenses to its claim + link, two lines,
@@ -172,7 +175,7 @@
       <span class="ht__l" data-t="Political Ad Intelligence">Political Ad Intelligence</span><br>
       <span class="ht__l ht__l--accent" data-t="Platform">Platform</span>
     </h1>
-    <p class="hero-receipt"><span>The basis: all 210 markets</span> &middot; <span>TV, cable + radio order by order</span> &middot; <span>streaming caught on screens, not filings</span> &middot; <span>~1.5M airings a day, every ad category</span> &middot; <span>9 years</span></p>
+    <p class="hero-receipt"><span>The basis: all 210 markets</span><span class="hr-x"> &middot; TV, cable + radio order by order</span><span class="hr-x"> &middot; streaming caught on screens, not filings</span><span> &middot; ~1.5M airings a day, every ad category</span><span class="hr-x"> &middot; 9 years</span></p>
     <p class="lede">KPI tracks political ads and the money behind them &mdash; on TV,
       cable, radio and streaming, in every U.S. media market. When the other side
       moves, you know the same morning.</p>
@@ -205,7 +208,7 @@
 <section class="section" id="doors">
   <div class="wrap">
     <div class="center" style="margin-bottom:2.6rem" data-rise>
-      <h2>See every ad. Follow every dollar.</h2>
+      <h2>See the ads. Follow the dollars.</h2>
       <p class="lede" style="margin-inline:auto">Four ways in. Each one goes deeper.</p>
     </div>
     <div class="grid grid--2" data-rise>
@@ -262,9 +265,18 @@
         <p>"A Bloomberg console for campaigns."</p>
         <cite><a href="https://campaignsandelections.com/industry-news/firms-unveil-new-ad-tracking-platform/" rel="noopener">Campaigns &amp; Elections, April 2025</a></cite>
       </blockquote>
-      <!-- RESERVED: second quote slot for a sell-side voice (a station group or seller,
-           named). Real quote only, per the no-invention discipline; the slot stays a
-           comment until one exists. Panel P5 flagged the buyer-only proof. -->
+      <!-- PENCILED (Adam, 8/27): E.W. Scripps sell-side quote is being sought; this is
+           the DRAFT wording for their sign-off, and it renders visibly marked as
+           penciled/pending. The no-invention rule holds: DO NOT ship to production
+           until the approved wording replaces it — swap the text, drop the tag.
+           Their stated use worth capturing: Baker for impromptu asks. -->
+      <blockquote class="quote quote--draft">
+        <p>"The forward book is Monday's first call &mdash; money committed to our
+          markets that isn't on our books yet. And when a GM asks something sideways
+          mid-meeting, Baker answers before the meeting ends."</p>
+        <cite>Station group sales leadership, E.W. Scripps
+          <span class="quote-draft-tag">penciled &middot; pending their approval</span></cite>
+      </blockquote>
     </div>
 
     <div class="stats mt3" data-rise>
@@ -403,7 +415,7 @@
       </div>
       <svg class="mxt__svg" viewBox="0 0 640 268" role="img" aria-labelledby="mxt-t mxt-d">
         <title id="mxt-t">A sparse matrix: 165 million profiles by more than ten thousand questions, cells lit where a person answered</title>
-        <desc id="mxt-d">A vast grid, sampled down to a teaser. Rows are people, columns
+        <desc id="mxt-d">A vast grid, sampled down to a teaser. Rows are profiles, columns
           are always-on questions. Scattered cells are lit where a person actually
           answered that question, and a few are highlighted as answered today. Most of
           the grid is unlit: every lit cell is declared, not inferred.</desc>

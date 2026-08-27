@@ -1852,3 +1852,15 @@ a.chip:hover { border-color: var(--blue); color: var(--navy); background: var(--
     }
   }
 
+
+/* Penciled quotes (Adam, 8/27): draft wording awaiting the named source's
+   sign-off renders visibly marked as penciled — smaller than a real quote, on a
+   dashed rule, with a pending tag. Swap in the approved wording and drop the
+   tag; nothing unlabeled ships (no-invention rule). */
+.quote--draft { margin-top: 1.8rem; border-left: 2px dashed var(--rule); padding-left: 1.1rem; }
+.quote--draft::before { content: none; }
+.quote--draft p { font-size: clamp(1.05rem, 1.7vw, 1.35rem); font-weight: 600; }
+.quote-draft-tag { display: inline-block; margin-left: .5rem; font-family: var(--label);
+  text-transform: uppercase; letter-spacing: .09em; font-size: .62rem; font-weight: 700;
+  color: #7A5410; background: #FFF4E0; border: 1px solid #E8CF9E; border-radius: 3px;
+  padding: .14rem .45rem; vertical-align: middle; }
