@@ -1295,7 +1295,7 @@ a.chip:hover { border-color: var(--blue); color: var(--navy); background: var(--
 .wk-doc__brand { font-family: var(--label); text-transform: uppercase; letter-spacing: .13em; font-size: .64rem; font-weight: 700; color: var(--navy); }
 .wk-doc__stamp { font-family: var(--mono); font-size: .68rem; letter-spacing: .06em; text-transform: uppercase;
   color: var(--ink-3); border: 1px solid var(--rule); padding: .12rem .4rem; white-space: nowrap; font-variant-numeric: tabular-nums lining-nums; }
-@media (max-width: 360px) { .wk-doc__stamp { white-space: normal; } }
+@media (max-width: 560px) { .wk-doc__stamp { white-space: normal; } }
 .wk-doc__row { display: flex; flex-wrap: wrap; align-items: baseline; gap: .3rem .8rem; padding: .45rem 0; border-top: 1px solid var(--rule-soft); }
 .wk-doc__row b { color: var(--navy-deep); font-weight: 650; }
 .wk-doc__row .num { font-family: var(--mono); font-variant-numeric: tabular-nums lining-nums; }
