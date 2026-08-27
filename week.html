@@ -9,7 +9,7 @@
 <meta property="og:description" content="The same air war from both sides of the table: buyers follow the alert, the landscape, the creative and the gap; sellers follow the rate call, the share gap, the call list and the alerts.">
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-mark.png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r25">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r26">
 <style>
   .hero--sub .hero-center { text-align: center; padding: clamp(56px, 8vw, 104px) 0 clamp(36px, 5vw, 60px); }
   .hero--sub .eyebrow { justify-content: center; }
@@ -57,7 +57,7 @@
       <span class="ht__l" data-t="One Week,">One Week,</span>
       <span class="ht__l ht__l--accent" data-t="Two Desks.">Two Desks.</span>
     </h1>
-    <p class="lede">One synthetic Senate race, one Ohio market, beat by beat. Buyers read
+    <p class="lede">One synthetic Senate race, three Ohio markets, beat by beat. Buyers read
       it as response: the alert, the landscape, the creative, the gap. Sellers read it as
       revenue: the rate call, the share gap, the call list, the alerts.</p>
     <div class="btn-row">
@@ -89,7 +89,7 @@
       </div>
       <!-- Ruling 50b: the switch cue. Visible only when JS builds the tabs; JS-off both
            stories render stacked and there is nothing to switch. -->
-      <p class="wk__cue" aria-hidden="true">One week, two reads &middot; click to switch, or use the arrow keys</p>
+      <p class="wk__cue" aria-hidden="true">One week, two reads &middot; click or tap to switch<span class="kbd-hint">, or use the arrow keys</span></p>
 
     <article class="wk__story" id="wk-buy" role="tabpanel" aria-labelledby="wk-tab-buy">
     <h3 class="wk__story-h">The buyer's week</h3>
@@ -145,6 +145,7 @@
             </div>
             <div class="wk-score__lanes num">Broadcast $3.6M &middot; Local cable $1.5M &middot; Radio $0.4M<span class="wk-score__est"> &middot; Streaming &asymp;$960K estimated, beside the total, never in it</span></div>
             <div class="wk-score__foot"><span>Booked forward <b class="num">$1.7M</b>, on its own line</span><span>went dark: Hometown Values, Aug 11</span></div>
+            <div class="wk-score__foot"><span class="num">The weight read (&asymp;, indexed, Hale = 100): Ellery 79 &middot; Granite St 23 &mdash; outside money buys ~30% thinner at <a href="monitoring.html#fcc-rates">filed rates</a></span></div>
             <p class="wk-doc__note">One race's scoreboard. The demo shows every race with money in it.</p>
           </div>
         </div>
@@ -373,18 +374,19 @@
             <g class="ct__ann">
               <line x1="150" y1="596" x2="132" y2="528" stroke="#14232F" stroke-width="1.3"/>
               <circle cx="132" cy="528" r="3" fill="#14232F"/>
-              <text x="64" y="620" font-family="Inter, sans-serif" font-size="15" font-weight="650" fill="#14232F">The $60K order reaches the six hatched counties inside WQZL-FM's contour, and nothing east of them.</text>
+              <text x="64" y="620" font-family="Inter, sans-serif" font-size="15" font-weight="650" fill="#14232F">The $60K order reaches the six hatched counties &mdash; &asymp;118K households &mdash; and nothing east of them.</text>
               <text x="64" y="642" font-family="Inter, sans-serif" font-size="13" fill="#40566A">The metro sits inside <tspan font-weight="700" fill="#40566A">WZQV-FM's</tspan> contour &mdash; the fill is a second order. Counties outside both print as uncovered, never assumed reached.</text>
             </g>
           </svg>
-          <p class="ct__note">The <b>$60K order</b> reaches the six hatched counties inside
-            WQZL-FM's contour, and nothing east of them. The metro sits inside
+          <p class="ct__note">The <b>$60K order</b> reaches the six hatched counties &mdash;
+            &asymp;118K households &mdash; and nothing east of them. The metro sits inside
             WZQV-FM's contour &mdash; the fill is a second order &mdash; and counties
             outside both print as uncovered, never assumed reached.</p>
           <p class="ct__cap">Drawn market, synthetic order, illustrative figures &middot; every
             radio order carries its station's filed service contour; hatched = inside
             the bought station's 60 dBu contour &middot; radio dollars post from placed
-            orders; where none exist, dollars from caught airings, labeled</p>
+            orders; where none exist, dollars from caught airings, labeled &middot; the
+            household count is an &asymp; floor over the covered counties</p>
         </div>
       </div>
     </div>
@@ -443,9 +445,11 @@
             <div class="wk-doc__bar"><span class="wk-doc__brand">KPI &middot; Share gap</span><span class="wk-doc__stamp">TV thru Aug 11 &middot; streaming est. thru Aug 4</span></div>
             <div class="wk-doc__row"><b>Your air &middot; WQZL</b><span class="wk-doc__dim">25% of the market's aired political dollars</span></div>
             <div class="wk-doc__row"><span>Nora Hale for Senate (D)</span><span class="num">gives WQZL <b>14%</b></span><span class="wk-doc__hi num">11 pts under her market split</span></div>
-            <div class="wk-doc__row"><span>Heartland Priorities PAC</span><span class="num"><b>$0</b> on TV &middot; &asymp;$740K streaming est.</span><span class="wk-doc__dim">the app-side read of the same gap</span></div>
-            <p class="wk-doc__note">Linear gaps in points, streaming gaps as an estimated floor, never blended.
-              The digital seller's own board, spend share against viewing share, is <a href="#share-diagonal">below on this page</a>.</p>
+            <div class="wk-doc__row"><span>Heartland Priorities PAC</span><span class="num"><b>$0</b> on TV &middot; &asymp;$740K streaming est. <i class="aw__tag aw__tag--est">statewide</i></span><span class="wk-doc__hi">the linear pitch: streaming money, $0 on your air</span></div>
+            <p class="wk-doc__note">Linear gaps in points, streaming gaps as an estimated statewide floor, never
+              blended. Streaming-only money with $0 on TV is the station's incremental call &mdash; posted
+              dollars versus an estimated floor is the argument, and it runs both ways. The digital
+              seller's own board is <a href="#share-diagonal">below on this page</a>.</p>
           </div>
         </div>
       </article>
@@ -453,7 +457,7 @@
       <article class="wk__scene">
         <div class="wk__when">
           <span class="wk__day">Beat 3 &middot; Wednesday &middot; The call</span>
-          <span class="wk__stampline num">Aug 12</span>
+          <span class="wk__stampline num">Aug 12 &middot; reading the book as posted</span>
           <span class="wk__big">Know who to call, and with what.</span>
           <div class="wk__copy">
             <p>The forward book ranks the list, the went-dark row gives the reason,
@@ -462,13 +466,14 @@
         </div>
         <div class="wk__art">
           <div class="wk-doc">
-            <div class="wk-doc__bar"><span class="wk-doc__brand">KPI &middot; Market Order Flow</span><span class="wk-doc__stamp">Posted through Aug 12, 2026</span></div>
+            <div class="wk-doc__bar"><span class="wk-doc__brand">KPI &middot; Market Order Flow</span><span class="wk-doc__stamp">Posted through Aug 10, 2026</span></div>
             <div class="wk-doc__row"><b>Columbus</b><span class="wk-doc__dim">6 advertisers &middot; 3 races &middot; aired since Jun 1</span></div>
             <div class="wk-doc__row"><span class="num">$3.6M aired &middot; $1.2M booked fwd &middot; runs through Oct 12</span><span class="wk-doc__dim">stated window, stated lanes</span></div>
             <div class="wk-doc__row"><span>Ellery for Senate (R)</span><span class="num"><b>$520K</b> booked fwd &middot; $0 on WQZL</span><span class="wk-doc__hi num">first call of the week</span></div>
             <div class="wk-doc__row"><span>Hometown Values</span><span class="num">went dark Aug 11 &middot; $48K was still booked</span><span class="wk-doc__dim">the win-back call, with its reason</span></div>
-            <p class="wk-doc__note">One export, the posted-through date in the header, sized to hand across a table.
-              The demo shows every advertiser, with the agency named on each order.</p>
+            <p class="wk-doc__note">Orders post on a short lag; the posted-through date, not today, is the
+              boundary of the read &mdash; ask for the current gap in days. One export, dated in the header,
+              sized to hand across a table. The demo shows every advertiser, with the agency named on each order.</p>
           </div>
         </div>
       </article>
@@ -489,7 +494,8 @@
             <div class="wk-doc__row"><span class="wk-doc__kind">Pricing condition</span><span>Columbus early news &middot; Q4 filed midpoint moved</span><span class="wk-doc__hi num">+$25 wk over wk</span></div>
             <div class="wk-doc__row"><span class="wk-doc__kind">Order posted</span><span>Ellery for Senate</span><span class="num"><b>+$180K</b> on WZQV &middot; flight opens Sep 7</span></div>
             <div class="wk-doc__row"><span class="wk-doc__kind">Went dark</span><span>Hometown Values stopped airing</span><span class="num">$48K booked at the stop</span></div>
-            <p class="wk-doc__note">Alert rules are yours: race, market, advertiser or rate condition.</p>
+            <p class="wk-doc__note">Alert rules and recipients are yours: race, market, advertiser or
+              rate condition, routed to the seat that owns the account &mdash; the whole desk can be on them.</p>
           </div>
           <div class="wk-links" role="group" aria-label="The screens behind the seller's week">
             <a class="chip" href="#sell-side">Market Order Flow</a>
@@ -504,7 +510,8 @@
     </div>
 
     <div class="btn-row mt2" style="justify-content:center">
-      <a class="btn btn--navy btn--lg" href="contact.html">Run this week on your race</a>
+      <a class="btn btn--navy btn--lg" href="contact.html">Run it on your race</a>
+      <a class="btn btn--lime btn--lg" href="contact.html">Run it on the market you sell</a>
       <a class="btn btn--outline btn--lg" href="platform.html">See the platform</a>
     </div>
 
@@ -724,8 +731,10 @@
         <h2>Money in market, not on your books yet.</h2>
       </div>
       <div>
-        <p class="lede">Across 209 federal and state races, more than $1.2 billion sat in
-          forward reservations at the time of that report (Inside Radio, Aug 2026). For every dollar of it
+        <p class="lede"><b>&ldquo;Political ad reservations top $1 billion for 2026
+          midterms&rdquo;</b> &mdash; Inside Radio, Aug 2026, reported from KPI forward-book
+          data. Across 209 federal and state races, more than $1.2 billion sat in
+          forward reservations at the time of that report. For every dollar of it
           booked on someone else's books, this grid shows the weeks and the dollars
           attached: every advertiser with money in your market, lane by lane, the forward
           book beside it. The forward book exists where orders exist, broadcast, local
@@ -1122,8 +1131,9 @@
       political dollars in the market, over a stated window and stated lanes; estimated
       rows carry no share. Advertiser and committee names come from the order and the
       creative; we do not print who buys on whose behalf. Subscriptions scope to the
-      markets you sell, or, for platform sellers, the states and races you compete in;
-      name them when you book the walkthrough.</div>
+      markets you sell, or, for platform sellers, the states and races you compete in.
+      Sell more than one market? Name the group when you book: the walkthrough runs on
+      your full footprint.</div>
     <div class="btn-row mt2">
       <a class="btn btn--navy" href="contact.html">Name the market you sell</a>
       <a class="btn btn--outline" href="platform.html#sellers">See the seller's week</a>
@@ -1149,7 +1159,7 @@
 <!-- ============ CTA ============ -->
 <section class="section section--mega cta-final">
   <div class="wrap center">
-    <h2>See your race on it.</h2>
+    <h2>See your race &mdash; or your market &mdash; on it.</h2>
     <p class="lede" style="margin-inline:auto">Buyers: name the race. Sellers: name the
       market you sell. We pull it before the walkthrough.</p>
     <div class="btn-row mt2" style="justify-content:center">
@@ -1174,7 +1184,7 @@
         <h4>Platform</h4>
         <ul>
           <li><a href="platform.html">The platform</a></li>
-          <li><a href="monitoring.html">Real-time monitoring</a></li>
+          <li><a href="monitoring.html">Monitoring</a></li>
           <li><a href="week.html">For buyers &amp; sellers</a></li>
           <li><a href="polling.html">Real-time polling</a></li>
         </ul>
@@ -1205,6 +1215,6 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r25"></script>
+<script src="assets/js/site.js?v=r26"></script>
 </body>
 </html>

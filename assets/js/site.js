@@ -243,7 +243,20 @@
           wkActivate(wkTabs[(i + d + wkTabs.length) % wkTabs.length], true);
         });
       });
-      wkActivate(wkTabs[0]);
+      /* Round-1 panel fix (seller): #wk-sell and #wk-buy are deep links — a
+         forwarded link opens the right desk instead of always the buyer's. */
+      var wkHash = (location.hash === '#wk-sell' || location.hash === '#wk-buy') ? location.hash.slice(1) : null;
+      var wkInit = null;
+      if (wkHash) {
+        wkTabs.forEach(function (t) { if (t.getAttribute('aria-controls') === wkHash) wkInit = t; });
+      }
+      wkActivate(wkInit || wkTabs[0]);
+      if (wkInit) {
+        requestAnimationFrame(function () {
+          var el = document.getElementById(wkHash);
+          if (el) el.scrollIntoView();
+        });
+      }
     }
   }
 

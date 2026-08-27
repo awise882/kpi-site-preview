@@ -9,8 +9,8 @@
 <meta property="og:description" content="More than 10,000 always-on questions, over 1 million answers a day. Ask, hear back, build the audience, put it on the air. Then ask again.">
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-mark.png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r25">
-<link rel="stylesheet" href="assets/css/segments.css?v=r25">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r26">
+<link rel="stylesheet" href="assets/css/segments.css?v=r26">
 <style>
   /* Light, centered, airy hero, same standard as the home page: display headline
      in the green-to-teal gradient with the layered offset, the lede, two buttons,
@@ -234,14 +234,15 @@
   .mxs__ann-sub { display: block; margin-top: .25rem; font-size: .95rem; color: var(--ink-2); max-width: 62ch; }
   .mxs__cap { margin: .6rem 0 0; font-family: var(--mono); font-size: .68rem; line-height: 1.55;
     color: var(--ink-3); }
+  /* Round-1 panel fix (CMO): the first two waves are always-on ground — the
+     matrix is never an empty box on load, in a deck, or at a mid-page landing;
+     the scroll adds the later waves and today's answers. */
   @media (prefers-reduced-motion: no-preference) {
-    .mxs.in-view .mxs__s1 { animation: fade-in .5s ease-out .1s backwards; }
-    .mxs.in-view .mxs__s2 { animation: fade-in .5s ease-out .35s backwards; }
-    .mxs.in-view .mxs__s3 { animation: fade-in .5s ease-out .6s backwards; }
-    .mxs.in-view .mxs__s4 { animation: fade-in .5s ease-out .85s backwards; }
-    .mxs.in-view .mxs__s5 { animation: fade-in .5s ease-out 1.1s backwards; }
-    .mxs.in-view .mxs__today { animation: fade-in .5s ease-out 1.5s backwards; }
-    .mxs.in-view .mxs__ann { animation: mxs-in .55s var(--smooth) 1.8s backwards; }
+    .mxs.in-view .mxs__s3 { animation: fade-in .5s ease-out .3s backwards; }
+    .mxs.in-view .mxs__s4 { animation: fade-in .5s ease-out .6s backwards; }
+    .mxs.in-view .mxs__s5 { animation: fade-in .5s ease-out .9s backwards; }
+    .mxs.in-view .mxs__today { animation: fade-in .5s ease-out 1.3s backwards; }
+    .mxs.in-view .mxs__ann { animation: mxs-in .55s var(--smooth) 1.6s backwards; }
   }
   @keyframes mxs-in { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
   @supports (animation-timeline: view()) {
@@ -250,8 +251,6 @@
       .mxs__pin { position: sticky; top: 88px; }
       .mxs__svg { max-width: min(960px, calc((100vh - 380px) * 1.786)); margin-inline: auto; }
       .mxs__hint { display: block; }
-      .mxs.in-view .mxs__s1, .mxs__s1 { animation: fade-in linear both; animation-timeline: --mxv; animation-range: contain 15% contain 29%; animation-delay: 0s; }
-      .mxs.in-view .mxs__s2, .mxs__s2 { animation: fade-in linear both; animation-timeline: --mxv; animation-range: contain 27% contain 42%; animation-delay: 0s; }
       .mxs.in-view .mxs__s3, .mxs__s3 { animation: fade-in linear both; animation-timeline: --mxv; animation-range: contain 40% contain 55%; animation-delay: 0s; }
       .mxs.in-view .mxs__s4, .mxs__s4 { animation: fade-in linear both; animation-timeline: --mxv; animation-range: contain 52% contain 66%; animation-delay: 0s; }
       .mxs.in-view .mxs__s5, .mxs__s5 { animation: fade-in linear both; animation-timeline: --mxv; animation-range: contain 62% contain 76%; animation-delay: 0s; }
@@ -343,7 +342,9 @@
     <p class="lede">Through our CivicScience partnership: more than <span class="num w-measured">10,000</span> always-on
       questions in the field every day, over <span class="num w-measured">1 million</span> answers a day coming back, and
       <span class="num w-measured">165 million</span> U.S. consumer profiles underneath. Ask what your race needs to
-      know, build the audience from the answers, put it on the air. Then ask again.</p>
+      know, build the audience from the answers, put it on the air. Then ask again.
+      (&ldquo;Real time&rdquo; here means the questions never leave the field; every
+      read still carries its date.)</p>
     <div class="btn-row">
       <a class="btn btn--navy btn--lg" href="#explorer">Search the question library</a>
       <a class="btn btn--outline btn--lg" href="contact.html">Request a demo</a>
@@ -363,7 +364,9 @@
     <form class="mini-ask" id="seg-ask" method="post" enctype="text/plain"
           action="mailto:info@kpipolitical.com?subject=Send%20the%2048-segment%20list">
       <label class="mini-ask__lab" for="seg-email"><b>Want the 48 curated political segments?</b>
-        Email only; the list comes back, no call attached.</label>
+        Email only; the list comes back, no call attached &mdash; and it names every
+        segment with the questions that build it, the same way the example builds
+        further down this page are named.</label>
       <div class="mini-ask__row">
         <input type="email" id="seg-email" name="email" required autocomplete="email" maxlength="150"
                placeholder="you@yourfirm.com" aria-label="Work email for the 48-segment list">
@@ -446,7 +449,7 @@
     <div class="mxs-block mt3" id="matrix">
       <div class="center" style="margin-bottom:1.2rem">
         <span class="wk__day">Scene 3 &middot; What it adds up to</span>
-        <h3 class="wk__big" style="max-width:none">The sparse matrix: every cell is a person who answered.</h3>
+        <h3 class="wk__big" style="max-width:none">The sparse matrix: every lit cell is an answer somebody gave.</h3>
       </div>
       <div class="mxs">
         <div class="mxs__scroller">
@@ -456,9 +459,9 @@
               <span class="mxs__stamp">answers accrue daily &middot; figures as of Aug 2026</span>
             </div>
             <svg class="mxs__svg" viewBox="0 0 1000 560" role="img" aria-labelledby="mxs-t mxs-d">
-              <title id="mxs-t">The sparse matrix: 165 million people by more than ten thousand questions, cells lit where a person actually answered</title>
+              <title id="mxs-t">The sparse matrix: 165 million profiles by more than ten thousand questions, cells lit where a person actually answered</title>
               <desc id="mxs-d">A vast grid fills as the page scrolls. Rows are 165 million
-                people; columns are more than ten thousand always-on questions; the grid
+                consumer profiles; columns are more than ten thousand always-on questions; the grid
                 is drawn sampled, with density illustrative. Scattered cells light where
                 a person actually answered a question, filling in waves; a final scatter
                 of lime cells marks answers that landed today. The annotation reads:
@@ -471,8 +474,8 @@
               </defs>
               <text x="104" y="26" font-family="Inter, sans-serif" font-size="12" font-weight="700" letter-spacing="1.2" fill="#1F6E96">10,000+ ALWAYS-ON QUESTIONS &#8594;</text>
               <text x="104" y="44" font-family="Inter, sans-serif" font-size="10.5" fill="#5B7085">3,537 of them cleared for political ordering, searchable below</text>
-              <text transform="rotate(-90 58 262)" x="58" y="262" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="700" letter-spacing="1.2" fill="#1F6E96">165M PEOPLE &#8595;</text>
-              <text transform="rotate(-90 78 262)" x="78" y="262" text-anchor="middle" font-family="Inter, sans-serif" font-size="10.5" fill="#5B7085">plus consumer data on everybody</text>
+              <text transform="rotate(-90 58 262)" x="58" y="262" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="700" letter-spacing="1.2" fill="#1F6E96">165M PROFILES &#8595;</text>
+              <text transform="rotate(-90 78 262)" x="78" y="262" text-anchor="middle" font-family="Inter, sans-serif" font-size="10.5" fill="#5B7085">consumer attributes ride every profile</text>
               <rect x="100" y="60" width="836" height="402" fill="url(#mxsGrid)" stroke="#DCE4EC" stroke-width="1"/>
               <path class="mxs__s1" d="M836 136h3v3h-3zM146 298h3v3h-3zM272 160h3v3h-3zM806 268h3v3h-3zM872 100h3v3h-3zM488 394h3v3h-3zM380 328h3v3h-3zM224 280h3v3h-3zM434 328h3v3h-3zM122 208h3v3h-3zM128 160h3v3h-3zM224 340h3v3h-3zM260 322h3v3h-3zM632 250h3v3h-3zM104 232h3v3h-3zM128 430h3v3h-3zM464 100h3v3h-3zM806 430h3v3h-3zM524 436h3v3h-3zM158 136h3v3h-3zM152 310h3v3h-3zM182 334h3v3h-3zM674 346h3v3h-3zM752 88h3v3h-3zM230 226h3v3h-3zM494 208h3v3h-3zM644 154h3v3h-3zM380 424h3v3h-3zM122 112h3v3h-3zM518 406h3v3h-3zM362 118h3v3h-3zM632 106h3v3h-3zM296 94h3v3h-3zM344 244h3v3h-3zM278 88h3v3h-3zM812 340h3v3h-3zM710 130h3v3h-3zM626 304h3v3h-3zM824 436h3v3h-3zM374 322h3v3h-3zM770 268h3v3h-3zM482 316h3v3h-3zM200 178h3v3h-3zM866 406h3v3h-3zM140 256h3v3h-3zM536 130h3v3h-3zM848 178h3v3h-3zM242 298h3v3h-3zM752 190h3v3h-3zM830 160h3v3h-3zM896 430h3v3h-3zM584 100h3v3h-3zM308 82h3v3h-3zM590 382h3v3h-3zM194 214h3v3h-3zM668 364h3v3h-3zM500 70h3v3h-3zM122 220h3v3h-3zM470 130h3v3h-3zM632 400h3v3h-3zM434 430h3v3h-3zM314 106h3v3h-3zM194 238h3v3h-3zM770 172h3v3h-3zM344 220h3v3h-3zM890 430h3v3h-3zM722 394h3v3h-3zM434 82h3v3h-3zM554 94h3v3h-3zM344 346h3v3h-3zM386 112h3v3h-3zM104 292h3v3h-3zM296 268h3v3h-3zM122 436h3v3h-3zM440 376h3v3h-3zM608 178h3v3h-3zM458 262h3v3h-3zM452 142h3v3h-3zM788 76h3v3h-3zM116 64h3v3h-3zM728 250h3v3h-3zM506 64h3v3h-3zM848 388h3v3h-3zM284 412h3v3h-3zM116 148h3v3h-3zM368 454h3v3h-3zM254 64h3v3h-3zM224 154h3v3h-3zM278 418h3v3h-3zM122 136h3v3h-3zM332 394h3v3h-3zM452 400h3v3h-3zM884 214h3v3h-3zM116 256h3v3h-3zM782 370h3v3h-3zM110 340h3v3h-3zM350 304h3v3h-3zM524 94h3v3h-3zM236 136h3v3h-3zM302 202h3v3h-3zM338 364h3v3h-3zM584 268h3v3h-3zM884 292h3v3h-3zM116 262h3v3h-3zM188 388h3v3h-3zM404 292h3v3h-3zM698 118h3v3h-3zM326 196h3v3h-3zM398 310h3v3h-3zM206 346h3v3h-3zM740 388h3v3h-3zM620 274h3v3h-3zM854 154h3v3h-3zM602 226h3v3h-3zM296 262h3v3h-3zM494 196h3v3h-3zM158 70h3v3h-3zM254 448h3v3h-3zM902 298h3v3h-3zM494 292h3v3h-3zM128 280h3v3h-3zM704 436h3v3h-3zM788 172h3v3h-3zM842 370h3v3h-3zM908 268h3v3h-3zM740 316h3v3h-3zM506 82h3v3h-3zM710 274h3v3h-3zM842 250h3v3h-3zM134 286h3v3h-3zM482 454h3v3h-3zM212 346h3v3h-3zM608 202h3v3h-3zM302 268h3v3h-3zM512 262h3v3h-3zM116 190h3v3h-3zM908 196h3v3h-3z" fill="#1B4F72"/>
               <path class="mxs__s2" d="M416 262h3v3h-3zM260 370h3v3h-3zM380 76h3v3h-3zM644 412h3v3h-3zM182 298h3v3h-3zM272 322h3v3h-3zM788 148h3v3h-3zM176 130h3v3h-3zM320 196h3v3h-3zM140 436h3v3h-3zM668 340h3v3h-3zM644 364h3v3h-3zM734 448h3v3h-3zM230 94h3v3h-3zM296 424h3v3h-3zM920 298h3v3h-3zM368 262h3v3h-3zM320 94h3v3h-3zM686 166h3v3h-3zM110 322h3v3h-3zM338 220h3v3h-3zM812 268h3v3h-3zM536 292h3v3h-3zM884 70h3v3h-3zM104 388h3v3h-3zM596 88h3v3h-3zM242 82h3v3h-3zM398 340h3v3h-3zM740 430h3v3h-3zM350 142h3v3h-3zM128 340h3v3h-3zM422 112h3v3h-3zM770 346h3v3h-3zM164 184h3v3h-3zM458 256h3v3h-3zM128 82h3v3h-3zM524 382h3v3h-3zM560 424h3v3h-3zM920 388h3v3h-3zM158 232h3v3h-3zM266 148h3v3h-3zM116 238h3v3h-3zM896 232h3v3h-3zM740 448h3v3h-3zM314 100h3v3h-3zM554 364h3v3h-3zM464 130h3v3h-3zM452 154h3v3h-3zM716 352h3v3h-3zM176 358h3v3h-3zM200 346h3v3h-3zM770 196h3v3h-3zM242 322h3v3h-3zM104 196h3v3h-3zM716 292h3v3h-3zM110 364h3v3h-3zM608 310h3v3h-3zM338 124h3v3h-3zM794 448h3v3h-3zM206 442h3v3h-3zM260 124h3v3h-3zM116 196h3v3h-3zM818 190h3v3h-3zM428 250h3v3h-3zM764 280h3v3h-3zM320 178h3v3h-3zM272 418h3v3h-3zM656 256h3v3h-3zM344 196h3v3h-3zM512 268h3v3h-3zM368 64h3v3h-3zM752 106h3v3h-3zM518 292h3v3h-3zM542 178h3v3h-3zM608 322h3v3h-3zM530 328h3v3h-3zM104 76h3v3h-3zM698 76h3v3h-3zM104 424h3v3h-3zM386 436h3v3h-3zM686 412h3v3h-3zM572 322h3v3h-3zM500 124h3v3h-3zM398 238h3v3h-3zM392 148h3v3h-3zM278 376h3v3h-3zM632 274h3v3h-3zM158 352h3v3h-3zM488 250h3v3h-3zM782 190h3v3h-3zM134 190h3v3h-3zM302 280h3v3h-3zM116 118h3v3h-3zM476 208h3v3h-3zM110 238h3v3h-3zM236 142h3v3h-3zM146 256h3v3h-3zM146 310h3v3h-3zM806 64h3v3h-3zM380 154h3v3h-3zM194 88h3v3h-3zM674 256h3v3h-3zM740 106h3v3h-3zM134 334h3v3h-3zM122 88h3v3h-3zM764 244h3v3h-3zM752 412h3v3h-3zM728 136h3v3h-3zM386 352h3v3h-3zM218 196h3v3h-3zM110 208h3v3h-3zM122 106h3v3h-3zM878 88h3v3h-3zM176 394h3v3h-3zM632 286h3v3h-3zM452 166h3v3h-3zM284 136h3v3h-3zM266 430h3v3h-3zM542 418h3v3h-3zM398 436h3v3h-3zM308 436h3v3h-3zM284 352h3v3h-3zM350 400h3v3h-3zM776 136h3v3h-3zM140 328h3v3h-3zM182 346h3v3h-3zM830 178h3v3h-3zM134 424h3v3h-3zM476 304h3v3h-3zM560 388h3v3h-3zM266 424h3v3h-3zM170 430h3v3h-3zM356 226h3v3h-3zM296 250h3v3h-3zM224 178h3v3h-3zM428 364h3v3h-3zM242 238h3v3h-3z" fill="#1B4F72"/>
@@ -485,17 +488,32 @@
             </svg>
             <p class="mxs__hint small">Keep scrolling: the matrix fills as answers land.</p>
             <div class="mxs__ann">
-              <span class="mxs__ann-big num">165,000,000 people &times; 10,000+ questions.</span>
+              <span class="mxs__ann-big num">165,000,000 profiles &times; 10,000+ questions.</span>
               <span class="mxs__ann-sub">A cell lights only where a person actually answered.
                 Declared, not inferred.</span>
             </div>
             <p class="mxs__cap">Source: CivicScience partner-published figures, as of Aug
               2026 &middot; a profile is a survey-answering record, not a verified person
-              &middot; answers accrue daily; audiences build from the answers, and every
+              &middot; answers accrue daily and reads are weighted to be representative
+              (the partner's methodology governs; ask for it) &middot; every answer carries
+              its date, and an audience builds on a stated recency window &middot; every
               question that builds one is named</p>
           </div>
         </div>
       </div>
+    </div>
+
+    <!-- ===== one state, one flight (round-1 panel ask): the three questions a
+         statewide buyer asks first, answered without inventing density numbers. -->
+    <div class="callout callout--lime mt3" style="max-width:860px;margin-inline:auto">
+      <h4>One state, one flight</h4>
+      <p class="small">Audiences build state by state, and in-state declared density varies
+        by question. The walkthrough opens <b>your state's</b> density, question by
+        question, before a dollar moves &mdash; and where in-state declared is thin, the
+        audience says so instead of quietly modeling; the modeled extension stays optional
+        and labeled. Every answer carries its date, the audience builds on a stated
+        recency window, and the deal ID lands in the seat you name, identifier basis in
+        writing before the IO.</p>
     </div>
 
     <!-- ===== the contrast panel: modeled decay vs the matrix refilling ===== -->
@@ -512,9 +530,9 @@
             <div class="pcopy__sheet pcopy__sheet--2"><b>A lookalike of it</b><span>modeled on the segment</span></div>
             <div class="pcopy__sheet pcopy__sheet--3"><b>A lookalike of the lookalike</b><span>modeled on the model</span></div>
           </div>
-          <p class="pcmp__decay">By some industry estimates, a lookalike model sheds 30 to
-            60 percent of its lift within 90 days of being built &mdash; and the decay is
-            invisible from inside the buy.</p>
+          <p class="pcmp__decay">A lookalike is modeled once and ages from the day it
+            ships &mdash; and the decay is invisible from inside the buy, because the
+            model cannot tell you when the people it imitated changed their minds.</p>
         </div>
         <div class="pcmp__side pcmp__side--r">
           <p class="pcmp__k pcmp__k--declared">The declared path</p>
@@ -529,7 +547,7 @@
               <path d="M192 24h3v3h-3zM30 102h3v3h-3zM60 96h3v3h-3zM114 150h3v3h-3zM234 84h3v3h-3zM222 108h3v3h-3zM48 24h3v3h-3zM48 6h3v3h-3zM168 66h3v3h-3zM18 12h3v3h-3zM126 90h3v3h-3zM48 120h3v3h-3zM18 42h3v3h-3zM48 90h3v3h-3zM114 12h3v3h-3zM30 72h3v3h-3zM18 6h3v3h-3zM246 126h3v3h-3zM114 36h3v3h-3zM204 108h3v3h-3zM90 30h3v3h-3zM210 66h3v3h-3zM180 42h3v3h-3zM120 90h3v3h-3zM60 36h3v3h-3zM18 48h3v3h-3zM108 138h3v3h-3zM234 42h3v3h-3zM90 36h3v3h-3zM246 12h3v3h-3zM6 42h3v3h-3zM126 96h3v3h-3zM36 126h3v3h-3zM168 42h3v3h-3zM24 150h3v3h-3zM48 132h3v3h-3zM54 30h3v3h-3zM114 42h3v3h-3zM126 42h3v3h-3zM108 132h3v3h-3zM30 138h3v3h-3zM102 120h3v3h-3zM120 126h3v3h-3zM96 12h3v3h-3zM150 96h3v3h-3zM102 18h3v3h-3zM18 18h3v3h-3zM24 102h3v3h-3zM228 30h3v3h-3zM204 144h3v3h-3zM36 90h3v3h-3zM6 150h3v3h-3zM24 90h3v3h-3zM150 84h3v3h-3zM42 54h3v3h-3zM54 36h3v3h-3zM42 150h3v3h-3zM240 114h3v3h-3zM24 42h3v3h-3zM210 54h3v3h-3zM36 78h3v3h-3zM66 84h3v3h-3zM30 90h3v3h-3zM168 90h3v3h-3zM144 114h3v3h-3zM180 54h3v3h-3zM24 72h3v3h-3zM228 60h3v3h-3zM18 78h3v3h-3zM102 24h3v3h-3zM6 126h3v3h-3zM18 84h3v3h-3zM222 36h3v3h-3zM72 24h3v3h-3zM222 102h3v3h-3zM96 144h3v3h-3zM78 6h3v3h-3zM120 24h3v3h-3zM234 114h3v3h-3zM90 48h3v3h-3zM132 6h3v3h-3zM120 150h3v3h-3zM30 132h3v3h-3zM6 66h3v3h-3zM42 90h3v3h-3zM90 90h3v3h-3zM30 144h3v3h-3zM132 48h3v3h-3zM6 30h3v3h-3zM78 48h3v3h-3zM66 144h3v3h-3zM156 144h3v3h-3z" fill="#1B4F72"/>
               <path d="M42 102h3v3h-3zM186 6h3v3h-3zM96 66h3v3h-3zM12 24h3v3h-3zM114 90h3v3h-3zM72 66h3v3h-3zM216 120h3v3h-3z" fill="#7CB342"/>
             </svg>
-            <p class="pcmp__chipcap">the same cut of the matrix, tomorrow: more cells, not fainter ones &middot; lime = landed today</p>
+            <p class="pcmp__chipcap">the same cut, tomorrow: new cells land daily, and an audience qualifies on a stated recency window &mdash; not on cells from two cycles ago &middot; lime = landed today</p>
           </div>
           <p class="pcmp__fresh">The declared core does not decay the way a modeled
             lookalike does: over 1M answers land every day, and the audience rebuilds
@@ -556,11 +574,14 @@
             <div class="wk-doc__bar"><span class="wk-doc__brand">KPI &middot; Audience build</span><span class="wk-doc__stamp">auditable before a dollar moves</span></div>
             <div class="wk-doc__row"><b>&ldquo;Which of the following best describes your political leanings?&rdquo;</b><span class="wk-doc__dim num">QID 494 &middot; two answers picked</span></div>
             <div class="wk-doc__row"><b>&ldquo;How do you receive television service?&rdquo;</b><span class="wk-doc__dim num">QID 1516 &middot; streaming-only picked</span></div>
-            <div class="wk-doc__row"><span class="wk-doc__dim">Every question named. No black box between the answers and the segment.</span></div>
+            <div class="wk-doc__row"><span class="wk-doc__dim">Every question named, with its recency window. No black box between the answers and the segment.</span></div>
+            <div class="wk-doc__row"><span class="num">shortlist &rarr; deal ID: days &middot; custom question &rarr; in-market: ~2 wks &middot; answers land daily</span></div>
           </div>
           <div class="tstep-art" role="img" aria-label="Illustrative deal ID as it lands in a DSP seat, with the matched audience size attached">
             <p class="tstep-art__row"><span class="dealid">KPI-PMP-2026-0841</span><span class="dealid-tag">Deal ID &middot; in your seat</span></p>
             <span class="tstep-art__meta num">matched audience 412,000 devices &middot; composition read attached &middot; illustrative</span>
+            <span class="tstep-art__meta">major DSP seats qualify &middot; the identifier basis and seat path are named in
+              writing before the IO &middot; refresh cadence stated on the IO &mdash; ask for the current menu on the call</span>
           </div>
           <div class="btn-row mt2">
             <a class="btn btn--navy" href="#explorer">Search the 3,537 questions</a>
@@ -680,9 +701,9 @@
            "by industry estimates" attached, verbatim below. Never as a bare stat. -->
       <p class="small mb0">The seed stays declared, the expansion is modeled, and we say
         which is which. A modeled lookalike extension is optional and always labeled
-        modeled, and the declared core does not decay the way a modeled lookalike does:
-        by some industry estimates, a lookalike model sheds 30 to 60 percent of its lift
-        within 90 days of being built.</p>
+        modeled &mdash; and the declared core does not decay the way a lookalike does,
+        because it rebuilds from new answers every day instead of aging from the day
+        it was modeled.</p>
     </div>
     <p class="small center mt2" style="max-width:72ch;margin-inline:auto">CivicScience's
       case studies show declared audiences outperforming third-party controls: 36 to 80
@@ -702,7 +723,9 @@
     <p class="dek" style="margin-bottom:1.4rem">Read the exact wording, build a shortlist,
       send it to us. This is the list an audience actually gets built from, not a sample:
       3,537 of the network's 10,000+ always-on questions are cleared for political
-      ordering.</p>
+      ordering. The library is consumer-deep by design &mdash; the political read usually
+      crosses civic anchors with consumer signal, and the hot-button question your race is
+      arguing is usually a custom field.</p>
 
     <div id="sx" data-ready="false">
       <div>
@@ -802,7 +825,7 @@
         <h4>Platform</h4>
         <ul>
           <li><a href="platform.html">The platform</a></li>
-          <li><a href="monitoring.html">Real-time monitoring</a></li>
+          <li><a href="monitoring.html">Monitoring</a></li>
           <li><a href="week.html">For buyers &amp; sellers</a></li>
           <li><a href="polling.html">Real-time polling</a></li>
         </ul>
@@ -833,8 +856,8 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r25"></script>
-<script src="assets/js/segments.js?v=r25" defer></script>
+<script src="assets/js/site.js?v=r26"></script>
+<script src="assets/js/segments.js?v=r26" defer></script>
 <script>
 /* R6 (item 74): on a narrow phone the long placeholder clips mid-number, so it
    swaps to the short form before the field ever renders a cut digit. */

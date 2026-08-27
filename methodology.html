@@ -9,7 +9,7 @@
 <meta property="og:description" content="Every number we publish carries a basis, a through-date and a floor, including the ones that are thin.">
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-mark.png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r25">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r26">
 <style>
   /* Keeps the eight-week figure legible on a phone. It scrolls inside its own
      frame instead of shrinking its labels below a readable size. */
@@ -161,7 +161,7 @@
             <li><b>Below floor</b> insufficient signal, never a zero</li>
           </ul>
         </div>
-        <p class="receipt__ft">Illustrative figure. The stamp is not.</p>
+        <p class="receipt__ft">Illustrative figures and dates. The marks are not.</p>
       </aside>
     </div>
 
@@ -182,12 +182,13 @@
         </div>
         <div class="ew__w" role="listitem">
           <span class="ew__spec ew__spec--floor num">$412K</span>
-          <p class="ew__def"><b>Estimated floor prints medium</b>At least this much. It rises only with coverage, never from modeled fill.</p>
+          <p class="ew__def"><b>Estimated floor prints medium</b>At least this much: dollars on delivery measured in metered homes, before any weighting outward. It rises only with coverage, never from modeled fill.</p>
         </div>
         <div class="ew__w" role="listitem">
           <span class="ew__spec ew__spec--est num">&asymp;$2.6M</span>
-          <p class="ew__def"><b>Estimated prints light, on a dashed rule</b>Modeled, labeled, never silently summed: a combined figure prints &asymp;, dashed, and splits back into its parts.</p>
+          <p class="ew__def"><b>Estimated minimum prints light, on a dashed rule</b>Measured-home dollars weighted to the household universe, calibrated to err low. Labeled, never silently summed: a combined figure prints &asymp;, dashed, and splits back into its parts.</p>
         </div>
+        <p class="ew__def" style="border-top:1px dashed var(--rule);padding-top:.8rem;margin:0"><b>The boundary, in one sentence</b>What moves a streaming dollar from medium to light is representative weighting: measured in metered homes prints medium with no &asymp;; weighted to the household universe prints light, always &asymp;. Same pipeline, two inks, never one number.</p>
       </div>
     </div>
   </div>
@@ -197,7 +198,7 @@
 <nav class="mrail" aria-label="Jump to a section">
   <div class="wrap">
     <ul>
-      <li><a href="#grammar">The four instruments</a></li>
+      <li><a href="#grammar">The instruments</a></li>
       <li><a href="#pipeline">How we count</a></li>
       <li><a href="#restatement">Restatement</a></li>
       <li><a href="#accuracy">Accuracy claims</a></li>
@@ -213,11 +214,11 @@
     <div class="split" style="margin-bottom:2.2rem">
       <div>
         <p class="eyebrow">The grammar</p>
-        <h2>Four instruments carry the basis, on every figure we publish.</h2>
+        <h2>Five instruments carry the basis, on every figure we publish.</h2>
       </div>
       <div>
-        <p class="lede">Each one exists because a specific error is expensive: the four
-          ways a competitive number goes wrong, and the four marks that stop it.</p>
+        <p class="lede">Each one exists because a specific error is expensive: the ways a
+          number goes wrong, and the marks that stop it.</p>
       </div>
     </div>
 
@@ -303,7 +304,7 @@
       </svg>
       </div>
       </div>
-      <figcaption class="fig__cap">Figures and dates are illustrative. The grammar is not: the break, the
+      <figcaption class="fig__cap">Illustrative figures and dates; the marks are not. The break, the
         split and the state of each cell appear on every figure we publish.</figcaption>
       <div class="stamp">
         <span><b>Posted through</b> Aug 9, 2026</span>
@@ -472,6 +473,37 @@
           <div class="stamp">
             <span><b>Meaning</b> coverage cannot support a number here</span>
             <span><b>Totals</b> cell excluded, exclusion disclosed</span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Round-1 panel ask (targeting): the polling product gets its own instrument,
+         in the same class-not-operand style as the weighting spine. -->
+    <article class="chap" id="i-declared">
+      <div class="chap__lead">
+        <p class="chap__n">Instrument 05 &middot; The declared answer</p>
+        <p class="chap__plain">A polling read is declared, dated and weighted &mdash; and its method has a named owner.</p>
+        <p>Answers come from people who chose to answer, so the raw stream is not a random
+          sample and we do not present it as one. Reads are weighted toward
+          representativeness under CivicScience's methodology, which governs recruitment,
+          weighting and quality control; we name the owner rather than restating their
+          method, and we will put their documentation in front of you. Every answer
+          carries its date; an audience builds on a stated recency window, and the
+          questions that build it are named, so the audience is auditable before a dollar
+          moves.</p>
+        <p><span class="chip">Prevents</span> A convenience stream being read as a random
+          sample, and a fresh-sounding audience quietly built on stale answers.</p>
+      </div>
+      <div class="chap__side">
+        <div class="callout">
+          <p class="caps small mb0" style="color:var(--ink-2)">As printed</p>
+          <p class="card__n" style="font-size:1.35rem">QID 494 &middot; window stated</p>
+          <div class="stamp">
+            <span><b>Declared</b> answers people actually gave</span>
+            <span><b>Weighted</b> to representativeness, per the partner's method</span>
+            <span><b>Recency</b> audiences build on a stated window</span>
+            <span><b>Audit</b> every building question named</span>
           </div>
         </div>
       </div>
@@ -661,8 +693,8 @@
             <path d="M796 107 h24" stroke="#5B7085" stroke-width="1.8"/><polygon points="820,101 832,107 820,113" fill="#5B7085"/>
             <rect x="846" y="80" width="132" height="54" rx="7" fill="none" stroke="#7CB342" stroke-width="2" stroke-dasharray="7 5"/>
             <text x="912" y="114" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="22" font-weight="700" fill="#0D2E4A">&asymp;$740K</text>
-            <text x="912" y="196" text-anchor="middle" font-family="Inter, sans-serif" font-size="12.5" font-weight="700" letter-spacing="1" fill="#1F6E96">THE ESTIMATE</text>
-            <text x="912" y="212" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#5B7085">PRINTED AS A FLOOR</text>
+            <text x="912" y="188" text-anchor="middle" font-family="Inter, sans-serif" font-size="12.5" font-weight="700" letter-spacing="1" fill="#1F6E96">THE ESTIMATED</text><text x="912" y="202" text-anchor="middle" font-family="Inter, sans-serif" font-size="12.5" font-weight="700" letter-spacing="1" fill="#1F6E96">MINIMUM</text>
+            <text x="912" y="214" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#5B7085">READ AS AT LEAST THIS MUCH</text>
             <text x="912" y="232" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#40566A">dollars calibrated on real</text>
             <text x="912" y="247" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#40566A">invoices, erring low; printed &asymp;,</text>
             <text x="912" y="262" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#40566A">dated, never summed into</text>
@@ -964,6 +996,13 @@
               carries the word, and an estimate is never merged into a posted total.</td>
           </tr>
           <tr>
+            <th scope="row" class="row-h">Estimated minimum</th>
+            <td>The label on a weighted streaming figure: dollars built from delivery measured in
+              metered homes, weighted to the household universe, calibrated to err low. Prints light
+              with &asymp;, reads as at least this much, and never joins a posted total. Distinct from
+              a floor, which stops before any weighting.</td>
+          </tr>
+          <tr>
             <th scope="row" class="row-h">Projected</th>
             <td>The label on forward inference: any figure past the last order on file. Useful for planning,
               never evidence, never merged into an aired total, and distinct from estimated, which labels
@@ -1103,7 +1142,7 @@
         <h4>Platform</h4>
         <ul>
           <li><a href="platform.html">The platform</a></li>
-          <li><a href="monitoring.html">Real-time monitoring</a></li>
+          <li><a href="monitoring.html">Monitoring</a></li>
           <li><a href="week.html">For buyers &amp; sellers</a></li>
           <li><a href="polling.html">Real-time polling</a></li>
         </ul>
@@ -1134,6 +1173,6 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r25"></script>
+<script src="assets/js/site.js?v=r26"></script>
 </body>
 </html>
