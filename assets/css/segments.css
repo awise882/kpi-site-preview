@@ -4,6 +4,10 @@
 @media (min-width: 1000px) { #sx { grid-template-columns: minmax(0, 1fr) 320px; align-items: start; } }
 
 .sx-controls { display: grid; gap: .85rem; margin-bottom: 1.1rem; }
+/* Grid/flex blowout guard: nothing in the controls row may set the page width.
+   The category select truncates its longest option instead of pushing the page wide. */
+.sx-controls > * { min-width: 0; }
+.sx-filters { min-width: 0; max-width: 100%; }
 .sx-search { position: relative; }
 .sx-search input {
   width: 100%; font-family: var(--sans); font-size: 1.05rem; padding: .95rem 1rem .95rem 2.9rem;
@@ -25,7 +29,7 @@
 .sx-chip .num { opacity: .65; font-size: .78rem; }
 .sx-chip.is-on .num { opacity: .8; }
 /* 1rem (>=16px) so iOS never zooms the page when the select opens. */
-#sx-cats { font-family: var(--sans); font-size: 1rem; padding: .42rem .6rem; border: 1px solid var(--rule); border-radius: var(--r); background: var(--white); color: var(--ink); max-width: 100%; }
+#sx-cats { font-family: var(--sans); font-size: 1rem; padding: .42rem .6rem; border: 1px solid var(--rule); border-radius: var(--r); background: var(--white); color: var(--ink); max-width: 100%; min-width: 0; }
 
 .sx-examples { display: flex; flex-wrap: wrap; gap: .4rem; align-items: baseline; font-size: .87rem; color: var(--ink-3); }
 .sx-examples button {
