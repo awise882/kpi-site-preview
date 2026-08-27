@@ -849,6 +849,11 @@
 @container (max-width:479px){
   .rc-seller .rc-seller-stamp-long{display:none}
   .rc-seller .rc-seller-stamp-short{display:inline}
+  /* Round-4 buyer fix: the single-row toolbar clipped the stamp mid-word at phone
+     width. The stamp takes its own full row and may wrap; brand and export share
+     row one, whole. */
+  .rc-seller .rc-seller-toolbar{flex-wrap:wrap;row-gap:4px}
+  .rc-seller .rc-seller-stamp{flex:1 1 100%;white-space:normal;line-height:1.6}
 }
 
 .rc-seller .rc-seller-toolbar{display:flex;align-items:center;justify-content:space-between;gap:8px}
@@ -873,7 +878,7 @@
 .rc-seller .rc-seller-pty{font-style:normal;font-weight:500;color:var(--rcs-mute)}
 .rc-seller .rc-seller-note{display:block;font-family:var(--rcs-mono);font-size:calc(6.8px*var(--rcs-s,1));font-weight:500;letter-spacing:.04em;color:var(--rcs-mute);margin-top:1px}
 .rc-seller .rc-seller-note-call{color:var(--rcs-blue);font-weight:700}
-.rc-seller .rc-seller-darkchip{display:inline-block;font-family:var(--rcs-mono);font-size:calc(6.8px*var(--rcs-s,1));font-weight:600;color:var(--rcs-mute);border:1px solid var(--rcs-line);background:var(--rcs-track);border-radius:3px;padding:1px 5px;margin-top:2px;white-space:nowrap}
+.rc-seller .rc-seller-darkchip{display:inline-block;font-family:var(--rcs-mono);font-size:calc(6.8px*var(--rcs-s,1));font-weight:600;color:var(--rcs-mute);border:1px solid var(--rcs-line);background:var(--rcs-track);border-radius:3px;padding:1px 5px;margin-top:2px;white-space:normal;line-height:1.5}
 .rc-seller .rc-seller-val{font-family:var(--rcs-mono);font-variant-numeric:tabular-nums lining-nums;font-size:calc(9.5px*var(--rcs-s,1));font-weight:600;color:var(--rcs-navy3);text-align:right;white-space:nowrap}
 .rc-seller .rc-seller-val-call{color:var(--rcs-blue);font-weight:700}
 .rc-seller .rc-seller-val-none{font-size:calc(7.5px*var(--rcs-s,1));font-weight:500;color:var(--rcs-mute)}

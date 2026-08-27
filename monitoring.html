@@ -492,6 +492,9 @@
 .rc-digital .rc-digital-sechead-note{font-family:var(--rcd-mono);font-variant-numeric:tabular-nums lining-nums;font-weight:500;letter-spacing:.04em;color:var(--rcd-mute);white-space:normal;font-size:max(11px,calc(7.5px*var(--rcd-s,1)));text-transform:none;line-height:1.4}
 @container (max-width:409px){
   .rc-digital .rc-digital-sechead-note{white-space:normal;text-align:right;line-height:1.4}
+  /* Round-4 buyer nit: the subtitle ellipsized R's committed total on phones.
+     It wraps instead; both sides' totals always print. */
+  .rc-digital .rc-digital-sub{white-space:normal;overflow:visible;text-overflow:clip;line-height:1.45}
 }
 
 .rc-digital .rc-digital-lanes{display:flex;flex-direction:column;gap:3px}
