@@ -9,7 +9,7 @@
 <meta property="og:description" content="Open to the race that changed. Read what the other side aired, booked and abandoned. Leave with the export.">
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-mark.png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r31">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r33">
 <style>
   /* The "what it exports" line that closes each app section. */
   .exports { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; margin-top: 1.3rem; }
@@ -212,19 +212,12 @@
         <a class="btn btn--lime btn--lg" href="contact.html">Request a demo</a>
       </div>
     </div>
-    <div class="hero-float" aria-label="Product surface: posted money by lane for one race, estimated lanes on their own dashed rows">
-      <div class="mini">
-        <p class="mini__k"><span>Lane mix&thinsp;·&thinsp;one race</span><span class="mini__stamp num">posted through Aug 18, 2026</span></p>
-        <div class="mini__row"><span>Broadcast</span><i style="width:74%"></i><b class="num">74%</b></div>
-        <div class="mini__row"><span>Local cable</span><i style="width:20%;background:var(--teal)"></i><b class="num">20%</b></div>
-        <div class="mini__row"><span>Radio</span><i style="width:6%;background:var(--blue-light)"></i><b class="num">6%</b></div>
-<!-- Ruling 50j: one Streaming & Digital row per lane chart; the caught-vs-modeled
-     split moves to the fine print. -->
-        <div class="mini__row mini__row--est"><span>Streaming &amp; Digital<em class="mini__tag">Estimated</em></span><i style="width:27%"></i><b class="mini__na">&asymp;&thinsp;&middot;&thinsp;no share</b></div>
-        <p class="mini__key">Shares split posted money only; the streaming row prints dashed,
-          marked &asymp;, outside the posted total. <a href="methodology.html#i-floor" style="color:#8FA9BE">How we count &rarr;</a></p>
-      </div>
-      <p class="feed__note">Synthetic race. Illustrative figures.</p>
+    <div class="hero-float">
+      <figure class="app-shot app-shot--hero">
+        <img src="assets/apps/app-scoreboard.webp" fetchpriority="high"
+          alt="The Scoreboard: every race with money in it, share of race money by side, one dated Excel export. Synthetic data.">
+        <figcaption>The Scoreboard &middot; synthetic race data</figcaption>
+      </figure>
     </div>
   </div>
 
@@ -276,9 +269,10 @@
                  rc-classgap = STILL · rc-baker, rc-bdemo = the page's live
                  toys (chips only) · the three .vig blocks below = VIGNETTE
                  (a verb + <=3 beats + still)
-     The four "See the real screen" screenshot links are retired: a real
-     screenshot discloses column taxonomies and goes stale with every release;
-     abstraction is the firewall, not a downgrade. -->
+     Screenshot ruling reversed by the owner (8/28, "more visual" + the r20 site
+     did it): the five synthetic-data product shots in assets/apps/ anchor the
+     hero and chapters. Interactive recreations stay for the surfaces they
+     demo; the vignettes stay abstract. -->
 <section class="section section--tight" id="moves">
   <div class="wrap">
     <div class="center" style="margin-bottom:2rem" data-rise>
@@ -360,6 +354,11 @@
       <p class="lede" style="margin-inline:auto">Broadcast, local cable and radio order by order
         in all 210 markets; Streaming &amp; Digital as one lane family beside them.</p>
     </div>
+    <figure class="app-shot app-shot--natural" data-rise>
+      <img src="assets/apps/app-digital-spend.webp" loading="lazy"
+        alt="One race's board: aired and booked money by side, then every channel including streaming, with estimates dated and kept out of the posted totals. Synthetic data.">
+      <figcaption>One race, every lane &middot; streaming estimates dated, never blended &middot; synthetic data</figcaption>
+    </figure>
     <div class="grid grid--2" data-rise>
       <div class="card card--flag">
         <p class="card__k">Order by order</p>
@@ -958,6 +957,11 @@
       </ul>
       </div>
     </div>
+    <figure class="app-shot app-shot--tall" data-rise>
+      <img src="assets/apps/app-creative-matrix.webp" loading="lazy"
+        alt="The Creative Matrix: each side's money split into the case for and the case against, theme by theme. Synthetic data.">
+      <figcaption>The Creative Matrix &middot; synthetic race data</figcaption>
+    </figure>
     <!-- Ruling 22: shown as a cropped glimpse; the demo is the reveal. -->
     <div class="shot-stage shot-stage--r rc-stage glimpse glimpse--h340">
 <div class="rc rc-matrix">
@@ -1587,6 +1591,11 @@ tbody th.rc-buysheet-m{font-weight:400;background:transparent}
       </ul>
       </div>
     </div>
+    <figure class="app-shot" data-rise>
+      <img src="assets/apps/app-creative-explorer.webp" loading="lazy"
+        alt="The Creative Explorer: the case for and against each side, the undercard, and every ad's dollars, points and air dates. Synthetic data.">
+      <figcaption>The Creative Explorer &middot; synthetic race data</figcaption>
+    </figure>
     <!-- Ruling 22: shown as a cropped glimpse; the demo is the reveal. -->
     <div class="shot-stage shot-stage--r rc-stage glimpse glimpse--h340">
 <div class="rc rc-explorer">
@@ -1765,60 +1774,16 @@ tbody th.rc-buysheet-m{font-weight:400;background:transparent}
 </section>
 
 <!-- ============ THE WEEK, START TO FINISH ============ -->
-<section class="section">
+<section class="section" id="sellers">
   <div class="wrap">
-    <div class="split" style="margin-bottom:2.2rem">
-      <div>
-        <p class="eyebrow">The week, start to finish</p>
-        <h2>One set of detections, Monday's read to Friday's brief.</h2>
-      </div>
-      <p class="lede">The screens are four grains on the same data, and a normal week
-        walks through all of them in order.</p>
-    </div>
-
-    <div class="day-rail" aria-hidden="true">
-      <span><b>Mon</b>Scoreboard</span>
-      <span><b>Tue</b>Buy Sheet</span>
-      <span><b>Wed</b>Creative Matrix</span>
-      <span><b>Thu</b>Creative Explorer</span>
-      <span><b>Fri</b>The brief ships</span>
-    </div>
-
-    <ol class="steps">
-      <li>
-        <h4>Monday, the scoreboard</h4>
-        <p>Three races changed in seven days; one booked four weeks forward with nothing
-          aired&mdash;why the two lines stay apart.</p>
-      </li>
-      <li>
-        <h4>Open the race that moved</h4>
-        <p>The booking concentrates in two markets, roughly a third local cable; broadcast alone
-          shows two thirds of the story.</p>
-      </li>
-      <li>
-        <h4>Read the argument behind the money</h4>
-        <p>The new weight lands on one theme against your candidate: tested in the spring, dropped,
-          back with a harder edit and more money.</p>
-      </li>
-      <li>
-        <h4>Pull the tape and transcript</h4>
-        <p>Filtered to spots on air in those two markets: cut, transcript, market list, points.
-          The response memo in minutes.</p>
-      </li>
-      <li>
-        <h4>Ship the brief</h4>
-        <p>Workbook, PDF creative brief, race brief: every figure carries its posted-through date, its
-          lanes, and the markets with insufficient signal.</p>
-      </li>
-    </ol>
-    <div class="mt3" id="sellers">
       <div class="split" style="margin-bottom:1.6rem">
         <div>
           <p class="eyebrow">The seller's week</p>
-          <h3>Sellers run the same week in reverse.</h3>
+          <h2 style="font-size:clamp(1.7rem,3vw,2.5rem)">Sellers run the buyer's week in reverse.</h2>
         </div>
-        <p class="lede" style="font-size:1.05rem">Sellers open the same grid buyers do,
-          pointed at the market they sell: revenue, not response.</p>
+        <p class="lede" style="font-size:1.05rem">Same grid, pointed at the market you
+          sell: revenue, not response. The full week &mdash; both desks, beat by
+          beat &mdash; is <a href="week.html">its own page</a>.</p>
       </div>
       <div class="day-rail" aria-hidden="true">
         <span><b>Mon</b>The rate call</span>
@@ -1830,24 +1795,21 @@ tbody th.rc-buysheet-m{font-weight:400;background:transparent}
       <ol class="steps">
         <li>
           <h4>Price&thinsp;&middot;&thinsp;the rate call</h4>
-          <p>Monday opens holding the same public file the buyer
-            reads&mdash;<a href="monitoring.html#fcc-rates">FCC rate intelligence</a>, daypart
-            by daypart; the print-sheet export goes to ownership, posted-through date in the
-            header.</p>
+          <p>Monday opens on the same public file the buyer
+            reads&mdash;<a href="monitoring.html#fcc-rates">FCC rate intelligence</a>,
+            daypart by daypart, exported with its posted-through date.</p>
         </li>
         <li>
           <h4>The gap&thinsp;&middot;&thinsp;the market, not the race</h4>
-          <p>Market Order Flow scopes the scoreboard to your market: every advertiser and
-            committee, lane by lane. A station sees its own air&mdash;a share both sides
-            can check; a platform seller sees the budgets in play, never their own numbers.</p>
+          <p>Market Order Flow scopes the scoreboard to your market: every advertiser,
+            lane by lane. A station sees its own air; a platform seller sees the budgets
+            in play, never its own numbers.</p>
         </li>
         <li>
           <h4>The booking horizon is the call list</h4>
-          <p>Money booked into the market but not on your books is the first call, weeks and
-            dollars attached. The horizon exists where orders exist: broadcast, local cable,
-            radio. The lag prints on every
-            figure&mdash;<a href="methodology.html#latency">ask for the current gap</a> in
-            days.</p>
+          <p>Money booked into the market but not on your books is the first call, weeks
+            and dollars attached&mdash;broadcast, local cable, radio. The lag prints on
+            every figure; <a href="methodology.html#latency">ask for the current gap</a>.</p>
         </li>
         <li>
           <h4>The went-dark row is the win-back call</h4>
@@ -1856,11 +1818,9 @@ tbody th.rc-buysheet-m{font-weight:400;background:transparent}
         </li>
         <li>
           <h4>The streaming pitch reads from the spend</h4>
-          <p>The call list is the spend-by-service read: advertisers heavy on TV in your
-            state, light or undetected in the covered service set. Undetected prints as
-            undetected&mdash;the pitch never rests on a zero we cannot stand behind; TV
-            money with no streaming detected is the incremental pitch, TV dollars the
-            evidence. Built from measured households, printing as an estimated minimum&mdash;never your
+          <p>Advertisers heavy on TV in your state, light or undetected in the covered
+            service set: TV dollars are the evidence, and undetected prints as
+            undetected. Built from measured households, printing as an estimated minimum&mdash;never your
             logs.</p>
         </li>
 
@@ -2065,7 +2025,6 @@ tbody th.rc-buysheet-m{font-weight:400;background:transparent}
         on whose behalf. Sellers may show KPI figures to an advertiser or agency, credit and
         posted-through date attached. Preferred credit: "Kinetiq Political Insights, data
         posted through [date]."</p>
-    </div>
   </div>
 </section>
 
