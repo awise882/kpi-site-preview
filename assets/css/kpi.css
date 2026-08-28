@@ -334,13 +334,32 @@ p .num, .lede .num, .hero-banner .num { white-space: nowrap; }
 /* One-way sheen on the filled variants: sweeps across on hover, snaps home
    invisibly on mouse-out (no transition in the base state). Focus rings are
    outline-based, so overflow:hidden never clips them. */
-.btn--lime, .btn--navy { position: relative; overflow: hidden; }
-.btn--lime::after, .btn--navy::after {
-  content: ""; position: absolute; inset: 0; pointer-events: none;
-  background: linear-gradient(105deg, transparent 30%, rgba(255,255,255,.3) 50%, transparent 70%);
-  transform: translateX(-130%);
+.btn--lime, .btn--navy { position: relative; overflow: visible; transition: background .16s, color .16s, border-color .16s, transform .16s, box-shadow .16s, padding .22s var(--smooth); }
+/* The detection ping: the boards' live-dot blinks in and pings like a radar
+   contact; the label slides over to make room. Keyboard focus gets the same
+   moment; reduced motion keeps the dot and drops the ping. */
+.btn--lime::before, .btn--navy::before {
+  content: ""; position: absolute; left: 1.05rem; top: 50%;
+  width: 8px; height: 8px; margin-top: -4px; border-radius: 50%;
+  transform: scale(0); transition: transform .18s var(--smooth);
 }
-.btn--lime:hover::after, .btn--navy:hover::after { transform: translateX(130%); transition: transform .55s var(--smooth); }
+.btn--lime::before { background: var(--navy-deep); }
+.btn--navy::before { background: var(--lime); }
+.btn--lime:hover, .btn--navy:hover, .btn--lime:focus-visible, .btn--navy:focus-visible { padding-left: 2.15rem; }
+.btn--lime:hover::before, .btn--navy:hover::before,
+.btn--lime:focus-visible::before, .btn--navy:focus-visible::before {
+  transform: scale(1); animation: btn-ping 1s var(--smooth) .12s 2;
+}
+.btn--lime:hover::before { box-shadow: 0 0 0 0 rgba(13,46,74,.45); }
+.btn--navy:hover::before { box-shadow: 0 0 0 0 rgba(168,209,78,.55); }
+@keyframes btn-ping {
+  0% { box-shadow: 0 0 0 0 rgba(168,209,78,.5); }
+  100% { box-shadow: 0 0 0 12px rgba(168,209,78,0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn--lime:hover::before, .btn--navy:hover::before,
+  .btn--lime:focus-visible::before, .btn--navy:focus-visible::before { animation: none; }
+}
 .btn--navy { background: var(--navy); color: #fff; border-color: var(--navy); }
 .btn--navy:hover { background: var(--navy-deep); color: #fff; transform: translateY(-2px); box-shadow: 0 10px 28px rgba(13,46,74,.26); }
 .btn--ghost { background: transparent; color: #fff; border-color: rgba(255,255,255,.4); }
@@ -1615,6 +1634,24 @@ a.chip:hover { border-color: var(--blue); color: var(--navy); background: var(--
      controls, two-column ad details with small-caps labels, the transcript on a
      soft panel with the AI disclaimer. Square. Depth is shadow, never tilt. */
   .ac { max-width: 680px; margin-inline: auto; background: var(--white); border: 1px solid var(--rule); border-radius: var(--r-lg); box-shadow: var(--shadow-lg); overflow: hidden; }
+/* The whole alert fits one desktop screen: the specimen is the proof object,
+   and a proof you have to scroll to see whole reads like a hedge. At desktop it
+   goes two-up — the tape on the left, the facts on the right, the transcript
+   across the bottom. */
+@media (min-width: 1000px) {
+  .ac { max-width: 940px; }
+  .ac__body { display: grid; grid-template-columns: 1.08fr .92fr; column-gap: 1.6rem;
+    grid-template-areas:
+      "race race" "who who" "frame dl" "note dl" "actions dl" "tr tr";
+    align-items: start; }
+  .ac__race { grid-area: race; }
+  .ac__who { grid-area: who; }
+  .ac__frame { grid-area: frame; }
+  .ac__framenote { grid-area: note; }
+  .ac__actions { grid-area: actions; }
+  .ac__dl { grid-area: dl; margin-top: 0; }
+  .ac__tr { grid-area: tr; }
+}
   .ac__mast { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem clamp(18px, 3vw, 28px); border-bottom: 1px solid var(--rule-soft); }
   .ac__mast img { height: 38px; width: auto; }
   .ac__pill { font-family: var(--label); text-transform: uppercase; letter-spacing: .12em; font-size: .7rem; font-weight: 700; color: #3E6A16; background: color-mix(in srgb, var(--lime) 24%, transparent); border: 1px solid color-mix(in srgb, var(--lime-dark) 45%, transparent); border-radius: 999px; padding: .32rem .75rem; white-space: nowrap; }
