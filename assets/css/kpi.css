@@ -1,4 +1,4 @@
-@import url("fonts.css?v=r45");
+@import url("fonts.css?v=r46");
 
 /* ==========================================================================
    Kinetiq Political Insights - site design system
@@ -232,6 +232,30 @@ p .num, .lede .num, .hero-banner .num { white-space: nowrap; }
 }
 .nav__links a:hover { color: #fff; border-bottom-color: rgba(168,209,78,.5); }
 .nav__links a[aria-current="page"] { color: #fff; border-bottom-color: var(--lime); }
+
+/* Hover submenus: key destinations under each section, so nobody has to
+   scroll a long page to find the thing they came for. Desktop hover +
+   keyboard focus; the phone burger stays page-level. */
+.nav__item { position: relative; }
+.nav__drop { display: none; }
+@media (min-width: 1041px) and (hover: hover) {
+  .nav__drop { display: block; position: absolute; top: 100%; left: 50%;
+    transform: translateX(-50%) translateY(6px); padding-top: 14px;
+    opacity: 0; visibility: hidden; transition: opacity .16s ease, transform .16s ease, visibility .16s; z-index: 60; }
+  .nav__item:hover .nav__drop, .nav__item:focus-within .nav__drop {
+    opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+  .nav__drop::before { content: ""; position: absolute; left: 50%; top: 8px; width: 10px; height: 10px;
+    transform: translateX(-50%) rotate(45deg); background: var(--white);
+    border-left: 1px solid var(--rule); border-top: 1px solid var(--rule); }
+  .nav__drop a { display: block; white-space: nowrap; background: var(--white);
+    padding: .52rem .95rem; font-size: .88rem; font-weight: 600; color: var(--ink-2);
+    border: 0; border-left: 1px solid var(--rule); border-right: 1px solid var(--rule); }
+  .nav__drop a::after { content: none; }
+  .nav__drop a:first-child { border-top: 1px solid var(--rule); border-radius: 10px 10px 0 0; padding-top: .68rem; }
+  .nav__drop a:last-child { border-bottom: 1px solid var(--rule); border-radius: 0 0 10px 10px; padding-bottom: .68rem;
+    box-shadow: 0 14px 30px rgba(13,46,74,.14); }
+  .nav__drop a:hover { color: var(--navy-deep); background: color-mix(in srgb, var(--lime) 12%, var(--white)); }
+}
 /* Scroll response: the bar earns a shadow and a lime edge once the page moves.
    --nav-h itself is never animated. */
 .nav { transition: box-shadow .35s var(--smooth), border-color .35s var(--smooth); }
@@ -382,8 +406,18 @@ p .num, .lede .num, .hero-banner .num { white-space: nowrap; }
    so the light end still reads at display size on the pale ground. */
 .hero h1 em {
   font-style: normal; font-weight: 800;
-  background: linear-gradient(94deg, var(--lime-dark) 0%, var(--teal) 100%);
+  background: linear-gradient(94deg, var(--lime-dark) 0%, var(--teal) 50%, var(--lime-dark) 100%);
+  background-size: 250% 100%; background-position: 0% 0;
   -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+/* The accent breathes: a barely-perceptible drift across the same two brand
+   colors, ~18s per pass. Owner-approved flourish (8/28); reduced motion kills it. */
+@media (prefers-reduced-motion: no-preference) {
+  .hero h1 em { animation: hero-grad-drift 18s ease-in-out infinite; }
+}
+@keyframes hero-grad-drift {
+  0%, 100% { background-position: 0% 0; }
+  50% { background-position: 100% 0; }
 }
 @supports not (-webkit-background-clip: text) {
   .hero h1 em { color: var(--teal); background: none; }
@@ -728,10 +762,10 @@ a.chip:hover { border-color: var(--blue); color: var(--navy); background: var(--
    `[data-rise] > * { will-change: transform }` promoted hundreds of nodes to
    their own layers permanently, for a one-shot entrance the animation promotes
    by itself. Removed; nothing pre-promotes. */
-.in-view[data-rise] > * { animation: rise .45s var(--smooth) backwards; }
-.in-view[data-rise] > *:nth-child(2) { animation-delay: .05s; }
-.in-view[data-rise] > *:nth-child(3) { animation-delay: .1s; }
-.in-view[data-rise] > *:nth-child(4) { animation-delay: .15s; }
+.in-view[data-rise] > * { animation: rise .32s var(--smooth) backwards; }
+.in-view[data-rise] > *:nth-child(2) { animation-delay: .04s; }
+.in-view[data-rise] > *:nth-child(3) { animation-delay: .08s; }
+.in-view[data-rise] > *:nth-child(4) { animation-delay: .12s; }
 .in-view[data-rise] > *:nth-child(5) { animation-delay: .2s; }
 .in-view[data-rise] > *:nth-child(6) { animation-delay: .25s; }
 @keyframes rise { from { opacity: .01; transform: translateY(26px); } to { opacity: 1; transform: translateY(0); } }
@@ -1252,7 +1286,7 @@ a.chip:hover { border-color: var(--blue); color: var(--navy); background: var(--
 .lmap__baker:hover { border-color: var(--teal); }
 .lmap__baker:hover b { color: var(--navy); }
 @media (min-width: 960px) {
-  .lmap__rail { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.4rem; align-items: stretch; }
+  .lmap__rail { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.4rem; align-items: stretch; }
 }
 
 /* ---------- rulings 39b + 50b: two stories, one unmistakable switch. ----------
@@ -1963,3 +1997,19 @@ a.chip:hover { border-color: var(--blue); color: var(--navy); background: var(--
 .mfold[open] > summary::after { content: "\2212"; }
 .mfold__in { padding: .2rem 1.2rem 1.4rem; }
 .section--band .mfold, .section--tint .mfold { background: var(--white); }
+
+
+/* The hand-off: each chapter ends by opening the next one. */
+.nextpage { display: flex; align-items: baseline; flex-wrap: wrap; gap: .35rem .9rem;
+  max-width: var(--wrap, 1160px); margin: 0 auto; padding: 1.15rem 1.3rem;
+  background: var(--white); border: 1px solid var(--rule); border-radius: var(--r-lg);
+  text-decoration: none; box-shadow: 0 1px 2px rgba(13,46,74,.05);
+  transition: border-color .18s ease, box-shadow .18s ease; }
+.nextpage:hover { border-color: var(--navy); box-shadow: 0 6px 18px rgba(13,46,74,.10); }
+.nextpage__k { font-family: var(--label); text-transform: uppercase; letter-spacing: .16em;
+  font-size: .7rem; font-weight: 700; color: var(--lime-dark); }
+.nextpage__t { font-family: var(--display); font-weight: 400; font-size: 1.25rem; color: var(--navy-deep); }
+.nextpage__d { font-size: .9rem; color: var(--ink-3); }
+.nextpage__go { margin-left: auto; font-weight: 700; color: var(--blue-text); }
+.nextpage:hover .nextpage__go { color: var(--navy-deep); }
+@media (max-width: 560px) { .nextpage__go { margin-left: 0; } }

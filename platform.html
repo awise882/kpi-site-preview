@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The Platform: Detection In, Decisions Out | Kinetiq Political Insights</title>
-<meta name="description" content="Scoreboard, Creative Matrix, Buy Sheet and Creative Explorer. Every race on one screen, every cut by market, the competitive buy at station grain, and every detected spot with the transcript and the tape. Plus declared audiences, searchable on the Real-Time Polling page.">
+<meta name="description" content="Scoreboard, Creative Matrix, Buy Sheet and Creative Explorer. Every race on one screen, every cut by market, the competitive buy at station grain, and every detected spot with the transcript and the tape.">
 <meta property="og:title" content="The KPI Platform: Detection In, Decisions Out">
 <meta property="og:description" content="Open to the race that changed. Read what the other side aired, booked and abandoned. Leave with the export.">
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r45">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r46">
 <style>
   /* The "what it exports" line that closes each app section. */
   .exports { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; margin-top: 1.3rem; }
@@ -157,10 +157,39 @@
       <img src="assets/img/kpi-logo.png" alt="Kinetiq Political Insights">
     </a>
     <ul class="nav__links">
-      <li><a href="monitoring.html">Monitoring</a></li>
-      <li><a href="platform.html" aria-current="page">Platform</a></li>
-      <li><a href="week.html">Buyers &amp; Sellers</a></li>
-      <li><a href="polling.html">Polling</a></li>
+      <li class="nav__item"><a href="monitoring.html">Monitoring</a>
+        <div class="nav__drop" aria-label="Section shortcuts">
+          <a href="monitoring.html#alert-demo">Creative alerts</a>
+          <a href="monitoring.html#streaming-spend">Streaming &amp; Digital</a>
+          <a href="monitoring.html#cross-screen">Impressions across screens</a>
+          <a href="monitoring.html#fcc-rates">FCC rate intelligence</a>
+          <a href="monitoring.html#weighting">How we count</a>
+        </div>
+      </li>
+      <li class="nav__item"><a href="platform.html" aria-current="page">Platform</a>
+        <div class="nav__drop" aria-label="Section shortcuts">
+          <a href="platform.html#scoreboard">The Scoreboard</a>
+          <a href="platform.html#creative-matrix">The Creative Matrix</a>
+          <a href="platform.html#buy-sheet">The Buy Sheet</a>
+          <a href="platform.html#sellers">For sellers</a>
+          <a href="platform.html#baker">Ask Baker</a>
+        </div>
+      </li>
+      <li class="nav__item"><a href="week.html">Buyers &amp; Sellers</a>
+        <div class="nav__drop" aria-label="Section shortcuts">
+          <a href="week.html#wk-buy">The buyer's week</a>
+          <a href="week.html#wk-sell">The seller's week</a>
+          <a href="week.html#air-war">The air war, explorable</a>
+        </div>
+      </li>
+      <li class="nav__item"><a href="polling.html">Polling</a>
+        <div class="nav__drop" aria-label="Section shortcuts">
+          <a href="polling.html#loop">The loop</a>
+          <a href="polling.html#story">How it works</a>
+          <a href="questions.html">The question library</a>
+          <a href="polling.html#offerings">Syndicated &amp; bespoke</a>
+        </div>
+      </li>
       <li class="nav__login"><a href="https://portal.kpipolitical.com">Log in</a></li>
     </ul>
     <div class="nav__cta">
@@ -181,7 +210,8 @@
       <p class="eyebrow">The platform</p>
       <h1>Every detection, every order, every market. <em>One platform.</em></h1>
       <p class="lede">One dataset underneath: every airing detected, every order on file,
-        every filed rate. Six screens sit on top, and every read exports with its date
+        every filed rate. On top, a battle-tested portal shaped to the races you
+        run &mdash; and every read exports with its date
         on it.</p>
       <div class="btn-row mt1">
         <a class="btn btn--lime btn--lg" href="contact.html">Request a demo</a>
@@ -189,7 +219,7 @@
     </div>
     <div class="hero-float">
       <figure class="app-shot app-shot--hero app-shot--natural">
-        <img src="assets/apps/app-digital-spend.webp" fetchpriority="high"
+        <img width="2000" height="1281" src="assets/apps/app-digital-spend.webp" fetchpriority="high"
           alt="One race's board: aired and booked money by side, then every channel including streaming, with estimates dated and kept out of the posted totals. Synthetic data.">
         <figcaption>One race, every lane &middot; synthetic data</figcaption>
       </figure>
@@ -209,15 +239,9 @@
         </li>
         <li class="lmap__layer">
           <span class="lmap__name">Competitive intelligence</span>
-          <span class="lmap__what">The tracked money, on six screens.</span>
+          <span class="lmap__what">The tracked money, one working portal.</span>
           <span class="lmap__items"><a class="chip" href="#scoreboard">Scoreboard</a><a class="chip" href="#creative-matrix">Creative Matrix</a><a class="chip" href="#buy-sheet">Buy Sheet</a><a class="chip" href="#creative-explorer">Creative Explorer</a></span>
           <span class="lmap__stat"><b class="num">6</b> screens, every read exports</span>
-        </li>
-        <li class="lmap__layer">
-          <span class="lmap__name">Audiences &amp; polling</span>
-          <span class="lmap__what">Declared answers, delivered to your seat.</span>
-          <span class="lmap__items"><a class="chip" href="polling.html" title="Opens on the polling page">Real-time polling &#8599;</a><a class="chip" href="#audiences">Audiences&thinsp;+&thinsp;deal IDs</a></span>
-          <span class="lmap__stat"><b class="num">3,537</b> orderable questions</span>
         </li>
         <li class="lmap__layer">
           <span class="lmap__name">Sell-side</span>
@@ -242,7 +266,7 @@
         in all 210 markets; Streaming &amp; Digital as one lane family beside them.</p>
     </div>
     <figure class="app-shot" data-rise>
-      <img src="assets/apps/app-buy-sheet.webp" loading="lazy"
+      <img width="2000" height="1285" src="assets/apps/app-buy-sheet.webp" loading="lazy"
         alt="The Buy Sheet: the whole flight by side, then markets down and weeks across, with broadcast, cable and radio rows under each market. Synthetic data.">
       <figcaption>Markets down, weeks across, lane rows &middot; the Buy Sheet &middot; synthetic data</figcaption>
     </figure>
@@ -750,7 +774,7 @@
       </div>
     </div>
     <figure class="app-shot app-shot--natural" data-rise>
-      <img src="assets/apps/app-creative-matrix.webp" loading="lazy"
+      <img width="2400" height="1298" src="assets/apps/app-creative-matrix.webp?v=r43" loading="lazy"
         alt="The Creative Matrix: each side's money split into the case for and the case against, theme by theme. Synthetic data.">
       <figcaption>The Creative Matrix &middot; synthetic race data</figcaption>
     </figure>
@@ -1795,39 +1819,6 @@ tbody th.rc-buysheet-m{font-weight:400;background:transparent}
   </div>
 </section>
 
-<section class="section section--tint" id="audiences">
-  <div class="wrap">
-    <div class="split" style="margin-bottom:2rem">
-      <div>
-        <p class="eyebrow">Audiences &amp; polling</p>
-        <h2>Audiences built from what people actually said.</h2>
-      </div>
-      <div>
-        <p class="lede">Through our CivicScience partnership: more than 10,000 always-on
-          questions, over 1 million answers a day, 165 million U.S. consumer profiles.
-          48 curated political segments, or build your own from the question library.</p>
-      </div>
-    </div>
-
-    <div class="stats" style="margin-bottom:1rem">
-      <div class="stat"><div class="stat__v">10,000+</div><div class="stat__l">Always-on questions</div></div>
-      <div class="stat"><div class="stat__v">1M+</div><div class="stat__l">Answers per day</div></div>
-      <div class="stat"><div class="stat__v">165M</div><div class="stat__l">U.S. consumer profiles</div></div>
-      <div class="stat"><div class="stat__v">48</div><div class="stat__l">Curated political segments</div></div>
-    </div>
-    <div class="stamp" style="margin-bottom:2.4rem"><b>Source</b> CivicScience partner-published figures, as
-      of August 2026. A profile is a survey-answering record, not a verified person.</div>
-
-    <h3 id="explorer">Search the orderable library. All 3,537 questions of it.</h3>
-    <p class="dek" style="margin-bottom:1.4rem">Read the exact wording, shortlist, send: back
-      comes a deal ID in your DSP, or we run the media. Lookalike extension optional, always
-      labeled. The full explorer is <a href="questions.html">the question library</a>.</p>
-    <div class="btn-row">
-      <a class="btn btn--navy" href="questions.html">Search the question library</a>
-      <a class="btn btn--outline" href="polling.html">How real-time polling works</a>
-    </div>
-  </div>
-</section>
 
 <!-- ============ BAKER (ruling 36a, portal notes §10) ============ -->
 <!-- Baker is the KPI conversational research assistant over the whole tracked
@@ -2038,6 +2029,10 @@ tbody th.rc-buysheet-m{font-weight:400;background:transparent}
 </section>
 
 <!-- ============ FINAL CTA ============ -->
+<div class="wrap" style="padding-bottom:2.2rem">
+  <a class="nextpage" href="week.html"><span class="nextpage__k">Next</span><span class="nextpage__t">Buyers &amp; Sellers</span><span class="nextpage__d">One week, two desks: the same air war from the buyer&rsquo;s chair and the seller&rsquo;s.</span><span class="nextpage__go">&rarr;</span></a>
+</div>
+
 <section class="section section--mega cta-final">
   <div class="wrap center">
     <p class="eyebrow eyebrow--plain" style="justify-content:center">Next step</p>
@@ -2097,6 +2092,6 @@ tbody th.rc-buysheet-m{font-weight:400;background:transparent}
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r45"></script>
+<script src="assets/js/site.js?v=r46"></script>
 </body>
 </html>
