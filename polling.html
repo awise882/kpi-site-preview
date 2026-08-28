@@ -218,7 +218,7 @@
   @media (max-width: 480px) { .mxs__lbl { display: none; } }
   .mxs__hint { display: none; color: var(--ink-3); margin: .5rem 0 0; }
   .mxs__steps { list-style: none; display: grid; grid-template-columns: repeat(5, 1fr);
-    gap: .6rem; margin: .75rem 0 0; padding: 0; }
+    gap: .6rem; margin: .75rem 0 .9rem; padding: 0; }
   .mxs__step { font-size: .8rem; line-height: 1.4; color: var(--ink-2); padding-top: .45rem; }
   .mxs__step b { display: block; font-family: var(--label); font-size: .74rem; font-weight: 700;
     letter-spacing: .09em; text-transform: uppercase; margin-bottom: .15rem; }
@@ -392,6 +392,80 @@
   </div>
 </header>
 
+<!-- ============ THE LOOP ============ -->
+<section class="section section--tint" id="loop">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:2.4rem" data-rise>
+      <p class="eyebrow eyebrow--plain" style="justify-content:center"><span class="folio">01</span>The loop</p>
+      <h2>One loop, run for the life of the flight.</h2>
+      <p class="lede">Most polling is a report that arrives after the argument. This one
+        stays in the field. Stations 1&ndash;4 unfold scene by scene just below &mdash; what
+        the loop adds is the way back: read the delivery, ask again, shift the buy.</p>
+    </div>
+
+    <!-- Ruling 52c: the loop drawn as a loop. The ring is the content; the old card
+         paragraphs demote to the fine print below. All six stations are visible with
+         JS off and motion off; the only motion is the walking highlight on the
+         static ring, the allowed form. -->
+    <div class="ring">
+      <svg class="ring__orbit" viewBox="0 0 1000 620" aria-hidden="true" focusable="false">
+        <ellipse cx="500" cy="310" rx="430" ry="240" fill="none" stroke="#7CB342" stroke-width="2.5"/>
+        <g fill="#7CB342">
+          <polygon points="0,-7 12,0 0,7" transform="translate(930,310) rotate(90)"/>
+          <polygon points="0,-7 12,0 0,7" transform="translate(715,518) rotate(162)"/>
+          <polygon points="0,-7 12,0 0,7" transform="translate(285,518) rotate(198)"/>
+          <polygon points="0,-7 12,0 0,7" transform="translate(70,310) rotate(-90)"/>
+          <polygon points="0,-7 12,0 0,7" transform="translate(285,102) rotate(-18)"/>
+          <polygon points="0,-7 12,0 0,7" transform="translate(715,102) rotate(18)"/>
+        </g>
+        <circle class="ring__walker" r="8" fill="#A8D14E" stroke="#7CB342" stroke-width="2">
+          <animateMotion dur="9s" repeatCount="indefinite" path="M500,70 A430,240 0 0 1 500,550 A430,240 0 0 1 500,70"/>
+        </circle>
+      </svg>
+      <ol class="ring__steps" aria-label="The optimization loop: six steps that repeat">
+        <li class="ring__st" style="--i:1">
+          <span class="ring__ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"/><path d="M9.6 9.2a2.4 2.4 0 1 1 3.3 2.2c-.7.3-.9.7-.9 1.4"/><circle cx="12" cy="14.4" r=".4" fill="currentColor"/></svg></span>
+          <h3>Field the question</h3>
+        </li>
+        <li class="ring__st" style="--i:2">
+          <span class="ring__ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v10"/><path d="m8 9 4 4 4-4"/><path d="M4 17h16v4H4z"/></svg></span>
+          <h3>Answers stream back</h3>
+        </li>
+        <li class="ring__st" style="--i:3">
+          <span class="ring__ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="3.2"/><path d="M3.5 19c.6-3 2.8-4.8 5.5-4.8s4.9 1.8 5.5 4.8"/><circle cx="16.8" cy="10" r="2.6"/><path d="M16 14.6c2.6.2 4.2 1.8 4.8 4.4"/></svg></span>
+          <h3>Build the audience</h3>
+        </li>
+        <li class="ring__st" style="--i:4">
+          <span class="ring__ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M10 8.5 16 12l-6 3.5z"/></svg></span>
+          <h3>Activate</h3>
+        </li>
+        <li class="ring__st" style="--i:5">
+          <span class="ring__ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 20v-6"/><path d="M11 20V8"/><path d="M17 20v-9"/><path d="M3 20h18"/></svg></span>
+          <h3>Read delivery</h3>
+          <p>Your delivery beside their spend, labeled, never blurred.</p>
+        </li>
+        <li class="ring__st" style="--i:6">
+          <span class="ring__ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 1 1-2.3-5.6"/><path d="M20 3v4h-4"/></svg></span>
+          <h3>Re-field and optimize</h3>
+          <p>Ask again, read what moved, shift the buy.</p>
+        </li>
+      </ol>
+      <p class="ring__center">The question keeps running.<br><b>The buy shifts while it
+        still matters.</b><span class="ring__walkcap" aria-hidden="true">the moving highlight is the loop running</span></p>
+      <p class="ring__again" aria-hidden="true">&#8635; and back to step 1: the question returns to the field.</p>
+    </div>
+
+    <!-- Ruling 52c: the demoted card detail, small print, definitions intact. -->
+    <p class="small ring__fine">The details: activation lands as a private-marketplace
+      deal ID, your seat or ours, and managed service is optional, never required. Run
+      the media through us or share your delivery report; either way your delivery
+      prints labeled advertiser-reported, so your numbers and our detections never blur
+      into one figure. What you run stays behind the subscriber firewall; the full
+      statement, including the one rate-calibration exception, is on the
+      <a href="privacy.html">privacy page</a>.</p>
+  </div>
+</section>
+
 <!-- ============ THE STORY (Pass E §4) ============ -->
 <!-- The page opens as a narrative, not a spec sheet: a question is asked today,
      the answers arrive, the sparse matrix at scale, the contrast with the modeled
@@ -401,7 +475,7 @@
 <section class="section" id="story">
   <div class="wrap">
     <div class="center" style="margin-bottom:1.6rem">
-      <p class="eyebrow eyebrow--plain" style="justify-content:center"><span class="folio">01</span>How it works</p>
+      <p class="eyebrow eyebrow--plain" style="justify-content:center"><span class="folio">02</span>How it works</p>
       <h2>One question, asked today.</h2>
       <p class="lede">Follow it from the field to your buying seat.</p>
     </div>
@@ -473,6 +547,14 @@
               <span class="mxs__brand">KPI &times; CivicScience &middot; The declared matrix</span>
               <span class="mxs__stamp">answers accrue daily &middot; figures as of Aug 2026</span>
             </div>
+            <ol class="mxs__steps">
+              <li class="mxs__step mxs__step--a"><b>Step 1</b> One profile: a real person's answers, layering over months.</li>
+              <li class="mxs__step mxs__step--b"><b>Step 2</b> One question: everyone who answered it, dated.</li>
+              <li class="mxs__step mxs__step--c"><b>Step 3</b> Answered both &mdash; that intersection is the audience, declared.</li>
+              <li class="mxs__step mxs__step--d"><b>Step 4</b> Licensed attributes ride every profile: weighting and the ID match.</li>
+              <li class="mxs__step mxs__step--e"><b>Step 5</b> Need more reach? The extension is modeled &mdash; and always labeled.</li>
+            </ol>
+            <p class="mxs__hint small">Keep scrolling: each step draws on the grid below.</p>
             <svg class="mxs__svg" viewBox="0 0 1000 560" role="img" aria-labelledby="mxs-t mxs-d">
               <title id="mxs-t">The sparse matrix: 165 million profiles by more than ten thousand questions, cells lit where a person actually answered</title>
               <desc id="mxs-d">A vast sparse grid: rows are 165 million consumer
@@ -565,14 +647,6 @@
               <text class="mxs__lbl" x="936" y="486" text-anchor="end" font-family="Inter, sans-serif" font-size="11" fill="#4F7A25">lime = answered today</text>
               <text class="mxs__lbl" x="100" y="486" font-family="Inter, sans-serif" font-size="10.5" fill="#5B7085">grid sampled for display &middot; density illustrative &middot; the counts are not</text>
             </svg>
-            <ol class="mxs__steps">
-              <li class="mxs__step mxs__step--a"><b>Step 1</b> One profile: a real person's answers, layering over months.</li>
-              <li class="mxs__step mxs__step--b"><b>Step 2</b> One question: everyone who answered it, dated.</li>
-              <li class="mxs__step mxs__step--c"><b>Step 3</b> Answered both &mdash; that intersection is the audience, declared.</li>
-              <li class="mxs__step mxs__step--d"><b>Step 4</b> Licensed attributes ride every profile: weighting and the ID match.</li>
-              <li class="mxs__step mxs__step--e"><b>Step 5</b> Need more reach? The extension is modeled &mdash; and always labeled.</li>
-            </ol>
-            <p class="mxs__hint small">Keep scrolling: each step draws on the grid above.</p>
             <div class="mxs__ann">
               <span class="mxs__ann-big num">165,000,000 profiles &times; 10,000+ questions.</span>
               <span class="mxs__ann-sub">Answers layer into a profile. An audience is the
@@ -685,82 +759,9 @@
   </div>
 </section>
 
-<!-- ============ THE LOOP ============ -->
-<section class="section section--tint" id="loop">
-  <div class="wrap">
-    <div class="center" style="margin-bottom:2.4rem" data-rise>
-      <p class="eyebrow eyebrow--plain" style="justify-content:center"><span class="folio">02</span>The loop</p>
-      <h2>One loop, run for the life of the flight.</h2>
-      <p class="lede">Most polling is a report that arrives after the argument. This one
-        stays in the field. The first four stations are the story you just scrolled &mdash;
-        what the loop adds is the way back: read the delivery, ask again, shift the buy.</p>
-    </div>
-
-    <!-- Ruling 52c: the loop drawn as a loop. The ring is the content; the old card
-         paragraphs demote to the fine print below. All six stations are visible with
-         JS off and motion off; the only motion is the walking highlight on the
-         static ring, the allowed form. -->
-    <div class="ring">
-      <svg class="ring__orbit" viewBox="0 0 1000 620" aria-hidden="true" focusable="false">
-        <ellipse cx="500" cy="310" rx="430" ry="240" fill="none" stroke="#7CB342" stroke-width="2.5"/>
-        <g fill="#7CB342">
-          <polygon points="0,-7 12,0 0,7" transform="translate(930,310) rotate(90)"/>
-          <polygon points="0,-7 12,0 0,7" transform="translate(715,518) rotate(162)"/>
-          <polygon points="0,-7 12,0 0,7" transform="translate(285,518) rotate(198)"/>
-          <polygon points="0,-7 12,0 0,7" transform="translate(70,310) rotate(-90)"/>
-          <polygon points="0,-7 12,0 0,7" transform="translate(285,102) rotate(-18)"/>
-          <polygon points="0,-7 12,0 0,7" transform="translate(715,102) rotate(18)"/>
-        </g>
-        <circle class="ring__walker" r="8" fill="#A8D14E" stroke="#7CB342" stroke-width="2">
-          <animateMotion dur="9s" repeatCount="indefinite" path="M500,70 A430,240 0 0 1 500,550 A430,240 0 0 1 500,70"/>
-        </circle>
-      </svg>
-      <ol class="ring__steps" aria-label="The optimization loop: six steps that repeat">
-        <li class="ring__st" style="--i:1">
-          <span class="ring__ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"/><path d="M9.6 9.2a2.4 2.4 0 1 1 3.3 2.2c-.7.3-.9.7-.9 1.4"/><circle cx="12" cy="14.4" r=".4" fill="currentColor"/></svg></span>
-          <h3>Field the question</h3>
-        </li>
-        <li class="ring__st" style="--i:2">
-          <span class="ring__ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v10"/><path d="m8 9 4 4 4-4"/><path d="M4 17h16v4H4z"/></svg></span>
-          <h3>Answers stream back</h3>
-        </li>
-        <li class="ring__st" style="--i:3">
-          <span class="ring__ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="3.2"/><path d="M3.5 19c.6-3 2.8-4.8 5.5-4.8s4.9 1.8 5.5 4.8"/><circle cx="16.8" cy="10" r="2.6"/><path d="M16 14.6c2.6.2 4.2 1.8 4.8 4.4"/></svg></span>
-          <h3>Build the audience</h3>
-        </li>
-        <li class="ring__st" style="--i:4">
-          <span class="ring__ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M10 8.5 16 12l-6 3.5z"/></svg></span>
-          <h3>Activate</h3>
-        </li>
-        <li class="ring__st" style="--i:5">
-          <span class="ring__ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 20v-6"/><path d="M11 20V8"/><path d="M17 20v-9"/><path d="M3 20h18"/></svg></span>
-          <h3>Read delivery</h3>
-          <p>Your delivery beside their spend, labeled, never blurred.</p>
-        </li>
-        <li class="ring__st" style="--i:6">
-          <span class="ring__ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 1 1-2.3-5.6"/><path d="M20 3v4h-4"/></svg></span>
-          <h3>Re-field and optimize</h3>
-          <p>Ask again, read what moved, shift the buy.</p>
-        </li>
-      </ol>
-      <p class="ring__center">The question keeps running.<br><b>The buy shifts while it
-        still matters.</b><span class="ring__walkcap" aria-hidden="true">the moving highlight is the loop running</span></p>
-      <p class="ring__again" aria-hidden="true">&#8635; and back to step 1: the question returns to the field.</p>
-    </div>
-
-    <!-- Ruling 52c: the demoted card detail, small print, definitions intact. -->
-    <p class="small ring__fine">The details: activation lands as a private-marketplace
-      deal ID, your seat or ours, and managed service is optional, never required. Run
-      the media through us or share your delivery report; either way your delivery
-      prints labeled advertiser-reported, so your numbers and our detections never blur
-      into one figure. What you run stays behind the subscriber firewall; the full
-      statement, including the one rate-calibration exception, is on the
-      <a href="privacy.html">privacy page</a>.</p>
-  </div>
-</section>
 
 <!-- ============ TWO WAYS IN ============ -->
-<section class="section" id="offerings">
+<section class="section section--tint" id="offerings">
   <div class="wrap">
     <div class="center" style="margin-bottom:3rem" data-rise>
       <p class="eyebrow eyebrow--plain" style="justify-content:center"><span class="folio">03</span>Two ways in</p>
