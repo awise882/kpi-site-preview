@@ -61,7 +61,7 @@
      PASS E §9: the vignette rail. Three abstracted product-motion
      vignettes — one verb each (Drill / Filter / Export), <=3 beats,
      then still. Real chrome only: the KPI title bar, the through-date
-     stamp chip and the ≈ mark render faithfully; rows and values are
+     stamp chip and the est. labels render faithfully; rows and values are
      simplified blocks with illustrative figures, so nothing on screen
      is reconstructable and nothing can go stale. Entry-triggered (IO
      adds .in-view), replayed on hover (data-replay); the base state IS
@@ -78,18 +78,19 @@
     border: 1px solid var(--rule); padding: .1rem .35rem; white-space: nowrap;
     font-variant-numeric: tabular-nums lining-nums; text-transform: none; }
   .vig__stage { position: relative; flex: 1 0 auto; }
-  .vig__stage--drill { min-height: 248px; }
+  .vig__stage--drill { min-height: 0; }
+  .vig__stage--filter { display: flex; flex-direction: column; justify-content: space-evenly; }
   .vig__count { margin: .85rem 0 0; border-top: 1px dashed var(--rule); padding-top: .6rem;
     font-family: var(--mono); font-size: .8rem; font-weight: 700; color: var(--lime-text);
     font-variant-numeric: tabular-nums lining-nums; }
   .vig__what { margin: .3rem 0 0; font-size: .84rem; line-height: 1.5; color: var(--ink-3); }
   /* the descent: three levels, each sliding from the last, ending on the stamp */
-  .vig__layer { position: absolute; left: 0; right: 24%; top: 0; background: var(--white);
+  .vig__layer { position: relative; margin-right: 24%; background: var(--white);
     border: 1px solid var(--rule); border-radius: var(--r);
     box-shadow: 0 2px 6px rgba(13,46,74,.09), 0 10px 24px rgba(13,46,74,.10);
     padding: .5rem .6rem .55rem; }
-  .vig__layer--2 { left: 12%; right: 12%; top: 56px; }
-  .vig__layer--3 { left: 24%; right: 0; top: 112px; }
+  .vig__layer--2 { margin: -10px 12% 0 12%; }
+  .vig__layer--3 { margin: -10px 0 0 24%; }
   .vig__lk { display: block; font-family: var(--label); text-transform: uppercase; letter-spacing: .1em;
     font-size: .56rem; font-weight: 700; color: var(--blue-text); margin-bottom: .25rem; }
   .vig__row { display: flex; justify-content: space-between; align-items: baseline; gap: .5rem;
@@ -119,6 +120,13 @@
     background: var(--lime); border-radius: 3px; padding: .12rem .4rem; }
   .vig__xdate { font-family: var(--mono); font-size: .62rem; color: var(--ink-2);
     font-variant-numeric: tabular-nums lining-nums; }
+  .vig__xls { width: 100%; margin-top: .45rem; border-collapse: collapse; font-size: .68rem; }
+  .vig__xls td { border: 1px solid #E4EBF1; padding: .16rem .4rem; color: var(--ink-2); }
+  .vig__xls td.num { text-align: right; font-variant-numeric: tabular-nums lining-nums; white-space: nowrap; }
+  .vig__xls .vig__xls-a1 td { font-family: var(--mono); font-size: .58rem; color: var(--ink-3); background: #FAFCFE; }
+  .vig__xls .vig__xls-h td { font-weight: 700; color: var(--navy-ink); background: #F3F7FA;
+    font-family: var(--label); text-transform: uppercase; letter-spacing: .06em; font-size: .56rem; }
+  .vig__x { margin-left: 14%; }
   .vig__desk { display: flex; align-items: baseline; justify-content: space-between; gap: .6rem;
     margin-top: .7rem; border-top: 2px solid var(--rule); padding-top: .35rem;
     font-family: var(--label); text-transform: uppercase; letter-spacing: .1em;
@@ -328,7 +336,7 @@
 
       <div class="vig" data-replay>
         <div class="vig__bar"><span>KPI&thinsp;&middot;&thinsp;Drill</span><span class="vig__stamp num">posted thru Aug 14, 2026</span></div>
-        <div class="vig__stage vig__stage--drill" role="img" aria-label="Three levels sliding open: a market, its stations, one order — ending on the posted-through stamp. The drill keeps going below what is drawn.">
+        <div class="vig__stage vig__stage--drill" role="img" aria-label="Three levels sliding open: a market, its stations — TV and radio — then one order, ending on the posted-through stamp. The drill keeps going below what is drawn.">
           <div class="vig__layer vig__b1">
             <span class="vig__lk">Level 1&thinsp;&middot;&thinsp;Market</span>
             <div class="vig__row vig__row--hit"><b>Columbus</b><span class="num">$3.6M aired</span></div>
@@ -337,6 +345,8 @@
           <div class="vig__layer vig__layer--2 vig__b2">
             <span class="vig__lk">Level 2&thinsp;&middot;&thinsp;Station</span>
             <div class="vig__row vig__row--hit"><b>WQZL</b><span class="num">$0.92M &middot; ~700 spots</span></div>
+            <div class="vig__row"><b>WOHT</b><span class="num">$0.74M &middot; ~560 spots</span></div>
+            <div class="vig__row"><b>WKVX-FM</b><span class="num">$18K &middot; radio &middot; by order</span></div>
             <span class="vig__click vig__click--2" style="right:12%;top:24px" aria-hidden="true"></span>
           </div>
           <div class="vig__layer vig__layer--3 vig__b3">
@@ -345,12 +355,12 @@
             <span class="vig__more">&#8942; the drill keeps going</span>
           </div>
         </div>
-        <p class="vig__what">The stamp rides every level.</p>
+        <p class="vig__what">The stamp rides every level. Stations mean TV and radio alike &mdash; the same drill runs the Buy Sheet.</p>
       </div>
 
       <div class="vig" data-replay>
         <div class="vig__bar"><span>KPI&thinsp;&middot;&thinsp;Filter</span><span class="vig__stamp num">posted thru Aug 14, 2026</span></div>
-        <div class="vig__stage" role="img" aria-label="Two filter chips set — race, then market — and the answer card lands carrying its date and its approximate mark.">
+        <div class="vig__stage vig__stage--filter" role="img" aria-label="Two filter chips set — race, then market — and the answer card lands carrying its date and its estimated-minimum label.">
           <div class="vig__chips vig__b1">
             <span style="position:relative"><span class="vig__chip vig__chip-unset" aria-hidden="true">Race &#9662;</span><span class="vig__chip vig__chip--set">North River Senate</span><span class="vig__click vig__click--1" style="left:34%;top:-4px" aria-hidden="true"></span></span>
             <span style="position:relative"><span class="vig__chip vig__chip-unset" aria-hidden="true">Market &#9662;</span><span class="vig__chip vig__chip--set vig__b2">Toledo</span><span class="vig__click vig__click--2" style="left:30%;top:-4px" aria-hidden="true"></span></span>
@@ -358,7 +368,7 @@
           </div>
           <div class="vig__ansr vig__b3">
             <span class="vig__lk">Streaming &amp; Digital&thinsp;&middot;&thinsp;Toledo&thinsp;&middot;&thinsp;this race</span>
-            <span class="vig__big">&asymp;$740K</span>
+            <span class="vig__big">$740K</span>
             <span class="vig__bigsub">estimated minimum&thinsp;&middot;&thinsp;est. thru Aug 7&thinsp;&middot;&thinsp;not in posted totals</span>
           </div>
         </div>
@@ -366,19 +376,24 @@
 
       <div class="vig" data-replay>
         <div class="vig__bar"><span>KPI&thinsp;&middot;&thinsp;Export</span><span class="vig__stamp num">posted thru Aug 14, 2026</span></div>
-        <div class="vig__stage" role="img" aria-label="A board exports: the XLSX card slides out with the posted-through date in its header and lands across the table.">
+        <div class="vig__stage" role="img" aria-label="A board leaves as a spreadsheet you can read: the posted-through date in row one, advertisers down the rows, aired and booked forward as separate columns, formatted like the screen.">
           <div class="vig__sheet vig__b1">
             <span class="vig__lk">Market Order Flow&thinsp;&middot;&thinsp;Columbus</span>
             <div class="vig__row"><b>6 advertisers</b><span class="num">aired&thinsp;+&thinsp;booked fwd</span></div>
-            <div class="vig__row"><span>your air marked</span><span class="num">25% share</span></div>
           </div>
           <div class="vig__x vig__b2">
-            <div class="vig__xk"><span class="vig__xtag">XLSX</span><span class="vig__xdate vig__stamp--land">posted through Aug 14, 2026&thinsp;&middot;&thinsp;in the header</span></div>
-            <div class="vig__row" style="border-top:0;margin-top:.3rem"><span>aired / booked as separate columns</span></div>
+            <div class="vig__xk"><span class="vig__xtag">XLSX</span><span class="vig__xdate vig__stamp--land">same board, now a file</span></div>
+            <table class="vig__xls" aria-hidden="true">
+              <tr class="vig__xls-a1"><td colspan="3">posted through Aug 14, 2026 &middot; Kinetiq Political Insights</td></tr>
+              <tr class="vig__xls-h"><td>Advertiser</td><td>Aired</td><td>Booked fwd</td></tr>
+              <tr><td>Nora Hale for Senate</td><td class="num">$1.24M</td><td class="num">$180K</td></tr>
+              <tr><td>Ellery for Senate</td><td class="num">$96K</td><td class="num">$520K</td></tr>
+              <tr><td>Hometown Values</td><td class="num">$348K</td><td class="num">$0</td></tr>
+            </table>
           </div>
           <div class="vig__desk vig__b3" aria-hidden="true"><span>your side of the table</span><span>their side</span></div>
         </div>
-        <p class="vig__what">The posted-through date rides row one.</p>
+        <p class="vig__what">What you see is what lands in Excel: the date in row one, aired and booked forward as separate columns.</p>
       </div>
 
     </div>
@@ -395,9 +410,8 @@
         <h2>The race that changed this week is already at the top.</h2>
       </div>
       <div>
-      <p class="lede">Every race on one screen: share of race money by side, and the
-        definitional advantage &mdash; who is writing whose story. Standard universe:
-        federal and statewide.</p>
+      <p class="lede">Every race on one screen: share of the money by side, and the
+        definitional advantage &mdash; who is writing whose story.</p>
       </div>
     </div>
     <!-- Ruling 22: shown as a cropped glimpse; the demo is the reveal. -->
@@ -452,7 +466,7 @@
         <span class="rc-scoreboard-split rc-scoreboard-split-r">R aired $9.8M&thinsp;&middot;&thinsp;booked fwd $7.8M</span>
       </div>
       <div class="rc-scoreboard-l3">
-        <span class="rc-scoreboard-split">streaming &asymp;$1.1M est. beside&thinsp;&middot;&thinsp;YouTube&thinsp;+&thinsp;premium apps&thinsp;+&thinsp;FAST&thinsp;&middot;&thinsp;never summed</span>
+        <span class="rc-scoreboard-split">streaming $1.1M est. beside&thinsp;&middot;&thinsp;YouTube&thinsp;+&thinsp;premium apps&thinsp;+&thinsp;FAST&thinsp;&middot;&thinsp;never summed</span>
       </div>
     </div>
 
@@ -738,15 +752,8 @@
       <p class="glimpse-cap">Cropped on purpose; the full grid opens in the demo.
         <a href="contact.html">Request one</a></p>
     <div class="exports">
-      <span class="exports__k">What it exports</span>
-      <span class="chip">Excel workbook</span>
-      <p class="exports__t">The race grid, aired and booked-forward as separate columns,
-        posted-through date in the sheet header.</p>
-    </div>
-    <div class="stamp">
-      <span><b>Posted through</b> Aug 21, 2026</span>
-      <span><b>Booked forward</b> ordered, not delivered, its own line</span>
-      <span><b>Channels</b> broadcast, local cable, radio &mdash; order by order</span>
+      <p class="exports__t">Leaves as an Excel workbook &mdash; aired and booked forward as
+        separate columns, the posted-through date in the header.</p>
     </div>
   </div>
 </section>
@@ -916,14 +923,8 @@
       <p class="glimpse-cap">Both sides' full case opens in the demo.
         <a href="contact.html">Request one</a></p>
     <div class="exports">
-      <span class="exports__k">What it exports</span>
-      <span class="chip">PDF brief</span><span class="chip">Excel workbook</span>
-      <p class="exports__t">The rotation grid with cut-level dates and dollars.</p>
-    </div>
-    <div class="stamp">
-      <span><b>Grain</b> creative&times;market&times;week</span>
-      <span><b>Artifacts</b> creative&thinsp;+&thinsp;AI transcript, one click away</span>
-      <span><b>Posted through</b> stamped on the grid</span>
+      <p class="exports__t">Leaves as a PDF brief or Excel workbook &mdash; the rotation grid
+        with cut-level dates and dollars, tape and AI transcript one click away.</p>
     </div>
   </div>
 </section>
@@ -1370,15 +1371,9 @@ tbody th.rc-buysheet-m{font-weight:400;background:transparent}
 </style>
     </div>
     <div class="exports">
-      <span class="exports__k">What it exports</span>
-      <span class="chip">Excel workbook</span><span class="chip">Buyer-format sheet</span>
-      <p class="exports__t">One market block per sheet, points and dollars station by station,
-        posted-through date in the header row.</p>
-    </div>
-    <div class="stamp">
-      <span><b>Sources</b> orders on file, FCC-verified where the filing exists</span>
-      <span><b>Grain</b> broadcast at station&times;week&times;daypart; cable and radio at market&times;week, dollars only</span>
-      <span><b>Clocks</b> every screen posts its own stamp: scoreboard posted through 8.21, matrix 8.12, this export 8.30</span>
+      <p class="exports__t">Leaves as an Excel workbook or the buyer-format sheet &mdash; points
+        and dollars station by station, the date in row one. Orders on file, FCC-verified
+        where the filing exists.</p>
     </div>
   </div>
 </section>
@@ -1566,14 +1561,9 @@ tbody th.rc-buysheet-m{font-weight:400;background:transparent}
       <p class="glimpse-cap">Tape and full market list open in the demo.
         <a href="contact.html">Request one</a></p>
     <div class="exports">
-      <span class="exports__k">What it exports</span>
-      <span class="chip">Clip link</span><span class="chip">Transcript</span><span class="chip">Excel workbook</span>
-      <p class="exports__t">A clip with transcript and detection detail; the detail table to
-        Excel or print sheet.</p>
-    </div>
-    <div class="stamp">
-      <span><b>Depth</b> a decade+ of history</span>
-      <span><b>Artifacts</b> tape, transcript, air dates, market list</span>
+      <p class="exports__t">Every detection leaves with its tape, transcript, air dates and
+        market list &mdash; the detail table to Excel or a print sheet. A decade+ of history
+        behind it.</p>
     </div>
     <p class="tbl-note">Screens show synthetic and illustrative races. Client data never
       appears in marketing material.</p>
@@ -1639,7 +1629,7 @@ tbody th.rc-buysheet-m{font-weight:400;background:transparent}
       <tr><th class="rc-pitchlist-adv" scope="row">Nora Hale for Senate <i>(D)</i></th><td class="rc-pitchlist-n">$2.10M</td><td class="rc-pitchlist-und" colspan="2">undetected in the covered service set</td></tr>
       <tr><th class="rc-pitchlist-adv" scope="row">Ellery for Senate <i>(R)</i></th><td class="rc-pitchlist-n">$1.74M</td><td class="rc-pitchlist-und" colspan="2">undetected in the covered service set</td></tr>
       <tr><th class="rc-pitchlist-adv" scope="row">Granite State Forward PAC</th><td class="rc-pitchlist-n">$1.42M</td><td class="rc-pitchlist-und" colspan="2">undetected in the covered service set</td></tr>
-      <tr><th class="rc-pitchlist-adv" scope="row">Heartland Priorities PAC</th><td class="rc-pitchlist-n">$0 posted</td><td class="rc-pitchlist-n">&asymp;$780K</td><td class="rc-pitchlist-mix">premium apps 55%&thinsp;&middot;&thinsp;FAST 45%</td></tr>
+      <tr><th class="rc-pitchlist-adv" scope="row">Heartland Priorities PAC</th><td class="rc-pitchlist-n">$0 posted</td><td class="rc-pitchlist-n">$780K</td><td class="rc-pitchlist-mix">premium apps 55%&thinsp;&middot;&thinsp;FAST 45%</td></tr>
       <tr class="rc-pitchlist-more"><td>+&thinsp;2 more advertisers in this state</td><td class="rc-pitchlist-n">$1.05M</td><td class="rc-pitchlist-und" colspan="2"></td></tr>
     </tbody>
   </table>
@@ -1947,7 +1937,7 @@ tbody th.rc-buysheet-m{font-weight:400;background:transparent}
       booked before a single spot aired; the case against Hale added $410K behind &ldquo;A rule they wrote,&rdquo;
       tested in the spring and dropped. Aired money: $5.5M across three markets, posted
       channels.</p>
-    <p class="rc-bdemo-receipt">Posted through Aug 14, 2026; posted channels: broadcast, local cable, radio; streaming caught floor $960K beside, estimated minimum &asymp;$1.58M in the product</p>
+    <p class="rc-bdemo-receipt">Posted through Aug 14, 2026; posted channels: broadcast, local cable, radio; streaming caught floor $960K beside, estimated minimum $1.58M in the product</p>
   </div>
   <div class="rc-bdemo-a" id="bd-a2" role="tabpanel" aria-labelledby="bd-q2" hidden>
     <p class="rc-bdemo-ans">Six stations: four in Columbus, two in Cleveland; WQZL holds 41%
@@ -1956,7 +1946,7 @@ tbody th.rc-buysheet-m{font-weight:400;background:transparent}
     <p class="rc-bdemo-receipt">Detections posted through Aug 12, 2026; station by station, Columbus&thinsp;+&thinsp;Cleveland; points are household points on the market universe</p>
   </div>
   <div class="rc-bdemo-a" id="bd-a3" role="tabpanel" aria-labelledby="bd-q3" hidden>
-    <p class="rc-bdemo-ans">Heartland Priorities PAC is the digital story: &asymp;$740K
+    <p class="rc-bdemo-ans">Heartland Priorities PAC is the digital story: $740K
       estimated on streaming against $0 posted on TV; both candidates sit heavy on TV,
       undetected in the covered streaming set.
       The streaming figure is a statewide estimated minimum and never sums into
@@ -2015,10 +2005,9 @@ tbody th.rc-buysheet-m{font-weight:400;background:transparent}
 }
 </style>
     </div>
-    <div class="stamp">
-      <span><b>Scope</b> creatives, placements, advertisers, races: the whole tracked dataset</span>
-      <span><b>The rule</b> answers stand on posted data and carry its through-date</span>
-      <span><b>Prompts</b> the live app's own shapes, on a synthetic race</span>
+    <div class="exports">
+      <p class="exports__t">Baker answers from the whole tracked dataset &mdash; posted data
+        only, the through-date on every answer.</p>
     </div>
   </div>
 </section>
