@@ -1271,6 +1271,7 @@ a.chip:hover { border-color: var(--blue); color: var(--navy); background: var(--
    Anchor surfaces (the alert card, the seller Market Order Flow) never use this. */
 .glimpse { position: relative; overflow: hidden; }
 .glimpse--h420 { max-height: 420px; }
+.glimpse--h560 { max-height: 560px; }
 .glimpse--h340 { max-height: 340px; }
 .glimpse--h260 { max-height: 260px; }
 .glimpse::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 110px;
