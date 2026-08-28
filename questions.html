@@ -233,8 +233,10 @@
   var list = document.getElementById('sx-basket-list');
   if (!btn || !list) return;
   btn.addEventListener('click', function () {
-    var items = [].map.call(list.querySelectorAll('li'), function (li) {
-      return '- ' + li.textContent.replace(/\s+/g, ' ').replace(/^\s*×\s*/, '').trim();
+    var items = [].map.call(list.querySelectorAll('li:not(.sx-basket-empty)'), function (li) {
+      var q = li.querySelector('.sx-basket-q'), id = li.querySelector('.sx-qid');
+      var text = (q ? q.textContent : li.textContent).replace(/\s+/g, ' ').trim();
+      return '- ' + text + (id ? ' \u00b7 ' + id.textContent.trim() : '');
     });
     var body = 'Please turn on deal IDs for these declared-audience questions:%0D%0A%0D%0A'
       + encodeURIComponent(items.join('\r\n'))
