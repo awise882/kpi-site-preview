@@ -84,4 +84,4 @@
 /* Copy/Clear read as inert until something is picked; the email path stays live. */
 .sx-basket__ft .btn:disabled { opacity: .45; cursor: not-allowed; transform: none; box-shadow: none; }
 
-@media (max-width: 999px) { .sx-side { position: static; } .sx-list { max-height: none; } }
+@media (max-width: 999px) { .sx-side { position: static; } .sx-list { max-height: 65vh; } }
