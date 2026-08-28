@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r36">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r38">
 <style>
   /* Keeps the eight-week figure legible on a phone. It scrolls inside its own
      frame instead of shrinking its labels below a readable size. */
@@ -621,97 +621,158 @@
         <p class="small fig-hint">Swipe the figure sideways to see all five steps.</p>
         <div class="fig-swipe">
         <div class="fig-scroll" tabindex="0" role="group" aria-label="The five-step weighting spine, from observed viewing to an estimated minimum, scrolls sideways">
-        <svg viewBox="0 0 1000 336" role="img" aria-labelledby="idw-t idw-d" class="fig__svg">
-          <title id="idw-t">From the glass to an estimated minimum: observed viewing, valid IDs, the household graph, representative weighting, the estimate</title>
-          <desc id="idw-d">A left-to-right spine with five stations. One: the glass,
-            observed viewing read by automatic content recognition in measured homes.
-            Two: identity resolution keeps only valid persistent household IDs, and an
-            invalid one drops out. Three: the household graph resolves the TV, the
-            streaming stick and the set-top box to a single home, counted once. Four:
-            representative weighting, drawn in dashed modeled ink, weights measured
-            homes to census benchmarks. Five: the result prints as an estimated minimum, about
-            740 thousand dollars in a dashed ring, dated and never summed into posted
-            totals. Observed ink is solid; modeled ink is dashed. No match rates,
-            panel sizes or coefficients appear anywhere.</desc>
-          <line x1="0" y1="160" x2="1000" y2="160" stroke="#DCE4EC" stroke-width="1"/>
-          <!-- unit 1: the glass -->
+        <svg viewBox="0 0 1000 284" role="img" aria-labelledby="idw-t idw-d" class="fig__svg">
+          <title id="idw-t">From the glass to an estimated minimum: one pipeline, solid ink through the household graph, dashed ink from weighting on</title>
+          <desc id="idw-d">A system diagram: one horizontal pipeline runs through five
+            uniform instrument cards. The line is solid navy through stations one to
+            three and switches to dashed green at a marked gate reading modeled ink
+            begins here. Station one, the glass: a CTV screen with a signal trace being
+            sampled — automatic content recognition in measured homes. Station two,
+            valid IDs: household ID tokens pass a gate; an invalid one is struck out.
+            Station three, the household graph: the TV, the stick and the box resolve
+            into a single ringed node marked counted once. Station four, weighted to
+            census: solid bars of measured homes extend upward in dashed ink to a
+            dashed census benchmark line. Station five, the estimated minimum: about
+            740 thousand dollars printed in a dashed plate with crop marks, dated,
+            never summed into posted totals. Dimension brackets underneath span
+            observed, solid ink across the first three stations and modeled, dashed
+            ink, printed as approximate across the last two. No match rates, panel
+            sizes or coefficients appear anywhere.</desc>
+          <text x="980" y="12" text-anchor="end" font-family="Inter, sans-serif" font-size="8" font-weight="700" letter-spacing="1.6" fill="#8FA9BE">STREAMING MEASUREMENT &middot; SYSTEM SPINE</text>
+          <!-- the pipeline rail: solid observed ink, then dashed modeled ink past the gate -->
+          <g fill="none" stroke-linecap="round">
+            <path d="M20 66 H600" stroke="#1B4F72" stroke-width="1.6"/>
+            <path d="M600 66 H980" stroke="#7CB342" stroke-width="1.6" stroke-dasharray="7 5"/>
+          </g>
+          <circle cx="200" cy="66" r="2.2" fill="#40566A"/>
+          <circle cx="400" cy="66" r="2.2" fill="#40566A"/>
+          <circle cx="800" cy="66" r="2.2" fill="#4F7A25"/>
+          <!-- station 1: the glass -->
           <g data-u="1">
-            <g fill="none" stroke="#1B4F72" stroke-width="2">
-              <rect x="40" y="72" width="120" height="70" rx="6"/>
-              <rect x="82" y="144" width="36" height="4" fill="#1B4F72" stroke="none"/>
+            <rect x="25" y="20" width="150" height="92" rx="8" fill="#FAFCFE" stroke="#C9D6E2" stroke-width="1.4"/>
+            <text x="35" y="36" font-family="Inter, sans-serif" font-size="8.5" font-weight="700" letter-spacing="1.2" fill="#8FA9BE">01</text>
+            <rect x="64" y="42" width="72" height="42" rx="3" fill="none" stroke="#1B4F72" stroke-width="1.5"/>
+            <polyline points="70,64 76,64 80,56 85,71 90,60 95,67 100,58 105,65 110,61 115,69 120,57 126,64 130,64" fill="none" stroke="#1B4F72" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
+            <g stroke="#8FA9BE" stroke-width="1.2"><path d="M76 75 v4"/><path d="M86 75 v4"/><path d="M96 75 v4"/><path d="M106 75 v4"/><path d="M116 75 v4"/><path d="M126 75 v4"/></g>
+            <rect x="80" y="90" width="40" height="3.5" rx="1.75" fill="#1B4F72"/>
+            <text x="100" y="142" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="700" letter-spacing=".9" fill="#1F6E96">THE GLASS</text>
+            <text x="100" y="158" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" letter-spacing=".4" fill="#5B7085">AUTOMATIC CONTENT RECOGNITION</text>
+            <text x="100" y="176" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#40566A">observed viewing on the CTV</text>
+            <text x="100" y="191" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#40566A">screen in measured homes,</text>
+            <text x="100" y="206" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#40566A">never a platform feed</text>
+          </g>
+          <!-- station 2: valid IDs -->
+          <g data-u="2">
+            <rect x="225" y="20" width="150" height="92" rx="8" fill="#FAFCFE" stroke="#C9D6E2" stroke-width="1.4"/>
+            <text x="235" y="36" font-family="Inter, sans-serif" font-size="8.5" font-weight="700" letter-spacing="1.2" fill="#8FA9BE">02</text>
+            <line x1="300" y1="40" x2="300" y2="104" stroke="#8FA9BE" stroke-width="1.3" stroke-dasharray="4 3"/>
+            <g fill="none" stroke="#1B4F72" stroke-width="1.5">
+              <rect x="246" y="44" width="24" height="13" rx="3"/>
+              <rect x="246" y="64" width="24" height="13" rx="3"/>
+            </g>
+            <g fill="#1B4F72"><circle cx="252" cy="50.5" r="1.6"/><circle cx="252" cy="70.5" r="1.6"/></g>
+            <g stroke="#1B4F72" stroke-width="1.2"><path d="M257 50.5 h8"/><path d="M257 70.5 h8"/></g>
+            <rect x="246" y="84" width="24" height="13" rx="3" fill="none" stroke="#9FB3C4" stroke-width="1.4" stroke-dasharray="3.5 2.5"/>
+            <g stroke="#9FB3C4" stroke-width="1.5" stroke-linecap="round"><path d="M274 87 l7 7"/><path d="M281 87 l-7 7"/></g>
+            <g fill="none" stroke="#1B4F72" stroke-width="1.5">
+              <rect x="322" y="51" width="24" height="13" rx="3"/>
+              <rect x="322" y="74" width="24" height="13" rx="3"/>
+            </g>
+            <g fill="none" stroke="#1B4F72" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M329 57.5 l3 3 6 -6"/><path d="M329 80.5 l3 3 6 -6"/>
+            </g>
+            <text x="300" y="142" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="700" letter-spacing=".9" fill="#1F6E96">VALID IDS</text>
+            <text x="300" y="158" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" letter-spacing=".4" fill="#5B7085">IDENTITY RESOLUTION</text>
+            <text x="300" y="176" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#40566A">only persistent, valid household</text>
+            <text x="300" y="191" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#40566A">IDs go forward; the invalid</text>
+            <text x="300" y="206" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#40566A">ones drop out at the gate</text>
+          </g>
+          <!-- station 3: the household graph -->
+          <g data-u="3">
+            <rect x="425" y="20" width="150" height="92" rx="8" fill="#FAFCFE" stroke="#C9D6E2" stroke-width="1.4"/>
+            <text x="435" y="36" font-family="Inter, sans-serif" font-size="8.5" font-weight="700" letter-spacing="1.2" fill="#8FA9BE">03</text>
+            <g stroke="#40566A" stroke-width="1.3">
+              <path d="M454.3 47.5 L522.8 63.7"/>
+              <path d="M448.5 68 L522 68"/>
+              <path d="M454.3 88.5 L522.8 72.3"/>
+            </g>
+            <g fill="#FAFCFE" stroke="#1B4F72" stroke-width="1.5">
+              <circle cx="450" cy="46" r="4.5"/>
+              <circle cx="444" cy="68" r="4.5"/>
+              <circle cx="450" cy="90" r="4.5"/>
+            </g>
+            <g font-family="Inter, sans-serif" font-size="8.5" fill="#5B7085">
+              <text x="459" y="41">the TV</text>
+              <text x="436" y="60" text-anchor="middle">the stick</text>
+              <text x="459" y="101">the box</text>
+            </g>
+            <circle cx="536" cy="68" r="14" fill="#FAFCFE" stroke="#1B4F72" stroke-width="1.5"/>
+            <circle cx="536" cy="68" r="3.5" fill="#1B4F72"/>
+            <text x="536" y="108" text-anchor="middle" font-family="Inter, sans-serif" font-size="7.5" font-weight="700" letter-spacing=".9" fill="#5B7085">COUNTED ONCE</text>
+            <text x="500" y="142" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="700" letter-spacing=".9" fill="#1F6E96">THE HOUSEHOLD GRAPH</text>
+            <text x="500" y="158" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" letter-spacing=".4" fill="#5B7085">IDENTITY / DEVICE GRAPH</text>
+            <text x="500" y="176" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#40566A">the TV, the stick and the box</text>
+            <text x="500" y="191" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#40566A">resolve to one home before</text>
+            <text x="500" y="206" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#40566A">anything is counted</text>
+          </g>
+          <!-- the gate: modeled ink begins -->
+          <g data-u="4">
+            <line x1="600" y1="54" x2="600" y2="78" stroke="#4F7A25" stroke-width="1.6"/>
+            <line x1="600" y1="78" x2="600" y2="118" stroke="#4F7A25" stroke-width=".9"/>
+            <text x="600" y="128" text-anchor="middle" font-family="Inter, sans-serif" font-size="7.5" font-weight="700" letter-spacing="1" fill="#4F7A25">MODELED INK BEGINS HERE</text>
+            <rect x="625" y="20" width="150" height="92" rx="8" fill="#FAFCFE" stroke="#C9D6E2" stroke-width="1.4"/>
+            <text x="635" y="36" font-family="Inter, sans-serif" font-size="8.5" font-weight="700" letter-spacing="1.2" fill="#8FA9BE">04</text>
+            <line x1="640" y1="48" x2="760" y2="48" stroke="#7CB342" stroke-width="1.5" stroke-dasharray="5 4"/>
+            <text x="760" y="41" text-anchor="end" font-family="Inter, sans-serif" font-size="7.5" font-weight="700" letter-spacing=".9" fill="#4F7A25">CENSUS BENCHMARK</text>
+            <line x1="638" y1="98" x2="762" y2="98" stroke="#C9D6E2" stroke-width="1"/>
+            <g fill="rgba(168,209,78,.13)" stroke="#7CB342" stroke-width="1.4" stroke-dasharray="3.5 3">
+              <rect x="646" y="48" width="16" height="26"/>
+              <rect x="678" y="48" width="16" height="14"/>
+              <rect x="710" y="48" width="16" height="32"/>
+              <rect x="742" y="48" width="16" height="20"/>
             </g>
             <g fill="#1B4F72">
-              <circle cx="64" cy="94" r="3.4"/><circle cx="88" cy="94" r="3.4"/><circle cx="112" cy="94" r="3.4"/><circle cx="136" cy="94" r="3.4"/>
-              <circle cx="64" cy="118" r="3.4"/><circle cx="88" cy="118" r="3.4"/><circle cx="112" cy="118" r="3.4"/><circle cx="136" cy="118" r="3.4"/>
+              <rect x="646" y="74" width="16" height="24"/>
+              <rect x="678" y="62" width="16" height="36"/>
+              <rect x="710" y="80" width="16" height="18"/>
+              <rect x="742" y="68" width="16" height="30"/>
             </g>
-            <text x="100" y="196" text-anchor="middle" font-family="Inter, sans-serif" font-size="12.5" font-weight="700" letter-spacing="1" fill="#1F6E96">THE GLASS</text>
-            <text x="100" y="212" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#5B7085">ACR</text>
-            <text x="100" y="232" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#40566A">observed viewing on the CTV</text>
-            <text x="100" y="247" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#40566A">screen in measured homes,</text>
-            <text x="100" y="262" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#40566A">never a platform feed</text>
-            <text x="100" y="286" text-anchor="middle" font-family="Inter, sans-serif" font-size="10.5" font-weight="700" fill="#0D2E4A">solid = observed</text>
+            <text x="700" y="142" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="700" letter-spacing=".9" fill="#1F6E96">WEIGHTED TO CENSUS</text>
+            <text x="700" y="158" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" letter-spacing=".4" fill="#5B7085">REPRESENTATIVE WEIGHTING</text>
+            <text x="700" y="176" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#40566A">measured homes are weighted</text>
+            <text x="700" y="191" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#40566A">to census benchmarks, so they</text>
+            <text x="700" y="206" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#40566A">stand for the homes around them</text>
           </g>
-          <!-- unit 2: valid IDs -->
-          <g data-u="2">
-            <path d="M172 107 h24" stroke="#5B7085" stroke-width="1.8"/><polygon points="196,101 208,107 196,113" fill="#5B7085"/>
-            <rect x="228" y="80" width="38" height="22" rx="4" fill="#1B4F72"/>
-            <rect x="272" y="80" width="38" height="22" rx="4" fill="#1B4F72"/>
-            <rect x="316" y="80" width="38" height="22" rx="4" fill="#1B4F72"/>
-            <g stroke="#FFFFFF" stroke-width="2"><path d="M235 88h18M235 94h12"/><path d="M279 88h18M279 94h12"/><path d="M323 88h18M323 94h12"/></g>
-            <rect x="272" y="118" width="38" height="22" rx="4" fill="none" stroke="#8FA9BE" stroke-width="1.6" stroke-dasharray="4 3"/>
-            <text x="291" y="196" text-anchor="middle" font-family="Inter, sans-serif" font-size="12.5" font-weight="700" letter-spacing="1" fill="#1F6E96">VALID IDS</text>
-            <text x="291" y="212" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#5B7085">IDENTITY RESOLUTION</text>
-            <text x="291" y="232" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#40566A">only persistent, valid household</text>
-            <text x="291" y="247" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#40566A">IDs go forward; the invalid</text>
-            <text x="291" y="262" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#40566A">ones drop out here</text>
-          </g>
-          <!-- unit 3: the household graph -->
-          <g data-u="3">
-            <path d="M366 107 h24" stroke="#5B7085" stroke-width="1.8"/><polygon points="390,101 402,107 390,113" fill="#5B7085"/>
-            <g fill="#1B4F72"><circle cx="424" cy="80" r="5"/><circle cx="418" cy="110" r="5"/><circle cx="426" cy="140" r="5"/></g>
-            <g font-family="Inter, sans-serif" font-size="9.5" fill="#5B7085">
-              <text x="436" y="76">the TV</text><text x="430" y="107">the stick</text><text x="438" y="144">the box</text>
-            </g>
-            <g stroke="#1B4F72" stroke-width="1.5"><path d="M429 82 L494 100"/><path d="M423 110 L494 108"/><path d="M431 138 L494 116"/></g>
-            <path d="M494 88 l26 -21 26 21 v42 h-52 z" fill="none" stroke="#1B4F72" stroke-width="2"/>
-            <text x="497" y="188" text-anchor="middle" font-family="Inter, sans-serif" font-size="12.5" font-weight="700" letter-spacing="1" fill="#1F6E96">THE HOUSEHOLD</text><text x="497" y="202" text-anchor="middle" font-family="Inter, sans-serif" font-size="12.5" font-weight="700" letter-spacing="1" fill="#1F6E96">GRAPH</text>
-            <text x="497" y="212" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#5B7085">IDENTITY / DEVICE GRAPH</text>
-            <text x="497" y="232" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#40566A">every device resolves to one</text>
-            <text x="497" y="247" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#40566A">home before anything is</text>
-            <text x="497" y="262" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#40566A">counted; a home counts once</text>
-          </g>
-          <!-- unit 4: representative weighting (modeled ink starts here) -->
-          <g data-u="4">
-            <path d="M560 107 h24" stroke="#5B7085" stroke-width="1.8"/><polygon points="584,101 596,107 584,113" fill="#5B7085"/>
-            <line x1="616" y1="88" x2="770" y2="88" stroke="#7CB342" stroke-width="1.6" stroke-dasharray="6 5"/>
-            <text x="774" y="91" font-family="Inter, sans-serif" font-size="9.5" fill="#4F7A25">census marks</text>
-            <g fill="rgba(168,209,78,.16)" stroke="#7CB342" stroke-width="1.8" stroke-dasharray="4 3">
-              <rect x="622" y="104" width="22" height="40"/>
-              <rect x="658" y="76" width="22" height="68"/>
-              <rect x="694" y="116" width="22" height="28"/>
-              <rect x="730" y="90" width="22" height="54"/>
-            </g>
-            <text x="688" y="188" text-anchor="middle" font-family="Inter, sans-serif" font-size="12.5" font-weight="700" letter-spacing="1" fill="#1F6E96">REPRESENTATIVE</text><text x="688" y="202" text-anchor="middle" font-family="Inter, sans-serif" font-size="12.5" font-weight="700" letter-spacing="1" fill="#1F6E96">WEIGHTING</text>
-            <text x="688" y="212" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#5B7085">WEIGHTING &middot; REPRESENTATIVENESS</text>
-            <text x="688" y="232" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#40566A">measured homes are weighted to</text>
-            <text x="688" y="247" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#40566A">census benchmarks, so they stand</text>
-            <text x="688" y="262" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#40566A">for the homes around them</text>
-            <text x="688" y="286" text-anchor="middle" font-family="Inter, sans-serif" font-size="10.5" font-weight="700" fill="#4F7A25">dashed = modeled</text>
-          </g>
-          <!-- unit 5: the estimate, printed as a floor -->
+          <!-- station 5: the estimated minimum -->
           <g data-u="5">
-            <path d="M796 107 h24" stroke="#5B7085" stroke-width="1.8"/><polygon points="820,101 832,107 820,113" fill="#5B7085"/>
-            <rect x="846" y="80" width="132" height="54" rx="7" fill="none" stroke="#7CB342" stroke-width="2" stroke-dasharray="7 5"/>
-            <text x="912" y="114" text-anchor="middle" font-family="Inter, sans-serif" font-size="22" font-weight="700" fill="#0D2E4A">&asymp;$740K</text>
-            <text x="912" y="188" text-anchor="middle" font-family="Inter, sans-serif" font-size="12.5" font-weight="700" letter-spacing="1" fill="#1F6E96">THE ESTIMATED</text><text x="912" y="202" text-anchor="middle" font-family="Inter, sans-serif" font-size="12.5" font-weight="700" letter-spacing="1" fill="#1F6E96">MINIMUM</text>
-            <text x="912" y="214" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#5B7085">READ AS AT LEAST THIS MUCH</text>
-            <text x="912" y="232" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#40566A">dollars calibrated on real</text>
-            <text x="912" y="247" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#40566A">invoices, erring low; printed &asymp;,</text>
-            <text x="912" y="262" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#40566A">dated, never summed into</text>
-            <text x="912" y="277" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#40566A">a posted total</text>
+            <rect x="825" y="20" width="150" height="92" rx="8" fill="#FAFCFE" stroke="#C9D6E2" stroke-width="1.4"/>
+            <text x="835" y="36" font-family="Inter, sans-serif" font-size="8.5" font-weight="700" letter-spacing="1.2" fill="#8FA9BE">05</text>
+            <g fill="none" stroke="#8FA9BE" stroke-width="1.1">
+              <path d="M835 48 V41 H842"/><path d="M965 48 V41 H958"/>
+              <path d="M835 84 V91 H842"/><path d="M965 84 V91 H958"/>
+            </g>
+            <rect x="840" y="46" width="120" height="40" rx="6" fill="rgba(168,209,78,.06)" stroke="#7CB342" stroke-width="1.7" stroke-dasharray="6 4"/>
+            <text x="900" y="73" text-anchor="middle" font-family="Inter, sans-serif" font-size="19" font-weight="700" fill="#0D2E4A">&asymp;$740K</text>
+            <text x="900" y="103" text-anchor="middle" font-family="Inter, sans-serif" font-size="7.5" font-weight="700" letter-spacing=".9" fill="#4F7A25">DATED &middot; NEVER SUMMED IN</text>
+            <text x="900" y="142" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="700" letter-spacing=".9" fill="#1F6E96">THE ESTIMATED MINIMUM</text>
+            <text x="900" y="158" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" letter-spacing=".4" fill="#5B7085">READ AS AT LEAST THIS MUCH</text>
+            <text x="900" y="176" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#40566A">calibrated on real invoices,</text>
+            <text x="900" y="191" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#40566A">erring low; printed &asymp;, dated,</text>
+            <text x="900" y="206" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#40566A">never summed into a posted total</text>
           </g>
+          <!-- dimension brackets + footnote -->
           <g data-u="6">
-            <text x="40" y="318" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#14232F">Observed and modeled never share an ink. What is deliberately not on this figure: match rates, panel sizes, model coefficients. Ask us the hard version on a call.</text>
+            <g stroke="#40566A" stroke-width="1">
+              <path d="M25 238 H230"/><path d="M370 238 H575"/>
+              <path d="M25 232 V244"/><path d="M575 232 V244"/>
+            </g>
+            <text x="300" y="241.5" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" font-weight="700" letter-spacing="1" fill="#40566A">OBSERVED &middot; SOLID INK</text>
+            <g stroke="#4F7A25" stroke-width="1">
+              <path d="M625 238 H688" stroke-dasharray="4 3"/><path d="M912 238 H975" stroke-dasharray="4 3"/>
+              <path d="M625 232 V244"/><path d="M975 232 V244"/>
+            </g>
+            <text x="800" y="241.5" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" font-weight="700" letter-spacing="1" fill="#4F7A25">MODELED &middot; DASHED INK &middot; PRINTED &asymp;</text>
+            <text x="500" y="272" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#14232F">Deliberately not on this figure: match rates, panel sizes, model coefficients &mdash; ask for the hard version on a call.</text>
           </g>
         </svg>
         </div>
@@ -1227,6 +1288,7 @@
           <li><a href="monitoring.html">Monitoring</a></li>
           <li><a href="week.html">For buyers &amp; sellers</a></li>
           <li><a href="polling.html">Real-time polling</a></li>
+          <li><a href="questions.html">The question library</a></li>
         </ul>
       </div>
       <div>
@@ -1255,6 +1317,6 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r26"></script>
+<script src="assets/js/site.js?v=r38"></script>
 </body>
 </html>
