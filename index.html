@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r38">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r39">
 <style>
   /* Light, centered, airy hero, matching the live site: the announcement banner
      sits flush under the nav, then the display headline in the green-to-teal
@@ -133,8 +133,8 @@
       <img src="assets/img/kpi-logo.png" alt="Kinetiq Political Insights">
     </a>
     <ul class="nav__links">
-      <li><a href="platform.html">Platform</a></li>
       <li><a href="monitoring.html">Monitoring</a></li>
+      <li><a href="platform.html">Platform</a></li>
       <li><a href="week.html">Buyers &amp; Sellers</a></li>
       <li><a href="polling.html">Polling</a></li>
       <li><a href="methodology.html">Methodology</a></li>
@@ -234,24 +234,51 @@
       </a>
     </div>
 
-    <div class="grid grid--2 mt2" data-rise>
-      <div class="card card--flag">
-        <p class="card__k">The hard part</p>
-        <h3>Streaming, tracked without a paper trail.</h3>
-        <p class="small">Streaming buys never touch a public file. We capture the ads on
-          the screen itself &mdash; tape, platform, transcript &mdash; and the dollars
-          print as at least this much. <a href="monitoring.html#streaming-spend">How we
-          track streaming &rarr;</a></p>
-      </div>
-      <div class="card card--flag">
-        <p class="card__k">The public file</p>
-        <h3>FCC rate intelligence.</h3>
-        <p class="small">What a spot costs, station by station, daypart by daypart, read
-          from public FCC filings &mdash; the rate call starts here.
-          <a href="monitoring.html#fcc-rates">See rates in your market &rarr;</a></p>
-      </div>
+  </div>
+</section>
+
+<!-- ============ THE TWO FLAGSHIPS (IA pass 1: the owner's named draw-attention
+     items get their own dark band instead of text cards under the doors) ============ -->
+<section class="section section--tight spotband" data-rise>
+  <div class="wrap">
+    <p class="spotband__k">The two hardest problems in the category</p>
+    <div class="spotband__grid">
+      <a class="spot" href="monitoring.html#streaming-spend">
+        <span class="spot__emblem" aria-hidden="true">
+          <svg viewBox="0 0 64 64" fill="none">
+            <rect x="8" y="14" width="48" height="30" rx="3" stroke="#BDD2E2" stroke-width="1.5"/>
+            <polyline points="13,29 18,29 21,23 25,34 29,26 33,31 37,24 41,30 45,27 49,32 51,29" stroke="#A8D14E" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
+            <g stroke="#5B7E9C" stroke-width="1.2"><path d="M18 38v3"/><path d="M26 38v3"/><path d="M34 38v3"/><path d="M42 38v3"/><path d="M50 38v3"/></g>
+            <rect x="22" y="49" width="20" height="2.5" rx="1.25" fill="#BDD2E2"/>
+          </svg>
+        </span>
+        <span class="spot__body">
+          <b>Streaming, tracked without a paper trail.</b>
+          <span>Streaming buys never touch a public file. We capture the ads on the screen
+            itself &mdash; tape, platform, transcript &mdash; and the dollars print as at
+            least this much.</span>
+          <i>How we track streaming &rarr;</i>
+        </span>
+      </a>
+      <a class="spot" href="monitoring.html#fcc-rates">
+        <span class="spot__emblem" aria-hidden="true">
+          <svg viewBox="0 0 64 64" fill="none">
+            <path d="M17 8 h24 l9 9 v39 h-33 z" stroke="#BDD2E2" stroke-width="1.5" stroke-linejoin="round"/>
+            <path d="M41 8 v9 h9" stroke="#BDD2E2" stroke-width="1.5" stroke-linejoin="round"/>
+            <g stroke="#5B7E9C" stroke-width="1.5"><path d="M23 26 h12"/><path d="M23 34 h12"/><path d="M23 42 h12"/></g>
+            <g stroke="#A8D14E" stroke-width="1.5"><path d="M39 26 h4"/><path d="M39 34 h4"/><path d="M39 42 h4"/></g>
+            <path d="M23 49 l3 3 5.5 -6" stroke="#A8D14E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <span class="spot__body">
+          <b>FCC rate intelligence.</b>
+          <span>What a spot costs, station by station, daypart by daypart, read from public
+            FCC filings &mdash; the rate call starts here.</span>
+          <i>See rates in your market &rarr;</i>
+        </span>
+      </a>
     </div>
-    <p class="small center mt2">And the standards under all of it:
+    <p class="small center spotband__std">And the standards under all of it:
       <a href="methodology.html">how we count</a>.</p>
   </div>
 </section>
@@ -367,8 +394,8 @@
       <div>
         <h4>Platform</h4>
         <ul>
-          <li><a href="platform.html">The platform</a></li>
           <li><a href="monitoring.html">Monitoring</a></li>
+          <li><a href="platform.html">The platform</a></li>
           <li><a href="week.html">For buyers &amp; sellers</a></li>
           <li><a href="polling.html">Real-time polling</a></li>
           <li><a href="questions.html">The question library</a></li>
@@ -400,6 +427,6 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r38"></script>
+<script src="assets/js/site.js?v=r39"></script>
 </body>
 </html>
