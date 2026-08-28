@@ -1,4 +1,4 @@
-@import url("fonts.css?v=r40");
+@import url("fonts.css?v=r45");
 
 /* ==========================================================================
    Kinetiq Political Insights - site design system
@@ -556,6 +556,12 @@ p .num, .lede .num, .hero-banner .num { white-space: nowrap; }
 .fig__svg { width: 100%; height: auto; display: block; }
 .fig__cap { font-size: .82rem; line-height: 1.5; color: var(--ink-3); margin-top: .8rem; max-width: 78ch; }
 .fig--light { background: var(--white); border: 1px solid var(--rule); border-radius: var(--r-lg); padding: 1.1rem 1.1rem .9rem; }
+/* Wide figures scroll inside their own frame on a phone instead of shrinking
+   their labels below a readable size. */
+.fig-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.fig-scroll:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
+.fig-hint { display: none; color: var(--ink-3); margin: 0 0 .5rem; }
+@media (max-width: 860px) { .fig-hint { display: block; } }
 .fig--light .fig__cap { padding-top: .2rem; }
 
 /* ---------- tables ---------- */
