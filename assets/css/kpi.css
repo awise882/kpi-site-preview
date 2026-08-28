@@ -1676,6 +1676,10 @@ a.chip:hover { border-color: var(--blue); color: var(--navy); background: var(--
   .ac__scrub span { display: block; height: 100%; background: var(--lime); }
   .ac__framenote { margin: .5rem 0 0; font-size: .76rem; color: var(--ink-3); }
   .ac__actions { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1.1rem; }
+  @media (min-width: 700px) {
+    .ac__actions { flex-wrap: nowrap; }
+    .ac__actions .btn { flex: 1 1 0; justify-content: center; white-space: nowrap; padding-inline: .7rem; }
+  }
   .ac__actions .btn { cursor: default; }
   .ac__dl { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .95rem 1.6rem; margin: 1.3rem 0 0; border-top: 1px solid var(--rule-soft); padding-top: 1.2rem; }
   .ac__dl > div { min-width: 0; }

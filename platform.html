@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r46">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r56">
 <style>
   /* The "what it exports" line that closes each app section. */
   .exports { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; margin-top: 1.3rem; }
@@ -167,7 +167,7 @@
           <a href="monitoring.html#streaming-spend">Streaming &amp; Digital</a>
           <a href="monitoring.html#cross-screen">Impressions across screens</a>
           <a href="monitoring.html#fcc-rates">FCC rate intelligence</a>
-          <a href="monitoring.html#weighting">How we count</a>
+          <a href="monitoring.html#cross-screen">How we count</a>
         </div>
       </li>
       <li class="nav__item"><a href="platform.html" aria-current="page">Platform</a>
@@ -213,9 +213,9 @@
     <div>
       <p class="eyebrow">The platform</p>
       <h1>Every detection, every order, every market. <em>One platform.</em></h1>
-      <p class="lede">One dataset underneath: every airing detected, every order on file,
-        every filed rate. On top, a battle-tested portal shaped to the races you
-        run &mdash; and every read exports.</p>
+      <p class="lede">One dataset underneath, posting in near real time: every airing
+        detected, every order on file, every filed rate. On top, a battle-tested portal
+        shaped to the races you run &mdash; and every read exports.</p>
       <div class="btn-row mt1">
         <a class="btn btn--lime btn--lg" href="contact.html">Request a demo</a>
       </div>
@@ -269,7 +269,7 @@
         in all 210 markets; Streaming &amp; Digital beside them, never blended in.</p>
     </div>
     <figure class="app-shot" data-rise>
-      <img width="2000" height="1285" src="assets/apps/app-buy-sheet.webp?v=r55" loading="lazy"
+      <img width="2000" height="1285" src="assets/apps/app-buy-sheet.webp?v=r56" loading="lazy"
         alt="The Buy Sheet: markets down, weeks across, broadcast, cable and radio rows &mdash; and the Streaming &amp; Digital line riding beside the totals, statewide and estimated, never summed in. Synthetic data.">
       <figcaption>Markets down, weeks across, channel rows &middot; the Buy Sheet &middot; synthetic data</figcaption>
     </figure>
@@ -355,7 +355,7 @@
             <span class="vig__more">&#8942; the drill keeps going</span>
           </div>
         </div>
-        <p class="vig__what">The stamp rides every level. Stations mean TV and radio alike &mdash; the same drill runs the Buy Sheet.</p>
+        <p class="vig__what">The date stamp holds at every level. Stations mean TV and radio alike &mdash; the same drill runs the Buy Sheet.</p>
       </div>
 
       <div class="vig" data-replay>
@@ -411,7 +411,8 @@
       </div>
       <div>
       <p class="lede">Every race on one screen: share of the money by side, and the
-        definitional advantage &mdash; who is writing whose story.</p>
+        definitional advantage &mdash; who is writing whose story. The board moves as
+        the day&rsquo;s detections post.</p>
       </div>
     </div>
     <!-- Ruling 22: shown as a cropped glimpse; the demo is the reveal. -->
@@ -751,10 +752,6 @@
     </div>
       <p class="glimpse-cap">Cropped on purpose; the full grid opens in the demo.
         <a href="contact.html">Request one</a></p>
-    <div class="exports">
-      <p class="exports__t">Leaves as an Excel workbook &mdash; aired and booked forward as
-        separate columns, the posted-through date in the header.</p>
-    </div>
   </div>
 </section>
 
@@ -922,10 +919,6 @@
     </div>
       <p class="glimpse-cap">Both sides' full case opens in the demo.
         <a href="contact.html">Request one</a></p>
-    <div class="exports">
-      <p class="exports__t">Leaves as a PDF brief or Excel workbook &mdash; the rotation grid
-        with cut-level dates and dollars, tape and AI transcript one click away.</p>
-    </div>
   </div>
 </section>
 
@@ -1056,8 +1049,11 @@
             <td class="rc-buysheet-p"></td><td class="rc-buysheet-d">$125.9k</td>
           </tr>
           <tr class="rc-buysheet-beside">
-            <th class="rc-buysheet-m" scope="row">Streaming &amp; Digital<i>beside, never in</i></th>
-            <td class="rc-buysheet-beside-t" colspan="8">statewide &middot; $84K est. thru Aug 7 &middot; estimated from measured viewing &middot; rides beside the grid, never summed into the totals above</td>
+            <th class="rc-buysheet-m" scope="row">Streaming &amp; Digital<i>statewide est. &middot; not in totals</i></th>
+            <td class="rc-buysheet-p"></td><td class="rc-buysheet-d rc-buysheet-f">$84.0k</td>
+            <td class="rc-buysheet-p"></td><td class="rc-buysheet-d">$8.1k</td>
+            <td class="rc-buysheet-p"></td><td class="rc-buysheet-d">$8.6k</td>
+            <td class="rc-buysheet-p"></td><td class="rc-buysheet-d">$7.9k</td>
           </tr>
         </tbody>
       </table>
@@ -1209,7 +1205,8 @@ tbody th.rc-buysheet-m{font-weight:400;background:transparent}
 .rc-buysheet-beside th,.rc-buysheet-beside td{border-top:2px dashed #7CB342;background:rgba(168,209,78,.08);padding:calc(3px*var(--rcbs-s,1))}
 .rc-buysheet-beside .rc-buysheet-m{color:#4F7A25;font-weight:700}
 .rc-buysheet-beside .rc-buysheet-m i{color:#4F7A25;opacity:.75}
-.rc-buysheet-beside-t{font-size:calc(6.2px*var(--rcbs-s,1));color:#4F7A25;font-weight:600;text-align:left;letter-spacing:.02em}
+.rc-buysheet-beside .rc-buysheet-d{color:#4F7A25;font-weight:700}
+.rc-buysheet-beside .rc-buysheet-m i{color:#4F7A25;opacity:.8}
 .rc-buysheet-tot .rc-buysheet-m i{color:rgba(255,255,255,.75)}
 .rc-buysheet-tot .rc-buysheet-p,.rc-buysheet-tot .rc-buysheet-d{color:#FFFFFF;border-left:1px solid rgba(255,255,255,.18);font-size:calc(6.5px*var(--rcbs-s,1))}
 .rc-buysheet-tot .rc-buysheet-bc{background:var(--rcbs-rep)}
@@ -1252,137 +1249,14 @@ tbody th.rc-buysheet-m{font-weight:400;background:transparent}
       <p class="glimpse-cap">The full market block opens in the demo.
         <a href="contact.html">Request one</a></p>
 
-    <h3 class="mt3">One market block, from the export</h3>
-    <p class="dek">Millbrook Committee (D), household points, posted through Aug 30, 2026 &mdash; another advertiser from the same export.
-      Illustrative figures; the shape is real.</p>
-    <p class="small tbl-hint">Swipe sideways for every column.</p>
-    <div class="tbl-scroll" tabindex="0" role="group" aria-label="One market block, as it comes out of the export, scrolls sideways">
-      <table class="tbl">
-        <thead>
-          <tr>
-            <th>Market</th>
-            <th>Channel&thinsp;·&thinsp;daypart</th>
-            <th class="n">Aug 10<br>pts posted</th>
-            <th class="n">Aug 17<br>pts posted</th>
-            <th class="n">Aug 24<br>pts posted</th>
-            <th class="n">Aug 31<br>pts booked</th>
-            <th class="n">Sep 7<br>pts booked</th>
-            <th class="n">Flight pts</th>
-            <th class="n">Flight $</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><th scope="row" class="row-h">Columbus</th><td>Broadcast</td><td class="n">412</td><td class="n">468</td><td class="n">501</td><td class="n">480</td><td class="n">480</td><td class="n">2,341</td><td class="n">$612,400</td></tr>
-          <tr><th scope="row" class="row-h">Columbus&thinsp;·&thinsp;WQZL</th><td>Broadcast&thinsp;·&thinsp;PR</td><td class="n">96</td><td class="n">104</td><td class="n">112</td><td class="n">108</td><td class="n">108</td><td class="n">528</td><td class="n">$214,600</td></tr>
-          <tr><th scope="row" class="row-h">Columbus&thinsp;·&thinsp;WQZL</th><td>Broadcast&thinsp;·&thinsp;EM</td><td class="n">44</td><td class="n">52</td><td class="n">55</td><td class="n">52</td><td class="n">52</td><td class="n">255</td><td class="n">$38,200</td></tr>
-          <tr><th scope="row" class="row-h">Columbus&thinsp;·&thinsp;WXQK</th><td>Broadcast&thinsp;·&thinsp;LN</td><td class="n">38</td><td class="n">41</td><td class="n">44</td><td class="n">42</td><td class="n">42</td><td class="n">207</td><td class="n">$47,900</td></tr>
-          <tr><td colspan="9" style="font-size:.78rem;color:var(--ink-3)">+&thinsp;11 more station&times;daypart rows in the export</td></tr>
-          <!-- O3 gate (owner): cable/radio export grain shown as market × week dollars, matching the
-               Grain stamp below; O3 must confirm that grain before deploy. -->
-          <tr><th scope="row" class="row-h">Columbus</th><td>Local cable</td><td class="n">$16.4K</td><td class="n">$17.8K</td><td class="n">$18.2K</td><td class="n">$16.5K</td><td class="n">$16.0K</td><td class="n"></td><td class="n">$84,900</td></tr>
-          <tr><th scope="row" class="row-h">Columbus</th><td>Radio</td><td class="n">$6.1K</td><td class="n">$6.4K</td><td class="n">$6.6K</td><td class="n">$6.2K</td><td class="n">$5.9K</td><td class="n"></td><td class="n">$31,200</td></tr>
-          <tr><th scope="row" class="row-h">Cleveland</th><td>Broadcast</td><td class="n">388</td><td class="n">402</td><td class="n">455</td><td class="n">440</td><td class="n">0</td><td class="n">1,685</td><td class="n">$498,700</td></tr>
-          <tr><th scope="row" class="row-h">Cleveland</th><td>Local cable</td><td class="n">$11.2K</td><td class="n">$11.8K</td><td class="n">$12.1K</td><td class="n">$11.4K</td><td class="n">$10.8K</td><td class="n"></td><td class="n">$57,300</td></tr>
-          <tr><th scope="row" class="row-h">Toledo</th><td>Broadcast</td><td class="n">210</td><td class="n">228</td><td class="n">241</td><td class="n">0</td><td class="n">0</td><td class="n">679</td><td class="n">$141,800</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="tbl-note">Illustrative figures. Market rows are channel totals; station rows under them
-      are what the export carries&mdash;three of fourteen shown, daypart in the channel column (EM early
-      morning, PR prime, LN late news). Points: household points on the market universe, demo named
-      in the header when applied (A35+ above); they total across weeks within market and channel,
-      never across markets (that needs population weighting). Flight totals are committed&mdash;posted
-      plus booked; dollars sum across the block. Zero in a booked week&thinsp;=&thinsp;no order on file, not an
-      unmonitored market. Cable and radio have no rated universe: weekly dollars only, collected at
-      system, week, daypart, shipped at market&times;week.</p>
-    <h3 class="mt3">The drill: which station got the money</h3>
-    <p class="dek">The sheet pivots to station share: one glance down a column rules a
-      station out.</p>
-    <div class="rc-stage">
-<div class="rc rc-stnshare">
-  <div class="rc-stnshare-toolbar">
-    <span class="rc-stnshare-brand"><span class="rc-stnshare-dot"></span>KPI&thinsp;&middot;&thinsp;Buy Sheet&thinsp;&middot;&thinsp;Station Share</span>
-    <span class="rc-stnshare-stamp">Shares of booked, filed $&thinsp;&middot;&thinsp;posted thru Aug 30, 2026</span>
-  </div>
-  <p class="small tbl-hint">Swipe sideways for every column.</p>
-  <div class="rc-stnshare-scroll" tabindex="0" role="group" aria-label="Station share pivot: market, affiliate and station rows against advertiser columns, scrolls sideways">
-  <table class="rc-stnshare-grid">
-    <thead>
-      <tr>
-        <th scope="col">DMA&thinsp;&middot;&thinsp;Aff&thinsp;&middot;&thinsp;Station</th>
-        <th class="rc-stnshare-hn" scope="col">Stateline Action Fund <i>(R)</i><span>share of buy</span></th>
-        <th class="rc-stnshare-hn" scope="col">Fairhaven Committee <i>(D)</i><span>share of buy</span></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr class="rc-stnshare-band"><th scope="row">COLUMBUS&thinsp;&middot;&thinsp;BROADCAST</th><td class="rc-stnshare-n rc-stnshare-f34">64%</td><td class="rc-stnshare-n rc-stnshare-f24">49%</td></tr>
-      <tr><th scope="row"><i>ABC</i> WQZL</th><td class="rc-stnshare-n rc-stnshare-f24">28%</td><td class="rc-stnshare-n rc-stnshare-f18">19%</td></tr>
-      <tr><th scope="row"><i>NBC</i> WXQK</th><td class="rc-stnshare-n rc-stnshare-f16">20%</td><td class="rc-stnshare-n rc-stnshare-f10">11%</td></tr>
-      <tr><th scope="row"><i>CBS</i> WKMD</th><td class="rc-stnshare-n rc-stnshare-f10">11%</td><td class="rc-stnshare-n rc-stnshare-f14">14%</td></tr>
-      <tr><th scope="row"><i>FOX</i> WTLF</th><td class="rc-stnshare-n">5%</td><td class="rc-stnshare-n">5%</td></tr>
-      <tr class="rc-stnshare-more"><td colspan="3">Cleveland and Toledo band the same way below</td></tr>
-    </tbody>
-  </table>
-  </div>
-  <div class="rc-stnshare-foot">
-    <p>Real market; synthetic stations, advertisers, shares. Cell&thinsp;=&thinsp;the station's share of that advertiser's flight dollars, green scale; band row&thinsp;=&thinsp;market broadcast share. Columbus, all channels: 72% of Stateline's, 54% of Fairhaven's, reconciling to the buy sheet above</p>
-    <p>Station rows are broadcast only; cable has no stations (market&times;week); radio's FM/AM mirror reads from order-level collection, exporting at market&times;week. Columns do not sum to 100%</p>
-    <p>Filterable by cycle, state, race, advertiser and market</p>
-  </div>
-</div>
-<style>
-.rc-stnshare{
-  --rcss-navy:#1B4F72; --rcss-navy2:#0D2E4A; --rcss-navy3:#08243B;
-  --rcss-lime:#A8D14E; --rcss-mute:var(--mock-dim, #5A6B7C); --rcss-line:var(--mock-rule, #D9E2E9); --rcss-track:#EBF1F5;
-  --rcss-mono:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  box-sizing:border-box; width:100%; max-width:560px; overflow:hidden;
-  background:#fff; border:1px solid var(--rcss-line); border-top:3px solid var(--rcss-navy2);
-  padding:10px 12px 9px; font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif; color:var(--rcss-navy2);
-  box-shadow:0 1px 3px rgba(8,36,59,.08);
-}
-.rc-stnshare *,.rc-stnshare *::before,.rc-stnshare *::after{box-sizing:border-box;min-width:0;margin:0;padding:0}
-.rc-stnshare .rc-stnshare-toolbar{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
-.rc-stnshare .rc-stnshare-brand{display:inline-flex;align-items:center;gap:5px;font-size:8.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--rcss-navy);white-space:nowrap}
-.rc-stnshare .rc-stnshare-dot{width:6px;height:6px;border-radius:50%;background:var(--rcss-lime);flex:0 0 auto}
-.rc-stnshare .rc-stnshare-stamp{font-family:var(--rcss-mono);font-variant-numeric:tabular-nums lining-nums;font-size:8.5px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--rcss-mute);border:1px solid var(--rcss-line);padding:2px 5px;white-space:nowrap}
-.rc-stnshare .rc-stnshare-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:8px}
-.rc-stnshare .rc-stnshare-grid{width:100%;min-width:340px;border-collapse:collapse}
-.rc-stnshare .rc-stnshare-grid thead th{font-family:var(--rcss-mono);font-size:8.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--rcss-navy);text-align:left;padding:2px 5px 3px;border-bottom:1px solid var(--rcss-line);white-space:nowrap;vertical-align:bottom}
-.rc-stnshare .rc-stnshare-grid thead th i{font-style:normal;color:var(--rcss-mute)}
-.rc-stnshare .rc-stnshare-grid thead th span{display:block;font-weight:500;letter-spacing:.06em;color:var(--rcss-mute)}
-.rc-stnshare .rc-stnshare-hn{text-align:right}
-.rc-stnshare .rc-stnshare-grid td,.rc-stnshare .rc-stnshare-grid tbody th{font-size:9.5px;font-weight:500;color:var(--rcss-navy3);padding:4px 5px;border-bottom:1px solid var(--rcss-track);white-space:nowrap;text-align:left}
-.rc-stnshare .rc-stnshare-grid tbody th i{font-style:normal;font-family:var(--rcss-mono);font-size:8.5px;font-weight:600;letter-spacing:.06em;color:var(--rcss-mute);margin-right:4px}
-.rc-stnshare .rc-stnshare-n{font-family:var(--rcss-mono);font-variant-numeric:tabular-nums lining-nums;font-weight:600;text-align:right}
-.rc-stnshare .rc-stnshare-band th,.rc-stnshare .rc-stnshare-band td{background:rgba(13,46,74,.06);font-weight:700;font-family:var(--rcss-mono);font-size:8.5px;letter-spacing:.06em}
-.rc-stnshare .rc-stnshare-band .rc-stnshare-n{font-size:9.5px}
-/* Share-scale fills: lime at fixed alpha steps, one class per step (no inline styles).
-   td-qualified and placed after the band rule so the fill wins on the band row too. */
-.rc-stnshare td.rc-stnshare-f34{background:rgba(168,209,78,.34)}
-.rc-stnshare td.rc-stnshare-f24{background:rgba(168,209,78,.24)}
-.rc-stnshare td.rc-stnshare-f18{background:rgba(168,209,78,.18)}
-.rc-stnshare td.rc-stnshare-f16{background:rgba(168,209,78,.16)}
-.rc-stnshare td.rc-stnshare-f14{background:rgba(168,209,78,.14)}
-.rc-stnshare td.rc-stnshare-f10{background:rgba(168,209,78,.10)}
-.rc-stnshare .rc-stnshare-more td{color:var(--rcss-mute);font-family:var(--rcss-mono);font-size:8.5px;white-space:normal}
-.rc-stnshare .rc-stnshare-foot{margin-top:7px;border-top:1px solid var(--rcss-line);padding-top:5px}
-.rc-stnshare .rc-stnshare-foot p{font-size:9px;line-height:1.45;color:var(--rcss-mute)}
-.rc-stnshare .tbl-hint{font-size:9px;line-height:1.4;margin:6px 0 0}
-@media (min-width:1024px){
-  .rc-stnshare{max-width:640px}
-  .rc-stnshare .rc-stnshare-grid thead th{font-size:8.5px}
-  .rc-stnshare .rc-stnshare-grid td,.rc-stnshare .rc-stnshare-grid tbody th{font-size:11px;padding:5px 6px}
-  .rc-stnshare .rc-stnshare-band th,.rc-stnshare .rc-stnshare-band td{font-size:9.5px}
-  .rc-stnshare .rc-stnshare-more td{font-size:8.5px}
-  .rc-stnshare .rc-stnshare-foot p{font-size:10px}
-}
-</style>
-    </div>
-    <div class="exports">
-      <p class="exports__t">Leaves as an Excel workbook or the buyer-format sheet &mdash; points
-        and dollars station by station, the date in row one. Orders on file, FCC-verified
-        where the filing exists.</p>
-    </div>
+        <h3 class="mt3">The drill: which station got the money</h3>
+    <p class="dek">Click the market and the stations spill out &mdash; share of the flight,
+      dollars, and the day&rsquo;s postings landing in near real time.</p>
+    <figure class="app-shot" data-rise>
+      <img width="2400" height="1218" src="assets/apps/app-drill-in.webp?v=r56" loading="lazy"
+        alt="The drill-in: the Columbus market row opened into its stations, share of the flight and dollars per station, with the day's posted orders updating in near real time. Synthetic data.">
+      <figcaption>Market &#8594; station &#8594; order, with the day&rsquo;s postings landing as they file &middot; synthetic data</figcaption>
+    </figure>
   </div>
 </section>
 
@@ -1397,7 +1271,8 @@ tbody th.rc-buysheet-m{font-weight:400;background:transparent}
       <div>
       <p class="lede">A new ad drops and the first question is what it says, the second
         is where it is running, the third is how much weight is behind it. All three
-        answer in the same place, with no request queue in between.</p>
+        answer in the same place, on boards that move as detections post through the
+        day &mdash; no request queue in between.</p>
       <ul class="small">
         <li>Every spot: tape, AI transcript, first and last detection, market list, points</li>
         <li>Filter by advertiser, party, team, on-air status and flight window</li>
@@ -1568,11 +1443,6 @@ tbody th.rc-buysheet-m{font-weight:400;background:transparent}
     </div>
       <p class="glimpse-cap">Tape and full market list open in the demo.
         <a href="contact.html">Request one</a></p>
-    <div class="exports">
-      <p class="exports__t">Every detection leaves with its tape, transcript, air dates and
-        market list &mdash; the detail table to Excel or a print sheet. A decade+ of history
-        behind it.</p>
-    </div>
     <p class="tbl-note">Screens show synthetic and illustrative races. Client data never
       appears in marketing material.</p>
   </div>
@@ -1810,6 +1680,17 @@ tbody th.rc-buysheet-m{font-weight:400;background:transparent}
         posted-through date attached. Preferred credit: "Kinetiq Political Insights, data
         posted through [date]."</p>
   </div>
+
+      <h3 class="mt3">The agency book</h3>
+      <p class="dek">Every agency placing political money in your state &mdash; filed dollars
+        beside what is on your air, and the gap that says how much more you should be
+        getting. The names to call ride behind the subscription.</p>
+      <figure class="app-shot" data-rise>
+        <img width="2400" height="1255" src="assets/apps/app-agency-book.webp?v=r56" loading="lazy"
+          alt="The agency book: agencies placing political money in the state, filed dollars, what runs on your air, your share of each book, and the contact column blurred until it unlocks. Synthetic data.">
+        <figcaption>Filed dollars, agency by agency &middot; the contact column unlocks on request &middot; synthetic agencies, illustrative dollars</figcaption>
+      </figure>
+
 </section>
 
 
@@ -2013,10 +1894,6 @@ tbody th.rc-buysheet-m{font-weight:400;background:transparent}
 }
 </style>
     </div>
-    <div class="exports">
-      <p class="exports__t">Baker answers from the whole tracked dataset &mdash; posted data
-        only, the through-date on every answer.</p>
-    </div>
   </div>
 </section>
 
@@ -2031,7 +1908,7 @@ tbody th.rc-buysheet-m{font-weight:400;background:transparent}
     <h2>Bring a race you already know.</h2>
     <p class="lede" style="margin-inline:auto">If the read does not match what you lived, you
       will know in five minutes. Prefer reading first?
-      <a href="monitoring.html#weighting">How we count</a>.</p>
+      <a href="monitoring.html#cross-screen">How we count</a>.</p>
     <div class="btn-row mt2" style="justify-content:center">
       <a class="btn btn--lime btn--lg" href="contact.html">Request a demo</a>
       <a class="btn btn--outline btn--lg" href="mailto:info@kpipolitical.com">Talk to us</a>
@@ -2062,7 +1939,7 @@ tbody th.rc-buysheet-m{font-weight:400;background:transparent}
       <div>
         <h4>Proof</h4>
         <ul>
-          <li><a href="monitoring.html#weighting">How we count</a></li>
+          <li><a href="monitoring.html#cross-screen">How we count</a></li>
           <li><a href="index.html#press">Press coverage</a></li>
         </ul>
       </div>
