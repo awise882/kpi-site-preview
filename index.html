@@ -9,7 +9,7 @@
 <meta property="og:description" content="Political ad intelligence across every screen. About 1.5 million ad airings detected a day across all ad categories, all 210 media markets, 9 years of history.">
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-mark.png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r31">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r33">
 <style>
   /* Light, centered, airy hero, matching the live site: the announcement banner
      sits flush under the nav, then the display headline in the green-to-teal
@@ -74,6 +74,12 @@
     font-size: .92rem; font-weight: 700; color: var(--ink-3); text-decoration: none; }
   .press-strip a:hover { color: var(--navy); }
   .press-card { display: block; text-decoration: none; color: inherit; }
+  /* r33: each door leads with the product itself. Real screens, synthetic data. */
+  .press-card__shot { margin: 0 0 1rem; border: 1px solid var(--rule); border-radius: 10px;
+    overflow: hidden; aspect-ratio: 16 / 9.4; background: var(--paper); }
+  .press-card__shot img { width: 100%; height: 100%; object-fit: cover; object-position: left top; }
+  .press-card__shot--chip { display: grid; place-items: center; background: var(--navy-deep); }
+  .press-card__shot--chip svg { width: 88%; height: auto; }
   .press-card h3 { font-size: 1.06rem; }
   .press-card:hover h3 { color: var(--navy); }
   .press-card .press-card__go { font-size: .85rem; font-weight: 600; color: var(--blue-text); }
@@ -193,15 +199,6 @@
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 9l7 7 7-7"/></svg>
   </div>
 
-  <!-- The detection strip: one morning of monitoring, standing still. Nothing here moves. -->
-  <div class="dstrip" role="group" aria-label="A sample week of detections, synthetic">
-    <div class="wrap dstrip__in">
-      <span class="dstrip__i dstrip__i--lbl"><b>On the wire, one week sampled</b> synthetic sample</span>
-      <span class="dstrip__i"><span class="t num">6:14 AM</span> WQZL, Columbus <b>new :30 detected</b> Citizens for Fair Elections</span>
-      <span class="dstrip__i"><span class="t num">7:02 AM</span> WZQV, Cleveland <b>order posted, $84K</b> Granite State Forward PAC</span>
-      <span class="dstrip__i dstrip__i--wide"><span class="t num">7:15 AM</span> streaming <b>new :30 caught</b> Heartland Priorities PAC</span>
-    </div>
-  </div>
 </header>
 
 
@@ -216,34 +213,44 @@
     </div>
     <div class="grid grid--2" data-rise>
       <a class="card card--flag press-card" href="monitoring.html">
+        <figure class="press-card__shot"><img src="assets/apps/app-creative-explorer.webp" loading="lazy"
+          style="object-position:left 32%"
+          alt="The Creative Explorer: every detected ad with its dollars, points and air dates. Synthetic data."></figure>
         <p class="card__k">Monitoring</p>
         <h3>Political ads, caught as they air.</h3>
-        <p class="small">TV, cable, radio and streaming, in every market. When a new spot
-          launches &mdash; even streaming-only &mdash; the alert lands in your inbox with
-          the tape and the transcript.</p>
+        <p class="small">TV, cable, radio and streaming, in every market &mdash; the alert
+          lands with the tape and the transcript.</p>
         <span class="press-card__go">What we monitor &rarr;</span>
       </a>
       <a class="card card--flag press-card" href="week.html">
+        <figure class="press-card__shot"><img src="assets/apps/app-buy-sheet.webp" loading="lazy"
+          alt="The Buy Sheet: markets down, weeks across, station grain. Synthetic data."></figure>
         <p class="card__k">For buyers &amp; sellers</p>
         <h3>One week, from both sides of the table.</h3>
-        <p class="small">Buyers read the race: who is up, where, saying what. Sellers read
-          the market: whose money is in it, who is missing from your books, and who to
+        <p class="small">Buyers read the race. Sellers read the market &mdash; and who to
           call first.</p>
         <span class="press-card__go">Walk the week &rarr;</span>
       </a>
       <a class="card card--flag press-card" href="polling.html">
+        <figure class="press-card__shot press-card__shot--chip" aria-hidden="true"><svg viewBox="0 0 252 156">
+          <defs><pattern id="doorGrid" x="3" y="3" width="6" height="6" patternUnits="userSpaceOnUse"><rect width="3" height="3" fill="rgba(255,255,255,.08)"/></pattern></defs>
+          <rect x="3" y="3" width="246" height="150" fill="url(#doorGrid)"/>
+          <path d="M192 24h3v3h-3zM30 102h3v3h-3zM60 96h3v3h-3zM114 150h3v3h-3zM234 84h3v3h-3zM222 108h3v3h-3zM48 24h3v3h-3zM48 6h3v3h-3zM168 66h3v3h-3zM18 12h3v3h-3zM126 90h3v3h-3zM48 120h3v3h-3zM18 42h3v3h-3zM48 90h3v3h-3zM114 12h3v3h-3zM30 72h3v3h-3zM18 6h3v3h-3zM246 126h3v3h-3zM114 36h3v3h-3zM204 108h3v3h-3zM90 30h3v3h-3zM210 66h3v3h-3zM180 42h3v3h-3zM120 90h3v3h-3zM60 36h3v3h-3zM18 48h3v3h-3zM108 138h3v3h-3zM234 42h3v3h-3zM90 36h3v3h-3zM246 12h3v3h-3zM6 42h3v3h-3zM126 96h3v3h-3zM36 126h3v3h-3zM168 42h3v3h-3zM24 150h3v3h-3zM48 132h3v3h-3zM54 30h3v3h-3zM114 42h3v3h-3zM126 42h3v3h-3zM108 132h3v3h-3zM30 138h3v3h-3zM102 120h3v3h-3zM120 126h3v3h-3zM96 12h3v3h-3zM150 96h3v3h-3zM102 18h3v3h-3zM18 18h3v3h-3zM24 102h3v3h-3zM228 30h3v3h-3zM204 144h3v3h-3zM36 90h3v3h-3zM6 150h3v3h-3zM24 90h3v3h-3zM150 84h3v3h-3zM42 54h3v3h-3zM54 36h3v3h-3zM42 150h3v3h-3zM240 114h3v3h-3zM24 42h3v3h-3zM210 54h3v3h-3zM36 78h3v3h-3zM66 84h3v3h-3zM30 90h3v3h-3zM168 90h3v3h-3zM144 114h3v3h-3zM180 54h3v3h-3zM24 72h3v3h-3zM228 60h3v3h-3zM18 78h3v3h-3zM102 24h3v3h-3zM6 126h3v3h-3zM18 84h3v3h-3zM222 36h3v3h-3zM72 24h3v3h-3zM222 102h3v3h-3zM96 144h3v3h-3zM78 6h3v3h-3zM120 24h3v3h-3zM234 114h3v3h-3zM90 48h3v3h-3zM132 6h3v3h-3zM120 150h3v3h-3zM30 132h3v3h-3zM6 66h3v3h-3zM42 90h3v3h-3zM90 90h3v3h-3zM30 144h3v3h-3zM132 48h3v3h-3zM6 30h3v3h-3zM78 48h3v3h-3zM66 144h3v3h-3zM156 144h3v3h-3z" fill="#BDD2E2"/>
+          <path d="M42 102h3v3h-3zM186 6h3v3h-3zM96 66h3v3h-3zM12 24h3v3h-3zM114 90h3v3h-3zM72 66h3v3h-3zM216 120h3v3h-3z" fill="#A8D14E"/>
+        </svg></figure>
         <p class="card__k">Real-time polling</p>
         <h3>The poll that never closes.</h3>
-        <p class="small">10,000+ questions always in the field, over a million answers a
-          day. Build the audience from what people actually said, and buy against it in
-          the seat you already use.</p>
+        <p class="small">10,000+ questions always in the field. Build the audience from
+          what people actually said.</p>
         <span class="press-card__go">Ask a question &rarr;</span>
       </a>
       <a class="card card--flag press-card" href="platform.html">
+        <figure class="press-card__shot"><img src="assets/apps/app-scoreboard.webp" loading="lazy"
+          alt="The Scoreboard: every race with money in it, share of race money by side. Synthetic data."></figure>
         <p class="card__k">The platform</p>
         <h3>Six screens, and every read exports.</h3>
-        <p class="small">Scoreboard, Buy Sheet, Creative Explorer and the rest. Every
-          figure carries the date it stands on, and it carries it into the export.</p>
+        <p class="small">Scoreboard, Buy Sheet, Creative Explorer and the rest &mdash;
+          every figure dated, every read exports.</p>
         <span class="press-card__go">See the screens &rarr;</span>
       </a>
     </div>
@@ -288,11 +295,6 @@
       <div class="stat"><div class="stat__v">210</div><div class="stat__l">U.S. media markets, all of them</div></div>
       <div class="stat"><div class="stat__v">9 yrs</div><div class="stat__l">Of history under every trend</div></div>
     </div>
-    <div class="stamp"><b>The fine print</b> Scale figures as of August 2026. The daily airings count covers all ad categories on the monitoring network, not political alone. The channel count is TV; radio is tracked through placed orders; where none exist, dollars from caught airings, labeled. Spend is FCC-verified where a filing exists.</div>
-
-    <p class="small center mt3 band-note">Two rules under every number: money that ran and
-      money that is booked never blend, and every estimate says it is an estimate. The full
-      discipline is on the <a href="methodology.html">methodology page</a>.</p>
     <div class="btn-row mt2" style="justify-content:center">
       <a class="btn btn--lime" href="contact.html">Request a demo</a>
     </div>
@@ -437,8 +439,7 @@
         </g>
       </svg>
       <p class="mxt__cap">Every lit cell is an answer somebody actually gave &mdash;
-        declared, not inferred; the lime cells landed today, out of 1M+ answers a day.
-        Consumer attributes ride all 165M profiles under the grid.
+        declared, not inferred; the lime cells landed today.
         <a href="polling.html#matrix">See the matrix at scale &#8594;</a></p>
     </div>
 
@@ -448,8 +449,6 @@
     <div class="btn-row mt2" style="justify-content:center">
       <a class="btn btn--navy" href="polling.html">See Real-Time Polling</a>
     </div>
-    <div class="stamp mt2" style="justify-content:center"><b>Source</b> Question, answers-per-day and
-      profile counts are CivicScience partner-published figures, as of August 2026.</div>
   </div>
 </section>
 

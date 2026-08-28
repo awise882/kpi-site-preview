@@ -52,10 +52,12 @@
   --rep-soft: #EBC8CC;
 
   /* --- type --- */
-  /* --display: the display face is the same Inter as body (serif retired 2026-08-21). */
-  --display: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  /* r33 type system (owner: "not loving the fonts", 8/27): editorial serif for
+     the big statements, condensed caps for labels, Inter for reading, mono for
+     numbers. Serif returns at display size only — h1/h2 — never in body text. */
+  --display: 'Source Serif 4', Georgia, 'Times New Roman', serif;
   --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --label: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --label: 'Barlow Condensed', 'Arial Narrow', 'Inter', sans-serif;
   --mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
 
   /* --- space + shape --- */
@@ -92,8 +94,12 @@ body {
 }
 img, svg, video { max-width: 100%; height: auto; display: block; }
 h1, h2, h3, h4 { font-family: var(--sans); font-weight: 800; line-height: 1.08; letter-spacing: -.022em; margin: 0 0 .5em; text-wrap: balance; }
-h1 { font-size: clamp(2.75rem, 7.2vw, 6.25rem); font-weight: 900; letter-spacing: -.035em; line-height: 1.0; }
-h2 { font-size: clamp(2rem, 4vw, 3.3rem); letter-spacing: -.028em; }
+/* The serif carries only one weight (400): display sizes give it presence,
+   and nothing inside h1/h2 may ask for bold — synthesis stays off. */
+h1, h2 { font-family: var(--display); font-weight: 400; font-synthesis-weight: none; }
+h1 { font-size: clamp(2.9rem, 7.2vw, 6.1rem); letter-spacing: -.018em; line-height: 1.02; }
+h2 { font-size: clamp(2.05rem, 4vw, 3.35rem); letter-spacing: -.014em; line-height: 1.1; }
+h1 b, h1 strong, h2 b, h2 strong { font-weight: 400; }
 /* Light-ground display type reads navy-deep; dark-section and hero overrides
    below carry higher specificity and still win. */
 h1, h2 { color: var(--navy-deep); }
@@ -180,7 +186,7 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 2.5rem 0; }
 
 /* ---------- type helpers ---------- */
 .eyebrow {
-  font-family: var(--label); font-weight: 600; font-size: .74rem;
+  font-family: var(--label); font-weight: 600; font-size: .84rem;
   letter-spacing: .17em; text-transform: uppercase; color: var(--blue-text);
   margin: 0 0 .7rem; display: flex; align-items: center; gap: .6rem;
 }
@@ -193,9 +199,9 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 2.5rem 0; }
 .num { font-family: var(--mono); font-variant-numeric: tabular-nums lining-nums; font-feature-settings: "tnum" 1; }
 /* R6 (item 17): inline-mono figures inside running copy never break mid-phrase. */
 p .num, .lede .num, .hero-banner .num { white-space: nowrap; }
-.caps { font-family: var(--label); text-transform: uppercase; letter-spacing: .1em; font-weight: 600; font-size: .92em; }
+.caps { font-family: var(--label); text-transform: uppercase; letter-spacing: .1em; font-weight: 600; font-size: 1em; }
 .serif-accent {
-  font-style: normal; font-weight: 800;
+  font-style: italic; font-weight: 400;
   background: linear-gradient(92deg, var(--blue) 0%, var(--teal) 100%);
   -webkit-background-clip: text; background-clip: text; color: transparent;
 }
@@ -409,7 +415,7 @@ p .num, .lede .num, .hero-banner .num { white-space: nowrap; }
 @media (max-width: 560px) {
   .stat__v { font-size: clamp(1.35rem, 7vw, 2.5rem); }
 }
-.stat__l { font-family: var(--label); text-transform: uppercase; letter-spacing: .1em; font-size: .69rem; font-weight: 600; color: var(--ink-3); margin-top: .35rem; line-height: 1.25; }
+.stat__l { font-family: var(--label); text-transform: uppercase; letter-spacing: .1em; font-size: .78rem; font-weight: 600; color: var(--ink-3); margin-top: .35rem; line-height: 1.25; }
 .stat__s { font-size: .78rem; color: var(--ink-3); margin-top: .3rem; line-height: 1.35; }
 
 /* ---------- the honesty stamp: the component no competitor ships ---------- */
@@ -433,7 +439,7 @@ p .num, .lede .num, .hero-banner .num { white-space: nowrap; }
 .card:hover { border-color: color-mix(in srgb, var(--blue) 40%, var(--rule)); box-shadow: var(--shadow); transform: translateY(-3px); }
 .card--flag:hover { border-top-color: var(--lime-dark); }
 .card h3 { margin-bottom: .45rem; }
-.card__k { font-family: var(--label); text-transform: uppercase; letter-spacing: .1em; font-size: .7rem; font-weight: 600; color: var(--blue-text); margin-bottom: .55rem; }
+.card__k { font-family: var(--label); text-transform: uppercase; letter-spacing: .1em; font-size: .8rem; font-weight: 600; color: var(--blue-text); margin-bottom: .55rem; }
 .card__n { font-family: var(--mono); font-weight: 700; font-size: 1.85rem; color: var(--navy); line-height: 1; letter-spacing: -.02em; }
 .card--link { text-decoration: none; color: inherit; display: block; transition: border-color 400ms var(--spring), box-shadow 400ms var(--spring), transform 400ms var(--spring); }
 .card--link:hover { border-color: var(--blue); box-shadow: var(--shadow-lg); transform: translateY(-6px); color: inherit; }
@@ -883,7 +889,7 @@ a.chip:hover { border-color: var(--blue); color: var(--navy); background: var(--
    are the AA text pair (--lime-text to #007A8A). Static, square, JS-free. */
 .ht .ht__l {
   display: inline-block; position: relative; isolation: isolate;
-  color: var(--navy-deep); font-weight: 900;
+  color: var(--navy-deep); font-weight: 400;
 }
 /* Paths pass (2026-08-26, art director): the offset echo under the display
    lines is gone. Flat, confident type is the standard; the gradient accent
@@ -1635,7 +1641,7 @@ a.chip:hover { border-color: var(--blue); color: var(--navy); background: var(--
       /* Pass E §8.6: the walk gets its 4vh runway (was 230vh), with an
          establish plateau before the pan starts and a release plateau after
          it lands, so the stage sets before anything moves. */
-      .tl__scroller { height: 390vh; view-timeline: --tlv block; }
+      .tl__scroller { height: 280vh; view-timeline: --tlv block; }
       .tl__pin { position: sticky; top: 84px; overflow: hidden; container-type: inline-size; }
       .tl__cal { overflow: visible; width: max-content;
         animation: tl-pan linear both; animation-timeline: --tlv;
@@ -1785,7 +1791,7 @@ a.chip:hover { border-color: var(--blue); color: var(--navy); background: var(--
      of the next scene: the scroller ends before the wk-links row. */
   @supports (animation-timeline: view()) {
     @media (min-width: 1000px) and (prefers-reduced-motion: no-preference) {
-      .ct__scroller { height: 420vh; view-timeline: --ctv block; }
+      .ct__scroller { height: 300vh; view-timeline: --ctv block; }
       .ct__pin { position: sticky; top: 88px; }
       /* The pinned frame must seat whole in the viewport: the map yields width
          on short screens rather than pushing the caption below the fold. */
@@ -1841,7 +1847,7 @@ a.chip:hover { border-color: var(--blue); color: var(--navy); background: var(--
   @keyframes sd-pop { from { opacity: 0; transform: scale(.35); } to { opacity: 1; transform: scale(1); } }
   @supports (animation-timeline: view()) {
     @media (min-width: 1000px) and (prefers-reduced-motion: no-preference) {
-      .sd__scroller { height: 300vh; view-timeline: --sdv block; }
+      .sd__scroller { height: 240vh; view-timeline: --sdv block; }
       .sd__pin { position: sticky; top: 88px; }
       .sd__svg { max-width: min(760px, calc((100vh - 330px) * 1.393)); margin-inline: auto; }
       .sd__hint { display: block; }
@@ -1873,3 +1879,18 @@ a.chip:hover { border-color: var(--blue); color: var(--navy); background: var(--
   text-transform: uppercase; letter-spacing: .09em; font-size: .62rem; font-weight: 700;
   color: #7A5410; background: #FFF4E0; border: 1px solid #E8CF9E; border-radius: 3px;
   padding: .14rem .45rem; vertical-align: middle; }
+
+/* ==========================================================================
+   r33: real product screens (synthetic data) on the marketing pages.
+   Default crop is a 16:9 window onto the top of the screen; --tall keeps
+   more height, --natural shows the whole capture (no blank regions inside).
+   ========================================================================== */
+.app-shot { margin: 1.6rem 0 2rem; border: 1px solid var(--rule); border-radius: var(--r-lg);
+  overflow: hidden; box-shadow: var(--shadow-lg); background: var(--white); }
+.app-shot img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; object-position: left top; display: block; }
+.app-shot--tall img { aspect-ratio: 4 / 3; }
+.app-shot--natural img { aspect-ratio: auto; object-fit: contain; }
+.app-shot figcaption { padding: .55rem .95rem; font-family: var(--label); text-transform: uppercase;
+  letter-spacing: .1em; font-size: .78rem; font-weight: 600; color: var(--ink-3);
+  border-top: 1px solid var(--rule-soft); background: var(--white); }
+.app-shot--hero { margin: 0; }
