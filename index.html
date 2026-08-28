@@ -80,6 +80,11 @@
   .press-card__shot img { width: 100%; height: 100%; object-fit: cover; object-position: left top; }
   .press-card__shot--chip { display: grid; place-items: center; background: var(--navy-deep); }
   .press-card__shot--chip svg { width: 88%; height: auto; }
+  .press-card__shot { position: relative; }
+  .press-card__shot i { position: absolute; right: 6px; bottom: 6px; font-style: normal;
+    font-family: var(--label); text-transform: uppercase; letter-spacing: .09em;
+    font-size: .62rem; font-weight: 600; color: #fff; background: rgba(13,46,74,.72);
+    padding: .14rem .45rem; border-radius: 3px; }
   .press-card h3 { font-size: 1.06rem; }
   .press-card:hover h3 { color: var(--navy); }
   .press-card .press-card__go { font-size: .85rem; font-weight: 600; color: var(--blue-text); }
@@ -215,7 +220,7 @@
       <a class="card card--flag press-card" href="monitoring.html">
         <figure class="press-card__shot"><img src="assets/apps/app-creative-explorer.webp" loading="lazy"
           style="object-position:left 32%"
-          alt="The Creative Explorer: every detected ad with its dollars, points and air dates. Synthetic data."></figure>
+          alt="The Creative Explorer: every detected ad with its dollars, points and air dates. Synthetic data."><i aria-hidden="true">synthetic data</i></figure>
         <p class="card__k">Monitoring</p>
         <h3>Political ads, caught as they air.</h3>
         <p class="small">TV, cable, radio and streaming, in every market &mdash; the alert
@@ -224,7 +229,7 @@
       </a>
       <a class="card card--flag press-card" href="week.html">
         <figure class="press-card__shot"><img src="assets/apps/app-buy-sheet.webp" loading="lazy"
-          alt="The Buy Sheet: markets down, weeks across, station grain. Synthetic data."></figure>
+          alt="The Buy Sheet: markets down, weeks across, station grain. Synthetic data."><i aria-hidden="true">synthetic data</i></figure>
         <p class="card__k">For buyers &amp; sellers</p>
         <h3>One week, from both sides of the table.</h3>
         <p class="small">Buyers read the race. Sellers read the market &mdash; and who to
@@ -246,7 +251,7 @@
       </a>
       <a class="card card--flag press-card" href="platform.html">
         <figure class="press-card__shot"><img src="assets/apps/app-scoreboard.webp" loading="lazy"
-          alt="The Scoreboard: every race with money in it, share of race money by side. Synthetic data."></figure>
+          alt="The Scoreboard: every race with money in it, share of race money by side. Synthetic data."><i aria-hidden="true">synthetic data</i></figure>
         <p class="card__k">The platform</p>
         <h3>Six screens, and every read exports.</h3>
         <p class="small">Scoreboard, Buy Sheet, Creative Explorer and the rest &mdash;
