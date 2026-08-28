@@ -123,30 +123,6 @@
   /* R5: the held release date renders as a mono pill, not a bracketed slug. */
   .press-rel__date--pill { border: 1px solid var(--rule); padding: .08rem .5rem;
     text-transform: uppercase; letter-spacing: .07em; font-size: .68rem; }
-  /* ==================================================================
-     §6.5 THE SPARSE MATRIX, teaser rendition. One glance: the grid at
-     scale, cells lit where a person actually answered. Autoplays once
-     on entry (IO), then holds still; links out to the standalone.
-     Base state: fully lit. No interaction required.
-     ================================================================== */
-  .mxt { max-width: 760px; margin: 2.6rem auto 0; background: var(--white);
-    border: 1px solid var(--rule); border-radius: var(--r-lg); box-shadow: var(--shadow);
-    padding: clamp(14px, 2.2vw, 22px); }
-  .mxt__bar { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between;
-    gap: .3rem .9rem; margin-bottom: .55rem; }
-  .mxt__k { font-family: var(--label); text-transform: uppercase; letter-spacing: .13em;
-    font-size: .66rem; font-weight: 700; color: var(--navy); }
-  .mxt__svg { width: 100%; height: auto; display: block; }
-  .mxt__cap { margin: .6rem 0 0; font-size: .85rem; color: var(--ink-3); }
-  .mxt__cap a { font-weight: 600; color: var(--blue-text); }
-  /* Round-1 panel fix (CMO): the grid must never render empty — the first
-     stage is always-on ground ("yesterday's answers"); only the later waves
-     and today's cells animate in. */
-  @media (prefers-reduced-motion: no-preference) {
-    .mxt.in-view .mxt__s2 { animation: fade-in .55s ease-out .35s backwards; }
-    .mxt.in-view .mxt__s3 { animation: fade-in .55s ease-out .75s backwards; }
-    .mxt.in-view .mxt__today { animation: fade-in .5s ease-out 1.2s backwards; }
-  }
 </style>
 </head>
 <body>
@@ -218,9 +194,8 @@
     </div>
     <div class="grid grid--2" data-rise>
       <a class="card card--flag press-card" href="monitoring.html">
-        <figure class="press-card__shot"><img src="assets/apps/app-creative-explorer.webp" loading="lazy"
-          style="object-position:left 32%"
-          alt="The Creative Explorer: every detected ad with its dollars, points and air dates. Synthetic data."><i aria-hidden="true">synthetic data</i></figure>
+        <figure class="press-card__shot"><img src="assets/apps/app-digital-spend.webp" loading="lazy"
+          alt="One race's board: aired and booked money by side, every channel including streaming, estimates dated and separate. Synthetic data."><i aria-hidden="true">synthetic data</i></figure>
         <p class="card__k">Monitoring</p>
         <h3>Political ads, caught as they air.</h3>
         <p class="small">TV, cable, radio and streaming, in every market &mdash; the alert
@@ -229,7 +204,7 @@
       </a>
       <a class="card card--flag press-card" href="week.html">
         <figure class="press-card__shot"><img src="assets/apps/app-buy-sheet.webp" loading="lazy"
-          alt="The Buy Sheet: markets down, weeks across, station grain. Synthetic data."><i aria-hidden="true">synthetic data</i></figure>
+          alt="The Buy Sheet: markets down, weeks across, lane rows. Synthetic data."><i aria-hidden="true">synthetic data</i></figure>
         <p class="card__k">For buyers &amp; sellers</p>
         <h3>One week, from both sides of the table.</h3>
         <p class="small">Buyers read the race. Sellers read the market &mdash; and who to
@@ -300,6 +275,7 @@
       <div class="stat"><div class="stat__v">210</div><div class="stat__l">U.S. media markets, all of them</div></div>
       <div class="stat"><div class="stat__v">9 yrs</div><div class="stat__l">Of history under every trend</div></div>
     </div>
+    <p class="small center mt1" style="color:var(--ink-3)">Scale figures as of August 2026.</p>
     <div class="btn-row mt2" style="justify-content:center">
       <a class="btn btn--lime" href="contact.html">Request a demo</a>
     </div>
@@ -404,58 +380,6 @@
   </div>
 </section>
 
-
-<!-- ============ POLLING TEASER (r25: one glance, links out) ============ -->
-<section class="section section--band" id="targeting">
-  <div class="wrap">
-    <div class="center" style="margin-bottom:2rem">
-      <p class="eyebrow eyebrow--plain" style="justify-content:center"><span class="folio">03</span>Real-time polling</p>
-      <h2>Audiences built from poll answers, delivered where you already buy.</h2>
-    </div>
-    <!-- Pass E §6.5: the sparse-matrix teaser — one glance, autoplays once on
-         entry, then holds still (§8.5); no interaction required. The stat tiles
-         this replaces now ride as the matrix's own axis notes (CMO consolidation,
-         8/27); consumer-data breadth is the second axis note. The scroll-scale
-         rendition lives on the polling page. -->
-    <div class="mxt">
-      <div class="mxt__bar">
-        <span class="mxt__k">The declared matrix</span>
-        <span class="ct__stamp">CivicScience partnership &middot; figures as of Aug 2026</span>
-      </div>
-      <svg class="mxt__svg" viewBox="0 0 640 268" role="img" aria-labelledby="mxt-t mxt-d">
-        <title id="mxt-t">A sparse matrix: 165 million profiles by more than ten thousand questions, cells lit where a person answered</title>
-        <desc id="mxt-d">A vast grid, sampled down to a teaser. Rows are profiles, columns
-          are always-on questions. Scattered cells are lit where a person actually
-          answered that question, and a few are highlighted as answered today. Most of
-          the grid is unlit: every lit cell is declared, not inferred.</desc>
-        <defs>
-          <pattern id="mxtGrid" x="2" y="2" width="6" height="6" patternUnits="userSpaceOnUse">
-            <rect x="0" y="0" width="3" height="3" fill="#E9EFF4"/>
-          </pattern>
-        </defs>
-        <text x="44" y="16" font-family="Inter, sans-serif" font-size="10.5" font-weight="700" letter-spacing="1" fill="#1F6E96">10,000+ ALWAYS-ON QUESTIONS &#8594;</text>
-        <text transform="rotate(-90 30 140)" x="30" y="140" text-anchor="middle" font-family="Inter, sans-serif" font-size="10.5" font-weight="700" letter-spacing="1" fill="#1F6E96">165M PROFILES &#8595;</text>
-        <g transform="translate(44,28)">
-          <rect x="2" y="2" width="558" height="222" fill="url(#mxtGrid)" stroke="#DCE4EC" stroke-width="1"/>
-          <path class="mxt__s1" d="M278 44h3v3h-3zM542 212h3v3h-3zM272 74h3v3h-3zM398 50h3v3h-3zM518 146h3v3h-3zM488 14h3v3h-3zM86 80h3v3h-3zM44 218h3v3h-3zM206 194h3v3h-3zM428 110h3v3h-3zM440 86h3v3h-3zM218 20h3v3h-3zM56 140h3v3h-3zM284 182h3v3h-3zM86 158h3v3h-3zM350 32h3v3h-3zM8 212h3v3h-3zM320 122h3v3h-3zM218 176h3v3h-3zM224 14h3v3h-3zM344 50h3v3h-3zM374 218h3v3h-3zM272 182h3v3h-3zM344 212h3v3h-3zM200 200h3v3h-3zM128 20h3v3h-3zM26 176h3v3h-3zM428 26h3v3h-3zM434 32h3v3h-3zM110 104h3v3h-3zM158 170h3v3h-3zM8 200h3v3h-3zM464 146h3v3h-3zM38 110h3v3h-3zM116 110h3v3h-3zM68 38h3v3h-3zM14 98h3v3h-3zM62 134h3v3h-3zM44 158h3v3h-3zM278 188h3v3h-3zM14 200h3v3h-3zM32 128h3v3h-3zM50 44h3v3h-3zM212 68h3v3h-3zM128 158h3v3h-3zM140 164h3v3h-3zM50 98h3v3h-3zM260 122h3v3h-3zM56 80h3v3h-3zM350 8h3v3h-3zM416 122h3v3h-3zM488 8h3v3h-3zM320 194h3v3h-3zM20 38h3v3h-3zM392 92h3v3h-3zM248 8h3v3h-3zM164 170h3v3h-3zM296 26h3v3h-3zM188 26h3v3h-3zM284 68h3v3h-3zM440 62h3v3h-3zM458 110h3v3h-3zM8 80h3v3h-3zM128 104h3v3h-3zM452 194h3v3h-3zM80 218h3v3h-3zM380 68h3v3h-3zM344 92h3v3h-3zM488 44h3v3h-3zM416 104h3v3h-3zM8 62h3v3h-3zM302 158h3v3h-3zM356 62h3v3h-3zM320 158h3v3h-3zM134 68h3v3h-3zM86 38h3v3h-3zM224 164h3v3h-3z" fill="#1B4F72"/>
-          <path class="mxt__s2" d="M536 50h3v3h-3zM50 218h3v3h-3zM284 38h3v3h-3zM380 74h3v3h-3zM296 218h3v3h-3zM14 92h3v3h-3zM8 86h3v3h-3zM512 86h3v3h-3zM92 128h3v3h-3zM56 8h3v3h-3zM98 218h3v3h-3zM404 152h3v3h-3zM170 146h3v3h-3zM194 146h3v3h-3zM14 14h3v3h-3zM440 50h3v3h-3zM128 122h3v3h-3zM8 158h3v3h-3zM104 26h3v3h-3zM140 14h3v3h-3zM32 110h3v3h-3zM422 164h3v3h-3zM332 218h3v3h-3zM254 38h3v3h-3zM152 200h3v3h-3zM494 74h3v3h-3zM158 68h3v3h-3zM26 74h3v3h-3zM8 44h3v3h-3zM242 74h3v3h-3zM392 62h3v3h-3zM26 200h3v3h-3zM8 152h3v3h-3zM74 188h3v3h-3zM296 182h3v3h-3zM218 188h3v3h-3zM68 194h3v3h-3zM62 14h3v3h-3zM422 188h3v3h-3zM170 218h3v3h-3zM350 122h3v3h-3zM176 74h3v3h-3zM62 140h3v3h-3zM386 140h3v3h-3zM458 14h3v3h-3zM332 98h3v3h-3zM548 134h3v3h-3zM428 134h3v3h-3zM86 140h3v3h-3zM236 164h3v3h-3zM272 98h3v3h-3zM188 146h3v3h-3zM98 194h3v3h-3zM404 158h3v3h-3zM74 92h3v3h-3zM122 116h3v3h-3zM122 146h3v3h-3zM470 182h3v3h-3zM272 56h3v3h-3zM368 38h3v3h-3zM494 176h3v3h-3zM368 176h3v3h-3zM452 8h3v3h-3zM152 92h3v3h-3zM14 32h3v3h-3zM242 164h3v3h-3zM254 218h3v3h-3zM374 182h3v3h-3zM230 32h3v3h-3zM116 200h3v3h-3zM92 176h3v3h-3zM224 170h3v3h-3zM386 170h3v3h-3zM512 206h3v3h-3zM20 86h3v3h-3zM158 176h3v3h-3zM278 74h3v3h-3z" fill="#1B4F72"/>
-          <path class="mxt__s3" d="M500 86h3v3h-3zM8 188h3v3h-3zM470 194h3v3h-3zM140 50h3v3h-3zM284 92h3v3h-3zM464 128h3v3h-3zM44 26h3v3h-3zM38 44h3v3h-3zM242 56h3v3h-3zM386 152h3v3h-3zM176 62h3v3h-3zM398 152h3v3h-3zM428 212h3v3h-3zM32 158h3v3h-3zM332 32h3v3h-3zM296 140h3v3h-3zM356 56h3v3h-3zM458 92h3v3h-3zM8 206h3v3h-3zM134 188h3v3h-3zM236 158h3v3h-3zM512 164h3v3h-3zM404 200h3v3h-3zM164 14h3v3h-3zM152 26h3v3h-3zM44 44h3v3h-3zM188 134h3v3h-3zM512 74h3v3h-3zM476 74h3v3h-3zM32 26h3v3h-3zM476 14h3v3h-3zM20 158h3v3h-3zM392 122h3v3h-3zM494 170h3v3h-3zM188 188h3v3h-3zM182 152h3v3h-3zM446 146h3v3h-3zM182 44h3v3h-3zM266 44h3v3h-3zM404 206h3v3h-3zM344 104h3v3h-3zM38 200h3v3h-3zM158 134h3v3h-3zM554 8h3v3h-3zM470 98h3v3h-3zM464 116h3v3h-3zM32 182h3v3h-3zM254 80h3v3h-3zM326 206h3v3h-3zM488 158h3v3h-3zM218 152h3v3h-3zM62 74h3v3h-3zM554 110h3v3h-3zM530 86h3v3h-3zM44 92h3v3h-3zM380 182h3v3h-3zM8 116h3v3h-3zM50 86h3v3h-3zM26 116h3v3h-3zM188 98h3v3h-3zM44 104h3v3h-3zM56 170h3v3h-3zM68 92h3v3h-3zM128 194h3v3h-3zM356 92h3v3h-3zM554 206h3v3h-3zM122 38h3v3h-3zM158 98h3v3h-3zM188 212h3v3h-3zM56 194h3v3h-3zM32 152h3v3h-3zM440 134h3v3h-3zM290 170h3v3h-3zM92 74h3v3h-3zM194 86h3v3h-3zM374 170h3v3h-3zM542 188h3v3h-3z" fill="#1B4F72"/>
-          <path class="mxt__today" d="M14 182h3v3h-3zM428 146h3v3h-3zM242 116h3v3h-3zM92 218h3v3h-3zM386 98h3v3h-3zM80 194h3v3h-3zM428 98h3v3h-3zM296 8h3v3h-3zM44 98h3v3h-3zM254 194h3v3h-3z" fill="#7CB342"/>
-        </g>
-      </svg>
-      <p class="mxt__cap">Every lit cell is an answer somebody actually gave &mdash;
-        declared, not inferred; the lime cells landed today.
-        <a href="polling.html#matrix">See the matrix at scale &#8594;</a></p>
-    </div>
-
-    <p class="small center mt2" style="max-width:68ch;margin-inline:auto">Audiences are built with
-      <b>CivicScience</b>: every audience names the questions that built it, so you can audit
-      it before a dollar moves.</p>
-    <div class="btn-row mt2" style="justify-content:center">
-      <a class="btn btn--navy" href="polling.html">See Real-Time Polling</a>
-    </div>
-  </div>
-</section>
 
 <!-- ============ CONTACT ============ -->
 <section class="section section--mega cta-final" id="contact">
