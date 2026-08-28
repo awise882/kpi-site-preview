@@ -269,8 +269,8 @@
         in all 210 markets; Streaming &amp; Digital beside them, never blended in.</p>
     </div>
     <figure class="app-shot" data-rise>
-      <img width="2000" height="1285" src="assets/apps/app-buy-sheet.webp" loading="lazy"
-        alt="The Buy Sheet: the whole flight by side, then markets down and weeks across, with broadcast, cable and radio rows under each market. Synthetic data.">
+      <img width="2000" height="1285" src="assets/apps/app-buy-sheet.webp?v=r55" loading="lazy"
+        alt="The Buy Sheet: markets down, weeks across, broadcast, cable and radio rows &mdash; and the Streaming &amp; Digital line riding beside the totals, statewide and estimated, never summed in. Synthetic data.">
       <figcaption>Markets down, weeks across, channel rows &middot; the Buy Sheet &middot; synthetic data</figcaption>
     </figure>
     <div class="grid grid--3" data-rise>
@@ -1055,6 +1055,10 @@
             <td class="rc-buysheet-p"></td><td class="rc-buysheet-d">$156.8k</td>
             <td class="rc-buysheet-p"></td><td class="rc-buysheet-d">$125.9k</td>
           </tr>
+          <tr class="rc-buysheet-beside">
+            <th class="rc-buysheet-m" scope="row">Streaming &amp; Digital<i>beside, never in</i></th>
+            <td class="rc-buysheet-beside-t" colspan="8">statewide &middot; $84K est. thru Aug 7 &middot; estimated from measured viewing &middot; rides beside the grid, never summed into the totals above</td>
+          </tr>
         </tbody>
       </table>
       </div>
@@ -1202,6 +1206,10 @@ tbody th.rc-buysheet-m{font-weight:400;background:transparent}
 .rc-buysheet-p.rc-buysheet-bc{border-left:1px solid rgba(91,155,213,.45)}
 .rc-buysheet-tot td,.rc-buysheet-tot th{background:var(--rcbs-rep);color:#FFFFFF;font-weight:700;padding:calc(3px*var(--rcbs-s,1));border-top:1px solid var(--rcbs-rep)}
 .rc-buysheet-tot .rc-buysheet-m{color:#FFFFFF;font-size:calc(6.5px*var(--rcbs-s,1));letter-spacing:.06em;font-weight:700}
+.rc-buysheet-beside th,.rc-buysheet-beside td{border-top:2px dashed #7CB342;background:rgba(168,209,78,.08);padding:calc(3px*var(--rcbs-s,1))}
+.rc-buysheet-beside .rc-buysheet-m{color:#4F7A25;font-weight:700}
+.rc-buysheet-beside .rc-buysheet-m i{color:#4F7A25;opacity:.75}
+.rc-buysheet-beside-t{font-size:calc(6.2px*var(--rcbs-s,1));color:#4F7A25;font-weight:600;text-align:left;letter-spacing:.02em}
 .rc-buysheet-tot .rc-buysheet-m i{color:rgba(255,255,255,.75)}
 .rc-buysheet-tot .rc-buysheet-p,.rc-buysheet-tot .rc-buysheet-d{color:#FFFFFF;border-left:1px solid rgba(255,255,255,.18);font-size:calc(6.5px*var(--rcbs-s,1))}
 .rc-buysheet-tot .rc-buysheet-bc{background:var(--rcbs-rep)}
