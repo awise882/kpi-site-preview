@@ -10,8 +10,68 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r40">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r45">
 <style>
+  .fig-scroll > svg { min-width: 820px; }
+  .fig--unit .fig__svg rect, .fig--unit .fig__svg text { animation: none !important; }
+  @media (prefers-reduced-motion: no-preference) {
+    .fig--unit.in-view .fig__svg g[data-u] { animation: fade-in .55s ease-out backwards; }
+    .fig--unit.in-view .fig__svg g[data-u="3"] { animation-delay: .18s; }
+    .fig--unit.in-view .fig__svg g[data-u="4"] { animation-delay: .36s; }
+    .fig--unit.in-view .fig__svg g[data-u="5"] { animation-delay: .54s; }
+  }
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+      .fig--unit .fig__svg g[data-u], .fig--unit.in-view .fig__svg g[data-u] {
+        animation: fade-in linear both; animation-timeline: --fig;
+        animation-range: cover 0% cover 20%; animation-delay: 0s; }
+      .fig--unit .fig__svg g[data-u="3"], .fig--unit.in-view .fig__svg g[data-u="3"] { animation-range: cover 6% cover 26%; }
+      .fig--unit .fig__svg g[data-u="4"], .fig--unit.in-view .fig__svg g[data-u="4"] { animation-range: cover 12% cover 32%; }
+      .fig--unit .fig__svg g[data-u="5"], .fig--unit.in-view .fig__svg g[data-u="5"] { animation-range: cover 18% cover 38%; }
+    }
+  }
+  /* Pass E §3: the weighting spine reveals node by node — each label sets
+     before the next node draws. Same fig--unit grammar, its own stagger. */
+  @media (prefers-reduced-motion: no-preference) {
+    #weighting-fig.in-view .fig__svg g[data-u="2"] { animation-delay: .2s; }
+    #weighting-fig.in-view .fig__svg g[data-u="3"] { animation-delay: .4s; }
+    #weighting-fig.in-view .fig__svg g[data-u="4"] { animation-delay: .6s; }
+    #weighting-fig.in-view .fig__svg g[data-u="5"] { animation-delay: .8s; }
+    #weighting-fig.in-view .fig__svg g[data-u="6"] { animation-delay: 1.05s; }
+  }
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+      #weighting-fig .fig__svg g[data-u], #weighting-fig.in-view .fig__svg g[data-u] { animation-range: cover 0% cover 15%; animation-delay: 0s; }
+      #weighting-fig .fig__svg g[data-u="2"], #weighting-fig.in-view .fig__svg g[data-u="2"] { animation-range: cover 6% cover 22%; }
+      #weighting-fig .fig__svg g[data-u="3"], #weighting-fig.in-view .fig__svg g[data-u="3"] { animation-range: cover 12% cover 29%; }
+      #weighting-fig .fig__svg g[data-u="4"], #weighting-fig.in-view .fig__svg g[data-u="4"] { animation-range: cover 18% cover 36%; }
+      #weighting-fig .fig__svg g[data-u="5"], #weighting-fig.in-view .fig__svg g[data-u="5"] { animation-range: cover 24% cover 43%; }
+      #weighting-fig .fig__svg g[data-u="6"], #weighting-fig.in-view .fig__svg g[data-u="6"] { animation-range: cover 30% cover 48%; }
+    }
+  }
+  .fig-swipe { position: relative; }
+  .fig-hint { display: none; color: var(--ink-3); margin-bottom: .6rem; }
+  @media (max-width: 880px) {
+    .fig-hint { display: block; }
+    .fig-swipe::after {
+      content: ""; position: absolute; top: 0; right: 0; bottom: 0; width: 46px;
+      background: linear-gradient(to right, transparent, var(--white));
+      pointer-events: none;
+    }
+  }
+  /* Ruling 54b: the jump rail, rebuilt sticky. It rides under the site nav and
+     scrolls sideways on a phone instead of wrapping. */
+  .mrail { position: sticky; top: var(--nav-h); z-index: 50;
+    background: color-mix(in srgb, var(--white) 94%, transparent);
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    border-block: 1px solid var(--rule-soft); }
+  .mrail ul { list-style: none; display: flex; gap: .1rem; margin: 0; padding: 0;
+    overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .mrail a { display: block; white-space: nowrap; padding: .72rem .8rem;
+    font-family: var(--label); font-size: .76rem; font-weight: 650; letter-spacing: .07em;
+    text-transform: uppercase; color: var(--ink-2); text-decoration: none;
+    border-bottom: 2px solid transparent; }
+  .mrail a:hover { color: var(--navy); border-bottom-color: var(--lime-dark); }
   .hero--sub .hero-center { text-align: center; padding: clamp(56px, 8vw, 104px) 0 clamp(36px, 5vw, 60px); }
   .hero--sub .eyebrow { justify-content: center; }
   .hero--sub h1 { max-width: none; margin-inline: auto; font-size: clamp(2.6rem, 5.8vw, 4.8rem); }
@@ -36,7 +96,6 @@
       <li><a href="platform.html">Platform</a></li>
       <li><a href="week.html">Buyers &amp; Sellers</a></li>
       <li><a href="polling.html">Polling</a></li>
-      <li><a href="methodology.html">Methodology</a></li>
       <li class="nav__login"><a href="https://portal.kpipolitical.com">Log in</a></li>
     </ul>
     <div class="nav__cta">
@@ -183,7 +242,7 @@
 
         <p class="small" style="margin-top:1.2rem">How a modeled dollar gets its weight
           &mdash; step by step, in the industry's own vocabulary &mdash; is
-          <a href="methodology.html#weighting">on the methodology page</a>.</p>
+          <a href="#weighting">drawn below</a>.</p>
       </div>
 
       <!-- Paths pass: the board rides sticky beside the tall mechanism column, so
@@ -396,7 +455,7 @@
 
     <!-- Impressions across screens (Adam, 8/28): the missing beat of the streaming
          story — the same campaign lands on four screens, but reach and frequency
-         count homes, not screens. Same drawing grammar as the methodology spine:
+         count homes, not screens. Same drawing grammar as the weighting spine below:
          uniform 1.5px instruments, one rail, solid observed ink, dashed modeled ink,
          a marked gate, dimension brackets. Class-not-operand holds. -->
     <div class="mt3" id="cross-screen">
@@ -516,7 +575,191 @@
         <figcaption class="fig__cap">Impressions land per device; reach and frequency read
           at the household. The measured share is solid ink; anything weighted outward to
           the household universe prints dashed, marked &asymp;, and dated. The step-by-step
-          weighting spine is <a href="methodology.html#weighting">on the methodology page</a>.</figcaption>
+          weighting spine is <a href="#weighting">just below</a>.</figcaption>
+      </figure>
+    </div>
+
+    <div class="mt3" id="weighting">
+      <div class="split" style="margin-bottom:1.6rem">
+        <div>
+          <p class="eyebrow">The weighting spine</p>
+          <h3 style="font-size:clamp(1.35rem,2.3vw,1.75rem)">How a modeled dollar gets its weight.</h3>
+        </div>
+        <p class="lede" style="font-size:1.02rem">Five steps sit between the glass and any
+          modeled dollar we print. Each one is a class of work the industry has a name
+          for; the names below are the CIMM lexicon's, not ours.</p>
+      </div>
+      <figure class="fig fig--light fig--unit" id="weighting-fig">
+        <p class="small fig-hint">Swipe the figure sideways to see all five steps.</p>
+        <div class="fig-swipe">
+        <div class="fig-scroll" tabindex="0" role="group" aria-label="The five-step weighting spine, from observed viewing to an estimated minimum, scrolls sideways">
+        <svg viewBox="0 0 1000 284" role="img" aria-labelledby="idw-t idw-d" class="fig__svg">
+          <title id="idw-t">From the glass to an estimated minimum: one pipeline, solid ink through the household graph, dashed ink from weighting on</title>
+          <desc id="idw-d">A system diagram: one horizontal pipeline runs through five
+            uniform instrument cards. The line is solid navy through stations one to
+            three and switches to dashed green at a marked gate reading modeled ink
+            begins here. Station one, the glass: a CTV screen with a signal trace being
+            sampled — automatic content recognition across 45 million VideoAmp-measured homes. Station two,
+            valid IDs: household ID tokens pass a gate; an invalid one is struck out.
+            Station three, the household graph: the TV, the stick and the box resolve
+            into a single ringed node marked counted once. Station four, weighted to
+            census: solid bars of measured homes extend upward in dashed ink to a
+            dashed census benchmark line. Station five, the estimated minimum: about
+            740 thousand dollars printed in a dashed plate with crop marks, dated,
+            never summed into posted totals. Dimension brackets underneath span
+            observed, solid ink across the first three stations and modeled, dashed
+            ink, printed as approximate across the last two. No match rates, panel
+            rates or coefficients appear anywhere.</desc>
+          <text x="980" y="12" text-anchor="end" font-family="Inter, sans-serif" font-size="8" font-weight="700" letter-spacing="1.6" fill="#8FA9BE">STREAMING MEASUREMENT &middot; SYSTEM SPINE</text>
+          <!-- the pipeline rail: solid observed ink, then dashed modeled ink past the gate -->
+          <g fill="none" stroke-linecap="round">
+            <path d="M20 66 H600" stroke="#1B4F72" stroke-width="1.6"/>
+            <path d="M600 66 H980" stroke="#7CB342" stroke-width="1.6" stroke-dasharray="7 5"/>
+          </g>
+          <circle cx="200" cy="66" r="2.2" fill="#40566A"/>
+          <circle cx="400" cy="66" r="2.2" fill="#40566A"/>
+          <circle cx="800" cy="66" r="2.2" fill="#4F7A25"/>
+          <!-- station 1: the glass -->
+          <g data-u="1">
+            <rect x="25" y="20" width="150" height="92" rx="8" fill="#FAFCFE" stroke="#C9D6E2" stroke-width="1.4"/>
+            <text x="35" y="36" font-family="Inter, sans-serif" font-size="8.5" font-weight="700" letter-spacing="1.2" fill="#8FA9BE">01</text>
+            <rect x="64" y="42" width="72" height="42" rx="3" fill="none" stroke="#1B4F72" stroke-width="1.5"/>
+            <polyline points="70,64 76,64 80,56 85,71 90,60 95,67 100,58 105,65 110,61 115,69 120,57 126,64 130,64" fill="none" stroke="#1B4F72" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
+            <g stroke="#8FA9BE" stroke-width="1.2"><path d="M76 75 v4"/><path d="M86 75 v4"/><path d="M96 75 v4"/><path d="M106 75 v4"/><path d="M116 75 v4"/><path d="M126 75 v4"/></g>
+            <rect x="80" y="90" width="40" height="3.5" rx="1.75" fill="#1B4F72"/>
+            <text x="100" y="142" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="700" letter-spacing=".9" fill="#1F6E96">THE GLASS</text>
+            <text x="100" y="158" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" letter-spacing=".4" fill="#5B7085">AUTOMATIC CONTENT RECOGNITION</text>
+            <text x="100" y="176" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#40566A">observed viewing on the CTV</text>
+            <text x="100" y="191" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#40566A">screen in 45M homes measured</text>
+            <text x="100" y="206" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#40566A">through VideoAmp, never a feed</text>
+          </g>
+          <!-- station 2: valid IDs -->
+          <g data-u="2">
+            <rect x="225" y="20" width="150" height="92" rx="8" fill="#FAFCFE" stroke="#C9D6E2" stroke-width="1.4"/>
+            <text x="235" y="36" font-family="Inter, sans-serif" font-size="8.5" font-weight="700" letter-spacing="1.2" fill="#8FA9BE">02</text>
+            <line x1="300" y1="40" x2="300" y2="104" stroke="#8FA9BE" stroke-width="1.3" stroke-dasharray="4 3"/>
+            <g fill="none" stroke="#1B4F72" stroke-width="1.5">
+              <rect x="246" y="44" width="24" height="13" rx="3"/>
+              <rect x="246" y="64" width="24" height="13" rx="3"/>
+            </g>
+            <g fill="#1B4F72"><circle cx="252" cy="50.5" r="1.6"/><circle cx="252" cy="70.5" r="1.6"/></g>
+            <g stroke="#1B4F72" stroke-width="1.2"><path d="M257 50.5 h8"/><path d="M257 70.5 h8"/></g>
+            <rect x="246" y="84" width="24" height="13" rx="3" fill="none" stroke="#9FB3C4" stroke-width="1.4" stroke-dasharray="3.5 2.5"/>
+            <g stroke="#9FB3C4" stroke-width="1.5" stroke-linecap="round"><path d="M274 87 l7 7"/><path d="M281 87 l-7 7"/></g>
+            <g fill="none" stroke="#1B4F72" stroke-width="1.5">
+              <rect x="322" y="51" width="24" height="13" rx="3"/>
+              <rect x="322" y="74" width="24" height="13" rx="3"/>
+            </g>
+            <g fill="none" stroke="#1B4F72" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M329 57.5 l3 3 6 -6"/><path d="M329 80.5 l3 3 6 -6"/>
+            </g>
+            <text x="300" y="142" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="700" letter-spacing=".9" fill="#1F6E96">VALID IDS</text>
+            <text x="300" y="158" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" letter-spacing=".4" fill="#5B7085">IDENTITY RESOLUTION</text>
+            <text x="300" y="176" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#40566A">only persistent, valid household</text>
+            <text x="300" y="191" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#40566A">IDs go forward; the invalid</text>
+            <text x="300" y="206" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#40566A">ones drop out at the gate</text>
+          </g>
+          <!-- station 3: the household graph -->
+          <g data-u="3">
+            <rect x="425" y="20" width="150" height="92" rx="8" fill="#FAFCFE" stroke="#C9D6E2" stroke-width="1.4"/>
+            <text x="435" y="36" font-family="Inter, sans-serif" font-size="8.5" font-weight="700" letter-spacing="1.2" fill="#8FA9BE">03</text>
+            <g stroke="#40566A" stroke-width="1.3">
+              <path d="M454.3 47.5 L522.8 63.7"/>
+              <path d="M448.5 68 L522 68"/>
+              <path d="M454.3 88.5 L522.8 72.3"/>
+            </g>
+            <g fill="#FAFCFE" stroke="#1B4F72" stroke-width="1.5">
+              <circle cx="450" cy="46" r="4.5"/>
+              <circle cx="444" cy="68" r="4.5"/>
+              <circle cx="450" cy="90" r="4.5"/>
+            </g>
+            <g font-family="Inter, sans-serif" font-size="8.5" fill="#5B7085">
+              <text x="459" y="41">the TV</text>
+              <text x="436" y="60" text-anchor="middle">the stick</text>
+              <text x="459" y="101">the box</text>
+            </g>
+            <circle cx="536" cy="68" r="14" fill="#FAFCFE" stroke="#1B4F72" stroke-width="1.5"/>
+            <circle cx="536" cy="68" r="3.5" fill="#1B4F72"/>
+            <text x="536" y="108" text-anchor="middle" font-family="Inter, sans-serif" font-size="7.5" font-weight="700" letter-spacing=".9" fill="#5B7085">COUNTED ONCE</text>
+            <text x="500" y="142" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="700" letter-spacing=".9" fill="#1F6E96">THE HOUSEHOLD GRAPH</text>
+            <text x="500" y="158" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" letter-spacing=".4" fill="#5B7085">IDENTITY / DEVICE GRAPH</text>
+            <text x="500" y="176" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#40566A">the TV, the stick and the box</text>
+            <text x="500" y="191" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#40566A">resolve to one home before</text>
+            <text x="500" y="206" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#40566A">anything is counted</text>
+          </g>
+          <!-- the gate: modeled ink begins -->
+          <g data-u="4">
+            <line x1="600" y1="54" x2="600" y2="78" stroke="#4F7A25" stroke-width="1.6"/>
+            <line x1="600" y1="78" x2="600" y2="118" stroke="#4F7A25" stroke-width=".9"/>
+            <text x="600" y="128" text-anchor="middle" font-family="Inter, sans-serif" font-size="7.5" font-weight="700" letter-spacing="1" fill="#4F7A25">MODELED INK BEGINS HERE</text>
+            <rect x="625" y="20" width="150" height="92" rx="8" fill="#FAFCFE" stroke="#C9D6E2" stroke-width="1.4"/>
+            <text x="635" y="36" font-family="Inter, sans-serif" font-size="8.5" font-weight="700" letter-spacing="1.2" fill="#8FA9BE">04</text>
+            <line x1="640" y1="48" x2="760" y2="48" stroke="#7CB342" stroke-width="1.5" stroke-dasharray="5 4"/>
+            <text x="760" y="41" text-anchor="end" font-family="Inter, sans-serif" font-size="7.5" font-weight="700" letter-spacing=".9" fill="#4F7A25">CENSUS BENCHMARK</text>
+            <line x1="638" y1="98" x2="762" y2="98" stroke="#C9D6E2" stroke-width="1"/>
+            <g fill="rgba(168,209,78,.13)" stroke="#7CB342" stroke-width="1.4" stroke-dasharray="3.5 3">
+              <rect x="646" y="48" width="16" height="26"/>
+              <rect x="678" y="48" width="16" height="14"/>
+              <rect x="710" y="48" width="16" height="32"/>
+              <rect x="742" y="48" width="16" height="20"/>
+            </g>
+            <g fill="#1B4F72">
+              <rect x="646" y="74" width="16" height="24"/>
+              <rect x="678" y="62" width="16" height="36"/>
+              <rect x="710" y="80" width="16" height="18"/>
+              <rect x="742" y="68" width="16" height="30"/>
+            </g>
+            <text x="700" y="142" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="700" letter-spacing=".9" fill="#1F6E96">WEIGHTED TO CENSUS</text>
+            <text x="700" y="158" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" letter-spacing=".4" fill="#5B7085">REPRESENTATIVE WEIGHTING</text>
+            <text x="700" y="176" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#40566A">measured homes are weighted</text>
+            <text x="700" y="191" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#40566A">to census benchmarks, so they</text>
+            <text x="700" y="206" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#40566A">stand for the homes around them</text>
+          </g>
+          <!-- station 5: the estimated minimum -->
+          <g data-u="5">
+            <rect x="825" y="20" width="150" height="92" rx="8" fill="#FAFCFE" stroke="#C9D6E2" stroke-width="1.4"/>
+            <text x="835" y="36" font-family="Inter, sans-serif" font-size="8.5" font-weight="700" letter-spacing="1.2" fill="#8FA9BE">05</text>
+            <g fill="none" stroke="#8FA9BE" stroke-width="1.1">
+              <path d="M835 48 V41 H842"/><path d="M965 48 V41 H958"/>
+              <path d="M835 84 V91 H842"/><path d="M965 84 V91 H958"/>
+            </g>
+            <rect x="840" y="46" width="120" height="40" rx="6" fill="rgba(168,209,78,.06)" stroke="#7CB342" stroke-width="1.7" stroke-dasharray="6 4"/>
+            <text x="900" y="73" text-anchor="middle" font-family="Inter, sans-serif" font-size="19" font-weight="700" fill="#0D2E4A">&asymp;$740K</text>
+            <text x="900" y="103" text-anchor="middle" font-family="Inter, sans-serif" font-size="7.5" font-weight="700" letter-spacing=".9" fill="#4F7A25">DATED &middot; NEVER SUMMED IN</text>
+            <text x="900" y="142" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="700" letter-spacing=".9" fill="#1F6E96">THE ESTIMATED MINIMUM</text>
+            <text x="900" y="158" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" letter-spacing=".4" fill="#5B7085">READ AS AT LEAST THIS MUCH</text>
+            <text x="900" y="176" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#40566A">calibrated on real invoices,</text>
+            <text x="900" y="191" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#40566A">erring low; printed &asymp;, dated,</text>
+            <text x="900" y="206" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#40566A">never summed into a posted total</text>
+          </g>
+          <!-- dimension brackets + footnote -->
+          <g data-u="6">
+            <g stroke="#40566A" stroke-width="1">
+              <path d="M25 238 H230"/><path d="M370 238 H575"/>
+              <path d="M25 232 V244"/><path d="M575 232 V244"/>
+            </g>
+            <text x="300" y="241.5" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" font-weight="700" letter-spacing="1" fill="#40566A">OBSERVED &middot; SOLID INK</text>
+            <g stroke="#4F7A25" stroke-width="1">
+              <path d="M625 238 H688" stroke-dasharray="4 3"/><path d="M912 238 H975" stroke-dasharray="4 3"/>
+              <path d="M625 232 V244"/><path d="M975 232 V244"/>
+            </g>
+            <text x="800" y="241.5" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" font-weight="700" letter-spacing="1" fill="#4F7A25">MODELED &middot; DASHED INK &middot; PRINTED &asymp;</text>
+            <text x="500" y="272" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#14232F">Deliberately not on this figure: match rates and model coefficients &mdash; ask for the hard version on a call.</text>
+          </g>
+        </svg>
+        </div>
+        </div>
+        <figcaption class="fig__cap">The illustrative figure is the same &asymp;$740K the
+          week page and the vignettes carry; the spine is how any modeled streaming
+          dollar is made.
+          Term vocabulary conforms to the CIMM/ARF Lexicon 4.0 (Nov 2021): automatic
+          content recognition, identity resolution, household/identity graph, weighting,
+          representativeness.</figcaption>
+        <div class="stamp">
+          <span><b>Ink law</b> observed solid, modeled dashed, never one ink</span>
+          <span><b>Class, not operand</b> steps are named; match rates and coefficients are not published</span>
+          <span><b>Recalibration</b> a versioned restatement, never silent</span>
+        </div>
       </figure>
     </div>
 
@@ -703,12 +946,7 @@
           <p class="lanefam__what">Every airing on monitored stations &mdash; creative,
             transcript, air date, markets &mdash; with dollars from orders on file, not
             ratings models.</p>
-          <p class="lanefam__thins"><b>Where it thins</b> Late filings read lighter until they
-            land; the date on the figure is the check.</p>
         </div>
-        <details class="lanefam__more"><summary>Cadence&thinsp;+&thinsp;fine print</summary>
-          <p class="small">Detections run continuously. Dollars firm up as stations file.</p>
-        </details>
       </article>
       <article class="lanefam">
         <div class="lanefam__head">
@@ -718,12 +956,7 @@
         <div class="lanefam__body">
           <p class="lanefam__what">Placed orders by system, week and daypart, with the spots
             running against them. Every dollar traces to a document.</p>
-          <p class="lanefam__thins"><b>Where it thins</b> A zone bought outside the reporting
-            systems will not appear; an incomplete week prints insufficient signal.</p>
         </div>
-        <details class="lanefam__more"><summary>Cadence&thinsp;+&thinsp;fine print</summary>
-          <p class="small">Orders post as collected.</p>
-        </details>
       </article>
       <article class="lanefam">
         <div class="lanefam__head">
@@ -733,12 +966,7 @@
         <div class="lanefam__body">
           <p class="lanefam__what">Placed radio orders and their audio, joined to TV's race
             and advertiser records.</p>
-          <p class="lanefam__thins"><b>Where it thins</b> Deepest in larger markets. Without an
-            order, caught airings print as estimated, outside posted totals.</p>
         </div>
-        <details class="lanefam__more"><summary>Cadence&thinsp;+&thinsp;fine print</summary>
-          <p class="small">Dollars post more slowly than television.</p>
-        </details>
       </article>
       <article class="lanefam">
         <div class="lanefam__head">
@@ -748,17 +976,9 @@
         <div class="lanefam__body">
           <p class="lanefam__what">Streaming ads captured directly on CTV &mdash; tape, platform,
             transcript &mdash; in 45 million households measured through VideoAmp, including
-            spots that never touch broadcast. Dollars print as an estimated minimum.</p>
-          <p class="lanefam__thins"><b>Where it thins</b> Fewer than 10% of platforms publish a
-            political ad library
-            (<a href="https://competeeverywhere.com/2025/12/december-2025-ho-ho-ho-political-ad-transparency-heading-into-2026/" rel="noopener">COMPETE, Dec 2025</a>),
-            so a zero prints as insufficient signal, never as absence. Impression measurement
-            covers the top 58 markets by households; monitoring runs in all 210.</p>
+            spots that never touch broadcast. Impression measurement covers the top 58 markets
+            by households; monitoring runs in all 210. Dollars print as an estimated minimum.</p>
         </div>
-        <details class="lanefam__more"><summary>Cadence&thinsp;+&thinsp;fine print</summary>
-          <p class="small">Dollars refresh on the measurement cycle; the settle window prints as
-            paired dates on every figure. Per-lane lag figures are being added as validated.</p>
-        </details>
       </article>
       <article class="lanefam">
         <div class="lanefam__head">
@@ -768,18 +988,12 @@
         <!-- O2 ANSWERED by ruling 45 (Adam, 8/25): streaming and digital are ONE lane
              family in the marketing taxonomy, presented at app grain; the two BASES in
              this stack stay separate (caught floor vs modeled estimate) and are never
-             summed. Methodology keeps the formal two-lane definitions of record. -->
+             summed. The formal two-lane definitions live in the sales-call leave-behind
+             (ex-methodology page, preserved in git history at r44). -->
         <div class="lanefam__body">
           <p class="lanefam__what">Competitive digital activity estimated from measured smart-TV
             viewing &mdash; always marked estimated, never blended into posted lanes.</p>
-          <p class="lanefam__thins"><b>Where it thins</b> An estimate is never an order on file;
-            walled gardens are visible only as far as the platform discloses.</p>
         </div>
-        <details class="lanefam__more"><summary>Cadence&thinsp;+&thinsp;fine print</summary>
-          <p class="small">Refreshes on the estimation cycle; no order feed underneath. A digital
-            share&thinsp;=&thinsp;share of the sources we measure&mdash;source list on the
-            <a href="methodology.html#covered-sources">methodology page</a>.</p>
-        </details>
       </article>
     </div>
   </div>
@@ -821,8 +1035,7 @@
       <div>
         <h4>Proof</h4>
         <ul>
-          <li><a href="methodology.html">Methodology</a></li>
-          <li><a href="methodology.html#how-we-count">How we count</a></li>
+          <li><a href="monitoring.html#weighting">How we count</a></li>
           <li><a href="index.html#press">Press coverage</a></li>
         </ul>
       </div>
@@ -844,6 +1057,6 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r40"></script>
+<script src="assets/js/site.js?v=r45"></script>
 </body>
 </html>
