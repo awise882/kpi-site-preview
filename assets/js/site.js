@@ -327,3 +327,66 @@
     });
   }
 })();
+
+/* r37: deep links into folded methodology chapters open the fold first. */
+(function () {
+  function openFoldFor(hash) {
+    if (!hash || hash.length < 2) return;
+    var el = document.getElementById(hash.slice(1));
+    if (!el) return;
+    var d = el.closest ? el.closest('details') : null;
+    var opened = false;
+    while (d) { if (!d.open) { d.open = true; opened = true; } d = d.parentElement ? d.parentElement.closest('details') : null; }
+    if (opened) requestAnimationFrame(function () { el.scrollIntoView(); });
+  }
+  openFoldFor(location.hash);
+  addEventListener('hashchange', function () { openFoldFor(location.hash); });
+})();
+
+/* r37: Baker types its own example questions until the reader takes over. */
+(function () {
+  var demo = document.querySelector('[data-bdemo]');
+  if (!demo) return;
+  var line = demo.querySelector('[data-bdemo-type]');
+  var chips = Array.prototype.slice.call(demo.querySelectorAll('.rc-bdemo-chip'));
+  if (!line || chips.length < 2) return;
+  var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduced) { line.textContent = chips[0].textContent; return; }
+  var idx = 0, stopped = false, timer = 0;
+  function activate(chip) {
+    chips.forEach(function (c) {
+      var on = c === chip;
+      c.setAttribute('aria-selected', on ? 'true' : 'false');
+      c.tabIndex = on ? 0 : -1;
+      var panel = document.getElementById(c.getAttribute('aria-controls'));
+      if (panel) panel.hidden = !on;
+    });
+  }
+  function typeQuestion(text, done) {
+    var i = 0;
+    line.textContent = '';
+    (function tick() {
+      if (stopped) return;
+      line.textContent = text.slice(0, ++i);
+      if (i < text.length) timer = setTimeout(tick, 26);
+      else done();
+    })();
+  }
+  function cycle() {
+    if (stopped) return;
+    var chip = chips[idx % chips.length];
+    typeQuestion(chip.textContent.trim(), function () {
+      if (stopped) return;
+      activate(chip);
+      idx++;
+      timer = setTimeout(cycle, 6200);
+    });
+  }
+  function stop() { stopped = true; clearTimeout(timer); }
+  demo.addEventListener('pointerdown', stop, { once: true });
+  demo.addEventListener('keydown', stop, { once: true });
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) { cycle(); io.disconnect(); } });
+  }, { threshold: 0.4 });
+  io.observe(demo);
+})();

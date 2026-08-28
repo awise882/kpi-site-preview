@@ -1896,3 +1896,16 @@ a.chip:hover { border-color: var(--blue); color: var(--navy); background: var(--
   letter-spacing: .1em; font-size: .78rem; font-weight: 600; color: var(--ink-3);
   border-top: 1px solid var(--rule-soft); background: var(--white); }
 .app-shot--hero { margin: 0; }
+
+/* ==========================================================================
+   r37: methodology reads short — every chapter folds behind its header.
+   ========================================================================== */
+.mfold { border: 1px solid var(--rule); border-radius: var(--r-lg); background: var(--white); margin-top: 1.2rem; }
+.mfold > summary { cursor: pointer; list-style: none; padding: .95rem 1.2rem; font-family: var(--label);
+  text-transform: uppercase; letter-spacing: .1em; font-size: .82rem; font-weight: 600; color: var(--navy-deep);
+  display: flex; align-items: baseline; gap: .6rem; }
+.mfold > summary::-webkit-details-marker { display: none; }
+.mfold > summary::after { content: "+"; margin-left: auto; font-family: var(--sans); font-size: 1.1rem; color: var(--ink-3); }
+.mfold[open] > summary::after { content: "\2212"; }
+.mfold__in { padding: .2rem 1.2rem 1.4rem; }
+.section--band .mfold, .section--tint .mfold { background: var(--white); }

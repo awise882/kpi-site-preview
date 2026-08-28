@@ -8,7 +8,8 @@
 <meta property="og:title" content="The KPI Platform: Detection In, Decisions Out">
 <meta property="og:description" content="Open to the race that changed. Read what the other side aired, booked and abandoned. Leave with the export.">
 <meta property="og:type" content="website">
-<link rel="icon" href="assets/img/kpi-mark.png">
+<link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
 <link rel="stylesheet" href="assets/css/kpi.css?v=r36">
 <style>
   /* The "what it exports" line that closes each app section. */
@@ -226,30 +227,29 @@
   <div class="wrap mt3">
     <div class="lmap">
       <ol class="lmap__rail">
-        <!-- Ruling 50f: names + chips + 3-4 word glosses; the chips are the content. -->
         <li class="lmap__layer">
-          <span class="lmap__name">Detect</span>
-          <span class="lmap__what">Airings, orders, creative.</span>
-          <span class="lmap__items"><a class="chip" href="#coverage">Monitoring network</a><a class="chip" href="#streaming-capture">Streaming &amp; Digital capture</a></span>
+          <span class="lmap__name">Monitoring &amp; alerts</span>
+          <span class="lmap__what">Every ad, every market, as it airs.</span>
+          <span class="lmap__items"><a class="chip" href="monitoring.html#alert-demo" title="Opens on the monitoring page">Creative alerts &#8599;</a><a class="chip" href="#coverage">Coverage by lane</a><a class="chip" href="monitoring.html#fcc-rates" title="Opens on the monitoring page">FCC rate intelligence &#8599;</a></span>
           <span class="lmap__stat"><b class="num">210</b> markets monitored</span>
         </li>
         <li class="lmap__layer">
-          <span class="lmap__name">Measure</span>
-          <span class="lmap__what">The public file.</span>
-          <span class="lmap__items"><a class="chip" href="monitoring.html#fcc-rates" title="Opens on the monitoring page">FCC pricing &#8599;</a></span>
-          <span class="lmap__stat"><b class="num">312,197</b> FCC rate cells</span>
+          <span class="lmap__name">Competitive intelligence</span>
+          <span class="lmap__what">The tracked money, on six screens.</span>
+          <span class="lmap__items"><a class="chip" href="#scoreboard">Scoreboard</a><a class="chip" href="#creative-matrix">Creative Matrix</a><a class="chip" href="#buy-sheet">Buy Sheet</a><a class="chip" href="#creative-explorer">Creative Explorer</a></span>
+          <span class="lmap__stat"><b class="num">6</b> screens, every read exports</span>
         </li>
         <li class="lmap__layer">
-          <span class="lmap__name">Target</span>
-          <span class="lmap__what">Declared answers, delivered.</span>
-          <span class="lmap__items"><a class="chip" href="polling.html">Real-time polling</a><a class="chip" href="#audiences">Audiences&thinsp;+&thinsp;deal IDs</a></span>
+          <span class="lmap__name">Audiences &amp; polling</span>
+          <span class="lmap__what">Declared answers, delivered to your seat.</span>
+          <span class="lmap__items"><a class="chip" href="polling.html" title="Opens on the polling page">Real-time polling &#8599;</a><a class="chip" href="#audiences">Audiences&thinsp;+&thinsp;deal IDs</a></span>
           <span class="lmap__stat"><b class="num">3,537</b> orderable questions</span>
         </li>
         <li class="lmap__layer">
-          <span class="lmap__name">Decide</span>
-          <span class="lmap__what">Screens&thinsp;+&thinsp;exports.</span>
-          <span class="lmap__items"><a class="chip" href="#scoreboard">Scoreboard</a><a class="chip" href="#creative-matrix">Creative Matrix</a><a class="chip" href="#buy-sheet">Buy Sheet</a><a class="chip" href="#creative-explorer">Creative Explorer</a><a class="chip" href="#sellers">The seller's week</a><a class="chip" href="#class-gap">Streaming share</a></span>
-          <span class="lmap__stat"><b class="num">6</b> screens, every read exports</span>
+          <span class="lmap__name">Sell-side</span>
+          <span class="lmap__what">The market you sell, on the same data.</span>
+          <span class="lmap__items"><a class="chip" href="#sellers">The seller's week</a><a class="chip" href="#class-gap">Streaming share</a></span>
+          <span class="lmap__stat"><b class="num">$1.2B</b> forward book reported &middot; Inside Radio, Aug 2026</span>
         </li>
       </ol>
       <a class="lmap__baker" href="#baker"><b>Baker</b><span>ask anything, through-date attached</span></a>
@@ -257,6 +257,144 @@
   </div>
 </header>
 
+
+<!-- ============ COVERAGE ============ -->
+<section class="section section--band section--mega" id="coverage">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:3rem" data-rise>
+      <p class="eyebrow eyebrow--plain" style="justify-content:center">Coverage</p>
+      <h2 class="h-display">Every lane we track, and the evidence under each.</h2>
+      <p class="lede" style="margin-inline:auto">Broadcast, local cable and radio order by order
+        in all 210 markets; Streaming &amp; Digital as one lane family beside them.</p>
+    </div>
+    <figure class="app-shot" data-rise>
+      <img src="assets/apps/app-buy-sheet.webp" loading="lazy"
+        alt="The Buy Sheet: the whole flight by side, then markets down and weeks across, with broadcast, cable and radio rows under each market. Synthetic data.">
+      <figcaption>Markets down, weeks across, lane rows &middot; the Buy Sheet &middot; synthetic data</figcaption>
+    </figure>
+    <div class="grid grid--3" data-rise>
+      <div class="card card--flag">
+        <p class="card__k">Order by order</p>
+        <h3>Broadcast, local cable, radio</h3>
+        <p class="small">Dollars from orders on file, FCC-verified where a filing exists;
+          aired and booked-forward on separate lines.</p>
+      </div>
+      <!-- Ruling 45: one lane family, two bases, app grain. Merges the former
+           Streaming and Digital cards; the denominators never merge. -->
+      <div class="card card--flag" id="streaming-capture">
+        <p class="card__k">Caught on screens</p>
+        <h3>Streaming &amp; Digital</h3>
+        <p class="small">No public file exists for streaming, so we capture ads on the
+          screen itself. Those dollars print as at least this much &mdash; and never mix
+          into posted TV totals.</p>
+      </div>
+      <div class="card card--flag">
+        <p class="card__k">From the public file</p>
+        <h3>FCC rate intelligence</h3>
+        <p class="small">What a spot costs, station by station, daypart by daypart &mdash;
+          read from public FCC filings, flight over flight.
+          <a href="monitoring.html#fcc-rates">See rates in your market &rarr;</a></p>
+      </div>
+    </div>
+
+    <h3 class="mt3">Lane by lane</h3>
+    <div class="lanefams mt1" role="group" aria-label="Four lane families: what we detect, where the dollars come from, and where each signal thins">
+      <article class="lanefam">
+        <div class="lanefam__head">
+          <h4 class="lanefam__name">Broadcast TV</h4>
+          <span class="chip chip--lime">Order by order</span>
+        </div>
+        <div class="lanefam__body">
+          <p class="lanefam__what">Every airing on monitored stations &mdash; creative,
+            transcript, air date, markets &mdash; with dollars from orders on file, not
+            ratings models.</p>
+          <p class="lanefam__thins"><b>Where it thins</b> Late filings read lighter until they
+            land; the date on the figure is the check.</p>
+        </div>
+        <details class="lanefam__more"><summary>Cadence&thinsp;+&thinsp;fine print</summary>
+          <p class="small">Detections run continuously. Dollars firm up as stations file.</p>
+        </details>
+      </article>
+      <article class="lanefam">
+        <div class="lanefam__head">
+          <h4 class="lanefam__name">Local cable</h4>
+          <span class="chip chip--lime">Order by order</span>
+        </div>
+        <div class="lanefam__body">
+          <p class="lanefam__what">Placed orders by system, week and daypart, with the spots
+            running against them. Every dollar traces to a document.</p>
+          <p class="lanefam__thins"><b>Where it thins</b> A zone bought outside the reporting
+            systems will not appear; an incomplete week prints insufficient signal.</p>
+        </div>
+        <details class="lanefam__more"><summary>Cadence&thinsp;+&thinsp;fine print</summary>
+          <p class="small">Orders post as collected.</p>
+        </details>
+      </article>
+      <article class="lanefam">
+        <div class="lanefam__head">
+          <h4 class="lanefam__name">Radio</h4>
+          <span class="chip chip--lime">Orders first</span>
+        </div>
+        <div class="lanefam__body">
+          <p class="lanefam__what">Placed radio orders and their audio, joined to TV's race
+            and advertiser records.</p>
+          <p class="lanefam__thins"><b>Where it thins</b> Deepest in larger markets. Without an
+            order, caught airings print as estimated, outside posted totals.</p>
+        </div>
+        <details class="lanefam__more"><summary>Cadence&thinsp;+&thinsp;fine print</summary>
+          <p class="small">Dollars post more slowly than television.</p>
+        </details>
+      </article>
+      <article class="lanefam">
+        <div class="lanefam__head">
+          <h4 class="lanefam__name">Streaming &amp; Digital&thinsp;&middot;&thinsp;caught on the apps</h4>
+          <span class="chip chip--warn">Estimated minimum</span>
+        </div>
+        <div class="lanefam__body">
+          <p class="lanefam__what">Streaming ads captured directly on CTV &mdash; tape, platform,
+            transcript &mdash; including spots that never touch broadcast. Dollars print as an
+            estimated minimum.</p>
+          <p class="lanefam__thins"><b>Where it thins</b> Fewer than 10% of platforms publish a
+            political ad library
+            (<a href="https://competeeverywhere.com/2025/12/december-2025-ho-ho-ho-political-ad-transparency-heading-into-2026/" rel="noopener">COMPETE, Dec 2025</a>),
+            so a zero prints as insufficient signal, never as absence. Impression measurement
+            covers the top 58 markets by households; monitoring runs in all 210.</p>
+        </div>
+        <details class="lanefam__more"><summary>Cadence&thinsp;+&thinsp;fine print</summary>
+          <p class="small">Dollars refresh on the measurement cycle; the settle window prints as
+            paired dates on every figure. Per-lane lag figures are being added as validated.</p>
+        </details>
+      </article>
+      <article class="lanefam">
+        <div class="lanefam__head">
+          <h4 class="lanefam__name">Streaming &amp; Digital&thinsp;&middot;&thinsp;measured beyond the capture</h4>
+          <span class="chip">Estimated</span>
+        </div>
+        <!-- O2 ANSWERED by ruling 45 (Adam, 8/25): streaming and digital are ONE lane
+             family in the marketing taxonomy, presented at app grain; the two BASES in
+             this stack stay separate (caught floor vs modeled estimate) and are never
+             summed. Methodology keeps the formal two-lane definitions of record. -->
+        <div class="lanefam__body">
+          <p class="lanefam__what">Competitive digital activity estimated from measured smart-TV
+            viewing &mdash; always marked estimated, never blended into posted lanes.</p>
+          <p class="lanefam__thins"><b>Where it thins</b> An estimate is never an order on file;
+            walled gardens are visible only as far as the platform discloses.</p>
+        </div>
+        <details class="lanefam__more"><summary>Cadence&thinsp;+&thinsp;fine print</summary>
+          <p class="small">Refreshes on the estimation cycle; no order feed underneath. A digital
+            share&thinsp;=&thinsp;share of the sources we measure&mdash;source list on the
+            <a href="methodology.html#covered-sources">methodology page</a>.</p>
+        </details>
+      </article>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============ DECLARED AUDIENCES ============ -->
+
+<!-- ============ SCOREBOARD ============ -->
 <!-- ============ THE VIGNETTE RAIL (Pass E §9) ============ -->
 <!-- MOCK-BOARD INVENTORY (Pass E §10, binding fidelity ladder — proof renders
      whole, capability renders abstracted, nothing in between):
@@ -319,7 +457,7 @@
             <span class="vig__bigsub">estimated minimum&thinsp;&middot;&thinsp;est. thru Aug 5&thinsp;&middot;&thinsp;not in posted totals</span>
           </div>
         </div>
-        <p class="vig__what">The answer carries its date and its &asymp;.</p>
+        <p class="vig__what">Every answer is dated, and every estimate says so.</p>
       </div>
 
       <div class="vig" data-replay>
@@ -345,201 +483,11 @@
   </div>
 </section>
 
-<!-- ============ COVERAGE ============ -->
-<section class="section section--band section--mega" id="coverage">
-  <div class="wrap">
-    <div class="center" style="margin-bottom:3rem" data-rise>
-      <p class="eyebrow eyebrow--plain" style="justify-content:center">Detect: Coverage</p>
-      <h2 class="h-display">Every lane we track, and the evidence under each.</h2>
-      <p class="lede" style="margin-inline:auto">Broadcast, local cable and radio order by order
-        in all 210 markets; Streaming &amp; Digital as one lane family beside them.</p>
-    </div>
-    <figure class="app-shot" data-rise>
-      <img src="assets/apps/app-buy-sheet.webp" loading="lazy"
-        alt="The Buy Sheet: the whole flight by side, then markets down and weeks across, with broadcast, cable and radio rows under each market. Synthetic data.">
-      <figcaption>Markets down, weeks across, lane rows &middot; the Buy Sheet &middot; synthetic data</figcaption>
-    </figure>
-    <div class="grid grid--2" data-rise>
-      <div class="card card--flag">
-        <p class="card__k">Order by order</p>
-        <h3>Broadcast, local cable, radio</h3>
-        <p class="small">Dollars from orders on file, FCC-verified where a filing exists;
-          aired and booked-forward on separate lines.</p>
-      </div>
-      <!-- Ruling 45: one lane family, two bases, app grain. Merges the former
-           Streaming and Digital cards; the denominators never merge. -->
-      <div class="card card--flag" id="streaming-capture">
-        <p class="card__k">What we caught, what we measure</p>
-        <h3>Streaming &amp; Digital</h3>
-        <p class="small">One lane family, two bases, at app grain: caught prints as a
-          minimum, measured-beyond prints as estimated&mdash;both named on the figure,
-          never summed.</p>
-      </div>
-    </div>
-
-    <h3 class="mt3">Lane by lane: where the dollars come from, where the signal thins</h3>
-    <div class="lanefams mt1" role="group" aria-label="Four lane families: what we detect, where the dollars come from, and where each signal thins">
-      <article class="lanefam">
-        <div class="lanefam__head">
-          <h4 class="lanefam__name">Broadcast TV</h4>
-          <span class="chip chip--lime">Order by order</span>
-        </div>
-        <div class="lanefam__body">
-          <p class="lanefam__what">Every airing on monitored stations: creative, AI-generated
-            transcript, air date, market list. No ratings-based estimate underneath the
-            dollars.</p>
-          <p class="lanefam__thins"><b>Where the signal thins</b> A late-filing station reads lighter
-            until its filing lands&mdash;hence the through-date on the figure. Channel depth thins in
-            the smallest markets and on low-power stations.</p>
-        </div>
-        <details class="lanefam__more"><summary>Cadence&thinsp;+&thinsp;fine print</summary>
-          <p class="small">Detections run continuously. Dollars firm up as stations file.</p>
-        </details>
-      </article>
-      <article class="lanefam">
-        <div class="lanefam__head">
-          <h4 class="lanefam__name">Local cable</h4>
-          <span class="chip chip--lime">Order by order</span>
-        </div>
-        <div class="lanefam__body">
-          <p class="lanefam__what">Placed orders by system, week and daypart, plus the spots running
-            against them; each dollar traces to a document, not a modeled market share.</p>
-          <p class="lanefam__thins"><b>Where the signal thins</b> Coverage follows the systems and
-            interconnects that report: a zone bought outside them will not appear, and an incomplete
-            week is marked insufficient signal, not read as a smaller buy.</p>
-        </div>
-        <details class="lanefam__more"><summary>Cadence&thinsp;+&thinsp;fine print</summary>
-          <p class="small">Orders post as collected.</p>
-        </details>
-      </article>
-      <article class="lanefam">
-        <div class="lanefam__head">
-          <h4 class="lanefam__name">Radio</h4>
-          <span class="chip chip--lime">Orders first</span>
-        </div>
-        <div class="lanefam__body">
-          <p class="lanefam__what">Placed radio orders and their audio, joined to television's race
-            and advertiser records. With no order, dollars from caught airings print as estimated,
-            outside the posted total.</p>
-          <p class="lanefam__thins"><b>Where the signal thins</b> Coverage is deepest in larger
-            markets; small-market, non-commercial and religious-format stations are the thinnest
-            part of the lane.</p>
-        </div>
-        <details class="lanefam__more"><summary>Cadence&thinsp;+&thinsp;fine print</summary>
-          <p class="small">Dollars post more slowly than television.</p>
-        </details>
-      </article>
-      <article class="lanefam">
-        <div class="lanefam__head">
-          <h4 class="lanefam__name">Streaming &amp; Digital&thinsp;&middot;&thinsp;caught on the apps</h4>
-          <span class="chip chip--warn">Estimated minimum</span>
-        </div>
-        <div class="lanefam__body">
-          <p class="lanefam__what">Direct creative capture on CTV, including spots that never touch
-            broadcast&mdash;early and growing. A caught spot brings tape, platform, transcript;
-            dollars from measured delivery print as a minimum, capture depth stated. Where we
-            cannot see, we say so.</p>
-          <p class="lanefam__thins"><b>Where the signal thins</b> Fewer than 10% of platforms publish a
-            political ad library
-            (<a href="https://competeeverywhere.com/2025/12/december-2025-ho-ho-ho-political-ad-transparency-heading-into-2026/" rel="noopener">COMPETE, December
-            2025</a>)&mdash;no public record to reconcile against; a lane-level zero prints as
-            insufficient signal, never as absence of advertising. Streaming is addressable: detection
-            samples measured households, and narrow buys under-detect more than broad
-            ones, another reason the dollar prints as an estimated minimum.
-            Delivered-impressions measurement covers
-            the top 58 U.S. media markets by household count; monitoring runs in all 210; every figure
-            names its footprint.</p>
-        </div>
-        <details class="lanefam__more"><summary>Cadence&thinsp;+&thinsp;fine print</summary>
-          <p class="small">Dollars refresh on the measurement cycle; the settle window prints as
-            paired dates on every figure. Per-lane lag figures are being added as validated.</p>
-        </details>
-      </article>
-      <article class="lanefam">
-        <div class="lanefam__head">
-          <h4 class="lanefam__name">Streaming &amp; Digital&thinsp;&middot;&thinsp;measured beyond the capture</h4>
-          <span class="chip">Estimated</span>
-        </div>
-        <!-- O2 ANSWERED by ruling 45 (Adam, 8/25): streaming and digital are ONE lane
-             family in the marketing taxonomy, presented at app grain; the two BASES in
-             this stack stay separate (caught floor vs modeled estimate) and are never
-             summed. Methodology keeps the formal two-lane definitions of record. -->
-        <div class="lanefam__body">
-          <p class="lanefam__what">Competitive digital activity estimated from measured smart-TV
-            viewing, beside the broadcast and cable tracking: sources beyond the capture, always
-            estimated, never a minimum. The word estimated rides on every figure it produces.</p>
-          <p class="lanefam__thins"><b>Where the signal thins</b> A digital dollar is an estimate,
-            never an order on file&mdash;not to be read with a booked television week's confidence.
-            Walled gardens are visible only as far as the platform discloses.</p>
-        </div>
-        <details class="lanefam__more"><summary>Cadence&thinsp;+&thinsp;fine print</summary>
-          <p class="small">Refreshes on the estimation cycle; no order feed underneath. A digital
-            share&thinsp;=&thinsp;share of the sources we measure&mdash;source list on the
-            <a href="methodology.html#covered-sources">methodology page</a>.</p>
-        </details>
-      </article>
-    </div>
-    <p class="tbl-note band-note">No single cadence figure: one number across 210 markets and every
-      lane would be wrong in several. Instead, the posted-through date on every figure.</p>
-
-    <h3 class="mt3">Which contests are in the grid</h3>
-    <p class="small" style="max-width:68ch">Federal, statewide, legislative, ballot and
-      special contests are all tracked; what changes office by office is attribution,
-      and money we cannot tie to a seat is never forced into a total. Scope is set at
-      subscription, not assumed: name the seats you watch and we will say which we
-      stand behind. The office-by-office statement is on the
-      <a href="methodology.html#contests">methodology page</a>.</p>
-    <div class="callout mt3">
-      <h4>What a zero means here</h4>
-      <p class="small mb0">A zero we can stand behind prints as a zero; one we cannot prints as
-        an insufficient-signal state. The full lane-by-lane statement is on the
-        <a href="methodology.html">methodology page</a>.</p>
-    </div>
-  </div>
-</section>
-
-
-<!-- ============ DECLARED AUDIENCES ============ -->
-<section class="section section--tint" id="audiences">
-  <div class="wrap">
-    <div class="split" style="margin-bottom:2rem">
-      <div>
-        <p class="eyebrow">Target: Declared audiences</p>
-        <h2>Audiences built from what people actually said.</h2>
-      </div>
-      <div>
-        <p class="lede">Through our CivicScience partnership: more than 10,000 always-on
-          questions, over 1 million answers a day, 165 million U.S. consumer profiles.
-          48 curated political segments, or build your own from the question library.</p>
-      </div>
-    </div>
-
-    <div class="stats" style="margin-bottom:1rem">
-      <div class="stat"><div class="stat__v">10,000+</div><div class="stat__l">Always-on questions</div></div>
-      <div class="stat"><div class="stat__v">1M+</div><div class="stat__l">Answers per day</div></div>
-      <div class="stat"><div class="stat__v">165M</div><div class="stat__l">U.S. consumer profiles</div></div>
-      <div class="stat"><div class="stat__v">48</div><div class="stat__l">Curated political segments</div></div>
-    </div>
-    <div class="stamp" style="margin-bottom:2.4rem"><b>Source</b> CivicScience partner-published figures, as
-      of August 2026. A profile is a survey-answering record, not a verified person.</div>
-
-    <h3 id="explorer">Search the orderable library. All 3,537 questions of it.</h3>
-    <p class="dek" style="margin-bottom:1.4rem">Read the exact wording, shortlist, send: back
-      comes a deal ID in your DSP, or we run the media. Lookalike extension optional, always
-      labeled. Full explorer on the Real-Time Polling page.</p>
-    <div class="btn-row">
-      <a class="btn btn--navy" href="polling.html#explorer">Search the question library</a>
-      <a class="btn btn--outline" href="polling.html">How real-time polling works</a>
-    </div>
-  </div>
-</section>
-
-<!-- ============ SCOREBOARD ============ -->
 <section class="section" id="scoreboard">
   <div class="wrap">
     <div class="split" style="margin-bottom:1.8rem">
       <div>
-        <p class="eyebrow">Decide: Scoreboard</p>
+        <p class="eyebrow">The Scoreboard</p>
         <h2>The race that changed this week is already at the top.</h2>
       </div>
       <div>
@@ -904,7 +852,7 @@
   <div class="wrap">
     <div class="split split--rev" style="margin-bottom:1.8rem">
       <div>
-        <p class="eyebrow">Decide: Creative Matrix</p>
+        <p class="eyebrow">The Creative Matrix</p>
         <h2>The case for a candidate, separated from the case against.</h2>
       </div>
       <div>
@@ -1083,7 +1031,7 @@
   <div class="wrap">
     <div class="split" style="margin-bottom:1.8rem">
       <div>
-        <p class="eyebrow">Decide: Buy Sheet</p>
+        <p class="eyebrow">The Buy Sheet</p>
         <h2>The competitive buy: markets down, weeks across, station grain.</h2>
       </div>
       <div>
@@ -1538,7 +1486,7 @@ tbody th.rc-buysheet-m{font-weight:400;background:transparent}
   <div class="wrap">
     <div class="split split--rev" style="margin-bottom:1.8rem">
       <div>
-        <p class="eyebrow">Decide: Creative Explorer</p>
+        <p class="eyebrow">The Creative Explorer</p>
         <h2>Every detected spot ships with tape, transcript and markets.</h2>
       </div>
       <div>
@@ -1749,6 +1697,19 @@ tbody th.rc-buysheet-m{font-weight:400;background:transparent}
         <span><b>Thu</b>The win-back call</span>
         <span><b>Fri</b>The streaming pitch</span>
       </div>
+      <!-- PENCILED (Adam, 8/27): E.W. Scripps sell-side quote is being sought; this is
+           the DRAFT wording for their sign-off, and it renders visibly marked as
+           penciled/pending. The no-invention rule holds: DO NOT ship to production
+           until the approved wording replaces it — swap the text, drop the tag.
+           Their stated use worth capturing: Baker for impromptu asks. -->
+      <blockquote class="quote quote--draft">
+        <p>"The forward book is Monday's first call &mdash; money committed to our
+          markets that isn't on our books yet. And when a GM asks something sideways
+          mid-meeting, Baker answers before the meeting ends."</p>
+        <cite>Station group sales leadership, E.W. Scripps
+          <span class="quote-draft-tag">penciled &middot; pending their approval</span></cite>
+      </blockquote>
+
       <ol class="steps">
         <li>
           <h4>Price&thinsp;&middot;&thinsp;the rate call</h4>
@@ -1985,6 +1946,40 @@ tbody th.rc-buysheet-m{font-weight:400;background:transparent}
   </div>
 </section>
 
+<section class="section section--tint" id="audiences">
+  <div class="wrap">
+    <div class="split" style="margin-bottom:2rem">
+      <div>
+        <p class="eyebrow">Audiences &amp; polling</p>
+        <h2>Audiences built from what people actually said.</h2>
+      </div>
+      <div>
+        <p class="lede">Through our CivicScience partnership: more than 10,000 always-on
+          questions, over 1 million answers a day, 165 million U.S. consumer profiles.
+          48 curated political segments, or build your own from the question library.</p>
+      </div>
+    </div>
+
+    <div class="stats" style="margin-bottom:1rem">
+      <div class="stat"><div class="stat__v">10,000+</div><div class="stat__l">Always-on questions</div></div>
+      <div class="stat"><div class="stat__v">1M+</div><div class="stat__l">Answers per day</div></div>
+      <div class="stat"><div class="stat__v">165M</div><div class="stat__l">U.S. consumer profiles</div></div>
+      <div class="stat"><div class="stat__v">48</div><div class="stat__l">Curated political segments</div></div>
+    </div>
+    <div class="stamp" style="margin-bottom:2.4rem"><b>Source</b> CivicScience partner-published figures, as
+      of August 2026. A profile is a survey-answering record, not a verified person.</div>
+
+    <h3 id="explorer">Search the orderable library. All 3,537 questions of it.</h3>
+    <p class="dek" style="margin-bottom:1.4rem">Read the exact wording, shortlist, send: back
+      comes a deal ID in your DSP, or we run the media. Lookalike extension optional, always
+      labeled. Full explorer on the Real-Time Polling page.</p>
+    <div class="btn-row">
+      <a class="btn btn--navy" href="polling.html#explorer">Search the question library</a>
+      <a class="btn btn--outline" href="polling.html">How real-time polling works</a>
+    </div>
+  </div>
+</section>
+
 <!-- ============ BAKER (ruling 36a, portal notes §10) ============ -->
 <!-- Baker is the KPI conversational research assistant over the whole tracked
      dataset: creatives, placements, advertisers, races. Teased per the trailer
@@ -2105,6 +2100,7 @@ tbody th.rc-buysheet-m{font-weight:400;background:transparent}
     <div class="rc-stage mt2">
 <div class="rc rc-bdemo" data-bdemo>
   <p class="rc-bdemo-k">Baker in action&thinsp;&middot;&thinsp;example questions, illustrative answers</p>
+  <div class="rc-bdemo-composer" aria-hidden="true"><span class="rc-bdemo-type" data-bdemo-type></span><span class="rc-bdemo-caret"></span></div>
   <div class="rc-bdemo-chips" role="tablist" aria-label="Example questions, illustrative answers">
     <button class="rc-bdemo-chip" type="button" role="tab" id="bd-q1" aria-selected="true" aria-controls="bd-a1">What moved in the North River Senate this week?</button>
     <button class="rc-bdemo-chip" type="button" role="tab" id="bd-q2" aria-selected="false" aria-controls="bd-a2" tabindex="-1">Which stations carry the &ldquo;rule they wrote&rdquo; theme?</button>
@@ -2154,6 +2150,11 @@ tbody th.rc-buysheet-m{font-weight:400;background:transparent}
   box-shadow:0 1px 3px rgba(8,36,59,.08);
 }
 .rc-bdemo *,.rc-bdemo *::before,.rc-bdemo *::after{box-sizing:border-box;min-width:0;margin:0;padding:0}
+.rc-bdemo .rc-bdemo-composer{display:flex;align-items:center;gap:2px;margin:7px 0 8px;padding:7px 9px;border:1px solid var(--rcbd-line,#D9E2E9);border-radius:4px;background:#fff;min-height:30px}
+.rc-bdemo .rc-bdemo-type{font-size:11.5px;color:#0D2E4A;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rc-bdemo .rc-bdemo-caret{width:1.5px;height:14px;background:#1B4F72;flex:none;animation:bdemo-caret 1s steps(1) infinite}
+@keyframes bdemo-caret{50%{opacity:0}}
+@media (prefers-reduced-motion: reduce){.rc-bdemo .rc-bdemo-caret{animation:none}}
 .rc-bdemo .rc-bdemo-k{font-family:var(--rcbd-mono);font-size:8.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--rcbd-mute)}
 .rc-bdemo .rc-bdemo-chips{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}
 .rc-bdemo .rc-bdemo-chip{font-family:inherit;font-size:10px;font-weight:600;color:var(--rcbd-navy2);background:#fff;border:1px solid var(--rcbd-line);border-radius:3px;padding:6px 9px;line-height:1.35;cursor:pointer;text-align:left}
