@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Question Library | Kinetiq Political Insights</title>
+<meta name="description" content="Search all 3,537 orderable questions in KPI's real-time polling library, read the exact wording, build a shortlist, and turn it on as a deal ID in the seat you already run.">
+<meta property="og:title" content="The Question Library | Kinetiq Political Insights">
+<meta property="og:description" content="3,537 orderable questions. Read the exact wording, build a shortlist, activate it as a deal ID.">
+<meta property="og:type" content="website">
+<link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r38">
+<link rel="stylesheet" href="assets/css/segments.css?v=r38">
+<style>
+  .hero--sub .hero-center { text-align: center; padding: clamp(56px, 8vw, 96px) 0 clamp(28px, 4vw, 44px); }
+  .hero--sub .eyebrow { justify-content: center; }
+  .hero--sub h1 { max-width: none; margin-inline: auto; font-size: clamp(2.4rem, 5.4vw, 4.4rem); }
+  .hero--sub .lede { margin: 1.2rem auto 0; max-width: 58ch; }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<nav class="nav nav--light" data-open="false">
+  <div class="wrap nav__in">
+    <a class="nav__brand" href="index.html" aria-label="Kinetiq Political Insights, home">
+      <img src="assets/img/kpi-logo.png" alt="Kinetiq Political Insights">
+    </a>
+    <ul class="nav__links">
+      <li><a href="platform.html">Platform</a></li>
+      <li><a href="monitoring.html">Monitoring</a></li>
+      <li><a href="week.html">Buyers &amp; Sellers</a></li>
+      <li><a href="polling.html" aria-current="page">Polling</a></li>
+      <li><a href="methodology.html">Methodology</a></li>
+      <li class="nav__login"><a href="https://portal.kpipolitical.com">Log in</a></li>
+    </ul>
+    <div class="nav__cta">
+      <a class="btn btn--outline btn--sm" href="https://portal.kpipolitical.com">Log in</a>
+      <a class="btn btn--lime btn--sm" href="contact.html">Request a demo</a>
+    </div>
+    <button class="nav__toggle" aria-expanded="false" aria-label="Menu">Menu</button>
+  </div>
+</nav>
+
+<main id="main">
+
+<header class="hero hero--light hero--sub">
+  <div class="wrap hero-center">
+    <p class="eyebrow eyebrow--plain">Real-time polling &middot; the library</p>
+    <h1 class="ht">
+      <span class="ht__l" data-t="3,537 Questions,">3,537 Questions,</span><br>
+      <span class="ht__l ht__l--accent" data-t="Ready to Order.">Ready to Order.</span>
+    </h1>
+    <p class="lede">Read the exact wording, build a shortlist, send it to us &mdash; it
+      comes back as a deal ID in the seat you already run. The story of how an audience
+      gets built is on the <a href="polling.html">real-time polling page</a>.</p>
+  </div>
+</header>
+
+<section class="section" id="library">
+  <div class="wrap">
+    <p class="eyebrow"><span class="folio">01</span>The question library</p>
+    <h2 id="explorer">Search the orderable library. All 3,537 questions of it.</h2>
+    <p class="dek" style="margin-bottom:1.4rem">Read the exact wording, build a shortlist,
+      send it to us. This is the list an audience actually gets built from, not a sample:
+      3,537 of the network's 10,000+ always-on questions are cleared for political
+      ordering. The library is consumer-deep by design &mdash; the political read usually
+      crosses civic anchors with consumer signal, and the hot-button question your race is
+      arguing is usually a custom field.</p>
+
+    <div id="sx" data-ready="false">
+      <div>
+        <div class="sx-controls">
+          <div class="sx-search">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+            <input id="sx-q" type="search" placeholder="Search 3,537 orderable questions" autocomplete="off" aria-label="Search the question library">
+          </div>
+          <div class="sx-filters">
+            <div class="sx-chips" id="sx-domains"></div>
+            <select id="sx-cats" aria-label="Filter by category"></select>
+          </div>
+          <p class="sx-examples" id="sx-examples">Try:
+            <button data-ex="inflation">inflation</button>
+            <button data-ex="grocery">grocery</button>
+            <button data-ex="medicare">medicare</button>
+            <button data-ex="energy">energy</button>
+            <button data-ex="streaming">streaming</button>
+            <button data-ex="local news">local news</button>
+          </p>
+        </div>
+        <p class="sx-count" id="sx-count" aria-live="polite"></p>
+        <ul class="sx-list" id="sx-results"></ul>
+        <div id="sx-empty" style="display:none">No question matches that. The library is large
+          but it is not infinite, and a custom question is the answer when the topic is not in
+          it.</div>
+
+        <div class="stamp">
+          <span><b>Source</b> the current syndicated question library</span>
+          <span><b>Covers</b> 6 domains, 38 categories</span>
+          <span><b>Confirmed</b> availability is checked when the audience is built</span>
+        </div>
+        <p class="tbl-note">Search runs in your browser. The shortlist stays on this page until
+          you copy it or send it to us.</p>
+      </div>
+
+      <aside class="sx-side">
+        <div class="sx-basket" id="sx-basket" data-has="false">
+          <div class="sx-basket__hd"><h3>Your shortlist</h3><span><span id="sx-basket-n">0</span> picked</span></div>
+          <ul id="sx-basket-list"></ul>
+          <div class="sx-basket__ft">
+            <!-- Ruling 49b: the deal-ID ask leads the footer, full-strength. -->
+            <a class="btn btn--lime" id="sx-email" href="mailto:info@kpipolitical.com?subject=Deal%20ID%20request">Email to turn on deal IDs</a>
+            <div class="sx-basket__ft-row">
+              <button class="btn btn--outline btn--sm" id="sx-copy" disabled>Copy shortlist</button>
+              <button class="btn btn--outline btn--sm" id="sx-clear" disabled>Clear</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card__k">Deal-ID activation</div>
+          <p class="small">Email the shortlist and it comes back as a private-marketplace
+            deal ID &mdash; your seat or ours. Syndicated audiences arrive in days; a
+            custom question takes about two weeks. Every deal returns the ID, the matched
+            audience size and a composition read; the identifiers the match runs on are
+            confirmed in writing before the insertion order; streaming and CTV line items
+            qualify; and every question that built the audience is named, so you can
+            audit it.</p>
+          <p class="small mb0">Topic not in the library? That is a custom question, fielded
+            to a known audience first: included with a media investment; standalone, by
+            rate card on <a href="contact.html">request</a>.</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section class="section section--mega cta-final">
+  <div class="wrap">
+    <div class="center" data-rise>
+      <p class="eyebrow eyebrow--plain" style="justify-content:center">Next step</p>
+      <h2>Bring the question your race is arguing about.</h2>
+      <p class="lede" style="margin-inline:auto">We will check it against the library on
+        the call &mdash; and when it is not in here, a custom question is the answer.</p>
+      <div class="btn-row mt2" style="justify-content:center">
+        <a class="btn btn--lime btn--lg" href="contact.html">Request a demo</a>
+        <a class="btn btn--outline btn--lg" href="polling.html">How real-time polling works</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__grid">
+      <div class="foot__brand">
+        <img src="assets/img/kpi-logo-reverse.png" alt="Kinetiq Political Insights">
+        <p class="small" style="color:#8FA9BE;max-width:34ch">Kinetiq Political Insights is a
+          political ad intelligence platform built on Kinetiq's national monitoring network.
+          Press: <a href="mailto:press@kpipolitical.com">press@kpipolitical.com</a></p>
+      </div>
+      <div>
+        <h4>Platform</h4>
+        <ul>
+          <li><a href="platform.html">The platform</a></li>
+          <li><a href="monitoring.html">Monitoring</a></li>
+          <li><a href="week.html">For buyers &amp; sellers</a></li>
+          <li><a href="polling.html">Real-time polling</a></li>
+          <li><a href="questions.html">The question library</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Proof</h4>
+        <ul>
+          <li><a href="methodology.html">Methodology</a></li>
+          <li><a href="methodology.html#how-we-count">How we count</a></li>
+          <li><a href="index.html#press">Press coverage</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Get in touch</h4>
+        <ul>
+          <li><a href="contact.html">Request a demo</a></li>
+          <li><a href="mailto:info@kpipolitical.com">info@kpipolitical.com</a></li>
+          <li><a href="https://portal.kpipolitical.com">Subscriber log in</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot__base">
+      <span>© 2026 Kinetiq Political Insights. All rights reserved.</span>
+      <span>Coverage and scale figures as of August 2026.</span>
+      <span>Non-partisan by design. We sell to both sides and say so.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/site.js?v=r38"></script>
+<script src="assets/js/segments.js?v=r38" defer></script>
+</body>
+</html>

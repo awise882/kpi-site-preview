@@ -10,8 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r36">
-<link rel="stylesheet" href="assets/css/segments.css?v=r36">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r38">
 <style>
   /* Light, centered, airy hero, same standard as the home page: display headline
      in the green-to-teal gradient with the layered offset, the lede, two buttons,
@@ -232,6 +231,17 @@
      disclosure in page type, and the SVG desc carries them for screen readers. */
   @media (max-width: 480px) { .mxs__lbl { display: none; } }
   .mxs__hint { display: none; color: var(--ink-3); margin: .5rem 0 0; }
+  .mxs__steps { list-style: none; display: grid; grid-template-columns: repeat(5, 1fr);
+    gap: .6rem; margin: .75rem 0 0; padding: 0; }
+  .mxs__step { font-size: .8rem; line-height: 1.4; color: var(--ink-2); padding-top: .45rem; }
+  .mxs__step b { display: block; font-family: var(--label); font-size: .74rem; font-weight: 700;
+    letter-spacing: .09em; text-transform: uppercase; margin-bottom: .15rem; }
+  .mxs__step--a { border-top: 2.5px solid #00ACC1; } .mxs__step--a b { color: #007A8A; }
+  .mxs__step--b { border-top: 2.5px solid #1F6E96; } .mxs__step--b b { color: #1F6E96; }
+  .mxs__step--c { border-top: 2.5px solid #7CB342; } .mxs__step--c b { color: #4F7A25; }
+  .mxs__step--d { border-top: 2.5px solid #0D2E4A; } .mxs__step--d b { color: #0D2E4A; }
+  .mxs__step--e { border-top: 2.5px dashed #5B7085; } .mxs__step--e b { color: #5B7085; }
+  @media (max-width: 699px) { .mxs__steps { grid-template-columns: 1fr 1fr; } }
   .mxs__ann { margin: .8rem 0 0; }
   .mxs__ann-big { display: block; font-family: var(--mono); font-weight: 800;
     font-size: clamp(1.15rem, 2.6vw, 1.9rem); letter-spacing: -.02em; color: var(--navy-deep);
@@ -251,6 +261,11 @@
     .mxs.in-view .mxs__mxc { animation: fade-in .5s ease-out 1.3s backwards; }
     .mxs.in-view .mxs__mxd { animation: fade-in .5s ease-out 1.8s backwards; }
     .mxs.in-view .mxs__mxe { animation: fade-in .5s ease-out 2.3s backwards; }
+    .mxs.in-view .mxs__step--a { animation: fade-in .5s ease-out .3s backwards; }
+    .mxs.in-view .mxs__step--b { animation: fade-in .5s ease-out .8s backwards; }
+    .mxs.in-view .mxs__step--c { animation: fade-in .5s ease-out 1.3s backwards; }
+    .mxs.in-view .mxs__step--d { animation: fade-in .5s ease-out 1.8s backwards; }
+    .mxs.in-view .mxs__step--e { animation: fade-in .5s ease-out 2.3s backwards; }
     .mxs.in-view .mxs__ann { animation: mxs-in .55s var(--smooth) 2.7s backwards; }
   }
   @keyframes mxs-in { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
@@ -258,7 +273,7 @@
     @media (min-width: 700px) and (prefers-reduced-motion: no-preference) {
       .mxs__scroller { height: 400vh; view-timeline: --mxv block; }
       .mxs__pin { position: sticky; top: 88px; }
-      .mxs__svg { max-width: min(960px, calc((100vh - 380px) * 1.786)); margin-inline: auto; }
+      .mxs__svg { max-width: min(960px, calc((100vh - 465px) * 1.786)); margin-inline: auto; }
       .mxs__hint { display: block; }
       .mxs.in-view .mxs__mxa, .mxs__mxa { animation: fade-in linear both; animation-timeline: --mxv; animation-range: contain 14% contain 26%; animation-delay: 0s; }
       .mxs.in-view .mxs__mxb, .mxs__mxb { animation: fade-in linear both; animation-timeline: --mxv; animation-range: contain 30% contain 42%; animation-delay: 0s; }
@@ -266,6 +281,11 @@
       .mxs.in-view .mxs__mxd, .mxs__mxd { animation: fade-in linear both; animation-timeline: --mxv; animation-range: contain 62% contain 72%; animation-delay: 0s; }
       .mxs.in-view .mxs__mxe, .mxs__mxe { animation: fade-in linear both; animation-timeline: --mxv; animation-range: contain 76% contain 84%; animation-delay: 0s; }
       .mxs.in-view .mxs__ann, .mxs__ann { animation: mxs-in linear both; animation-timeline: --mxv; animation-range: contain 86% contain 91%; animation-delay: 0s; }
+      .mxs.in-view .mxs__step--a, .mxs__step--a { animation: fade-in linear both; animation-timeline: --mxv; animation-range: contain 14% contain 26%; animation-delay: 0s; }
+      .mxs.in-view .mxs__step--b, .mxs__step--b { animation: fade-in linear both; animation-timeline: --mxv; animation-range: contain 30% contain 42%; animation-delay: 0s; }
+      .mxs.in-view .mxs__step--c, .mxs__step--c { animation: fade-in linear both; animation-timeline: --mxv; animation-range: contain 46% contain 58%; animation-delay: 0s; }
+      .mxs.in-view .mxs__step--d, .mxs__step--d { animation: fade-in linear both; animation-timeline: --mxv; animation-range: contain 62% contain 72%; animation-delay: 0s; }
+      .mxs.in-view .mxs__step--e, .mxs__step--e { animation: fade-in linear both; animation-timeline: --mxv; animation-range: contain 76% contain 84%; animation-delay: 0s; }
     }
     @media (min-width: 700px) and (max-width: 999px) and (prefers-reduced-motion: no-preference) {
       /* mobile/tablet runway compresses ~40% (§7) */
@@ -355,7 +375,7 @@
       know, build the audience from the answers, put it on the air. Then ask again
       &mdash; the questions never leave the field.</p>
     <div class="btn-row">
-      <a class="btn btn--navy btn--lg" href="#explorer">Search the question library</a>
+      <a class="btn btn--navy btn--lg" href="questions.html">Search the 3,537 questions</a>
       <a class="btn btn--outline btn--lg" href="contact.html">Request a demo</a>
     </div>
 
@@ -492,7 +512,7 @@
                 </pattern>
               </defs>
               <text class="mxs__lbl" x="104" y="26" font-family="Inter, sans-serif" font-size="12" font-weight="700" letter-spacing="1.2" fill="#1F6E96">10,000+ ALWAYS-ON QUESTIONS &#8594;</text>
-              <text class="mxs__lbl" x="104" y="44" font-family="Inter, sans-serif" font-size="10.5" fill="#5B7085">3,537 of them cleared for political ordering, searchable below</text>
+              <text class="mxs__lbl" x="104" y="44" font-family="Inter, sans-serif" font-size="10.5" fill="#5B7085">3,537 cleared for political ordering &mdash; the library is its own page</text>
               <text class="mxs__lbl" transform="rotate(-90 58 262)" x="58" y="262" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="700" letter-spacing="1.2" fill="#1F6E96">165M PROFILES &#8595;</text>
               <rect x="100" y="60" width="836" height="402" fill="url(#mxsGrid)" stroke="#DCE4EC" stroke-width="1"/>
               <path class="mxs__s1" d="M836 136h3v3h-3zM146 298h3v3h-3zM272 160h3v3h-3zM806 268h3v3h-3zM872 100h3v3h-3zM488 394h3v3h-3zM380 328h3v3h-3zM224 280h3v3h-3zM434 328h3v3h-3zM122 208h3v3h-3zM128 160h3v3h-3zM224 340h3v3h-3zM260 322h3v3h-3zM632 250h3v3h-3zM104 232h3v3h-3zM128 430h3v3h-3zM464 100h3v3h-3zM806 430h3v3h-3zM524 436h3v3h-3zM158 136h3v3h-3zM152 310h3v3h-3zM182 334h3v3h-3zM674 346h3v3h-3zM752 88h3v3h-3zM230 226h3v3h-3zM494 208h3v3h-3zM644 154h3v3h-3zM380 424h3v3h-3zM122 112h3v3h-3zM518 406h3v3h-3zM362 118h3v3h-3zM632 106h3v3h-3zM296 94h3v3h-3zM344 244h3v3h-3zM278 88h3v3h-3zM812 340h3v3h-3zM710 130h3v3h-3zM626 304h3v3h-3zM824 436h3v3h-3zM374 322h3v3h-3zM770 268h3v3h-3zM482 316h3v3h-3zM200 178h3v3h-3zM866 406h3v3h-3zM140 256h3v3h-3zM536 130h3v3h-3zM848 178h3v3h-3zM242 298h3v3h-3zM752 190h3v3h-3zM830 160h3v3h-3zM896 430h3v3h-3zM584 100h3v3h-3zM308 82h3v3h-3zM590 382h3v3h-3zM194 214h3v3h-3zM668 364h3v3h-3zM500 70h3v3h-3zM122 220h3v3h-3zM470 130h3v3h-3zM632 400h3v3h-3zM434 430h3v3h-3zM314 106h3v3h-3zM194 238h3v3h-3zM770 172h3v3h-3zM344 220h3v3h-3zM890 430h3v3h-3zM722 394h3v3h-3zM434 82h3v3h-3zM554 94h3v3h-3zM344 346h3v3h-3zM386 112h3v3h-3zM104 292h3v3h-3zM296 268h3v3h-3zM122 436h3v3h-3zM440 376h3v3h-3zM608 178h3v3h-3zM458 262h3v3h-3zM452 142h3v3h-3zM788 76h3v3h-3zM116 64h3v3h-3zM728 250h3v3h-3zM506 64h3v3h-3zM848 388h3v3h-3zM284 412h3v3h-3zM116 148h3v3h-3zM368 454h3v3h-3zM254 64h3v3h-3zM224 154h3v3h-3zM278 418h3v3h-3zM122 136h3v3h-3zM332 394h3v3h-3zM452 400h3v3h-3zM884 214h3v3h-3zM116 256h3v3h-3zM782 370h3v3h-3zM110 340h3v3h-3zM350 304h3v3h-3zM524 94h3v3h-3zM236 136h3v3h-3zM302 202h3v3h-3zM338 364h3v3h-3zM584 268h3v3h-3zM884 292h3v3h-3zM116 262h3v3h-3zM188 388h3v3h-3zM404 292h3v3h-3zM698 118h3v3h-3zM326 196h3v3h-3zM398 310h3v3h-3zM206 346h3v3h-3zM740 388h3v3h-3zM620 274h3v3h-3zM854 154h3v3h-3zM602 226h3v3h-3zM296 262h3v3h-3zM494 196h3v3h-3zM158 70h3v3h-3zM254 448h3v3h-3zM902 298h3v3h-3zM494 292h3v3h-3zM128 280h3v3h-3zM704 436h3v3h-3zM788 172h3v3h-3zM842 370h3v3h-3zM908 268h3v3h-3zM740 316h3v3h-3zM506 82h3v3h-3zM710 274h3v3h-3zM842 250h3v3h-3zM134 286h3v3h-3zM482 454h3v3h-3zM212 346h3v3h-3zM608 202h3v3h-3zM302 268h3v3h-3zM512 262h3v3h-3zM116 190h3v3h-3zM908 196h3v3h-3z" fill="#1B4F72"/>
@@ -559,7 +579,14 @@
               <text class="mxs__lbl" x="936" y="486" text-anchor="end" font-family="Inter, sans-serif" font-size="11" fill="#4F7A25">lime = answered today</text>
               <text class="mxs__lbl" x="100" y="486" font-family="Inter, sans-serif" font-size="10.5" fill="#5B7085">grid sampled for display &middot; density illustrative &middot; the counts are not</text>
             </svg>
-            <p class="mxs__hint small">Keep scrolling: one profile, one question, the intersection, the attributes, the labeled extension.</p>
+            <ol class="mxs__steps">
+              <li class="mxs__step mxs__step--a"><b>Step 1</b> One profile: a real person's answers, layering over months.</li>
+              <li class="mxs__step mxs__step--b"><b>Step 2</b> One question: everyone who answered it, dated.</li>
+              <li class="mxs__step mxs__step--c"><b>Step 3</b> Answered both &mdash; that intersection is the audience, declared.</li>
+              <li class="mxs__step mxs__step--d"><b>Step 4</b> Licensed attributes ride every profile: weighting and the ID match.</li>
+              <li class="mxs__step mxs__step--e"><b>Step 5</b> Need more reach? The extension is modeled &mdash; and always labeled.</li>
+            </ol>
+            <p class="mxs__hint small">Keep scrolling: each step draws on the grid above.</p>
             <div class="mxs__ann">
               <span class="mxs__ann-big num">165,000,000 profiles &times; 10,000+ questions.</span>
               <span class="mxs__ann-sub">Answers layer into a profile. An audience is the
@@ -663,7 +690,7 @@
               IO &middot; refresh cadence stated on the IO &mdash; ask for the current menu on the call</span>
           </div>
           <div class="btn-row mt2">
-            <a class="btn btn--navy" href="#explorer">Search the 3,537 questions</a>
+            <a class="btn btn--navy" href="questions.html">Search the 3,537 questions</a>
             <a class="btn btn--outline" href="contact.html">Request a demo</a>
           </div>
         </div>
@@ -798,84 +825,6 @@
 </section>
 
 <!-- ============ THE QUESTION LIBRARY ============ -->
-<section class="section section--tint" id="library">
-  <div class="wrap">
-    <p class="eyebrow"><span class="folio">04</span>The question library</p>
-    <h2 id="explorer">Search the orderable library. All 3,537 questions of it.</h2>
-    <p class="dek" style="margin-bottom:1.4rem">Read the exact wording, build a shortlist,
-      send it to us. This is the list an audience actually gets built from, not a sample:
-      3,537 of the network's 10,000+ always-on questions are cleared for political
-      ordering. The library is consumer-deep by design &mdash; the political read usually
-      crosses civic anchors with consumer signal, and the hot-button question your race is
-      arguing is usually a custom field.</p>
-
-    <div id="sx" data-ready="false">
-      <div>
-        <div class="sx-controls">
-          <div class="sx-search">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
-            <input id="sx-q" type="search" placeholder="Search 3,537 orderable questions" autocomplete="off" aria-label="Search the question library">
-          </div>
-          <div class="sx-filters">
-            <div class="sx-chips" id="sx-domains"></div>
-            <select id="sx-cats" aria-label="Filter by category"></select>
-          </div>
-          <p class="sx-examples" id="sx-examples">Try:
-            <button data-ex="inflation">inflation</button>
-            <button data-ex="grocery">grocery</button>
-            <button data-ex="medicare">medicare</button>
-            <button data-ex="energy">energy</button>
-            <button data-ex="streaming">streaming</button>
-            <button data-ex="local news">local news</button>
-          </p>
-        </div>
-        <p class="sx-count" id="sx-count" aria-live="polite"></p>
-        <ul class="sx-list" id="sx-results"></ul>
-        <div id="sx-empty" style="display:none">No question matches that. The library is large
-          but it is not infinite, and a custom question is the answer when the topic is not in
-          it.</div>
-
-        <div class="stamp">
-          <span><b>Source</b> the current syndicated question library</span>
-          <span><b>Covers</b> 6 domains, 38 categories</span>
-          <span><b>Confirmed</b> availability is checked when the audience is built</span>
-        </div>
-        <p class="tbl-note">Search runs in your browser. The shortlist stays on this page until
-          you copy it or send it to us.</p>
-      </div>
-
-      <aside class="sx-side">
-        <div class="sx-basket" id="sx-basket" data-has="false">
-          <div class="sx-basket__hd"><h3>Your shortlist</h3><span><span id="sx-basket-n">0</span> picked</span></div>
-          <ul id="sx-basket-list"></ul>
-          <div class="sx-basket__ft">
-            <!-- Ruling 49b: the deal-ID ask leads the footer, full-strength. -->
-            <a class="btn btn--lime" id="sx-email" href="mailto:info@kpipolitical.com?subject=Deal%20ID%20request">Email to turn on deal IDs</a>
-            <div class="sx-basket__ft-row">
-              <button class="btn btn--outline btn--sm" id="sx-copy" disabled>Copy shortlist</button>
-              <button class="btn btn--outline btn--sm" id="sx-clear" disabled>Clear</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card__k">Deal-ID activation</div>
-          <p class="small">Email the shortlist and it comes back as a private-marketplace
-            deal ID &mdash; your seat or ours. Syndicated audiences arrive in days; a
-            custom question takes about two weeks. Every deal returns the ID, the matched
-            audience size and a composition read; the identifiers the match runs on are
-            confirmed in writing before the insertion order; streaming and CTV line items
-            qualify; and every question that built the audience is named, so you can
-            audit it.</p>
-          <p class="small mb0">Topic not in the library? That is a custom question, fielded
-            to a known audience first: included with a media investment; standalone, by
-            rate card on <a href="contact.html">request</a>.</p>
-        </div>
-      </aside>
-    </div>
-  </div>
-</section>
-
 <!-- ============ FINAL CTA ============ -->
 <section class="section section--mega cta-final">
   <div class="wrap center">
@@ -909,6 +858,7 @@
           <li><a href="monitoring.html">Monitoring</a></li>
           <li><a href="week.html">For buyers &amp; sellers</a></li>
           <li><a href="polling.html">Real-time polling</a></li>
+          <li><a href="questions.html">The question library</a></li>
         </ul>
       </div>
       <div>
@@ -937,8 +887,7 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r26"></script>
-<script src="assets/js/segments.js?v=r26" defer></script>
+<script src="assets/js/site.js?v=r38"></script>
 <script>
 /* R6 (item 74): on a narrow phone the long placeholder clips mid-number, so it
    swaps to the short form before the field ever renders a cut digit. */

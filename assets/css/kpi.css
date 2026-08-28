@@ -1,4 +1,4 @@
-@import url("fonts.css?v=r36");
+@import url("fonts.css?v=r38");
 
 /* ==========================================================================
    Kinetiq Political Insights - site design system
@@ -1173,10 +1173,8 @@ a.chip:hover { border-color: var(--blue); color: var(--navy); background: var(--
    MEASURE -> TARGET -> DECIDE, with Baker as the ask-anything strip across
    all four. Fully static; the arrows are characters, nothing moves. */
 .lmap { max-width: 1080px; margin-inline: auto; }
-.lmap__rail { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr; gap: 1.9rem; }
+.lmap__rail { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr; gap: 1.1rem; }
 .lmap__layer { position: relative; background: var(--white); border: 1.5px solid var(--rule); border-radius: var(--r-lg); padding: 1rem 1.1rem 1.05rem; box-shadow: 0 1px 2px rgba(13,46,74,.05), 0 6px 18px rgba(13,46,74,.06); }
-.lmap__layer::after { content: "\2193"; position: absolute; left: 50%; bottom: -1.6rem; transform: translateX(-50%); font-weight: 800; font-size: 1.15rem; line-height: 1; color: var(--lime-dark); }
-.lmap__layer:last-child::after { content: none; }
 .lmap__name { display: block; font-family: var(--label); text-transform: uppercase; letter-spacing: .14em; font-size: .72rem; font-weight: 700; color: var(--navy); }
 .lmap__what { display: block; margin-top: .25rem; font-size: .85rem; line-height: 1.5; color: var(--ink-2); }
 .lmap__items { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .65rem; }
@@ -1196,9 +1194,7 @@ a.chip:hover { border-color: var(--blue); color: var(--navy); background: var(--
 .lmap__baker:hover { border-color: var(--teal); }
 .lmap__baker:hover b { color: var(--navy); }
 @media (min-width: 960px) {
-  .lmap__rail { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2.2rem; align-items: stretch; }
-  .lmap__layer::after { content: "\2192"; left: auto; right: -1.85rem; top: 50%; bottom: auto; transform: translateY(-50%); }
-  .lmap__layer:last-child::after { content: none; }
+  .lmap__rail { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.4rem; align-items: stretch; }
 }
 
 /* ---------- rulings 39b + 50b: two stories, one unmistakable switch. ----------
