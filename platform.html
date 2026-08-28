@@ -214,9 +214,9 @@
     </div>
     <div class="hero-float">
       <figure class="app-shot app-shot--hero">
-        <img src="assets/apps/app-scoreboard.webp" fetchpriority="high"
-          alt="The Scoreboard: every race with money in it, share of race money by side, one dated Excel export. Synthetic data.">
-        <figcaption>The Scoreboard &middot; synthetic race data</figcaption>
+        <img src="assets/apps/app-buy-sheet.webp" fetchpriority="high"
+          alt="The Buy Sheet: the whole flight by side, then markets down and weeks across, lane rows under each. Synthetic data.">
+        <figcaption>The Buy Sheet &middot; synthetic data</figcaption>
       </figure>
     </div>
   </div>
@@ -483,51 +483,12 @@
       lane would be wrong in several. Instead, the posted-through date on every figure.</p>
 
     <h3 class="mt3">Which contests are in the grid</h3>
-    <p class="small tbl-hint">Swipe sideways for every column.</p>
-    <div class="tbl-scroll" tabindex="0" role="group" aria-label="Which contests are tracked and where each thins, scrolls sideways">
-      <table class="tbl tbl--contests">
-        <thead>
-          <tr>
-            <th style="width:22%">Contest</th>
-            <th style="width:40%">What is tracked</th>
-            <th class="us" style="width:38%">Where the signal thins</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row" class="row-h">U.S. Senate and U.S. House</th>
-            <td>Standard universe: every lane above, attributed to the contest.</td>
-            <td class="us">Nothing office-specific; the lane limits above are the limits.</td>
-          </tr>
-          <tr>
-            <th scope="row" class="row-h">Governor and other statewide</th>
-            <td>Standard universe, counted as federal.</td>
-            <td class="us">Down-ballot statewide draws issue-group money that never names the office;
-              it lands as an advertiser record, not race spend.</td>
-          </tr>
-          <tr>
-            <th scope="row" class="row-h">State legislative</th>
-            <td>Airings captured; seat attribution scoped by state and contest list, not assumed.</td>
-            <td class="us">The hardest attribution: a spot naming no office, in a market spanning
-              many districts, can be clear and still unassignable to one seat.</td>
-          </tr>
-          <tr>
-            <th scope="row" class="row-h">Ballot measures and judicial</th>
-            <td>Captured; attributed where the creative or filed order names the measure or seat.</td>
-            <td class="us">Committee names often bear no resemblance to the measure; money sits under
-              an advertiser record until tied, never forced into a total.</td>
-          </tr>
-          <tr>
-            <th scope="row" class="row-h">Special and off-cycle</th>
-            <td>Treated as the regular contest; the calendar does not change how we count.</td>
-            <td class="us">Insufficient-signal states cluster in a flight's first days; a special is
-              nearly all first days.</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="tbl-note band-note">Scope is set at subscription, not assumed: name the seats you
-      watch; we will say which we stand behind and which sit in this table's thin part.</p>
+    <p class="small" style="max-width:68ch">Federal, statewide, legislative, ballot and
+      special contests are all tracked; what changes office by office is attribution,
+      and money we cannot tie to a seat is never forced into a total. Scope is set at
+      subscription, not assumed: name the seats you watch and we will say which we
+      stand behind. The office-by-office statement is on the
+      <a href="methodology.html#contests">methodology page</a>.</p>
     <div class="callout mt3">
       <h4>What a zero means here</h4>
       <p class="small mb0">A zero we can stand behind prints as a zero; one we cannot prints as
@@ -1591,11 +1552,7 @@ tbody th.rc-buysheet-m{font-weight:400;background:transparent}
       </ul>
       </div>
     </div>
-    <figure class="app-shot" data-rise>
-      <img src="assets/apps/app-creative-explorer.webp" loading="lazy"
-        alt="The Creative Explorer: the case for and against each side, the undercard, and every ad's dollars, points and air dates. Synthetic data.">
-      <figcaption>The Creative Explorer &middot; synthetic race data</figcaption>
-    </figure>
+
     <!-- Ruling 22: shown as a cropped glimpse; the demo is the reveal. -->
     <div class="shot-stage shot-stage--r rc-stage glimpse glimpse--h340">
 <div class="rc rc-explorer">
