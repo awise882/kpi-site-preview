@@ -60,7 +60,7 @@
         entries.forEach(function (e) {
           if (e.isIntersecting) { e.target.classList.add('in-view'); io.unobserve(e.target); }
         });
-      }, { rootMargin: '0px 0px -8% 0px' });
+      }, { rootMargin: '0px 0px -2% 0px' });
       /* .ledger is observed directly (never via a data-rise parent): its numeral
          must never move, so .in-view only draws its baseline rule and fades its
          hanging stamp. Both are fully visible without JS. Pass E adds the new

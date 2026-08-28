@@ -722,12 +722,12 @@ a.chip:hover { border-color: var(--blue); color: var(--navy); background: var(--
    `[data-rise] > * { will-change: transform }` promoted hundreds of nodes to
    their own layers permanently, for a one-shot entrance the animation promotes
    by itself. Removed; nothing pre-promotes. */
-.in-view[data-rise] > * { animation: rise .65s var(--smooth) backwards; }
-.in-view[data-rise] > *:nth-child(2) { animation-delay: .08s; }
-.in-view[data-rise] > *:nth-child(3) { animation-delay: .16s; }
-.in-view[data-rise] > *:nth-child(4) { animation-delay: .24s; }
-.in-view[data-rise] > *:nth-child(5) { animation-delay: .32s; }
-.in-view[data-rise] > *:nth-child(6) { animation-delay: .4s; }
+.in-view[data-rise] > * { animation: rise .45s var(--smooth) backwards; }
+.in-view[data-rise] > *:nth-child(2) { animation-delay: .05s; }
+.in-view[data-rise] > *:nth-child(3) { animation-delay: .1s; }
+.in-view[data-rise] > *:nth-child(4) { animation-delay: .15s; }
+.in-view[data-rise] > *:nth-child(5) { animation-delay: .2s; }
+.in-view[data-rise] > *:nth-child(6) { animation-delay: .25s; }
 @keyframes rise { from { opacity: .01; transform: translateY(26px); } to { opacity: 1; transform: translateY(0); } }
 .in-view .fig__svg rect { transform-origin: left center; animation: grow-x .9s var(--smooth) backwards; }
 .in-view .fig__svg rect:nth-of-type(2) { animation-delay: .12s; }
