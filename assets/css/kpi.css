@@ -1,4 +1,4 @@
-@import url("fonts.css?v=r26");
+@import url("fonts.css?v=r36");
 
 /* ==========================================================================
    Kinetiq Political Insights - site design system
@@ -58,7 +58,9 @@
   --display: 'Source Serif 4', Georgia, 'Times New Roman', serif;
   --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --label: 'Barlow Condensed', 'Arial Narrow', 'Inter', sans-serif;
-  --mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+  /* r36 (owner, 8/28): the terminal mono is retired. Figures set in Inter
+     with tabular numerals — the same face the shipping product uses. */
+  --mono: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
   /* --- space + shape --- */
   --gut: clamp(20px, 4vw, 48px);

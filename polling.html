@@ -9,8 +9,8 @@
 <meta property="og:description" content="More than 10,000 always-on questions, over 1 million answers a day. Ask, hear back, build the audience, put it on the air. Then ask again.">
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-mark.png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r33">
-<link rel="stylesheet" href="assets/css/segments.css?v=r33">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r36">
+<link rel="stylesheet" href="assets/css/segments.css?v=r36">
 <style>
   /* Light, centered, airy hero, same standard as the home page: display headline
      in the green-to-teal gradient with the layered offset, the lede, two buttons,
@@ -259,12 +259,12 @@
       .mxs__pin { position: sticky; top: 88px; }
       .mxs__svg { max-width: min(960px, calc((100vh - 380px) * 1.786)); margin-inline: auto; }
       .mxs__hint { display: block; }
-      .mxs.in-view .mxs__mxa, .mxs__mxa { animation: fade-in linear both; animation-timeline: --mxv; animation-range: contain 26% contain 38%; animation-delay: 0s; }
-      .mxs.in-view .mxs__mxb, .mxs__mxb { animation: fade-in linear both; animation-timeline: --mxv; animation-range: contain 40% contain 52%; animation-delay: 0s; }
-      .mxs.in-view .mxs__mxc, .mxs__mxc { animation: fade-in linear both; animation-timeline: --mxv; animation-range: contain 54% contain 66%; animation-delay: 0s; }
-      .mxs.in-view .mxs__mxd, .mxs__mxd { animation: fade-in linear both; animation-timeline: --mxv; animation-range: contain 68% contain 78%; animation-delay: 0s; }
-      .mxs.in-view .mxs__mxe, .mxs__mxe { animation: fade-in linear both; animation-timeline: --mxv; animation-range: contain 80% contain 88%; animation-delay: 0s; }
-      .mxs.in-view .mxs__ann, .mxs__ann { animation: mxs-in linear both; animation-timeline: --mxv; animation-range: contain 89% contain 93%; animation-delay: 0s; }
+      .mxs.in-view .mxs__mxa, .mxs__mxa { animation: fade-in linear both; animation-timeline: --mxv; animation-range: contain 14% contain 26%; animation-delay: 0s; }
+      .mxs.in-view .mxs__mxb, .mxs__mxb { animation: fade-in linear both; animation-timeline: --mxv; animation-range: contain 30% contain 42%; animation-delay: 0s; }
+      .mxs.in-view .mxs__mxc, .mxs__mxc { animation: fade-in linear both; animation-timeline: --mxv; animation-range: contain 46% contain 58%; animation-delay: 0s; }
+      .mxs.in-view .mxs__mxd, .mxs__mxd { animation: fade-in linear both; animation-timeline: --mxv; animation-range: contain 62% contain 72%; animation-delay: 0s; }
+      .mxs.in-view .mxs__mxe, .mxs__mxe { animation: fade-in linear both; animation-timeline: --mxv; animation-range: contain 76% contain 84%; animation-delay: 0s; }
+      .mxs.in-view .mxs__ann, .mxs__ann { animation: mxs-in linear both; animation-timeline: --mxv; animation-range: contain 86% contain 91%; animation-delay: 0s; }
     }
     @media (min-width: 700px) and (max-width: 999px) and (prefers-reduced-motion: no-preference) {
       /* mobile/tablet runway compresses ~40% (§7) */
@@ -478,7 +478,7 @@
                 One highlighted column shows a single question and the scattered,
                 dated answers it drew. Ring markers show rows that answered both
                 highlighted questions: the intersection of real answers is the
-                declared audience seed. A rail beside the grid marks the licensed
+                declared audience. A rail beside the grid marks the licensed
                 consumer attributes riding every profile, Experian-class demographics,
                 household and purchase data, used for representative weighting and the
                 identifier match. A dashed band marks the optional lookalike
@@ -535,17 +535,19 @@
                 <path d="M92 189h6v5h-6zM92 249h6v5h-6z" fill="#4F7A25"/>
                 <g font-family="Inter, sans-serif" font-size="11" font-weight="700">
                   <rect x="130" y="282" width="286" height="20" rx="3" fill="#fff" stroke="#4F7A25"/>
-                  <text class="mxs__lbl" x="273" y="296" text-anchor="middle" fill="#4F7A25">ANSWERED BOTH &rarr; THE DECLARED SEED</text>
+                  <text class="mxs__lbl" x="273" y="296" text-anchor="middle" fill="#4F7A25">ANSWERED BOTH &rarr; THE AUDIENCE, DECLARED</text>
                   <line x1="330" y1="282" x2="366" y2="256" stroke="#4F7A25" stroke-width="1"/>
                 </g>
+                <text class="mxs__lbl" x="736" y="486" text-anchor="end" font-family="Inter, sans-serif" font-size="11" fill="#4F7A25">rings = the declared audience</text>
               </g>
               <g class="mxs__mxd">
-                <rect x="944" y="60" width="30" height="402" fill="#0D2E4A" opacity=".07"/>
-                <rect x="944" y="60" width="30" height="402" fill="none" stroke="#8FA9BE" stroke-width="1"/>
-                <line x1="937" y1="120" x2="944" y2="120" stroke="#8FA9BE" stroke-width="1.4"/>
-                <line x1="937" y1="261" x2="944" y2="261" stroke="#8FA9BE" stroke-width="1.4"/>
-                <line x1="937" y1="402" x2="944" y2="402" stroke="#8FA9BE" stroke-width="1.4"/>
-                <text class="mxs__lbl" transform="rotate(-90 959 261)" x="959" y="265" text-anchor="middle" font-family="Inter, sans-serif" font-size="10.5" font-weight="700" letter-spacing=".6" fill="#40566A">LICENSED CONSUMER ATTRIBUTES &middot; DEMO &middot; HOUSEHOLD &middot; PURCHASE</text>
+                <rect x="942" y="60" width="36" height="402" fill="#0D2E4A" opacity=".07"/>
+                <rect x="942" y="60" width="36" height="402" fill="none" stroke="#8FA9BE" stroke-width="1"/>
+                <line x1="937" y1="120" x2="942" y2="120" stroke="#8FA9BE" stroke-width="1.4"/>
+                <line x1="937" y1="261" x2="942" y2="261" stroke="#8FA9BE" stroke-width="1.4"/>
+                <line x1="937" y1="402" x2="942" y2="402" stroke="#8FA9BE" stroke-width="1.4"/>
+                <text class="mxs__lbl" transform="rotate(-90 953 261)" x="953" y="257" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" font-weight="700" letter-spacing=".5" fill="#40566A">LICENSED ATTRIBUTES &middot; EXPERIAN-CLASS &middot; DEMO, HOUSEHOLD, PURCHASE</text>
+                <text class="mxs__lbl" transform="rotate(-90 967 261)" x="967" y="271" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" font-weight="700" letter-spacing=".5" fill="#40566A">FOR WEIGHTING + THE ID MATCH &mdash; NOT THE TARGETING INPUT</text>
               </g>
               <g class="mxs__mxe">
                 <rect x="100" y="408" width="836" height="54" fill="#5B7085" opacity=".06"/>
@@ -553,7 +555,7 @@
                 <rect x="284" y="424" width="468" height="20" rx="3" fill="#fff" stroke="#5B7085"/>
                 <text class="mxs__lbl" x="518" y="438" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" font-weight="700" fill="#40566A">OPTIONAL LOOKALIKE EXTENSION &middot; MODELED &middot; ALWAYS LABELED</text>
               </g>
-              <text class="mxs__lbl" x="936" y="486" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="11" fill="#4F7A25">lime = answered today &middot; rings = the declared seed</text>
+              <text class="mxs__lbl" x="936" y="486" text-anchor="end" font-family="Inter, sans-serif" font-size="11" fill="#4F7A25">lime = answered today</text>
               <text class="mxs__lbl" x="100" y="486" font-family="Inter, sans-serif" font-size="10.5" fill="#5B7085">grid sampled for display &middot; density illustrative &middot; the counts are not</text>
             </svg>
             <p class="mxs__hint small">Keep scrolling: one profile, one question, the intersection, the attributes, the labeled extension.</p>

@@ -9,7 +9,7 @@
 <meta property="og:description" content="Open to the race that changed. Read what the other side aired, booked and abandoned. Leave with the export.">
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-mark.png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r33">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r36">
 <style>
   /* The "what it exports" line that closes each app section. */
   .exports { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; margin-top: 1.3rem; }
@@ -213,10 +213,10 @@
       </div>
     </div>
     <div class="hero-float">
-      <figure class="app-shot app-shot--hero">
-        <img src="assets/apps/app-buy-sheet.webp" fetchpriority="high"
-          alt="The Buy Sheet: the whole flight by side, then markets down and weeks across, lane rows under each. Synthetic data.">
-        <figcaption>The Buy Sheet &middot; synthetic data</figcaption>
+      <figure class="app-shot app-shot--hero app-shot--natural">
+        <img src="assets/apps/app-digital-spend.webp" fetchpriority="high"
+          alt="One race's board: aired and booked money by side, then every channel including streaming, with estimates dated and kept out of the posted totals. Synthetic data.">
+        <figcaption>One race, every lane &middot; synthetic data</figcaption>
       </figure>
     </div>
   </div>
@@ -354,10 +354,10 @@
       <p class="lede" style="margin-inline:auto">Broadcast, local cable and radio order by order
         in all 210 markets; Streaming &amp; Digital as one lane family beside them.</p>
     </div>
-    <figure class="app-shot app-shot--natural" data-rise>
-      <img src="assets/apps/app-digital-spend.webp" loading="lazy"
-        alt="One race's board: aired and booked money by side, then every channel including streaming, with estimates dated and kept out of the posted totals. Synthetic data.">
-      <figcaption>One race, every lane &middot; streaming estimates dated, never blended &middot; synthetic data</figcaption>
+    <figure class="app-shot" data-rise>
+      <img src="assets/apps/app-buy-sheet.webp" loading="lazy"
+        alt="The Buy Sheet: the whole flight by side, then markets down and weeks across, with broadcast, cable and radio rows under each market. Synthetic data.">
+      <figcaption>Markets down, weeks across, lane rows &middot; the Buy Sheet &middot; synthetic data</figcaption>
     </figure>
     <div class="grid grid--2" data-rise>
       <div class="card card--flag">
@@ -708,7 +708,7 @@
 .rc-scoreboard-scope{ font-size:8.5px; color:#5b7186; font-weight:500; }
 .rc-scoreboard-stamp{
   margin-left:auto;
-  font-family:'JetBrains Mono','SF Mono',Menlo,monospace;
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
   font-size:8.5px; font-weight:600; letter-spacing:.4px; text-transform:uppercase;
   color:#1B4F72; border:1px solid rgba(27,79,114,.35);
   padding:2px 4px; white-space:nowrap;
@@ -724,7 +724,7 @@
   padding:2.5px 6px; white-space:nowrap;
 }
 .rc-scoreboard-filter i{
-  font-style:normal; font-family:'JetBrains Mono','SF Mono',Menlo,monospace;
+  font-style:normal; font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
   font-size:8.5px; font-weight:600; letter-spacing:.5px; text-transform:uppercase;
   color:#5b7186;
 }
@@ -747,7 +747,7 @@
 /* column header */
 .rc-scoreboard-cols{
   display:flex; align-items:baseline; justify-content:space-between;
-  font-family:'JetBrains Mono','SF Mono',Menlo,monospace;
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
   font-size:8.5px; font-weight:600; letter-spacing:.5px; text-transform:uppercase;
   color:#5b7186; border-bottom:1px solid rgba(13,46,74,.16);
   padding-bottom:3px;
@@ -767,7 +767,7 @@
 
 .rc-scoreboard-l1{ display:flex; align-items:baseline; gap:5px; }
 .rc-scoreboard-tag{
-  font-family:'JetBrains Mono','SF Mono',Menlo,monospace;
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
   font-size:8.5px; font-weight:700; letter-spacing:.6px;
   color:#1B4F72; background:rgba(27,79,114,.08);
   padding:1px 3px; flex:0 0 auto;
@@ -778,7 +778,7 @@
 }
 .rc-scoreboard-wk{
   margin-left:auto; flex:0 0 auto;
-  font-family:'JetBrains Mono','SF Mono',Menlo,monospace;
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
   font-size:9px; font-weight:700; color:#08243B;
   font-variant-numeric:tabular-nums lining-nums; white-space:nowrap;
 }
@@ -786,14 +786,14 @@
 .rc-scoreboard-l2{ display:flex; align-items:center; gap:5px; margin-top:3px; }
 .rc-scoreboard-money{
   flex:0 0 auto;
-  font-family:'JetBrains Mono','SF Mono',Menlo,monospace;
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
   font-size:8.5px; color:#5b7186;
   font-variant-numeric:tabular-nums lining-nums; white-space:nowrap;
 }
 .rc-scoreboard-money b{ font-weight:700; color:#0D2E4A; }
 .rc-scoreboard-pct{
   flex:0 0 auto;
-  font-family:'JetBrains Mono','SF Mono',Menlo,monospace;
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
   font-size:8.5px; font-weight:700;
   font-variant-numeric:tabular-nums lining-nums;
 }
@@ -803,7 +803,7 @@
 /* aired v booked split line: only some rows carry it, demonstrating the separation */
 .rc-scoreboard-l3{ display:flex; justify-content:space-between; gap:6px; margin-top:2px; flex-wrap:wrap; }
 .rc-scoreboard-split{
-  font-family:'JetBrains Mono','SF Mono',Menlo,monospace;
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
   font-size:8.5px; color:#5b7186;
   font-variant-numeric:tabular-nums lining-nums; white-space:nowrap;
 }
@@ -985,7 +985,7 @@
   --rcm-navy1:#1B4F72; --rcm-navy2:#0D2E4A; --rcm-navy3:#08243B;
   --rcm-lime:#A8D14E; --rcm-blue:#2D8BBA; --rcm-blue2:#5B9BD5; --rcm-teal:#00ACC1;
   --rcm-ink:#14232F; --rcm-mute:#5A6B7C; --rcm-track:#E8EFF5; --rcm-line:#D7E1EA;
-  --rcm-mono:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;
+  --rcm-mono:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   font-family:Inter,-apple-system,'Segoe UI',sans-serif;
   max-width:100%;width:100%;background:#FFFFFF;border:1px solid var(--rcm-line);
   border-radius:10px;overflow:hidden;color:var(--rcm-ink);
@@ -1249,7 +1249,7 @@
   --rcbs-rep:#B32626; --rcbs-repsoft:#F7E2E2; --rcbs-reptext:#7C2222;
   --rcbs-dem:#3B66A0;
   --rcbs-sans:Inter,"Inter var",-apple-system,"Segoe UI",Roboto,sans-serif;
-  --rcbs-mono:"JetBrains Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --rcbs-mono:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
   position:relative; box-sizing:border-box; width:100%; max-width:640px; max-height:430px;
   overflow:hidden; background:#FFFFFF; border:1px solid rgba(13,46,74,.18);
   font-family:var(--rcbs-sans); color:var(--rcbs-deep); text-align:left;
@@ -1475,7 +1475,7 @@ tbody th.rc-buysheet-m{font-weight:400;background:transparent}
 .rc-stnshare{
   --rcss-navy:#1B4F72; --rcss-navy2:#0D2E4A; --rcss-navy3:#08243B;
   --rcss-lime:#A8D14E; --rcss-mute:var(--mock-dim, #5A6B7C); --rcss-line:var(--mock-rule, #D9E2E9); --rcss-track:#EBF1F5;
-  --rcss-mono:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,Consolas,monospace;
+  --rcss-mono:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   box-sizing:border-box; width:100%; max-width:560px; overflow:hidden;
   background:#fff; border:1px solid var(--rcss-line); border-top:3px solid var(--rcss-navy2);
   padding:10px 12px 9px; font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif; color:var(--rcss-navy2);
@@ -1631,7 +1631,7 @@ tbody th.rc-buysheet-m{font-weight:400;background:transparent}
     --rce-lime:#A8D14E; --rce-blue:#2D8BBA; --rce-sky:#5B9BD5; --rce-teal:#00ACC1;
     --rce-dem:#2C5F9E; --rce-rep:#B03A48;
     --rce-mute:rgba(13,46,74,.72); --rce-faint:rgba(13,46,74,.68); --rce-line:rgba(13,46,74,.12);
-    --rce-mono:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;
+    --rce-mono:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-family:'Inter',-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;
     width:100%; max-width:560px; box-sizing:border-box;
     background:#fff; border:1px solid var(--rce-line); border-radius:10px;
@@ -1830,7 +1830,7 @@ tbody th.rc-buysheet-m{font-weight:400;background:transparent}
   --rcp-navy:#1B4F72; --rcp-navy2:#0D2E4A; --rcp-navy3:#08243B;
   --rcp-lime:#A8D14E; --rcp-mute:#46586A; /* W1 R7: one step darker than --mock-dim; this card sits under the crop fade and read gray-on-gray */ --rcp-line:var(--mock-rule, #D9E2E9); --rcp-track:#EBF1F5;
   --rcp-sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
-  --rcp-mono:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,Consolas,monospace;
+  --rcp-mono:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   box-sizing:border-box; width:100%; max-width:640px; overflow:hidden;
   background:#fff; border:1px solid var(--rcp-line); border-top:3px solid var(--rcp-navy2);
   padding:10px 12px 9px; font-family:var(--rcp-sans); color:var(--rcp-navy2);
@@ -1929,7 +1929,7 @@ tbody th.rc-buysheet-m{font-weight:400;background:transparent}
   --rcg-navy:#1B4F72; --rcg-navy2:#0D2E4A; --rcg-navy3:#08243B;
   --rcg-lime:#A8D14E; --rcg-lime-deep:#5A7A1E; --rcg-blue:#2D8BBA;
   --rcg-mute:#46586A; --rcg-line:var(--mock-rule, #D9E2E9); --rcg-track:#EBF1F5;
-  --rcg-mono:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,Consolas,monospace;
+  --rcg-mono:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   box-sizing:border-box; width:100%; max-width:640px; overflow:hidden;
   background:#fff; border:1px solid var(--rcg-line); border-top:3px solid var(--rcg-navy2);
   padding:10px 12px 9px; font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif; color:var(--rcg-navy2);
@@ -2042,7 +2042,7 @@ tbody th.rc-buysheet-m{font-weight:400;background:transparent}
   --rcb-mute:var(--mock-dim, #5A6B7C); --rcb-line:var(--mock-rule, #D9E2E9);
   --rcb-sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
   --rcb-serif:Georgia,'Times New Roman',serif;
-  --rcb-mono:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,Consolas,monospace;
+  --rcb-mono:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   box-sizing:border-box; width:100%; max-width:640px; overflow:hidden;
   background:#fff; border:1px solid var(--rcb-line);
   font-family:var(--rcb-sans); color:var(--rcb-navy2);
@@ -2147,7 +2147,7 @@ tbody th.rc-buysheet-m{font-weight:400;background:transparent}
   --rcbd-navy:#1B4F72; --rcbd-navy2:#0D2E4A; --rcbd-navy3:#08243B;
   --rcbd-teal:#00ACC1; --rcbd-lime:#A8D14E;
   --rcbd-mute:var(--mock-dim, #5A6B7C); --rcbd-line:var(--mock-rule, #D9E2E9);
-  --rcbd-mono:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,Consolas,monospace;
+  --rcbd-mono:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   box-sizing:border-box; width:100%; max-width:640px; overflow:hidden;
   background:#fff; border:1px solid var(--rcbd-line); border-top:3px solid var(--rcbd-navy2);
   padding:10px 12px 9px; font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif; color:var(--rcbd-navy2);
