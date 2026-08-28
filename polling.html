@@ -23,14 +23,6 @@
   .hero--poll .btn-row { justify-content: center; margin-top: 2.1rem; }
   /* Stats sit inside the centered hero column; the cells read left-aligned. */
   .hero--poll .stats { text-align: left; }
-  /* Explorer controls get thumb-sized targets on a phone. */
-  @media (max-width: 999px) {
-    .sx-add { width: 44px; height: 44px; font-size: 1.25rem; }
-    .sx-drop { width: 44px; height: 44px; }
-    .sx-basket li { grid-template-columns: 48px 1fr; }
-    .sx-chip { padding: .78rem .9rem; }
-    .sx-examples button { padding: .82rem .25rem; }
-  }
   /* THE LOOP AS A DRAWN RING (ruling 52c). Six stations sit ON a real drawn
      racetrack: an SVG ellipse with directional arrowheads, the payoff line in
      the center, and a highlight that walks the ring (the one allowed motion
@@ -142,18 +134,12 @@
     border-left: 3px solid var(--navy); background: var(--paper-warm); }
   .mini-ask__done { font-size: .95rem; line-height: 1.55; color: var(--ink-2); margin: 0; }
   .mini-ask__done b { color: var(--navy-deep); }
-  .sx-basket__ft-row { display: flex; gap: .5rem; }
-  .sx-basket__ft-row .btn { flex: 1 1 0; }
   /* P10 (R4, same class as the home hero): the page's own h1 clamp overrode the
      system's mobile downsizing. Restore it at the system breakpoint. */
   @media (max-width: 560px) {
     .hero--poll .hero-center { padding: clamp(36px, 8vw, 56px) 0 clamp(28px, 6vw, 44px); }
     .hero--poll h1 { font-size: clamp(2.1rem, 9.5vw, 2.7rem); }
     .hero--poll .btn-row { margin-top: 1.4rem; }
-    /* R5: the library controls breathe at phone width; domain chips run two-up. */
-    .sx-chips { display: flex; flex-wrap: wrap; gap: .5rem; }
-    .sx-chip { width: auto; flex: 0 1 auto; }
-    .sx-examples { line-height: 1.9; }
   }
 
   /* ==================================================================
@@ -885,14 +871,6 @@
 
 <script src="assets/js/site.js?v=r39"></script>
 <script>
-/* R6 (item 74): on a narrow phone the long placeholder clips mid-number, so it
-   swaps to the short form before the field ever renders a cut digit. */
-(function () {
-  var q = document.getElementById('sx-q');
-  if (q && window.matchMedia && matchMedia('(max-width: 480px)').matches) {
-    q.setAttribute('placeholder', 'Search the library');
-  }
-})();
 /* Ruling 49b: the 48-segment list ask. Email-only, posted as JSON to the same
    same-origin /api/contact endpoint the demo form uses (subject prefilled, the
    email carried in the payload, name = the email's prefix). Success, error and
@@ -953,26 +931,6 @@
         encodeURIComponent('Please send the 48-segment list to: ' + email);
       say('We opened the request in your email program instead. Send it and the list comes back to you.');
     });
-  });
-})();
-/* The deal-ID email: the shortlist travels in the mailto body, so the request
-   arrives at info@ as actionable text with QIDs, not a screenshot. */
-(function () {
-  var btn = document.getElementById('sx-email');
-  var list = document.getElementById('sx-basket-list');
-  if (!btn || !list) return;
-  btn.addEventListener('click', function () {
-    var items = [].map.call(list.querySelectorAll('li'), function (li) {
-      return '- ' + li.textContent.replace(/\s+/g, ' ').replace(/^\s*×\s*/, '').trim();
-    });
-    var body = 'Please turn on deal IDs for these declared-audience questions:%0D%0A%0D%0A'
-      + encodeURIComponent(items.join('\r\n'))
-      + '%0D%0A%0D%0ADSP and seat: %0D%0AChannels: %0D%0AFlight: ';
-    if (items.length) {
-      btn.setAttribute('href', 'mailto:info@kpipolitical.com?subject='
-        + encodeURIComponent('Deal ID request: ' + items.length + (items.length === 1 ? ' question' : ' questions'))
-        + '&body=' + body);
-    }
   });
 })();
 </script>

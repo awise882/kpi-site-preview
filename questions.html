@@ -9,6 +9,7 @@
 <meta property="og:description" content="3,537 orderable questions. Read the exact wording, build a shortlist, activate it as a deal ID.">
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
 <link rel="stylesheet" href="assets/css/kpi.css?v=r39">
 <link rel="stylesheet" href="assets/css/segments.css?v=r39">
@@ -17,6 +18,22 @@
   .hero--sub .eyebrow { justify-content: center; }
   .hero--sub h1 { max-width: none; margin-inline: auto; font-size: clamp(2.4rem, 5.4vw, 4.4rem); }
   .hero--sub .lede { margin: 1.2rem auto 0; max-width: 58ch; }
+  /* Explorer controls get thumb-sized targets on a phone. */
+  @media (max-width: 999px) {
+    .sx-add { width: 44px; height: 44px; font-size: 1.25rem; }
+    .sx-drop { width: 44px; height: 44px; }
+    .sx-basket li { grid-template-columns: 48px 1fr; }
+    .sx-chip { padding: .78rem .9rem; }
+    .sx-examples button { padding: .82rem .25rem; }
+  }
+  .sx-basket__ft-row { display: flex; gap: .5rem; }
+  .sx-basket__ft-row .btn { flex: 1 1 0; }
+  @media (max-width: 560px) {
+    /* R5: the library controls breathe at phone width; domain chips run two-up. */
+    .sx-chips { display: flex; flex-wrap: wrap; gap: .5rem; }
+    .sx-chip { width: auto; flex: 0 1 auto; }
+    .sx-examples { line-height: 1.9; }
+  }
 </style>
 </head>
 <body>
@@ -200,5 +217,35 @@
 
 <script src="assets/js/site.js?v=r39"></script>
 <script src="assets/js/segments.js?v=r39" defer></script>
+<script>
+/* R6 (item 74): on a narrow phone the long placeholder clips mid-number, so it
+   swaps to the short form before the field ever renders a cut digit. */
+(function () {
+  var q = document.getElementById('sx-q');
+  if (q && window.matchMedia && matchMedia('(max-width: 480px)').matches) {
+    q.setAttribute('placeholder', 'Search the library');
+  }
+})();
+/* The deal-ID email: the shortlist travels in the mailto body, so the request
+   arrives at info@ as actionable text with QIDs, not a screenshot. */
+(function () {
+  var btn = document.getElementById('sx-email');
+  var list = document.getElementById('sx-basket-list');
+  if (!btn || !list) return;
+  btn.addEventListener('click', function () {
+    var items = [].map.call(list.querySelectorAll('li'), function (li) {
+      return '- ' + li.textContent.replace(/\s+/g, ' ').replace(/^\s*×\s*/, '').trim();
+    });
+    var body = 'Please turn on deal IDs for these declared-audience questions:%0D%0A%0D%0A'
+      + encodeURIComponent(items.join('\r\n'))
+      + '%0D%0A%0D%0ADSP and seat: %0D%0AChannels: %0D%0AFlight: ';
+    if (items.length) {
+      btn.setAttribute('href', 'mailto:info@kpipolitical.com?subject='
+        + encodeURIComponent('Deal ID request: ' + items.length + (items.length === 1 ? ' question' : ' questions'))
+        + '&body=' + body);
+    }
+  });
+})();
+</script>
 </body>
 </html>

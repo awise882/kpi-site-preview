@@ -252,10 +252,16 @@
       }
       wkActivate(wkInit || wkTabs[0]);
       if (wkInit) {
-        requestAnimationFrame(function () {
+        /* Land on the tab rail, not the panel top: a forwarded seller sees
+           which desk they are on before Beat 1 starts. Runs again after load
+           because the browser's own late hash-jump wins over an early rAF. */
+        var wkLand = function () {
           var el = document.getElementById(wkHash);
-          if (el) el.scrollIntoView();
-        });
+          var rail = el && el.closest('.wk');
+          if (rail || el) (rail || el).scrollIntoView();
+        };
+        requestAnimationFrame(wkLand);
+        window.addEventListener('load', function () { setTimeout(wkLand, 60); });
       }
     }
   }
