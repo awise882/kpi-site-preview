@@ -396,3 +396,26 @@
   }, { threshold: 0.4 });
   io.observe(demo);
 })();
+
+/* Deep links land true: layout can grow after the browser's native hash jump
+   (fonts, staged figures), so the landing re-asserts itself after load. The
+   week tabs run their own two-pass landing and are skipped here. */
+(function () {
+  var h = location.hash;
+  if (!h || h === '#' || h === '#wk-buy' || h === '#wk-sell') return;
+  var cancelled = false;
+  ['wheel', 'touchstart', 'keydown'].forEach(function (ev) {
+    window.addEventListener(ev, function () { cancelled = true; }, { passive: true, once: true });
+  });
+  var land = function () {
+    if (cancelled) return;
+    var el;
+    try { el = document.querySelector(h); } catch (e) { return; }
+    if (el) el.scrollIntoView();
+  };
+  /* Layout can keep growing for a beat after load (late fonts, staged
+     sections), so the landing re-asserts on a short schedule. */
+  window.addEventListener('load', function () {
+    [90, 700, 1400].forEach(function (ms) { setTimeout(land, ms); });
+  });
+})();
