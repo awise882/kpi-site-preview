@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r38">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r39">
 <style>
   /* The "what it exports" line that closes each app section. */
   .exports { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; margin-top: 1.3rem; }
@@ -21,31 +21,6 @@
   .card .stamp { margin-top: .8rem; margin-bottom: .9rem; }
   .tbl--contests .row-h { font-family: var(--label); text-transform: uppercase;
     letter-spacing: .08em; font-size: .78rem; font-weight: 700; color: var(--navy-deep); white-space: nowrap; }
-  /* Paths pass: the five-column lane table is retired for a card stack that
-     never scrolls sideways. Per lane: the merged detect+dollars read with its
-     basis chip, ONE highlighted where-the-signal-thins callout, and the cadence
-     fine print folded into a disclosure. */
-  .lanefams { display: grid; gap: 1rem; }
-  .lanefam { background: var(--white); border: 1px solid var(--rule); border-radius: var(--r-lg);
-    padding: 1.05rem 1.15rem 1rem; box-shadow: 0 1px 2px rgba(13,46,74,.05), 0 6px 18px rgba(13,46,74,.06); }
-  .lanefam__head { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem .8rem; margin-bottom: .6rem; }
-  .lanefam__name { margin: 0; font-family: var(--label); text-transform: uppercase;
-    letter-spacing: .08em; font-size: .84rem; font-weight: 700; color: var(--navy-deep); }
-  .lanefam__body { display: grid; gap: .8rem 2rem; }
-  @media (min-width: 900px) {
-    .lanefam__body { grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); align-items: start; }
-  }
-  .lanefam__what { margin: 0; font-size: .9rem; line-height: 1.6; color: var(--ink-2); }
-  .lanefam__thins { margin: 0; font-size: .85rem; line-height: 1.55; color: var(--ink-2);
-    background: color-mix(in srgb, var(--lime) 9%, var(--white)); border-left: 3px solid var(--lime-dark);
-    padding: .6rem .8rem; }
-  .lanefam__thins b { display: block; font-family: var(--label); text-transform: uppercase;
-    letter-spacing: .1em; font-size: .62rem; color: var(--navy); margin-bottom: .25rem; }
-  .lanefam__more { margin-top: .7rem; border-top: 1px solid var(--rule-soft); padding-top: .5rem; }
-  .lanefam__more summary { cursor: pointer; font-family: var(--label); text-transform: uppercase;
-    letter-spacing: .1em; font-size: .64rem; font-weight: 700; color: var(--ink-3); }
-  .lanefam__more summary:hover { color: var(--navy); }
-  .lanefam__more p { margin: .5rem 0 0; }
   /* Anchor chips on the light hero: white cards, navy on hover. */
   .hero .chip { background: var(--white); border-color: var(--rule); color: var(--ink-2); text-decoration: none; }
   .hero .chip:hover { border-color: var(--navy); color: var(--navy-deep); }
@@ -182,8 +157,8 @@
       <img src="assets/img/kpi-logo.png" alt="Kinetiq Political Insights">
     </a>
     <ul class="nav__links">
-      <li><a href="platform.html" aria-current="page">Platform</a></li>
       <li><a href="monitoring.html">Monitoring</a></li>
+      <li><a href="platform.html" aria-current="page">Platform</a></li>
       <li><a href="week.html">Buyers &amp; Sellers</a></li>
       <li><a href="polling.html">Polling</a></li>
       <li><a href="methodology.html">Methodology</a></li>
@@ -263,7 +238,7 @@
   <div class="wrap">
     <div class="center" style="margin-bottom:3rem" data-rise>
       <p class="eyebrow eyebrow--plain" style="justify-content:center">Coverage</p>
-      <h2 class="h-display">Every lane we track, and the evidence under each.</h2>
+      <h2 class="h-display">Every lane we track.</h2>
       <p class="lede" style="margin-inline:auto">Broadcast, local cable and radio order by order
         in all 210 markets; Streaming &amp; Digital as one lane family beside them.</p>
     </div>
@@ -286,7 +261,8 @@
         <h3>Streaming &amp; Digital</h3>
         <p class="small">No public file exists for streaming, so we capture ads on the
           screen itself. Those dollars print as at least this much &mdash; and never mix
-          into posted TV totals.</p>
+          into posted TV totals.
+          <a href="monitoring.html#streaming-spend">How streaming is caught &rarr;</a></p>
       </div>
       <div class="card card--flag">
         <p class="card__k">From the public file</p>
@@ -297,102 +273,13 @@
       </div>
     </div>
 
-    <h3 class="mt3">Lane by lane</h3>
-    <div class="lanefams mt1" role="group" aria-label="Four lane families: what we detect, where the dollars come from, and where each signal thins">
-      <article class="lanefam">
-        <div class="lanefam__head">
-          <h4 class="lanefam__name">Broadcast TV</h4>
-          <span class="chip chip--lime">Order by order</span>
-        </div>
-        <div class="lanefam__body">
-          <p class="lanefam__what">Every airing on monitored stations &mdash; creative,
-            transcript, air date, markets &mdash; with dollars from orders on file, not
-            ratings models.</p>
-          <p class="lanefam__thins"><b>Where it thins</b> Late filings read lighter until they
-            land; the date on the figure is the check.</p>
-        </div>
-        <details class="lanefam__more"><summary>Cadence&thinsp;+&thinsp;fine print</summary>
-          <p class="small">Detections run continuously. Dollars firm up as stations file.</p>
-        </details>
-      </article>
-      <article class="lanefam">
-        <div class="lanefam__head">
-          <h4 class="lanefam__name">Local cable</h4>
-          <span class="chip chip--lime">Order by order</span>
-        </div>
-        <div class="lanefam__body">
-          <p class="lanefam__what">Placed orders by system, week and daypart, with the spots
-            running against them. Every dollar traces to a document.</p>
-          <p class="lanefam__thins"><b>Where it thins</b> A zone bought outside the reporting
-            systems will not appear; an incomplete week prints insufficient signal.</p>
-        </div>
-        <details class="lanefam__more"><summary>Cadence&thinsp;+&thinsp;fine print</summary>
-          <p class="small">Orders post as collected.</p>
-        </details>
-      </article>
-      <article class="lanefam">
-        <div class="lanefam__head">
-          <h4 class="lanefam__name">Radio</h4>
-          <span class="chip chip--lime">Orders first</span>
-        </div>
-        <div class="lanefam__body">
-          <p class="lanefam__what">Placed radio orders and their audio, joined to TV's race
-            and advertiser records.</p>
-          <p class="lanefam__thins"><b>Where it thins</b> Deepest in larger markets. Without an
-            order, caught airings print as estimated, outside posted totals.</p>
-        </div>
-        <details class="lanefam__more"><summary>Cadence&thinsp;+&thinsp;fine print</summary>
-          <p class="small">Dollars post more slowly than television.</p>
-        </details>
-      </article>
-      <article class="lanefam">
-        <div class="lanefam__head">
-          <h4 class="lanefam__name">Streaming &amp; Digital&thinsp;&middot;&thinsp;caught on the apps</h4>
-          <span class="chip chip--warn">Estimated minimum</span>
-        </div>
-        <div class="lanefam__body">
-          <p class="lanefam__what">Streaming ads captured directly on CTV &mdash; tape, platform,
-            transcript &mdash; including spots that never touch broadcast. Dollars print as an
-            estimated minimum.</p>
-          <p class="lanefam__thins"><b>Where it thins</b> Fewer than 10% of platforms publish a
-            political ad library
-            (<a href="https://competeeverywhere.com/2025/12/december-2025-ho-ho-ho-political-ad-transparency-heading-into-2026/" rel="noopener">COMPETE, Dec 2025</a>),
-            so a zero prints as insufficient signal, never as absence. Impression measurement
-            covers the top 58 markets by households; monitoring runs in all 210.</p>
-        </div>
-        <details class="lanefam__more"><summary>Cadence&thinsp;+&thinsp;fine print</summary>
-          <p class="small">Dollars refresh on the measurement cycle; the settle window prints as
-            paired dates on every figure. Per-lane lag figures are being added as validated.</p>
-        </details>
-      </article>
-      <article class="lanefam">
-        <div class="lanefam__head">
-          <h4 class="lanefam__name">Streaming &amp; Digital&thinsp;&middot;&thinsp;measured beyond the capture</h4>
-          <span class="chip">Estimated</span>
-        </div>
-        <!-- O2 ANSWERED by ruling 45 (Adam, 8/25): streaming and digital are ONE lane
-             family in the marketing taxonomy, presented at app grain; the two BASES in
-             this stack stay separate (caught floor vs modeled estimate) and are never
-             summed. Methodology keeps the formal two-lane definitions of record. -->
-        <div class="lanefam__body">
-          <p class="lanefam__what">Competitive digital activity estimated from measured smart-TV
-            viewing &mdash; always marked estimated, never blended into posted lanes.</p>
-          <p class="lanefam__thins"><b>Where it thins</b> An estimate is never an order on file;
-            walled gardens are visible only as far as the platform discloses.</p>
-        </div>
-        <details class="lanefam__more"><summary>Cadence&thinsp;+&thinsp;fine print</summary>
-          <p class="small">Refreshes on the estimation cycle; no order feed underneath. A digital
-            share&thinsp;=&thinsp;share of the sources we measure&mdash;source list on the
-            <a href="methodology.html#covered-sources">methodology page</a>.</p>
-        </details>
-      </article>
-    </div>
+    <p class="small center mt3" style="max-width:64ch;margin-inline:auto">The lane-by-lane
+      evidence &mdash; sources, cadence, and where each signal thins &mdash; lives with the
+      monitoring machine: <a href="monitoring.html#lanes">every lane, and its fine print &rarr;</a></p>
 
   </div>
 </section>
 
-
-<!-- ============ DECLARED AUDIENCES ============ -->
 
 <!-- ============ SCOREBOARD ============ -->
 <!-- ============ THE VIGNETTE RAIL (Pass E §9) ============ -->
@@ -1690,13 +1577,6 @@ tbody th.rc-buysheet-m{font-weight:400;background:transparent}
           sell: revenue, not response. The full week &mdash; both desks, beat by
           beat &mdash; is <a href="week.html">its own page</a>.</p>
       </div>
-      <div class="day-rail" aria-hidden="true">
-        <span><b>Mon</b>The rate call</span>
-        <span><b>Tue</b>Market Order Flow</span>
-        <span><b>Wed</b>The call list</span>
-        <span><b>Thu</b>The win-back call</span>
-        <span><b>Fri</b>The streaming pitch</span>
-      </div>
       <!-- PENCILED (Adam, 8/27): E.W. Scripps sell-side quote is being sought; this is
            the DRAFT wording for their sign-off, and it renders visibly marked as
            penciled/pending. The no-invention rule holds: DO NOT ship to production
@@ -1710,45 +1590,15 @@ tbody th.rc-buysheet-m{font-weight:400;background:transparent}
           <span class="quote-draft-tag">penciled &middot; pending their approval</span></cite>
       </blockquote>
 
-      <ol class="steps">
-        <li>
-          <h4>Price&thinsp;&middot;&thinsp;the rate call</h4>
-          <p>Monday opens on the same public file the buyer
-            reads&mdash;<a href="monitoring.html#fcc-rates">FCC rate intelligence</a>,
-            daypart by daypart, exported with its posted-through date.</p>
-        </li>
-        <li>
-          <h4>The gap&thinsp;&middot;&thinsp;the market, not the race</h4>
-          <p>Market Order Flow scopes the scoreboard to your market: every advertiser,
-            lane by lane. A station sees its own air; a platform seller sees the budgets
-            in play, never its own numbers.</p>
-        </li>
-        <li>
-          <h4>The booking horizon is the call list</h4>
-          <p>Money booked into the market but not on your books is the first call, weeks
-            and dollars attached&mdash;broadcast, local cable, radio. The lag prints on
-            every figure; <a href="methodology.html#latency">ask for the current gap</a>.</p>
-        </li>
-        <li>
-          <h4>The went-dark row is the win-back call</h4>
-          <p>A committee that stopped airing left a record: when it stopped, what was still
-            booked. The reason to call is on the screen.</p>
-        </li>
-        <li>
-          <h4>The streaming pitch reads from the spend</h4>
-          <p>Advertisers heavy on TV in your state, light or undetected in the covered
-            service set: TV dollars are the evidence, and undetected prints as
-            undetected. Built from measured households, printing as an estimated minimum&mdash;never your
-            logs.</p>
-        </li>
+      <p class="mt2" style="max-width:70ch">The beats of that week &mdash; the rate call, the
+        booking-horizon call list, the win-back &mdash; play out on
+        <a href="week.html#wk-sell">the seller&rsquo;s side of the week page</a>. What lives
+        here are the two reads only sellers get.</p>
 
-        <li>
-          <h4>Between Mondays, the alerts carry it</h4>
-          <p>Pricing conditions, new orders, went-dark&mdash;the chain the
-            <a href="week.html#wk-sell">seller's week</a> closes on: same morning, your inbox,
-            routed to the seat that owns the account.</p>
-        </li>
-      </ol>
+      <h3 class="mt3">The streaming pitch list</h3>
+      <p class="small" style="max-width:70ch">Advertisers heavy on TV in your state, light or
+        undetected in the covered service set &mdash; their TV dollars are the evidence, built
+        from measured households, never your logs. Undetected prints as undetected.</p>
       <!-- P12: the platform-seller glimpse (R6). The streaming pitch list, mirrored with
            synthetic advertisers per the tease doctrine: a glimpse, not a full surface.
            Broadcast aired beside the streaming estimated minimum, platform-class mix at class grain only.
@@ -1838,6 +1688,9 @@ tbody th.rc-buysheet-m{font-weight:400;background:transparent}
 }
 </style>
       </div>
+      <h3 class="mt3">The class gap</h3>
+      <p class="small" style="max-width:70ch">One buyer&rsquo;s streaming mix beside the
+        market&rsquo;s, by platform class &mdash; the starved class is the pitch.</p>
       <!-- Ruling 40f: the platform seller's read. One buyer's digital mix by platform
            class against the market's mix; the underweighted class is the pitch. Class
            grain only; the never-your-own-logs line prints in the foot. -->
@@ -1972,7 +1825,7 @@ tbody th.rc-buysheet-m{font-weight:400;background:transparent}
     <h3 id="explorer">Search the orderable library. All 3,537 questions of it.</h3>
     <p class="dek" style="margin-bottom:1.4rem">Read the exact wording, shortlist, send: back
       comes a deal ID in your DSP, or we run the media. Lookalike extension optional, always
-      labeled. Full explorer on the Real-Time Polling page.</p>
+      labeled. The full explorer is <a href="questions.html">the question library</a>.</p>
     <div class="btn-row">
       <a class="btn btn--navy" href="questions.html">Search the question library</a>
       <a class="btn btn--outline" href="polling.html">How real-time polling works</a>
@@ -2216,8 +2069,8 @@ tbody th.rc-buysheet-m{font-weight:400;background:transparent}
       <div>
         <h4>Platform</h4>
         <ul>
-          <li><a href="platform.html">The platform</a></li>
           <li><a href="monitoring.html">Monitoring</a></li>
+          <li><a href="platform.html">The platform</a></li>
           <li><a href="week.html">For buyers &amp; sellers</a></li>
           <li><a href="polling.html">Real-time polling</a></li>
           <li><a href="questions.html">The question library</a></li>
@@ -2249,6 +2102,6 @@ tbody th.rc-buysheet-m{font-weight:400;background:transparent}
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r38"></script>
+<script src="assets/js/site.js?v=r39"></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-@import url("fonts.css?v=r38");
+@import url("fonts.css?v=r39");
 
 /* ==========================================================================
    Kinetiq Political Insights - site design system
@@ -435,6 +435,57 @@ p .num, .lede .num, .hero-banner .num { white-space: nowrap; }
 .card { background: var(--white); border: 1px solid var(--rule); border-radius: var(--r-lg); padding: clamp(20px, 2.4vw, 28px); position: relative; }
 .card--tint { background: var(--paper); }
 .card--flag { border-top: 3px solid var(--lime); }
+
+/* Lane-by-lane evidence cards (home: monitoring #lanes). */
+  .lanefams { display: grid; gap: 1rem; }
+  .lanefam { background: var(--white); border: 1px solid var(--rule); border-radius: var(--r-lg);
+    padding: 1.05rem 1.15rem 1rem; box-shadow: 0 1px 2px rgba(13,46,74,.05), 0 6px 18px rgba(13,46,74,.06); }
+  .lanefam__head { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem .8rem; margin-bottom: .6rem; }
+  .lanefam__name { margin: 0; font-family: var(--label); text-transform: uppercase;
+    letter-spacing: .08em; font-size: .84rem; font-weight: 700; color: var(--navy-deep); }
+  .lanefam__body { display: grid; gap: .8rem 2rem; }
+  @media (min-width: 900px) {
+    .lanefam__body { grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); align-items: start; }
+  }
+  .lanefam__what { margin: 0; font-size: .9rem; line-height: 1.6; color: var(--ink-2); }
+  .lanefam__thins { margin: 0; font-size: .85rem; line-height: 1.55; color: var(--ink-2);
+    background: color-mix(in srgb, var(--lime) 9%, var(--white)); border-left: 3px solid var(--lime-dark);
+    padding: .6rem .8rem; }
+  .lanefam__thins b { display: block; font-family: var(--label); text-transform: uppercase;
+    letter-spacing: .1em; font-size: .62rem; color: var(--navy); margin-bottom: .25rem; }
+  .lanefam__more { margin-top: .7rem; border-top: 1px solid var(--rule-soft); padding-top: .5rem; }
+  .lanefam__more summary { cursor: pointer; font-family: var(--label); text-transform: uppercase;
+    letter-spacing: .1em; font-size: .64rem; font-weight: 700; color: var(--ink-3); }
+  .lanefam__more summary:hover { color: var(--navy); }
+  .lanefam__more p { margin: .5rem 0 0; }
+
+/* The two flagships: the one dark band on the page, quoting the methodology
+   diagram grammar (1.5px instruments, lime = the signal). */
+.spotband { background: linear-gradient(140deg, var(--navy-deep) 0%, #143C5F 78%, #17466E 100%); }
+.spotband__k { font-family: var(--label); text-transform: uppercase; letter-spacing: .16em;
+  font-size: .78rem; font-weight: 700; color: var(--lime); margin: 0 0 1.3rem; text-align: center; }
+.spotband__grid { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+@media (min-width: 900px) { .spotband__grid { grid-template-columns: 1fr 1fr; gap: 1.2rem; } }
+.spot { display: flex; gap: 1.15rem; align-items: flex-start; padding: 1.35rem 1.4rem 1.3rem;
+  border: 1px solid rgba(189,210,226,.28); border-radius: var(--r-lg);
+  background: rgba(255,255,255,.035); text-decoration: none;
+  transition: border-color .2s ease, background .2s ease; }
+.spot:hover { border-color: var(--lime); background: rgba(255,255,255,.06); }
+.spot__emblem { flex: 0 0 auto; width: 64px; height: 64px; }
+.spot__emblem svg { width: 100%; height: 100%; }
+.spot__body { display: block; min-width: 0; }
+.spot__body b { display: block; font-family: var(--display); font-weight: 400;
+  font-size: clamp(1.2rem, 1.9vw, 1.45rem); line-height: 1.25; color: #fff; margin: 0 0 .45rem; }
+.spot__body > span { display: block; font-size: .92rem; line-height: 1.6; color: #BDD2E2; }
+.spot__body i { display: inline-block; font-style: normal; font-weight: 650; font-size: .86rem;
+  color: var(--lime); margin-top: .65rem; }
+.spot:hover .spot__body i { text-decoration: underline; }
+.spotband__std { margin: 1.6rem 0 0; color: #9FB8CC; }
+.spotband__std a { color: #D6E6A8; }
+@media (max-width: 560px) {
+  .spot { flex-direction: column; gap: .8rem; }
+  .spot__emblem { width: 54px; height: 54px; }
+}
 /* Hover life on plain cards: a smaller lift than .card--link's 6px, so the
    linked-card hierarchy holds. .card--link's own rules below still win. */
 .card { transition: border-color .3s var(--smooth), box-shadow .3s var(--smooth), transform .3s var(--smooth); }

@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r38">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r39">
 <style>
   .hero--sub .hero-center { text-align: center; padding: clamp(56px, 8vw, 104px) 0 clamp(36px, 5vw, 60px); }
   .hero--sub .eyebrow { justify-content: center; }
@@ -32,8 +32,8 @@
       <img src="assets/img/kpi-logo.png" alt="Kinetiq Political Insights">
     </a>
     <ul class="nav__links">
-      <li><a href="platform.html">Platform</a></li>
       <li><a href="monitoring.html">Monitoring</a></li>
+      <li><a href="platform.html">Platform</a></li>
       <li><a href="week.html">Buyers &amp; Sellers</a></li>
       <li><a href="polling.html">Polling</a></li>
       <li><a href="methodology.html">Methodology</a></li>
@@ -554,6 +554,109 @@
 
 
 <!-- ============ CTA ============ -->
+<!-- ============ LANE BY LANE (moved from platform per IA pass 1: the evidence
+     lives with the machine that promises "where our signal thins, it says so") ============ -->
+<section class="section" id="lanes">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:2.4rem" data-rise>
+      <p class="eyebrow eyebrow--plain" style="justify-content:center">Lane by lane</p>
+      <h2>Every lane we track &mdash; and where each one thins.</h2>
+      <p class="lede" style="margin-inline:auto">Broadcast, local cable and radio order by
+        order in all 210 markets; Streaming &amp; Digital beside them, never blended in.
+        Each lane states its source, its cadence and its limits.</p>
+    </div>
+    <div class="lanefams mt1" role="group" aria-label="Four lane families: what we detect, where the dollars come from, and where each signal thins">
+      <article class="lanefam">
+        <div class="lanefam__head">
+          <h4 class="lanefam__name">Broadcast TV</h4>
+          <span class="chip chip--lime">Order by order</span>
+        </div>
+        <div class="lanefam__body">
+          <p class="lanefam__what">Every airing on monitored stations &mdash; creative,
+            transcript, air date, markets &mdash; with dollars from orders on file, not
+            ratings models.</p>
+          <p class="lanefam__thins"><b>Where it thins</b> Late filings read lighter until they
+            land; the date on the figure is the check.</p>
+        </div>
+        <details class="lanefam__more"><summary>Cadence&thinsp;+&thinsp;fine print</summary>
+          <p class="small">Detections run continuously. Dollars firm up as stations file.</p>
+        </details>
+      </article>
+      <article class="lanefam">
+        <div class="lanefam__head">
+          <h4 class="lanefam__name">Local cable</h4>
+          <span class="chip chip--lime">Order by order</span>
+        </div>
+        <div class="lanefam__body">
+          <p class="lanefam__what">Placed orders by system, week and daypart, with the spots
+            running against them. Every dollar traces to a document.</p>
+          <p class="lanefam__thins"><b>Where it thins</b> A zone bought outside the reporting
+            systems will not appear; an incomplete week prints insufficient signal.</p>
+        </div>
+        <details class="lanefam__more"><summary>Cadence&thinsp;+&thinsp;fine print</summary>
+          <p class="small">Orders post as collected.</p>
+        </details>
+      </article>
+      <article class="lanefam">
+        <div class="lanefam__head">
+          <h4 class="lanefam__name">Radio</h4>
+          <span class="chip chip--lime">Orders first</span>
+        </div>
+        <div class="lanefam__body">
+          <p class="lanefam__what">Placed radio orders and their audio, joined to TV's race
+            and advertiser records.</p>
+          <p class="lanefam__thins"><b>Where it thins</b> Deepest in larger markets. Without an
+            order, caught airings print as estimated, outside posted totals.</p>
+        </div>
+        <details class="lanefam__more"><summary>Cadence&thinsp;+&thinsp;fine print</summary>
+          <p class="small">Dollars post more slowly than television.</p>
+        </details>
+      </article>
+      <article class="lanefam">
+        <div class="lanefam__head">
+          <h4 class="lanefam__name">Streaming &amp; Digital&thinsp;&middot;&thinsp;caught on the apps</h4>
+          <span class="chip chip--warn">Estimated minimum</span>
+        </div>
+        <div class="lanefam__body">
+          <p class="lanefam__what">Streaming ads captured directly on CTV &mdash; tape, platform,
+            transcript &mdash; including spots that never touch broadcast. Dollars print as an
+            estimated minimum.</p>
+          <p class="lanefam__thins"><b>Where it thins</b> Fewer than 10% of platforms publish a
+            political ad library
+            (<a href="https://competeeverywhere.com/2025/12/december-2025-ho-ho-ho-political-ad-transparency-heading-into-2026/" rel="noopener">COMPETE, Dec 2025</a>),
+            so a zero prints as insufficient signal, never as absence. Impression measurement
+            covers the top 58 markets by households; monitoring runs in all 210.</p>
+        </div>
+        <details class="lanefam__more"><summary>Cadence&thinsp;+&thinsp;fine print</summary>
+          <p class="small">Dollars refresh on the measurement cycle; the settle window prints as
+            paired dates on every figure. Per-lane lag figures are being added as validated.</p>
+        </details>
+      </article>
+      <article class="lanefam">
+        <div class="lanefam__head">
+          <h4 class="lanefam__name">Streaming &amp; Digital&thinsp;&middot;&thinsp;measured beyond the capture</h4>
+          <span class="chip">Estimated</span>
+        </div>
+        <!-- O2 ANSWERED by ruling 45 (Adam, 8/25): streaming and digital are ONE lane
+             family in the marketing taxonomy, presented at app grain; the two BASES in
+             this stack stay separate (caught floor vs modeled estimate) and are never
+             summed. Methodology keeps the formal two-lane definitions of record. -->
+        <div class="lanefam__body">
+          <p class="lanefam__what">Competitive digital activity estimated from measured smart-TV
+            viewing &mdash; always marked estimated, never blended into posted lanes.</p>
+          <p class="lanefam__thins"><b>Where it thins</b> An estimate is never an order on file;
+            walled gardens are visible only as far as the platform discloses.</p>
+        </div>
+        <details class="lanefam__more"><summary>Cadence&thinsp;+&thinsp;fine print</summary>
+          <p class="small">Refreshes on the estimation cycle; no order feed underneath. A digital
+            share&thinsp;=&thinsp;share of the sources we measure&mdash;source list on the
+            <a href="methodology.html#covered-sources">methodology page</a>.</p>
+        </details>
+      </article>
+    </div>
+  </div>
+</section>
+
 <section class="section section--mega cta-final">
   <div class="wrap center">
     <h2>Name a race. We will show you what the machine caught.</h2>
@@ -581,8 +684,8 @@
       <div>
         <h4>Platform</h4>
         <ul>
-          <li><a href="platform.html">The platform</a></li>
           <li><a href="monitoring.html">Monitoring</a></li>
+          <li><a href="platform.html">The platform</a></li>
           <li><a href="week.html">For buyers &amp; sellers</a></li>
           <li><a href="polling.html">Real-time polling</a></li>
           <li><a href="questions.html">The question library</a></li>
@@ -614,6 +717,6 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r38"></script>
+<script src="assets/js/site.js?v=r39"></script>
 </body>
 </html>
