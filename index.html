@@ -88,16 +88,25 @@
   .press-card h3 { font-size: 1.06rem; }
   .press-card:hover h3 { color: var(--navy); }
   .press-card .press-card__go { font-size: .85rem; font-weight: 600; color: var(--blue-text); }
-  /* P10 (R4): the hero's own clamp overrode kpi.css's mobile h1 downsizing, so at
-     375px the headline ran three oversized lines and pushed the CTA off the first
-     screen. Restore the downsizing at the same breakpoint the system uses, and
-     tighten the hero's top padding so claim + lede + buttons seat in one screen. */
-  @media (max-width: 560px) {
-    .hero--home .hero-center { padding: clamp(28px, 6.5vw, 44px) 0 16px; }
-    .hero--home h1 { font-size: clamp(2.1rem, 9.5vw, 2.7rem); }
-    .hero--home .hero-receipt { margin-top: .8rem; }
-    .hero--home .lede { margin-top: 1.05rem; }
-    .hero--home .btn-row { margin-top: 1.25rem; }
+  /* P10 (R4) + R66: the mobile hero, rebuilt. The three-line display lockup is a
+     desktop shape; under 641px the spans flow inline and the headline balances
+     itself, the stat line prints as chips, the CTA pair shares one row, and a
+     two-race scoreboard glimpse gives the first screen the product itself. */
+  @media (max-width: 640px) {
+    .hero--home .hero-center { padding: clamp(24px, 6vw, 40px) 0 18px; }
+    .hero--home .ht br { display: none; }
+    .hero--home .ht .ht__l { display: inline; }
+    .hero--home h1 { font-size: clamp(1.95rem, 8.6vw, 2.55rem); line-height: 1.14;
+      letter-spacing: -.01em; text-wrap: balance; }
+    .hero--home .hero-receipt { margin-top: .9rem; gap: .4rem; }
+    .hero--home .hero-receipt .hr-sep { display: none; }
+    .hero--home .hero-receipt span { font-size: .6rem; letter-spacing: .08em;
+      border: 1px solid var(--rule); border-radius: 999px; padding: .26rem .6rem;
+      color: var(--ink-2); background: var(--white); }
+    .hero--home .lede { margin-top: 1rem; font-size: .98rem; }
+    .hero--home .btn-row { margin-top: 1.15rem; display: grid; grid-template-columns: 1fr 1fr; gap: .6rem; }
+    .hero--home .btn-row .btn--lg { padding: .72rem .5rem; font-size: .92rem; justify-content: center; }
+    .hero--home .scroll-hint { display: none; }
     /* R5: the announcement banner condenses to its claim + link, two lines,
        buying back first-screen room for the CTA. */
     .hero-banner__d { display: none; }
@@ -115,8 +124,42 @@
   /* R6 + round-3 panel (CMO): the receipt is a wrapping flex row — phrases
      never break mid-phrase (per-span nowrap), and the line always breaks
      BETWEEN items, so the substantiation line never clips at any width. */
-  .hero-receipt { display: flex; flex-wrap: wrap; justify-content: center; }
+  .hero-receipt { display: flex; flex-wrap: wrap; justify-content: center; gap: .25rem .55rem; }
   .hero-receipt span { white-space: nowrap; }
+  .hero-receipt .hr-sep { font-style: normal; color: var(--ink-3); }
+
+  /* R66: the mobile hero's scoreboard glimpse (two rows of the platform recreation) */
+  .hero-board { display: none; }
+  @media (max-width: 640px) {
+    .hero-board { display: block; margin: 1.5rem auto 0; max-width: 430px; text-align: left;
+      background: var(--white); border: 1px solid var(--rule); border-radius: 8px;
+      box-shadow: 0 1px 2px rgba(13,46,74,.06), 0 10px 28px rgba(13,46,74,.12); overflow: hidden; }
+    .hb-top { display: flex; align-items: center; gap: .45rem; background: var(--navy-ink);
+      color: #fff; font-family: var(--label); font-size: .6rem; font-weight: 800;
+      letter-spacing: .12em; padding: .48rem .7rem; }
+    .hb-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--lime); }
+    .hb-stamp { margin-left: auto; font-family: var(--mono); font-weight: 600; font-size: .56rem;
+      letter-spacing: .07em; color: #C9D6E2; font-variant-numeric: tabular-nums lining-nums; }
+    .hb-row { padding: .55rem .7rem .6rem; }
+    .hb-row + .hb-row { border-top: 1px solid var(--rule-soft); }
+    .hb-l1 { display: flex; align-items: baseline; gap: .45rem; }
+    .hb-tag { font-family: var(--label); font-size: .54rem; font-weight: 800; letter-spacing: .1em;
+      color: var(--blue-text); background: #EFF5FA; border-radius: 3px; padding: .12rem .35rem; }
+    .hb-l1 b { font-size: .84rem; color: var(--navy-deep); font-weight: 700; }
+    .hb-wk { margin-left: auto; font-family: var(--mono); font-size: .8rem; font-weight: 800;
+      color: var(--navy-deep); font-variant-numeric: tabular-nums lining-nums; }
+    .hb-l2 { display: flex; align-items: center; gap: .5rem; margin-top: .42rem; }
+    .hb-pct { font-family: var(--mono); font-size: .66rem; font-weight: 700;
+      font-variant-numeric: tabular-nums lining-nums; }
+    .hb-pd { color: #3B66A0; }
+    .hb-pr { color: #B32626; }
+    .hb-bar { flex: 1; display: flex; height: 8px; border-radius: 2px; overflow: hidden; background: #EDF1F5; }
+    .hb-bar i { background: #3B66A0; box-shadow: 1px 0 0 #fff; }
+    .hb-bar em { background: #B32626; }
+    .hb-foot { display: flex; justify-content: space-between; gap: .5rem; font-family: var(--label);
+      font-size: .52rem; font-weight: 700; letter-spacing: .1em; color: var(--ink-3);
+      border-top: 1px solid var(--rule-soft); padding: .42rem .7rem; background: #FAFCFE; }
+  }
   /* R5: the held release date renders as a mono pill, not a bracketed slug. */
   .press-rel__date--pill { border: 1px solid var(--rule); padding: .08rem .5rem;
     text-transform: uppercase; letter-spacing: .07em; font-size: .68rem; }
@@ -189,13 +232,28 @@
       <span class="ht__l" data-t="Political Ad Intelligence">Political Ad Intelligence</span><br>
       <span class="ht__l ht__l--accent" data-t="Platform">Platform</span>
     </h1>
-    <p class="hero-receipt"><span>All 210 markets</span><span> &middot; ~1.5M ad airings per day</span><span> &middot; A decade+ of history</span></p>
+    <p class="hero-receipt"><span>All 210 markets</span><i class="hr-sep" aria-hidden="true">&middot;</i><span>1.5M ad airings per day</span><i class="hr-sep" aria-hidden="true">&middot;</i><span>A decade+ of history</span></p>
     <p class="lede">KPI tracks political ads and the money behind them &mdash; on TV,
       cable, radio and streaming, in every U.S. media market. When the other side
       moves, you know the same morning.</p>
     <div class="btn-row">
       <a class="btn btn--navy btn--lg" href="week.html">See it in action</a>
       <a class="btn btn--lime btn--lg" href="contact.html">Request a demo</a>
+    </div>
+
+    <!-- The mobile hero's proof: a two-race glimpse of the scoreboard, matching the
+         platform recreation's rows. Shown under 641px only; desktop keeps the type. -->
+    <div class="hero-board" role="img" aria-label="A glimpse of the scoreboard: two races, each side's share of committed money, and the week's new money on top. Synthetic sample.">
+      <div class="hb-top"><span class="hb-dot"></span>SCOREBOARD<span class="hb-stamp">POSTED THRU AUG 30, 2026</span></div>
+      <div class="hb-row">
+        <div class="hb-l1"><span class="hb-tag">AG</span><b>Midstate Attorney General</b><span class="hb-wk">+$3.3M</span></div>
+        <div class="hb-l2"><span class="hb-pct hb-pd">40%</span><span class="hb-bar"><i style="width:40%"></i><em style="width:60%"></em></span><span class="hb-pct hb-pr">60%</span></div>
+      </div>
+      <div class="hb-row">
+        <div class="hb-l1"><span class="hb-tag">GOV</span><b>North River Governor</b><span class="hb-wk">+$1.8M</span></div>
+        <div class="hb-l2"><span class="hb-pct hb-pd">48%</span><span class="hb-bar"><i style="width:48%"></i><em style="width:52%"></em></span><span class="hb-pct hb-pr">52%</span></div>
+      </div>
+      <div class="hb-foot"><span>NEW MONEY RISES TO THE TOP</span><span>SYNTHETIC SAMPLE</span></div>
     </div>
   </div>
 
