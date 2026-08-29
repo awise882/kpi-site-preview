@@ -94,6 +94,7 @@ body {
   font-variant-numeric: tabular-nums lining-nums;
   overflow-x: hidden;
 }
+html { overflow-x: hidden; overscroll-behavior-x: none; }
 img, svg, video { max-width: 100%; height: auto; display: block; }
 h1, h2, h3, h4 { font-family: var(--sans); font-weight: 800; line-height: 1.08; letter-spacing: -.022em; margin: 0 0 .5em; text-wrap: balance; }
 /* The serif carries only one weight (400): display sizes give it presence,
@@ -611,14 +612,14 @@ p .num, .lede .num, .hero-banner .num { white-space: nowrap; }
 .fig--light { background: var(--white); border: 1px solid var(--rule); border-radius: var(--r-lg); padding: 1.1rem 1.1rem .9rem; }
 /* Wide figures scroll inside their own frame on a phone instead of shrinking
    their labels below a readable size. */
-.fig-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.fig-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain; }
 .fig-scroll:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
 .fig-hint { display: none; color: var(--ink-3); margin: 0 0 .5rem; }
 @media (max-width: 860px) { .fig-hint { display: block; } }
 .fig--light .fig__cap { padding-top: .2rem; }
 
 /* ---------- tables ---------- */
-.tbl-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid var(--rule); border-radius: var(--r-lg); background: var(--white); position: relative; }
+.tbl-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain; border: 1px solid var(--rule); border-radius: var(--r-lg); background: var(--white); position: relative; }
 /* Keyboard reach for the scrollport, matching the figure pattern. The page adds
    tabindex="0" role="group" to the div; this is the visible focus ring for it. */
 .tbl-scroll:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
@@ -723,6 +724,17 @@ a.chip:hover { border-color: var(--blue); color: var(--navy); background: var(--
 .foot__grid { display: grid; gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
 .foot__brand img { height: 44px; margin-bottom: 1rem; }
 .foot__base { margin-top: 2.6rem; padding-top: 1.4rem; border-top: 1px solid rgba(255,255,255,.12); display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; font-size: .84rem; color: #7D97AC; }
+/* R69: the phone footer, compacted — link groups pair up, the brand spans the row,
+   and the whole block stops reading like a page of its own. */
+@media (max-width: 640px) {
+  .foot { padding: 2.2rem 0 1.3rem; font-size: .88rem; }
+  .foot__grid { grid-template-columns: 1fr 1fr; gap: 1.5rem 1.2rem; }
+  .foot__brand { grid-column: 1 / -1; }
+  .foot__brand img { height: 34px; margin-bottom: .6rem; }
+  .foot h3, .foot h4 { margin-bottom: .35rem; font-size: .66rem; }
+  .foot li > a { padding: .34rem 0; font-size: .86rem; }
+  .foot__base { margin-top: 1.5rem; padding-top: .9rem; font-size: .76rem; gap: .5rem 1rem; }
+}
 
 /* ---------- form ---------- */
 .field { display: grid; gap: .35rem; margin-bottom: 1rem; }
@@ -2041,42 +2053,31 @@ a.chip:hover { border-color: var(--blue); color: var(--navy); background: var(--
 .section--band .mfold, .section--tint .mfold { background: var(--white); }
 
 
-/* The hand-off: each chapter ends by opening the next one. */
-.nextpage { display: flex; align-items: baseline; flex-wrap: wrap; gap: .35rem .9rem;
-  max-width: var(--wrap, 1160px); margin: 0 auto; padding: 1.15rem 1.3rem;
-  background: var(--white); border: 1px solid var(--rule); border-radius: var(--r-lg);
-  text-decoration: none; box-shadow: 0 1px 2px rgba(13,46,74,.05);
-  transition: border-color .18s ease, box-shadow .18s ease; }
-.nextpage:hover { border-color: var(--navy); box-shadow: 0 6px 18px rgba(13,46,74,.10); }
-.nextpage__k { font-family: var(--label); text-transform: uppercase; letter-spacing: .16em;
-  font-size: .7rem; font-weight: 700; color: var(--lime-dark); }
-.nextpage__t { font-family: var(--display); font-weight: 400; font-size: 1.25rem; color: var(--navy-deep); }
-.nextpage__d { font-size: .9rem; color: var(--ink-3); }
-.nextpage__go { margin-left: auto; font-weight: 700; color: var(--blue-text); }
-.nextpage:hover .nextpage__go { color: var(--navy-deep); }
-@media (max-width: 560px) { .nextpage__go { margin-left: 0; } }
 /* ---------- R68: the next rail — every page ends pushing forward ---------- */
 .nextrail { border-top: 1px solid var(--rule-soft); }
-.nextrail .nextcard { display: flex; align-items: center; gap: 1.1rem;
-  padding: 1.35rem 1.4rem; margin: 2.2rem auto 2.6rem; max-width: 720px;
-  text-decoration: none; background: var(--white); border: 1px solid var(--rule);
-  border-radius: var(--r-lg);
-  box-shadow: 0 1px 2px rgba(13,46,74,.05), 0 8px 22px rgba(13,46,74,.07);
+.nextrail .nextcard { position: relative; display: flex; align-items: center; gap: 1.1rem;
+  padding: 1.5rem 1.55rem; margin: 2.2rem auto 2.6rem; max-width: 720px;
+  text-decoration: none; background: var(--navy-ink); border: 1px solid rgba(255,255,255,.08);
+  border-radius: var(--r-lg); overflow: hidden;
+  box-shadow: 0 2px 6px rgba(13,46,74,.16), 0 14px 34px rgba(13,46,74,.22);
   transition: transform .18s var(--smooth), box-shadow .18s var(--smooth); }
-.nextrail .nextcard:hover { transform: translateY(-2px);
-  box-shadow: 0 2px 4px rgba(13,46,74,.07), 0 14px 30px rgba(13,46,74,.12); }
+.nextrail .nextcard::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 3px;
+  background: linear-gradient(90deg, var(--navy) 0%, #00ACC1 55%, var(--lime) 100%); }
+.nextrail .nextcard:hover { transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(13,46,74,.2), 0 20px 44px rgba(13,46,74,.3); }
 .nextcard__k { flex: 0 0 auto; font-family: var(--label); font-size: .62rem; font-weight: 800;
   letter-spacing: .16em; text-transform: uppercase; color: var(--navy-ink);
   background: var(--lime); border-radius: 3px; padding: .3rem .55rem; }
-.nextcard__t { display: flex; flex-direction: column; gap: .15rem; min-width: 0; }
-.nextcard__t b { color: var(--navy-deep); font-size: 1.05rem; font-weight: 700; }
-.nextcard__t span { color: var(--ink-3); font-size: .88rem; line-height: 1.45; }
-.nextcard__go { margin-left: auto; flex: 0 0 auto; font-size: 1.5rem; color: var(--navy);
+.nextcard__t { display: flex; flex-direction: column; gap: .2rem; min-width: 0; }
+.nextcard__t b { color: #fff; font-family: var(--display); font-weight: 400;
+  font-size: 1.35rem; line-height: 1.15; }
+.nextcard__t span { color: #A8C0D2; font-size: .88rem; line-height: 1.45; }
+.nextcard__go { margin-left: auto; flex: 0 0 auto; font-size: 1.6rem; color: var(--lime);
   transition: transform .18s var(--smooth); }
-.nextrail .nextcard:hover .nextcard__go { transform: translateX(4px); }
+.nextrail .nextcard:hover .nextcard__go { transform: translateX(5px); }
 @media (max-width: 640px) {
-  .nextrail .nextcard { padding: 1.05rem 1rem; gap: .8rem; margin: 1.6rem auto 1.8rem; }
-  .nextcard__t b { font-size: .98rem; }
+  .nextrail .nextcard { padding: 1.1rem 1.05rem; gap: .8rem; margin: 1.6rem auto 1.8rem; }
+  .nextcard__t b { font-size: 1.12rem; }
   .nextcard__t span { font-size: .8rem; }
 }
 @media (prefers-reduced-motion: reduce) {
