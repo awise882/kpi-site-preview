@@ -27,6 +27,10 @@
   .hero-banner b.num { color: var(--navy-deep); font-size: 1.05em; }
   .hero-banner a { color: var(--navy); font-weight: 600; }
   .hero-banner a::after { content: " \2192"; }
+  .hero-banner__in--dual { display: flex; flex-wrap: wrap; justify-content: center;
+    align-items: baseline; gap: .3rem 2.6rem; text-align: center; }
+  .hero-banner__in--dual a { display: inline-flex; align-items: baseline; gap: .15rem;
+    text-decoration: none; min-width: 0; }
   /* Ruling 23: partnership announcements as collapsed first-party press items. */
   .press-rel { max-width: 860px; margin-inline: auto; }
   .press-rel__k { font-family: var(--label); text-transform: uppercase; letter-spacing: .14em;
@@ -117,7 +121,9 @@
     /* R5: the announcement banner condenses to its claim + link, two lines,
        buying back first-screen room for the CTA. */
     .hero-banner__d { display: none; }
-    .hero-banner { font-size: .88rem; }
+    .hero-banner { font-size: .8rem; }
+    .hero-banner__txt { white-space: nowrap; }
+    .hero-banner .chip--lime { font-size: .62rem; padding: .22rem .5rem; }
   }
   /* R5: at desktop the banner reads as one line; the link never wraps alone. */
   @media (min-width: 1024px) {
@@ -239,6 +245,13 @@
      carries the date it stands on. Structure mirrors the live kpipolitical.com. -->
 
 <!-- ============ HERO ============ -->
+<div class="hero-banner" role="region" aria-label="Announcements">
+  <div class="wrap hero-banner__in hero-banner__in--dual">
+    <a href="#press"><span class="chip chip--lime">New</span><span class="hero-banner__txt"><b class="num">$10.4B</b> &mdash; our 2026 forecast<span class="hero-banner__d">, the number the press quotes</span></span></a>
+    <a href="monitoring.html#streaming-spend"><span class="chip chip--lime">Announcing</span><span class="hero-banner__txt">Streaming measured in <b class="num">40M</b> homes<span class="hero-banner__d"> &mdash; our VideoAmp partnership</span></span></a>
+  </div>
+</div>
+
 <header class="hero hero--light hero--home">
 
   <div class="wrap hero-center">
