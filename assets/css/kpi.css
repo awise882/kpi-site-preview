@@ -1298,10 +1298,16 @@ a.chip:hover { border-color: var(--blue); color: var(--navy); background: var(--
    all four. Fully static; the arrows are characters, nothing moves. */
 .lmap { max-width: 1080px; margin-inline: auto; }
 .lmap__rail { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr; gap: 1.1rem; }
-.lmap__layer { position: relative; background: var(--white); border: 1.5px solid var(--rule); border-radius: var(--r-lg); padding: 1rem 1.1rem 1.05rem; box-shadow: 0 1px 2px rgba(13,46,74,.05), 0 6px 18px rgba(13,46,74,.06); }
-.lmap__name { display: block; font-family: var(--label); text-transform: uppercase; letter-spacing: .14em; font-size: .72rem; font-weight: 700; color: var(--navy); }
-.lmap__what { display: block; margin-top: .25rem; font-size: .85rem; line-height: 1.5; color: var(--ink-2); }
-.lmap__items { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .65rem; }
+/* R72: punched up — the keyline, a claim that leads, chips as solid pills,
+   and the layer's number at display weight. */
+.lmap__layer { position: relative; background: var(--white); border: 1px solid var(--rule); border-radius: var(--r-lg); padding: 1.15rem 1.15rem 1.05rem; overflow: hidden; box-shadow: 0 1px 2px rgba(13,46,74,.06), 0 10px 26px rgba(13,46,74,.09); }
+.lmap__layer::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 3px;
+  background: linear-gradient(90deg, var(--navy) 0%, #00ACC1 55%, var(--lime) 100%); }
+.lmap__name { display: block; font-family: var(--label); text-transform: uppercase; letter-spacing: .14em; font-size: .68rem; font-weight: 800; color: var(--lime-text); }
+.lmap__what { display: block; margin-top: .3rem; font-size: 1.04rem; line-height: 1.4; font-weight: 650; color: var(--navy-deep); }
+.lmap__items { display: flex; flex-wrap: wrap; gap: .45rem; margin-top: .75rem; }
+.lmap__items a.chip { background: var(--navy-deep); color: #fff; border: 1px solid var(--navy-deep); font-weight: 700; }
+.lmap__items a.chip:hover { background: var(--navy); border-color: var(--navy); color: #fff; }
 /* Paths pass: each layer owns one quiet number, seated at the card foot so the
    equal-height cards carry weight instead of white space. The layer becomes a
    flex column so margin-top:auto pins the stat to the foot. */
@@ -1311,7 +1317,11 @@ a.chip:hover { border-color: var(--blue); color: var(--navy); background: var(--
   font-family: var(--mono); font-size: .78rem; color: var(--ink-3);
   font-variant-numeric: tabular-nums lining-nums; }
 .lmap__items { padding-bottom: .7rem; }
-.lmap__stat b { font-size: 1.05rem; font-weight: 700; color: var(--navy-deep); }
+.lmap__stat b { font-size: 1.6rem; font-weight: 800; color: var(--navy-deep); letter-spacing: -.01em; margin-right: .15rem; }
+@media (max-width: 640px) {
+  .lmap__what { font-size: 1.1rem; }
+  .lmap__stat b { font-size: 1.75rem; }
+}
 .lmap__baker { display: flex; flex-wrap: wrap; align-items: baseline; gap: .3rem .6rem; justify-content: center; margin-top: 1.4rem; padding: .8rem 1.1rem; border: 1.5px dashed color-mix(in srgb, var(--teal) 55%, transparent); border-radius: var(--r-lg); background: color-mix(in srgb, var(--teal) 6%, var(--white)); text-decoration: none; }
 .lmap__baker b { font-family: var(--label); text-transform: uppercase; letter-spacing: .12em; font-size: .72rem; color: var(--navy-deep); }
 .lmap__baker span { font-size: .85rem; color: var(--ink-2); }
