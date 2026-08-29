@@ -71,8 +71,15 @@
   .press-strip__k { font-family: var(--label); text-transform: uppercase; letter-spacing: .14em;
     font-size: .68rem; font-weight: 700; color: var(--ink-3); }
   .press-strip a { font-family: var(--label); text-transform: uppercase; letter-spacing: .16em;
-    font-size: .92rem; font-weight: 700; color: var(--ink-3); text-decoration: none; }
-  .press-strip a:hover { color: var(--navy); }
+    font-size: 1.02rem; font-weight: 800; color: var(--navy); text-decoration: none; }
+  .press-strip a:hover { color: var(--lime-text); }
+  .press-nums { display: flex; flex-wrap: wrap; justify-content: center; gap: .5rem 2rem;
+    margin-top: 1.3rem; font-size: .85rem; color: var(--ink-3); }
+  .press-nums b { font-size: 1.35rem; font-weight: 800; color: var(--navy-deep); margin-right: .3rem;
+    font-variant-numeric: tabular-nums lining-nums; }
+  .press-card--lead { display: block; margin-bottom: 0; }
+  .press-card--lead h3 { font-family: var(--display); font-weight: 400;
+    font-size: clamp(1.5rem, 3vw, 2.1rem); line-height: 1.2; }
   .press-card { display: block; text-decoration: none; color: inherit; }
   /* r33: each door leads with the product itself. Real screens, synthetic data. */
   .press-card__shot { margin: .85rem 0 1rem; border: 1px solid var(--rule); border-radius: 10px;
@@ -241,7 +248,7 @@
       <span class="ht__l" data-t="Political Ad Intelligence">Political Ad Intelligence</span><br>
       <span class="ht__l ht__l--accent" data-t="Platform">Platform</span>
     </h1>
-    <p class="hero-receipt"><span>All 210 markets</span><i class="hr-sep" aria-hidden="true">&middot;</i><span>1.5M ad airings per day</span><i class="hr-sep" aria-hidden="true">&middot;</i><span>A decade+ of history</span></p>
+    <p class="hero-receipt"><span>All 210 markets</span><i class="hr-sep" aria-hidden="true">&middot;</i><span>1.5M ad airings per day</span><i class="hr-sep" aria-hidden="true">&middot;</i><span>$10.4B 2026 forecast</span><i class="hr-sep" aria-hidden="true">&middot;</i><span>A decade+ of history</span></p>
     <p class="lede">KPI tracks political ads and the money behind them &mdash; on TV,
       cable, radio and streaming, in every U.S. media market. When the other side
       moves, you know the same morning.</p>
@@ -311,7 +318,8 @@
           alt="The seller's desk: share by station with your air at 25% of a $3.8M market against the average advertiser's mix, and the leads the share read throws off &mdash; advertisers light on your air with the gap at your share, streaming-only money for the linear pitch, and the agency gap. Synthetic data."><i aria-hidden="true">synthetic data</i></figure>
         <p class="small">Three doors up, the buyer&rsquo;s tools. This one is the seller&rsquo;s:
           share by station first, then the leads it throws off &mdash; buyers light on your
-          air, streaming money still off TV, and the agency placing every dollar.</p>
+          air, streaming money still off TV, and the agency placing every dollar. We can
+          see the agencies buying digital &mdash; money that never touches a public file.</p>
         <span class="press-card__go">Walk the week &rarr;</span>
       </a>
       <a class="card card--flag press-card" href="polling.html">
@@ -426,8 +434,8 @@
     </div>
 
     <!-- Ruling 19: the As-seen-in strip. Every name links to a real, verified article. -->
-    <div class="press-strip" role="group" aria-label="As seen in">
-      <span class="press-strip__k">As seen in</span>
+    <div class="press-strip" role="group" aria-label="As covered in">
+      <span class="press-strip__k">Defining what&rsquo;s next &middot; as covered in</span>
       <a href="https://www.axios.com/2026/08/14/senate-primaries-fundraising-cash-republicans-democrats" rel="noopener">Axios</a>
       <a href="https://www.insideradio.com/free/political-ad-reservations-top-1-billion-for-2026-midterms/article_5cfde563-d649-4e1c-842c-af0eb0db602e.html" rel="noopener">Inside Radio</a>
       <a href="https://campaignsandelections.com/industry-news/firms-unveil-new-ad-tracking-platform/" rel="noopener">Campaigns &amp; Elections</a>
@@ -441,18 +449,22 @@
     <div class="center" style="margin-bottom:2.6rem" data-rise>
       <p class="eyebrow eyebrow--plain" style="justify-content:center">Press</p>
       <h2>The numbers the press prints.</h2>
-      <p class="lede">The read that starts a story: which issue overtook which in a state's
-        ads this month, who is being outspent and winning, who went dark this week. Name the
-        race; same day on deadline.</p>
+      <p class="lede">Built by the people defining what&rsquo;s next &mdash; and quoted by
+        the people covering it. Name the race; same day on deadline.</p>
+      <div class="press-nums" data-rise>
+        <span><b class="num">$10.4B</b> our 2026 forecast, as of August</span>
+        <span><b class="num">$1.2B</b> forward book on file</span>
+        <span><b class="num">17</b> Senate primaries in Axios&rsquo;s package</span>
+      </div>
     </div>
-    <div class="grid grid--3">
-      <a class="card card--flag press-card" href="https://www.axios.com/2026/08/14/senate-primaries-fundraising-cash-republicans-democrats" rel="noopener">
-        <p class="card__k">Axios &middot; August 2026</p>
-        <h3>"In 2026, money doesn't always matter"</h3>
-        <p class="small">Axios's primary-money package ran on KPI data across all 17
-          competitive 2026 Senate primaries.</p>
-        <span class="press-card__go">Read the piece &rarr;</span>
-      </a>
+    <a class="card card--flag press-card press-card--lead" href="https://www.axios.com/2026/08/14/senate-primaries-fundraising-cash-republicans-democrats" rel="noopener" data-rise>
+      <p class="card__k">Axios &middot; August 2026</p>
+      <h3>&ldquo;In 2026, money doesn&rsquo;t always matter&rdquo;</h3>
+      <p class="small">Axios&rsquo;s primary-money package ran on KPI data across all 17
+        competitive 2026 Senate primaries.</p>
+      <span class="press-card__go">Read the piece &rarr;</span>
+    </a>
+    <div class="grid grid--2 mt2">
       <a class="card card--flag press-card" href="https://www.insideradio.com/free/political-ad-reservations-top-1-billion-for-2026-midterms/article_5cfde563-d649-4e1c-842c-af0eb0db602e.html" rel="noopener">
         <p class="card__k">Inside Radio &middot; August 2026</p>
         <h3>"Political ad reservations top $1 billion for 2026 midterms"</h3>
