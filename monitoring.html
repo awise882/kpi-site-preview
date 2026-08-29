@@ -10,9 +10,38 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r68">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r69">
 <style>
   .fig-scroll > svg { min-width: 820px; }
+  /* R69: the key graphic gets a phone-native stack; no panning a 1000px drawing */
+  .xsm { display: none; }
+  @media (max-width: 640px) {
+    #xscreen-fig .fig-swipe, #xscreen-fig .fig-hint { display: none; }
+    .xsm { display: flex; flex-direction: column; gap: .9rem; padding: .2rem .1rem .3rem; }
+    .xsm-tv { border: 1.5px solid var(--navy); border-radius: 8px; padding: .7rem .8rem .6rem; background: var(--white); }
+    .xsm-k { display: block; text-align: center; font-family: var(--label); font-size: .58rem; font-weight: 700; letter-spacing: .1em; color: #40566A; margin-bottom: .45rem; }
+    .xsm-app { display: flex; align-items: center; gap: .6rem; padding: .42rem 0; }
+    .xsm-app + .xsm-app { border-top: 1px solid var(--rule-soft); }
+    .xsm-app i { flex: 0 0 4.2rem; font-style: normal; font-family: var(--label); font-size: .6rem; font-weight: 800; letter-spacing: .08em; color: #8296A8; }
+    .xsm-chip { position: relative; flex: 0 0 2.1rem; height: 1.15rem; border-radius: 3px; background: rgba(0,172,193,.14); border: 1px solid #00ACC1; }
+    .xsm-chip::after { content: ""; position: absolute; left: .68rem; top: .24rem; border-left: .42rem solid #00ACC1; border-top: .3rem solid transparent; border-bottom: .3rem solid transparent; }
+    .xsm-app em { flex: 1; height: 2px; background: #D7E1E9; }
+    .xsm-under { display: block; text-align: center; font-family: var(--label); font-size: .54rem; font-weight: 700; letter-spacing: .08em; color: var(--ink-3); border-top: 1px solid var(--rule-soft); margin-top: .45rem; padding-top: .45rem; }
+    .xsm-home { display: flex; align-items: center; gap: .7rem; }
+    .xsm-x3 { flex: 0 0 auto; display: grid; place-items: center; width: 2.1rem; height: 2.1rem; border-radius: 50%; background: var(--navy-deep); color: #fff; font-family: var(--mono); font-weight: 800; font-size: .95rem; }
+    .xsm-home b { display: block; color: var(--navy-deep); font-size: .92rem; }
+    .xsm-home i { display: block; font-style: normal; color: var(--ink-3); font-size: .78rem; }
+    .xsm-barlab { display: flex; justify-content: space-between; gap: .6rem; font-family: var(--label); font-size: .52rem; font-weight: 700; letter-spacing: .07em; color: #40566A; margin-bottom: .3rem; }
+    .xsm-barlab .xsm-g { color: var(--lime-text); text-align: right; }
+    .xsm-bar { position: relative; display: block; height: 22px; border: 1.2px solid #B9C9D6; border-radius: 3px; background: rgba(168,209,78,.13); background-clip: padding-box; overflow: hidden; }
+    .xsm-bar::after { content: ""; position: absolute; inset: 0; border: 1.6px dashed #7CB342; border-radius: 3px; pointer-events: none; }
+    .xsm-bar i { position: absolute; left: 0; top: 0; bottom: 0; width: 33%; background: var(--navy); }
+    .xsm-census { display: block; margin-top: .35rem; font-size: .74rem; color: #40566A; }
+    .xsm-plate { text-align: center; border: 1.8px dashed #7CB342; border-radius: 8px; background: rgba(168,209,78,.06); padding: .7rem .6rem .6rem; }
+    .xsm-plate b { display: block; font-family: var(--mono); font-size: 1.5rem; font-weight: 800; color: var(--navy-deep); }
+    .xsm-plate i { display: block; font-style: normal; font-family: var(--label); font-size: .56rem; font-weight: 700; letter-spacing: .09em; color: var(--lime-text); margin-top: .15rem; }
+    .xsm-claim { margin: 0; text-align: center; font-weight: 700; color: #14232F; font-size: .92rem; line-height: 1.5; }
+  }
   .fig--unit .fig__svg rect, .fig--unit .fig__svg text { animation: none !important; }
   @media (prefers-reduced-motion: no-preference) {
     .fig--unit.in-view .fig__svg g[data-u] { animation: fade-in .55s ease-out backwards; }
@@ -85,7 +114,7 @@
         <div class="nav__drop" aria-label="Section shortcuts">
           <a href="monitoring.html#alert-demo">Creative alerts</a>
           <a href="monitoring.html#streaming-spend">Streaming &amp; Digital</a>
-          <a href="monitoring.html#cross-screen">Impressions across screens</a>
+          <a href="monitoring.html#cross-screen">The TV-glass count</a>
           <a href="monitoring.html#fcc-rates">FCC rate intelligence</a>
           <a href="monitoring.html#cross-screen">How we count</a>
         </div>
@@ -106,7 +135,7 @@
           <a href="week.html#air-war">The air war, explorable</a>
         </div>
       </li>
-      <li class="nav__item"><a href="polling.html">Polling</a>
+      <li class="nav__item"><a href="polling.html">Voter Opinion</a>
         <div class="nav__drop" aria-label="Section shortcuts">
           <a href="polling.html#loop">The loop</a>
           <a href="polling.html#story">How it works</a>
@@ -455,78 +484,93 @@
       </div>
     </div>
 
-    <!-- Impressions across screens (Adam, 8/28): the missing beat of the streaming
-         story — the same campaign lands on four screens, but reach and frequency
-         count homes, not screens. Same drawing grammar as the weighting spine below:
-         uniform 1.5px instruments, one rail, solid observed ink, dashed modeled ink,
-         a marked gate, dimension brackets. Class-not-operand holds. -->
+    <!-- The TV-glass count (Adam, 8/29): detection happens where the spot runs —
+         on the TV screen, app after app, in VideoAmp-measured homes. Nothing
+         off-glass is detected, so nothing off-glass is claimed. Same drawing
+         grammar as the weighting spine: uniform 1.5px instruments, one rail,
+         solid observed ink, dashed modeled ink, a marked gate, brackets. -->
     <div class="mt3" id="cross-screen">
       <div class="center" style="margin:3rem 0 1.6rem" data-rise>
         <p class="eyebrow eyebrow--plain" style="justify-content:center">The measurement, drawn once</p>
-        <h3 style="font-size:clamp(1.5rem,2.6vw,2rem)">Four screens. One household. One number.</h3>
-        <p class="lede" style="margin-inline:auto">The same spot lands on the TV, the phone, the
-          tablet and the laptop. We count homes, not screens &mdash; and the modeled share
-          takes dashed ink.</p>
+        <h3 style="font-size:clamp(1.5rem,2.6vw,2rem)">Detected on the TV glass. Counted by the home.</h3>
+        <p class="lede" style="margin-inline:auto">Streaming spots are detected where they
+          run: on the TV screen, app after app, in VideoAmp-measured homes. What runs off
+          the glass &mdash; the phone, the laptop &mdash; is not detected and never claimed.
+          The modeled share takes dashed ink.</p>
       </div>
       <figure class="fig fig--light" id="xscreen-fig">
-        <p class="small fig-hint">Swipe the figure sideways to see all three stations.</p>
+        <div class="xsm" role="img" aria-label="The TV-glass count, stacked for a phone: the same spot on three streaming apps on one TV, counted once per home, times three; the 40 million measured homes as a solid third of the every-U.S.-TV-home bar, weighted to census; the 740 thousand dollar estimate plate; and the claim: a spot seen on three apps is one home reached three times, never three homes.">
+          <div class="xsm-tv">
+            <span class="xsm-k">THE SAME SPOT, APP AFTER APP</span>
+            <div class="xsm-app"><i>HULU</i><span class="xsm-chip" aria-hidden="true"></span><em></em></div>
+            <div class="xsm-app"><i>MAX</i><span class="xsm-chip" aria-hidden="true"></span><em></em></div>
+            <div class="xsm-app"><i>PEACOCK</i><span class="xsm-chip" aria-hidden="true"></span><em></em></div>
+            <span class="xsm-under">DETECTED ON THE TV GLASS &middot; NOTHING OFF-SCREEN IS CLAIMED</span>
+          </div>
+          <div class="xsm-home"><span class="xsm-x3">&times;3</span><span><b>One home, counted once.</b><i>reach and frequency read at the household</i></span></div>
+          <div class="xsm-barwrap">
+            <span class="xsm-barlab"><b>MEASURED &middot; 40M HOMES &middot; VIDEOAMP</b><b class="xsm-g">EVERY U.S. TV HOME</b></span>
+            <span class="xsm-bar"><i></i></span>
+            <span class="xsm-census">a third of U.S. TV homes measured &mdash; weighted to census, so they stand for the rest</span>
+          </div>
+          <div class="xsm-plate"><b>$740K EST.</b><i>EST. IMPRESSIONS &middot; REACH &middot; FREQUENCY</i></div>
+          <p class="xsm-claim">A spot seen on three apps is one home reached three times &mdash; never three homes.</p>
+        </div>
+        <p class="small fig-hint">Swipe the figure sideways to see the whole drawing.</p>
         <div class="fig-swipe">
-        <div class="fig-scroll" tabindex="0" role="group" aria-label="Impressions across screens: four devices resolve to one household, then the read weights outward in dashed ink, scrolls sideways">
+        <div class="fig-scroll" tabindex="0" role="group" aria-label="The TV-glass count: the same spot on three streaming apps resolves to one household, then the read weights outward in dashed ink, scrolls sideways">
         <svg viewBox="0 0 1000 352" role="img" aria-labelledby="xs-t xs-d" class="fig__svg" style="min-width:820px">
-          <title id="xs-t">Four screens, one household, one cross-screen read</title>
-          <desc id="xs-d">One continuous drawing. On the left, four device glyphs — a
-            CTV, a phone, a tablet and a laptop — each showing the same small teal
-            spot. Four lines converge from the devices into a single ringed household
-            node holding that same spot, badged counted once and times four. The line
+          <title id="xs-t">One TV glass, one household, one read</title>
+          <desc id="xs-d">One continuous drawing. On the left, a single television
+            showing the same small teal spot on three app rows — Hulu, Max, Peacock —
+            captioned detected on the TV glass, nothing off-screen is claimed. Three
+            lines converge from the app rows into a single ringed household node
+            holding that same spot, badged counted once and times three. The line
             continues through a gate marked modeled ink begins here into a read bar:
             inside a light outline spanning every U.S. TV home, a solid navy segment
             — the 40 million homes measured through VideoAmp, a third of the frame —
             extends as a dashed green segment weighted outward to fill it, with a
-            line reading: weighted to census, so they stand for the rest. Above the bar's end, a dashed plate carries the payoff: 740
-            thousand dollars estimated, with impressions, reach and frequency printed
-            beneath. Brackets underneath span observed, solid ink and modeled, dashed
-            ink, labeled estimated. A bold line reads: a spot seen on four screens is
-            one home reached four times, never four homes.</desc>
-          <text x="985" y="14" text-anchor="end" font-family="Inter, sans-serif" font-size="8" font-weight="700" letter-spacing="1.6" fill="#8FA9BE">CROSS-SCREEN MEASUREMENT &middot; ONE COUNT</text>
+            line reading: weighted to census, so they stand for the rest. Above the
+            bar's end, a dashed plate carries the payoff: 740 thousand dollars
+            estimated, with impressions, reach and frequency printed beneath.
+            Brackets underneath span observed, solid ink and modeled, dashed ink,
+            labeled estimated. A bold line reads: a spot seen on three apps is one
+            home reached three times, never three homes.</desc>
+          <text x="985" y="14" text-anchor="end" font-family="Inter, sans-serif" font-size="8" font-weight="700" letter-spacing="1.6" fill="#8FA9BE">TV-GLASS MEASUREMENT &middot; ONE COUNT</text>
 
           <!-- ============ the same spot, on every glass (2x2 device cluster) ============ -->
           <g data-u="1">
-            <!-- CTV -->
+            <!-- one TV; the spot runs app after app on the glass -->
             <g fill="none" stroke="#1B4F72" stroke-width="1.5">
-              <rect x="42" y="34" width="120" height="72" rx="5"/>
-              <path d="M86 114 h32" stroke-width="2.4"/>
+              <rect x="46" y="40" width="216" height="174" rx="6"/>
+              <path d="M128 222 h56" stroke-width="2.4"/>
             </g>
-            <g><rect x="66" y="52" width="30" height="19" rx="3" fill="rgba(0,172,193,.14)" stroke="#00ACC1" stroke-width="1.3"/><path d="M74 56.5 l9 5 -9 5 z" fill="#00ACC1"/><path d="M102 57 h44 M102 65 h30" stroke="#8FA9BE" stroke-width="1.6"/></g>
-            <text x="102" y="130" text-anchor="middle" font-family="Inter, sans-serif" font-size="7.5" font-weight="700" letter-spacing=".7" fill="#5B7085">THE CTV</text>
-            <!-- phone -->
-            <g fill="none" stroke="#1B4F72" stroke-width="1.5"><rect x="196" y="30" width="42" height="76" rx="6"/><path d="M211 98 h12"/></g>
-            <g><rect x="203" y="44" width="28" height="17" rx="3" fill="rgba(0,172,193,.14)" stroke="#00ACC1" stroke-width="1.2"/><path d="M210 47.5 l8 5 -8 5 z" fill="#00ACC1"/><path d="M204 70 h26 M204 77 h18" stroke="#8FA9BE" stroke-width="1.5"/></g>
-            <text x="217" y="130" text-anchor="middle" font-family="Inter, sans-serif" font-size="7.5" font-weight="700" letter-spacing=".7" fill="#5B7085">THE PHONE</text>
-            <!-- tablet -->
-            <g fill="none" stroke="#1B4F72" stroke-width="1.5"><rect x="46" y="170" width="66" height="88" rx="6"/></g>
-            <g><rect x="57" y="186" width="30" height="18" rx="3" fill="rgba(0,172,193,.14)" stroke="#00ACC1" stroke-width="1.2"/><path d="M65 190.5 l9 5 -9 5 z" fill="#00ACC1"/><path d="M57 216 h44 M57 224 h30" stroke="#8FA9BE" stroke-width="1.5"/></g>
-            <text x="79" y="278" text-anchor="middle" font-family="Inter, sans-serif" font-size="7.5" font-weight="700" letter-spacing=".7" fill="#5B7085">THE TABLET</text>
-            <!-- laptop -->
-            <g fill="none" stroke="#1B4F72" stroke-width="1.5"><rect x="156" y="178" width="104" height="62" rx="4"/><path d="M142 248 h132" stroke-width="2.2"/></g>
-            <g><rect x="176" y="192" width="30" height="18" rx="3" fill="rgba(0,172,193,.14)" stroke="#00ACC1" stroke-width="1.2"/><path d="M184 196.5 l9 5 -9 5 z" fill="#00ACC1"/><path d="M212 197 h34 M212 205 h22" stroke="#8FA9BE" stroke-width="1.5"/></g>
-            <text x="208" y="278" text-anchor="middle" font-family="Inter, sans-serif" font-size="7.5" font-weight="700" letter-spacing=".7" fill="#5B7085">THE LAPTOP</text>
-            <text x="152" y="20" text-anchor="middle" font-family="Inter, sans-serif" font-size="8.5" font-weight="700" letter-spacing="1" fill="#40566A">THE SAME SPOT, ON EVERY GLASS</text>
+            <g font-family="Inter, sans-serif" font-size="7.5" font-weight="800" letter-spacing=".7" fill="#8296A8">
+              <text x="66" y="72">HULU</text>
+              <text x="66" y="128">MAX</text>
+              <text x="66" y="184">PEACOCK</text>
+            </g>
+            <g><rect x="118" y="58" width="36" height="22" rx="3" fill="rgba(0,172,193,.14)" stroke="#00ACC1" stroke-width="1.3"/><path d="M128 63 l10 6 -10 6 z" fill="#00ACC1"/><path d="M162 64 h72 M162 73 h48" stroke="#8FA9BE" stroke-width="1.6"/></g>
+            <g><rect x="118" y="114" width="36" height="22" rx="3" fill="rgba(0,172,193,.14)" stroke="#00ACC1" stroke-width="1.3"/><path d="M128 119 l10 6 -10 6 z" fill="#00ACC1"/><path d="M162 120 h72 M162 129 h48" stroke="#8FA9BE" stroke-width="1.6"/></g>
+            <g><rect x="118" y="170" width="36" height="22" rx="3" fill="rgba(0,172,193,.14)" stroke="#00ACC1" stroke-width="1.3"/><path d="M128 175 l10 6 -10 6 z" fill="#00ACC1"/><path d="M162 176 h72 M162 185 h48" stroke="#8FA9BE" stroke-width="1.6"/></g>
+            <text x="154" y="24" text-anchor="middle" font-family="Inter, sans-serif" font-size="8.5" font-weight="700" letter-spacing="1" fill="#40566A">THE SAME SPOT, APP AFTER APP</text>
+            <text x="154" y="244" text-anchor="middle" font-family="Inter, sans-serif" font-size="7.5" font-weight="700" letter-spacing=".9" fill="#5B7085">DETECTED ON THE TV GLASS</text>
+            <text x="154" y="258" text-anchor="middle" font-family="Inter, sans-serif" font-size="7" font-weight="700" letter-spacing=".8" fill="#8FA9BE">NOTHING OFF-SCREEN IS CLAIMED</text>
           </g>
 
           <!-- ============ four lines converge on one home ============ -->
           <g data-u="2">
             <g fill="none" stroke="#1B4F72" stroke-width="1.5">
-              <path d="M162 70 C 260 70, 330 118, 388 136"/>
-              <path d="M238 68 C 300 74, 340 116, 390 138"/>
-              <path d="M112 214 C 240 214, 330 172, 388 152"/>
-              <path d="M260 209 C 320 200, 350 168, 390 150"/>
+              <path d="M262 69 C 330 69, 358 118, 390 136"/>
+              <path d="M262 125 C 330 125, 356 136, 390 144"/>
+              <path d="M262 181 C 330 181, 358 164, 390 152"/>
             </g>
-            <g fill="#1B4F72"><circle cx="285" cy="87" r="2"/><circle cx="305" cy="98" r="2"/><circle cx="290" cy="200" r="2"/><circle cx="330" cy="182" r="2"/></g>
+            <g fill="#1B4F72"><circle cx="318" cy="78" r="2"/><circle cx="326" cy="127" r="2"/><circle cx="320" cy="172" r="2"/></g>
             <circle cx="424" cy="144" r="36" fill="#FAFCFE" stroke="#1B4F72" stroke-width="1.6"/>
             <path d="M408 146 l16 -13 16 13 v16 h-32 z" fill="none" stroke="#1B4F72" stroke-width="1.5" stroke-linejoin="round"/>
             <g><rect x="413" y="148" width="22" height="13" rx="2.5" fill="rgba(0,172,193,.14)" stroke="#00ACC1" stroke-width="1.1"/><path d="M419 150.5 l6.5 4 -6.5 4 z" fill="#00ACC1"/></g>
             <rect x="447" y="108" width="30" height="16" rx="8" fill="#0D2E4A"/>
-            <text x="462" y="119.5" text-anchor="middle" font-family="Inter, sans-serif" font-size="9.5" font-weight="800" fill="#FFFFFF">&times;4</text>
+            <text x="462" y="119.5" text-anchor="middle" font-family="Inter, sans-serif" font-size="9.5" font-weight="800" fill="#FFFFFF">&times;3</text>
             <text x="424" y="196" text-anchor="middle" font-family="Inter, sans-serif" font-size="7.5" font-weight="700" letter-spacing=".9" fill="#5B7085">COUNTED ONCE PER HOME</text>
           </g>
 
@@ -565,14 +609,16 @@
               <path d="M545 294 V306"/><path d="M985 294 V306"/>
             </g>
             <text x="772" y="303.5" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" font-weight="700" letter-spacing="1" fill="#4F7A25">MODELED &middot; DASHED INK &middot; LABELED EST.</text>
-            <text x="500" y="340" text-anchor="middle" font-family="Inter, sans-serif" font-size="12.5" font-weight="700" fill="#14232F">A spot seen on four screens is one home reached four times &mdash; never four homes.</text>
+            <text x="500" y="340" text-anchor="middle" font-family="Inter, sans-serif" font-size="12.5" font-weight="700" fill="#14232F">A spot seen on three apps is one home reached three times &mdash; never three homes.</text>
           </g>
         </svg>
         </div>
         </div>
-        <figcaption class="fig__cap">Impressions land per device; reach and frequency read
-          at the household. The measured share is solid ink; anything weighted outward to
-          the household universe prints dashed, labeled est., and dated.</figcaption>
+        <figcaption class="fig__cap">Impressions land per airing on the TV glass; reach and
+          frequency read at the household. Off the glass &mdash; phones, laptops &mdash;
+          nothing is detected, so nothing is claimed. The measured share is solid ink;
+          anything weighted outward to the household universe prints dashed, labeled est.,
+          and dated.</figcaption>
       </figure>
     </div>
 
@@ -812,9 +858,6 @@
   </div>
 </section>
 
-<div class="wrap" style="padding-bottom:2.2rem">
-  <a class="nextpage" href="platform.html"><span class="nextpage__k">Next</span><span class="nextpage__t">The Platform</span><span class="nextpage__d">Everything the machine catches becomes a decision &mdash; and every read exports.</span><span class="nextpage__go">&rarr;</span></a>
-</div>
 
 <section class="section section--mega cta-final">
   <div class="wrap center">
@@ -855,7 +898,7 @@
           <li><a href="monitoring.html">Monitoring</a></li>
           <li><a href="platform.html">The platform</a></li>
           <li><a href="week.html">For buyers &amp; sellers</a></li>
-          <li><a href="polling.html">Real-time polling</a></li>
+          <li><a href="polling.html">Voter opinion</a></li>
           <li><a href="questions.html">The question library</a></li>
         </ul>
       </div>
