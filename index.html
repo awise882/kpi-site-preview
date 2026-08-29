@@ -156,6 +156,15 @@
     .hb-bar { flex: 1; display: flex; height: 8px; border-radius: 2px; overflow: hidden; background: #EDF1F5; }
     .hb-bar i { background: #3B66A0; box-shadow: 1px 0 0 #fff; }
     .hb-bar em { background: #B32626; }
+    .hb-l3 { display: flex; justify-content: space-between; align-items: baseline; gap: .5rem;
+      margin-top: .42rem; padding-top: .34rem; border-top: 1px dashed #A8D14E;
+      font-family: var(--label); font-size: .54rem; font-weight: 700; letter-spacing: .07em;
+      color: var(--ink-3); white-space: nowrap; }
+    .hb-l3 b { font-family: var(--mono); font-size: .64rem; font-weight: 800;
+      color: var(--navy-deep); font-variant-numeric: tabular-nums lining-nums; }
+    .hb-l3 .hb-str { color: var(--lime-text, #4F7A25); margin-left: auto; }
+    .hb-l3 .hb-str b { color: var(--lime-text, #4F7A25); }
+    @media (max-width: 374px) { .hb-l3 { flex-wrap: wrap; row-gap: .18rem; } }
     .hb-foot { display: flex; justify-content: space-between; gap: .5rem; font-family: var(--label);
       font-size: .52rem; font-weight: 700; letter-spacing: .1em; color: var(--ink-3);
       border-top: 1px solid var(--rule-soft); padding: .42rem .7rem; background: #FAFCFE; }
@@ -243,15 +252,17 @@
 
     <!-- The mobile hero's proof: a two-race glimpse of the scoreboard, matching the
          platform recreation's rows. Shown under 641px only; desktop keeps the type. -->
-    <div class="hero-board" role="img" aria-label="A glimpse of the scoreboard: two races, each side's share of committed money, and the week's new money on top. Synthetic sample.">
+    <div class="hero-board" role="img" aria-label="A glimpse of the scoreboard: two races, each side's share of committed money, the TV, cable and radio total with the streaming estimate riding beside it, and the week's new money on top. Synthetic sample.">
       <div class="hb-top"><span class="hb-dot"></span>SCOREBOARD<span class="hb-stamp">POSTED THRU AUG 30, 2026</span></div>
       <div class="hb-row">
         <div class="hb-l1"><span class="hb-tag">AG</span><b>Midstate Attorney General</b><span class="hb-wk">+$3.3M</span></div>
         <div class="hb-l2"><span class="hb-pct hb-pd">40%</span><span class="hb-bar"><i style="width:40%"></i><em style="width:60%"></em></span><span class="hb-pct hb-pr">60%</span></div>
+        <div class="hb-l3"><span>TV &middot; CABLE &middot; RADIO <b>$29.2M</b></span><span class="hb-str">STREAMING <b>$1.1M</b> EST. &middot; BESIDE</span></div>
       </div>
       <div class="hb-row">
         <div class="hb-l1"><span class="hb-tag">GOV</span><b>North River Governor</b><span class="hb-wk">+$1.8M</span></div>
         <div class="hb-l2"><span class="hb-pct hb-pd">48%</span><span class="hb-bar"><i style="width:48%"></i><em style="width:52%"></em></span><span class="hb-pct hb-pr">52%</span></div>
+        <div class="hb-l3"><span>TV &middot; CABLE &middot; RADIO <b>$19.3M</b></span><span class="hb-str">STREAMING <b>$640K</b> EST. &middot; BESIDE</span></div>
       </div>
       <div class="hb-foot"><span>NEW MONEY RISES TO THE TOP</span><span>SYNTHETIC SAMPLE</span></div>
     </div>
