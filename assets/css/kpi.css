@@ -92,7 +92,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-variant-numeric: tabular-nums lining-nums;
-  overflow-x: hidden;
+  /* No overflow-x here: it turns body into a scroll container, and every
+     position:sticky child (the nav, the runway pins) sticks to a scrollport
+     that never moves. html carries the horizontal clip alone. */
 }
 html { overflow-x: hidden; overscroll-behavior-x: none; }
 img, svg, video { max-width: 100%; height: auto; display: block; }
@@ -1790,20 +1792,20 @@ a.chip:hover { border-color: var(--blue); color: var(--navy); background: var(--
   .tl__wk--none { background: var(--white); border: 1px dashed var(--rule); color: var(--ink-3); }
   .tl__cap { margin: .5rem 0 0; font-family: var(--mono); font-size: .68rem; letter-spacing: .04em;
     color: var(--ink-3); line-height: 1.5; white-space: normal; }
-  @supports (animation-timeline: view()) {
-    @media (min-width: 1000px) and (prefers-reduced-motion: no-preference) {
-      /* Pass E §8.6: the walk gets its 4vh runway (was 230vh), with an
-         establish plateau before the pan starts and a release plateau after
-         it lands, so the stage sets before anything moves. */
-      .tl__scroller { height: 280vh; view-timeline: --tlv block; }
-      .tl__pin { position: sticky; top: 84px; overflow: hidden; container-type: inline-size; }
-      .tl__cal { overflow: visible; width: max-content;
-        animation: tl-pan linear both; animation-timeline: --tlv;
-        animation-range: contain 7% contain 91%; will-change: transform; }
-      .tl__mo { width: 340px; }
-      .tl__hint-scroll { display: inline; }
-      .tl__hint-swipe { display: none; }
-    }
+  /* r88: the calendar walk, scrubbed by the universal driver — every browser,
+     every pointer. Establish plateau to 7%, release from 91%, as before. */
+  html.scrub .tl__scroller { height: 280vh; }
+  html.scrub .tl__pin { position: sticky; top: 84px; overflow: hidden; container-type: inline-size; }
+  html.scrub .tl__cal { overflow: visible; width: max-content; will-change: transform;
+    animation: tl-pan 1s linear paused both !important;
+    animation-delay: calc((0.07 - var(--scrub, 0)) / 0.84 * 1s) !important; }
+  html.scrub .tl__mo { width: 340px; }
+  html.scrub .tl__hint-scroll { display: inline; }
+  html.scrub .tl__hint-swipe { display: none; }
+  @media (max-width: 999px) {
+    html.scrub .tl__scroller { height: 200vh; }
+    html.scrub .tl__mo { width: 300px; }
+    html.scrub .tl__pin { top: 72px; }
   }
   @keyframes tl-pan { from { transform: translateX(0); } to { transform: translateX(calc(-100% + 100cqw)); } }
   /* ===== Ruling 51: beat-2 scoreboard + beat-3 cross-screen creative cards ===== */
@@ -1943,23 +1945,23 @@ a.chip:hover { border-color: var(--blue); color: var(--navy); background: var(--
      develop draws metro then fringe contours; the hatch and the annotation
      land with a still release from 86%. Ranges never overlap the establish
      of the next scene: the scroller ends before the wk-links row. */
-  @supports (animation-timeline: view()) {
-    @media (min-width: 1000px) and (prefers-reduced-motion: no-preference) {
-      .ct__scroller { height: 300vh; view-timeline: --ctv block; }
-      .ct__pin { position: sticky; top: 88px; }
-      /* The pinned frame must seat whole in the viewport: the map yields width
-         on short screens rather than pushing the caption below the fold. */
-      .ct__svg { max-width: min(880px, calc((100vh - 415px) * 1.524)); margin-inline: auto; }
-      .ct__hint { display: block; }
-      .ct-stage.in-view .ct__ring--f1, .ct__ring--f1 { animation: ct-draw linear both; animation-timeline: --ctv; animation-range: contain 22% contain 34%; animation-delay: 0s; }
-      .ct-stage.in-view .ct__ring--f2, .ct__ring--f2 { animation: ct-draw linear both; animation-timeline: --ctv; animation-range: contain 28% contain 42%; animation-delay: 0s; }
-      .ct-stage.in-view .ct__ring--f3, .ct__ring--f3 { animation: ct-draw linear both; animation-timeline: --ctv; animation-range: contain 34% contain 50%; animation-delay: 0s; }
-      .ct-stage.in-view .ct__gaphatch, .ct__gaphatch { animation: fade-in linear both; animation-timeline: --ctv; animation-range: contain 46% contain 58%; animation-delay: 0s; }
-      .ct-stage.in-view .ct__ring--m1, .ct__ring--m1 { animation: ct-draw linear both; animation-timeline: --ctv; animation-range: contain 58% contain 66%; animation-delay: 0s; }
-      .ct-stage.in-view .ct__ring--m2, .ct__ring--m2 { animation: ct-draw linear both; animation-timeline: --ctv; animation-range: contain 62% contain 70%; animation-delay: 0s; }
-      .ct-stage.in-view .ct__ring--m3, .ct__ring--m3 { animation: ct-draw linear both; animation-timeline: --ctv; animation-range: contain 66% contain 76%; animation-delay: 0s; }
-      .ct-stage.in-view .ct__ann, .ct__ann { animation: acs-in linear both; animation-timeline: --ctv; animation-range: contain 78% contain 86%; animation-delay: 0s; }
-    }
+  /* r88: the contour draw, scrubbed by the universal driver. Same ranges. */
+  html.scrub .ct__scroller { height: 300vh; }
+  html.scrub .ct__pin { position: sticky; top: 88px; }
+  html.scrub .ct__svg { max-width: min(880px, calc((100vh - 415px) * 1.524)); margin-inline: auto; }
+  html.scrub .ct__hint { display: block; }
+  html.scrub .ct__ring--f1 { animation: ct-draw 1s linear paused both !important; animation-delay: calc((0.22 - var(--scrub, 0)) / 0.12 * 1s) !important; }
+  html.scrub .ct__ring--f2 { animation: ct-draw 1s linear paused both !important; animation-delay: calc((0.28 - var(--scrub, 0)) / 0.14 * 1s) !important; }
+  html.scrub .ct__ring--f3 { animation: ct-draw 1s linear paused both !important; animation-delay: calc((0.34 - var(--scrub, 0)) / 0.16 * 1s) !important; }
+  html.scrub .ct__gaphatch { animation: fade-in 1s linear paused both !important; animation-delay: calc((0.46 - var(--scrub, 0)) / 0.12 * 1s) !important; }
+  html.scrub .ct__ring--m1 { animation: ct-draw 1s linear paused both !important; animation-delay: calc((0.58 - var(--scrub, 0)) / 0.08 * 1s) !important; }
+  html.scrub .ct__ring--m2 { animation: ct-draw 1s linear paused both !important; animation-delay: calc((0.62 - var(--scrub, 0)) / 0.08 * 1s) !important; }
+  html.scrub .ct__ring--m3 { animation: ct-draw 1s linear paused both !important; animation-delay: calc((0.66 - var(--scrub, 0)) / 0.10 * 1s) !important; }
+  html.scrub .ct__ann { animation: acs-in 1s linear paused both !important; animation-delay: calc((0.78 - var(--scrub, 0)) / 0.08 * 1s) !important; }
+  @media (max-width: 999px) {
+    html.scrub .ct__scroller { height: 190vh; }
+    html.scrub .ct__svg { max-width: 100%; }
+    html.scrub .ct__pin { top: 72px; }
   }
 
   /* ==================================================================
@@ -1999,26 +2001,29 @@ a.chip:hover { border-color: var(--blue); color: var(--navy); background: var(--
     .sd-stage.in-view .sd__ann, .sd-stage.in-view .sd__note { animation: acs-in .55s var(--smooth) 2s backwards; }
   }
   @keyframes sd-pop { from { opacity: 0; transform: scale(.35); } to { opacity: 1; transform: scale(1); } }
-  @supports (animation-timeline: view()) {
-    @media (min-width: 1000px) and (prefers-reduced-motion: no-preference) {
-      .sd__scroller { height: 240vh; view-timeline: --sdv block; }
-      .sd__pin { position: sticky; top: 88px; }
-      .sd__svg { max-width: min(760px, calc((100vh - 330px) * 1.393)); margin-inline: auto; }
-      .sd__hint { display: block; }
-      .sd-stage.in-view .sd__dots circle, .sd__dots circle { animation: acs-in linear both; animation-timeline: --sdv; animation-range: contain 18% contain 30%; animation-delay: 0s; }
-      .sd-stage.in-view .sd__dots circle:nth-of-type(2), .sd__dots circle:nth-of-type(2) { animation-range: contain 20% contain 32%; }
-      .sd-stage.in-view .sd__dots circle:nth-of-type(3), .sd__dots circle:nth-of-type(3) { animation-range: contain 22% contain 34%; }
-      .sd-stage.in-view .sd__dots circle:nth-of-type(4), .sd__dots circle:nth-of-type(4) { animation-range: contain 24% contain 36%; }
-      .sd-stage.in-view .sd__dots circle:nth-of-type(5), .sd__dots circle:nth-of-type(5) { animation-range: contain 26% contain 38%; }
-      .sd-stage.in-view .sd__dots circle:nth-of-type(6), .sd__dots circle:nth-of-type(6) { animation-range: contain 28% contain 40%; }
-      .sd-stage.in-view .sd__dots circle:nth-of-type(7), .sd__dots circle:nth-of-type(7) { animation-range: contain 30% contain 42%; }
-      .sd-stage.in-view .sd__diag, .sd__diag { animation: ct-draw linear both; animation-timeline: --sdv; animation-range: contain 40% contain 52%; animation-delay: 0s; }
-      .sd-stage.in-view .sd__diag-lab, .sd__diag-lab { animation: fade-in linear both; animation-timeline: --sdv; animation-range: contain 50% contain 56%; animation-delay: 0s; }
-      .sd-stage.in-view .sd__under, .sd__under { animation: sd-pop linear both; animation-timeline: --sdv; animation-range: contain 56% contain 64%; animation-delay: 0s; }
-      .sd-stage.in-view .sd__under--2, .sd__under--2 { animation-range: contain 60% contain 68%; }
-      .sd-stage.in-view .sd__under--3, .sd__under--3 { animation-range: contain 64% contain 72%; }
-      .sd-stage.in-view .sd__ann, .sd__ann { animation: acs-in linear both; animation-timeline: --sdv; animation-range: contain 76% contain 85%; animation-delay: 0s; }
-    }
+  /* r88: the diagonal, scrubbed by the universal driver. Same ranges. */
+  html.scrub .sd__scroller { height: 240vh; }
+  html.scrub .sd__pin { position: sticky; top: 88px; }
+  html.scrub .sd__svg { max-width: min(760px, calc((100vh - 330px) * 1.393)); margin-inline: auto; }
+  html.scrub .sd__hint { display: block; }
+  html.scrub .sd__dots circle { animation: acs-in 1s linear paused both !important; animation-delay: calc((0.18 - var(--scrub, 0)) / 0.12 * 1s) !important; }
+  html.scrub .sd__dots circle:nth-of-type(2) { animation: acs-in 1s linear paused both !important; animation-delay: calc((0.20 - var(--scrub, 0)) / 0.12 * 1s) !important; }
+  html.scrub .sd__dots circle:nth-of-type(3) { animation: acs-in 1s linear paused both !important; animation-delay: calc((0.22 - var(--scrub, 0)) / 0.12 * 1s) !important; }
+  html.scrub .sd__dots circle:nth-of-type(4) { animation: acs-in 1s linear paused both !important; animation-delay: calc((0.24 - var(--scrub, 0)) / 0.12 * 1s) !important; }
+  html.scrub .sd__dots circle:nth-of-type(5) { animation: acs-in 1s linear paused both !important; animation-delay: calc((0.26 - var(--scrub, 0)) / 0.12 * 1s) !important; }
+  html.scrub .sd__dots circle:nth-of-type(6) { animation: acs-in 1s linear paused both !important; animation-delay: calc((0.28 - var(--scrub, 0)) / 0.12 * 1s) !important; }
+  html.scrub .sd__dots circle:nth-of-type(7) { animation: acs-in 1s linear paused both !important; animation-delay: calc((0.30 - var(--scrub, 0)) / 0.12 * 1s) !important; }
+  html.scrub .sd__diag { animation: ct-draw 1s linear paused both !important; animation-delay: calc((0.40 - var(--scrub, 0)) / 0.12 * 1s) !important; }
+  html.scrub .sd__diag-lab { animation: fade-in 1s linear paused both !important; animation-delay: calc((0.50 - var(--scrub, 0)) / 0.06 * 1s) !important; }
+  html.scrub .sd__under { animation: sd-pop 1s linear paused both !important; animation-delay: calc((0.56 - var(--scrub, 0)) / 0.08 * 1s) !important; transform-origin: center; transform-box: fill-box; }
+  html.scrub .sd__under--2 { animation: sd-pop 1s linear paused both !important; animation-delay: calc((0.60 - var(--scrub, 0)) / 0.08 * 1s) !important; transform-origin: center; transform-box: fill-box; }
+  html.scrub .sd__under--3 { animation: sd-pop 1s linear paused both !important; animation-delay: calc((0.64 - var(--scrub, 0)) / 0.08 * 1s) !important; transform-origin: center; transform-box: fill-box; }
+  html.scrub .sd__ann { animation: acs-in 1s linear paused both !important; animation-delay: calc((0.76 - var(--scrub, 0)) / 0.09 * 1s) !important; }
+  html.scrub .sd__note { animation: acs-in 1s linear paused both !important; animation-delay: calc((0.76 - var(--scrub, 0)) / 0.09 * 1s) !important; }
+  @media (max-width: 999px) {
+    html.scrub .sd__scroller { height: 170vh; }
+    html.scrub .sd__svg { max-width: 100%; }
+    html.scrub .sd__pin { top: 72px; }
   }
 
 
@@ -2094,11 +2099,10 @@ a.chip:hover { border-color: var(--blue); color: var(--navy); background: var(--
   .nextrail .nextcard, .nextcard__go { transition: none; }
 }
 
-/* r87 (weekend feedback): "none of the scroll jacking is working." Retired everywhere,
-   every width, every pointer — the runways collapse to their static end-states, which
-   were always the designed content. Also removes hundreds of vh of dead scroll. */
-.sd__scroller, .tl__scroller, .ct__scroller, .mxs__scroller { height: auto !important; view-timeline: none !important; }
-.sd__pin, .tl__pin, .ct__pin, .mxs__pin { position: static !important; top: auto !important; }
+/* r88: the runways are back — driven by the universal JS scrub in site.js (the old
+   animation-timeline path was Chrome-only, which is why "the scroll jacking stopped
+   working" on Safari and iPhone). html.scrub gates everything; JS-off and reduced
+   motion render the designed static end-states. */
 
 /* r87: the slow-moving gradient on the buyers-and-sellers week (promised long ago,
    never shipped). A broad wash drifting under the section; still under reduced motion. */
@@ -2113,3 +2117,24 @@ a.chip:hover { border-color: var(--blue); color: var(--navy); background: var(--
   #the-week { animation: wk-drift 30s ease-in-out infinite alternate; }
 }
 @keyframes wk-drift { from { background-position: 0% 30%; } to { background-position: 100% 70%; } }
+
+/* r88 (Adam): the mark breaks the seam — bigger than the bar, hanging through a
+   gradient keyline, tucking back once you scroll. */
+.nav { overflow: visible; }
+/* ::before, not ::after — the mobile drawer scrim owns .nav::after. */
+.nav::before { content: ""; position: absolute; left: 0; right: 0; bottom: -3px; height: 3px; z-index: 1;
+  background: linear-gradient(90deg, var(--navy) 0%, #00ACC1 55%, var(--lime) 100%); }
+.nav__brand { position: relative; z-index: 6; }
+.nav__brand img { height: 76px; transform: translateY(12px);
+  filter: drop-shadow(0 10px 18px rgba(8,36,59,.28));
+  transition: height .32s var(--smooth), transform .32s var(--smooth), filter .32s var(--smooth); }
+.is-scrolled .nav__brand img { height: 44px; transform: translateY(0); filter: none; }
+@media (max-width: 900px) {
+  .nav__brand img { height: 58px; transform: translateY(9px); }
+  .is-scrolled .nav__brand img { height: 36px; }
+}
+/* At phone widths the full-size overhang crowds the menu button off the edge. */
+@media (max-width: 480px) {
+  .nav__brand img { height: 48px; transform: translateY(7px); }
+  .is-scrolled .nav__brand img { height: 34px; }
+}

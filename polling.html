@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r87">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r88">
 <style>
   /* Light, centered, airy hero, same standard as the home page: display headline
      in the green-to-teal gradient with the layered offset, the lede, two buttons,
@@ -255,28 +255,30 @@
     .mxs.in-view .mxs__ann { animation: mxs-in .55s var(--smooth) 2.7s backwards; }
   }
   @keyframes mxs-in { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
-  @supports (animation-timeline: view()) {
-    @media (min-width: 700px) and (prefers-reduced-motion: no-preference) {
-      .mxs__scroller { height: 400vh; view-timeline: --mxv block; }
-      .mxs__pin { position: sticky; top: 88px; }
-      .mxs__svg { max-width: min(960px, calc((100vh - 465px) * 1.786)); margin-inline: auto; }
-      .mxs__hint { display: block; }
-      .mxs.in-view .mxs__mxa, .mxs__mxa { animation: fade-in linear both; animation-timeline: --mxv; animation-range: contain 14% contain 26%; animation-delay: 0s; }
-      .mxs.in-view .mxs__mxb, .mxs__mxb { animation: fade-in linear both; animation-timeline: --mxv; animation-range: contain 30% contain 42%; animation-delay: 0s; }
-      .mxs.in-view .mxs__mxc, .mxs__mxc { animation: fade-in linear both; animation-timeline: --mxv; animation-range: contain 46% contain 58%; animation-delay: 0s; }
-      .mxs.in-view .mxs__mxd, .mxs__mxd { animation: fade-in linear both; animation-timeline: --mxv; animation-range: contain 62% contain 72%; animation-delay: 0s; }
-      .mxs.in-view .mxs__mxe, .mxs__mxe { animation: fade-in linear both; animation-timeline: --mxv; animation-range: contain 76% contain 84%; animation-delay: 0s; }
-      .mxs.in-view .mxs__ann, .mxs__ann { animation: mxs-in linear both; animation-timeline: --mxv; animation-range: contain 86% contain 91%; animation-delay: 0s; }
-      .mxs.in-view .mxs__step--a, .mxs__step--a { animation: fade-in linear both; animation-timeline: --mxv; animation-range: contain 14% contain 26%; animation-delay: 0s; }
-      .mxs.in-view .mxs__step--b, .mxs__step--b { animation: fade-in linear both; animation-timeline: --mxv; animation-range: contain 30% contain 42%; animation-delay: 0s; }
-      .mxs.in-view .mxs__step--c, .mxs__step--c { animation: fade-in linear both; animation-timeline: --mxv; animation-range: contain 46% contain 58%; animation-delay: 0s; }
-      .mxs.in-view .mxs__step--d, .mxs__step--d { animation: fade-in linear both; animation-timeline: --mxv; animation-range: contain 62% contain 72%; animation-delay: 0s; }
-      .mxs.in-view .mxs__step--e, .mxs__step--e { animation: fade-in linear both; animation-timeline: --mxv; animation-range: contain 76% contain 84%; animation-delay: 0s; }
-    }
-    @media (min-width: 700px) and (max-width: 999px) and (prefers-reduced-motion: no-preference) {
-      /* mobile/tablet runway compresses ~40% (§7) */
-      .mxs__scroller { height: 340vh; }
-    }
+  /* r88: the matrix story, scrubbed by the universal driver — all browsers,
+     phones included. Same ranges; shorter runway on small screens. */
+  html.scrub .mxs__scroller { height: 400vh; }
+  html.scrub .mxs__pin { position: sticky; top: 88px; }
+  html.scrub .mxs__svg { max-width: min(960px, calc((100vh - 465px) * 1.786)); margin-inline: auto; }
+  html.scrub .mxs__hint { display: block; }
+  html.scrub .mxs__mxa { animation: fade-in 1s linear paused both !important; animation-delay: calc((0.14 - var(--scrub, 0)) / 0.12 * 1s) !important; }
+  html.scrub .mxs__mxb { animation: fade-in 1s linear paused both !important; animation-delay: calc((0.30 - var(--scrub, 0)) / 0.12 * 1s) !important; }
+  html.scrub .mxs__mxc { animation: fade-in 1s linear paused both !important; animation-delay: calc((0.46 - var(--scrub, 0)) / 0.12 * 1s) !important; }
+  html.scrub .mxs__mxd { animation: fade-in 1s linear paused both !important; animation-delay: calc((0.62 - var(--scrub, 0)) / 0.10 * 1s) !important; }
+  html.scrub .mxs__mxe { animation: fade-in 1s linear paused both !important; animation-delay: calc((0.76 - var(--scrub, 0)) / 0.08 * 1s) !important; }
+  html.scrub .mxs__ann { animation: mxs-in 1s linear paused both !important; animation-delay: calc((0.86 - var(--scrub, 0)) / 0.05 * 1s) !important; }
+  html.scrub .mxs__step--a { animation: fade-in 1s linear paused both !important; animation-delay: calc((0.14 - var(--scrub, 0)) / 0.12 * 1s) !important; }
+  html.scrub .mxs__step--b { animation: fade-in 1s linear paused both !important; animation-delay: calc((0.30 - var(--scrub, 0)) / 0.12 * 1s) !important; }
+  html.scrub .mxs__step--c { animation: fade-in 1s linear paused both !important; animation-delay: calc((0.46 - var(--scrub, 0)) / 0.12 * 1s) !important; }
+  html.scrub .mxs__step--d { animation: fade-in 1s linear paused both !important; animation-delay: calc((0.62 - var(--scrub, 0)) / 0.10 * 1s) !important; }
+  html.scrub .mxs__step--e { animation: fade-in 1s linear paused both !important; animation-delay: calc((0.76 - var(--scrub, 0)) / 0.08 * 1s) !important; }
+  @media (max-width: 999px) {
+    html.scrub .mxs__scroller { height: 280vh; }
+    html.scrub .mxs__pin { top: 72px; }
+  }
+  @media (max-width: 699px) {
+    html.scrub .mxs__scroller { height: 220vh; }
+    html.scrub .mxs__svg { max-width: 100%; }
   }
 
   /* -- scene 4: the contrast panel. A vs B, mirrored bands with a divider.
@@ -938,6 +940,10 @@
           <div class="qf__slot"><span class="qf__b qf__b--cus qf__b--keep">School funding, asked only in your district<i>custom &middot; one CD &middot; fields in days</i></span><span class="qf__b qf__b--aud">Early voters who split tickets<i>audience &rarr; deal ID</i></span></div>
           <div class="qf__slot"><span class="qf__b qf__b--q qf__b--keep">News habits: where they actually hear it<i>media &middot; always on</i></span><span class="qf__b qf__b--q">Broadband, utilities, land use<i>local issues &middot; always on</i></span></div>
           <div class="qf__slot"><span class="qf__b qf__b--aud qf__b--keep">Veterans&rsquo; households, message-tested<i>audience &rarr; deal ID</i></span><span class="qf__b qf__b--cus">The attack you expect next week, pre-tested<i>custom &middot; yours alone</i></span></div>
+          <div class="qf__slot"><span class="qf__b qf__b--q qf__b--keep">Early, by mail, or on Election Day?<i>turnout &middot; always on</i></span><span class="qf__b qf__b--aud">Mail-ballot households, by DMA<i>audience &rarr; deal ID</i></span></div>
+          <div class="qf__slot"><span class="qf__b qf__b--a qf__b--keep">Support moved four points overnight<i>the audience rebuilt itself by morning</i></span><span class="qf__b qf__b--q">Property taxes: too high, or about right?<i>issue salience &middot; always on</i></span></div>
+          <div class="qf__slot"><span class="qf__b qf__b--aud qf__b--keep">412,000 devices matched<i>composition read attached</i></span><span class="qf__b qf__b--q">Where do you actually get local news?<i>media &middot; always on</i></span></div>
+          <div class="qf__slot"><span class="qf__b qf__b--cus qf__b--keep">Your issue, asked in one district only<i>custom &middot; one CD &middot; fields in days</i></span><span class="qf__b qf__b--a">New wave banked &mdash; ask again<i>every wave banks</i></span></div>
         </div>
         <p class="qf__foot">Wordings with a QID are in the library today &middot; the rest are the kinds
           of questions it carries &middot; every one can become an audience, and every audience ships
@@ -976,17 +982,22 @@
       .qf__b--cus i { color: var(--lime); opacity: 1; }
       .qf__foot { margin-top: 1.2rem; border-top: 1px solid rgba(255,255,255,.14);
         padding-top: .7rem; font-size: .74rem; color: #8FA9BE; line-height: 1.55; }
-      /* Two bubbles per slot trade places forever; slots cascade. */
+      /* r88: faster, denser — twelve slots, a pop every three-quarters of a second
+         somewhere on the wall, nine-second cycles. Never-ending is the point. */
       @media (prefers-reduced-motion: no-preference) {
-        .qf__b { animation: qf-pop 14s infinite; }
-        .qf__b:nth-child(2) { animation-delay: 7s; }
-        .qf__slot:nth-child(2) .qf__b { animation-delay: .9s; } .qf__slot:nth-child(2) .qf__b:nth-child(2) { animation-delay: 7.9s; }
-        .qf__slot:nth-child(3) .qf__b { animation-delay: 1.8s; } .qf__slot:nth-child(3) .qf__b:nth-child(2) { animation-delay: 8.8s; }
-        .qf__slot:nth-child(4) .qf__b { animation-delay: 2.7s; } .qf__slot:nth-child(4) .qf__b:nth-child(2) { animation-delay: 9.7s; }
-        .qf__slot:nth-child(5) .qf__b { animation-delay: 3.4s; } .qf__slot:nth-child(5) .qf__b:nth-child(2) { animation-delay: 10.4s; }
-        .qf__slot:nth-child(6) .qf__b { animation-delay: 4.3s; } .qf__slot:nth-child(6) .qf__b:nth-child(2) { animation-delay: 11.3s; }
-        .qf__slot:nth-child(7) .qf__b { animation-delay: 5.2s; } .qf__slot:nth-child(7) .qf__b:nth-child(2) { animation-delay: 12.2s; }
-        .qf__slot:nth-child(8) .qf__b { animation-delay: 6.1s; } .qf__slot:nth-child(8) .qf__b:nth-child(2) { animation-delay: 13.1s; }
+        .qf__b { animation: qf-pop 9s infinite; }
+        .qf__b:nth-child(2) { animation-delay: 4.5s; }
+        .qf__slot:nth-child(2) .qf__b { animation-delay: 0.4s; } .qf__slot:nth-child(2) .qf__b:nth-child(2) { animation-delay: 4.9s; }
+        .qf__slot:nth-child(3) .qf__b { animation-delay: 0.8s; } .qf__slot:nth-child(3) .qf__b:nth-child(2) { animation-delay: 5.3s; }
+        .qf__slot:nth-child(4) .qf__b { animation-delay: 1.2s; } .qf__slot:nth-child(4) .qf__b:nth-child(2) { animation-delay: 5.7s; }
+        .qf__slot:nth-child(5) .qf__b { animation-delay: 1.6s; } .qf__slot:nth-child(5) .qf__b:nth-child(2) { animation-delay: 6.1s; }
+        .qf__slot:nth-child(6) .qf__b { animation-delay: 2.0s; } .qf__slot:nth-child(6) .qf__b:nth-child(2) { animation-delay: 6.5s; }
+        .qf__slot:nth-child(7) .qf__b { animation-delay: 2.4s; } .qf__slot:nth-child(7) .qf__b:nth-child(2) { animation-delay: 6.9s; }
+        .qf__slot:nth-child(8) .qf__b { animation-delay: 2.8s; } .qf__slot:nth-child(8) .qf__b:nth-child(2) { animation-delay: 7.3s; }
+        .qf__slot:nth-child(9) .qf__b { animation-delay: 3.2s; } .qf__slot:nth-child(9) .qf__b:nth-child(2) { animation-delay: 7.7s; }
+        .qf__slot:nth-child(10) .qf__b { animation-delay: 3.6s; } .qf__slot:nth-child(10) .qf__b:nth-child(2) { animation-delay: 8.1s; }
+        .qf__slot:nth-child(11) .qf__b { animation-delay: 4.0s; } .qf__slot:nth-child(11) .qf__b:nth-child(2) { animation-delay: 8.5s; }
+        .qf__slot:nth-child(12) .qf__b { animation-delay: 4.4s; } .qf__slot:nth-child(12) .qf__b:nth-child(2) { animation-delay: 8.9s; }
       }
       @keyframes qf-pop {
         0% { opacity: 0; transform: translateY(9px) scale(.96); }
@@ -1001,7 +1012,10 @@
         .qf__b:not(.qf__b--keep) { display: none; }
         .qf__slot { min-height: 0; }
       }
-      @media (max-width: 880px) { .qf__grid { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+      @media (max-width: 880px) {
+        .qf__grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+        .qf__slot:nth-child(n+11) { display: none; }
+      }
       @media (max-width: 560px) {
         .qf__slot { min-height: 108px; }
         .qf__b { font-size: .78rem; }
@@ -1146,7 +1160,7 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r47"></script>
+<script src="assets/js/site.js?v=r88"></script>
 <script>
 /* Ruling 49b: the 48-segment list ask. Email-only, posted as JSON to the same
    same-origin /api/contact endpoint the demo form uses (subject prefilled, the
