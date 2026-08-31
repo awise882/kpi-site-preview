@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r101">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r103">
 <style>
   .hero--sub .hero-center { text-align: center; padding: clamp(56px, 8vw, 104px) 0 clamp(36px, 5vw, 60px); }
   .hero--sub .eyebrow { justify-content: center; }
@@ -265,7 +265,9 @@
               filed record beats the rate card. The page in hand: your $290 quote against
               $260 cleared in class &mdash; $30 a spot, $12K back across a 400-spot flight.
               And because aired and booked-forward print side by side, the booked week
-              that cleared short shows up as the gap between its own columns.</p>
+              that cleared short shows up as the gap between its own columns &mdash; in the
+              demo book, Meridian&rsquo;s week booked at $96K and aired $71K, and the $25K
+              gap flagged before the make-good call.</p>
           </div>
         </div>
         <div class="wk__art">
@@ -494,10 +496,6 @@
         <span class="wk__tab-name">Order flow</span>
         <span class="wk__tab-sub">Monday &middot; price the window, defend the share</span>
       </button>
-      <button class="pb__tab" id="pb-tab-agencybook" type="button" role="tab" aria-selected="false" aria-controls="agency-book">
-        <span class="wk__tab-name">Agency book</span>
-        <span class="wk__tab-sub">Wednesday &middot; the call list, agency by agency</span>
-      </button>
       <button class="pb__tab" id="pb-tab-diagonal" type="button" role="tab" aria-selected="false" aria-controls="share-diagonal">
         <span class="wk__tab-name">Share diagonal</span>
         <span class="wk__tab-sub">Tuesday &middot; the gap &mdash; apps &amp; OTT</span>
@@ -505,6 +503,10 @@
       <button class="pb__tab" id="pb-tab-classgap" type="button" role="tab" aria-selected="false" aria-controls="class-gap-board">
         <span class="wk__tab-name">Class gap</span>
         <span class="wk__tab-sub">Tuesday &middot; the gap, by platform class</span>
+      </button>
+      <button class="pb__tab" id="pb-tab-agencybook" type="button" role="tab" aria-selected="false" aria-controls="agency-book">
+        <span class="wk__tab-name">Agency book</span>
+        <span class="wk__tab-sub">Wednesday &middot; the call list, agency by agency</span>
       </button>
     </div>
     <p class="pb__cue" aria-hidden="true">Four boards, one subscription &middot; click or tap to switch<span class="kbd-hint">, or use the arrow keys</span></p>
@@ -729,7 +731,9 @@
           unlock away. No forward book exists in streaming; this board is the call
           list instead. Sell a station with a streaming product? Same board &mdash;
           your OTT share of the viewing beside your share of the streaming money. Sell an
-          app? Confirm your service sits in the measured set on the walkthrough.</p>
+          app? The capture has read <b class="num">288</b> distinct apps in a single month
+          &mdash; a floor, not the total &mdash; and your service&rsquo;s own read opens on
+          the walkthrough.</p>
       </div>
       <div class="sd sd-stage">
         <div class="sd__scroller">
@@ -870,6 +874,7 @@
   <p class="rc-classgap-read">The 18%-vs-4% gap on free ad-supported TV is the pitch.</p>
   <div class="rc-classgap-foot">
     <p>Real state; synthetic advertiser and shares. Measured streaming spend by platform class, stated window, estimated; each column sums to 100%</p>
+    <p>Impression grain runs in the top 58 markets; everywhere else detection still lands per market &mdash; creative, tape, transcript &mdash; and dollars print as statewide estimated minimums</p>
     <p>From the measured market &mdash; never a platform&rsquo;s own logs</p>
   </div>
 </div>
@@ -931,6 +936,21 @@
     <!-- r89: the streaming-pitch and lead-list panels are gone — the share
          diagonal owns the pitch (its own comment said it replaced the prose
          card) and the agency book owns the call list. Four boards, no repeats. -->
+    <div class="grid grid--2 mt3" data-rise>
+      <div class="card card--flag">
+        <p class="card__k">Third-party proof your air ran</p>
+        <p class="small" style="margin:0">App sellers export their platform&rsquo;s detected
+          occurrences &mdash; dated, labeled, independent &mdash; the receipt a political
+          buyer&rsquo;s compliance desk asks for on make-goods.</p>
+      </div>
+      <div class="card card--flag">
+        <p class="card__k">Collateral, not just intel</p>
+        <p class="small" style="margin:0">Sellers may put KPI boards in front of an advertiser
+          with the credit attached &mdash; the export is a pitch sheet your AEs can legally
+          hand across the table.</p>
+      </div>
+    </div>
+
     <div class="mt3" data-rise>
       <h3 style="font-size:clamp(1.25rem,2vw,1.55rem)">Every morning after: the alerts run the desk.</h3>
       <div style="max-width:640px;margin-top:.9rem">
@@ -1075,6 +1095,6 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r100"></script>
+<script src="assets/js/site.js?v=r103"></script>
 </body>
 </html>
