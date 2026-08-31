@@ -304,36 +304,15 @@
         the channel-by-channel evidence lives with <a href="monitoring.html#lanes">the
         monitoring machine</a>.</p>
     </div>
-    <div class="grid grid--3" data-rise>
-      <div class="card card--flag">
-        <p class="card__k">Order by order</p>
-        <h3>Broadcast, local cable, radio</h3>
-        <p class="small">Dollars from orders on file, FCC-verified where a filing exists;
-          aired and booked-forward on separate lines.</p>
-      </div>
-      <!-- Ruling 45: one lane family, two bases, app grain. Merges the former
-           Streaming and Digital cards; the denominators never merge. -->
-      <div class="card card--flag" id="streaming-capture">
-        <p class="card__k">Caught on screens</p>
-        <h3>Streaming &amp; Digital</h3>
-        <p class="small">No public file exists for streaming, so we capture ads on the
-          screen itself &mdash; 40 million measured households. The spend
-          prints beside TV totals as a dated, estimated minimum.
-          <a href="monitoring.html#streaming-spend">How streaming is caught &rarr;</a></p>
-      </div>
-      <div class="card card--flag">
-        <p class="card__k">From the public file</p>
-        <h3>FCC rate intelligence</h3>
-        <p class="small">What a spot costs, station by station, daypart by daypart &mdash;
-          read from public FCC filings, flight over flight.
-          <a href="monitoring.html#fcc-rates">See rates in your market &rarr;</a></p>
-      </div>
+    <div class="card" data-rise id="streaming-capture" style="max-width:900px;margin-inline:auto">
+      <p class="small" style="margin:0"><b>Broadcast, cable, radio</b> &mdash; the $10.4B cycle
+        order by order, aired and booked-forward on separate lines &middot;
+        <b>Streaming &amp; Digital</b> &mdash; captured on the glass in 40M measured homes, the
+        spend printing beside TV totals as a dated, estimated minimum &middot;
+        <b>Rates</b> &mdash; filed political rates in all 210 markets, flight over flight.
+        The channel-by-channel evidence lives with
+        <a href="monitoring.html#lanes">the monitoring machine &rarr;</a></p>
     </div>
-
-    <p class="small center mt3" style="max-width:64ch;margin-inline:auto">The channel-by-channel
-      coverage map lives with the monitoring machine:
-      <a href="monitoring.html#lanes">every channel we track &rarr;</a></p>
-
   </div>
 </section>
 
@@ -350,8 +329,8 @@
 <section class="pb" id="boards" data-pb>
   <div class="wrap pb__head">
     <p class="eyebrow">The boards</p>
-    <h2>Four boards. One dataset.</h2>
-    <div class="pb__rail" role="tablist" aria-label="Choose a board">
+    <h2>Four boards, one assistant. One dataset.</h2>
+    <div class="pb__rail pb__rail--5" role="tablist" aria-label="Choose a board">
       <button class="pb__tab" id="pb-tab-scoreboard" type="button" role="tab" aria-selected="true" aria-controls="scoreboard">
         <span class="wk__tab-name">Scoreboard</span>
         <span class="wk__tab-sub">Every race, new money first</span>
@@ -368,8 +347,12 @@
         <span class="wk__tab-name">Creative Explorer</span>
         <span class="wk__tab-sub">Tape, transcript, markets</span>
       </button>
+      <button class="pb__tab" id="pb-tab-baker" type="button" role="tab" aria-selected="false" aria-controls="baker">
+        <span class="wk__tab-name">Ask Baker</span>
+        <span class="wk__tab-sub">One question, the whole dataset</span>
+      </button>
     </div>
-    <p class="pb__cue" aria-hidden="true">One dataset, four boards &middot; click or tap to switch<span class="kbd-hint">, or use the arrow keys</span></p>
+    <p class="pb__cue" aria-hidden="true">One dataset, five tabs &middot; click or tap to switch<span class="kbd-hint">, or use the arrow keys</span></p>
   </div>
 
 <div class="pb__panel section" role="tabpanel" id="scoreboard" aria-labelledby="pb-tab-scoreboard">
@@ -737,6 +720,83 @@
     </div>
       <p class="glimpse-cap">Cropped on purpose; the full grid opens in the demo.
         <a href="contact.html">Request one</a></p>
+
+  <div class="wrap mt3" id="your-book">
+    <h3 style="font-size:clamp(1.35rem,2.2vw,1.7rem)">The same board, folded to your book.</h3>
+    <p class="dek" style="margin:.4rem 0 1.2rem;max-width:72ch">Every race you own on one
+      screen &mdash; what moved overnight, ranked by what needs you first. Click a race to
+      open it; copy the note and it is in your 7:30 email.</p>
+    <div class="rc rc-book" data-book>
+      <div class="rcbk-bar">
+        <span class="rcbk-brand"><span class="rcbk-dot"></span>KPI &middot; The Book &middot; Morning view</span>
+        <span class="rcbk-scale num">42 RACES &middot; 9 STATES</span>
+        <button class="rcbk-copy" type="button" hidden>&#10697; Copy the morning note</button>
+        <span class="rcbk-stamp">POSTED THRU AUG 30, 2026</span>
+      </div>
+      <div class="rcbk-scroll" tabindex="0" role="group" aria-label="The morning book, scrolls sideways on small screens">
+      <table class="rcbk-grid">
+        <thead><tr>
+          <th scope="col">Race</th><th scope="col">Markets</th><th scope="col">Overnight</th>
+          <th class="rcbk-n" scope="col">Aired $</th><th class="rcbk-n" scope="col">Booked fwd</th><th scope="col">Alerts</th>
+        </tr></thead>
+        <tbody>
+          <tr class="rcbk-row rcbk-row--hot" aria-expanded="true"><th scope="row">North River Senate</th><td>3</td><td class="rcbk-d num">+$180K posted</td><td class="rcbk-n num">$5.5M</td><td class="rcbk-n num">$1.7M</td><td><span class="rcbk-a num">2</span></td></tr>
+          <tr class="rcbk-drow"><td colspan="6"><b>Ellery for Senate</b> +$180K on WZQV, Cleveland &mdash; early news + prime, posted 7:02 AM, flight opens Sep 7 &middot; Heartland Priorities PAC&rsquo;s :30 &ldquo;First Light&rdquo; runs Hulu-only, not yet on broadcast, tape + transcript attached &middot; streaming est. <span class="num">$1.58M</span> rides beside the total &middot; <a href="#scoreboard">open the race &rarr;</a></td></tr>
+          <tr class="rcbk-row" aria-expanded="true"><th scope="row">Midstate Attorney General</th><td>5</td><td class="rcbk-d num">+$3.3M this week</td><td class="rcbk-n num">$16.0M</td><td class="rcbk-n num">$13.2M</td><td><span class="rcbk-a num">1</span></td></tr>
+          <tr class="rcbk-drow"><td colspan="6">Challenger side takes the lead on aired dollars, 60/40 &middot; streaming est. <span class="num">$1.1M</span> beside &middot; <a href="#scoreboard">open the race &rarr;</a></td></tr>
+          <tr class="rcbk-row" aria-expanded="true"><th scope="row">North River Governor</th><td>3</td><td class="rcbk-d num">+$1.8M booked</td><td class="rcbk-n num">$9.6M</td><td class="rcbk-n num">$4.5M</td><td><span class="rcbk-a num">1</span></td></tr>
+          <tr class="rcbk-drow"><td colspan="6">Forward book jumps two weeks out &mdash; reservations, not aired money, on its own line &middot; <a href="#buy-sheet">open the buy sheet &rarr;</a></td></tr>
+          <tr class="rcbk-row" aria-expanded="true"><th scope="row">Granite Senate primary</th><td>3</td><td class="rcbk-d rcbk-d--dark">went dark</td><td class="rcbk-n num">$2.1M</td><td class="rcbk-n num">$0</td><td><span class="rcbk-a num">1</span></td></tr>
+          <tr class="rcbk-drow"><td colspan="6">Hale committee stopped airing overnight; remaining booked dollars pulled &mdash; the stop, with its date, prints on the board &middot; <a href="#scoreboard">open the race &rarr;</a></td></tr>
+          <tr class="rcbk-row" aria-expanded="true"><th scope="row">Two Rivers Governor</th><td>6</td><td class="rcbk-d num">+$420K posted</td><td class="rcbk-n num">$11.3M</td><td class="rcbk-n num">$1.1M</td><td><span class="rcbk-a num">1</span></td></tr>
+          <tr class="rcbk-drow"><td colspan="6">Beacon Hill Strategies adds two weeks of early news across four of six markets &middot; <a href="#buy-sheet">open the buy sheet &rarr;</a></td></tr>
+          <tr class="rcbk-row" aria-expanded="true"><th scope="row">Lakeshore CD-9</th><td>1</td><td class="rcbk-d num">first TV order</td><td class="rcbk-n num">$0</td><td class="rcbk-n num">$340K</td><td><span class="rcbk-a num">1</span></td></tr>
+          <tr class="rcbk-drow"><td colspan="6">Citizens for Fair Elections posts the race&rsquo;s first broadcast order &mdash; caught before anything airs &middot; <a href="#creative-explorer">watch for the creative &rarr;</a></td></tr>
+          <tr class="rcbk-row" aria-expanded="true"><th scope="row">Prairie Senate</th><td>4</td><td class="rcbk-d rcbk-d--quiet">quiet</td><td class="rcbk-n num">$8.4M</td><td class="rcbk-n num">$0.9M</td><td><span class="rcbk-a num">0</span></td></tr>
+          <tr class="rcbk-drow"><td colspan="6">No overnight movement &mdash; quiet prints as quiet &middot; <a href="#scoreboard">open the race &rarr;</a></td></tr>
+          <tr class="rcbk-more"><td colspan="6">+ 35 more races in the book &mdash; every one with the same drill-in, every alert routed to the seat that owns it</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <div class="rcbk-foot">
+        <p>Synthetic races and dollars, real behavior &middot; the walkthrough runs this view on your actual book</p>
+      </div>
+    </div>
+
+<style>
+.rc-book{max-width:980px;margin-inline:auto;background:var(--white);border:1px solid var(--rule);border-top:3px solid var(--navy-deep);box-shadow:0 1px 3px rgba(8,36,59,.08);padding:12px 14px 10px}
+.rc-book *{box-sizing:border-box;min-width:0}
+.rcbk-bar{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.rcbk-brand{display:inline-flex;align-items:center;gap:6px;font-family:var(--label);font-size:.62rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--navy)}
+.rcbk-dot{width:7px;height:7px;border-radius:50%;background:var(--lime)}
+.rcbk-scale{font-family:var(--label);font-size:.6rem;font-weight:700;letter-spacing:.1em;color:var(--ink-3)}
+.rcbk-copy{margin-left:auto;font-family:var(--label);font-size:.62rem;font-weight:800;letter-spacing:.06em;color:#08243B;background:var(--lime);border:1px solid var(--lime-dark);border-radius:3px;padding:.32rem .6rem;cursor:pointer}
+.rcbk-copy:hover{filter:brightness(1.04)}
+.rcbk-stamp{font-family:var(--label);font-size:.58rem;font-weight:700;letter-spacing:.1em;color:var(--ink-3);border:1px solid var(--rule);padding:.2rem .45rem}
+.rcbk-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:10px}
+.rcbk-grid{width:100%;min-width:640px;border-collapse:collapse}
+.rcbk-grid thead th{font-family:var(--label);font-size:.6rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);text-align:left;padding:4px 8px 6px;border-bottom:1.5px solid var(--rule)}
+.rcbk-grid thead th.rcbk-n{text-align:right}
+.rcbk-row th,.rcbk-row td{font-size:.86rem;color:var(--navy-deep);padding:9px 8px;border-bottom:1px solid var(--rule-soft);text-align:left;font-weight:500;white-space:nowrap}
+.rcbk-row th{font-weight:700}
+.rcbk-row td.rcbk-n{text-align:right;font-variant-numeric:tabular-nums lining-nums;font-weight:650}
+.rcbk-d{color:var(--lime-text);font-weight:700}
+.rcbk-d--dark{color:#B26A00}
+.rcbk-d--quiet{color:var(--ink-3);font-weight:500}
+.rcbk-a{display:inline-block;min-width:1.5em;text-align:center;font-size:.72rem;font-weight:800;color:#fff;background:var(--navy);border-radius:999px;padding:.08rem .3rem}
+.rcbk-row--hot th{box-shadow:inset 3px 0 0 var(--lime-dark)}
+.rcbk-drow td{font-size:.8rem;line-height:1.55;color:var(--ink-2);background:color-mix(in srgb,var(--paper) 70%,var(--white));padding:9px 12px 10px;border-bottom:1px solid var(--rule-soft);white-space:normal}
+.rcbk-more td{font-size:.74rem;color:var(--ink-3);padding:9px 8px 4px;font-family:var(--label);letter-spacing:.04em}
+.rcbk-foot{margin-top:8px;border-top:1px solid var(--rule-soft);padding-top:7px}
+.rcbk-foot p{margin:0;font-size:.72rem;line-height:1.5;color:var(--ink-3)}
+/* JS-on: the deck collapses to headlines; rows toggle open. */
+.bk--live .rcbk-row{cursor:pointer}
+.bk--live .rcbk-row:hover th{color:var(--navy)}
+.bk--live .rcbk-row th::after{content:"\25BE";margin-left:.45rem;font-size:.7em;color:var(--ink-3)}
+.bk--live .rcbk-row[aria-expanded="false"] th::after{content:"\25B8"}
+.bk--live .rcbk-row[aria-expanded="false"] + .rcbk-drow{display:none}
+</style>
+  </div>
   </div>
 </div>
 
@@ -1394,286 +1454,23 @@ tbody th.rcb2-m{font-weight:400;background:transparent}
     <p class="tbl-note">Screens show synthetic and illustrative races &mdash; never client data.</p>
   </div>
 </div>
-</section>
 
-<!-- ============ THE BOOK (r97, Adam): the forty-race morning view — the one
-     screen the multi-state buyer asked for. Interactive: rows drill open, and
-     the morning note copies as text. JS-off every drill-in renders open. -->
-<section class="section section--tint" id="your-book">
+<!-- ============ ASK BAKER (fifth panel; r102, consolidation round: the hero
+     placement was tested and rejected — the deck absorbs Baker instead, and
+     the duplicate console recreation dies. rc-bdemo keeps the typing composer,
+     the example chips, and the worked answers with their through-dates.) -->
+<div class="pb__panel section section--tint" role="tabpanel" id="baker" aria-labelledby="pb-tab-baker">
   <div class="wrap">
-    <div class="center" style="margin-bottom:1.8rem" data-rise>
-      <p class="eyebrow eyebrow--plain" style="justify-content:center">The whole book</p>
-      <h2>Every race you own, one screen.</h2>
-      <p class="lede" style="margin-inline:auto">The morning view across a forty-race book
-        &mdash; what moved overnight, ranked by what needs you first. Click a race to open
-        it; copy the note and it is in your 7:30 email.</p>
-    </div>
-
-    <div class="rc rc-book" data-book>
-      <div class="rcbk-bar">
-        <span class="rcbk-brand"><span class="rcbk-dot"></span>KPI &middot; The Book &middot; Morning view</span>
-        <span class="rcbk-scale num">42 RACES &middot; 9 STATES</span>
-        <button class="rcbk-copy" type="button" hidden>&#10697; Copy the morning note</button>
-        <span class="rcbk-stamp">POSTED THRU AUG 30, 2026</span>
-      </div>
-      <div class="rcbk-scroll" tabindex="0" role="group" aria-label="The morning book, scrolls sideways on small screens">
-      <table class="rcbk-grid">
-        <thead><tr>
-          <th scope="col">Race</th><th scope="col">Markets</th><th scope="col">Overnight</th>
-          <th class="rcbk-n" scope="col">Aired $</th><th class="rcbk-n" scope="col">Booked fwd</th><th scope="col">Alerts</th>
-        </tr></thead>
-        <tbody>
-          <tr class="rcbk-row rcbk-row--hot" aria-expanded="true"><th scope="row">North River Senate</th><td>3</td><td class="rcbk-d num">+$180K posted</td><td class="rcbk-n num">$5.5M</td><td class="rcbk-n num">$1.7M</td><td><span class="rcbk-a num">2</span></td></tr>
-          <tr class="rcbk-drow"><td colspan="6"><b>Ellery for Senate</b> +$180K on WZQV, Cleveland &mdash; early news + prime, posted 7:02 AM, flight opens Sep 7 &middot; Heartland Priorities PAC&rsquo;s :30 &ldquo;First Light&rdquo; runs Hulu-only, not yet on broadcast, tape + transcript attached &middot; streaming est. <span class="num">$1.58M</span> rides beside the total &middot; <a href="#scoreboard">open the race &rarr;</a></td></tr>
-          <tr class="rcbk-row" aria-expanded="true"><th scope="row">Midstate Attorney General</th><td>5</td><td class="rcbk-d num">+$3.3M this week</td><td class="rcbk-n num">$16.0M</td><td class="rcbk-n num">$13.2M</td><td><span class="rcbk-a num">1</span></td></tr>
-          <tr class="rcbk-drow"><td colspan="6">Challenger side takes the lead on aired dollars, 60/40 &middot; streaming est. <span class="num">$1.1M</span> beside &middot; <a href="#scoreboard">open the race &rarr;</a></td></tr>
-          <tr class="rcbk-row" aria-expanded="true"><th scope="row">North River Governor</th><td>3</td><td class="rcbk-d num">+$1.8M booked</td><td class="rcbk-n num">$9.6M</td><td class="rcbk-n num">$4.5M</td><td><span class="rcbk-a num">1</span></td></tr>
-          <tr class="rcbk-drow"><td colspan="6">Forward book jumps two weeks out &mdash; reservations, not aired money, on its own line &middot; <a href="#buy-sheet">open the buy sheet &rarr;</a></td></tr>
-          <tr class="rcbk-row" aria-expanded="true"><th scope="row">Granite Senate primary</th><td>3</td><td class="rcbk-d rcbk-d--dark">went dark</td><td class="rcbk-n num">$2.1M</td><td class="rcbk-n num">$0</td><td><span class="rcbk-a num">1</span></td></tr>
-          <tr class="rcbk-drow"><td colspan="6">Hale committee stopped airing overnight; remaining booked dollars pulled &mdash; the stop, with its date, prints on the board &middot; <a href="#scoreboard">open the race &rarr;</a></td></tr>
-          <tr class="rcbk-row" aria-expanded="true"><th scope="row">Two Rivers Governor</th><td>6</td><td class="rcbk-d num">+$420K posted</td><td class="rcbk-n num">$11.3M</td><td class="rcbk-n num">$1.1M</td><td><span class="rcbk-a num">1</span></td></tr>
-          <tr class="rcbk-drow"><td colspan="6">Beacon Hill Strategies adds two weeks of early news across four of six markets &middot; <a href="#buy-sheet">open the buy sheet &rarr;</a></td></tr>
-          <tr class="rcbk-row" aria-expanded="true"><th scope="row">Lakeshore CD-9</th><td>1</td><td class="rcbk-d num">first TV order</td><td class="rcbk-n num">$0</td><td class="rcbk-n num">$340K</td><td><span class="rcbk-a num">1</span></td></tr>
-          <tr class="rcbk-drow"><td colspan="6">Citizens for Fair Elections posts the race&rsquo;s first broadcast order &mdash; caught before anything airs &middot; <a href="#creative-explorer">watch for the creative &rarr;</a></td></tr>
-          <tr class="rcbk-row" aria-expanded="true"><th scope="row">Prairie Senate</th><td>4</td><td class="rcbk-d rcbk-d--quiet">quiet</td><td class="rcbk-n num">$8.4M</td><td class="rcbk-n num">$0.9M</td><td><span class="rcbk-a num">0</span></td></tr>
-          <tr class="rcbk-drow"><td colspan="6">No overnight movement &mdash; quiet prints as quiet &middot; <a href="#scoreboard">open the race &rarr;</a></td></tr>
-          <tr class="rcbk-more"><td colspan="6">+ 35 more races in the book &mdash; every one with the same drill-in, every alert routed to the seat that owns it</td></tr>
-        </tbody>
-      </table>
-      </div>
-      <div class="rcbk-foot">
-        <p>Synthetic races and dollars, real behavior &middot; the walkthrough runs this view on your actual book</p>
-      </div>
-    </div>
-
-<style>
-.rc-book{max-width:980px;margin-inline:auto;background:var(--white);border:1px solid var(--rule);border-top:3px solid var(--navy-deep);box-shadow:0 1px 3px rgba(8,36,59,.08);padding:12px 14px 10px}
-.rc-book *{box-sizing:border-box;min-width:0}
-.rcbk-bar{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.rcbk-brand{display:inline-flex;align-items:center;gap:6px;font-family:var(--label);font-size:.62rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--navy)}
-.rcbk-dot{width:7px;height:7px;border-radius:50%;background:var(--lime)}
-.rcbk-scale{font-family:var(--label);font-size:.6rem;font-weight:700;letter-spacing:.1em;color:var(--ink-3)}
-.rcbk-copy{margin-left:auto;font-family:var(--label);font-size:.62rem;font-weight:800;letter-spacing:.06em;color:#08243B;background:var(--lime);border:1px solid var(--lime-dark);border-radius:3px;padding:.32rem .6rem;cursor:pointer}
-.rcbk-copy:hover{filter:brightness(1.04)}
-.rcbk-stamp{font-family:var(--label);font-size:.58rem;font-weight:700;letter-spacing:.1em;color:var(--ink-3);border:1px solid var(--rule);padding:.2rem .45rem}
-.rcbk-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:10px}
-.rcbk-grid{width:100%;min-width:640px;border-collapse:collapse}
-.rcbk-grid thead th{font-family:var(--label);font-size:.6rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);text-align:left;padding:4px 8px 6px;border-bottom:1.5px solid var(--rule)}
-.rcbk-grid thead th.rcbk-n{text-align:right}
-.rcbk-row th,.rcbk-row td{font-size:.86rem;color:var(--navy-deep);padding:9px 8px;border-bottom:1px solid var(--rule-soft);text-align:left;font-weight:500;white-space:nowrap}
-.rcbk-row th{font-weight:700}
-.rcbk-row td.rcbk-n{text-align:right;font-variant-numeric:tabular-nums lining-nums;font-weight:650}
-.rcbk-d{color:var(--lime-text);font-weight:700}
-.rcbk-d--dark{color:#B26A00}
-.rcbk-d--quiet{color:var(--ink-3);font-weight:500}
-.rcbk-a{display:inline-block;min-width:1.5em;text-align:center;font-size:.72rem;font-weight:800;color:#fff;background:var(--navy);border-radius:999px;padding:.08rem .3rem}
-.rcbk-row--hot th{box-shadow:inset 3px 0 0 var(--lime-dark)}
-.rcbk-drow td{font-size:.8rem;line-height:1.55;color:var(--ink-2);background:color-mix(in srgb,var(--paper) 70%,var(--white));padding:9px 12px 10px;border-bottom:1px solid var(--rule-soft);white-space:normal}
-.rcbk-more td{font-size:.74rem;color:var(--ink-3);padding:9px 8px 4px;font-family:var(--label);letter-spacing:.04em}
-.rcbk-foot{margin-top:8px;border-top:1px solid var(--rule-soft);padding-top:7px}
-.rcbk-foot p{margin:0;font-size:.72rem;line-height:1.5;color:var(--ink-3)}
-/* JS-on: the deck collapses to headlines; rows toggle open. */
-.bk--live .rcbk-row{cursor:pointer}
-.bk--live .rcbk-row:hover th{color:var(--navy)}
-.bk--live .rcbk-row th::after{content:"\25BE";margin-left:.45rem;font-size:.7em;color:var(--ink-3)}
-.bk--live .rcbk-row[aria-expanded="false"] th::after{content:"\25B8"}
-.bk--live .rcbk-row[aria-expanded="false"] + .rcbk-drow{display:none}
-</style>
-  </div>
-</section>
-
-<!-- ============ THE VIGNETTE RAIL (Pass E §9) ============ -->
-<!-- MOCK-BOARD INVENTORY (Pass E §10, binding fidelity ladder — proof renders
-     whole, capability renders abstracted, nothing in between):
-       index:    .ac alert card = SPECIMEN, whole (the one proof object) ·
-                 rc-seller = ANCHOR surface, full (ruling 22) · rc-digital,
-                 rc-ratebook, rc-leadlist = STILL (one glance, entrance draw
-                 only, link onward)
-       platform: rc-scoreboard, rc-matrix, rc-buysheet, rc-explorer,
-                 rc-pitchlist = STILL inside glimpse crops · rc-stnshare,
-                 rc-classgap = STILL · rc-baker, rc-bdemo = the page's live
-                 toys (chips only) · the three .vig blocks below = VIGNETTE
-                 (a verb + <=3 beats + still)
-     Screenshot ruling reversed by the owner (8/28, "more visual" + the r20 site
-     did it): the five synthetic-data product shots in assets/apps/ anchor the
-     hero and chapters. Interactive recreations stay for the surfaces they
-     demo; the vignettes stay abstract. -->
-<section class="section section--tight" id="moves">
-  <div class="wrap">
-    <div class="center" style="margin-bottom:2rem" data-rise>
-      <p class="eyebrow eyebrow--plain" style="justify-content:center">Two moves</p>
-      <h2 style="font-size:clamp(1.7rem,3vw,2.5rem)">From any board: two clicks to the answer, one clean export.</h2>
-      <p class="lede" style="margin-inline:auto">Set the board to any race you own &mdash;
-        alert rules route by race, market, advertiser or rate condition, so a
-        forty-race book runs from one desk &mdash; and pull the export.
-        Illustrative figures throughout.</p>
-    </div>
-    <div class="grid grid--2">
-
-      <div class="vig" data-replay>
-        <div class="vig__bar"><span>KPI&thinsp;&middot;&thinsp;Filter</span><span class="vig__stamp num">posted thru Aug 30, 2026</span></div>
-        <div class="vig__stage vig__stage--filter" role="img" aria-label="The board's own filter row of labeled dropdowns. Race is set to North River Senate, then market to Toledo, and the answer card lands carrying its date and its estimated-minimum label.">
-          <div class="vig__chips vig__b1">
-            <span class="vig__pill"><i>Cycle</i>2026 &#9662;</span>
-            <span style="position:relative"><span class="vig__pill vig__chip-unset" aria-hidden="true"><i>Race</i>All &#9662;</span><span class="vig__pill vig__pill--set"><i>Race</i>North River Senate &#9662;</span><span class="vig__click vig__click--1" style="left:44%;top:-4px" aria-hidden="true"></span></span>
-            <span style="position:relative"><span class="vig__pill vig__chip-unset" aria-hidden="true"><i>Market</i>All &#9662;</span><span class="vig__pill vig__pill--set vig__b2"><i>Market</i>Toledo &#9662;</span><span class="vig__click vig__click--2" style="left:40%;top:-4px" aria-hidden="true"></span></span>
-            <span class="vig__pill"><i>Stage</i>General &#9662;</span>
-          </div>
-          <div class="vig__ansr vig__b3">
-            <span class="vig__lk">Streaming &amp; Digital&thinsp;&middot;&thinsp;Toledo&thinsp;&middot;&thinsp;this race</span>
-            <span class="vig__big">$740K</span>
-            <span class="vig__bigsub">estimated minimum&thinsp;&middot;&thinsp;thru Aug 30</span>
-          </div>
-        </div>
-        <p class="vig__what">The board&rsquo;s own filter row &mdash; every dropdown is real &mdash; and the answer lands already carrying its date.</p>
-      </div>
-
-      <div class="vig" data-replay>
-        <div class="vig__bar"><span>KPI&thinsp;&middot;&thinsp;Export</span><span class="vig__stamp num">posted thru Aug 30, 2026</span></div>
-        <div class="vig__stage" role="img" aria-label="A click on the board's green Excel button, and the same board lands as a spreadsheet you can read: the posted-through date in row one, advertisers down the rows, aired and booked forward as separate columns, formatted like the screen.">
-          <div class="vig__sheet vig__b1">
-            <div class="vig__shead"><span class="vig__lk" style="margin-bottom:0">Market Order Flow&thinsp;&middot;&thinsp;Columbus</span><span style="position:relative"><span class="vig__xbtn" aria-hidden="true">&#8595; Excel</span><span class="vig__click vig__click--1" style="right:14%;top:-3px" aria-hidden="true"></span></span></div>
-            <div class="vig__row"><b>6 advertisers</b><span class="num">aired&thinsp;+&thinsp;booked fwd</span></div>
-          </div>
-          <div class="vig__x vig__b2">
-            <div class="vig__xk"><span class="vig__xtag">XLSX</span><span class="vig__xdate vig__stamp--land">same board, now a file</span></div>
-            <table class="vig__xls" aria-hidden="true">
-              <tr class="vig__xls-a1"><td colspan="3">posted through Aug 30, 2026 &middot; Kinetiq Political Insights</td></tr>
-              <tr class="vig__xls-h"><td>Advertiser</td><td>Aired</td><td>Booked fwd</td></tr>
-              <tr><td>Nora Hale for Senate</td><td class="num">$1.24M</td><td class="num">$180K</td></tr>
-              <tr><td>Ellery for Senate</td><td class="num">$96K</td><td class="num">$520K</td></tr>
-              <tr><td>Hometown Values</td><td class="num">$348K</td><td class="num">$0</td></tr>
-            </table>
-          </div>
-          <div class="vig__desk vig__b3" aria-hidden="true"><span>your side of the table</span><span>their side</span></div>
-        </div>
-        <p class="vig__what">What you see is what lands in Excel: the date in row one, aired and booked forward as separate columns.</p>
-      </div>
-
-    </div>
-    <p class="small center mt2">Hover a card to replay.</p>
-  </div>
-</section>
-
-
-
-<!-- ============ BAKER (ruling 36a, portal notes §10) ============ -->
-<!-- Baker is the KPI conversational research assistant over the whole tracked
-     dataset: creatives, placements, advertisers, races. Teased per the trailer
-     doctrine (ruling 22): the composer and the example prompts, never a fake
-     chat transcript. Chrome mirrors the live app: BAKER wordmark, ASSISTANT
-     ONLINE chip, teal accent. The rate apps keep their own names (FCC Pricing
-     Intel, Rate Details); Baker is NOT the rate engine. -->
-<section class="section section--tint" id="baker">
-  <div class="wrap">
-    <div class="split" style="margin-bottom:1.8rem">
+    <div class="split" style="margin-bottom:1.4rem">
       <div>
-        <p class="eyebrow">Baker: across every layer</p>
-        <h2>Ask the whole air war a question.</h2>
+        <p class="eyebrow">Baker &middot; the assistant in every seat</p>
+        <h3 style="font-size:clamp(1.5rem,2.6vw,2rem)">Ask the whole air war a question.</h3>
       </div>
-      <div>
-        <p class="lede">Baker is the research assistant over everything the platform tracks;
-          ask in plain language.</p>
-        <ul class="small">
-          <li>One question spans the dataset; no filter path to learn</li>
-          <li>Where the posted data cannot answer, Baker returns the gap, not a guess</li>
-        </ul>
-      </div>
+      <ul class="small">
+        <li>One question spans the dataset &mdash; placements, creatives, rates, races; no filter path to learn</li>
+        <li>Where the posted data cannot answer, Baker returns the gap, not a guess</li>
+      </ul>
     </div>
-
-    <div class="rc-stage">
-<div class="rc rc-baker">
-  <div class="rc-baker-strap">
-    <span class="rc-baker-word">Baker</span>
-    <span class="rc-baker-viewpill">Assistant</span>
-  </div>
-  <div class="rc-baker-hero">
-    <span class="rc-baker-name">BAKER</span>
-    <span class="rc-baker-sub">KINETIQ POLITICAL INSIGHTS</span>
-    <span class="rc-baker-online"><i></i>Assistant online</span>
-  </div>
-  <div class="rc-baker-exk">Try these examples</div>
-  <div class="rc-baker-examples">
-    <button class="rc-baker-ex" type="button">Any new creatives today?</button>
-    <button class="rc-baker-ex" type="button">What advertisers placed today?</button>
-    <button class="rc-baker-ex" type="button">What does the creative rotation look like in the North River Senate?</button>
-  </div>
-  <div class="rc-baker-composer">
-    <span class="rc-baker-input">Enter your media research query&hellip;</span>
-    <a class="rc-baker-send" href="contact.html">Send</a>
-  </div>
-  <div class="rc-baker-foot">
-    <p>Recreation of the live assistant; Send carries your question into the demo request; answers open on a race you name</p>
-  </div>
-</div>
-
-<style>
-.rc-baker{
-  --rcb-navy:#1B4F72; --rcb-navy2:#0D2E4A; --rcb-navy3:#08243B;
-  --rcb-teal:#00ACC1; --rcb-lime:#A8D14E;
-  --rcb-mute:var(--mock-dim, #5A6B7C); --rcb-line:var(--mock-rule, #D9E2E9);
-  --rcb-sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
-  --rcb-serif:Georgia,'Times New Roman',serif;
-  --rcb-mono:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  box-sizing:border-box; width:100%; max-width:640px; overflow:hidden;
-  background:#fff; border:1px solid var(--rcb-line);
-  font-family:var(--rcb-sans); color:var(--rcb-navy2);
-  box-shadow:0 6px 18px rgba(8,36,59,.10);
-}
-.rc-baker *,.rc-baker *::before,.rc-baker *::after{box-sizing:border-box;min-width:0;margin:0;padding:0}
-.rc-baker .rc-baker-strap{display:flex;align-items:center;gap:8px;background:#101820;padding:6px 12px}
-.rc-baker .rc-baker-word{font-family:var(--rcb-serif);font-size:13px;font-weight:600;letter-spacing:.02em;color:#F4F7FA}
-.rc-baker .rc-baker-viewpill{font-family:var(--rcb-mono);font-size:8.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#BFD6E4;border:1px solid rgba(255,255,255,.28);border-radius:9px;padding:2px 7px}
-.rc-baker .rc-baker-hero{display:flex;flex-direction:column;align-items:center;gap:3px;padding:18px 14px 14px;background:linear-gradient(160deg,#134066 0%,#0D2E4A 55%,#08243B 100%);border-bottom:2px solid var(--rcb-teal)}
-.rc-baker .rc-baker-name{font-size:19px;font-weight:800;letter-spacing:.42em;text-indent:.42em;color:#fff}
-.rc-baker .rc-baker-sub{font-family:var(--rcb-mono);font-size:8.5px;font-weight:600;letter-spacing:.3em;text-indent:.3em;color:#9FC0D4;text-transform:uppercase}
-.rc-baker .rc-baker-online{display:inline-flex;align-items:center;gap:5px;margin-top:7px;font-family:var(--rcb-mono);font-size:8.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#CDEDF2;background:rgba(0,172,193,.16);border:1px solid rgba(0,172,193,.5);border-radius:9px;padding:2.5px 8px}
-.rc-baker .rc-baker-online i{width:6px;height:6px;border-radius:50%;background:var(--rcb-teal)}
-.rc-baker .rc-baker-exk{font-family:var(--rcb-mono);font-size:8.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--rcb-mute);padding:10px 12px 0}
-.rc-baker .rc-baker-examples{display:flex;flex-wrap:wrap;gap:5px;padding:6px 12px 2px}
-.rc-baker .rc-baker-ex{font-family:var(--rcb-sans);font-size:8.5px;font-weight:500;color:var(--rcb-navy2);background:#fff;border:1px solid var(--rcb-line);border-radius:3px;padding:5px 8px;line-height:1.35;cursor:pointer;text-align:left}
-.rc-baker .rc-baker-ex:hover{border-color:var(--rcb-teal);color:var(--rcb-navy3)}
-.rc-baker .rc-baker-composer{display:flex;align-items:center;gap:6px;margin:10px 12px 0;border:1px solid var(--rcb-line);border-radius:4px;padding:6px 6px 6px 10px;background:#FAFCFD}
-.rc-baker .rc-baker-input{flex:1 1 auto;font-size:9px;color:var(--rcb-mute);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.rc-baker .rc-baker-input.rc-baker-input-filled{color:var(--rcb-navy3);font-weight:600}
-.rc-baker .rc-baker-send{font:inherit;font-size:8.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:var(--rcb-navy);border:none;border-radius:3px;padding:5px 12px;cursor:pointer;white-space:nowrap;text-decoration:none}
-.rc-baker .rc-baker-send:hover{background:var(--rcb-navy2);color:#fff}
-.rc-baker .rc-baker-foot{margin:8px 12px 9px;border-top:1px solid var(--rcb-line);padding-top:5px}
-.rc-baker .rc-baker-foot p{font-size:9px;line-height:1.45;color:var(--rcb-mute)}
-/* R5: the assistant is a payoff moment; at desktop it reads at chip 11 / foot 10 / pill 9. */
-@media (min-width:1024px){
-  .rc-baker .rc-baker-word{font-size:14px}
-  .rc-baker .rc-baker-viewpill{font-size:8.5px}
-  .rc-baker .rc-baker-name{font-size:22px}
-  .rc-baker .rc-baker-sub{font-size:8.5px}
-  .rc-baker .rc-baker-online{font-size:8.5px}
-  .rc-baker .rc-baker-exk{font-size:8.5px}
-  .rc-baker .rc-baker-ex{font-size:11px;padding:7px 10px}
-  .rc-baker .rc-baker-input{font-size:11px}
-  .rc-baker .rc-baker-send{font-size:9px;padding:7px 14px}
-  .rc-baker .rc-baker-foot p{font-size:10px}
-}
-@media (prefers-reduced-motion:no-preference){
-  .rc-baker .rc-baker-online i{animation:rc-baker-pulse 2.6s ease-out 2}
-}
-/* R6 (item 14): the live Baker controls get the 44px comfort floor on a phone. */
-@media (max-width:880px){
-  .rc-baker .rc-baker-ex{min-height:44px;font-size:11px;padding:.55rem .7rem}
-  .rc-baker .rc-baker-send{min-height:44px;font-size:10px;padding:.55rem 1rem;display:inline-flex;align-items:center}
-}
-@keyframes rc-baker-pulse{
-  0%,100%{box-shadow:0 0 0 0 rgba(0,172,193,.5)}
-  55%{box-shadow:0 0 0 4px rgba(0,172,193,0)}
-}
-</style>
-    </div>
-    <p class="glimpse-cap" style="text-align:center">The live assistant answers on your
-      races. <a href="contact.html">Request one</a></p>
-
-    <!-- Ruling 43: Baker in action. Pre-written example answers on the canonical
-         synthetic universe, modeling the honesty grammar. Click a question to reveal
-         its answer; the first pair renders by default and nothing advances on its
-         own. JS-off: the first pair shows statically. -->
     <div class="rc-stage mt2">
 <div class="rc rc-bdemo" data-bdemo>
   <p class="rc-bdemo-k">Baker in action&thinsp;&middot;&thinsp;example questions, illustrative answers</p>
@@ -1755,8 +1552,86 @@ tbody th.rcb2-m{font-weight:400;background:transparent}
 }
 </style>
     </div>
+    <p class="glimpse-cap" style="text-align:center">The live assistant answers on your
+      races. <a href="contact.html">Request one</a></p>
   </div>
+</div>
+
+<div class="wrap mt3" data-rise>
+  <h3 style="font-size:clamp(1.35rem,2.2vw,1.7rem)">Two moves, any board: filter, and export.</h3>
+  <p class="dek" style="margin:.4rem 0 1.2rem;max-width:72ch">Alert rules route by race,
+    market, advertiser or rate condition &mdash; a forty-race book runs from one desk &mdash;
+    and every answer lands carrying its date. Illustrative figures.</p>
+  <div class="grid grid--2">
+
+      <div class="vig" data-replay>
+        <div class="vig__bar"><span>KPI&thinsp;&middot;&thinsp;Filter</span><span class="vig__stamp num">posted thru Aug 30, 2026</span></div>
+        <div class="vig__stage vig__stage--filter" role="img" aria-label="The board's own filter row of labeled dropdowns. Race is set to North River Senate, then market to Toledo, and the answer card lands carrying its date and its estimated-minimum label.">
+          <div class="vig__chips vig__b1">
+            <span class="vig__pill"><i>Cycle</i>2026 &#9662;</span>
+            <span style="position:relative"><span class="vig__pill vig__chip-unset" aria-hidden="true"><i>Race</i>All &#9662;</span><span class="vig__pill vig__pill--set"><i>Race</i>North River Senate &#9662;</span><span class="vig__click vig__click--1" style="left:44%;top:-4px" aria-hidden="true"></span></span>
+            <span style="position:relative"><span class="vig__pill vig__chip-unset" aria-hidden="true"><i>Market</i>All &#9662;</span><span class="vig__pill vig__pill--set vig__b2"><i>Market</i>Toledo &#9662;</span><span class="vig__click vig__click--2" style="left:40%;top:-4px" aria-hidden="true"></span></span>
+            <span class="vig__pill"><i>Stage</i>General &#9662;</span>
+          </div>
+          <div class="vig__ansr vig__b3">
+            <span class="vig__lk">Streaming &amp; Digital&thinsp;&middot;&thinsp;Toledo&thinsp;&middot;&thinsp;this race</span>
+            <span class="vig__big">$740K</span>
+            <span class="vig__bigsub">estimated minimum&thinsp;&middot;&thinsp;thru Aug 30</span>
+          </div>
+        </div>
+        <p class="vig__what">The board&rsquo;s own filter row &mdash; every dropdown is real &mdash; and the answer lands already carrying its date.</p>
+      </div>
+
+      <div class="vig" data-replay>
+        <div class="vig__bar"><span>KPI&thinsp;&middot;&thinsp;Export</span><span class="vig__stamp num">posted thru Aug 30, 2026</span></div>
+        <div class="vig__stage" role="img" aria-label="A click on the board's green Excel button, and the same board lands as a spreadsheet you can read: the posted-through date in row one, advertisers down the rows, aired and booked forward as separate columns, formatted like the screen.">
+          <div class="vig__sheet vig__b1">
+            <div class="vig__shead"><span class="vig__lk" style="margin-bottom:0">Market Order Flow&thinsp;&middot;&thinsp;Columbus</span><span style="position:relative"><span class="vig__xbtn" aria-hidden="true">&#8595; Excel</span><span class="vig__click vig__click--1" style="right:14%;top:-3px" aria-hidden="true"></span></span></div>
+            <div class="vig__row"><b>6 advertisers</b><span class="num">aired&thinsp;+&thinsp;booked fwd</span></div>
+          </div>
+          <div class="vig__x vig__b2">
+            <div class="vig__xk"><span class="vig__xtag">XLSX</span><span class="vig__xdate vig__stamp--land">same board, now a file</span></div>
+            <table class="vig__xls" aria-hidden="true">
+              <tr class="vig__xls-a1"><td colspan="3">posted through Aug 30, 2026 &middot; Kinetiq Political Insights</td></tr>
+              <tr class="vig__xls-h"><td>Advertiser</td><td>Aired</td><td>Booked fwd</td></tr>
+              <tr><td>Nora Hale for Senate</td><td class="num">$1.24M</td><td class="num">$180K</td></tr>
+              <tr><td>Ellery for Senate</td><td class="num">$96K</td><td class="num">$520K</td></tr>
+              <tr><td>Hometown Values</td><td class="num">$348K</td><td class="num">$0</td></tr>
+            </table>
+          </div>
+          <div class="vig__desk vig__b3" aria-hidden="true"><span>your side of the table</span><span>their side</span></div>
+        </div>
+        <p class="vig__what">What you see is what lands in Excel: the date in row one, aired and booked forward as separate columns.</p>
+      </div>
+
+    </div>
+    <p class="small center mt2">Hover a card to replay.</p>
+</div>
 </section>
+
+
+
+<!-- ============ THE VIGNETTE RAIL (Pass E §9) ============ -->
+<!-- MOCK-BOARD INVENTORY (Pass E §10, binding fidelity ladder — proof renders
+     whole, capability renders abstracted, nothing in between):
+       index:    .ac alert card = SPECIMEN, whole (the one proof object) ·
+                 rc-seller = ANCHOR surface, full (ruling 22) · rc-digital,
+                 rc-ratebook, rc-leadlist = STILL (one glance, entrance draw
+                 only, link onward)
+       platform: rc-scoreboard, rc-matrix, rc-buysheet, rc-explorer,
+                 rc-pitchlist = STILL inside glimpse crops · rc-stnshare,
+                 rc-classgap = STILL · rc-baker, rc-bdemo = the page's live
+                 toys (chips only) · the three .vig blocks below = VIGNETTE
+                 (a verb + <=3 beats + still)
+     Screenshot ruling reversed by the owner (8/28, "more visual" + the r20 site
+     did it): the five synthetic-data product shots in assets/apps/ anchor the
+     hero and chapters. Interactive recreations stay for the surfaces they
+     demo; the vignettes stay abstract. -->
+
+
+
+
+
 
 <!-- ============ THE SELLER'S DOOR ============ -->
 <!-- r84 (Adam's call, 8/29): the platform trim. The seller's boards — agency book,
@@ -1764,44 +1639,15 @@ tbody th.rcb2-m{font-weight:400;background:transparent}
      reads on one page. This section is the door. -->
 <section class="section" id="sellers">
   <div class="wrap">
-    <div class="split" style="margin-bottom:1.6rem">
-      <div>
-        <p class="eyebrow">The seller&rsquo;s side</p>
-        <h2 style="font-size:clamp(1.7rem,3vw,2.5rem)">Every buyer in your state &mdash; and everyone who should be.</h2>
-      </div>
-      <p class="lede" style="font-size:1.05rem">Same grid, pointed at the market you
-        sell: who has the air, who is light on you, who places the money &mdash; down
-        to the call to make. The seller&rsquo;s boards live with the seller&rsquo;s
-        week &mdash; one page, both sides of the table.</p>
+    <div class="curtain" data-rise>
+      <p class="curtain__k">Selling? &middot; the other side of the same grid</p>
+      <h3 class="curtain__h">Same dataset, pointed at the market you sell.</h3>
+      <p class="curtain__p">The order flow with your air beside it, the agency book
+        (<b>$272K</b> flagged on the demo seat), the streaming pitch (<b>+$510K</b> on the
+        diagonal), and the filed rates that defend your price &mdash; every seller board
+        lives with <b>the seller&rsquo;s week</b>, one page, told once.</p>
+      <p class="curtain__go"><a href="week.html#wk-sell">Open the seller&rsquo;s desk &rarr;</a></p>
     </div>
-    <div class="grid grid--3" data-rise>
-      <a class="card card--flag press-card" href="week.html#agency-book">
-        <p class="card__k">The agency book</p>
-        <h3 style="font-size:1.15rem">Every agency placing political money in your state.</h3>
-        <p class="small">The worked read on one seat: an agency at 9% of your air with
-          <b class="num">$272K</b> on the table.</p>
-        <span class="press-card__go">Open the book &rarr;</span>
-      </a>
-      <a class="card card--flag press-card" href="week.html#share-diagonal">
-        <p class="card__k">The streaming pitch</p>
-        <h3 style="font-size:1.15rem">Your share of the viewing against your share of the money.</h3>
-        <p class="small">Stations with OTT products and app sellers read the same board:
-          <b class="num">+$510K</b> sits on the demo diagonal.</p>
-        <span class="press-card__go">See the pitch &rarr;</span>
-      </a>
-      <a class="card card--flag press-card" href="week.html#order-flow">
-        <p class="card__k">The rate defense</p>
-        <h3 style="font-size:1.15rem">Price the window before it opens.</h3>
-        <p class="small">The market&rsquo;s filed political rates, flight over flight,
-          last cycle beside this one &mdash; and your share as a number both sides can check.</p>
-        <span class="press-card__go">Open the order flow &rarr;</span>
-      </a>
-    </div>
-    <style>
-      #sellers .press-card{display:block;text-decoration:none;color:inherit}
-      #sellers .press-card:hover{transform:translateY(-2px)}
-      #sellers .press-card__go{display:inline-block;margin-top:.6rem;font-size:.85rem;font-weight:600;color:var(--blue-text)}
-    </style>
   </div>
 </section>
 
