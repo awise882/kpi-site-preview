@@ -222,6 +222,7 @@ p .num, .lede .num, .hero-banner .num { white-space: nowrap; }
 .nav__brand { display: flex; align-items: center; margin-right: auto; text-decoration: none; flex: none; }
 .nav__brand img { height: 56px; width: auto; }
 .nav__links { display: flex; align-items: center; gap: 1.35rem; list-style: none; margin: 0; padding: 0; }
+.nav__home { display: none; }
 .nav__links a {
   font-family: var(--sans); font-size: .93rem; font-weight: 500; color: #CBDCE9;
   text-decoration: none; padding: .45rem 0; border-bottom: 2px solid transparent; white-space: nowrap;
@@ -289,6 +290,7 @@ p .num, .lede .num, .hero-banner .num { white-space: nowrap; }
     background: var(--navy-ink); padding: .5rem var(--gut) 1.1rem; border-bottom: 1px solid rgba(255,255,255,.12);
   }
   .nav[data-open="true"] .nav__links li { margin: 0; }
+  .nav[data-open="true"] .nav__home { display: block; }
   /* display:block, not just width: an inline anchor ignores width, which leaves
      the hit area text-wide instead of full-row. */
   .nav[data-open="true"] .nav__links a { display: block; padding: .75rem 0; width: 100%; border-bottom: 1px solid rgba(255,255,255,.08); }
@@ -319,7 +321,8 @@ p .num, .lede .num, .hero-banner .num { white-space: nowrap; }
 /* ---------- buttons ---------- */
 .btn {
   display: inline-flex; align-items: center; gap: .5rem; justify-content: center;
-  font-family: var(--sans); font-size: .95rem; font-weight: 600; line-height: 1;
+  font-family: var(--label); text-transform: uppercase; letter-spacing: .08em;
+  font-size: 1.02rem; font-weight: 700; line-height: 1;
   padding: .82rem 1.35rem; border-radius: var(--r); border: 1.5px solid transparent;
   text-decoration: none; cursor: pointer; transition: background .16s, color .16s, border-color .16s, transform .16s, box-shadow .16s;
 }

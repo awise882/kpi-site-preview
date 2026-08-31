@@ -81,6 +81,7 @@
       <img src="assets/img/kpi-logo.png" alt="Kinetiq Political Insights">
     </a>
     <ul class="nav__links">
+      <li class="nav__item nav__home"><a href="index.html">Home</a></li>
       <li class="nav__item"><a href="monitoring.html">Monitoring</a>
         <div class="nav__drop" aria-label="Section shortcuts">
           <a href="monitoring.html#alert-demo">Creative alerts</a>
@@ -137,11 +138,24 @@
       <span class="ht__l" data-t="Every Market. Every Channel.">Every Market. Every Channel.</span><br>
       <span class="ht__l ht__l--accent" data-t="As It Airs.">As It Airs.</span>
     </h1>
-    <p class="lede">About <span class="num w-measured">1.5 million</span> ad airings detected every day &mdash; every
-      ad category, political included &mdash; across all
-      <span class="num w-measured">210</span> U.S. media markets: TV, cable, radio, and the streaming apps
-      where the paper trail ends. On the filed channels, every occurrence lands with real
-      costs behind it &mdash; posted orders and invoices, not rate-card math.</p>
+    <p class="lede" style="margin-inline:auto">About <span class="num w-measured">1.5 million</span> ad
+      airings detected every day, every ad category, across all
+      <span class="num w-measured">210</span> U.S. media markets &mdash; two worlds, one machine:</p>
+    <div class="mhero" data-rise>
+      <div class="mhero__lane">
+        <p class="mhero__k">Linear &middot; the filed world</p>
+        <p class="mhero__p"><b>Broadcast, cable, radio.</b> Every occurrence lands with real
+          costs behind it &mdash; posted orders and invoices, not rate-card math.</p>
+        <a class="mhero__go" href="#lanes">Channel by channel &rarr;</a>
+      </div>
+      <div class="mhero__lane mhero__lane--dark">
+        <p class="mhero__k">Streaming &amp; digital &middot; behind the curtain</p>
+        <p class="mhero__p"><b>Where the paper trail ends.</b> A third of measured political
+          TV ad impressions run here &mdash; caught on the TV glass, app by app, in 40 million
+          measured homes.</p>
+        <a class="mhero__go" href="#streaming-spend">How streaming is measured &rarr;</a>
+      </div>
+    </div>
     <div class="btn-row">
       <a class="btn btn--navy btn--lg" href="#alert-demo">See an alert land</a>
       <a class="btn btn--lime btn--lg" href="contact.html">Request a demo</a>
@@ -216,81 +230,6 @@
 
 <!-- ============ LANE BY LANE (moved from platform per IA pass 1: the evidence
      lives with the machine that promises "where our signal thins, it says so") ============ -->
-<section class="section" id="lanes">
-  <div class="wrap">
-    <div class="center" style="margin-bottom:2.4rem" data-rise>
-      <p class="eyebrow eyebrow--plain" style="justify-content:center">Channel by channel</p>
-      <h2>We track everything.</h2>
-      <p class="lede" style="margin-inline:auto">TV, cable, radio, streaming and digital
-        &mdash; one machine, all 210 markets, best in class in every lane.</p>
-    </div>
-    <div class="lanefams mt1" role="group" aria-label="Four channels: what we detect, where the dollars come from, and where each signal thins">
-      <article class="lanefam">
-        <div class="lanefam__head">
-          <h4 class="lanefam__name">Broadcast TV</h4>
-          <span class="chip chip--lime">Order by order</span>
-        </div>
-        <div class="lanefam__body">
-          <p class="lanefam__what">Every airing on monitored stations &mdash; creative,
-            transcript, air date, markets &mdash; with dollars from orders on file, not
-            ratings models.</p>
-        </div>
-      </article>
-      <article class="lanefam">
-        <div class="lanefam__head">
-          <h4 class="lanefam__name">Local cable</h4>
-          <span class="chip chip--lime">Order by order</span>
-        </div>
-        <div class="lanefam__body">
-          <p class="lanefam__what">Placed orders by system, week and daypart, with the spots
-            running against them. Every dollar traces to a document.</p>
-        </div>
-      </article>
-      <article class="lanefam">
-        <div class="lanefam__head">
-          <h4 class="lanefam__name">Radio</h4>
-          <span class="chip chip--lime">Orders first</span>
-        </div>
-        <div class="lanefam__body">
-          <p class="lanefam__what">Placed radio orders and their audio, joined to TV's race
-            and advertiser records.</p>
-        </div>
-      </article>
-      <article class="lanefam">
-        <div class="lanefam__head">
-          <h4 class="lanefam__name">Streaming &amp; Digital&thinsp;&middot;&thinsp;caught on the apps</h4>
-          <span class="chip chip--warn">Estimated minimum</span>
-        </div>
-        <div class="lanefam__body">
-          <p class="lanefam__what">Streaming ads captured on the TV screen &mdash; estimates
-            post statewide at launch &mdash; tape, platform,
-            transcript &mdash; in 40 million measured households, including spots that
-            never touch broadcast. Impressions in the top 58 markets; monitoring in all 210.</p>
-        </div>
-      </article>
-      <article class="lanefam">
-        <div class="lanefam__head">
-          <h4 class="lanefam__name">Streaming &amp; Digital&thinsp;&middot;&thinsp;measured beyond the capture</h4>
-          <span class="chip">Estimated</span>
-        </div>
-        <!-- O2 ANSWERED by ruling 45 (Adam, 8/25): streaming and digital are ONE lane
-             family in the marketing taxonomy, presented at app grain; the two BASES in
-             this stack stay separate (caught floor vs modeled estimate) and are never
-             summed. The formal two-lane definitions live in the sales-call leave-behind
-             (ex-methodology page, preserved in git history at r44). -->
-        <div class="lanefam__body">
-          <p class="lanefam__what">Competitive digital activity estimated from measured smart-TV
-            viewing &mdash; always marked estimated, never blended into posted channels.</p>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ============ THE DIGITAL CLUSTER (rulings 52b + 53) ============ -->
-<!-- Digital is a first-class reason to buy: the mechanism, the app-split board and
-     the CTV capture alert composed as one cluster. The defense of the modeled number
-     (ruling 53) rides the mechanism column. -->
 <section class="section" id="streaming-spend">
   <div class="wrap">
     <div class="center" style="margin-bottom:2.4rem" data-rise>
@@ -311,7 +250,8 @@
       <div class="msp__top">
         <div>
           <span class="msp__l" style="margin-top:0;font-weight:700;color:#E8F1F7">A third of measured political TV ad
-            impressions are streaming &mdash; measured, not guessed.</span>
+            impressions are streaming &mdash; beyond the reach of transparency reports and public
+            ad libraries, measured here on the glass.</span>
           <span class="msp__n num" data-p="measuredPeakWeek">220M+</span>
           <span class="msp__l">streaming ad impressions <b>measured</b> in panel households in the
             peak summer week (week of <span data-p="peakWeekOf">August 3, 2026</span>) &mdash; a hard
@@ -729,6 +669,23 @@
     </div>
 
     <style>
+      .mhero { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; max-width: 880px;
+        margin: 1.6rem auto 0; text-align: left; }
+      @media (max-width: 720px) { .mhero { grid-template-columns: 1fr; } }
+      .mhero__lane { background: var(--white); border: 1px solid var(--rule); border-radius: var(--r-lg);
+        padding: 1.15rem 1.25rem; box-shadow: 0 1px 2px rgba(13,46,74,.06); }
+      .mhero__lane--dark { background: var(--navy-deep); border-color: var(--navy-deep); }
+      .mhero__k { font-family: var(--label); text-transform: uppercase; letter-spacing: .13em;
+        font-size: .7rem; font-weight: 700; color: var(--blue-text); margin: 0 0 .45rem; }
+      .mhero__lane--dark .mhero__k { color: #9FBFD6; }
+      .mhero__p { margin: 0; font-size: .92rem; line-height: 1.55; color: var(--ink-2); }
+      .mhero__p b { color: var(--navy-deep); }
+      .mhero__lane--dark .mhero__p { color: #C7D9E6; }
+      .mhero__lane--dark .mhero__p b { color: #fff; }
+      .mhero__go { display: inline-block; margin-top: .6rem; font-size: .85rem; font-weight: 600;
+        color: var(--navy); text-decoration: none; }
+      .mhero__go:hover { text-decoration: underline; }
+      .mhero__lane--dark .mhero__go { color: var(--lime); }
       .msp.msp--quiet { background: #F2F7FB; border: 1px solid var(--rule); }
       .msp.msp--quiet::before { opacity: .55; }
       .msp--quiet .msp__n { color: var(--navy-deep); }
@@ -759,6 +716,82 @@
   </div>
 </section>
 
+
+<section class="section" id="lanes">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:2.4rem" data-rise>
+      <p class="eyebrow eyebrow--plain" style="justify-content:center">Channel by channel</p>
+      <h2>We track everything.</h2>
+      <p class="lede" style="margin-inline:auto">TV, cable, radio, streaming and digital
+        &mdash; one machine, all 210 markets, best in class in every lane.</p>
+    </div>
+    <div class="lanefams mt1" role="group" aria-label="Four channels: what we detect, where the dollars come from, and where each signal thins">
+      <article class="lanefam">
+        <div class="lanefam__head">
+          <h4 class="lanefam__name">Broadcast TV</h4>
+          <span class="chip chip--lime">Order by order</span>
+        </div>
+        <div class="lanefam__body">
+          <p class="lanefam__what">Every airing on monitored stations &mdash; creative,
+            transcript, air date, markets &mdash; with dollars from orders on file, not
+            ratings models.</p>
+        </div>
+      </article>
+      <article class="lanefam">
+        <div class="lanefam__head">
+          <h4 class="lanefam__name">Local cable</h4>
+          <span class="chip chip--lime">Order by order</span>
+        </div>
+        <div class="lanefam__body">
+          <p class="lanefam__what">Placed orders by system, week and daypart, with the spots
+            running against them. Every dollar traces to a document.</p>
+        </div>
+      </article>
+      <article class="lanefam">
+        <div class="lanefam__head">
+          <h4 class="lanefam__name">Radio</h4>
+          <span class="chip chip--lime">Orders first</span>
+        </div>
+        <div class="lanefam__body">
+          <p class="lanefam__what">Placed radio orders and their audio, joined to TV's race
+            and advertiser records.</p>
+        </div>
+      </article>
+      <article class="lanefam">
+        <div class="lanefam__head">
+          <h4 class="lanefam__name">Streaming &amp; Digital&thinsp;&middot;&thinsp;caught on the apps</h4>
+          <span class="chip chip--warn">Estimated minimum</span>
+        </div>
+        <div class="lanefam__body">
+          <p class="lanefam__what">Streaming ads captured on the TV screen &mdash; estimates
+            post statewide at launch &mdash; tape, platform,
+            transcript &mdash; in 40 million measured households, including spots that
+            never touch broadcast. Impressions in the top 58 markets; monitoring in all 210.</p>
+        </div>
+      </article>
+      <article class="lanefam">
+        <div class="lanefam__head">
+          <h4 class="lanefam__name">Streaming &amp; Digital&thinsp;&middot;&thinsp;measured beyond the capture</h4>
+          <span class="chip">Estimated</span>
+        </div>
+        <!-- O2 ANSWERED by ruling 45 (Adam, 8/25): streaming and digital are ONE lane
+             family in the marketing taxonomy, presented at app grain; the two BASES in
+             this stack stay separate (caught floor vs modeled estimate) and are never
+             summed. The formal two-lane definitions live in the sales-call leave-behind
+             (ex-methodology page, preserved in git history at r44). -->
+        <div class="lanefam__body">
+          <p class="lanefam__what">Competitive digital activity estimated from measured smart-TV
+            viewing &mdash; always marked estimated, never blended into posted channels.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THE DIGITAL CLUSTER (rulings 52b + 53) ============ -->
+<!-- Digital is a first-class reason to buy: the mechanism, the app-split board and
+     the CTV capture alert composed as one cluster. The defense of the modeled number
+     (ruling 53) rides the mechanism column. -->
 <!-- ============ FCC RATE INTELLIGENCE ============ -->
 <section class="section section--tint" id="fcc-rates">
   <div class="wrap">
