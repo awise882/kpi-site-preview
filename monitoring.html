@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r98">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r100">
 <style>
   .fig-scroll > svg { min-width: 820px; }
   /* R69: the key graphic gets a phone-native stack; no panning a 1000px drawing */
@@ -341,6 +341,12 @@
           <b>100% of the creatives that run there, each with tape and transcript</b> &mdash;
           and priced as a dated, estimated minimum, service by service: YouTube and YouTube TV,
           Tubi, Peacock, Pluto, the vMVPDs.</p>
+        <p style="margin-top:.9rem;max-width:44ch" class="small">The measured set, in plain
+          terms: whatever renders on the TV glass in the 40 million measured homes &mdash;
+          YouTube and YouTube TV, the premium ad-supported apps, free ad-supported TV, the
+          vMVPDs &mdash; read service by service, rolled up by platform class. If it plays
+          on a measured screen, it counts. Don&rsquo;t see your platform named? Ask on the
+          walkthrough &mdash; the class roster opens there.</p>
 
         <p class="small" style="margin-top:1.2rem">How that number is made &mdash; screens to
           household to weight &mdash; is <a href="#cross-screen">drawn once, below</a>.</p>
@@ -702,7 +708,7 @@
     <!-- r87: the operator's proof — real delivery figures, window Jan 1, 2025 –
          Aug 31, 2026. Volume and quality figures only; the app count is presented
          as a floor. -->
-    <div class="msp" data-rise>
+    <div class="msp msp--quiet" data-rise>
       <div class="msp__top">
         <div>
           <span class="msp__n num">955M+</span>
@@ -723,6 +729,13 @@
     </div>
 
     <style>
+      .msp.msp--quiet { background: #F2F7FB; border: 1px solid var(--rule); }
+      .msp.msp--quiet::before { opacity: .55; }
+      .msp--quiet .msp__n { color: var(--navy-deep); }
+      .msp--quiet .msp__l { color: var(--ink-2); }
+      .msp--quiet .msp__ticks li { color: var(--ink-2); }
+      .msp--quiet .msp__ticks b, .msp--quiet .msp__foot b { color: var(--navy-deep); }
+      .msp--quiet .msp__foot { color: var(--ink-3); }
       .msp { background: var(--navy-ink, #08243B); border-radius: var(--r-lg);
         padding: clamp(1.5rem, 3.2vw, 2.6rem); margin: 0 0 2.6rem; position: relative; overflow: hidden; }
       .msp::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 3px;
@@ -968,6 +981,6 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r98"></script>
+<script src="assets/js/site.js?v=r100"></script>
 </body>
 </html>

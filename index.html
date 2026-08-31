@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r98">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r100">
 <style>
   /* Light, centered, airy hero, matching the live site: the announcement banner
      sits flush under the nav, then the display headline in the green-to-teal
@@ -27,10 +27,24 @@
   .hero-banner b.num { color: var(--navy-deep); font-size: 1.05em; }
   .hero-banner a { color: var(--navy); font-weight: 600; }
   .hero-banner a::after { content: " \2192"; }
-  .hero-banner__in--dual { display: flex; flex-wrap: wrap; justify-content: center;
+  .hero-banner__in--dual { display: grid; justify-items: center;
     align-items: baseline; gap: .3rem 2.6rem; text-align: center; }
   .hero-banner__in--dual a { display: inline-flex; align-items: baseline; gap: .15rem;
     text-decoration: none; min-width: 0; }
+  .hero-banner__in--dual a { grid-area: 1 / 1; max-width: 100%; min-width: 0;
+    flex-wrap: wrap; justify-content: center; row-gap: .1rem; text-align: center; }
+  @media (prefers-reduced-motion: no-preference) {
+    .hero-banner__in--dual a:first-child { animation: bann-a 16s infinite; }
+    .hero-banner__in--dual a:last-child { animation: bann-b 16s infinite; }
+    @keyframes bann-a { 0%, 44% { opacity: 1; visibility: visible; } 50%, 94% { opacity: 0; visibility: hidden; } 100% { opacity: 1; } }
+    @keyframes bann-b { 0%, 44% { opacity: 0; visibility: hidden; } 50%, 94% { opacity: 1; visibility: visible; } 100% { opacity: 0; } }
+  }
+  @media (prefers-reduced-motion: reduce) { .hero-banner__in--dual a:last-child { display: none; } }
+  @media (max-width: 640px) { .hero-banner__txt { white-space: normal; } .hero-banner__in--dual { width: 100%; } }
+  @media (max-width: 640px) {
+    .press-card__shot { height: 190px; overflow: hidden; width: 100%; min-width: 0; align-self: stretch; }
+    .press-card__shot img { width: 160%; max-width: none; }
+  }
   /* Scale band: the display quote gets a real column (min 380px) and a size cap,
      so it never breaks one word per line. Balance splits it two words minimum. */
   @media (min-width: 900px) { .section--band .split--wide-left { grid-template-columns: minmax(0, 1fr) minmax(380px, .8fr); } }
@@ -87,7 +101,6 @@
        buying back first-screen room for the CTA. */
     .hero-banner__d { display: none; }
     .hero-banner { font-size: .8rem; }
-    .hero-banner__txt { white-space: nowrap; }
     .hero-banner .chip--lime { font-size: .62rem; padding: .22rem .5rem; }
   }
   /* The chip + claim must still fit a 320px screen on one nowrap line. */
@@ -398,7 +411,7 @@
       cable, radio and streaming, in every U.S. media market, near real time. When
       the other side moves, you know the same morning.</p>
     <div class="btn-row">
-      <a class="btn btn--navy btn--lg" href="week.html">See it in action</a>
+      <a class="btn btn--navy btn--lg" href="week.html">Walk a week with it</a>
       <a class="btn btn--lime btn--lg" href="contact.html">Request a demo</a>
     </div>
 
@@ -460,6 +473,7 @@
       <p class="built__sub">Best in class at every layer &mdash; simple when you need the
         answer, detailed and powerful when you need it, down to the spot, the station,
         and the dollar. Built by the people building what comes next.</p>
+      <p class="hero-receipt" style="margin-top:.7rem">1.5M occurrences a day &middot; every dollar names its source &middot; a decade+ on file</p>
     </div>
   </div>
 </section>
@@ -586,7 +600,7 @@
         <span class="kw__m"><b class="kw__up">11 pts under</b> her market split &mdash; the call writes itself</span>
       </div>
       <div class="kw__c kw__c--rate">
-        <span class="kw__k">FCC rate intel</span>
+        <span class="kw__k">Rates &middot; what really cleared</span>
         <b class="num">WQZL &middot; :30 early news &middot; $1,150</b>
         <span class="kw__m">the filed rate &mdash; and the check that no one pays less than you</span>
       </div>
@@ -599,7 +613,7 @@
       </div>
       <div class="kw__zone" aria-hidden="true"><span class="kw__zone-k">Voter opinion &middot; KPI &times; CivicScience</span></div>
       <div class="kw__c kw__c--op">
-        <span class="kw__k">Always-on &middot; QID 9918</span>
+        <span class="kw__k">Tracked &middot; wave over wave</span>
         <b>Data centers: support &minus;7 since June</b>
         <span class="kw__m">three waves banked &middot; n printed on the board</span>
       </div>
@@ -619,9 +633,9 @@
      lives on monitoring.html and week.html now, not here. -->
 <section class="section" id="doors">
   <div class="wrap">
-    <div class="split" style="margin-bottom:2.6rem;align-items:end" data-rise>
+    <div class="split" style="margin-bottom:2.6rem;align-items:baseline" data-rise>
       <h2>See the ads.<br>Follow the dollars.</h2>
-      <p class="lede">Four ways in. Each one goes deeper.</p>
+      <p class="lede" style="align-self:baseline">Four ways in. Each one goes deeper.</p>
     </div>
     <div class="grid grid--2" data-rise>
       <a class="card card--flag press-card" href="monitoring.html">
@@ -643,13 +657,14 @@
         <span class="press-card__go">See it working &rarr;</span>
       </a>
       <a class="card card--flag press-card" href="week.html#wk-sell">
-        <p class="card__k">For buyers &amp; sellers</p>
+        <p class="card__k">For sellers</p>
         <h3>One week, from both sides of the table.</h3>
         <figure class="press-card__shot"><img width="2400" height="1350" src="assets/apps/app-seller-desk.webp?v=r64" loading="lazy"
           alt="The seller's desk: share by station with your air at 25% of a $3.8M market against the average advertiser's mix, and the leads the share read throws off &mdash; advertisers light on your air with the gap at your share, streaming-only money for the linear pitch, and the agency gap. Synthetic data."><i aria-hidden="true">synthetic data</i></figure>
         <p class="small">The doors above hold the buyer&rsquo;s tools. This one is the seller&rsquo;s:
           share by station first, then the leads it throws off &mdash; buyers light on your
-          air, streaming money still off TV, and the agency placing every dollar.</p>
+          air, streaming money still off TV, and the agency placing every dollar &mdash;
+          and, selling an app, the class the market is starving.</p>
         <span class="press-card__go">Walk the week &rarr;</span>
       </a>
       <a class="card card--flag press-card" href="polling.html">
@@ -765,6 +780,6 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r98"></script>
+<script src="assets/js/site.js?v=r100"></script>
 </body>
 </html>

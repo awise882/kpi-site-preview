@@ -207,9 +207,15 @@
     elBasketN.textContent = picked.length;
     syncBar();
     elBasket.setAttribute('data-has', picked.length ? 'true' : 'false');
-    /* Copy/Clear are inert at zero picked; the deal-ID email stays live. */
+    /* Copy/Clear and the deal-ID email are inert at zero picked. */
     if (elCopy) elCopy.disabled = !picked.length;
     if (elClear) elClear.disabled = !picked.length;
+    var elMail = document.getElementById('sx-email');
+    if (elMail) {
+      elMail.setAttribute('aria-disabled', picked.length ? 'false' : 'true');
+      elMail.style.opacity = picked.length ? '' : '.45';
+      elMail.style.pointerEvents = picked.length ? '' : 'none';
+    }
     if (!picked.length) {
       elBasketList.innerHTML = '<li class="sx-basket-empty">Nothing picked yet. Add a question to start a shortlist.</li>';
       return;
