@@ -581,12 +581,10 @@
 
     <!-- Ruling 52c: the demoted card detail, small print, definitions intact. -->
     <p class="small ring__fine">The details: activation lands as a private-marketplace
-      deal ID, your seat or ours, and managed service is optional, never required. Run
-      the media through us or share your delivery report; either way your delivery
-      prints labeled advertiser-reported, so your numbers and our detections never blur
-      into one figure. What you run stays behind the subscriber firewall; the full
-      statement, including the one rate-calibration exception, is on the
-      <a href="privacy.html">privacy page</a>.</p>
+      deal ID, your seat or ours, and managed service is optional. Run the media through
+      us or share your delivery report; either way your delivery prints labeled
+      advertiser-reported. What you run stays behind the firewall &mdash; the full
+      statement is on the <a href="privacy.html">privacy page</a>.</p>
   </div>
 </section>
 
@@ -762,7 +760,7 @@
                 <line x1="937" y1="261" x2="942" y2="261" stroke="#8FA9BE" stroke-width="1.4"/>
                 <line x1="937" y1="402" x2="942" y2="402" stroke="#8FA9BE" stroke-width="1.4"/>
                 <text class="mxs__lbl" transform="rotate(-90 953 261)" x="953" y="257" text-anchor="middle" font-family="Inter, sans-serif" font-size="9.5" font-weight="700" letter-spacing=".4" fill="#40566A">LICENSED ATTRIBUTES &middot; EXPERIAN-CLASS &middot; DEMO &middot; HH &middot; PURCHASE</text>
-                <text class="mxs__lbl" transform="rotate(-90 967 261)" x="967" y="271" text-anchor="middle" font-family="Inter, sans-serif" font-size="9.5" font-weight="700" letter-spacing=".4" fill="#40566A">FOR WEIGHTING + THE ID MATCH &mdash; NOT THE TARGETING INPUT</text>
+                <text class="mxs__lbl" transform="rotate(-90 967 261)" x="967" y="271" text-anchor="middle" font-family="Inter, sans-serif" font-size="9.5" font-weight="700" letter-spacing=".4" fill="#40566A">FOR WEIGHTING + THE ID MATCH</text>
               </g>
               <g class="mxs__mxe">
                 <rect x="100" y="408" width="836" height="54" fill="#5B7085" opacity=".06"/>
@@ -781,10 +779,7 @@
                 prints dashed and labeled.</span>
             </div>
             <p class="mxs__cap">Source: CivicScience partner-published figures, as of
-              Aug 2026. A profile is a survey-answering record, not a verified person;
-              licensed consumer attributes carry the weighting and the identifier match,
-              and the dashed band is the optional lookalike extension &mdash; modeled,
-              labeled, never blended into declared counts. The grid draws sampled for
+              Aug 2026. The grid draws sampled for
               display; the counts are not.</p>
           </div>
         </div>
@@ -955,8 +950,7 @@
     <p class="small center mt2" style="max-width:72ch;margin-inline:auto">CivicScience's
       case studies show declared audiences outperforming third-party controls: 36 to 80
       percent higher click-through and 45 to 62 percent higher conversion in matched
-      commercial tests. Those are the partner's case studies, not a promise about any
-      single flight.</p>
+      commercial tests. The partner's numbers, not a guarantee.</p>
 
     <!-- r97 (Adam): weighting confidence without a copyable recipe. -->
     <div class="mt3" data-rise>
@@ -973,8 +967,8 @@
         <div class="card card--flag">
           <p class="card__k">The licensed spine</p>
           <p class="small" style="margin:0">Experian-class consumer attributes carry every
-            profile to census benchmarks &mdash; they do the weighting and the identifier
-            match, and are never the targeting input.</p>
+            profile to census benchmarks &mdash; used only for the weighting and the
+            identifier match.</p>
         </div>
         <div class="card card--flag">
           <p class="card__k">The freshness window</p>
@@ -1033,8 +1027,7 @@
         <h3>People the standard segments miss.</h3>
         <p class="small">Built from declared answers, not the same rented voter file every
           side is buying &mdash; different inputs find different people, so the reach is
-          net-new, not overlap. It never needs your voter file to run, and your file
-          never has to leave your shop.</p>
+          net-new, not overlap. It runs without your voter file.</p>
       </div>
       <div class="card card--flag">
         <p class="card__k">Less loss</p>
@@ -1050,7 +1043,7 @@
     <form class="mini-ask" id="seg-ask" method="post" enctype="text/plain"
           action="mailto:info@kpipolitical.com?subject=Send%20the%2048-segment%20list">
       <label class="mini-ask__lab" for="seg-email"><b>Want the 48 curated political segments?</b>
-        Email only; the list comes back, no call attached &mdash; and it names every
+        Email only &mdash; no call attached. It names every
         segment with the questions that build it, the same way the example builds
         further down this page are named.</label>
       <div class="mini-ask__row">
@@ -1165,7 +1158,7 @@
     b.textContent = 'On its way. ';
     p.appendChild(b);
     p.appendChild(document.createTextNode(
-      'The 48-segment list goes to ' + email + '. Nothing else rides along.'));
+      'The 48-segment list goes to ' + email + '.'));
     f.appendChild(p);
   };
   f.addEventListener('submit', function (e) {
