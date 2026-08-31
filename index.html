@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r87">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r88">
 <style>
   /* Light, centered, airy hero, matching the live site: the announcement banner
      sits flush under the nav, then the display headline in the green-to-teal
@@ -124,6 +124,11 @@
     .hero-banner { font-size: .8rem; }
     .hero-banner__txt { white-space: nowrap; }
     .hero-banner .chip--lime { font-size: .62rem; padding: .22rem .5rem; }
+  }
+  /* The chip + claim must still fit a 320px screen on one nowrap line. */
+  @media (max-width: 374px) {
+    .hero-banner { font-size: .72rem; }
+    .hero-banner .chip--lime { font-size: .55rem; padding: .18rem .4rem; margin-right: .35rem; }
   }
   /* R5: at desktop the banner reads as one line; the link never wraps alone. */
   @media (min-width: 1024px) {
@@ -767,6 +772,6 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r47"></script>
+<script src="assets/js/site.js?v=r88"></script>
 </body>
 </html>

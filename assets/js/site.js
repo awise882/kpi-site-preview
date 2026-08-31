@@ -419,3 +419,38 @@
     [90, 700, 1400].forEach(function (ms) { setTimeout(land, ms); });
   });
 })();
+
+/* r88: universal scrub driver. The pinned runways (share diagonal, calendar walk,
+   contour map, matrix story) were driven by CSS animation-timeline — Chrome-only.
+   This drives the same keyframes everywhere by setting --scrub (0..1) across each
+   runway; the CSS holds them as paused animations scrubbed by negative delay.
+   Reduced motion or no JS: no .scrub class, static end-states render. */
+(function () {
+  var els = Array.prototype.slice.call(
+    document.querySelectorAll('.sd__scroller,.tl__scroller,.ct__scroller,.mxs__scroller'));
+  if (!els.length) return;
+  var root = document.documentElement;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+  function gate() { root.classList.toggle('scrub', !reduce.matches); }
+  gate();
+  if (reduce.addEventListener) reduce.addEventListener('change', function () { gate(); frame(); });
+  var ticking = false;
+  function frame() {
+    ticking = false;
+    if (!root.classList.contains('scrub')) return;
+    var vh = window.innerHeight;
+    for (var i = 0; i < els.length; i++) {
+      var r = els[i].getBoundingClientRect();
+      var span = r.height - vh;
+      if (span <= 0) continue;
+      var p = -r.top / span;
+      p = p < 0 ? 0 : p > 1 ? 1 : p;
+      els[i].style.setProperty('--scrub', p.toFixed(4));
+    }
+  }
+  function kick() { if (!ticking) { ticking = true; requestAnimationFrame(frame); } }
+  window.addEventListener('scroll', kick, { passive: true });
+  window.addEventListener('resize', kick, { passive: true });
+  window.addEventListener('load', kick);
+  frame();
+})();
