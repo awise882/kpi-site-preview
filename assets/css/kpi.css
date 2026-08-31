@@ -2093,3 +2093,12 @@ a.chip:hover { border-color: var(--blue); color: var(--navy); background: var(--
 @media (prefers-reduced-motion: reduce) {
   .nextrail .nextcard, .nextcard__go { transition: none; }
 }
+
+/* r85 (Adam, 8/29): "scroll jacking on mobile not working which is causing some weird
+   experiences." On touch devices and phone widths the pinned scroll-driven runways
+   (share diagonal, timeline, contour, matrix) collapse to their static end-states —
+   the finished board IS the content; the scrub was desktop garnish. */
+@media (pointer: coarse), (max-width: 880px) {
+  .sd__scroller, .tl__scroller, .ct__scroller, .mxs__scroller { height: auto !important; view-timeline: none !important; }
+  .sd__pin, .tl__pin, .ct__pin, .mxs__pin { position: static !important; top: auto !important; }
+}

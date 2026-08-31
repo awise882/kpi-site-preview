@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r72">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r85">
 <style>
   /* Light, centered, airy hero, same standard as the home page: display headline
      in the green-to-teal gradient with the layered offset, the lede, two buttons,
@@ -910,6 +910,102 @@
         your race or your issue, so you never settle for the generic tracker. Included,
         not an upsell.</p>
     </div>
+
+    <!-- r85 (Adam, 8/29): "the feeling you wanna have is never ending possibilities…
+         bubble popping up question answer question question question, different kinds
+         of questions, different kinds of targeting." A dark stage where the field never
+         stops: question bubbles keep surfacing, answers land, audiences ship — CSS-only,
+         two bubbles per slot trading places on a 14s loop. Reduced-motion and JS-off:
+         the first bubble of every slot shows static. Wordings marked ● are the site's
+         canon QIDs; the rest are the kinds of questions the library carries. -->
+    <div class="qf-stage" data-rise>
+      <div class="qf">
+        <div class="qf__head">
+          <p class="qf__k">The field, live</p>
+          <h3 class="qf__h">Ask. Hear back. Ask again. It never closes.</h3>
+          <p class="qf__sub">10,000+ questions always on &middot; over 1 million answers landing
+            a day &middot; a new audience possible every time one moves. Not in the field yet?
+            We write it, and it fields in days.</p>
+        </div>
+        <div class="qf__grid" aria-hidden="true">
+          <div class="qf__slot"><span class="qf__b qf__b--q qf__b--keep">&ldquo;Which of the following best describes your political leanings?&rdquo;<i>QID 494 &middot; always on</i></span><span class="qf__b qf__b--aud">Streaming-only households, by county<i>audience &rarr; deal ID</i></span></div>
+          <div class="qf__slot"><span class="qf__b qf__b--a qf__b--keep">Answers landing now<i>over 1M land network-wide today</i></span><span class="qf__b qf__b--q">&ldquo;How do you receive television service?&rdquo;<i>QID 1516 &middot; always on</i></span></div>
+          <div class="qf__slot"><span class="qf__b qf__b--q qf__b--keep">&ldquo;Should your county approve new data centers?&rdquo;<i>QID 9918 &middot; three waves banked</i></span><span class="qf__b qf__b--cus">Your ballot test, written this week<i>custom &middot; invisible to the other side</i></span></div>
+          <div class="qf__slot"><span class="qf__b qf__b--aud qf__b--keep">Persuadable on the economy, undecided Senate<i>audience &rarr; deal ID</i></span><span class="qf__b qf__b--q">Favorability, tracked wave over wave<i>ask again &middot; every wave banks</i></span></div>
+          <div class="qf__slot"><span class="qf__b qf__b--q qf__b--keep">Grocery prices, top concern or not<i>issue salience &middot; always on</i></span><span class="qf__b qf__b--a">A question moved overnight<i>the audience rebuilds itself</i></span></div>
+          <div class="qf__slot"><span class="qf__b qf__b--cus qf__b--keep">School funding, asked your way<i>custom &middot; fields in days</i></span><span class="qf__b qf__b--aud">Early voters who split tickets<i>audience &rarr; deal ID</i></span></div>
+          <div class="qf__slot"><span class="qf__b qf__b--q qf__b--keep">News habits: where they actually hear it<i>media &middot; always on</i></span><span class="qf__b qf__b--q">Broadband, utilities, land use<i>local issues &middot; always on</i></span></div>
+          <div class="qf__slot"><span class="qf__b qf__b--aud qf__b--keep">Veterans&rsquo; households, message-tested<i>audience &rarr; deal ID</i></span><span class="qf__b qf__b--cus">The attack you expect next week, pre-tested<i>custom &middot; yours alone</i></span></div>
+        </div>
+        <p class="qf__foot">Wordings with a QID are in the library today &middot; the rest are the kinds
+          of questions it carries &middot; every one can become an audience, and every audience ships
+          as a deal ID</p>
+      </div>
+    </div>
+
+    <style>
+      .qf-stage { margin: 0 0 3rem; }
+      .qf { position: relative; background: var(--navy-ink, #08243B); border-radius: var(--r-lg);
+        padding: clamp(1.4rem, 3vw, 2.4rem) clamp(1.2rem, 3vw, 2.4rem) 1.2rem; overflow: hidden; }
+      .qf::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 3px;
+        background: linear-gradient(90deg, var(--navy) 0%, #00ACC1 55%, var(--lime) 100%); }
+      .qf__k { font-family: var(--label); text-transform: uppercase; letter-spacing: .16em;
+        font-size: .68rem; font-weight: 800; color: var(--lime); }
+      .qf__h { font-family: var(--display); color: #fff; font-size: clamp(1.5rem, 2.6vw, 2.1rem);
+        margin-top: .45rem; letter-spacing: -.01em; }
+      .qf__sub { color: #B9CFDF; font-size: .95rem; max-width: 62ch; margin-top: .55rem; line-height: 1.6; }
+      .qf__grid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: .7rem;
+        margin-top: 1.5rem; }
+      .qf__slot { position: relative; min-height: 96px; }
+      .qf__b { position: absolute; inset: 0; display: flex; flex-direction: column;
+        justify-content: center; gap: .3rem; padding: .7rem .8rem; border-radius: 10px;
+        font-size: .82rem; font-weight: 650; line-height: 1.35; opacity: 0; }
+      .qf__b i { font-style: normal; font-family: var(--label); font-weight: 700;
+        text-transform: uppercase; letter-spacing: .09em; font-size: .58rem; opacity: .75; }
+      .qf__b--q { background: #fff; color: var(--navy-deep); }
+      .qf__b--q i { color: var(--blue-text); opacity: 1; }
+      .qf__b--a { background: rgba(168,209,78,.14); border: 1px solid rgba(168,209,78,.55);
+        color: #E4F3C8; }
+      .qf__b--a i { color: var(--lime); opacity: 1; }
+      .qf__b--aud { background: rgba(0,172,193,.13); border: 1px solid rgba(0,172,193,.5);
+        color: #CDEDF2; }
+      .qf__b--aud i { color: #6FD3E0; opacity: 1; }
+      .qf__b--cus { background: transparent; border: 1.5px dashed rgba(168,209,78,.55); color: #DDEBC9; }
+      .qf__b--cus i { color: var(--lime); opacity: 1; }
+      .qf__foot { margin-top: 1.2rem; border-top: 1px solid rgba(255,255,255,.14);
+        padding-top: .7rem; font-size: .74rem; color: #8FA9BE; line-height: 1.55; }
+      /* Two bubbles per slot trade places forever; slots cascade. */
+      @media (prefers-reduced-motion: no-preference) {
+        .qf__b { animation: qf-pop 14s infinite; }
+        .qf__b:nth-child(2) { animation-delay: 7s; }
+        .qf__slot:nth-child(2) .qf__b { animation-delay: .9s; } .qf__slot:nth-child(2) .qf__b:nth-child(2) { animation-delay: 7.9s; }
+        .qf__slot:nth-child(3) .qf__b { animation-delay: 1.8s; } .qf__slot:nth-child(3) .qf__b:nth-child(2) { animation-delay: 8.8s; }
+        .qf__slot:nth-child(4) .qf__b { animation-delay: 2.7s; } .qf__slot:nth-child(4) .qf__b:nth-child(2) { animation-delay: 9.7s; }
+        .qf__slot:nth-child(5) .qf__b { animation-delay: 3.4s; } .qf__slot:nth-child(5) .qf__b:nth-child(2) { animation-delay: 10.4s; }
+        .qf__slot:nth-child(6) .qf__b { animation-delay: 4.3s; } .qf__slot:nth-child(6) .qf__b:nth-child(2) { animation-delay: 11.3s; }
+        .qf__slot:nth-child(7) .qf__b { animation-delay: 5.2s; } .qf__slot:nth-child(7) .qf__b:nth-child(2) { animation-delay: 12.2s; }
+        .qf__slot:nth-child(8) .qf__b { animation-delay: 6.1s; } .qf__slot:nth-child(8) .qf__b:nth-child(2) { animation-delay: 13.1s; }
+      }
+      @keyframes qf-pop {
+        0% { opacity: 0; transform: translateY(9px) scale(.96); }
+        3.5% { opacity: 1; transform: none; }
+        46% { opacity: 1; transform: none; }
+        50%, 100% { opacity: 0; transform: translateY(-6px) scale(.98); }
+      }
+      /* Reduced motion (and anything that can't run the loop): the first bubble of each
+         slot holds static — a full, quiet wall. */
+      @media (prefers-reduced-motion: reduce) {
+        .qf__b--keep { opacity: 1; position: relative; inset: auto; }
+        .qf__b:not(.qf__b--keep) { display: none; }
+        .qf__slot { min-height: 0; }
+      }
+      @media (max-width: 880px) { .qf__grid { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+      @media (max-width: 560px) {
+        .qf__slot { min-height: 108px; }
+        .qf__b { font-size: .78rem; }
+      }
+    </style>
+
     <div class="grid grid--2" data-rise>
       <div class="card card--lead">
         <p class="card__k">Syndicated</p>
