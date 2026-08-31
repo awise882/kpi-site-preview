@@ -31,31 +31,6 @@
     align-items: baseline; gap: .3rem 2.6rem; text-align: center; }
   .hero-banner__in--dual a { display: inline-flex; align-items: baseline; gap: .15rem;
     text-decoration: none; min-width: 0; }
-  /* Ruling 23: partnership announcements as collapsed first-party press items. */
-  .press-rel { max-width: 860px; margin-inline: auto; }
-  .press-rel__k { font-family: var(--label); text-transform: uppercase; letter-spacing: .14em;
-    font-size: .68rem; font-weight: 700; color: var(--ink-3); margin: 0 0 .6rem; }
-  .press-rel__item { border-top: 1px solid var(--rule-soft); }
-  .press-rel__item:last-child { border-bottom: 1px solid var(--rule-soft); }
-  .press-rel__item summary { display: flex; flex-wrap: wrap; align-items: baseline; gap: .3rem 1.1rem;
-    padding: .85rem .2rem; cursor: pointer; list-style: none; }
-  .press-rel__item summary::-webkit-details-marker { display: none; }
-  .press-rel__item summary::after { content: "+"; margin-left: auto; font-family: var(--mono);
-    color: var(--ink-3); font-size: 1rem; }
-  .press-rel__item[open] summary::after { content: "\2212"; }
-  .press-rel__date { font-family: var(--mono); font-size: .78rem; color: var(--ink-3);
-    font-variant-numeric: tabular-nums lining-nums; white-space: nowrap; }
-  .press-rel__t { font-weight: 650; color: var(--navy-deep); font-size: .98rem; }
-  .press-rel__item summary:hover .press-rel__t { color: var(--navy); }
-  .press-rel__body { padding: 0 .2rem 1rem; max-width: 68ch; }
-  /* Coverage lanes live inside the light Scale band: white chips, a touch larger. */
-  .section--band .lane { padding: 1rem 1.5rem; font-size: 1rem; box-shadow: var(--shadow); }
-  /* Coverage lane chips, the live site's platform strip. */
-  .lanes { display: flex; flex-wrap: wrap; gap: .7rem; justify-content: center; }
-  .lane { display: inline-flex; align-items: center; gap: .55rem; padding: .8rem 1.3rem; background: var(--white); border: 1px solid var(--rule); border-radius: var(--r-lg); font-weight: 600; color: var(--navy-deep); font-size: .95rem; }
-  .lane i { width: 8px; height: 8px; border-radius: 50%; background: var(--teal); flex: none; }
-  /* Row headers are <th scope="row">; stylesheet only clears the last row's td rule. */
-  table.tbl tbody tr:last-child th { border-bottom: 0; }
   /* Scale band: the display quote gets a real column (min 380px) and a size cap,
      so it never breaks one word per line. Balance splits it two words minimum. */
   @media (min-width: 900px) { .section--band .split--wide-left { grid-template-columns: minmax(0, 1fr) minmax(380px, .8fr); } }
@@ -67,16 +42,6 @@
     letter-spacing: .07em; text-transform: uppercase; color: var(--ink-3);
     font-variant-numeric: tabular-nums lining-nums;
   }
-  /* Ruling 15b: the adoption line, the modest true shape only. */
-  /* Ruling 19: the As-seen-in strip. Text-only outlet names in the low-contrast
-     trust-bar register; every name is a link to a real article. */
-  .press-strip { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: center;
-    gap: .9rem 2.2rem; margin-top: 2.6rem; padding-top: 1.6rem; border-top: 1px solid var(--rule-soft); }
-  .press-strip__k { font-family: var(--label); text-transform: uppercase; letter-spacing: .14em;
-    font-size: .68rem; font-weight: 700; color: var(--ink-3); }
-  .press-strip a { font-family: var(--label); text-transform: uppercase; letter-spacing: .16em;
-    font-size: 1.02rem; font-weight: 800; color: var(--navy); text-decoration: none; }
-  .press-strip a:hover { color: var(--lime-text); }
   .press-nums { display: flex; flex-wrap: wrap; justify-content: center; gap: .5rem 2rem;
     margin-top: 1.3rem; font-size: .85rem; color: var(--ink-3); }
   .press-nums b { font-size: 1.35rem; font-weight: 800; color: var(--navy-deep); margin-right: .3rem;
@@ -187,9 +152,6 @@
       font-size: .52rem; font-weight: 700; letter-spacing: .1em; color: var(--ink-3);
       border-top: 1px solid var(--rule-soft); padding: .42rem .7rem; background: #FAFCFE; }
   }
-  /* R5: the held release date renders as a mono pill, not a bracketed slug. */
-  .press-rel__date--pill { border: 1px solid var(--rule); padding: .08rem .5rem;
-    text-transform: uppercase; letter-spacing: .07em; font-size: .68rem; }
 </style>
 
 <style>
@@ -452,7 +414,7 @@
       <div class="hb-row">
         <div class="hb-l1"><span class="hb-tag">GOV</span><b>North River Governor</b><span class="hb-wk">+$1.8M</span></div>
         <div class="hb-l2"><span class="hb-pct hb-pd">48%</span><span class="hb-bar"><i style="width:48%"></i><em style="width:52%"></em></span><span class="hb-pct hb-pr">52%</span></div>
-        <div class="hb-l3"><span>TV &middot; CABLE &middot; RADIO <b>$19.3M</b></span><span class="hb-str">STREAMING <b>$640K</b> EST. &middot; BESIDE</span></div>
+        <div class="hb-l3"><span>TV &middot; CABLE &middot; RADIO <b>$14.1M</b></span><span class="hb-str">STREAMING <b>$640K</b> EST. &middot; BESIDE</span></div>
       </div>
       <div class="hb-foot"><span>NEW MONEY RISES TO THE TOP</span><span>SYNTHETIC SAMPLE</span></div>
     </div>
@@ -593,9 +555,9 @@
         <span class="kw__m">the whole pod &mdash; who ran beside you in the break</span>
       </div>
       <div class="kw__c kw__c--score">
-        <span class="kw__k">Scoreboard &middot; North River Senate</span>
-        <span class="kw__bar"><i>D</i><span class="kw__tr"><span style="width:95%"></span></span><b class="num">$14.2M</b></span>
-        <span class="kw__bar kw__bar--r"><i>R</i><span class="kw__tr"><span style="width:100%"></span></span><b class="num">$15.0M</b></span>
+        <span class="kw__k">Scoreboard &middot; North River Governor</span>
+        <span class="kw__bar"><i>D</i><span class="kw__tr"><span style="width:93%"></span></span><b class="num">$6.8M</b></span>
+        <span class="kw__bar kw__bar--r"><i>R</i><span class="kw__tr"><span style="width:100%"></span></span><b class="num">$7.3M</b></span>
         <span class="kw__m"><b class="kw__up num">+$1.8M</b> new money this week</span>
       </div>
       <div class="kw__c kw__c--mix">
@@ -685,7 +647,7 @@
         <h3>One week, from both sides of the table.</h3>
         <figure class="press-card__shot"><img width="2400" height="1350" src="assets/apps/app-seller-desk.webp?v=r64" loading="lazy"
           alt="The seller's desk: share by station with your air at 25% of a $3.8M market against the average advertiser's mix, and the leads the share read throws off &mdash; advertisers light on your air with the gap at your share, streaming-only money for the linear pitch, and the agency gap. Synthetic data."><i aria-hidden="true">synthetic data</i></figure>
-        <p class="small">Three doors up, the buyer&rsquo;s tools. This one is the seller&rsquo;s:
+        <p class="small">The doors above hold the buyer&rsquo;s tools. This one is the seller&rsquo;s:
           share by station first, then the leads it throws off &mdash; buyers light on your
           air, streaming money still off TV, and the agency placing every dollar.</p>
         <span class="press-card__go">Walk the week &rarr;</span>
