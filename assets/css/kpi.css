@@ -2094,11 +2094,22 @@ a.chip:hover { border-color: var(--blue); color: var(--navy); background: var(--
   .nextrail .nextcard, .nextcard__go { transition: none; }
 }
 
-/* r85 (Adam, 8/29): "scroll jacking on mobile not working which is causing some weird
-   experiences." On touch devices and phone widths the pinned scroll-driven runways
-   (share diagonal, timeline, contour, matrix) collapse to their static end-states —
-   the finished board IS the content; the scrub was desktop garnish. */
-@media (pointer: coarse), (max-width: 880px) {
-  .sd__scroller, .tl__scroller, .ct__scroller, .mxs__scroller { height: auto !important; view-timeline: none !important; }
-  .sd__pin, .tl__pin, .ct__pin, .mxs__pin { position: static !important; top: auto !important; }
+/* r87 (weekend feedback): "none of the scroll jacking is working." Retired everywhere,
+   every width, every pointer — the runways collapse to their static end-states, which
+   were always the designed content. Also removes hundreds of vh of dead scroll. */
+.sd__scroller, .tl__scroller, .ct__scroller, .mxs__scroller { height: auto !important; view-timeline: none !important; }
+.sd__pin, .tl__pin, .ct__pin, .mxs__pin { position: static !important; top: auto !important; }
+
+/* r87: the slow-moving gradient on the buyers-and-sellers week (promised long ago,
+   never shipped). A broad wash drifting under the section; still under reduced motion. */
+#the-week { background: linear-gradient(115deg,
+    color-mix(in srgb, var(--navy) 7%, var(--tint)) 0%,
+    var(--paper) 32%,
+    color-mix(in srgb, #00ACC1 6%, var(--tint)) 55%,
+    var(--paper) 78%,
+    color-mix(in srgb, var(--lime) 8%, var(--tint)) 100%);
+  background-size: 260% 260%; }
+@media (prefers-reduced-motion: no-preference) {
+  #the-week { animation: wk-drift 30s ease-in-out infinite alternate; }
 }
+@keyframes wk-drift { from { background-position: 0% 30%; } to { background-position: 100% 70%; } }

@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r85">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r87">
 <style>
   /* Light, centered, airy hero, matching the live site: the announcement banner
      sits flush under the nav, then the display headline in the green-to-teal
@@ -233,26 +233,27 @@
   .kw__stamp { position: absolute; right: clamp(12px, 3vw, 40px); bottom: 10px;
     font-family: var(--label); font-size: .58rem; font-weight: 700; letter-spacing: .11em;
     text-transform: uppercase; color: var(--ink-3); }
-  /* Desktop: hand placement. Nothing lines up on purpose. */
+  /* Desktop: hand placement — offset and overlapping, but square. No tilts. */
   @media (min-width: 1100px) {
-    .kw__cluster { height: 560px; }
+    .kw__cluster { height: 596px; }
     .kw__c { position: absolute; }
-    .kw__c--alert { left: 1%; top: 24px; width: 272px; transform: rotate(-2deg); z-index: 3; }
-    .kw__c--score { left: 17%; top: 168px; width: 308px; transform: rotate(1.1deg); z-index: 2; }
-    .kw__c--mix { left: 47%; top: 12px; width: 320px; transform: rotate(.7deg); z-index: 1; }
-    .kw__c--book { right: 1.5%; top: 196px; width: 296px; transform: rotate(-1.5deg); z-index: 2; }
-    .kw__c--rate { left: 34%; top: 356px; width: 292px; transform: rotate(-.9deg); z-index: 1; }
-    .kw__c--op { left: 4%; top: 372px; width: 288px; transform: rotate(1.7deg); z-index: 2; }
-    .kw__c--deal { right: -14px; top: 118px; transform: rotate(2.2deg); z-index: 4; }
+    .kw__c--alert { left: 1%; top: 22px; width: 272px; z-index: 3; }
+    .kw__c--score { left: 15%; top: 166px; width: 308px; z-index: 2; }
+    .kw__c--mix { left: 46%; top: 10px; width: 320px; z-index: 1; }
+    .kw__c--book { right: 1.5%; top: 188px; width: 296px; z-index: 2; }
+    .kw__c--rate { left: 33%; top: 372px; width: 300px; z-index: 1; }
+    .kw__c--baker { left: 61%; top: 340px; width: 296px; z-index: 3; }
+    .kw__c--op { left: 3%; top: 388px; width: 288px; z-index: 2; }
+    .kw__c--deal { right: -14px; top: 112px; z-index: 4; }
   }
-  /* Below 1100: a loose two-column cluster, still slightly off-kilter. */
+  /* Below 1100: a staggered two-column cluster. */
   @media (max-width: 1099px) {
     .kw__cluster { display: grid; grid-template-columns: repeat(2, minmax(0,1fr));
       gap: .85rem; padding-bottom: .6rem; }
     .kw__c--mix, .kw__c--deal { grid-column: 1 / -1; }
     .kw__c--deal { justify-self: center; flex-wrap: wrap; white-space: normal; justify-content: center; }
-    .kw__c:nth-child(odd) { transform: rotate(-1.1deg) translateY(4px); }
-    .kw__c:nth-child(even) { transform: rotate(1deg) translateY(-3px); }
+    .kw__c:nth-child(odd) { transform: translateY(5px); }
+    .kw__c:nth-child(even) { transform: translateY(-4px); }
   }
   @media (max-width: 420px) {
     .kw__c > b { font-size: .84rem; }
@@ -260,7 +261,7 @@
   }
   @media (prefers-reduced-motion: no-preference) {
     .kw__c { transition: transform .35s var(--smooth), box-shadow .35s var(--smooth); }
-    .kw__c:hover { transform: rotate(0deg) translateY(-4px); z-index: 9;
+    .kw__c:hover { transform: translateY(-4px); z-index: 9;
       box-shadow: 0 22px 44px rgba(13,46,74,.2); }
   }
 
@@ -278,7 +279,8 @@
     text-transform: uppercase; letter-spacing: .13em; font-size: .72rem; font-weight: 700;
     color: #9FBFD6; line-height: 1.8; }
   .impact__l b { color: var(--lime); }
-  .impact__q { margin: 0; max-width: 30ch; }
+  .impact__q { margin: 0; max-width: 24ch; }
+  @media (max-width: 1180px) { .impact__q { display: none; } }
   .impact__q p { font-family: var(--display); font-size: clamp(1.25rem, 2vw, 1.6rem);
     color: #E8F1F7; line-height: 1.35; }
   .impact__q cite { display: block; margin-top: .6rem; font-style: normal; font-size: .8rem; color: #8FA9BE; }
@@ -350,8 +352,8 @@
 <!-- ============ HERO ============ -->
 <div class="hero-banner" role="region" aria-label="Announcements">
   <div class="wrap hero-banner__in hero-banner__in--dual">
-    <a href="press.html#forecast-2026"><span class="chip chip--lime">New</span><span class="hero-banner__txt"><b class="num">$10.4B</b> &mdash; our 2026 forecast<span class="hero-banner__d">, report available for download</span></span></a>
     <a href="press.html#videoamp-partnership"><span class="chip chip--lime">Announcing</span><span class="hero-banner__txt">Streaming measured in <b class="num">40M</b> homes<span class="hero-banner__d"> &mdash; our VideoAmp partnership</span></span></a>
+    <a href="https://kpipoliticalinsightsforecast.subscribepage.io/" target="_blank" rel="noopener"><span class="chip chip--lime">New</span><span class="hero-banner__txt"><b class="num">$10.4B</b> &mdash; our 2026 forecast<span class="hero-banner__d">, download the report</span></span></a>
   </div>
 </div>
 
@@ -573,7 +575,12 @@
       <div class="kw__c kw__c--rate">
         <span class="kw__k">FCC rate intel</span>
         <b class="num">WQZL &middot; :30 early news &middot; $1,150</b>
-        <span class="kw__m">filed rate, from the public file &middot; LUR checked</span>
+        <span class="kw__m">the filed rate &mdash; and the check that no one pays less than you</span>
+      </div>
+      <div class="kw__c kw__c--baker">
+        <span class="kw__k">Ask Baker</span>
+        <b>&ldquo;What did the other side book this morning?&rdquo;</b>
+        <span class="kw__m">one question spans the whole dataset</span>
       </div>
       <div class="kw__c kw__c--op">
         <span class="kw__k">Voter opinion &middot; QID 9918</span>
@@ -596,17 +603,22 @@
         already running. Every occurrence, with real costs behind it.</p>
     </div>
 
-    <!-- r86: the one-number read (per the AdImpact reference). The old four-up stat
-         grid folded into this slab. AWAITING ADAM (Snowflake/Domo pull): daily
-         streaming ad impressions measured + count of channels/services with streaming
-         capture — when the figures land, they take the second impact seat here and a
-         line on monitoring.html#streaming-spend. No interim numbers get invented. -->
+    <!-- r87: Adam's Snowflake/Domo pull landed (CM360 ad server of record + Magnite
+         ClearLine log-level). Delivery figures, not detection — worded per the data
+         session's caveats: no CPM ever printed; media cost stays off this slab; the
+         app count stays a floor. -->
     <div class="impact mt3" data-rise>
       <div class="impact__main">
         <div class="impact__stat">
           <span class="impact__n num">1.5M</span>
           <span class="impact__l">ad occurrences detected <b>per day</b><br>
             every category &middot; all 210 markets &middot; real costs attached</span>
+        </div>
+        <div class="impact__stat">
+          <span class="impact__n num">3.5M</span>
+          <span class="impact__l">streaming impressions <b>delivered per day</b><br>
+            our own political delivery, August 2026 &middot; served and logged &mdash;
+            not scraped from the public ad libraries</span>
         </div>
         <blockquote class="impact__q">
           <p>&ldquo;A Bloomberg console for campaigns.&rdquo;</p>
@@ -615,7 +627,8 @@
       </div>
       <div class="impact__row num">
         <span><b>40M</b> households on the glass</span>
-        <span><b>65M</b> smart-TV devices</span>
+        <span><b>98.0%</b> of our streaming spots watched to the last frame</span>
+        <span><b>608 of 608</b> days with streaming delivery</span>
         <span><b>Decade+</b> of history under every trend</span>
       </div>
     </div>
@@ -647,7 +660,7 @@
         <span><b class="num">17</b> Senate primaries in Axios&rsquo;s package</span>
       </div>
       <div class="btn-row mt2" style="justify-content:center">
-        <a class="btn btn--navy" href="assets/reports/kpi-2026-political-ad-forecast.pdf" target="_blank" rel="noopener">Download the 2026 forecast report</a>
+        <a class="btn btn--navy" href="https://kpipoliticalinsightsforecast.subscribepage.io/" target="_blank" rel="noopener">Download the 2026 forecast report</a>
         <a class="btn btn--outline" href="press.html">The newsroom</a>
       </div>
     </div>
