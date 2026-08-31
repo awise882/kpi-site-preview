@@ -505,3 +505,20 @@
     });
   }
 })();
+
+/* r98: the streaming pulse hydrates from assets/data/streaming-pulse.json so a
+   weekly refresh is one file edit. The HTML ships the current values, so a
+   failed or blocked fetch (single-file preview bundles) changes nothing. */
+(function () {
+  var band = document.querySelector('[data-pulse]');
+  if (!band || !window.fetch) return;
+  fetch('assets/data/streaming-pulse.json').then(function (r) {
+    return r.ok ? r.json() : null;
+  }).then(function (d) {
+    if (!d) return;
+    Array.prototype.forEach.call(band.querySelectorAll('[data-p]'), function (el) {
+      var v = d[el.getAttribute('data-p')];
+      if (typeof v === 'string' && v) el.textContent = v.replace(/ – /g, ' \u2013 ');
+    });
+  }).catch(function () { /* static values stand */ });
+})();
