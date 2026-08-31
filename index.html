@@ -26,7 +26,19 @@
   .hero-banner .chip--lime { margin-right: .6rem; font-size: .74rem; padding: .3rem .7rem; }
   .hero-banner b.num { color: var(--navy-deep); font-size: 1.05em; }
   .hero-banner a { color: var(--navy); font-weight: 600; }
-  .hero-banner a::after { content: " \2192"; }
+  .hero-banner a::after { content: "\00a0\2192"; }
+  .curtain { background: var(--navy-deep); border-radius: var(--r-lg); padding: 2rem 2.2rem; position: relative; overflow: hidden; }
+  .curtain::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 3px;
+    background: linear-gradient(90deg, var(--navy), #00ACC1 55%, var(--lime)); }
+  .curtain__k { font-family: var(--label); text-transform: uppercase; letter-spacing: .14em;
+    font-size: .72rem; font-weight: 700; color: #9FBFD6; margin: 0 0 .5rem; }
+  .curtain__h { color: #fff; font-family: var(--display); font-weight: 400; font-size: clamp(1.7rem, 3vw, 2.4rem); margin: 0 0 .6rem; }
+  .curtain__p { color: #C7D9E6; font-size: .97rem; line-height: 1.6; max-width: 66ch; margin: 0; }
+  .curtain__p b { color: #fff; }
+  .curtain__go { margin: .9rem 0 0; }
+  .curtain__go a { color: var(--lime); font-weight: 600; text-decoration: none; }
+  .curtain__go a:hover { text-decoration: underline; }
+  @media (max-width: 640px) { .curtain { padding: 1.5rem 1.2rem; } .hero .btn-row { flex-direction: column; } .hero .btn--lime { order: -1; } }
   .hero-banner__in--dual { display: grid; justify-items: center;
     align-items: baseline; gap: .3rem 2.6rem; text-align: center; }
   .hero-banner__in--dual a { display: inline-flex; align-items: baseline; gap: .15rem;
@@ -342,6 +354,7 @@
       <img src="assets/img/kpi-logo.png" alt="Kinetiq Political Insights">
     </a>
     <ul class="nav__links">
+      <li class="nav__item nav__home"><a href="index.html" aria-current="page">Home</a></li>
       <li class="nav__item"><a href="monitoring.html">Monitoring</a>
         <div class="nav__drop" aria-label="Section shortcuts">
           <a href="monitoring.html#alert-demo">Creative alerts</a>
@@ -406,7 +419,7 @@
       <span class="ht__l" data-t="Political Ad Intelligence">Political Ad Intelligence</span><br>
       <span class="ht__l ht__l--accent" data-t="Platform">Platform</span>
     </h1>
-    <p class="hero-receipt"><span>All 210 markets</span><i class="hr-sep" aria-hidden="true">&middot;</i><span>1.5M ad airings per day</span><i class="hr-sep" aria-hidden="true">&middot;</i><span>A third of political TV now streams &mdash; measured</span><i class="hr-sep" aria-hidden="true">&middot;</i><span>A decade+ of history</span></p>
+    <p class="hero-receipt"><span>All 210 markets</span><i class="hr-sep" aria-hidden="true">&middot;</i><span>1.5M ad airings per day</span><i class="hr-sep" aria-hidden="true">&middot;</i><span><a href="monitoring.html#streaming-spend" style="color:inherit;text-decoration:none">A third of political TV now streams &mdash; measured</a></span><i class="hr-sep" aria-hidden="true">&middot;</i><span>A decade+ of history</span></p>
     <p class="lede">KPI tracks political ads and the money behind them &mdash; on TV,
       cable, radio and streaming, in every U.S. media market, near real time. When
       the other side moves, you know the same morning.</p>
@@ -414,6 +427,8 @@
       <a class="btn btn--navy btn--lg" href="week.html">Walk a week with it</a>
       <a class="btn btn--lime btn--lg" href="contact.html">Request a demo</a>
     </div>
+    <p class="small" style="margin-top:.55rem;color:var(--ink-3)">The walk: a buyer&rsquo;s
+      Monday-to-Friday, then the seller&rsquo;s &mdash; real artifacts, hour by hour.</p>
 
     <!-- The mobile hero's proof: a two-race glimpse of the scoreboard, matching the
          platform recreation's rows. Shown under 641px only; desktop keeps the type. -->
@@ -461,11 +476,22 @@
          keep a seat; volume and quality figures only, no first-person delivery. -->
     <div class="stats stats--6 mt3" data-rise>
       <div class="stat"><div class="stat__v num">1.5M</div><div class="stat__l">Ad occurrences detected per day &mdash; every category, real costs attached</div></div>
-      <div class="stat"><div class="stat__v num">&#8531;</div><div class="stat__l">Of measured political TV ad impressions are streaming</div></div>
+      <div class="stat"><div class="stat__v num">1 in 3</div><div class="stat__l">Measured political TV ad impressions run on streaming</div></div>
       <div class="stat"><div class="stat__v num">40M</div><div class="stat__l">Households measuring streaming on the glass</div></div>
       <div class="stat"><div class="stat__v num">220M+</div><div class="stat__l">Political streaming ad impressions measured in one week</div></div>
       <div class="stat"><div class="stat__v num">210</div><div class="stat__l">U.S. media markets, all of them</div></div>
       <div class="stat"><div class="stat__v num">Decade+</div><div class="stat__l">Of history under every trend</div></div>
+    </div>
+
+    <div class="curtain mt3" data-rise>
+      <p class="curtain__k">Streaming &middot; the third everyone else misses</p>
+      <h3 class="curtain__h">See behind the curtain.</h3>
+      <p class="curtain__p">Transparency reports and public ad libraries end where streaming
+        begins &mdash; and a third of measured political TV ad impressions now run there.
+        We measure that third on the TV glass itself, app by app, in 40 million homes,
+        through our VideoAmp partnership &mdash; <b>220M+</b> political streaming ad
+        impressions measured in one summer week.</p>
+      <p class="curtain__go"><a href="monitoring.html#streaming-spend">How streaming is measured &rarr;</a></p>
     </div>
 
     <div class="built mt3" data-rise>
@@ -539,6 +565,9 @@
       <h2>The whole air war,<br>on one screen.</h2>
       <p class="lede">Detection to decision to delivery &mdash; the glimpses below are
         boards subscribers pull today, not mockups of a roadmap.</p>
+      <p class="small" style="margin-top:.5rem;max-width:64ch">Read it like the morning: the
+        alert, the tape, the break &mdash; then the boards and the rates &mdash; then ask
+        Baker, the assistant in every seat. The dashed corner is the polling desk.</p>
     </div>
   </div>
   <div class="kw__stage">
@@ -562,11 +591,11 @@
       </div>
       <div class="kw__c kw__c--pod">
         <span class="kw__k">The commercial break &middot; WQZL &middot; 6:14 PM</span>
-        <span class="kw__podrow num"><i>1</i>Auto dealer &middot; :30</span>
+        <span class="kw__podrow num"><i>1</i>Citizens for Fair Elections &middot; :30</span>
         <span class="kw__podrow kw__podrow--hi num"><i>2</i>&ldquo;First Light&rdquo; &middot; Heartland Priorities &middot; :30</span>
-        <span class="kw__podrow num"><i>3</i>Retail &middot; :15</span>
-        <span class="kw__podrow kw__podrow--you num"><i>4</i>Your spot &middot; :30</span>
-        <span class="kw__m">the whole pod &mdash; who ran beside you in the break</span>
+
+        <span class="kw__podrow kw__podrow--you num"><i>3</i>Your spot &middot; :30</span>
+        <span class="kw__m">the break&rsquo;s political spots, in air order &mdash; who ran beside you</span>
       </div>
       <div class="kw__c kw__c--score">
         <span class="kw__k">Scoreboard &middot; North River Governor</span>
@@ -584,7 +613,7 @@
       </div>
       <div class="kw__c kw__c--stream">
         <span class="kw__k"><i class="kw__dot"></i>Streaming &middot; caught on the apps</span>
-        <b>Captured on Hulu &middot; broadcast airings: 0</b>
+        <b>Captured on Hulu &mdash; days before broadcast</b>
         <span class="kw__m">eight days before it touched a transmitter &middot; 100% of what runs on the measured glass, caught</span>
       </div>
       <div class="kw__c kw__c--book">
@@ -605,7 +634,7 @@
         <span class="kw__m">the filed rate &mdash; and the check that no one pays less than you</span>
       </div>
       <div class="kw__c kw__c--baker">
-        <span class="kw__k"><i class="kw__dot"></i>Ask Baker</span>
+        <span class="kw__k"><i class="kw__dot"></i>Ask Baker &middot; the assistant in every seat</span>
         <b>&ldquo;What did the other side book this morning?&rdquo;</b>
         <span class="kw__a"><i>Baker</i>Ellery for Senate added <b class="num">$180K</b> on WZQV,
           Cleveland &mdash; early news + prime, posted 7:02 AM. Flight opens Sep 7.</span>
@@ -615,7 +644,7 @@
       <div class="kw__c kw__c--op">
         <span class="kw__k">Tracked &middot; wave over wave</span>
         <b>Data centers: support &minus;7 since June</b>
-        <span class="kw__m">three waves banked &middot; n printed on the board</span>
+        <span class="kw__m">three waves banked &middot; sample size printed on the board</span>
       </div>
       <div class="kw__c kw__c--op2">
         <span class="kw__k">Ask your own</span>

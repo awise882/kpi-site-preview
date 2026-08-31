@@ -487,7 +487,7 @@
     btn.hidden = false;
     var note = [
       'THE BOOK - MORNING VIEW - posted thru Aug 30, 2026',
-      'North River Senate: +$180K posted overnight (Ellery, WZQV Cleveland, opens Sep 7); Heartland Priorities PAC\'s :30 "First Light" runs Hulu-only, 0 broadcast airings. Aired $5.5M / booked fwd $1.7M.',
+      'North River Senate: +$180K posted overnight (Ellery, WZQV Cleveland, opens Sep 7); Heartland Priorities PAC\'s :30 "First Light" runs Hulu-only, not yet on broadcast. Aired $5.5M / booked fwd $1.7M.',
       'Midstate Attorney General: +$3.3M this week; challenger side leads aired 60/40. Aired $16.0M / booked fwd $13.2M.',
       'North River Governor: +$1.8M booked forward, two weeks out. Aired $9.6M / booked fwd $4.5M.',
       'Granite Senate primary: WENT DARK overnight; remaining booked dollars pulled.',
