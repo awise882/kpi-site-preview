@@ -35,6 +35,10 @@
     white-space: nowrap; }
   .sx-row:hover .sx-ask, .sx-row:focus-within .sx-ask { opacity: 1; }
   @media (hover: none) { .sx-row .sx-ask { display: none; } }
+  /* r109 (round 6, conversion judge): the mail button reads truly disabled at
+     zero picked, then snaps to lime as the progress reward. */
+  #sx-email[aria-disabled="true"] { background: var(--rule); border-color: var(--rule);
+    color: var(--ink-3); opacity: 1; }
   /* Explorer controls get thumb-sized targets on a phone. */
   @media (max-width: 999px) {
     .sx-add { width: 44px; height: 44px; font-size: 1.25rem; }
