@@ -454,3 +454,64 @@
   window.addEventListener('load', kick);
   frame();
 })();
+
+/* r88b: the platform board deck. The rail is in the HTML, hidden JS-off; this
+   only ADDS the collapsed one-board-at-a-time view. Any deep link into a panel
+   (every existing #scoreboard/#creative-matrix/#buy-sheet/#creative-explorer
+   link on the site) routes to its tab and the deck opens on it. */
+(function () {
+  var pb = document.querySelector('[data-pb]');
+  if (!pb) return;
+  var tabs = Array.prototype.slice.call(pb.querySelectorAll('.pb__tab'));
+  var panels = Array.prototype.slice.call(pb.querySelectorAll('.pb__panel'));
+  if (!tabs.length || !panels.length) return;
+  pb.classList.add('pb--live');
+  function activate(tab, focus) {
+    tabs.forEach(function (t) {
+      var on = t === tab;
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+      t.tabIndex = on ? 0 : -1;
+    });
+    panels.forEach(function (p) {
+      if (p.id === tab.getAttribute('aria-controls')) p.removeAttribute('hidden');
+      else p.setAttribute('hidden', '');
+    });
+    if (focus) tab.focus();
+  }
+  tabs.forEach(function (t, i) {
+    t.addEventListener('click', function () { activate(t); });
+    t.addEventListener('keydown', function (e) {
+      var d = (e.key === 'ArrowRight' || e.key === 'ArrowDown') ? 1
+            : (e.key === 'ArrowLeft' || e.key === 'ArrowUp') ? -1 : 0;
+      if (!d) return;
+      e.preventDefault();
+      activate(tabs[(i + d + tabs.length) % tabs.length], true);
+    });
+  });
+  function tabForHash() {
+    if (!location.hash || location.hash.length < 2) return null;
+    var el = null;
+    try { el = document.getElementById(location.hash.slice(1)); } catch (e) { return null; }
+    if (!el) return null;
+    var panel = el.closest ? el.closest('.pb__panel') : null;
+    if (!panel) return null;
+    for (var i = 0; i < tabs.length; i++) {
+      if (tabs[i].getAttribute('aria-controls') === panel.id) return tabs[i];
+    }
+    return null;
+  }
+  var init = tabForHash();
+  activate(init || tabs[0]);
+  if (init) {
+    /* Land on the deck head, not the panel body: the reader sees which board
+       they are on. Runs again after load because the browser's own late
+       hash-jump wins over an early rAF. */
+    var land = function () { pb.scrollIntoView(true); };
+    requestAnimationFrame(land);
+    window.addEventListener('load', function () { setTimeout(land, 60); });
+  }
+  window.addEventListener('hashchange', function () {
+    var t = tabForHash();
+    if (t) { activate(t); pb.scrollIntoView(true); }
+  });
+})();
