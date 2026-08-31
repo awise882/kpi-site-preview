@@ -1294,7 +1294,7 @@ a.chip:hover { border-color: var(--blue); color: var(--navy); background: var(--
    MEASURE -> TARGET -> DECIDE, with Baker as the ask-anything strip across
    all four. Fully static; the arrows are characters, nothing moves. */
 .lmap { max-width: 1080px; margin-inline: auto; }
-.lmap__rail { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr; gap: 1.1rem; }
+.lmap__rail { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr; gap: 1.1rem; align-items: start; }
 /* R72: punched up — the keyline, a claim that leads, chips as solid pills,
    and the layer's number at display weight. */
 .lmap__layer { position: relative; background: var(--white); border: 1px solid var(--rule); border-radius: var(--r-lg); padding: 1.15rem 1.15rem 1.05rem; overflow: hidden; box-shadow: 0 1px 2px rgba(13,46,74,.06), 0 10px 26px rgba(13,46,74,.09); }
@@ -1712,6 +1712,7 @@ a.chip:hover { border-color: var(--blue); color: var(--navy); background: var(--
   .tl__p { margin: 0 0 .8rem; font-size: .88rem; line-height: 1.5; color: var(--ink-2); }
   .tl__doc { box-shadow: none; }
   .tl__mo--end { background: var(--navy-deep); border-color: var(--navy-deep); }
+  @media (max-width: 700px) { .tl__mo--end { height: auto; min-height: 0; } }
   .tl__mo--end .tl__h { color: #fff; }
   .tl__mo--end .tl__p { color: #BDD2E2; }
   .tl__mo--end .tl__mon { background: transparent; color: var(--lime); border-color: rgba(255,255,255,.3); }
