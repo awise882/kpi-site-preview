@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r88b">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r89">
 <style>
   /* Light, centered, airy hero, same standard as the home page: display headline
      in the green-to-teal gradient with the layered offset, the lede, two buttons,
@@ -220,7 +220,8 @@
   .mxs__steps { list-style: none; display: grid; grid-template-columns: repeat(5, 1fr);
     gap: .6rem; margin: .75rem 0 .9rem; padding: 0; }
   .mxs__step { font-size: .8rem; line-height: 1.4; color: var(--ink-2); padding-top: .45rem; }
-  .mxs__step b { display: block; font-family: var(--label); font-size: .74rem; font-weight: 700;
+  .mxs__step b { display: block; font-family: var(--sans); font-size: 1.02rem; font-weight: 800;
+    letter-spacing: -.015em; margin-bottom: .18rem;
     letter-spacing: .09em; text-transform: uppercase; margin-bottom: .15rem; }
   .mxs__step--a { border-top: 2.5px solid #00ACC1; } .mxs__step--a b { color: #007A8A; }
   .mxs__step--b { border-top: 2.5px solid #1F6E96; } .mxs__step--b b { color: #1F6E96; }
@@ -385,12 +386,9 @@
       <span class="ht__l" data-t="The Poll That">The Poll That</span><br>
       <span class="ht__l ht__l--accent" data-t="Never Closes">Never Closes</span>
     </h1>
-    <p class="lede">Through our CivicScience partnership: more than <span class="num w-measured">10,000</span> always-on
-      questions in the field, over <span class="num w-measured">1 million</span> answers per day coming back
-      &mdash; <span class="num w-measured">10.2 billion</span> banked across 14 years &mdash; and
-      <span class="num w-measured">165 million</span> U.S. consumer profiles underneath. Ask what your race needs to
-      know, build the audience from the answers, put it on the air. Then ask again
-      &mdash; the questions never leave the field.</p>
+    <p class="lede">Through our CivicScience partnership, the questions never leave the
+      field. Ask what your race needs to know, build the audience from the answers, put
+      it on the air &mdash; then ask again.</p>
     <div class="btn-row">
       <a class="btn btn--navy btn--lg" href="questions.html">Search the question library</a>
       <a class="btn btn--outline btn--lg" href="contact.html">Request a demo</a>
@@ -405,35 +403,8 @@
     <div class="stamp" style="text-align:left"><b>Source</b> CivicScience partner-published figures, as
       of August 2026. A profile is a survey-answering record, not a verified person.</div>
 
-    <!-- Ruling 49b: the low-friction ask. Email only, wired to the same /api/contact
-         with the subject prefilled; mailto is the fallback and the no-JS action. -->
-    <form class="mini-ask" id="seg-ask" method="post" enctype="text/plain"
-          action="mailto:info@kpipolitical.com?subject=Send%20the%2048-segment%20list">
-      <label class="mini-ask__lab" for="seg-email"><b>Want the 48 curated political segments?</b>
-        Email only; the list comes back, no call attached &mdash; and it names every
-        segment with the questions that build it, the same way the example builds
-        further down this page are named.</label>
-      <div class="mini-ask__row">
-        <input type="email" id="seg-email" name="email" required autocomplete="email" maxlength="150"
-               placeholder="you@yourfirm.com" aria-label="Work email for the 48-segment list">
-        <button class="btn btn--navy" type="submit">Send me the 48-segment list</button>
-      </div>
-      <p class="mini-ask__status" id="seg-status" role="status" aria-live="polite" hidden></p>
-    </form>
-  </div>
-</header>
-
-<!-- ============ THE LOOP ============ -->
-<section class="section section--tint" id="loop">
-  <div class="wrap">
-    <div class="center" style="margin-bottom:2.4rem" data-rise>
-      <p class="eyebrow eyebrow--plain" style="justify-content:center"><span class="folio">01</span>The loop</p>
-      <h2>One loop, run for the life of the flight.</h2>
-      <p class="lede">Most polling is a report that arrives after the argument. This one
-        stays in the field. Stations 1&ndash;4 unfold scene by scene just below &mdash; what
-        the loop adds is the way back: read the delivery, ask again, shift the buy.</p>
-    </div>
-
+    <!-- r89 (Adam): the loop lives in the hero — the page opens on the machine
+         itself, then drills. -->
     <!-- Ruling 52c: the loop drawn as a loop. The ring is the content; the old card
          paragraphs demote to the fine print below. All six stations are visible with
          JS off and motion off; the only motion is the walking highlight on the
@@ -486,6 +457,128 @@
       <p class="ring__again" aria-hidden="true">&#8635; and back to step 1: the question returns to the field.</p>
     </div>
 
+
+  </div>
+</header>
+
+<!-- ============ THE LOOP ============ -->
+<section class="section section--tint" id="loop">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:2.4rem" data-rise>
+      <p class="eyebrow eyebrow--plain" style="justify-content:center"><span class="folio">01</span>The field, live</p>
+      <h2>Ask. Hear back. Ask again. It never closes.</h2>
+      <p class="lede">Most polling is a report that arrives after the argument. This one
+        stays in the field &mdash; here it is, running.</p>
+    </div>
+
+    <!-- r85 (Adam, 8/29): "the feeling you wanna have is never ending possibilities…
+         bubble popping up question answer question question question, different kinds
+         of questions, different kinds of targeting." A dark stage where the field never
+         stops: question bubbles keep surfacing, answers land, audiences ship — CSS-only,
+         two bubbles per slot trading places on a 14s loop. Reduced-motion and JS-off:
+         the first bubble of every slot shows static. Wordings marked ● are the site's
+         canon QIDs; the rest are the kinds of questions the library carries. -->
+    <div class="qf-stage" data-rise>
+      <div class="qf">
+        <div class="qf__head">
+          <p class="qf__sub">10,000+ questions always on &middot; over 1 million answers landing
+            a day &middot; a new audience possible every time one moves &mdash; nationally, in
+            one state, or inside a single congressional district. Not in the field yet?
+            We write it, and it fields in days.</p>
+        </div>
+        <div class="qf__grid" aria-hidden="true">
+          <div class="qf__slot"><span class="qf__b qf__b--q qf__b--keep">&ldquo;Which of the following best describes your political leanings?&rdquo;<i>QID 494 &middot; always on</i></span><span class="qf__b qf__b--aud">Streaming-only households, by county<i>audience &rarr; deal ID</i></span></div>
+          <div class="qf__slot"><span class="qf__b qf__b--a qf__b--keep">Answers landing now<i>over 1M land network-wide today</i></span><span class="qf__b qf__b--q">&ldquo;How do you receive television service?&rdquo;<i>QID 1516 &middot; always on</i></span></div>
+          <div class="qf__slot"><span class="qf__b qf__b--q qf__b--keep">&ldquo;Should your county approve new data centers?&rdquo;<i>QID 9918 &middot; three waves banked</i></span><span class="qf__b qf__b--cus">Your ballot test, written this week<i>custom &middot; invisible to the other side</i></span></div>
+          <div class="qf__slot"><span class="qf__b qf__b--aud qf__b--keep">Persuadable on the economy, undecided Senate<i>audience &rarr; deal ID</i></span><span class="qf__b qf__b--q">Favorability, tracked wave over wave<i>ask again &middot; every wave banks</i></span></div>
+          <div class="qf__slot"><span class="qf__b qf__b--q qf__b--keep">Grocery prices, top concern or not<i>issue salience &middot; always on</i></span><span class="qf__b qf__b--a">A question moved overnight<i>the audience rebuilds itself</i></span></div>
+          <div class="qf__slot"><span class="qf__b qf__b--cus qf__b--keep">School funding, asked only in your district<i>custom &middot; one CD &middot; fields in days</i></span><span class="qf__b qf__b--aud">Early voters who split tickets<i>audience &rarr; deal ID</i></span></div>
+          <div class="qf__slot"><span class="qf__b qf__b--q qf__b--keep">News habits: where they actually hear it<i>media &middot; always on</i></span><span class="qf__b qf__b--q">Broadband, utilities, land use<i>local issues &middot; always on</i></span></div>
+          <div class="qf__slot"><span class="qf__b qf__b--aud qf__b--keep">Veterans&rsquo; households, message-tested<i>audience &rarr; deal ID</i></span><span class="qf__b qf__b--cus">The attack you expect next week, pre-tested<i>custom &middot; yours alone</i></span></div>
+          <div class="qf__slot"><span class="qf__b qf__b--q qf__b--keep">Early, by mail, or on Election Day?<i>turnout &middot; always on</i></span><span class="qf__b qf__b--aud">Mail-ballot households, by DMA<i>audience &rarr; deal ID</i></span></div>
+          <div class="qf__slot"><span class="qf__b qf__b--a qf__b--keep">Support moved four points overnight<i>the audience rebuilt itself by morning</i></span><span class="qf__b qf__b--q">Property taxes: too high, or about right?<i>issue salience &middot; always on</i></span></div>
+          <div class="qf__slot"><span class="qf__b qf__b--aud qf__b--keep">412,000 devices matched<i>composition read attached</i></span><span class="qf__b qf__b--q">Where do you actually get local news?<i>media &middot; always on</i></span></div>
+          <div class="qf__slot"><span class="qf__b qf__b--cus qf__b--keep">Your issue, asked in one district only<i>custom &middot; one CD &middot; fields in days</i></span><span class="qf__b qf__b--a">New wave banked &mdash; ask again<i>every wave banks</i></span></div>
+        </div>
+        <p class="qf__foot">Wordings with a QID are in the library today &middot; the rest are the kinds
+          of questions it carries &middot; every one can become an audience, and every audience ships
+          as a deal ID</p>
+      </div>
+    </div>
+
+    <style>
+      .qf-stage { margin: 0 0 3rem; }
+      .qf { position: relative; background: var(--navy-ink, #08243B); border-radius: var(--r-lg);
+        padding: clamp(1.4rem, 3vw, 2.4rem) clamp(1.2rem, 3vw, 2.4rem) 1.2rem; overflow: hidden; }
+      .qf::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 3px;
+        background: linear-gradient(90deg, var(--navy) 0%, #00ACC1 55%, var(--lime) 100%); }
+      .qf__k { font-family: var(--label); text-transform: uppercase; letter-spacing: .16em;
+        font-size: .68rem; font-weight: 800; color: var(--lime); }
+      .qf__h { font-family: var(--display); color: #fff; font-size: clamp(1.5rem, 2.6vw, 2.1rem);
+        margin-top: .45rem; letter-spacing: -.01em; }
+      .qf__sub { color: #B9CFDF; font-size: .95rem; max-width: 62ch; margin-top: .55rem; line-height: 1.6; }
+      .qf__grid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: .7rem;
+        margin-top: 1.5rem; }
+      .qf__slot { position: relative; min-height: 96px; }
+      .qf__b { position: absolute; inset: 0; display: flex; flex-direction: column;
+        justify-content: center; gap: .3rem; padding: .7rem .8rem; border-radius: 10px;
+        font-size: .82rem; font-weight: 650; line-height: 1.35; opacity: 0; }
+      .qf__b i { font-style: normal; font-family: var(--label); font-weight: 700;
+        text-transform: uppercase; letter-spacing: .09em; font-size: .58rem; opacity: .75; }
+      .qf__b--q { background: #fff; color: var(--navy-deep); }
+      .qf__b--q i { color: var(--blue-text); opacity: 1; }
+      .qf__b--a { background: rgba(168,209,78,.14); border: 1px solid rgba(168,209,78,.55);
+        color: #E4F3C8; }
+      .qf__b--a i { color: var(--lime); opacity: 1; }
+      .qf__b--aud { background: rgba(0,172,193,.13); border: 1px solid rgba(0,172,193,.5);
+        color: #CDEDF2; }
+      .qf__b--aud i { color: #6FD3E0; opacity: 1; }
+      .qf__b--cus { background: transparent; border: 1.5px dashed rgba(168,209,78,.55); color: #DDEBC9; }
+      .qf__b--cus i { color: var(--lime); opacity: 1; }
+      .qf__foot { margin-top: 1.2rem; border-top: 1px solid rgba(255,255,255,.14);
+        padding-top: .7rem; font-size: .74rem; color: #8FA9BE; line-height: 1.55; }
+      /* r88: faster, denser — twelve slots, a pop every three-quarters of a second
+         somewhere on the wall, nine-second cycles. Never-ending is the point. */
+      @media (prefers-reduced-motion: no-preference) {
+        .qf__b { animation: qf-pop 9s infinite; }
+        .qf__b:nth-child(2) { animation-delay: 4.5s; }
+        .qf__slot:nth-child(2) .qf__b { animation-delay: 0.4s; } .qf__slot:nth-child(2) .qf__b:nth-child(2) { animation-delay: 4.9s; }
+        .qf__slot:nth-child(3) .qf__b { animation-delay: 0.8s; } .qf__slot:nth-child(3) .qf__b:nth-child(2) { animation-delay: 5.3s; }
+        .qf__slot:nth-child(4) .qf__b { animation-delay: 1.2s; } .qf__slot:nth-child(4) .qf__b:nth-child(2) { animation-delay: 5.7s; }
+        .qf__slot:nth-child(5) .qf__b { animation-delay: 1.6s; } .qf__slot:nth-child(5) .qf__b:nth-child(2) { animation-delay: 6.1s; }
+        .qf__slot:nth-child(6) .qf__b { animation-delay: 2.0s; } .qf__slot:nth-child(6) .qf__b:nth-child(2) { animation-delay: 6.5s; }
+        .qf__slot:nth-child(7) .qf__b { animation-delay: 2.4s; } .qf__slot:nth-child(7) .qf__b:nth-child(2) { animation-delay: 6.9s; }
+        .qf__slot:nth-child(8) .qf__b { animation-delay: 2.8s; } .qf__slot:nth-child(8) .qf__b:nth-child(2) { animation-delay: 7.3s; }
+        .qf__slot:nth-child(9) .qf__b { animation-delay: 3.2s; } .qf__slot:nth-child(9) .qf__b:nth-child(2) { animation-delay: 7.7s; }
+        .qf__slot:nth-child(10) .qf__b { animation-delay: 3.6s; } .qf__slot:nth-child(10) .qf__b:nth-child(2) { animation-delay: 8.1s; }
+        .qf__slot:nth-child(11) .qf__b { animation-delay: 4.0s; } .qf__slot:nth-child(11) .qf__b:nth-child(2) { animation-delay: 8.5s; }
+        .qf__slot:nth-child(12) .qf__b { animation-delay: 4.4s; } .qf__slot:nth-child(12) .qf__b:nth-child(2) { animation-delay: 8.9s; }
+      }
+      @keyframes qf-pop {
+        0% { opacity: 0; transform: translateY(9px) scale(.96); }
+        3.5% { opacity: 1; transform: none; }
+        46% { opacity: 1; transform: none; }
+        50%, 100% { opacity: 0; transform: translateY(-6px) scale(.98); }
+      }
+      /* Reduced motion (and anything that can't run the loop): the first bubble of each
+         slot holds static — a full, quiet wall. */
+      @media (prefers-reduced-motion: reduce) {
+        .qf__b--keep { opacity: 1; position: relative; inset: auto; }
+        .qf__b:not(.qf__b--keep) { display: none; }
+        .qf__slot { min-height: 0; }
+      }
+      @media (max-width: 880px) {
+        .qf__grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+        .qf__slot:nth-child(n+11) { display: none; }
+      }
+      @media (max-width: 560px) {
+        .qf__slot { min-height: 108px; }
+        .qf__b { font-size: .78rem; }
+      }
+    </style>
+
+
+
     <!-- Ruling 52c: the demoted card detail, small print, definitions intact. -->
     <p class="small ring__fine">The details: activation lands as a private-marketplace
       deal ID, your seat or ours, and managed service is optional, never required. Run
@@ -503,119 +596,7 @@
      path, and the audience landing as a deal ID in the buyer's own seat. Scenes
      are fully readable with JS off and motion off; the one pinned scene (the
      matrix) is CSS scroll-driven and never captures the wheel. -->
-<section class="section" id="tracking">
-  <div class="wrap">
-    <div class="center" style="margin-bottom:2rem" data-rise>
-      <p class="eyebrow eyebrow--plain" style="justify-content:center">Tracking</p>
-      <h2>The loop, run three times.</h2>
-      <p class="lede" style="margin-inline:auto">Same wording, same panel, re-fielded &mdash;
-        favorability and the ballot for a campaign, an issue for a public-affairs fight.
-        Synthetic examples.</p>
-    </div>
 
-    <div class="rc-track" data-rise>
-      <div class="rct-bar"><span class="rct-dot"></span><b>KPI &middot; Tracked questions &middot; North River Senate</b><span class="rct-tag">Synthetic example</span><span class="rct-stamp">WAVES: JUN 12 &middot; JUL 24 &middot; AUG 27, 2026 &middot; n = 1,150 PER WAVE</span></div>
-      <div class="rct-panels">
-        <div class="rct-panel">
-          <h3 class="rct-h">FAVORABILITY &middot; NORA HALE (D)</h3>
-          <div class="rct-waves" aria-hidden="true"><span></span><span></span><i>JUN</i><i>JUL</i><i>AUG</i><span></span></div>
-          <div class="rct-row"><span class="rct-l">Favorable</span><svg class="rct-spark" viewBox="0 0 60 20" aria-hidden="true"><polyline points="4,15 30,9 56,4" fill="none" stroke="#4F7A25" stroke-width="2.2" stroke-linecap="round"/></svg><b>41</b><b>44</b><b>46</b><span class="rct-d rct-up">+5</span></div>
-          <div class="rct-row"><span class="rct-l">Unfavorable</span><svg class="rct-spark" viewBox="0 0 60 20" aria-hidden="true"><polyline points="4,10 30,8 56,10" fill="none" stroke="#8296A8" stroke-width="2.2" stroke-linecap="round"/></svg><b>38</b><b>39</b><b>38</b><span class="rct-d">0</span></div>
-          <div class="rct-row rct-net"><span class="rct-l">Net</span><span></span><b>+3</b><b>+5</b><b>+8</b><span class="rct-d rct-up">&#9650;</span></div>
-        </div>
-        <div class="rct-panel">
-          <h3 class="rct-h">THE BALLOT &middot; HALE vs ELLERY</h3>
-          <div class="rct-waves" aria-hidden="true"><span></span><span></span><i>JUN</i><i>JUL</i><i>AUG</i><span></span></div>
-          <div class="rct-row"><span class="rct-l rct-dem">Hale (D)</span><svg class="rct-spark" viewBox="0 0 60 20" aria-hidden="true"><polyline points="4,14 30,11 56,5" fill="none" stroke="#3B66A0" stroke-width="2.2" stroke-linecap="round"/></svg><b>44</b><b>45</b><b>47</b><span class="rct-d rct-up">+3</span></div>
-          <div class="rct-row"><span class="rct-l rct-rep">Ellery (R)</span><svg class="rct-spark" viewBox="0 0 60 20" aria-hidden="true"><polyline points="4,6 30,9 56,13" fill="none" stroke="#B32626" stroke-width="2.2" stroke-linecap="round"/></svg><b>43</b><b>42</b><b>41</b><span class="rct-d rct-dn">&minus;2</span></div>
-          <div class="rct-row"><span class="rct-l">Unsure</span><svg class="rct-spark" viewBox="0 0 60 20" aria-hidden="true"><polyline points="4,8 30,8 56,11" fill="none" stroke="#8296A8" stroke-width="2.2" stroke-linecap="round"/></svg><b>13</b><b>13</b><b>12</b><span class="rct-d">&minus;1</span></div>
-        </div>
-      </div>
-      <p class="rct-foot">The same question, re-fielded on the always-on panel &mdash; each wave reads the day it closes, and exports with its dates.</p>
-    </div>
-
-    <div class="rc-track mt2" data-rise>
-      <div class="rct-bar"><span class="rct-dot"></span><b>KPI &middot; Issue tracker &middot; Data centers &middot; Ohio</b><span class="rct-tag">Synthetic example</span><span class="rct-stamp">CUSTOM QUESTION &middot; STOOD UP JUN 2026 &middot; 3 WAVES</span></div>
-      <div class="rct-panels">
-        <div class="rct-panel">
-          <h3 class="rct-h">&ldquo;SHOULD YOUR COUNTY APPROVE NEW DATA CENTERS?&rdquo;</h3>
-          <div class="rct-waves" aria-hidden="true"><span></span><span></span><i>JUN</i><i>JUL</i><i>AUG</i><span></span></div>
-          <div class="rct-row"><span class="rct-l rct-sup">Support</span><svg class="rct-spark" viewBox="0 0 60 20" aria-hidden="true"><polyline points="4,5 30,9 56,14" fill="none" stroke="#4F7A25" stroke-width="2.2" stroke-linecap="round"/></svg><b>54</b><b>51</b><b>47</b><span class="rct-d rct-dn">&minus;7</span></div>
-          <div class="rct-row"><span class="rct-l rct-opp">Oppose</span><svg class="rct-spark" viewBox="0 0 60 20" aria-hidden="true"><polyline points="4,15 30,10 56,5" fill="none" stroke="#A94442" stroke-width="2.2" stroke-linecap="round"/></svg><b>28</b><b>33</b><b>38</b><span class="rct-d rct-up">+10</span></div>
-          <div class="rct-row"><span class="rct-l">Unsure</span><svg class="rct-spark" viewBox="0 0 60 20" aria-hidden="true"><polyline points="4,8 30,10 56,11" fill="none" stroke="#8296A8" stroke-width="2.2" stroke-linecap="round"/></svg><b>18</b><b>16</b><b>15</b><span class="rct-d">&minus;3</span></div>
-        </div>
-        <div class="rct-panel">
-          <h3 class="rct-h">WHY IT MOVED</h3>
-          <ul class="rct-why">
-            <li><b>Beside the air war:</b> $2.1M of opposition TV landed in Columbus between
-              waves two and three &mdash; the dip is not a mystery. Ads and opinion, one dataset.</li>
-            <li><b>Where it moved:</b> support held at 58% with metro renters, fell to 39%
-              with rural homeowners &mdash; the fight is local.</li>
-            <li><b>Top concern:</b> electricity bills, 41% &mdash; ahead of water use and land.</li>
-          </ul>
-        </div>
-      </div>
-      <p class="rct-foot">For the coalition defending &mdash; or fighting &mdash; the build: the
-        argument&rsquo;s temperature wave over wave, beside the ads that moved it. Stand up the
-        question in days; every wave banks &mdash; a tracker like this is one of the two
-        questions that come with the media.</p>
-    </div>
-  </div>
-<style>
-.rc-track { max-width: 980px; margin-inline: auto; background: var(--white);
-  border: 1px solid var(--rule); border-radius: var(--r-lg); overflow: hidden;
-  box-shadow: 0 1px 2px rgba(13,46,74,.06), 0 10px 26px rgba(13,46,74,.09); }
-.rc-track::before { content: ""; display: block; height: 3px;
-  background: linear-gradient(90deg, var(--navy) 0%, #00ACC1 55%, var(--lime) 100%); }
-.rct-bar { display: flex; align-items: center; flex-wrap: wrap; gap: .5rem .7rem;
-  padding: .7rem 1rem; border-bottom: 1px solid var(--rule-soft); }
-.rct-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--lime); }
-.rct-bar b { font-family: var(--label); text-transform: uppercase; letter-spacing: .1em;
-  font-size: .68rem; font-weight: 800; color: var(--navy); }
-.rct-tag { font-family: var(--label); text-transform: uppercase; letter-spacing: .1em;
-  font-size: .56rem; font-weight: 700; color: var(--ink-3); border: 1px solid var(--rule);
-  padding: .14rem .4rem; }
-.rct-stamp { margin-left: auto; font-family: var(--mono); font-size: .62rem;
-  letter-spacing: .06em; color: var(--ink-3); font-variant-numeric: tabular-nums lining-nums; }
-.rct-panels { display: grid; grid-template-columns: 1fr 1fr; }
-.rct-panel { padding: 1rem 1.1rem 1.05rem; min-width: 0; }
-.rct-panel + .rct-panel { border-left: 1px solid var(--rule-soft); }
-.rct-h { font-family: var(--label); letter-spacing: .1em; font-size: .64rem; font-weight: 800;
-  color: var(--blue-text); margin-bottom: .55rem; }
-.rct-waves { display: grid; grid-template-columns: minmax(0,1.2fr) 64px 3rem 3rem 3rem 2.6rem;
-  gap: .5rem; font-family: var(--label); font-size: .54rem; font-weight: 800;
-  letter-spacing: .1em; color: var(--ink-3); padding-bottom: .3rem;
-  border-bottom: 1px solid var(--rule-soft); }
-.rct-waves i { font-style: normal; text-align: right; }
-.rct-row { display: grid; grid-template-columns: minmax(0,1.2fr) 64px 3rem 3rem 3rem 2.6rem;
-  gap: .5rem; align-items: center; padding: .5rem 0; border-bottom: 1px solid var(--rule-soft); }
-.rct-row:last-child { border-bottom: 0; }
-.rct-l { font-size: .84rem; font-weight: 650; color: var(--navy-deep); }
-.rct-dem { color: #3B66A0; } .rct-rep { color: #B32626; }
-.rct-sup { color: var(--lime-text); } .rct-opp { color: #A94442; }
-.rct-spark { width: 64px; height: 20px; }
-.rct-row b { font-family: var(--mono); font-size: .92rem; font-weight: 700;
-  color: var(--navy-deep); text-align: right; font-variant-numeric: tabular-nums lining-nums; }
-.rct-net b { font-weight: 800; }
-.rct-d { font-family: var(--mono); font-size: .72rem; font-weight: 800; text-align: right;
-  color: var(--ink-3); font-variant-numeric: tabular-nums lining-nums; }
-.rct-up { color: var(--lime-text); } .rct-dn { color: #A94442; }
-.rct-why { list-style: none; margin: 0; padding: 0; }
-.rct-why li { font-size: .84rem; line-height: 1.55; color: var(--ink-2); padding: .45rem 0;
-  border-bottom: 1px solid var(--rule-soft); }
-.rct-why li:last-child { border-bottom: 0; }
-.rct-why b { color: var(--navy-deep); }
-.rct-foot { margin: 0; padding: .65rem 1rem .8rem; border-top: 1px solid var(--rule-soft);
-  font-size: .78rem; color: var(--ink-3); }
-@media (max-width: 720px) {
-  .rct-panels { grid-template-columns: 1fr; }
-  .rct-panel + .rct-panel { border-left: 0; border-top: 1px solid var(--rule-soft); }
-  .rct-stamp { margin-left: 0; flex-basis: 100%; }
-  .rct-waves, .rct-row { grid-template-columns: minmax(0,1fr) 44px 2.4rem 2.4rem 2.4rem 2.2rem; gap: .35rem; }
-  .rct-spark { width: 44px; }
-}
-</style>
-</section>
 
 <section class="section" id="story">
   <div class="wrap">
@@ -693,11 +674,11 @@
               <span class="mxs__stamp">answers accrue daily &middot; figures as of Aug 2026</span>
             </div>
             <ol class="mxs__steps">
-              <li class="mxs__step mxs__step--a"><b>Step 1</b> One profile: a real person's answers, layering over months.</li>
-              <li class="mxs__step mxs__step--b"><b>Step 2</b> One question: everyone who answered it, dated.</li>
-              <li class="mxs__step mxs__step--c"><b>Step 3</b> Answered both &mdash; that intersection is the audience, declared.</li>
-              <li class="mxs__step mxs__step--d"><b>Step 4</b> Licensed attributes ride every profile: weighting and the ID match.</li>
-              <li class="mxs__step mxs__step--e"><b>Step 5</b> Need more reach? The extension is modeled &mdash; and always labeled.</li>
+              <li class="mxs__step mxs__step--a"><b>One person</b>Answers layering over months.</li>
+              <li class="mxs__step mxs__step--b"><b>One question</b>Everyone who answered it, dated.</li>
+              <li class="mxs__step mxs__step--c"><b>The audience</b>Answered both. Declared, not inferred.</li>
+              <li class="mxs__step mxs__step--d"><b>The match</b>Licensed attributes: weighting + ID.</li>
+              <li class="mxs__step mxs__step--e"><b>More reach</b>Modeled &mdash; always labeled.</li>
             </ol>
             <p class="mxs__hint small">Keep scrolling: each step draws on the grid below.</p>
             <svg class="mxs__svg" viewBox="0 0 1000 560" role="img" aria-labelledby="mxs-t mxs-d">
@@ -890,10 +871,6 @@
               your flight (any minimum, any data rate) are named in writing before the IO &middot; refresh cadence
               stated on the IO</span>
           </div>
-          <div class="btn-row mt2">
-            <a class="btn btn--navy" href="questions.html">Search the question library</a>
-            <a class="btn btn--outline" href="contact.html">Request a demo</a>
-          </div>
         </div>
       </article>
     </div>
@@ -902,10 +879,129 @@
 
 
 <!-- ============ TWO WAYS IN ============ -->
+<section class="section" id="tracking">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:2rem" data-rise>
+      <p class="eyebrow eyebrow--plain" style="justify-content:center"><span class="folio">03</span>Tracking</p>
+      <h2>The loop, run three times.</h2>
+      <p class="lede" style="margin-inline:auto">Same wording, same panel, re-fielded &mdash;
+        favorability and the ballot for a campaign, an issue for a public-affairs fight.
+        Synthetic examples.</p>
+    </div>
+
+    <div class="rc-track" data-rise>
+      <div class="rct-bar"><span class="rct-dot"></span><b>KPI &middot; Tracked questions &middot; North River Senate</b><span class="rct-tag">Synthetic example</span><span class="rct-stamp">WAVES: JUN 12 &middot; JUL 24 &middot; AUG 27, 2026 &middot; n = 1,150 PER WAVE</span></div>
+      <div class="rct-panels">
+        <div class="rct-panel">
+          <h3 class="rct-h">FAVORABILITY &middot; NORA HALE (D)</h3>
+          <div class="rct-waves" aria-hidden="true"><span></span><span></span><i>JUN</i><i>JUL</i><i>AUG</i><span></span></div>
+          <div class="rct-row"><span class="rct-l">Favorable</span><svg class="rct-spark" viewBox="0 0 60 20" aria-hidden="true"><polyline points="4,15 30,9 56,4" fill="none" stroke="#4F7A25" stroke-width="2.2" stroke-linecap="round"/></svg><b>41</b><b>44</b><b>46</b><span class="rct-d rct-up">+5</span></div>
+          <div class="rct-row"><span class="rct-l">Unfavorable</span><svg class="rct-spark" viewBox="0 0 60 20" aria-hidden="true"><polyline points="4,10 30,8 56,10" fill="none" stroke="#8296A8" stroke-width="2.2" stroke-linecap="round"/></svg><b>38</b><b>39</b><b>38</b><span class="rct-d">0</span></div>
+          <div class="rct-row rct-net"><span class="rct-l">Net</span><span></span><b>+3</b><b>+5</b><b>+8</b><span class="rct-d rct-up">&#9650;</span></div>
+        </div>
+        <div class="rct-panel">
+          <h3 class="rct-h">THE BALLOT &middot; HALE vs ELLERY</h3>
+          <div class="rct-waves" aria-hidden="true"><span></span><span></span><i>JUN</i><i>JUL</i><i>AUG</i><span></span></div>
+          <div class="rct-row"><span class="rct-l rct-dem">Hale (D)</span><svg class="rct-spark" viewBox="0 0 60 20" aria-hidden="true"><polyline points="4,14 30,11 56,5" fill="none" stroke="#3B66A0" stroke-width="2.2" stroke-linecap="round"/></svg><b>44</b><b>45</b><b>47</b><span class="rct-d rct-up">+3</span></div>
+          <div class="rct-row"><span class="rct-l rct-rep">Ellery (R)</span><svg class="rct-spark" viewBox="0 0 60 20" aria-hidden="true"><polyline points="4,6 30,9 56,13" fill="none" stroke="#B32626" stroke-width="2.2" stroke-linecap="round"/></svg><b>43</b><b>42</b><b>41</b><span class="rct-d rct-dn">&minus;2</span></div>
+          <div class="rct-row"><span class="rct-l">Unsure</span><svg class="rct-spark" viewBox="0 0 60 20" aria-hidden="true"><polyline points="4,8 30,8 56,11" fill="none" stroke="#8296A8" stroke-width="2.2" stroke-linecap="round"/></svg><b>13</b><b>13</b><b>12</b><span class="rct-d">&minus;1</span></div>
+        </div>
+      </div>
+      <p class="rct-foot">The same question, re-fielded on the always-on panel &mdash; each wave reads the day it closes, and exports with its dates.</p>
+    </div>
+
+    <div class="rc-track mt2" data-rise>
+      <div class="rct-bar"><span class="rct-dot"></span><b>KPI &middot; Issue tracker &middot; Data centers &middot; Ohio</b><span class="rct-tag">Synthetic example</span><span class="rct-stamp">CUSTOM QUESTION &middot; STOOD UP JUN 2026 &middot; 3 WAVES</span></div>
+      <div class="rct-panels">
+        <div class="rct-panel">
+          <h3 class="rct-h">&ldquo;SHOULD YOUR COUNTY APPROVE NEW DATA CENTERS?&rdquo;</h3>
+          <div class="rct-waves" aria-hidden="true"><span></span><span></span><i>JUN</i><i>JUL</i><i>AUG</i><span></span></div>
+          <div class="rct-row"><span class="rct-l rct-sup">Support</span><svg class="rct-spark" viewBox="0 0 60 20" aria-hidden="true"><polyline points="4,5 30,9 56,14" fill="none" stroke="#4F7A25" stroke-width="2.2" stroke-linecap="round"/></svg><b>54</b><b>51</b><b>47</b><span class="rct-d rct-dn">&minus;7</span></div>
+          <div class="rct-row"><span class="rct-l rct-opp">Oppose</span><svg class="rct-spark" viewBox="0 0 60 20" aria-hidden="true"><polyline points="4,15 30,10 56,5" fill="none" stroke="#A94442" stroke-width="2.2" stroke-linecap="round"/></svg><b>28</b><b>33</b><b>38</b><span class="rct-d rct-up">+10</span></div>
+          <div class="rct-row"><span class="rct-l">Unsure</span><svg class="rct-spark" viewBox="0 0 60 20" aria-hidden="true"><polyline points="4,8 30,10 56,11" fill="none" stroke="#8296A8" stroke-width="2.2" stroke-linecap="round"/></svg><b>18</b><b>16</b><b>15</b><span class="rct-d">&minus;3</span></div>
+        </div>
+        <div class="rct-panel">
+          <h3 class="rct-h">WHY IT MOVED</h3>
+          <ul class="rct-why">
+            <li><b>Beside the air war:</b> $2.1M of opposition TV landed in Columbus between
+              waves two and three &mdash; the dip is not a mystery. Ads and opinion, one dataset.</li>
+            <li><b>Where it moved:</b> support held at 58% with metro renters, fell to 39%
+              with rural homeowners &mdash; the fight is local.</li>
+            <li><b>Top concern:</b> electricity bills, 41% &mdash; ahead of water use and land.</li>
+          </ul>
+        </div>
+      </div>
+      <p class="rct-foot">For the coalition defending &mdash; or fighting &mdash; the build: the
+        argument&rsquo;s temperature wave over wave, beside the ads that moved it. Stand up the
+        question in days; every wave banks &mdash; a tracker like this is one of the two
+        questions that come with the media.</p>
+    </div>
+  </div>
+<style>
+.rc-track { max-width: 980px; margin-inline: auto; background: var(--white);
+  border: 1px solid var(--rule); border-radius: var(--r-lg); overflow: hidden;
+  box-shadow: 0 1px 2px rgba(13,46,74,.06), 0 10px 26px rgba(13,46,74,.09); }
+.rc-track::before { content: ""; display: block; height: 3px;
+  background: linear-gradient(90deg, var(--navy) 0%, #00ACC1 55%, var(--lime) 100%); }
+.rct-bar { display: flex; align-items: center; flex-wrap: wrap; gap: .5rem .7rem;
+  padding: .7rem 1rem; border-bottom: 1px solid var(--rule-soft); }
+.rct-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--lime); }
+.rct-bar b { font-family: var(--label); text-transform: uppercase; letter-spacing: .1em;
+  font-size: .68rem; font-weight: 800; color: var(--navy); }
+.rct-tag { font-family: var(--label); text-transform: uppercase; letter-spacing: .1em;
+  font-size: .56rem; font-weight: 700; color: var(--ink-3); border: 1px solid var(--rule);
+  padding: .14rem .4rem; }
+.rct-stamp { margin-left: auto; font-family: var(--mono); font-size: .62rem;
+  letter-spacing: .06em; color: var(--ink-3); font-variant-numeric: tabular-nums lining-nums; }
+.rct-panels { display: grid; grid-template-columns: 1fr 1fr; }
+.rct-panel { padding: 1rem 1.1rem 1.05rem; min-width: 0; }
+.rct-panel + .rct-panel { border-left: 1px solid var(--rule-soft); }
+.rct-h { font-family: var(--label); letter-spacing: .1em; font-size: .64rem; font-weight: 800;
+  color: var(--blue-text); margin-bottom: .55rem; }
+.rct-waves { display: grid; grid-template-columns: minmax(0,1.2fr) 64px 3rem 3rem 3rem 2.6rem;
+  gap: .5rem; font-family: var(--label); font-size: .54rem; font-weight: 800;
+  letter-spacing: .1em; color: var(--ink-3); padding-bottom: .3rem;
+  border-bottom: 1px solid var(--rule-soft); }
+.rct-waves i { font-style: normal; text-align: right; }
+.rct-row { display: grid; grid-template-columns: minmax(0,1.2fr) 64px 3rem 3rem 3rem 2.6rem;
+  gap: .5rem; align-items: center; padding: .5rem 0; border-bottom: 1px solid var(--rule-soft); }
+.rct-row:last-child { border-bottom: 0; }
+.rct-l { font-size: .84rem; font-weight: 650; color: var(--navy-deep); }
+.rct-dem { color: #3B66A0; } .rct-rep { color: #B32626; }
+.rct-sup { color: var(--lime-text); } .rct-opp { color: #A94442; }
+.rct-spark { width: 64px; height: 20px; }
+.rct-row b { font-family: var(--mono); font-size: .92rem; font-weight: 700;
+  color: var(--navy-deep); text-align: right; font-variant-numeric: tabular-nums lining-nums; }
+.rct-net b { font-weight: 800; }
+.rct-d { font-family: var(--mono); font-size: .72rem; font-weight: 800; text-align: right;
+  color: var(--ink-3); font-variant-numeric: tabular-nums lining-nums; }
+.rct-up { color: var(--lime-text); } .rct-dn { color: #A94442; }
+.rct-why { list-style: none; margin: 0; padding: 0; }
+.rct-why li { font-size: .84rem; line-height: 1.55; color: var(--ink-2); padding: .45rem 0;
+  border-bottom: 1px solid var(--rule-soft); }
+.rct-why li:last-child { border-bottom: 0; }
+.rct-why b { color: var(--navy-deep); }
+.rct-foot { margin: 0; padding: .65rem 1rem .8rem; border-top: 1px solid var(--rule-soft);
+  font-size: .78rem; color: var(--ink-3); }
+@media (max-width: 720px) {
+  .rct-panels { grid-template-columns: 1fr; }
+  .rct-panel + .rct-panel { border-left: 0; border-top: 1px solid var(--rule-soft); }
+  .rct-stamp { margin-left: 0; flex-basis: 100%; }
+  .rct-waves, .rct-row { grid-template-columns: minmax(0,1fr) 44px 2.4rem 2.4rem 2.4rem 2.2rem; gap: .35rem; }
+  .rct-spark { width: 44px; }
+}
+</style>
+    <p class="small center mt2" style="max-width:72ch;margin-inline:auto">CivicScience's
+      case studies show declared audiences outperforming third-party controls: 36 to 80
+      percent higher click-through and 45 to 62 percent higher conversion in matched
+      commercial tests. Those are the partner's case studies, not a promise about any
+      single flight.</p>
+</section>
+
 <section class="section section--tint" id="offerings">
   <div class="wrap">
     <div class="center" style="margin-bottom:3rem" data-rise>
-      <p class="eyebrow eyebrow--plain" style="justify-content:center"><span class="folio">03</span>Two ways in</p>
+      <p class="eyebrow eyebrow--plain" style="justify-content:center"><span class="folio">04</span>Two ways in</p>
       <h2>Syndicated when the question exists. Custom when it does not.</h2>
       <p class="lede" style="margin-inline:auto">Surveys within the media: from
         <b>$30K net across three months</b>, <b>two custom questions and an audience come
@@ -914,113 +1010,7 @@
         not an upsell.</p>
     </div>
 
-    <!-- r85 (Adam, 8/29): "the feeling you wanna have is never ending possibilities…
-         bubble popping up question answer question question question, different kinds
-         of questions, different kinds of targeting." A dark stage where the field never
-         stops: question bubbles keep surfacing, answers land, audiences ship — CSS-only,
-         two bubbles per slot trading places on a 14s loop. Reduced-motion and JS-off:
-         the first bubble of every slot shows static. Wordings marked ● are the site's
-         canon QIDs; the rest are the kinds of questions the library carries. -->
-    <div class="qf-stage" data-rise>
-      <div class="qf">
-        <div class="qf__head">
-          <p class="qf__k">The field, live</p>
-          <h3 class="qf__h">Ask. Hear back. Ask again. It never closes.</h3>
-          <p class="qf__sub">10,000+ questions always on &middot; over 1 million answers landing
-            a day &middot; a new audience possible every time one moves &mdash; nationally, in
-            one state, or inside a single congressional district. Not in the field yet?
-            We write it, and it fields in days.</p>
-        </div>
-        <div class="qf__grid" aria-hidden="true">
-          <div class="qf__slot"><span class="qf__b qf__b--q qf__b--keep">&ldquo;Which of the following best describes your political leanings?&rdquo;<i>QID 494 &middot; always on</i></span><span class="qf__b qf__b--aud">Streaming-only households, by county<i>audience &rarr; deal ID</i></span></div>
-          <div class="qf__slot"><span class="qf__b qf__b--a qf__b--keep">Answers landing now<i>over 1M land network-wide today</i></span><span class="qf__b qf__b--q">&ldquo;How do you receive television service?&rdquo;<i>QID 1516 &middot; always on</i></span></div>
-          <div class="qf__slot"><span class="qf__b qf__b--q qf__b--keep">&ldquo;Should your county approve new data centers?&rdquo;<i>QID 9918 &middot; three waves banked</i></span><span class="qf__b qf__b--cus">Your ballot test, written this week<i>custom &middot; invisible to the other side</i></span></div>
-          <div class="qf__slot"><span class="qf__b qf__b--aud qf__b--keep">Persuadable on the economy, undecided Senate<i>audience &rarr; deal ID</i></span><span class="qf__b qf__b--q">Favorability, tracked wave over wave<i>ask again &middot; every wave banks</i></span></div>
-          <div class="qf__slot"><span class="qf__b qf__b--q qf__b--keep">Grocery prices, top concern or not<i>issue salience &middot; always on</i></span><span class="qf__b qf__b--a">A question moved overnight<i>the audience rebuilds itself</i></span></div>
-          <div class="qf__slot"><span class="qf__b qf__b--cus qf__b--keep">School funding, asked only in your district<i>custom &middot; one CD &middot; fields in days</i></span><span class="qf__b qf__b--aud">Early voters who split tickets<i>audience &rarr; deal ID</i></span></div>
-          <div class="qf__slot"><span class="qf__b qf__b--q qf__b--keep">News habits: where they actually hear it<i>media &middot; always on</i></span><span class="qf__b qf__b--q">Broadband, utilities, land use<i>local issues &middot; always on</i></span></div>
-          <div class="qf__slot"><span class="qf__b qf__b--aud qf__b--keep">Veterans&rsquo; households, message-tested<i>audience &rarr; deal ID</i></span><span class="qf__b qf__b--cus">The attack you expect next week, pre-tested<i>custom &middot; yours alone</i></span></div>
-          <div class="qf__slot"><span class="qf__b qf__b--q qf__b--keep">Early, by mail, or on Election Day?<i>turnout &middot; always on</i></span><span class="qf__b qf__b--aud">Mail-ballot households, by DMA<i>audience &rarr; deal ID</i></span></div>
-          <div class="qf__slot"><span class="qf__b qf__b--a qf__b--keep">Support moved four points overnight<i>the audience rebuilt itself by morning</i></span><span class="qf__b qf__b--q">Property taxes: too high, or about right?<i>issue salience &middot; always on</i></span></div>
-          <div class="qf__slot"><span class="qf__b qf__b--aud qf__b--keep">412,000 devices matched<i>composition read attached</i></span><span class="qf__b qf__b--q">Where do you actually get local news?<i>media &middot; always on</i></span></div>
-          <div class="qf__slot"><span class="qf__b qf__b--cus qf__b--keep">Your issue, asked in one district only<i>custom &middot; one CD &middot; fields in days</i></span><span class="qf__b qf__b--a">New wave banked &mdash; ask again<i>every wave banks</i></span></div>
-        </div>
-        <p class="qf__foot">Wordings with a QID are in the library today &middot; the rest are the kinds
-          of questions it carries &middot; every one can become an audience, and every audience ships
-          as a deal ID</p>
-      </div>
-    </div>
 
-    <style>
-      .qf-stage { margin: 0 0 3rem; }
-      .qf { position: relative; background: var(--navy-ink, #08243B); border-radius: var(--r-lg);
-        padding: clamp(1.4rem, 3vw, 2.4rem) clamp(1.2rem, 3vw, 2.4rem) 1.2rem; overflow: hidden; }
-      .qf::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 3px;
-        background: linear-gradient(90deg, var(--navy) 0%, #00ACC1 55%, var(--lime) 100%); }
-      .qf__k { font-family: var(--label); text-transform: uppercase; letter-spacing: .16em;
-        font-size: .68rem; font-weight: 800; color: var(--lime); }
-      .qf__h { font-family: var(--display); color: #fff; font-size: clamp(1.5rem, 2.6vw, 2.1rem);
-        margin-top: .45rem; letter-spacing: -.01em; }
-      .qf__sub { color: #B9CFDF; font-size: .95rem; max-width: 62ch; margin-top: .55rem; line-height: 1.6; }
-      .qf__grid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: .7rem;
-        margin-top: 1.5rem; }
-      .qf__slot { position: relative; min-height: 96px; }
-      .qf__b { position: absolute; inset: 0; display: flex; flex-direction: column;
-        justify-content: center; gap: .3rem; padding: .7rem .8rem; border-radius: 10px;
-        font-size: .82rem; font-weight: 650; line-height: 1.35; opacity: 0; }
-      .qf__b i { font-style: normal; font-family: var(--label); font-weight: 700;
-        text-transform: uppercase; letter-spacing: .09em; font-size: .58rem; opacity: .75; }
-      .qf__b--q { background: #fff; color: var(--navy-deep); }
-      .qf__b--q i { color: var(--blue-text); opacity: 1; }
-      .qf__b--a { background: rgba(168,209,78,.14); border: 1px solid rgba(168,209,78,.55);
-        color: #E4F3C8; }
-      .qf__b--a i { color: var(--lime); opacity: 1; }
-      .qf__b--aud { background: rgba(0,172,193,.13); border: 1px solid rgba(0,172,193,.5);
-        color: #CDEDF2; }
-      .qf__b--aud i { color: #6FD3E0; opacity: 1; }
-      .qf__b--cus { background: transparent; border: 1.5px dashed rgba(168,209,78,.55); color: #DDEBC9; }
-      .qf__b--cus i { color: var(--lime); opacity: 1; }
-      .qf__foot { margin-top: 1.2rem; border-top: 1px solid rgba(255,255,255,.14);
-        padding-top: .7rem; font-size: .74rem; color: #8FA9BE; line-height: 1.55; }
-      /* r88: faster, denser — twelve slots, a pop every three-quarters of a second
-         somewhere on the wall, nine-second cycles. Never-ending is the point. */
-      @media (prefers-reduced-motion: no-preference) {
-        .qf__b { animation: qf-pop 9s infinite; }
-        .qf__b:nth-child(2) { animation-delay: 4.5s; }
-        .qf__slot:nth-child(2) .qf__b { animation-delay: 0.4s; } .qf__slot:nth-child(2) .qf__b:nth-child(2) { animation-delay: 4.9s; }
-        .qf__slot:nth-child(3) .qf__b { animation-delay: 0.8s; } .qf__slot:nth-child(3) .qf__b:nth-child(2) { animation-delay: 5.3s; }
-        .qf__slot:nth-child(4) .qf__b { animation-delay: 1.2s; } .qf__slot:nth-child(4) .qf__b:nth-child(2) { animation-delay: 5.7s; }
-        .qf__slot:nth-child(5) .qf__b { animation-delay: 1.6s; } .qf__slot:nth-child(5) .qf__b:nth-child(2) { animation-delay: 6.1s; }
-        .qf__slot:nth-child(6) .qf__b { animation-delay: 2.0s; } .qf__slot:nth-child(6) .qf__b:nth-child(2) { animation-delay: 6.5s; }
-        .qf__slot:nth-child(7) .qf__b { animation-delay: 2.4s; } .qf__slot:nth-child(7) .qf__b:nth-child(2) { animation-delay: 6.9s; }
-        .qf__slot:nth-child(8) .qf__b { animation-delay: 2.8s; } .qf__slot:nth-child(8) .qf__b:nth-child(2) { animation-delay: 7.3s; }
-        .qf__slot:nth-child(9) .qf__b { animation-delay: 3.2s; } .qf__slot:nth-child(9) .qf__b:nth-child(2) { animation-delay: 7.7s; }
-        .qf__slot:nth-child(10) .qf__b { animation-delay: 3.6s; } .qf__slot:nth-child(10) .qf__b:nth-child(2) { animation-delay: 8.1s; }
-        .qf__slot:nth-child(11) .qf__b { animation-delay: 4.0s; } .qf__slot:nth-child(11) .qf__b:nth-child(2) { animation-delay: 8.5s; }
-        .qf__slot:nth-child(12) .qf__b { animation-delay: 4.4s; } .qf__slot:nth-child(12) .qf__b:nth-child(2) { animation-delay: 8.9s; }
-      }
-      @keyframes qf-pop {
-        0% { opacity: 0; transform: translateY(9px) scale(.96); }
-        3.5% { opacity: 1; transform: none; }
-        46% { opacity: 1; transform: none; }
-        50%, 100% { opacity: 0; transform: translateY(-6px) scale(.98); }
-      }
-      /* Reduced motion (and anything that can't run the loop): the first bubble of each
-         slot holds static — a full, quiet wall. */
-      @media (prefers-reduced-motion: reduce) {
-        .qf__b--keep { opacity: 1; position: relative; inset: auto; }
-        .qf__b:not(.qf__b--keep) { display: none; }
-        .qf__slot { min-height: 0; }
-      }
-      @media (max-width: 880px) {
-        .qf__grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
-        .qf__slot:nth-child(n+11) { display: none; }
-      }
-      @media (max-width: 560px) {
-        .qf__slot { min-height: 108px; }
-        .qf__b { font-size: .78rem; }
-      }
-    </style>
 
     <div class="grid grid--2" data-rise>
       <div class="card card--lead">
@@ -1029,19 +1019,18 @@
         <p class="small">The library is <a href="questions.html">its own page</a>. Search the
           exact wording, build a shortlist, and send it to us. The audience comes back
           in days, ready to buy against.</p>
-        <p class="offer-avail"><span class="chip chip--lime">Included with the media &middot; not an upsell</span></p>
       </div>
       <div class="card card--flag">
         <p class="card__k">Custom</p>
-        <h3>Custom questions, written for your race.</h3>
-        <p class="small">When the argument in your race is not in the library, we write the
-          question with you and field it across the publisher network &mdash; your question,
-          invisible to the other side. It comes back the same way: an audience you can
-          audit, delivered where you buy, in market in about two weeks.</p>
-        <p class="offer-avail"><span class="chip chip--lime">Included with the media &middot; not an upsell</span></p>
+        <h3>Not in the library? We write it with you.</h3>
+        <ol class="small" style="margin:0 0 .2rem 1.1rem;padding:0;display:grid;gap:.45rem">
+          <li><b>Write it together</b> &mdash; your question, your wording, invisible to the other side.</li>
+          <li><b>It fields in days</b> &mdash; nationally, one state, or a single district.</li>
+          <li><b>It comes back as an audience</b> &mdash; auditable, delivered where you buy, in market in about two weeks.</li>
+        </ol>
       </div>
     </div>
-    <div class="grid grid--3 mt3" data-rise>
+    <div class="grid grid--2 mt3" data-rise>
       <div class="card card--flag">
         <p class="card__k">Incremental reach</p>
         <h3>People the standard segments miss.</h3>
@@ -1057,30 +1046,24 @@
           decaying like a modeled lookalike &mdash; and it ships as a deal ID, with no
           onboarding hop to bleed it out.</p>
       </div>
-      <div class="card card--flag">
-        <p class="card__k">Real time, customized</p>
-        <h3>Moves with the answers. Written to your fight.</h3>
-        <p class="small">Over 1 million answers land per day and the audience moves with
-          them &mdash; built on a question written to your race or your issue, not pulled
-          off a shelf.</p>
-      </div>
     </div>
 
-    <div class="callout callout--lime mt3">
-      <h4>Declared first. Modeled only if you ask.</h4>
-      <!-- N3 CLOSED (ruling 34): the decay figure ships ONLY in the presser shape with
-           "by industry estimates" attached, verbatim below. Never as a bare stat. -->
-      <p class="small mb0">The seed stays declared, the expansion is modeled, and we say
-        which is which. A modeled lookalike extension is optional and always labeled
-        modeled &mdash; and the declared core does not decay the way a lookalike does,
-        because it rebuilds from new answers every day instead of aging from the day
-        it was modeled.</p>
-    </div>
-    <p class="small center mt2" style="max-width:72ch;margin-inline:auto">CivicScience's
-      case studies show declared audiences outperforming third-party controls: 36 to 80
-      percent higher click-through and 45 to 62 percent higher conversion in matched
-      commercial tests. Those are the partner's case studies, not a promise about any
-      single flight.</p>
+    <!-- Ruling 49b: the low-friction ask. Email only, wired to the same /api/contact
+         with the subject prefilled; mailto is the fallback and the no-JS action. -->
+    <form class="mini-ask" id="seg-ask" method="post" enctype="text/plain"
+          action="mailto:info@kpipolitical.com?subject=Send%20the%2048-segment%20list">
+      <label class="mini-ask__lab" for="seg-email"><b>Want the 48 curated political segments?</b>
+        Email only; the list comes back, no call attached &mdash; and it names every
+        segment with the questions that build it, the same way the example builds
+        further down this page are named.</label>
+      <div class="mini-ask__row">
+        <input type="email" id="seg-email" name="email" required autocomplete="email" maxlength="150"
+               placeholder="you@yourfirm.com" aria-label="Work email for the 48-segment list">
+        <button class="btn btn--navy" type="submit">Send me the 48-segment list</button>
+      </div>
+      <p class="mini-ask__status" id="seg-status" role="status" aria-live="polite" hidden></p>
+    </form>
+
     <p class="small center mt2">Run the media on a KPI plan, your seat or ours, and both come
       with it. Standalone research is by rate card, on <a href="contact.html">request</a>.
       What &ldquo;included&rdquo; means for your flight &mdash; whether any minimum applies and
@@ -1160,7 +1143,7 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r88b"></script>
+<script src="assets/js/site.js?v=r89"></script>
 <script>
 /* Ruling 49b: the 48-segment list ask. Email-only, posted as JSON to the same
    same-origin /api/contact endpoint the demo form uses (subject prefilled, the

@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r88b">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r89">
 <style>
   /* Light, centered, airy hero, matching the live site: the announcement banner
      sits flush under the nav, then the display headline in the green-to-teal
@@ -238,24 +238,84 @@
   .kw__stamp { position: absolute; right: clamp(12px, 3vw, 40px); bottom: 10px;
     font-family: var(--label); font-size: .58rem; font-weight: 700; letter-spacing: .11em;
     text-transform: uppercase; color: var(--ink-3); }
-  /* Desktop: hand placement — offset and overlapping, but square. No tilts. */
+  /* r89 new pieces: the tape player, the pod, the answer bubble, the CS zone. */
+  .kw__frame { position: relative; display: block; aspect-ratio: 16 / 9; border-radius: 7px;
+    overflow: hidden;
+    background:
+      radial-gradient(120% 85% at 50% 108%, rgba(255,205,120,.55) 0%, rgba(255,160,90,.22) 34%, transparent 62%),
+      linear-gradient(180deg, #0A2740 0%, #123B5C 46%, #1E5D7A 72%, #2E7D8C 100%); }
+  .kw__frame::before { content: ""; position: absolute; left: 0; right: 0; bottom: 26%;
+    height: 1.5px; background: rgba(255,215,150,.5); filter: blur(.5px); }
+  .kw__play { position: absolute; left: 50%; top: 44%; width: 34px; height: 34px;
+    transform: translate(-50%, -50%); border-radius: 50%;
+    background: rgba(8,36,59,.62); border: 1.5px solid rgba(255,255,255,.85); }
+  .kw__play::before { content: ""; position: absolute; left: 55%; top: 50%;
+    transform: translate(-50%, -50%); border-style: solid; border-width: 6px 0 6px 10px;
+    border-color: transparent transparent transparent #fff; }
+  .kw__fl { position: absolute; left: 7px; bottom: 16px; font-family: var(--label);
+    font-size: .56rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+    color: #fff; background: rgba(8,36,59,.55); border-radius: 3px; padding: .16rem .4rem; }
+  .kw__scrub { position: absolute; left: 0; right: 0; bottom: 0; height: 4px;
+    background: rgba(255,255,255,.25); display: block; }
+  .kw__scrub span { display: block; height: 100%; width: 23%; background: var(--lime); }
+  .kw__tc { position: absolute; right: 7px; bottom: 9px; font-size: .6rem; color: rgba(255,255,255,.85); }
+  .kw__podrow { display: grid; grid-template-columns: 16px minmax(0,1fr); gap: .4rem;
+    align-items: center; font-size: .74rem; color: var(--ink-2); padding: .16rem 0;
+    border-bottom: 1px solid color-mix(in srgb, var(--rule) 55%, transparent); }
+  .kw__podrow i { font-style: normal; font-family: var(--label); font-size: .58rem;
+    font-weight: 800; color: var(--ink-3); text-align: center;
+    border: 1px solid var(--rule); border-radius: 3px; line-height: 1.5; }
+  .kw__podrow--hi { color: var(--navy-deep); font-weight: 700; }
+  .kw__podrow--hi i { background: var(--navy); color: #fff; border-color: var(--navy); }
+  .kw__podrow--you i { background: var(--lime); color: #08243B; border-color: var(--lime-dark); }
+  .kw__podrow--you { border-bottom: 0; }
+  .kw__a { display: block; font-size: .8rem; line-height: 1.5; color: var(--ink-1, #14232F);
+    background: color-mix(in srgb, var(--teal, #00ACC1) 8%, var(--white));
+    border-left: 3px solid var(--teal, #00ACC1); border-radius: 0 7px 7px 0;
+    padding: .5rem .6rem .5rem .7rem; }
+  .kw__a i { display: block; font-style: normal; font-family: var(--label); font-size: .54rem;
+    font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--blue-text);
+    margin-bottom: .2rem; }
+  .kw__bar--w { grid-template-columns: 34px minmax(0,1fr) auto; }
+  .kw__c--baker > b { font-size: 1.08rem; }
+  .kw__zone-k { font-family: var(--label); font-size: .6rem; font-weight: 800;
+    letter-spacing: .12em; text-transform: uppercase; color: var(--blue-text); }
+  /* Desktop: hand placement — offset and overlapping, but square. No tilts.
+     Competitive story in three columns; the CivicScience quadrant holds the
+     right edge behind a dashed boundary so opinion never blurs into spend. */
   @media (min-width: 1100px) {
-    .kw__cluster { height: 596px; }
+    .kw__cluster { height: 712px; }
     .kw__c { position: absolute; }
-    .kw__c--alert { left: 1%; top: 22px; width: 272px; z-index: 3; }
-    .kw__c--score { left: 15%; top: 166px; width: 308px; z-index: 2; }
-    .kw__c--mix { left: 46%; top: 10px; width: 320px; z-index: 1; }
-    .kw__c--book { right: 1.5%; top: 188px; width: 296px; z-index: 2; }
-    .kw__c--rate { left: 33%; top: 372px; width: 300px; z-index: 1; }
-    .kw__c--baker { left: 61%; top: 340px; width: 296px; z-index: 3; }
-    .kw__c--op { left: 3%; top: 388px; width: 288px; z-index: 2; }
-    .kw__c--deal { right: -14px; top: 112px; z-index: 4; }
+    .kw__zone { position: absolute; right: 0; top: 6px; width: 27%; bottom: 34px;
+      border: 1.5px dashed color-mix(in srgb, var(--teal, #00ACC1) 45%, transparent);
+      border-radius: 14px;
+      background: color-mix(in srgb, var(--teal, #00ACC1) 5%, transparent); }
+    .kw__zone-k { position: absolute; left: 50%; top: .8rem; transform: translateX(-50%);
+      white-space: nowrap; }
+    .kw__c--alert { left: .5%; top: 16px; width: 252px; z-index: 3; }
+    .kw__c--pod { left: 1%; top: 190px; width: 262px; z-index: 2; }
+    .kw__c--share { left: 1.5%; top: 452px; width: 258px; z-index: 2; }
+    .kw__c--player { left: 21%; top: 4px; width: 300px; z-index: 2; }
+    .kw__c--score { left: 22%; top: 286px; width: 294px; z-index: 1; }
+    .kw__c--book { left: 23%; top: 442px; width: 286px; z-index: 3; }
+    .kw__c--mix { left: 45.5%; top: 14px; width: 276px; z-index: 1; }
+    .kw__c--stream { left: 46%; top: 250px; width: 272px; z-index: 2; }
+    .kw__c--rate { left: 45%; top: 396px; width: 278px; z-index: 1; }
+    .kw__c--baker { left: 24%; top: 556px; width: 490px; z-index: 4; }
+    .kw__c--op { right: 2%; top: 58px; width: 23%; z-index: 2; }
+    .kw__c--op2 { right: 2%; top: 208px; width: 23%; z-index: 2; }
+    .kw__c--deal { right: 2%; top: 356px; max-width: 23%; white-space: normal;
+      flex-wrap: wrap; justify-content: center; text-align: center; z-index: 2; }
   }
-  /* Below 1100: a staggered two-column cluster. */
+  /* Below 1100: a staggered two-column cluster; the CS zone becomes a labeled
+     divider and its cards close the stack. */
   @media (max-width: 1099px) {
     .kw__cluster { display: grid; grid-template-columns: repeat(2, minmax(0,1fr));
       gap: .85rem; padding-bottom: .6rem; }
-    .kw__c--mix, .kw__c--deal { grid-column: 1 / -1; }
+    .kw__c--mix, .kw__c--player, .kw__c--baker, .kw__c--deal { grid-column: 1 / -1; }
+    .kw__zone { grid-column: 1 / -1; padding-top: .8rem; margin-top: .4rem;
+      border-top: 1.5px dashed color-mix(in srgb, var(--teal, #00ACC1) 45%, transparent);
+      text-align: center; }
     .kw__c--deal { justify-self: center; flex-wrap: wrap; white-space: normal; justify-content: center; }
     .kw__c:nth-child(odd) { transform: translateY(5px); }
     .kw__c:nth-child(even) { transform: translateY(-4px); }
@@ -371,7 +431,7 @@
       <span class="ht__l" data-t="Political Ad Intelligence">Political Ad Intelligence</span><br>
       <span class="ht__l ht__l--accent" data-t="Platform">Platform</span>
     </h1>
-    <p class="hero-receipt"><span>All 210 markets</span><i class="hr-sep" aria-hidden="true">&middot;</i><span>1.5M ad airings per day</span><i class="hr-sep" aria-hidden="true">&middot;</i><span>$10.4B 2026 forecast</span><i class="hr-sep" aria-hidden="true">&middot;</i><span>A decade+ of history</span></p>
+    <p class="hero-receipt"><span>All 210 markets</span><i class="hr-sep" aria-hidden="true">&middot;</i><span>1.5M ad airings per day</span><i class="hr-sep" aria-hidden="true">&middot;</i><span>3.5M streaming ads delivered a day</span><i class="hr-sep" aria-hidden="true">&middot;</i><span>A decade+ of history</span></p>
     <p class="lede">KPI tracks political ads and the money behind them &mdash; on TV,
       cable, radio and streaming, in every U.S. media market. When the other side
       moves, you know the same morning.</p>
@@ -405,6 +465,193 @@
 
 </header>
 
+<!-- ============ SCALE ============ -->
+<section class="section section--band section--mega">
+  <div class="wrap">
+    <div class="split" style="align-items:end" data-rise>
+      <div>
+        <p class="eyebrow">The monitoring network</p>
+        <h2 class="h-display">The machine behind the boards.</h2>
+        <p class="lede">Detection, measurement, and our own delivery &mdash; every
+          occurrence, with real costs behind it.</p>
+      </div>
+      <blockquote class="quote">
+        <p>&ldquo;A Bloomberg console for campaigns.&rdquo;</p>
+        <cite><a href="https://campaignsandelections.com/industry-news/firms-unveil-new-ad-tracking-platform/" rel="noopener">Campaigns &amp; Elections, April 2025</a></cite>
+      </blockquote>
+    </div>
+
+    <!-- r89: the console format back — the quote beside the headline, the key
+         metrics big, light, and first. Detection and delivery each keep a seat;
+         delivery figures are our own, volume and quality only. -->
+    <div class="stats stats--6 mt3" data-rise>
+      <div class="stat"><div class="stat__v num">1.5M</div><div class="stat__l">Ad occurrences detected per day &mdash; every category, real costs attached</div></div>
+      <div class="stat"><div class="stat__v num">3.5M</div><div class="stat__l">Streaming ads delivered per day &mdash; our own delivery, served and logged, never scraped from the public ad libraries</div></div>
+      <div class="stat"><div class="stat__v num">40M</div><div class="stat__l">Households measuring streaming on the glass</div></div>
+      <div class="stat"><div class="stat__v num">98.0%</div><div class="stat__l">Of our streaming spots watched to the last frame</div></div>
+      <div class="stat"><div class="stat__v num">210</div><div class="stat__l">U.S. media markets, all of them</div></div>
+      <div class="stat"><div class="stat__v num">Decade+</div><div class="stat__l">Of history under every trend</div></div>
+    </div>
+
+    <div class="built mt3" data-rise>
+      <p class="built__big">Built for today. By the people building tomorrow.</p>
+      <p class="built__sub">Best in class at every layer &mdash; simple when you need the
+        answer, detailed and powerful when you need it, down to the spot, the station,
+        and the dollar. Built by the team that clears political streaming every day and
+        is building what comes next.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRESS ============ -->
+<section class="section section--tint" id="press">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:2.6rem" data-rise>
+      <p class="eyebrow eyebrow--plain" style="justify-content:center">Press</p>
+      <h2>The numbers the press prints.</h2>
+      <p class="lede">Built by the people defining what&rsquo;s next &mdash; and quoted by
+        the people covering it. Name the race; same day on deadline.</p>
+      <div class="press-nums" data-rise>
+                <span><b class="num">$1.2B</b> forward book on file</span>
+        <span><b class="num">17</b> Senate primaries in Axios&rsquo;s package</span>
+      </div>
+      <div class="btn-row mt2" style="justify-content:center">
+        <a class="btn btn--navy" href="https://kpipoliticalinsightsforecast.subscribepage.io/" target="_blank" rel="noopener">Download the 2026 forecast report</a>
+        <a class="btn btn--outline" href="press.html">The newsroom</a>
+      </div>
+    </div>
+    <a class="card card--flag press-card press-card--lead" href="https://www.axios.com/2026/08/14/senate-primaries-fundraising-cash-republicans-democrats" rel="noopener" data-rise>
+      <p class="card__k">Axios &middot; August 2026</p>
+      <h3>&ldquo;In 2026, money doesn&rsquo;t always matter&rdquo;</h3>
+      <p class="small">Axios&rsquo;s primary-money package ran on KPI data across all 17
+        competitive 2026 Senate primaries.</p>
+      <span class="press-card__go">Read the piece &rarr;</span>
+    </a>
+    <div class="grid grid--2 mt2">
+      <a class="card card--flag press-card" href="https://www.insideradio.com/free/political-ad-reservations-top-1-billion-for-2026-midterms/article_5cfde563-d649-4e1c-842c-af0eb0db602e.html" rel="noopener">
+        <p class="card__k">Inside Radio &middot; August 2026</p>
+        <h3>"Political ad reservations top $1 billion for 2026 midterms"</h3>
+        <p class="small">"Committing $1.2 billion in future media reservations," reported
+          from KPI forward-book data across the 209 federal and state races with forward
+          reservations on file, at the time of that report.</p>
+        <span class="press-card__go">Read the piece &rarr;</span>
+      </a>
+      <a class="card card--flag press-card" href="https://campaignsandelections.com/industry-news/new-report-forecasts-10-billion-in-midterm-ad-spending/" rel="noopener">
+        <p class="card__k">Campaigns &amp; Elections &middot; April 2026</p>
+        <h3>"New Report Forecasts $10 Billion in Midterm Ad Spending"</h3>
+        <p class="small">C&amp;E covered KPI's April forecast &mdash; and has tracked the
+          platform since launch.</p>
+        <span class="press-card__go">Read the piece &rarr;</span>
+      </a>
+    </div>
+    <!-- Ruling 50i: the Citing KPI block is killed here; citation guidance lives on
+         the contact press card only. -->
+
+  </div>
+</section>
+
+<!-- ============ THE WALL (r86) ============ -->
+<!-- Adam (8/29, from the AdImpact screenshots): "communicate more capabilities in a
+     tight geographical space" + "make this look less like it was made by Claude."
+     A hand-placed cluster of live-product glimpses — rotated, overlapping, one card
+     breaking the frame — over a market dot-field. Absolute collage >=1100px; a loose
+     staggered two-column cluster below. Every figure is site canon or stamped
+     synthetic; every card exists as a real board in the product. -->
+<section class="section kw" aria-label="A cluster of product screens: the alert, the playing tape, the commercial break, the scoreboard, channel mix, streaming capture, the agency book, the share check, rates, Baker answering a question, and the voter-opinion corner with a deal ID">
+  <div class="wrap">
+    <div class="kw__head" data-rise>
+      <p class="eyebrow">One subscription &middot; every layer</p>
+      <h2>The whole air war,<br>on one screen.</h2>
+      <p class="lede">Detection to decision to delivery &mdash; the glimpses below are
+        boards subscribers pull today, not mockups of a roadmap.</p>
+    </div>
+  </div>
+  <div class="kw__stage">
+    <div class="kw__glow kw__glow--a" aria-hidden="true"></div>
+    <div class="kw__glow kw__glow--b" aria-hidden="true"></div>
+    <div class="wrap kw__cluster" aria-hidden="true">
+      <div class="kw__c kw__c--alert">
+        <span class="kw__k"><i class="kw__dot"></i>New creative &middot; 7:15 AM</span>
+        <b>&ldquo;First Light&rdquo; &mdash; first air</b>
+        <span class="kw__m">the alert lands with tape + AI transcript attached</span>
+      </div>
+      <div class="kw__c kw__c--player">
+        <span class="kw__k"><i class="kw__dot"></i>Watch the tape</span>
+        <span class="kw__frame">
+          <i class="kw__play"></i>
+          <span class="kw__fl">&ldquo;First Light&rdquo; &middot; :30</span>
+          <span class="kw__scrub"><span></span></span>
+          <span class="kw__tc num">0:07 / 0:30</span>
+        </span>
+        <span class="kw__m">every detected spot plays with its transcript beside it</span>
+      </div>
+      <div class="kw__c kw__c--pod">
+        <span class="kw__k">The commercial break &middot; WQZL &middot; 6:14 PM</span>
+        <span class="kw__podrow num"><i>1</i>Auto dealer &middot; :30</span>
+        <span class="kw__podrow kw__podrow--hi num"><i>2</i>&ldquo;First Light&rdquo; &middot; Heartland Priorities &middot; :30</span>
+        <span class="kw__podrow num"><i>3</i>Retail &middot; :15</span>
+        <span class="kw__podrow kw__podrow--you num"><i>4</i>Your spot &middot; :30</span>
+        <span class="kw__m">the whole pod &mdash; who ran beside you in the break</span>
+      </div>
+      <div class="kw__c kw__c--score">
+        <span class="kw__k">Scoreboard &middot; North River Senate</span>
+        <span class="kw__bar"><i>D</i><span class="kw__tr"><span style="width:95%"></span></span><b class="num">$14.2M</b></span>
+        <span class="kw__bar kw__bar--r"><i>R</i><span class="kw__tr"><span style="width:100%"></span></span><b class="num">$15.0M</b></span>
+        <span class="kw__m"><b class="kw__up num">+$1.8M</b> new money this week</span>
+      </div>
+      <div class="kw__c kw__c--mix">
+        <span class="kw__k">Channel mix &middot; Columbus &middot; committed $</span>
+        <span class="kw__row"><i class="kw__sw" style="background:var(--navy)"></i>Broadcast<b class="num">62%</b></span>
+        <span class="kw__row"><i class="kw__sw" style="background:#7FA8CC"></i>Cable<b class="num">21%</b></span>
+        <span class="kw__row"><i class="kw__sw" style="background:#B58A3A"></i>Radio<b class="num">9%</b></span>
+        <span class="kw__row kw__row--est"><i class="kw__sw" style="background:var(--teal,#00ACC1)"></i>Streaming<b class="num">8% est.</b></span>
+        <span class="kw__m">streaming rides beside posted &mdash; never blended</span>
+      </div>
+      <div class="kw__c kw__c--stream">
+        <span class="kw__k"><i class="kw__dot"></i>Streaming &middot; caught on the apps</span>
+        <b>Captured on Hulu &middot; broadcast airings: 0</b>
+        <span class="kw__m">eight days before it touched a transmitter &middot; measured in 40M homes</span>
+      </div>
+      <div class="kw__c kw__c--book">
+        <span class="kw__k">Agency book &middot; who&rsquo;s placing</span>
+        <b>Meridian Media Partners</b>
+        <span class="kw__m num">$11.2M filed &middot; 6 committees &middot; Ohio</span>
+        <span class="kw__flag">First call &middot; +$272K at your share</span>
+      </div>
+      <div class="kw__c kw__c--share">
+        <span class="kw__k">Share check &middot; your air</span>
+        <span class="kw__bar kw__bar--w"><i>MKT</i><span class="kw__tr"><span style="width:100%"></span></span><b class="num">25%</b></span>
+        <span class="kw__bar kw__bar--w kw__bar--r"><i>HALE</i><span class="kw__tr"><span style="width:56%"></span></span><b class="num">14%</b></span>
+        <span class="kw__m"><b class="kw__up">11 pts under</b> her market split &mdash; the call writes itself</span>
+      </div>
+      <div class="kw__c kw__c--rate">
+        <span class="kw__k">FCC rate intel</span>
+        <b class="num">WQZL &middot; :30 early news &middot; $1,150</b>
+        <span class="kw__m">the filed rate &mdash; and the check that no one pays less than you</span>
+      </div>
+      <div class="kw__c kw__c--baker">
+        <span class="kw__k"><i class="kw__dot"></i>Ask Baker</span>
+        <b>&ldquo;What did the other side book this morning?&rdquo;</b>
+        <span class="kw__a"><i>Baker</i>Ellery for Senate added <b class="num">$180K</b> on WZQV,
+          Cleveland &mdash; early news + prime, posted 7:02 AM. Flight opens Sep 7.</span>
+        <span class="kw__m">one question spans the whole dataset &mdash; placements, creatives, rates, races</span>
+      </div>
+      <div class="kw__zone" aria-hidden="true"><span class="kw__zone-k">Voter opinion &middot; KPI &times; CivicScience</span></div>
+      <div class="kw__c kw__c--op">
+        <span class="kw__k">Always-on &middot; QID 9918</span>
+        <b>Data centers: support &minus;7 since June</b>
+        <span class="kw__m">three waves banked &middot; n printed on the board</span>
+      </div>
+      <div class="kw__c kw__c--op2">
+        <span class="kw__k">Ask your own</span>
+        <b>Your question, fielded in days</b>
+        <span class="kw__m">nationally, one state, or a single district &mdash; then it becomes an audience</span>
+      </div>
+      <span class="kw__c kw__c--deal num">KPI-PMP-2026-0841 <i>deal ID &middot; the audience lands in your seat</i></span>
+    </div>
+    <span class="kw__stamp">synthetic glimpses &middot; every board opens live in the demo</span>
+  </div>
+</section>
 
 <!-- ============ THE DOORS (r25, CMO direction 8/27: the homepage zooms out; ============
      each door is one plain claim and a page that goes deeper. The deep material
@@ -441,8 +688,7 @@
           alt="The seller's desk: share by station with your air at 25% of a $3.8M market against the average advertiser's mix, and the leads the share read throws off &mdash; advertisers light on your air with the gap at your share, streaming-only money for the linear pitch, and the agency gap. Synthetic data."><i aria-hidden="true">synthetic data</i></figure>
         <p class="small">Three doors up, the buyer&rsquo;s tools. This one is the seller&rsquo;s:
           share by station first, then the leads it throws off &mdash; buyers light on your
-          air, streaming money still off TV, and the agency placing every dollar. We can
-          see the agencies buying digital &mdash; money that never touches a public file.</p>
+          air, streaming money still off TV, and the agency placing every dollar.</p>
         <span class="press-card__go">Walk the week &rarr;</span>
       </a>
       <a class="card card--flag press-card" href="polling.html">
@@ -484,220 +730,6 @@
 
   </div>
 </section>
-
-<!-- ============ THE TWO FLAGSHIPS (IA pass 1: the owner's named draw-attention
-     items get their own dark band instead of text cards under the doors) ============ -->
-<section class="section section--tight spotband" data-rise>
-  <div class="wrap">
-    <p class="spotband__k">The two hardest problems in the category</p>
-    <div class="spotband__grid">
-      <a class="spot" href="monitoring.html#streaming-spend">
-        <span class="spot__emblem" aria-hidden="true">
-          <svg viewBox="0 0 64 64" fill="none">
-            <rect x="8" y="14" width="48" height="30" rx="3" stroke="#BDD2E2" stroke-width="1.5"/>
-            <polyline points="13,29 18,29 21,23 25,34 29,26 33,31 37,24 41,30 45,27 49,32 51,29" stroke="#A8D14E" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
-            <g stroke="#5B7E9C" stroke-width="1.2"><path d="M18 38v3"/><path d="M26 38v3"/><path d="M34 38v3"/><path d="M42 38v3"/><path d="M50 38v3"/></g>
-            <rect x="22" y="49" width="20" height="2.5" rx="1.25" fill="#BDD2E2"/>
-          </svg>
-        </span>
-        <span class="spot__body">
-          <b>Streaming, tracked without a paper trail.</b>
-          <span>Streaming buys never touch a public file. We capture the ads on the screen
-            itself &mdash; across 40 million measured households &mdash;
-            and the spend prints as a dated, estimated minimum.</span>
-          <i>How we track streaming &rarr;</i>
-        </span>
-      </a>
-      <a class="spot" href="monitoring.html#fcc-rates">
-        <span class="spot__emblem" aria-hidden="true">
-          <svg viewBox="0 0 64 64" fill="none">
-            <path d="M17 8 h24 l9 9 v39 h-33 z" stroke="#BDD2E2" stroke-width="1.5" stroke-linejoin="round"/>
-            <path d="M41 8 v9 h9" stroke="#BDD2E2" stroke-width="1.5" stroke-linejoin="round"/>
-            <g stroke="#5B7E9C" stroke-width="1.5"><path d="M23 26 h12"/><path d="M23 34 h12"/><path d="M23 42 h12"/></g>
-            <g stroke="#A8D14E" stroke-width="1.5"><path d="M39 26 h4"/><path d="M39 34 h4"/><path d="M39 42 h4"/></g>
-            <path d="M23 49 l3 3 5.5 -6" stroke="#A8D14E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </span>
-        <span class="spot__body">
-          <b>FCC rate intelligence.</b>
-          <span>What a spot costs, station by station, daypart by daypart, read from public
-            FCC filings &mdash; the rate call starts here.</span>
-          <i>See rates in your market &rarr;</i>
-        </span>
-      </a>
-    </div>
-    <p class="small center spotband__std">And the standards under all of it:
-      <a href="monitoring.html#cross-screen">how we count</a>.</p>
-  </div>
-</section>
-
-
-<!-- ============ THE WALL (r86) ============ -->
-<!-- Adam (8/29, from the AdImpact screenshots): "communicate more capabilities in a
-     tight geographical space" + "make this look less like it was made by Claude."
-     A hand-placed cluster of live-product glimpses — rotated, overlapping, one card
-     breaking the frame — over a market dot-field. Absolute collage >=1100px; a loose
-     staggered two-column cluster below. Every figure is site canon or stamped
-     synthetic; every card exists as a real board in the product. -->
-<section class="section kw" aria-label="A cluster of product screens: alerts, the scoreboard, channel mix, the agency book, rates, voter opinion, and a deal ID">
-  <div class="wrap">
-    <div class="kw__head" data-rise>
-      <p class="eyebrow">One subscription &middot; every layer</p>
-      <h2>The whole air war,<br>on one screen.</h2>
-      <p class="lede">Detection to decision to delivery &mdash; the glimpses below are
-        boards subscribers pull today, not mockups of a roadmap.</p>
-    </div>
-  </div>
-  <div class="kw__stage">
-    <div class="kw__glow kw__glow--a" aria-hidden="true"></div>
-    <div class="kw__glow kw__glow--b" aria-hidden="true"></div>
-    <div class="wrap kw__cluster" aria-hidden="true">
-      <div class="kw__c kw__c--alert">
-        <span class="kw__k"><i class="kw__dot"></i>New creative &middot; 7:15 AM</span>
-        <b>&ldquo;Hometown Values&rdquo; &mdash; first air</b>
-        <span class="kw__m">Columbus &middot; tape + AI transcript attached</span>
-      </div>
-      <div class="kw__c kw__c--score">
-        <span class="kw__k">Scoreboard &middot; North River Senate</span>
-        <span class="kw__bar"><i>D</i><span class="kw__tr"><span style="width:95%"></span></span><b class="num">$14.2M</b></span>
-        <span class="kw__bar kw__bar--r"><i>R</i><span class="kw__tr"><span style="width:100%"></span></span><b class="num">$15.0M</b></span>
-        <span class="kw__m"><b class="kw__up num">+$1.8M</b> new money this week</span>
-      </div>
-      <div class="kw__c kw__c--mix">
-        <span class="kw__k">Channel mix &middot; Columbus &middot; committed $</span>
-        <span class="kw__row"><i class="kw__sw" style="background:var(--navy)"></i>Broadcast<b class="num">62%</b></span>
-        <span class="kw__row"><i class="kw__sw" style="background:#7FA8CC"></i>Cable<b class="num">21%</b></span>
-        <span class="kw__row"><i class="kw__sw" style="background:#B58A3A"></i>Radio<b class="num">9%</b></span>
-        <span class="kw__row kw__row--est"><i class="kw__sw" style="background:var(--teal,#00ACC1)"></i>Streaming<b class="num">8% est.</b></span>
-        <span class="kw__m">streaming rides beside posted &mdash; never blended</span>
-      </div>
-      <div class="kw__c kw__c--book">
-        <span class="kw__k">Agency book &middot; Ohio</span>
-        <b>Meridian Media Partners</b>
-        <span class="kw__m num">$11.2M filed &middot; 6 committees</span>
-        <span class="kw__flag">First call &middot; +$272K at your share</span>
-      </div>
-      <div class="kw__c kw__c--rate">
-        <span class="kw__k">FCC rate intel</span>
-        <b class="num">WQZL &middot; :30 early news &middot; $1,150</b>
-        <span class="kw__m">the filed rate &mdash; and the check that no one pays less than you</span>
-      </div>
-      <div class="kw__c kw__c--baker">
-        <span class="kw__k">Ask Baker</span>
-        <b>&ldquo;What did the other side book this morning?&rdquo;</b>
-        <span class="kw__m">one question spans the whole dataset</span>
-      </div>
-      <div class="kw__c kw__c--op">
-        <span class="kw__k">Voter opinion &middot; QID 9918</span>
-        <b>Data centers: support &minus;7 since June</b>
-        <span class="kw__m">three waves banked &middot; n printed on the board</span>
-      </div>
-      <span class="kw__c kw__c--deal num">KPI-PMP-2026-0841 <i>deal ID &middot; lands in your seat</i></span>
-    </div>
-    <span class="kw__stamp">synthetic glimpses &middot; every board opens live in the demo</span>
-  </div>
-</section>
-
-<!-- ============ SCALE ============ -->
-<section class="section section--band section--mega">
-  <div class="wrap">
-    <div style="max-width:56ch">
-      <p class="eyebrow">The monitoring network</p>
-      <h2 class="h-display">The most complete monitoring operation in politics.</h2>
-      <p class="lede">When the other side moves, the machine that catches it is
-        already running. Every occurrence, with real costs behind it.</p>
-    </div>
-
-    <!-- r87: real delivery figures. Delivery, not detection — volume and quality
-         figures only. -->
-    <div class="impact mt3" data-rise>
-      <div class="impact__main">
-        <div class="impact__stat">
-          <span class="impact__n num">1.5M</span>
-          <span class="impact__l">ad occurrences detected <b>per day</b><br>
-            every category &middot; all 210 markets &middot; real costs attached</span>
-        </div>
-        <div class="impact__stat">
-          <span class="impact__n num">3.5M</span>
-          <span class="impact__l">streaming impressions <b>delivered per day</b><br>
-            our own political delivery, August 2026 &middot; served and logged &mdash;
-            not scraped from the public ad libraries</span>
-        </div>
-        <blockquote class="impact__q">
-          <p>&ldquo;A Bloomberg console for campaigns.&rdquo;</p>
-          <cite><a href="https://campaignsandelections.com/industry-news/firms-unveil-new-ad-tracking-platform/" rel="noopener">Campaigns &amp; Elections, April 2025</a></cite>
-        </blockquote>
-      </div>
-      <div class="impact__row num">
-        <span><b>40M</b> households on the glass</span>
-        <span><b>98.0%</b> of our streaming spots watched to the last frame</span>
-        <span><b>608 of 608</b> days with streaming delivery</span>
-        <span><b>Decade+</b> of history under every trend</span>
-      </div>
-    </div>
-    <div class="btn-row mt2" style="justify-content:center">
-      <a class="btn btn--lime" href="contact.html">Request a demo</a>
-    </div>
-
-    <!-- Ruling 19: the As-seen-in strip. Every name links to a real, verified article. -->
-    <div class="press-strip" role="group" aria-label="As covered in">
-      <span class="press-strip__k">Defining what&rsquo;s next &middot; as covered in</span>
-      <a href="https://www.axios.com/2026/08/14/senate-primaries-fundraising-cash-republicans-democrats" rel="noopener">Axios</a>
-      <a href="https://www.insideradio.com/free/political-ad-reservations-top-1-billion-for-2026-midterms/article_5cfde563-d649-4e1c-842c-af0eb0db602e.html" rel="noopener">Inside Radio</a>
-      <a href="https://campaignsandelections.com/industry-news/firms-unveil-new-ad-tracking-platform/" rel="noopener">Campaigns &amp; Elections</a>
-    </div>
-  </div>
-</section>
-
-<!-- ============ PRESS ============ -->
-<section class="section section--tint" id="press">
-  <div class="wrap">
-    <div class="center" style="margin-bottom:2.6rem" data-rise>
-      <p class="eyebrow eyebrow--plain" style="justify-content:center">Press</p>
-      <h2>The numbers the press prints.</h2>
-      <p class="lede">Built by the people defining what&rsquo;s next &mdash; and quoted by
-        the people covering it. Name the race; same day on deadline.</p>
-      <div class="press-nums" data-rise>
-        <span><b class="num">$10.4B</b> our 2026 forecast, as of August</span>
-        <span><b class="num">$1.2B</b> forward book on file</span>
-        <span><b class="num">17</b> Senate primaries in Axios&rsquo;s package</span>
-      </div>
-      <div class="btn-row mt2" style="justify-content:center">
-        <a class="btn btn--navy" href="https://kpipoliticalinsightsforecast.subscribepage.io/" target="_blank" rel="noopener">Download the 2026 forecast report</a>
-        <a class="btn btn--outline" href="press.html">The newsroom</a>
-      </div>
-    </div>
-    <a class="card card--flag press-card press-card--lead" href="https://www.axios.com/2026/08/14/senate-primaries-fundraising-cash-republicans-democrats" rel="noopener" data-rise>
-      <p class="card__k">Axios &middot; August 2026</p>
-      <h3>&ldquo;In 2026, money doesn&rsquo;t always matter&rdquo;</h3>
-      <p class="small">Axios&rsquo;s primary-money package ran on KPI data across all 17
-        competitive 2026 Senate primaries.</p>
-      <span class="press-card__go">Read the piece &rarr;</span>
-    </a>
-    <div class="grid grid--2 mt2">
-      <a class="card card--flag press-card" href="https://www.insideradio.com/free/political-ad-reservations-top-1-billion-for-2026-midterms/article_5cfde563-d649-4e1c-842c-af0eb0db602e.html" rel="noopener">
-        <p class="card__k">Inside Radio &middot; August 2026</p>
-        <h3>"Political ad reservations top $1 billion for 2026 midterms"</h3>
-        <p class="small">"Committing $1.2 billion in future media reservations," reported
-          from KPI forward-book data across the 209 federal and state races with forward
-          reservations on file, at the time of that report.</p>
-        <span class="press-card__go">Read the piece &rarr;</span>
-      </a>
-      <a class="card card--flag press-card" href="https://campaignsandelections.com/industry-news/new-report-forecasts-10-billion-in-midterm-ad-spending/" rel="noopener">
-        <p class="card__k">Campaigns &amp; Elections &middot; April 2026</p>
-        <h3>"New Report Forecasts $10 Billion in Midterm Ad Spending"</h3>
-        <p class="small">C&amp;E covered KPI's April forecast; KPI's 2026 forecast stands at
-          $10.4 billion as of August 2026. The same outlet called the platform "a Bloomberg
-          console for campaigns" at launch.</p>
-        <span class="press-card__go">Read the piece &rarr;</span>
-      </a>
-    </div>
-    <!-- Ruling 50i: the Citing KPI block is killed here; citation guidance lives on
-         the contact press card only. -->
-
-  </div>
-</section>
-
 
 <!-- ============ CONTACT ============ -->
 <section class="section section--mega cta-final" id="contact">
@@ -772,6 +804,6 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r88b"></script>
+<script src="assets/js/site.js?v=r89"></script>
 </body>
 </html>
