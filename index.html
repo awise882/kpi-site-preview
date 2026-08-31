@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r101">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r103">
 <style>
   /* Light, centered, airy hero, matching the live site: the announcement banner
      sits flush under the nav, then the display headline in the green-to-teal
@@ -38,7 +38,7 @@
   .curtain__go { margin: .9rem 0 0; }
   .curtain__go a { color: var(--lime); font-weight: 600; text-decoration: none; }
   .curtain__go a:hover { text-decoration: underline; }
-  @media (max-width: 640px) { .curtain { padding: 1.5rem 1.2rem; } .hero .btn-row { flex-direction: column; } .hero .btn--lime { order: -1; } }
+  @media (max-width: 640px) { .hero .btn-row { flex-direction: column; } }
   .hero-banner__in--dual { display: grid; justify-items: center;
     align-items: baseline; gap: .3rem 2.6rem; text-align: center; }
   .hero-banner__in--dual a { display: inline-flex; align-items: baseline; gap: .15rem;
@@ -422,10 +422,10 @@
     <p class="hero-receipt"><span>1.5M ad airings a day, all 210 markets</span><i class="hr-sep" aria-hidden="true">&middot;</i><span><a href="monitoring.html#streaming-spend" style="color:inherit;text-decoration:none">A third of political TV now streams &mdash; measured</a></span></p>
     <p class="lede">KPI tracks political ads and the money behind them &mdash; on TV,
       cable, radio and streaming, in every U.S. media market, near real time. When
-      the other side moves, you know the same morning.</p>
+      the other side moves, you know the same day.</p>
     <div class="btn-row">
-      <a class="btn btn--navy btn--lg" href="week.html">Walk a week with it</a>
       <a class="btn btn--lime btn--lg" href="contact.html">Request a demo</a>
+      <a class="btn btn--outline btn--lg" href="week.html">Walk a week with it</a>
     </div>
     <p class="small" style="margin-top:.55rem;color:var(--ink-3)">The walk: a buyer&rsquo;s
       Monday-to-Friday, then the seller&rsquo;s &mdash; real artifacts, hour by hour.</p>
@@ -483,7 +483,8 @@
       <div class="stat"><div class="stat__v num">Decade+</div><div class="stat__l">Of history under every trend</div></div>
     </div>
 
-    <div class="curtain mt3" data-rise>
+    <div class="curtain curtain--split mt3" data-rise>
+      <div>
       <p class="curtain__k">Streaming &middot; the third everyone else misses</p>
       <h3 class="curtain__h">See behind the curtain.</h3>
       <p class="curtain__p">Transparency reports and public ad libraries end where streaming
@@ -492,6 +493,19 @@
         on the TV glass itself, app by app, through our VideoAmp partnership &mdash; so the
         board you read carries the whole fight, not the filed two-thirds.</p>
       <p class="curtain__go"><a href="monitoring.html#streaming-spend">How streaming is measured &rarr;</a></p>
+      </div>
+      <svg class="curtain__fig" viewBox="0 0 300 150" role="img" aria-label="One in three measured political TV ad impressions run on streaming: a three-cell bar with one solid measured cell and two cells drawn in the public-record's hatched ink">
+        <text x="6" y="16" font-family="Inter, sans-serif" font-size="8.5" font-weight="700" letter-spacing="1" fill="#9FBFD6">MEASURED POLITICAL TV AD IMPRESSIONS</text>
+        <rect x="6" y="28" width="92" height="52" fill="#A8D14E"/>
+        <text x="52" y="60" text-anchor="middle" font-family="Inter, sans-serif" font-size="15" font-weight="800" fill="#08243B">1 in 3</text>
+        <defs><pattern id="cfHatch" width="7" height="7" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="7" stroke="#5B7C96" stroke-width="1.4"/></pattern></defs>
+        <rect x="102" y="28" width="192" height="52" fill="url(#cfHatch)" opacity=".55"/>
+        <rect x="102" y="28" width="192" height="52" fill="none" stroke="#5B7C96" stroke-width="1"/>
+        <text x="6" y="96" font-family="Inter, sans-serif" font-size="8" font-weight="700" letter-spacing=".8" fill="#A8D14E">STREAMING &middot; ON THE GLASS</text>
+        <text x="198" y="96" font-family="Inter, sans-serif" font-size="8" font-weight="700" letter-spacing=".8" fill="#8FA9BE" text-anchor="middle">THE FILED RECORD</text>
+        <text x="6" y="126" font-family="Inter, sans-serif" font-size="9" fill="#C7D9E6">Solid ink is measured &middot; 220M+ in one summer week, 40M homes</text>
+        <text x="6" y="140" font-family="Inter, sans-serif" font-size="9" fill="#8FA9BE">the hatched two-thirds is where public files still work</text>
+      </svg>
     </div>
 
     <div class="built mt3" data-rise>
@@ -499,7 +513,7 @@
       <p class="built__sub">Simple when you need the answer, detailed and powerful when
         you need it &mdash; down to the spot, the station, and the dollar. Built by the
         people building what comes next.</p>
-      <p class="hero-receipt" style="margin-top:.7rem">1.5M occurrences a day &middot; every dollar names its source &middot; a decade+ on file</p>
+
     </div>
   </div>
 </section>
@@ -693,33 +707,8 @@
       <a class="card card--flag press-card" href="polling.html">
         <p class="card__k">Voter opinion</p>
         <h3>The poll that never closes.</h3>
-        <figure class="press-card__shot press-card__shot--chip" aria-hidden="true"><svg viewBox="0 0 252 156">
-          <defs>
-            <radialGradient id="doorLoopGlow" cx=".5" cy=".5" r=".6">
-              <stop offset="0" stop-color="#1B4F72" stop-opacity=".55"/>
-              <stop offset="1" stop-color="#0D2E4A" stop-opacity="0"/>
-            </radialGradient>
-          </defs>
-          <rect width="252" height="156" fill="#0D2E4A"/>
-          <ellipse cx="126" cy="78" rx="150" ry="92" fill="url(#doorLoopGlow)"/>
-          <ellipse cx="126" cy="78" rx="88" ry="52" fill="none" stroke="#A8D14E" stroke-width="2.4"/>
-          <g fill="#A8D14E">
-            <polygon points="0,-5.5 9,0 0,5.5" transform="translate(214,78) rotate(90)"/>
-            <polygon points="0,-5.5 9,0 0,5.5" transform="translate(38,78) rotate(-90)"/>
-          </g>
-          <g fill="#0D2E4A" stroke="#BDD2E2" stroke-width="2">
-            <circle cx="126" cy="26" r="7"/>
-            <circle cx="202" cy="52" r="7"/>
-            <circle cx="202" cy="104" r="7"/>
-            <circle cx="126" cy="130" r="7"/>
-            <circle cx="50" cy="104" r="7"/>
-          </g>
-          <circle cx="50" cy="52" r="8.5" fill="#A8D14E"/>
-          <circle cx="50" cy="52" r="14" fill="none" stroke="#A8D14E" stroke-width="1.4" opacity=".45"/>
-          <circle cx="50" cy="52" r="20" fill="none" stroke="#A8D14E" stroke-width="1" opacity=".2"/>
-          <text x="126" y="74" text-anchor="middle" font-family="Inter, -apple-system, sans-serif" font-size="11.5" font-weight="700" letter-spacing="1.5" fill="#BDD2E2">ASK &middot; HEAR &middot; BUILD</text>
-          <text x="126" y="90" text-anchor="middle" font-family="Inter, -apple-system, sans-serif" font-size="11.5" font-weight="700" letter-spacing="1.5" fill="#7CB342">THEN ASK AGAIN</text>
-        </svg><i aria-hidden="true">illustration</i></figure>
+        <figure class="press-card__shot"><img width="2280" height="1280" src="assets/apps/app-question-library.png?v=r103" loading="lazy"
+          alt="The question library: real always-on questions with their QIDs &mdash; economy and jobs QID 9918, gas and energy prices QID 9919 &mdash; domain counts, and the shortlist that comes back as a deal ID."><i aria-hidden="true">the live library</i></figure>
         <p class="small">10.2 billion answers deep &mdash; 10,000+ questions always in the
           field. Build the audience from what people actually said &mdash; custom questions come
           with the media, at a bar lower than you would guess.</p>
@@ -803,6 +792,6 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r100"></script>
+<script src="assets/js/site.js?v=r103"></script>
 </body>
 </html>

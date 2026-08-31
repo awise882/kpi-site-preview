@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r101">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r103">
 <style>
   /* Light, centered, airy hero, same standard as the home page: display headline
      in the green-to-teal gradient with the layered offset, the lede, two buttons,
@@ -258,6 +258,7 @@
     .mxs.in-view .mxs__ann { animation: mxs-in .55s var(--smooth) 1.3s backwards; }
   }
   @keyframes mxs-in { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+  @keyframes fade-in-soft { from { opacity: .45; } to { opacity: 1; } }
   /* r88: the matrix story, scrubbed by the universal driver — all browsers,
      phones included. Same ranges; shorter runway on small screens. */
   html.scrub .mxs__scroller { height: 400vh; }
@@ -270,11 +271,11 @@
   html.scrub .mxs__mxd { animation: fade-in 1s linear paused both !important; animation-delay: calc((0.62 - var(--scrub, 0)) / 0.10 * 1s) !important; }
   html.scrub .mxs__mxe { animation: fade-in 1s linear paused both !important; animation-delay: calc((0.76 - var(--scrub, 0)) / 0.08 * 1s) !important; }
   html.scrub .mxs__ann { animation: mxs-in 1s linear paused both !important; animation-delay: calc((0.86 - var(--scrub, 0)) / 0.05 * 1s) !important; }
-  html.scrub .mxs__step--a { animation: fade-in 1s linear paused both !important; animation-delay: calc((0.14 - var(--scrub, 0)) / 0.12 * 1s) !important; }
-  html.scrub .mxs__step--b { animation: fade-in 1s linear paused both !important; animation-delay: calc((0.30 - var(--scrub, 0)) / 0.12 * 1s) !important; }
-  html.scrub .mxs__step--c { animation: fade-in 1s linear paused both !important; animation-delay: calc((0.46 - var(--scrub, 0)) / 0.12 * 1s) !important; }
-  html.scrub .mxs__step--d { animation: fade-in 1s linear paused both !important; animation-delay: calc((0.62 - var(--scrub, 0)) / 0.10 * 1s) !important; }
-  html.scrub .mxs__step--e { animation: fade-in 1s linear paused both !important; animation-delay: calc((0.76 - var(--scrub, 0)) / 0.08 * 1s) !important; }
+  html.scrub .mxs__step--a { animation: fade-in-soft 1s linear paused both !important; animation-delay: calc((0.14 - var(--scrub, 0)) / 0.12 * 1s) !important; }
+  html.scrub .mxs__step--b { animation: fade-in-soft 1s linear paused both !important; animation-delay: calc((0.30 - var(--scrub, 0)) / 0.12 * 1s) !important; }
+  html.scrub .mxs__step--c { animation: fade-in-soft 1s linear paused both !important; animation-delay: calc((0.46 - var(--scrub, 0)) / 0.12 * 1s) !important; }
+  html.scrub .mxs__step--d { animation: fade-in-soft 1s linear paused both !important; animation-delay: calc((0.62 - var(--scrub, 0)) / 0.10 * 1s) !important; }
+  html.scrub .mxs__step--e { animation: fade-in-soft 1s linear paused both !important; animation-delay: calc((0.76 - var(--scrub, 0)) / 0.08 * 1s) !important; }
   @media (max-width: 999px) {
     html.scrub .mxs__scroller { height: 280vh; }
     html.scrub .mxs__pin { top: 72px; }
@@ -1109,7 +1110,7 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r100"></script>
+<script src="assets/js/site.js?v=r103"></script>
 <script>
 /* Ruling 49b: the 48-segment list ask. Email-only, posted as JSON to the same
    same-origin /api/contact endpoint the demo form uses (subject prefilled, the
