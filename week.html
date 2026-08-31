@@ -106,21 +106,15 @@
   <div class="wrap">
 
     <div class="wk" data-wk>
-      <div class="wk__rail" role="tablist" aria-label="Choose which week to read">
-        <button class="wk__tab" id="wk-tab-buy" type="button" role="tab" aria-selected="true" aria-controls="wk-buy">
-          <span class="wk__tab-name">The buyer's week</span>
-          <span class="wk__tab-sub">The alert, the landscape, Baker, the rate, the floor</span>
-        </button>
-        <button class="wk__tab" id="wk-tab-sell" type="button" role="tab" aria-selected="false" aria-controls="wk-sell">
-          <span class="wk__tab-name">The seller's week</span>
-          <span class="wk__tab-sub">The rate call, the share gap, the call list, the alerts</span>
-        </button>
+      <!-- r102 (consolidation round, the owner's "two beats" call): one pinned
+           story device only. The buyer keeps the scroll story; the seller's week
+           is told through the four boards below — the switcher is gone. -->
+      <div class="btn-row" style="margin:0 0 2rem">
+        <a class="btn btn--navy" href="#wk-buy">The buyer&rsquo;s week &darr;</a>
+        <a class="btn btn--outline" href="#wk-sell">The seller&rsquo;s desk &darr;</a>
       </div>
-      <!-- Ruling 50b: the switch cue. Visible only when JS builds the tabs; JS-off both
-           stories render stacked and there is nothing to switch. -->
-      <p class="wk__cue" aria-hidden="true">One week, two reads &middot; click or tap to switch<span class="kbd-hint">, or use the arrow keys</span></p>
 
-    <article class="wk__story" id="wk-buy" role="tabpanel" aria-labelledby="wk-tab-buy">
+    <article class="wk__story" id="wk-buy">
     <h3 class="wk__story-h">The buyer's week</h3>
 
     <!-- Ruling 52a: THE CALENDAR TIMELINE, now Beat 1: the race on a
@@ -298,112 +292,7 @@
       <a href="#air-war">explorable market</a> works for both.</p>
     </article>
 
-    <article class="wk__story" id="wk-sell" role="tabpanel" aria-labelledby="wk-tab-sell">
-    <h3 class="wk__story-h">The seller's week</h3>
-    <!-- Pass E (§2): the sell path in the seller's actual order of operations,
-         PRICE -> GAP -> CALL -> ALERT. Rate opens the week because rate is the
-         conversation the seller is already in; the forward book ranks the call
-         list and the went-dark row gives the reason; the alerts keep the loop
-         running. One sentence per beat (50e); the artifacts talk. The old
-         booking-horizon beat is absorbed into the call beat: one story per
-         surface, fewer objects (CMO feedback, 8/27). -->
-    <div class="wk__scenes">
-      <article class="wk__scene">
-        <div class="wk__when">
-          <span class="wk__day">Beat 1 &middot; Monday &middot; Price</span>
-          <span class="wk__stampline num">wk of Aug 10</span>
-          <span class="wk__big">Start the week with the rate file.</span>
-          <div class="wk__copy">
-            <p>Rate is the conversation you are already in: what the aisle next door
-              charged, by daypart and week, from the public FCC file.</p>
-          </div>
         </div>
-        <div class="wk__art">
-          <div class="wk-doc">
-            <div class="wk-doc__bar"><span class="wk-doc__brand">KPI &middot; FCC Pricing Intel</span><span class="wk-doc__stamp">From the public file &middot; wk of Aug 10</span></div>
-            <div class="wk-doc__row"><b>Columbus &middot; early news &middot; :30</b><span class="wk-doc__dim">filed political rates, by station and week</span></div>
-            <div class="wk-doc__row"><span>Market midpoint</span><span class="num"><b>$310</b></span><span class="wk-doc__dim">4 stations filed this week</span></div>
-            <div class="wk-doc__row"><span>Your card</span><span class="num"><b>$260</b></span><span class="wk-doc__hi num">the gap is the rate call</span></div>
-            <p class="wk-doc__note">One daypart of the rate book. The full grid, week by week through Nov 3, is on the <a href="monitoring.html#fcc-rates">monitoring page</a>.</p>
-          </div>
-        </div>
-      </article>
-
-      <article class="wk__scene">
-        <div class="wk__when">
-          <span class="wk__day">Beat 2 &middot; Tuesday &middot; The gap</span>
-          <span class="wk__stampline num">Aug 11</span>
-          <span class="wk__big">See who is missing.</span>
-          <div class="wk__copy">
-            <p>Advertisers under-allocated to your air, or your app: money in market
-              that is not on your books, linear and streaming on one read.</p>
-          </div>
-        </div>
-        <div class="wk__art">
-          <div class="wk-doc">
-            <div class="wk-doc__bar"><span class="wk-doc__brand">KPI &middot; Share gap</span><span class="wk-doc__stamp">TV thru Aug 11 &middot; streaming est. thru Aug 4</span></div>
-            <div class="wk-doc__row"><b>Your air &middot; WQZL</b><span class="wk-doc__dim">25% of the market's aired political dollars</span></div>
-            <div class="wk-doc__row"><span>Nora Hale for Senate (D)</span><span class="num">gives WQZL <b>14%</b></span><span class="wk-doc__hi num">11 pts under her market split</span></div>
-            <div class="wk-doc__row"><span>Heartland Priorities PAC</span><span class="num"><b>$0</b> on TV &middot; $740K streaming est. <i class="aw__tag aw__tag--est">statewide</i></span><span class="wk-doc__hi">the linear pitch: streaming money, $0 on your air</span></div>
-            <p class="wk-doc__note">Linear gaps in points; streaming gaps as an estimated
-              statewide minimum, never blended. The digital seller's own board is
-              <a href="#share-diagonal">below on this page</a>.</p>
-          </div>
-        </div>
-      </article>
-
-      <article class="wk__scene">
-        <div class="wk__when">
-          <span class="wk__day">Beat 3 &middot; Wednesday &middot; The call</span>
-          <span class="wk__stampline num">Aug 12 &middot; reading the book as posted</span>
-          <span class="wk__big">Know who to call, and with what.</span>
-          <div class="wk__copy">
-            <p>The forward book ranks the list, the went-dark row gives the reason,
-              and the export goes across the table.</p>
-          </div>
-        </div>
-        <div class="wk__art">
-          <div class="wk-doc">
-            <div class="wk-doc__bar"><span class="wk-doc__brand">KPI &middot; Market Order Flow</span><span class="wk-doc__stamp">Posted through Aug 10, 2026</span></div>
-            <div class="wk-doc__row"><b>Columbus</b><span class="wk-doc__dim">6 advertisers &middot; 3 races &middot; first call and went-dark flagged inline</span></div>
-            <div class="wk-doc__row"><span>Your share of it</span><span class="num"><b>25%</b> aired &middot; <b>9%</b> of Meridian&rsquo;s &mdash; gap <b>$272K</b></span></div>
-            <div class="wk-doc__row"><span class="wk-doc__dim">The full board &mdash; every advertiser and the forward book &mdash;
-              is <a href="#order-flow">two screens down</a>.</span></div>
-            <p class="wk-doc__note">Orders post on a short lag; reads run to the
-              posted-through date. One export, dated in the header, sized to hand across a table.</p>
-          </div>
-        </div>
-      </article>
-
-      <article class="wk__scene">
-        <div class="wk__when">
-          <span class="wk__day">Beat 4 &middot; Every morning after &middot; Stay alert</span>
-          <span class="wk__stampline num">Aug 13 &rarr;</span>
-          <span class="wk__big">Alerts carry the rest of the week.</span>
-          <div class="wk__copy">
-            <p>Pricing-condition and order alerts keep the loop running between
-              Mondays: same morning, your inbox.</p>
-          </div>
-        </div>
-        <div class="wk__art">
-          <div class="wk-doc">
-            <div class="wk-doc__bar"><span class="wk-doc__brand">KPI &middot; Alerts</span><span class="wk-doc__stamp">Same morning &middot; your inbox</span></div>
-            <div class="wk-doc__row"><span class="wk-doc__kind">Pricing condition</span><span>Columbus early news &middot; Q4 filed midpoint moved</span><span class="wk-doc__hi num">+$25 wk over wk</span></div>
-            <div class="wk-doc__row"><span class="wk-doc__kind">Order posted</span><span>Granite State Forward</span><span class="num"><b>+$140K</b> on WZQV, Cleveland &middot; flight opens Sep 21</span></div>
-            <p class="wk-doc__note">Alert rules and recipients are yours: race, market, advertiser or
-              rate condition, routed to the seat that owns the account &mdash; the whole desk can be on them.</p>
-          </div>
-          <div class="wk-links" role="group" aria-label="The screens behind the seller's week">
-            <a class="chip" href="#sell-side">Market Order Flow</a>
-            <a class="chip" href="monitoring.html#fcc-rates">FCC rate intelligence</a>
-            <a class="chip" href="#share-diagonal">The share diagonal</a>
-            <a class="chip" href="#agency-book">The agency book</a>
-          </div>
-        </div>
-      </article>
-    </div>
-    </article>
-    </div>
 
     <p class="small center mt2">Synthetic races, stations and advertisers; real markets. Illustrative figures. The stamps are not.</p>
   </div>
@@ -574,9 +463,10 @@
 <!-- ============ SELL-SIDE ============ -->
 <section class="section pb" id="sell-side" data-pb>
   <div class="wrap">
+    <span id="wk-sell" aria-hidden="true"></span>
     <div class="split" style="margin-bottom:2.2rem">
       <div>
-        <p class="eyebrow">Sell-side intelligence</p>
+        <p class="eyebrow">Sell-side intelligence &middot; the seller&rsquo;s week</p>
         <h2>Money in market, not on your books yet.</h2>
       </div>
       <div>
@@ -596,22 +486,25 @@
     <!-- r88b: the seller's boards as one deck. site.js adds .pb--live and the
          rail appears; JS-off all six boards render stacked exactly as before.
          Panels keep their ids so every existing deep link still lands. -->
+    <p class="small" style="max-width:72ch">The seller&rsquo;s week runs through these
+      boards: Monday&rsquo;s price, Tuesday&rsquo;s gap, Wednesday&rsquo;s calls &mdash; and the
+      alerts carry every morning after.</p>
     <div class="pb__rail mt3" role="tablist" aria-label="Choose a seller board">
       <button class="pb__tab" id="pb-tab-orderflow" type="button" role="tab" aria-selected="true" aria-controls="order-flow">
         <span class="wk__tab-name">Order flow</span>
-        <span class="wk__tab-sub">Stations &amp; reps &middot; the market's money, advertiser by advertiser</span>
+        <span class="wk__tab-sub">Monday &middot; price the window, defend the share</span>
       </button>
       <button class="pb__tab" id="pb-tab-agencybook" type="button" role="tab" aria-selected="false" aria-controls="agency-book">
         <span class="wk__tab-name">Agency book</span>
-        <span class="wk__tab-sub">Stations &amp; reps &middot; every agency in your state</span>
+        <span class="wk__tab-sub">Wednesday &middot; the call list, agency by agency</span>
       </button>
       <button class="pb__tab" id="pb-tab-diagonal" type="button" role="tab" aria-selected="false" aria-controls="share-diagonal">
         <span class="wk__tab-name">Share diagonal</span>
-        <span class="wk__tab-sub">App sellers &middot; the digital call list</span>
+        <span class="wk__tab-sub">Tuesday &middot; the gap &mdash; apps &amp; OTT</span>
       </button>
       <button class="pb__tab" id="pb-tab-classgap" type="button" role="tab" aria-selected="false" aria-controls="class-gap-board">
         <span class="wk__tab-name">Class gap</span>
-        <span class="wk__tab-sub">App sellers &middot; the starved class is the pitch</span>
+        <span class="wk__tab-sub">Tuesday &middot; the gap, by platform class</span>
       </button>
     </div>
     <p class="pb__cue" aria-hidden="true">Four boards, one subscription &middot; click or tap to switch<span class="kbd-hint">, or use the arrow keys</span></p>
@@ -1038,6 +931,25 @@
     <!-- r89: the streaming-pitch and lead-list panels are gone — the share
          diagonal owns the pitch (its own comment said it replaced the prose
          card) and the agency book owns the call list. Four boards, no repeats. -->
+    <div class="mt3" data-rise>
+      <h3 style="font-size:clamp(1.25rem,2vw,1.55rem)">Every morning after: the alerts run the desk.</h3>
+      <div style="max-width:640px;margin-top:.9rem">
+        <div class="wk-doc">
+            <div class="wk-doc__bar"><span class="wk-doc__brand">KPI &middot; Alerts</span><span class="wk-doc__stamp">Same morning &middot; your inbox</span></div>
+            <div class="wk-doc__row"><span class="wk-doc__kind">Pricing condition</span><span>Columbus early news &middot; Q4 filed midpoint moved</span><span class="wk-doc__hi num">+$25 wk over wk</span></div>
+            <div class="wk-doc__row"><span class="wk-doc__kind">Order posted</span><span>Granite State Forward</span><span class="num"><b>+$140K</b> on WZQV, Cleveland &middot; flight opens Sep 21</span></div>
+            <p class="wk-doc__note">Alert rules and recipients are yours: race, market, advertiser or
+              rate condition, routed to the seat that owns the account &mdash; the whole desk can be on them.</p>
+          </div>
+          <div class="wk-links" role="group" aria-label="The screens behind the seller's week">
+            <a class="chip" href="#sell-side">Market Order Flow</a>
+            <a class="chip" href="monitoring.html#fcc-rates">FCC rate intelligence</a>
+            <a class="chip" href="#share-diagonal">The share diagonal</a>
+            <a class="chip" href="#agency-book">The agency book</a>
+          </div>
+      </div>
+    </div>
+
     <p class="small mt2">Every board here exports &mdash; workbook and print sheet, aired
       and booked-forward as separate columns, the posted-through date in the header &mdash;
       and sellers may put KPI figures in front of an advertiser with the credit attached:

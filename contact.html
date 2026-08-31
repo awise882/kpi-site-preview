@@ -179,7 +179,7 @@
 
           <p class="form-status" id="form-status" role="status" aria-live="polite" hidden></p>
 
-          <button class="btn btn--lime" type="submit">Request the walkthrough</button>
+          <button class="btn btn--lime" type="submit">Request a demo</button>
 
           <!-- Notice at collection. Keep this visible at the point of collection. The privacy page
                (privacy.html) carries the retention term and is linked from every footer. COUNSEL TO
@@ -340,7 +340,7 @@
   var hush = function () { if (status) { status.hidden = true; status.textContent = ''; } };
   var btn = form.querySelector('button[type="submit"]');
   var restore = function () {
-    if (btn) { btn.disabled = false; btn.textContent = 'Request the walkthrough'; }
+    if (btn) { btn.disabled = false; btn.textContent = 'Request a demo'; }
   };
 
   var showSent = function () {
