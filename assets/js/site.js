@@ -370,7 +370,7 @@
    Reduced motion or no JS: no .scrub class, static end-states render. */
 (function () {
   var els = Array.prototype.slice.call(
-    document.querySelectorAll('.sd__scroller,.tl__scroller,.ct__scroller,.mxs__scroller'));
+    document.querySelectorAll('.sd__scroller,.tl__scroller,.ct__scroller,.mxs__scroller,.wkx__scroller'));
   if (!els.length) return;
   var root = document.documentElement;
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');

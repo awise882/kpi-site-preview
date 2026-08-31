@@ -2207,3 +2207,52 @@ a.chip:hover { border-color: var(--blue); color: var(--navy); background: var(--
 .tflow__deal { background: var(--navy-deep); color: var(--lime); border-color: var(--navy-deep); }
 .tflow__deal i { color: #9FBFD6; }
 .tflow__arrow { color: var(--ink-3); font-size: .9rem; padding-left: 1rem; }
+
+/* ============ r105: the buyer's week as ONE swap-stage ============
+   Base (JS-off, reduced motion, phones): four beats stacked, everything visible.
+   With the scrub engine (html.scrub, >=760px): the stage pins and the scroll
+   swaps beats in place. */
+.wkx__beat { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+  gap: 2rem; align-items: start; margin: 0 0 2.6rem; }
+@media (max-width: 759px) { .wkx__beat { grid-template-columns: 1fr; gap: 1rem; } }
+.wkx__rail { display: none; }
+.wkx__hint { display: none; color: var(--ink-3); }
+
+@media (min-width: 760px) {
+  html.scrub .wkx__scroller { height: 380vh; }
+  html.scrub .wkx__pin { position: sticky; top: calc(var(--nav-h, 64px) + 18px); }
+  html.scrub .wkx__rail { display: flex; gap: .6rem; flex-wrap: wrap; margin-bottom: .5rem; }
+  html.scrub .wkx__step { font-family: var(--label); text-transform: uppercase;
+    letter-spacing: .1em; font-size: .7rem; font-weight: 700; color: var(--ink-3);
+    border-top: 2.5px solid var(--rule); padding-top: .4rem; flex: 1 1 0; opacity: .45;
+    animation: wkx-step 1s linear paused both; }
+  html.scrub .wkx__hint { display: block; margin: 0 0 1rem; }
+  html.scrub .wkx__beats { position: relative; height: min(66vh, 620px); }
+  html.scrub .wkx__beat { position: absolute; inset: 0; margin: 0;
+    animation: wkx-win 1s linear paused both; }
+  html.scrub .wkx__beat--1 { animation-name: wkx-win-first; animation-delay: calc((0.00 - var(--scrub, 0)) / 0.25 * 1s); }
+  html.scrub .wkx__beat--2 { animation-delay: calc((0.25 - var(--scrub, 0)) / 0.25 * 1s); }
+  html.scrub .wkx__beat--3 { animation-delay: calc((0.50 - var(--scrub, 0)) / 0.25 * 1s); }
+  html.scrub .wkx__beat--4 { animation-name: wkx-win-last; animation-delay: calc((0.75 - var(--scrub, 0)) / 0.25 * 1s); }
+  html.scrub .wkx__step--1 { animation-name: wkx-step-first; animation-delay: calc((0.00 - var(--scrub, 0)) / 0.25 * 1s); }
+  html.scrub .wkx__step--2 { animation-delay: calc((0.25 - var(--scrub, 0)) / 0.25 * 1s); }
+  html.scrub .wkx__step--3 { animation-delay: calc((0.50 - var(--scrub, 0)) / 0.25 * 1s); }
+  html.scrub .wkx__step--4 { animation-name: wkx-step-last; animation-delay: calc((0.75 - var(--scrub, 0)) / 0.25 * 1s); }
+}
+@keyframes wkx-win {
+  0% { opacity: 0; visibility: hidden; transform: translateY(16px); }
+  10% { opacity: 1; visibility: visible; transform: none; }
+  90% { opacity: 1; visibility: visible; transform: none; }
+  100% { opacity: 0; visibility: hidden; transform: translateY(-12px); }
+}
+@keyframes wkx-win-first {
+  0%, 90% { opacity: 1; visibility: visible; transform: none; }
+  100% { opacity: 0; visibility: hidden; transform: translateY(-12px); }
+}
+@keyframes wkx-win-last {
+  0% { opacity: 0; visibility: hidden; transform: translateY(16px); }
+  10%, 100% { opacity: 1; visibility: visible; transform: none; }
+}
+@keyframes wkx-step { 0% { opacity: .45; } 10%, 90% { opacity: 1; border-top-color: var(--lime); color: var(--navy-deep); } 100% { opacity: .45; } }
+@keyframes wkx-step-first { 0%, 90% { opacity: 1; border-top-color: var(--lime); color: var(--navy-deep); } 100% { opacity: .45; } }
+@keyframes wkx-step-last { 0% { opacity: .45; } 10%, 100% { opacity: 1; border-top-color: var(--lime); color: var(--navy-deep); } }
