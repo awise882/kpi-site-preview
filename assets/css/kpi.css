@@ -152,14 +152,7 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 2.5rem 0; }
   content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px;
   background: linear-gradient(90deg, var(--navy) 0%, var(--blue) 40%, var(--lime) 100%);
 }
-@supports (animation-timeline: view()) {
-  .section--band::after, .cta-final::after {
-    transform-origin: left center;
-    animation: draw-rule linear both;
-    animation-timeline: view();
-    animation-range: entry 5% entry 45%;
-  }
-}
+/* r89: the band seam prints drawn everywhere — the view() draw was Chrome-only. */
 @keyframes draw-rule { from { transform: scaleX(0); } to { transform: scaleX(1); } }
 @media (prefers-reduced-motion: reduce) {
   .section--band::after, .cta-final::after { animation: none; transform: none; }
@@ -801,6 +794,8 @@ a.chip:hover { border-color: var(--blue); color: var(--navy); background: var(--
 .in-view[data-rise] > *:nth-child(4) { animation-delay: .12s; }
 .in-view[data-rise] > *:nth-child(5) { animation-delay: .2s; }
 .in-view[data-rise] > *:nth-child(6) { animation-delay: .25s; }
+.in-view[data-rise] > *:nth-child(7) { animation-delay: .3s; }
+.in-view[data-rise] > *:nth-child(8) { animation-delay: .35s; }
 @keyframes rise { from { opacity: .01; transform: translateY(26px); } to { opacity: 1; transform: translateY(0); } }
 .in-view .fig__svg rect { transform-origin: left center; animation: grow-x .9s var(--smooth) backwards; }
 .in-view .fig__svg rect:nth-of-type(2) { animation-delay: .12s; }
@@ -1416,15 +1411,10 @@ a.chip:hover { border-color: var(--blue); color: var(--navy); background: var(--
   .wk__scene { grid-template-columns: 1fr; }
   .wk__when { position: static; }
 }
-@supports (animation-timeline: view()) {
-  @media (prefers-reduced-motion: no-preference) {
-    /* Final perf pass (ruling 39a): the old scene-wide opacity fade promoted
-       each full-width scene (with its sticky child) to a compositor layer and
-       stacked two scroll timelines per scene. One light driver survives: the
-       artifact lifts in on transform+opacity only, on its own small layer.
-       Prose is simply present; smooth beats elaborate. */
-    .wk__art { animation: wk-art linear both; animation-timeline: view(); animation-range: entry 12% entry 44%; will-change: transform, opacity; }
-  }
+/* r89: the artifact lift runs off IO in every browser — the view() driver was
+   Chrome-only and sat dead everywhere else. One light one-shot per scene. */
+@media (prefers-reduced-motion: no-preference) {
+  .wk__scene.in-view .wk__art { animation: wk-art .55s var(--smooth) backwards; }
 }
 @keyframes wk-art { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: none; } }
 
@@ -1524,87 +1514,12 @@ a.chip:hover { border-color: var(--blue); color: var(--navy); background: var(--
    frames. Named view-timelines sit on the big blocks so short elements (a
    3px rule, a 12px bar) draw over real scroll distance instead of flipping.
    ========================================================================== */
-@supports (animation-timeline: view()) {
-  @media (prefers-reduced-motion: no-preference) {
-
-    /* -- entrances arrive as you scroll (replaces the IO one-shot) -- */
-    [data-rise] > *, .in-view[data-rise] > * {
-      animation: rise linear both;
-      animation-timeline: view();
-      animation-range: cover 0% cover 22%;
-      animation-delay: 0s;
-    }
-    [data-rise] > *:nth-child(2), .in-view[data-rise] > *:nth-child(2) { animation-range: cover 3% cover 25%; animation-delay: 0s; }
-    [data-rise] > *:nth-child(3), .in-view[data-rise] > *:nth-child(3) { animation-range: cover 6% cover 28%; animation-delay: 0s; }
-    [data-rise] > *:nth-child(4), .in-view[data-rise] > *:nth-child(4) { animation-range: cover 9% cover 31%; animation-delay: 0s; }
-    [data-rise] > *:nth-child(5), .in-view[data-rise] > *:nth-child(5) { animation-range: cover 12% cover 34%; animation-delay: 0s; }
-    [data-rise] > *:nth-child(6), .in-view[data-rise] > *:nth-child(6) { animation-range: cover 15% cover 37%; animation-delay: 0s; }
-
-    /* -- figure bars sketch in on the figure's own scroll progress -- */
-    .fig { view-timeline: --fig block; }
-    .fig .fig__svg rect, .in-view .fig__svg rect {
-      animation: grow-x linear both;
-      animation-timeline: --fig;
-      animation-range: cover 0% cover 30%;
-      animation-delay: 0s;
-    }
-    .fig .fig__svg rect:nth-of-type(2), .in-view .fig__svg rect:nth-of-type(2) { animation-range: cover 4% cover 34%; animation-delay: 0s; }
-    .fig .fig__svg rect:nth-of-type(3), .in-view .fig__svg rect:nth-of-type(3) { animation-range: cover 8% cover 38%; animation-delay: 0s; }
-    .fig .fig__svg rect:nth-of-type(4), .in-view .fig__svg rect:nth-of-type(4) { animation-range: cover 12% cover 42%; animation-delay: 0s; }
-    .fig .fig__svg rect:nth-of-type(5), .in-view .fig__svg rect:nth-of-type(5) { animation-range: cover 16% cover 46%; animation-delay: 0s; }
-
-    /* -- the air-war lanes grow against the panel's progress -- */
-    .aw__panel { view-timeline: --awpanel block; }
-    .aw__fill, .in-view .aw__fill {
-      animation: grow-x linear both;
-      animation-timeline: --awpanel;
-      animation-range: cover 5% cover 40%;
-      animation-delay: 0s;
-    }
-    .aw__lane:nth-child(2) .aw__fill, .in-view .aw__lane:nth-child(2) .aw__fill { animation-range: cover 9% cover 44%; animation-delay: 0s; }
-    .aw__lane:nth-child(3) .aw__fill, .in-view .aw__lane:nth-child(3) .aw__fill { animation-range: cover 13% cover 48%; animation-delay: 0s; }
-    .aw__lane:nth-child(4) .aw__fill, .in-view .aw__lane:nth-child(4) .aw__fill { animation-range: cover 17% cover 52%; animation-delay: 0s; }
-    .aw__lane:nth-child(5) .aw__fill, .in-view .aw__lane:nth-child(5) .aw__fill { animation-range: cover 21% cover 56%; animation-delay: 0s; }
-
-    /* -- stat underlines draw: the ledger and evidentiary-weight rules -- */
-    .ledger { view-timeline: --ledger block; }
-    .ledger__rule, .ledger.in-view .ledger__rule {
-      animation: grow-x linear both;
-      animation-timeline: --ledger;
-      animation-range: cover 5% cover 45%;
-      animation-delay: 0s;
-    }
-    .ew { view-timeline: --ew block; }
-    .ew__rule, .ew.in-view .ew__rule {
-      animation: grow-x linear both;
-      animation-timeline: --ew;
-      animation-range: cover 5% cover 45%;
-      animation-delay: 0s;
-    }
-
-    /* -- the week's timeline seam sketches down as the story scrolls -- */
-    .wk__scenes::before {
-      transform-origin: top center;
-      animation: draw-seam linear both;
-      animation-timeline: view();
-      animation-range: cover 0% cover 92%;
-    }
-    /* -- and each day's node pops as its scene arrives -- */
-    .wk__scene { view-timeline: --wkscene block; }
-    .wk__scene::before {
-      animation: node-pop linear both;
-      animation-timeline: --wkscene;
-      animation-range: entry 0% entry 45%;
-    }
-
-    /* -- the statement-band seam draws over real distance (the 3px pseudo's
-       own entry range is 3px of scroll, which reads as a flip) -- */
-    .section--band, .cta-final { view-timeline: --band block; }
-    .section--band::after, .cta-final::after {
-      animation-timeline: --band;
-      animation-range: cover 0% cover 16%;
-    }
-  }
+/* r89: the scroll-driven reveal layer is deleted. It was Chrome-only, and in
+   practice the settle belt parked it at static frames, so no browser ever saw
+   it move. The IO one-shots above are now the single entrance path everywhere.
+   The week story keeps its day-node pops through the same IO class. */
+@media (prefers-reduced-motion: no-preference) {
+  .wk__scene.in-view::before { animation: node-pop .5s var(--smooth) backwards; }
 }
 @keyframes draw-seam { from { transform: scaleY(0); } to { transform: scaleY(1); } }
 @keyframes node-pop {
@@ -1620,7 +1535,7 @@ a.chip:hover { border-color: var(--blue); color: var(--navy); background: var(--
    .is-settled to any scroll-reveal element a broken embedded pane has left
    stuck invisible (claims view() support, never advances the timeline). The
    element simply becomes its own final frame. */
-.is-settled { animation: none !important; opacity: 1 !important; transform: none !important; }
+/* r89: .is-settled retired with the settle belt. */
 
 /* ============ Ruling 53: the modeling defense block (index digital cluster +
    cross-screen mechanism). The case for the modeled number, stated as discipline;
@@ -1667,11 +1582,12 @@ a.chip:hover { border-color: var(--blue); color: var(--navy); background: var(--
   .ac { max-width: 940px; }
   .ac__body { display: grid; grid-template-columns: 1.08fr .92fr; column-gap: 1.6rem;
     grid-template-areas:
-      "race race" "who who" "frame dl" "note dl" "actions dl" "tr tr";
+      "race race" "who who" "frame dl" "strip dl" "note dl" "actions dl" "tr tr";
     align-items: start; }
   .ac__race { grid-area: race; }
   .ac__who { grid-area: who; }
   .ac__frame { grid-area: frame; }
+  .ac__strip { grid-area: strip; }
   .ac__framenote { grid-area: note; }
   .ac__actions { grid-area: actions; }
   .ac__dl { grid-area: dl; margin-top: 0; }
@@ -1688,11 +1604,41 @@ a.chip:hover { border-color: var(--blue); color: var(--navy); background: var(--
      scroll-animated .wk__art and forced an expensive raster at layer creation
      mid-scroll. The soft-focus look is pre-blended into the gradients instead;
      no filter remains on any animated subtree. */
-  .ac__still { position: absolute; inset: -18px; background:
-    radial-gradient(64% 96% at 27% 40%, rgba(91,155,213,.52), rgba(91,155,213,.10) 62%, transparent 78%),
-    radial-gradient(54% 80% at 74% 26%, rgba(0,172,193,.32), rgba(0,172,193,.07) 60%, transparent 80%),
-    radial-gradient(80% 70% at 56% 88%, rgba(168,209,78,.14), transparent 72%),
-    linear-gradient(160deg, #134066 0%, #0D2E4A 55%, #08243B 100%); }
+  /* r89: the paused frame reads as a real still — "First Light" is a dawn
+     shot: amber sun low on the horizon, field silhouette, film grade. Drawn
+     with gradients only; no filter on the animated subtree (ruling 39a). */
+  .ac__still { position: absolute; inset: 0; background:
+    radial-gradient(30% 42% at 38% 62%, rgba(255,214,140,.9), rgba(255,178,102,.42) 42%, transparent 70%),
+    radial-gradient(120% 60% at 50% 66%, rgba(255,160,90,.30), transparent 62%),
+    linear-gradient(180deg, #16324E 0%, #35507A 34%, #8A6D7E 52%, #D89A6A 62%, #E8B27E 66%, #3A3A38 66.5%, #23241F 78%, #191A16 100%); }
+  .ac__still::before { content: ""; position: absolute; left: 0; right: 0; top: 61%; height: 6.5%;
+    background:
+      radial-gradient(18% 100% at 12% 100%, #23241F 60%, transparent 61%),
+      radial-gradient(22% 90% at 30% 100%, #1E1F1A 60%, transparent 61%),
+      radial-gradient(16% 70% at 55% 100%, #23241F 60%, transparent 61%),
+      radial-gradient(24% 100% at 78% 100%, #1B1C17 60%, transparent 61%),
+      radial-gradient(14% 60% at 94% 100%, #23241F 60%, transparent 61%); }
+  .ac__still::after { content: ""; position: absolute; inset: 0;
+    background: radial-gradient(120% 120% at 50% 50%, transparent 58%, rgba(8,18,28,.42) 100%); }
+  .ac__l3 { position: absolute; left: 14px; bottom: 40px; display: grid; gap: 2px; }
+  .ac__l3 b { font-family: var(--display); font-weight: 700; font-size: clamp(1rem, 2.2vw, 1.4rem);
+    letter-spacing: .02em; color: #fff; text-shadow: 0 1px 8px rgba(8,18,28,.6);
+    background: linear-gradient(90deg, rgba(8,36,59,.55), rgba(8,36,59,0));
+    padding: .12rem .55rem .12rem .45rem; border-left: 3px solid var(--lime); }
+  .ac__l3 span { font-family: var(--label); text-transform: uppercase; letter-spacing: .1em;
+    font-size: .56rem; font-weight: 700; color: rgba(255,255,255,.88);
+    background: rgba(8,36,59,.55); padding: .14rem .45rem; justify-self: start; }
+  .ac__strip { display: grid; grid-template-columns: repeat(5, 1fr); gap: 5px; margin-top: 7px; }
+  .ac__strip i { display: block; aspect-ratio: 16 / 9; border-radius: 4px; position: relative; overflow: hidden;
+    background: linear-gradient(180deg, #22405E 0%, #4E5B7A 48%, #C08A60 63%, #23241F 66%, #191A16 100%);
+    opacity: .55; }
+  .ac__strip i:nth-child(1) { filter: brightness(.55) saturate(.7); }
+  .ac__strip i:nth-child(2) { opacity: 1; box-shadow: 0 0 0 2px var(--lime); }
+  .ac__strip i:nth-child(3) { filter: brightness(.85); }
+  .ac__strip i:nth-child(4) { filter: brightness(1.05) saturate(1.1); }
+  .ac__strip i:nth-child(5) { filter: brightness(1.2) saturate(1.15); }
+  .ac__strip i::after { content: attr(data-t); position: absolute; right: 3px; bottom: 2px;
+    font-family: var(--mono, inherit); font-size: .52rem; color: rgba(255,255,255,.85); }
   .ac__lower { position: absolute; left: 0; right: 0; bottom: 0; height: 34%; background: linear-gradient(180deg, rgba(8,36,59,0), rgba(8,36,59,.72)); }
   .ac__play { position: relative; filter: drop-shadow(0 2px 4px rgba(8,36,59,.5)); }
   .ac__tc { position: absolute; bottom: 10px; left: 12px; font-size: .78rem; color: rgba(255,255,255,.85); }
@@ -2179,3 +2125,33 @@ a.chip:hover { border-color: var(--blue); color: var(--navy); background: var(--
 .pb--live .pb__rail--6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
 @media (max-width: 1100px) { .pb--live .pb__rail--6 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 @media (max-width: 640px) { .pb--live .pb__rail--6 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* r89: the ambient layer — slow, cheap, every browser. The market field
+   drifts, the glows breathe, the home hero light moves. All decorative:
+   reduced motion turns every one of them off. */
+@media (prefers-reduced-motion: no-preference) {
+  .kw__stage { animation: kw-pan 90s linear infinite alternate; }
+  @keyframes kw-pan { from { background-position: 0 0; } to { background-position: 92px 46px; } }
+  .kw__glow { animation: kw-breathe 16s var(--smooth) infinite alternate; }
+  .kw__glow--b { animation-duration: 22s; animation-delay: -8s; }
+  @keyframes kw-breathe {
+    from { transform: translate(0, 0) scale(1); }
+    to { transform: translate(26px, -18px) scale(1.12); }
+  }
+  .hero--home { background-size: 190% 190%; animation: hero-drift 34s var(--smooth) infinite alternate; }
+  @keyframes hero-drift { from { background-position: 12% 0%; } to { background-position: 88% 100%; } }
+}
+
+/* r89: the builder line — the positioning statement under the console stats. */
+.built { text-align: center; }
+.built__big {
+  margin: 0 auto; max-width: 22ch;
+  font-family: var(--display); font-weight: 700; letter-spacing: -.018em;
+  font-size: clamp(1.7rem, 3.4vw, 2.7rem); line-height: 1.16; color: var(--navy-deep);
+}
+.built__sub { margin: .8rem auto 0; max-width: 58ch; font-size: .98rem; line-height: 1.6; color: var(--ink-2); }
+/* r89: the six-up console row — values sized so Decade+ and 98.0% never clip. */
+.stats--6 .stat__v { font-size: clamp(1.7rem, 2.9vw, 2.9rem); }
+.stats--6 .stat { padding: 1.3rem 1.1rem; }
+@media (max-width: 1100px) { .stats--6 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 620px) { .stats--6 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }

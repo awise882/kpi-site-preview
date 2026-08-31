@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r88b">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r89">
 <style>
   /* press.html only: the newsroom. Existing tokens, no new colors. */
   .nr-release { max-width: 860px; margin-inline: auto; }
@@ -108,9 +108,8 @@
         and state races with reservations posted, with 303 races carrying posted or detected
         money today. The forecast rides the same dataset as the platform: 1.5 million ad
         occurrences monitored per day at real costs &mdash; posted orders and invoices, not
-        rate-card math &mdash; with streaming detected on the TV screen in 40 million measured
-        households and modeled shares printed as dated estimates, never blended into posted
-        totals.</p>
+        rate-card math. How streaming is measured is
+        <a href="#videoamp-partnership">the partnership announcement below</a>.</p>
       <blockquote class="quote">
         <p>"The number moves as the orders post &mdash; that is the point. Anyone quoting a
           projection should be able to watch it update."</p>
@@ -140,8 +139,7 @@
       <p>Streaming spots are captured with tape, platform, and transcript, including buys that
         never touch broadcast. Impression measurement covers the top 58 markets by households;
         monitoring runs in all 210. What runs off the glass is not detected and never claimed,
-        modeled shares print as dated estimates, and no platform&rsquo;s own logs are used or
-        shown.</p>
+        and modeled shares print as dated estimates.</p>
       <blockquote class="quote">
         <p>"Streaming was the hole in every political buy sheet. Measuring it on the glass, in
           the home, closes it &mdash; without ever touching a platform's logs."</p>
@@ -155,10 +153,12 @@
   <div class="wrap center">
     <p class="eyebrow eyebrow--plain" style="justify-content:center">Press</p>
     <h2>Working on a story?</h2>
-    <p class="lede" style="margin-inline:auto">Name the race; same day on deadline.
-      Press inquiries: <a href="mailto:press@kpipolitical.com">press@kpipolitical.com</a>.</p>
+    <p class="lede" style="margin-inline:auto">Our team pulls custom reports for
+      reporters &mdash; a race, a market, a channel trend, a spending cut that doesn&rsquo;t
+      exist anywhere else &mdash; usually same day on deadline. Name the race and what
+      you need: <a href="mailto:press@kpipolitical.com">press@kpipolitical.com</a>.</p>
     <div class="btn-row" style="justify-content:center">
-      <a class="btn btn--navy btn--lg" href="contact.html">Talk to us</a>
+      <a class="btn btn--navy btn--lg" href="mailto:press@kpipolitical.com">Email the newsroom</a>
     </div>
   </div>
 </section>
@@ -218,128 +218,7 @@
   </div>
 </footer>
 
-<script>
-/* contact.html only. The form posts as JSON to same-origin /api/contact (rulings 47b/48;
-   the live endpoint in the production repo's server.js: fields name/email/subject/description,
-   caps 150/150/150/1000). Mapping: subject = the race/market line; organization, role and the
-   race line fold into description. When fetch fails or no handler answers, the script composes
-   a mail message instead, so a filled-in request is never silently discarded. The form's own
-   mailto action is the no-script fallback. */
-(function () {
-  var form = document.getElementById('demo-form');
-  var shell = document.getElementById('demo-shell');
-  if (!form || !shell) return;
 
-  /* A question carried in from the Baker composer pre-fills the ask, so the
-     thread from "try an example" to "book the walkthrough" never drops it. The
-     optional fold opens so the pre-filled question is visible (ruling 49a). */
-  try {
-    var prompt = new URLSearchParams(location.search).get('prompt');
-    var need = document.getElementById('c-need');
-    if (prompt && need && !need.value) {
-      need.value = prompt;
-      var fold = document.getElementById('c-more');
-      if (fold) fold.open = true;
-    }
-  } catch (e) { /* optional nicety */ }
-
-  var v = function (id) { var el = document.getElementById(id); return el ? el.value.trim() : ''; };
-  var cap = function (s, n) { return s.length > n ? s.slice(0, n) : s; };
-
-  /* Build the endpoint payload. Organization, role and the need line are optional
-     (ruling 49a); only filled lines fold into the description, and an empty
-     description gets a plain fallback line so the endpoint's required field is
-     always carried. The 600-character textarea cap plus the folded lines stays
-     under the endpoint's 1000-character description cap; cap() is the guard. */
-  var buildPayload = function () {
-    var parts = [];
-    if (v('c-org')) parts.push('Organization: ' + v('c-org'));
-    if (v('c-role')) parts.push('Role: ' + v('c-role'));
-    if (v('c-race')) parts.push('Race or market to pull: ' + v('c-race'));
-    if (v('c-need')) parts.push('', 'What they are trying to solve:', v('c-need'));
-    var description = parts.join('\n').replace(/^\n+/, '') ||
-      'Demo request from the website form.';
-    return {
-      name: cap(v('c-name'), 150),
-      email: cap(v('c-email'), 150),
-      subject: cap(v('c-race') || 'Demo request', 150),
-      description: cap(description, 1000)
-    };
-  };
-
-  var status = document.getElementById('form-status');
-  var say = function (msg) { if (status) { status.hidden = false; status.textContent = msg; } };
-  var hush = function () { if (status) { status.hidden = true; status.textContent = ''; } };
-  var btn = form.querySelector('button[type="submit"]');
-  var restore = function () {
-    if (btn) { btn.disabled = false; btn.textContent = 'Request the walkthrough'; }
-  };
-
-  var showSent = function () {
-    shell.className = 'form-shell form-done';
-    shell.innerHTML =
-      '<h2 tabindex="-1" id="demo-done">Your request is in.</h2>' +
-      '<p>It goes to the analysts who run the walkthroughs, and they pull the race — or the market — before the call. ' +
-      'The first reply is usually a question about your race rather than a scheduling link.</p>' +
-      '<p>Anything to add in the meantime, write to ' +
-      '<a href="mailto:info@kpipolitical.com">info@kpipolitical.com</a> with the state and the office, or the market you sell.</p>';
-    var h = document.getElementById('demo-done');
-    if (h) h.focus();
-  };
-
-  /* Mail fallback: same content, composed as a message, for when no handler answers
-     (a static preview, an offline moment) so nothing typed is lost. */
-  var showMailReady = function (p) {
-    var lines = ['Name: ' + p.name, 'Work email: ' + p.email, '', p.description].join('\r\n');
-    var subject = 'Demo request' + (v('c-org') ? ', ' + v('c-org') : '');
-    window.location.href = 'mailto:info@kpipolitical.com?subject=' +
-      encodeURIComponent(subject) + '&body=' + encodeURIComponent(lines);
-    shell.className = 'form-shell form-done';
-    shell.innerHTML =
-      '<h2 tabindex="-1" id="demo-done">Your request is ready to send.</h2>' +
-      '<p>We have opened a message in your email program with what you entered. It reaches the analysts ' +
-      'who run the walkthroughs once you send it, and they pull the race — or the market — before the call.</p>' +
-      '<p>The first reply is usually a question about your race rather than a scheduling link. If nothing ' +
-      'opened, write to <a href="mailto:info@kpipolitical.com">info@kpipolitical.com</a> with the state and ' +
-      'the office, or the market you sell.</p>';
-    var h = document.getElementById('demo-done');
-    if (h) h.focus();
-  };
-
-  form.addEventListener('submit', function (e) {
-    if (!form.checkValidity()) return;
-    e.preventDefault();
-    hush();
-    var p = buildPayload();
-    if (btn) { btn.disabled = true; btn.textContent = 'Sending'; }
-
-    fetch('/api/contact', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(p)
-    }).then(function (res) {
-      /* Non-JSON (a static host answering 404/501) rejects here and lands in catch. */
-      return res.json().then(function (data) { return { status: res.status, data: data }; });
-    }).then(function (r) {
-      if (r.data && r.data.success === true) { showSent(); return; }
-      restore();
-      if (r.status === 400 && r.data && r.data.errors) {
-        var msgs = [];
-        for (var k in r.data.errors) {
-          if (Object.prototype.hasOwnProperty.call(r.data.errors, k)) msgs.push(r.data.errors[k]);
-        }
-        say('Please check the form. ' + msgs.join('. ') + '.');
-      } else {
-        say((r.data && r.data.message) ||
-          'We could not send your request right now. Please try again, or write to info@kpipolitical.com with the state and the office, or the market you sell.');
-      }
-    }).catch(function () {
-      restore();
-      showMailReady(p);
-    });
-  });
-})();
-</script>
-<script src="assets/js/site.js?v=r88b"></script>
+<script src="assets/js/site.js?v=r89"></script>
 </body>
 </html>
