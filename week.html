@@ -12,11 +12,39 @@
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
 <link rel="stylesheet" href="assets/css/kpi.css?v=r105">
 <style>
-  .hero--sub .hero-center { text-align: center; padding: clamp(56px, 8vw, 104px) 0 clamp(36px, 5vw, 60px); }
-  .hero--sub .eyebrow { justify-content: center; }
-  .hero--sub h1 { max-width: none; margin-inline: auto; font-size: clamp(2.6rem, 5.8vw, 4.8rem); }
-  .hero--sub .lede { margin: 1.3rem auto 0; max-width: 60ch; }
-  .hero--sub .btn-row { justify-content: center; margin-top: 2rem; }
+  /* r106: every hero its own composition -- this page opens on the two desks
+     themselves. Text left; the buyer's and seller's doors right. */
+  .hero--sub .hero-split { display: grid; grid-template-columns: minmax(0, 1.02fr) minmax(0, .98fr);
+    gap: clamp(1.8rem, 4vw, 3.4rem); align-items: center;
+    padding: clamp(44px, 6vw, 88px) 0 clamp(32px, 5vw, 56px); }
+  .hero--sub h1 { max-width: none; font-size: clamp(2.5rem, 5vw, 4.4rem); }
+  .hero--sub .lede { margin: 1.2rem 0 0; max-width: 46ch; }
+  .hero--sub .btn-row { margin-top: 1.8rem; }
+  .wkh { display: grid; gap: .9rem; }
+  .wkh__desk { display: block; background: var(--white); border: 1px solid var(--rule);
+    border-radius: var(--r-lg); padding: 1.05rem 1.15rem 1.1rem; text-decoration: none;
+    box-shadow: 0 1px 2px rgba(13,46,74,.05), 0 8px 22px rgba(13,46,74,.07);
+    transition: transform .18s var(--smooth), box-shadow .18s var(--smooth); }
+  .wkh__desk:hover { transform: translateY(-3px);
+    box-shadow: 0 2px 4px rgba(13,46,74,.06), 0 16px 34px rgba(13,46,74,.12); }
+  .wkh__k { display: flex; align-items: baseline; justify-content: space-between; gap: .8rem;
+    margin: 0; font-family: var(--label); text-transform: uppercase; letter-spacing: .12em;
+    font-size: .64rem; font-weight: 800; color: var(--navy); }
+  .wkh__k .num { font-family: var(--mono); letter-spacing: .04em; color: var(--ink-3); font-weight: 700; }
+  .wkh__t { margin: .45rem 0 .25rem; font-family: var(--display); font-size: 1.3rem;
+    line-height: 1.25; color: var(--navy-deep); letter-spacing: -.01em; }
+  .wkh__p { margin: 0; font-size: .88rem; line-height: 1.5; color: var(--ink-2); }
+  .wkh__go { display: inline-block; margin-top: .55rem; font-size: .84rem; font-weight: 700;
+    color: var(--lime-text); }
+  .wkh__desk--sell { background: var(--navy-ink, #08243B); border-color: transparent; }
+  .wkh__desk--sell .wkh__k { color: var(--lime); }
+  .wkh__desk--sell .wkh__k .num { color: #8FA9BE; }
+  .wkh__desk--sell .wkh__t { color: #fff; }
+  .wkh__desk--sell .wkh__p { color: #B9CFDF; }
+  .wkh__desk--sell .wkh__go { color: var(--lime); }
+  @media (max-width: 999px) {
+    .hero--sub .hero-split { grid-template-columns: 1fr; align-items: start; }
+  }
   @media (max-width: 560px) {
     .hero--sub .hero-center { padding: clamp(32px, 7vw, 48px) 0 clamp(24px, 5vw, 40px); }
     .hero--sub h1 { font-size: clamp(2rem, 9vw, 2.6rem); }
@@ -60,7 +88,7 @@
       </li>
       <li class="nav__item"><a href="polling.html">Voter Opinion</a>
         <div class="nav__drop" aria-label="Section shortcuts">
-          <a href="polling.html#loop">The loop</a>
+          <a href="polling.html#loop">The field, live</a>
           <a href="polling.html#story">How it works</a>
           <a href="questions.html">The question library</a>
           <a href="polling.html#offerings">Syndicated &amp; bespoke</a>
@@ -81,17 +109,34 @@
 <!-- CLAIM: The same air war, read from both sides of the table. The two-desk week
      moved here from the homepage (CMO direction, 8/27): useful angle, its own page. -->
 <header class="hero hero--light hero--sub">
-  <div class="wrap hero-center">
-    <p class="eyebrow eyebrow--plain">For buyers &amp; sellers</p>
-    <h1 class="ht">
-      <span class="ht__l" data-t="One Week,">One Week,</span>
-      <span class="ht__l ht__l--accent" data-t="Two Desks.">Two Desks.</span>
-    </h1>
-    <p class="lede">One synthetic Senate race, three Ohio markets, beat by beat &mdash;
-      the same air war, read from both sides of the table.</p>
-    <div class="btn-row">
-      <a class="btn btn--navy btn--lg" href="#the-week">Walk the week</a>
-      <a class="btn btn--lime btn--lg" href="contact.html">Run it on your race &mdash; or your market</a>
+  <div class="wrap hero-split">
+    <div>
+      <p class="eyebrow eyebrow--plain">For buyers &amp; sellers</p>
+      <h1 class="ht">
+        <span class="ht__l" data-t="One Week,">One Week,</span>
+        <span class="ht__l ht__l--accent" data-t="Two Desks.">Two Desks.</span>
+      </h1>
+      <p class="lede">One synthetic Senate race, three Ohio markets, beat by beat &mdash;
+        the same air war, read from both sides of the table.</p>
+      <div class="btn-row">
+        <a class="btn btn--lime btn--lg" href="contact.html">Run it on your race &mdash; or your market</a>
+      </div>
+    </div>
+    <div class="wkh">
+      <a class="wkh__desk" href="#wk-buy">
+        <p class="wkh__k">The buyer&rsquo;s desk <span class="num">MON &rarr; FRI</span></p>
+        <p class="wkh__t">Four beats: the alert, the boards, the rates, the money back.</p>
+        <p class="wkh__p">The overnight catch, the scoreboard that reads itself, the filed
+          page in hand &mdash; and $12K back on one 400-spot flight.</p>
+        <span class="wkh__go">Walk the buyer&rsquo;s week &rarr;</span>
+      </a>
+      <a class="wkh__desk wkh__desk--sell" href="#wk-sell">
+        <p class="wkh__k">The seller&rsquo;s desk <span class="num">SAME DATA</span></p>
+        <p class="wkh__t">Your share, the gaps, and who to call.</p>
+        <p class="wkh__p">The order flow, the share diagonal, the class the money starves,
+          the agency book &mdash; each priced in dollars on the table.</p>
+        <span class="wkh__go">Open the seller&rsquo;s desk &rarr;</span>
+      </a>
     </div>
   </div>
 </header>
@@ -106,13 +151,9 @@
   <div class="wrap">
 
     <div class="wk" data-wk>
-      <!-- r102 (consolidation round, the owner's "two beats" call): one pinned
-           story device only. The buyer keeps the scroll story; the seller's week
-           is told through the four boards below — the switcher is gone. -->
-      <div class="btn-row" style="margin:0 0 2rem">
-        <a class="btn btn--navy" href="#wk-buy">The buyer&rsquo;s week &darr;</a>
-        <a class="btn btn--outline" href="#wk-sell">The seller&rsquo;s desk &darr;</a>
-      </div>
+      <!-- r102: one pinned story device only; the seller's week is told through
+           the four boards below. r106: the hero's two desk doors carry the
+           buy/sell wayfinding, so the duplicate button pair here is gone. -->
 
     <article class="wk__story" id="wk-buy">
     <h3 class="wk__story-h">The buyer's week</h3>
@@ -931,12 +972,9 @@
     </div>
 
     <p class="small mt2">Every board here exports &mdash; workbook and print sheet, aired
-      and booked-forward as separate columns, the posted-through date in the header &mdash;
-      and sellers may put KPI figures in front of an advertiser with the credit attached:
-      <i>"Kinetiq Political Insights, data posted through [date]."</i> Sell more than one
-      market? Name the group when you book, and the walkthrough runs on your full footprint.
-      App sellers export the same way: your platform&rsquo;s detected occurrences, dated and
-      labeled &mdash; third-party proof the spot ran.</p>
+      and booked-forward as separate columns, the posted-through date in the header.
+      Sell more than one market? Name the group when you book, and the walkthrough runs
+      on your full footprint.</p>
     <p class="small mt2"><b>The math on the seat:</b> the flagged agency on the Agency
       book &mdash; your air at 9% of its dollars against your 25% market share &mdash;
       prices at <b class="num">+$272K</b>; one recovered order covers the subscription

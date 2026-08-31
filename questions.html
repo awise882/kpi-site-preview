@@ -14,10 +14,27 @@
 <link rel="stylesheet" href="assets/css/kpi.css?v=r105">
 <link rel="stylesheet" href="assets/css/segments.css?v=r50">
 <style>
-  .hero--sub .hero-center { text-align: center; padding: clamp(56px, 8vw, 96px) 0 clamp(28px, 4vw, 44px); }
-  .hero--sub .eyebrow { justify-content: center; }
-  .hero--sub h1 { max-width: none; margin-inline: auto; font-size: clamp(2.4rem, 5.4vw, 4.4rem); }
-  .hero--sub .lede { margin: 1.2rem auto 0; max-width: 58ch; }
+  /* r106: the library is a tool, so the hero is a masthead, not a landing --
+     left-aligned and compact; the search below is the page. */
+  .hero--sub .hero-center { text-align: left; padding: clamp(40px, 6vw, 64px) 0 clamp(18px, 3vw, 30px); }
+  .hero--sub h1 { max-width: none; font-size: clamp(2.2rem, 4.6vw, 3.6rem); }
+  .hero--sub .lede { margin: 1.1rem 0 0; max-width: 64ch; }
+  /* r106 (Adam): "ask your own question" is an immediate option -- a pinned
+     dashed-lime tile above the results, plus a per-row hover affordance. */
+  .sx-ask0 { display: flex; flex-wrap: wrap; align-items: center; gap: .7rem 1rem;
+    border: 1.5px dashed var(--lime-dark); border-radius: var(--r);
+    background: color-mix(in srgb, var(--lime) 6%, var(--white));
+    padding: .75rem .95rem; margin: 0 0 .85rem; }
+  .sx-ask0 > div { flex: 1 1 320px; }
+  .sx-ask0__k { margin: 0; font-family: var(--label); text-transform: uppercase;
+    letter-spacing: .1em; font-size: .62rem; font-weight: 800; color: var(--lime-text); }
+  .sx-ask0__t { margin: .25rem 0 0; font-size: .85rem; line-height: 1.5; color: var(--ink-2); }
+  .sx-ask0__t b { color: var(--navy-deep); }
+  .sx-row .sx-ask { margin-left: auto; font-size: .74rem; font-weight: 700;
+    color: var(--lime-text); text-decoration: none; opacity: 0; transition: opacity .15s;
+    white-space: nowrap; }
+  .sx-row:hover .sx-ask, .sx-row:focus-within .sx-ask { opacity: 1; }
+  @media (hover: none) { .sx-row .sx-ask { display: none; } }
   /* Explorer controls get thumb-sized targets on a phone. */
   @media (max-width: 999px) {
     .sx-add { width: 44px; height: 44px; font-size: 1.25rem; }
@@ -73,7 +90,7 @@
       </li>
       <li class="nav__item"><a href="polling.html" aria-current="page">Voter Opinion</a>
         <div class="nav__drop" aria-label="Section shortcuts">
-          <a href="polling.html#loop">The loop</a>
+          <a href="polling.html#loop">The field, live</a>
           <a href="polling.html#story">How it works</a>
           <a href="questions.html">The question library</a>
           <a href="polling.html#offerings">Syndicated &amp; bespoke</a>
@@ -107,14 +124,12 @@
 <section class="section" id="library">
   <div class="wrap">
     <p class="eyebrow">The question library</p>
-    <h2 id="explorer">Search the library. All 10,000+ questions run today.</h2>
-    <p class="dek" style="margin-bottom:1.4rem">Read the exact wording, build a shortlist,
-      send it to us. This is the list an audience actually gets built from, not a sample:
-      the network runs 10,000+ always-on questions &mdash; 10.2 billion answers banked
-      over 14 years &mdash; and every one of them is in the field and usable today;
-      if the question you need is not on this shelf, we stand it up &mdash; included with the media, not an upsell: written to your race instead of the generic tracker. The library is consumer-deep by design &mdash; the political read usually
-      crosses civic anchors with consumer signal, and the hot-button question your race is
-      arguing is usually a custom field.</p>
+    <h2 id="explorer">Search it. Shortlist it. Turn it on.</h2>
+    <p class="dek" style="margin-bottom:1.4rem">The list an audience actually gets built
+      from, not a sample. The library is consumer-deep by design &mdash; the political
+      read usually crosses civic anchors with consumer signal &mdash; and the hot-button
+      question your race is arguing is usually a custom field: ask your own, and it
+      fields in days.</p>
 
     <div id="sx" data-ready="false">
       <div>
@@ -137,6 +152,15 @@
           </p>
         </div>
         <p class="sx-count" id="sx-count" aria-live="polite"></p>
+        <div class="sx-ask0">
+          <div>
+            <p class="sx-ask0__k">Not on the shelf? Ask your own</p>
+            <p class="sx-ask0__t">Written with you, invisible to the other side, fielded in
+              days. <b>From $30K net across three months</b> &mdash; two custom questions
+              and an audience included.</p>
+          </div>
+          <a class="btn btn--navy btn--sm" href="contact.html">Ask your own question</a>
+        </div>
         <ul class="sx-list" id="sx-results"></ul>
         <div id="sx-empty" style="display:none">No question matches that. The library is large
           but it is not infinite, and a custom question is the answer when the topic is not in
@@ -167,16 +191,18 @@
 
         <div class="card">
           <div class="card__k">Deal-ID activation</div>
-          <p class="small">Email the shortlist and it comes back as a private-marketplace
-            deal ID &mdash; your seat or ours. Syndicated audiences arrive in days; a
-            custom question takes about two weeks. Every deal returns the ID, the matched
-            audience size and a composition read; the identifiers the match runs on are
-            confirmed in writing before the insertion order; streaming and CTV line items
-            qualify; and every question that built the audience is named, so you can
-            audit it.</p>
-          <p class="small mb0">Topic not in the library? That is a custom question, fielded
-            to a known audience first: included with a media investment; standalone, by
-            rate card on <a href="contact.html">request</a>.</p>
+          <ol class="small" style="margin:0 0 .6rem 1.1rem;padding:0;display:grid;gap:.4rem">
+            <li><b>Email the shortlist</b> &mdash; the exact wordings, QIDs attached.</li>
+            <li><b>The audience is back in days</b> &mdash; deal ID, matched size and a
+              composition read, private-marketplace, your seat or ours. A custom question
+              takes <b>about two weeks</b>.</li>
+            <li><b>Check it, then spend</b> &mdash; identifiers confirmed in writing before
+              the insertion order, every question that built it named. Streaming and CTV
+              line items qualify.</li>
+          </ol>
+          <p class="small mb0">Topic not in the library? That is a custom question &mdash;
+            included with a media investment; standalone, by rate card on
+            <a href="contact.html">request</a>.</p>
         </div>
       </aside>
     </div>
@@ -188,9 +214,9 @@
   <div class="wrap">
     <div class="center" data-rise>
       <p class="eyebrow eyebrow--plain" style="justify-content:center">Next step</p>
-      <h2>Bring the question your race is arguing about.</h2>
-      <p class="lede" style="margin-inline:auto">We will check it against the library on
-        the call &mdash; and when it is not in here, a custom question is the answer.</p>
+      <h2>If the library doesn&rsquo;t have it, we write it with you.</h2>
+      <p class="lede" style="margin-inline:auto">Bring the question on the call &mdash; we
+        check it against the library, and when it is not in here, it becomes yours alone.</p>
       <div class="btn-row mt2" style="justify-content:center">
         <a class="btn btn--lime btn--lg" href="contact.html">Request a demo</a>
         <a class="btn btn--outline btn--lg" href="polling.html">How real-time polling works</a>
@@ -254,7 +280,7 @@
 </footer>
 
 <script src="assets/js/site.js?v=r105"></script>
-<script src="assets/js/segments.js?v=r100" defer></script>
+<script src="assets/js/segments.js?v=r106" defer></script>
 <script>
 /* R6 (item 74): on a narrow phone the long placeholder clips mid-number, so it
    swaps to the short form before the field ever renders a cut digit. */

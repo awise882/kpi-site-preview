@@ -104,7 +104,8 @@
           '<p class="sx-q">' + highlight(r.q, state.q) + '</p>' +
           '<p class="sx-meta"><span class="sx-cat">' + esc(r.c) + '</span>' +
           (r.s ? '<span class="sx-sub">' + esc(r.s) + '</span>' : '') +
-          '<span class="sx-qid num">QID ' + r.i + '</span></p>' +
+          '<span class="sx-qid num">QID ' + r.i + '</span>' +
+          '<a class="sx-ask" href="contact.html">Ask one like it &#8594;</a></p>' +
         '</div></li>';
     }).join('');
 
