@@ -42,7 +42,12 @@
     @keyframes bann-b { 0%, 44% { opacity: 0; visibility: hidden; } 50%, 94% { opacity: 1; visibility: visible; } 100% { opacity: 0; } }
   }
   @media (prefers-reduced-motion: reduce) { .hero-banner__in--dual a:last-child { display: none; } }
-  @media (max-width: 640px) { .hero-banner__txt { white-space: normal; } .hero-banner__in--dual { width: 100%; } }
+  /* r109 (three rounds of judges): on mobile the banner is two clean lines at
+     most — chip, then the claim with the arrow gled to it — never an orphaned
+     arrow. The arrow moves from the link onto the claim span itself. */
+  @media (max-width: 640px) { .hero-banner__in--dual { width: 100%; } }
+  /* r109: the detail span only rides along when a full line fits it. */
+  @media (max-width: 840px) { .hero-banner__d { display: none; } }
   @media (max-width: 640px) {
     .press-card__shot { height: 190px; overflow: hidden; width: 100%; min-width: 0; align-self: stretch; }
     .press-card__shot img { width: 160%; max-width: none; }
@@ -119,10 +124,13 @@
     .hero-banner { font-size: .72rem; }
     .hero-banner .chip--lime { font-size: .55rem; padding: .18rem .4rem; margin-right: .35rem; }
   }
-  /* R5: at desktop the banner reads as one line; the link never wraps alone. */
-  @media (min-width: 1024px) {
-    .hero-banner a { white-space: nowrap; }
-  }
+  /* r109 (three rounds of judges): the claim and its arrow are one unbreakable
+     unit at every width — the chip may take its own line, the arrow never can.
+     The strip clips as a last resort so it can never widen the page. */
+  .hero-banner { overflow-x: clip; }
+  .hero-banner a::after { content: none; }
+  .hero-banner .hero-banner__txt { white-space: nowrap; }
+  .hero-banner .hero-banner__txt::after { content: "\00a0\2192"; }
   /* R6: the announce bar is a flex row; the chip keeps its own column and the
      sentence wraps inside its own block, so at 375px the text never wraps
      under the chip. */
@@ -713,7 +721,7 @@
         the people covering it. Name the race; same day on deadline.</p>
       
       <div class="btn-row mt2" style="justify-content:center">
-        <a class="btn btn--navy" href="https://kpipoliticalinsightsforecast.subscribepage.io/" target="_blank" rel="noopener">Download the 2026 forecast report</a>
+        <a class="btn btn--navy" href="https://kpipoliticalinsightsforecast.subscribepage.io/" target="_blank" rel="noopener">Get the 2026 forecast report</a>
         <a class="btn btn--outline" href="press.html">The newsroom</a>
       </div>
     </div>

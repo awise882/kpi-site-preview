@@ -166,7 +166,10 @@
   /* Under 480px the in-graphic labels render around 4px — below legibility. The
      annotation and caption below the figure restate both axes and the sampling
      disclosure in page type, and the SVG desc carries them for screen readers. */
-  @media (max-width: 480px) { .mxs__lbl { display: none; } }
+  @media (max-width: 640px) {
+    .mxs__lbl { display: none; }
+    .mxs__svg rect[fill="#fff"], .mxs__svg g[font-family] line { display: none; }
+  }
   .mxs__hint { display: none; color: var(--ink-3); margin: .5rem 0 0; }
   .mxs__steps { list-style: none; display: grid; grid-template-columns: repeat(5, 1fr);
     gap: .6rem; margin: .75rem 0 .9rem; padding: 0; }
@@ -370,8 +373,7 @@
         <div class="qf__head">
           <p class="qf__sub">10,000+ questions always on &middot; over 1 million answers landing
             a day &middot; a new audience possible every time one moves &mdash; nationally, in
-            one state, or inside a single congressional district. Not in the field yet?
-            We write it, and it fields in days.</p>
+            one state, or inside a single congressional district.</p>
         </div>
         <div class="qf__grid" aria-hidden="true">
           <div class="qf__slot"><span class="qf__b qf__b--q qf__b--keep">&ldquo;Which of the following best describes your political leanings?&rdquo;<i>QID 494 &middot; always on</i></span><span class="qf__b qf__b--aud">Streaming-only households, by county<i>audience &rarr; deal ID</i></span></div>
@@ -684,6 +686,7 @@
         congressional district. Declared density varies by question and geography, so
         the walkthrough opens <b>your geography's</b> counts, question by question. Thin in your state? You
         see the number before a dollar moves.</p>
+      <p class="small" style="margin:.55rem 0 0;font-family:var(--mono);font-size:.72rem;letter-spacing:.03em;color:var(--ink-3)">ONE CD &middot; QID 9918 &middot; 4,800 declared answers, trailing 90 days &rarr; the effective n prints before the IO &middot; synthetic example</p>
     </div>
 
     <!-- r97 (Adam): weighting confidence without a copyable recipe. -->
