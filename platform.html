@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r88">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r88b">
 <style>
   /* The "what it exports" line that closes each app section. */
   .exports { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; margin-top: 1.3rem; }
@@ -433,7 +433,40 @@
   </div>
 </section>
 
-<section class="section" id="scoreboard">
+<!-- ============ THE BOARDS: one deck, four panels (r88b) ============
+     One place on the page instead of four full-height sections in a row.
+     site.js adds .pb--live: the rail appears and the deck collapses to one
+     board at a time. JS-off (and print) all four panels render stacked
+     exactly as before. Panels keep their ids, so every existing
+     #scoreboard / #creative-matrix / #buy-sheet / #creative-explorer link
+     on the site still lands — site.js routes any hash inside a panel to
+     its tab. -->
+<section class="pb" id="boards" data-pb>
+  <div class="wrap pb__head">
+    <p class="eyebrow">The boards</p>
+    <h2>Four boards. One dataset.</h2>
+    <div class="pb__rail" role="tablist" aria-label="Choose a board">
+      <button class="pb__tab" id="pb-tab-scoreboard" type="button" role="tab" aria-selected="true" aria-controls="scoreboard">
+        <span class="wk__tab-name">Scoreboard</span>
+        <span class="wk__tab-sub">Every race, new money first</span>
+      </button>
+      <button class="pb__tab" id="pb-tab-matrix" type="button" role="tab" aria-selected="false" aria-controls="creative-matrix">
+        <span class="wk__tab-name">Creative Matrix</span>
+        <span class="wk__tab-sub">The air battle, by narrative</span>
+      </button>
+      <button class="pb__tab" id="pb-tab-buysheet" type="button" role="tab" aria-selected="false" aria-controls="buy-sheet">
+        <span class="wk__tab-name">Buy Sheet</span>
+        <span class="wk__tab-sub">Which station got the money</span>
+      </button>
+      <button class="pb__tab" id="pb-tab-explorer" type="button" role="tab" aria-selected="false" aria-controls="creative-explorer">
+        <span class="wk__tab-name">Creative Explorer</span>
+        <span class="wk__tab-sub">Tape, transcript, markets</span>
+      </button>
+    </div>
+    <p class="pb__cue" aria-hidden="true">One dataset, four boards &middot; click or tap to switch<span class="kbd-hint">, or use the arrow keys</span></p>
+  </div>
+
+<div class="pb__panel section" role="tabpanel" id="scoreboard" aria-labelledby="pb-tab-scoreboard">
   <div class="wrap">
     <div class="split" style="margin-bottom:1.8rem">
       <div>
@@ -799,10 +832,10 @@
       <p class="glimpse-cap">Cropped on purpose; the full grid opens in the demo.
         <a href="contact.html">Request one</a></p>
   </div>
-</section>
+</div>
 
 <!-- ============ CREATIVE MATRIX ============ -->
-<section class="section section--tint" id="creative-matrix">
+<div class="pb__panel section section--tint" role="tabpanel" id="creative-matrix" aria-labelledby="pb-tab-matrix">
   <div class="wrap">
     <div class="split split--rev" style="margin-bottom:1.8rem">
       <div>
@@ -963,10 +996,10 @@
       <p class="glimpse-cap">Both sides' full case opens in the demo.
         <a href="contact.html">Request one</a></p>
   </div>
-</section>
+</div>
 
 <!-- ============ BUY SHEET ============ -->
-<section class="section" id="buy-sheet">
+<div class="pb__panel section" role="tabpanel" id="buy-sheet" aria-labelledby="pb-tab-buysheet">
   <div class="wrap">
     <div class="split" style="margin-bottom:1.8rem">
       <div>
@@ -1269,10 +1302,10 @@ tbody th.rcb2-m{font-weight:400;background:transparent}
       <figcaption>Market &#8594; station &#8594; order, with the day&rsquo;s postings landing as they file &middot; synthetic data</figcaption>
     </figure>
   </div>
-</section>
+</div>
 
 <!-- ============ CREATIVE EXPLORER ============ -->
-<section class="section section--tint" id="creative-explorer">
+<div class="pb__panel section section--tint" role="tabpanel" id="creative-explorer" aria-labelledby="pb-tab-explorer">
   <div class="wrap">
     <div class="split split--rev" style="margin-bottom:1.8rem">
       <div>
@@ -1455,6 +1488,7 @@ tbody th.rcb2-m{font-weight:400;background:transparent}
     <p class="tbl-note">Screens show synthetic and illustrative races. Client data never
       appears in marketing material.</p>
   </div>
+</div>
 </section>
 
 <!-- ============ THE SELLER'S DOOR ============ -->
@@ -1778,6 +1812,6 @@ tbody th.rcb2-m{font-weight:400;background:transparent}
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r88"></script>
+<script src="assets/js/site.js?v=r88b"></script>
 </body>
 </html>

@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r88">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r88b">
 <style>
   .hero--sub .hero-center { text-align: center; padding: clamp(56px, 8vw, 104px) 0 clamp(36px, 5vw, 60px); }
   .hero--sub .eyebrow { justify-content: center; }
@@ -109,7 +109,7 @@
       <div class="wk__rail" role="tablist" aria-label="Choose which week to read">
         <button class="wk__tab" id="wk-tab-buy" type="button" role="tab" aria-selected="true" aria-controls="wk-buy">
           <span class="wk__tab-name">The buyer's week</span>
-          <span class="wk__tab-sub">The alert, the landscape, the creative, the gap</span>
+          <span class="wk__tab-sub">The alert, the landscape, Baker, the rate, the floor</span>
         </button>
         <button class="wk__tab" id="wk-tab-sell" type="button" role="tab" aria-selected="false" aria-controls="wk-sell">
           <span class="wk__tab-name">The seller's week</span>
@@ -265,6 +265,76 @@
       </div>
     </div>
 
+
+    <!-- r88b: the rest of the buyer's chain, in the order the morning actually
+         runs: ask Baker what moved, pull the filed rate, then walk into the rate
+         conversation holding the floor. -->
+    <div class="wk__scenes">
+      <article class="wk__scene">
+        <div class="wk__when">
+          <span class="wk__day">Beat 3 &middot; Ask Baker</span>
+          <span class="wk__stampline num">Aug 11 &middot; 7:24 AM ET</span>
+          <span class="wk__big">One question instead of six filters.</span>
+          <div class="wk__copy">
+            <p>The alert says what launched. Baker answers what it means for the
+              book &mdash; in plain language, from the same posted record.</p>
+          </div>
+        </div>
+        <div class="wk__art">
+          <div class="wk-doc">
+            <div class="wk-doc__bar"><span class="wk-doc__brand">KPI &middot; Baker</span><span class="wk-doc__stamp">Aug 11 &middot; 7:24 AM ET</span></div>
+            <div class="wk-doc__row"><b>&ldquo;What did the other side book this morning?&rdquo;</b></div>
+            <div class="wk-doc__row"><span>Ellery for Senate added <b class="num">$180K</b> on WZQV, Cleveland</span><span class="wk-doc__dim num">early news + prime &middot; Sep 7&ndash;Oct 12 &middot; posted 7:02 AM</span></div>
+            <div class="wk-doc__row"><span class="wk-doc__dim">Where the posted record can&rsquo;t answer, Baker returns the gap, not a guess.</span></div>
+            <p class="wk-doc__note">Baker runs over everything the platform tracks &mdash;
+              <a href="platform.html#baker">meet it on the platform page</a>.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="wk__scene">
+        <div class="wk__when">
+          <span class="wk__day">Beat 4 &middot; Check the rate</span>
+          <span class="wk__stampline num">Filings read thru Aug 18, 2026</span>
+          <span class="wk__big">Before you match the buy, pull the file.</span>
+          <div class="wk__copy">
+            <p>They booked early news. What does early news actually cost on that
+              station? Not the quote &mdash; the filed record.</p>
+          </div>
+        </div>
+        <div class="wk__art">
+          <div class="wk-doc">
+            <div class="wk-doc__bar"><span class="wk-doc__brand">KPI &middot; Rate Details</span><span class="wk-doc__stamp">FCC filings thru Aug 18</span></div>
+            <div class="wk-doc__row"><b>WZQV, Cleveland &middot; early news &middot; :30</b><span class="wk-doc__dim">Q3 2026</span></div>
+            <div class="wk-doc__row"><span>Candidate class <b class="num">$260</b> &middot; outside group <b class="num">$355</b></span><span class="wk-doc__hi num">Q4 peak: $445 / $610</span></div>
+            <p class="wk-doc__note">Illustrative rates, real market &middot; the full rate book is on
+              <a href="monitoring.html#fcc-rates">the monitoring page</a>.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="wk__scene">
+        <div class="wk__when">
+          <span class="wk__day">Beat 5 &middot; Hold the floor</span>
+          <span class="wk__stampline num">Political window &middot; lowest unit rate</span>
+          <span class="wk__big">Make sure no one pays less than you.</span>
+          <div class="wk__copy">
+            <p>In the window the station owes a candidate its lowest unit rate. The
+              file shows what every buyer actually cleared &mdash; so the rate
+              conversation starts from the record, not the rate card.</p>
+          </div>
+        </div>
+        <div class="wk__art">
+          <div class="wk-doc">
+            <div class="wk-doc__bar"><span class="wk-doc__brand">KPI &middot; Clearance check</span><span class="wk-doc__stamp">WZQV &middot; early news &middot; :30</span></div>
+            <div class="wk-doc__row"><span>Your quote</span><span class="num"><b>$290</b></span></div>
+            <div class="wk-doc__row"><span>Cleared in class, wk of Aug 3</span><span class="num"><b>$260</b></span><span class="wk-doc__hi num">carry the page into the call</span></div>
+            <p class="wk-doc__note">Candidates and outside groups read separately; the lowest-unit-rate
+              view is candidate class only.</p>
+          </div>
+        </div>
+      </article>
+    </div>
 
     <div class="wk-links" role="group" aria-label="The screens behind the buyer's week">
       <a class="chip" href="platform.html#scoreboard">Scoreboard</a>
@@ -588,7 +658,7 @@
 </section>
 
 <!-- ============ SELL-SIDE ============ -->
-<section class="section" id="sell-side">
+<section class="section pb" id="sell-side" data-pb>
   <div class="wrap">
     <div class="split" style="margin-bottom:2.2rem">
       <div>
@@ -598,12 +668,9 @@
       <div>
         <p class="lede"><b>&ldquo;Political ad reservations top $1 billion for 2026
           midterms&rdquo;</b> &mdash; Inside Radio, Aug 2026, reported from KPI
-          forward-book data. This grid shows every dollar of it booked into your
-          market and not yet on your books: the advertisers, the weeks, the channels.
-          A lead book for political air &mdash; everyone who should be buying you, ranked
-          by what is missing from your books, with the person to call one unlock away.
-          Platform sellers get the same read from the streaming side:
-          <a href="#streaming-pitch">the pitch board</a> is below.</p>
+          forward-book data. These boards show every dollar of it booked into your
+          market and not yet on your books &mdash; and who to call about it. Station,
+          rep firm or platform seller: pick your board.</p>
       </div>
     </div>
 
@@ -616,6 +683,49 @@
       week above</a>. These are the surfaces it runs on &mdash; the same boards station
       groups, rep firms and platform sellers pull.</p>
 
+    <div data-rise style="max-width:640px;margin-inline:auto">
+      <div class="card card--flag">
+        <p class="card__k">The share argument</p>
+        <h3>Your share of the market, on one grid</h3>
+        <p class="small">The market's full order flow with your own air beside it,
+          <a href="platform.html#buy-sheet">in the same view your buyers read</a> &mdash;
+          your share becomes a number both sides of the table can check. The same
+          public file <a href="monitoring.html#fcc-rates">defends your rate</a>.</p>
+      </div>
+    </div>
+
+    <!-- r88b: the seller's boards as one deck. site.js adds .pb--live and the
+         rail appears; JS-off all six boards render stacked exactly as before.
+         Panels keep their ids so every existing deep link still lands. -->
+    <div class="pb__rail pb__rail--6 mt3" role="tablist" aria-label="Choose a seller board">
+      <button class="pb__tab" id="pb-tab-orderflow" type="button" role="tab" aria-selected="true" aria-controls="order-flow">
+        <span class="wk__tab-name">Order flow</span>
+        <span class="wk__tab-sub">The market's money, advertiser by advertiser</span>
+      </button>
+      <button class="pb__tab" id="pb-tab-agencybook" type="button" role="tab" aria-selected="false" aria-controls="agency-book">
+        <span class="wk__tab-name">Agency book</span>
+        <span class="wk__tab-sub">Every agency in your state</span>
+      </button>
+      <button class="pb__tab" id="pb-tab-diagonal" type="button" role="tab" aria-selected="false" aria-controls="share-diagonal">
+        <span class="wk__tab-name">Share diagonal</span>
+        <span class="wk__tab-sub">The digital call list</span>
+      </button>
+      <button class="pb__tab" id="pb-tab-pitch" type="button" role="tab" aria-selected="false" aria-controls="streaming-pitch">
+        <span class="wk__tab-name">Streaming pitch</span>
+        <span class="wk__tab-sub">Your app's viewing vs the money</span>
+      </button>
+      <button class="pb__tab" id="pb-tab-classgap" type="button" role="tab" aria-selected="false" aria-controls="class-gap-board">
+        <span class="wk__tab-name">Class gap</span>
+        <span class="wk__tab-sub">The starved class is the pitch</span>
+      </button>
+      <button class="pb__tab" id="pb-tab-leadlist" type="button" role="tab" aria-selected="false" aria-controls="lead-list">
+        <span class="wk__tab-name">Lead list</span>
+        <span class="wk__tab-sub">Who to call, ranked</span>
+      </button>
+    </div>
+    <p class="pb__cue" aria-hidden="true">Six boards, one subscription &middot; click or tap to switch<span class="kbd-hint">, or use the arrow keys</span></p>
+
+    <div class="pb__panel mt3" role="tabpanel" id="order-flow" aria-labelledby="pb-tab-orderflow">
     <!-- The seller's screen: the market's order flow, advertiser by advertiser, with the
          seller's own air marked. Same rc- recreation pattern as the buyer surfaces. -->
     <div class="rc-seller-stage" data-rise>
@@ -785,22 +895,15 @@
 </style>
     </div>
 
-    <!-- r84: the penciled Locality quote came out — no external voice ships unsigned.
-         When a real signed seller quote lands, it goes here. -->
-
-    <div data-rise style="max-width:640px;margin-inline:auto">
-      <div class="card card--flag">
-        <p class="card__k">The share argument</p>
-        <h3>Your share of the market, on one grid</h3>
-        <p class="small">The market's full order flow with your own air beside it,
-          <a href="platform.html#buy-sheet">in the same view your buyers read</a> &mdash;
-          your share becomes a number both sides of the table can check. The same
-          public file <a href="monitoring.html#fcc-rates">defends your rate</a>.</p>
-      </div>
     </div>
 
-    <div class="mt3">
-      <h3 id="agency-book">The agency book</h3>
+    <!-- r84: the penciled Locality quote came out — no external voice ships unsigned.
+         When a real signed seller quote lands, it goes here. The share-argument
+         card moved above the rail (r88b): it is the section's thesis, not one
+         board's caption. -->
+
+    <div class="pb__panel mt3" role="tabpanel" id="agency-book" aria-labelledby="pb-tab-agencybook">
+      <h3>The agency book</h3>
       <p class="dek">Every agency placing political money in your state &mdash; filed dollars
         beside what is on your air, and the gap that says how much more you should be
         getting. Digital included: we see the agencies buying it, money that never
@@ -821,7 +924,7 @@
          Static end-state is the finished chart everywhere else. Illustrative
          figures; shares of the measured streaming market only, never of all of
          digital; built from measured households, never a platform's own logs. -->
-    <div class="mt3" id="share-diagonal">
+    <div class="pb__panel mt3" role="tabpanel" id="share-diagonal" aria-labelledby="pb-tab-diagonal">
       <div class="center" style="margin-bottom:1.2rem" data-rise>
         <p class="eyebrow eyebrow--plain" style="justify-content:center">The digital seller's board</p>
         <h3>The services under the diagonal are the call list.</h3>
@@ -916,7 +1019,9 @@
         </div>
       </div>
     </div>
-<h3 class="mt3" id="streaming-pitch">The streaming seller&rsquo;s pitch</h3>
+
+    <div class="pb__panel" role="tabpanel" id="streaming-pitch" aria-labelledby="pb-tab-pitch">
+<h3 class="mt3">The streaming seller&rsquo;s pitch</h3>
       <p class="small" style="max-width:70ch">Sell an app instead of a station and the same
         share read runs: your share of the viewing against your share of the money &mdash;
         then the agencies placing it, and who to call.</p>
@@ -1030,7 +1135,9 @@
 }
 </style>
       </div>
+    </div>
 
+    <div class="pb__panel" role="tabpanel" id="class-gap-board" aria-labelledby="pb-tab-classgap">
 <h3 class="mt3">The class gap</h3>
       <p class="small" style="max-width:70ch">One buyer&rsquo;s streaming mix beside the
         market&rsquo;s, by platform class &mdash; the starved class is the pitch.</p>
@@ -1133,11 +1240,13 @@
 }
 </style>
       </div>
+    </div>
 
     <!-- Seller lead-list recreation (ruling 36c, portal notes §9 card 8): the real
          Competitive Buyer Intel "Agency/Advertiser Spend" table's structure, mirrored
          with synthetic actors. Agency prints as it appears on the order document; the
          agency-of-record CLAIM stays gated per the ledger. -->
+    <div class="pb__panel" role="tabpanel" id="lead-list" aria-labelledby="pb-tab-leadlist">
     <div class="rc-leadlist-stage" data-rise>
 <div class="rc rc-leadlist">
   <div class="rc-leadlist-toolbar">
@@ -1207,6 +1316,7 @@
   .rc-leadlist .rc-leadlist-foot p{font-size:10px}
 }
 </style>
+    </div>
     </div>
 
     <p class="small mt2">Every board here exports &mdash; workbook and print sheet, aired
@@ -1296,6 +1406,6 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r88"></script>
+<script src="assets/js/site.js?v=r88b"></script>
 </body>
 </html>
