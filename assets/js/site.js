@@ -458,3 +458,50 @@
     if (t) { activate(t); pb.scrollIntoView(true); }
   });
 })();
+
+/* r97: The Book — the forty-race morning view. JS-off every drill-in renders
+   open; this ADDS the collapsed view, row toggles, and the copy-the-morning-
+   note action. Nothing moves on its own. */
+(function () {
+  var book = document.querySelector('[data-book]');
+  if (!book) return;
+  book.classList.add('bk--live');
+  var rows = Array.prototype.slice.call(book.querySelectorAll('.rcbk-row'));
+  rows.forEach(function (r, i) {
+    r.setAttribute('tabindex', '0');
+    r.setAttribute('role', 'button');
+    r.setAttribute('aria-expanded', i === 0 ? 'true' : 'false');
+    function toggle() {
+      r.setAttribute('aria-expanded', r.getAttribute('aria-expanded') === 'true' ? 'false' : 'true');
+    }
+    r.addEventListener('click', function (e) {
+      if (e.target.closest('a')) return;
+      toggle();
+    });
+    r.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
+    });
+  });
+  var btn = book.querySelector('.rcbk-copy');
+  if (btn && navigator.clipboard) {
+    btn.hidden = false;
+    var note = [
+      'THE BOOK - MORNING VIEW - posted thru Aug 30, 2026',
+      'North River Senate: +$180K posted overnight (Ellery, WZQV Cleveland, opens Sep 7); new :30 "First Light" caught on Hulu, 0 broadcast airings. Aired $5.5M / booked fwd $1.7M.',
+      'Midstate Attorney General: +$3.3M this week; challenger side leads aired 60/40. Aired $29.2M.',
+      'North River Governor: +$1.8M booked forward, two weeks out. Aired $18.6M.',
+      'Granite Senate primary: WENT DARK overnight; remaining booked dollars pulled.',
+      'Two Rivers Governor: +$420K posted (Beacon Hill, early news, 4 of 6 markets).',
+      'Lakeshore CD-9: first TV order in the race (Citizens for Fair Elections, $340K).',
+      'Prairie Senate: quiet.',
+      '+ 35 more races - synthetic preview; the platform writes this from your book.'
+    ].join('\n');
+    btn.addEventListener('click', function () {
+      navigator.clipboard.writeText(note).then(function () {
+        var t = btn.textContent;
+        btn.textContent = 'Copied \u2713';
+        setTimeout(function () { btn.textContent = t; }, 1600);
+      });
+    });
+  }
+})();
