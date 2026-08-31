@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r97">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r98">
 <style>
   .fig-scroll > svg { min-width: 820px; }
   /* R69: the key graphic gets a phone-native stack; no panning a 1000px drawing */
@@ -305,6 +305,37 @@
         service, priced as a dated, estimated minimum.</p>
     </div>
 
+    <!-- r98: THE PULSE — cleared measurement numbers (handoff 2026-08-31, settled
+         weeks only). Fence: impressions only, aggregate only, measured vs implied
+         never blended, denominator is always MEASURED political TV impressions,
+         vendor unnamed in this band (partner naming rides the announcement).
+         Refresh contract + post-election pivot slot: assets/data/streaming-pulse.json.
+         Never render the trailing ~3 unsettled weeks. Never call any week typical. -->
+    <div class="msp" data-rise data-pulse>
+      <div class="msp__top">
+        <div>
+          <span class="msp__l" style="margin-top:0;font-weight:700;color:#E8F1F7">A third of measured political TV ad
+            impressions are streaming &mdash; measured, not guessed.</span>
+          <span class="msp__n num" data-p="measuredPeakWeek">220M+</span>
+          <span class="msp__l">streaming ad impressions <b>measured</b> in panel households in the
+            peak summer week (week of <span data-p="peakWeekOf">August 3, 2026</span>) &mdash; a hard
+            floor, observed on real screens in real homes &middot;
+            <b><span class="num" data-p="measuredSixWeeks">1.06B</span> measured</b> across the six
+            summer weeks (<span data-p="sixWeekWindow">July 15 &ndash; August 29, 2026</span>).</span>
+        </div>
+        <ul class="msp__ticks num">
+          <li><b><span data-p="impliedPeakWeek">~940M</span> implied national</b> streaming ad impressions in that same peak week &mdash; <b><span data-p="impliedSixWeeks">~4.5B</span></b> across the six weeks &middot; implied via our ratified capture calibration, always labeled</li>
+          <li><b><span data-p="rawPlaysPerWeek">~10M</span> individual ad plays</b> observed per week, app by app: YouTube and YouTube TV, Tubi, Peacock, Pluto, the vMVPDs</li>
+          <li><b><span data-p="advertisersOneWeek">1,500+</span> active political advertisers</b> measured in a single week &middot; YouTube and YouTube TV carry <span data-p="youtubeShare">nearly half</span> of measured streaming</li>
+          <li><b>Set before the money arrived:</b> these weeks ran while less than 10% of projected cycle dollars had been spent. Fall projects to <b><span data-p="fallProjection">3&ndash;4B+ implied national streaming impressions per week at peak</span></b>, of which about a quarter is directly observed at household grain (projection; assumes streaming volume scales with spend)</li>
+        </ul>
+      </div>
+      <p class="msp__foot">Measured and implied never blend: measured is the floor, panel-observed
+        on our smart-TV measurement panel; implied is the national read, labeled &middot;
+        settled through <b data-p="settledThrough">August 29, 2026</b> &mdash; trailing weeks
+        publish only once they settle.</p>
+    </div>
+
 
 
     <div class="split" style="align-items:start">
@@ -312,8 +343,8 @@
         <h3>The number on this board</h3>
         <p style="margin-top:.9rem;max-width:38ch">Every ad is caught on the glass &mdash;
           <b>100% of the creatives that run there, each with tape and transcript</b> &mdash;
-          and priced from real invoices, service by service: YouTube, premium apps,
-          free ad-supported TV.</p>
+          and priced from real invoices, service by service: YouTube and YouTube TV,
+          Tubi, Peacock, Pluto, the vMVPDs.</p>
 
         <p class="small" style="margin-top:1.2rem">How that number is made &mdash; screens to
           household to weight &mdash; is <a href="#cross-screen">drawn once, below</a>.</p>
@@ -944,6 +975,6 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r97"></script>
+<script src="assets/js/site.js?v=r98"></script>
 </body>
 </html>

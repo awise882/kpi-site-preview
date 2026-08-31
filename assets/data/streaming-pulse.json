@@ -1,0 +1,17 @@
+{
+  "_contract": "Weekly refresh: rerun the settled-weeks query, UPSERT larger values on overlapping dates, publish ONLY weeks >= 3 weeks old (trailing weeks read 40-80% low until settled). Update this file AND the matching static values in monitoring.html + index.html (the HTML is the no-JS truth; this file is the refresh contract and hydration source). Post-election pivot: swap the cumulative slot copy to 'measured this cycle'.",
+  "settledThrough": "August 29, 2026",
+  "peakWeekOf": "August 3, 2026",
+  "measuredPeakWeek": "220M+",
+  "measuredSixWeeks": "1.06B",
+  "sixWeekWindow": "July 15 – August 29, 2026",
+  "impliedPeakWeek": "~940M",
+  "impliedSixWeeks": "~4.5B",
+  "allTvSixWeeks": "3.11B",
+  "allTvPeakWeek": "673M",
+  "rawPlaysPerWeek": "~10M",
+  "advertisersOneWeek": "1,500+",
+  "streamingShare": "roughly one-third",
+  "youtubeShare": "nearly half",
+  "fallProjection": "3–4B+ implied national streaming impressions per week at peak"
+}
