@@ -143,9 +143,9 @@
   }
 
   /* ==================================================================
-     PASS E §4: the polling story. Five scenes — a question is asked,
-     the answers arrive, THE SPARSE MATRIX at scale, the contrast
-     panel, the audience lands as a deal ID. Stage doctrine: one focal
+     PASS E §4: the polling story. Four scenes — a question is asked,
+     the answers arrive, THE SPARSE MATRIX at scale, the audience
+     lands as a deal ID. Stage doctrine: one focal
      object per viewport, establish/develop/release, static end-states
      everywhere, the scroll never captured.
      ================================================================== */
@@ -281,32 +281,6 @@
     html.scrub .mxs__scroller { height: 220vh; }
     html.scrub .mxs__svg { max-width: 100%; }
   }
-
-  /* -- scene 4: the contrast panel. A vs B, mirrored bands with a divider.
-     Static; the entrance is the shared rise. -- */
-  .pcmp { display: grid; gap: 1.6rem; max-width: 980px; margin-inline: auto; }
-  @media (min-width: 880px) {
-    .pcmp { grid-template-columns: 1fr 1fr; gap: 0; }
-    .pcmp__side--l { padding-right: clamp(20px, 3vw, 44px); border-right: 1px solid var(--rule); }
-    .pcmp__side--r { padding-left: clamp(20px, 3vw, 44px); }
-  }
-  .pcmp__k { font-family: var(--label); text-transform: uppercase; letter-spacing: .13em;
-    font-size: .68rem; font-weight: 700; margin: 0 0 .9rem; }
-  .pcmp__k--model { color: var(--ink-3); }
-  .pcmp__k--declared { color: var(--lime-text); }
-  .pcopy { position: relative; padding-bottom: .4rem; }
-  .pcopy__sheet { background: var(--white); border: 1px solid var(--rule); border-radius: var(--r);
-    padding: .7rem .85rem; max-width: 380px; box-shadow: var(--shadow); }
-  .pcopy__sheet + .pcopy__sheet { margin-top: .55rem; }
-  .pcopy__sheet b { display: block; font-size: .88rem; color: var(--navy-deep); }
-  .pcopy__sheet span { display: block; margin-top: .15rem; font-family: var(--mono); font-size: .7rem; color: var(--ink-3); }
-  .pcopy__sheet--2 { opacity: .62; border-style: dashed; margin-left: 1.1rem; }
-  .pcopy__sheet--3 { opacity: .34; border-style: dashed; margin-left: 2.2rem; }
-  .pcmp__decay { margin: 1rem 0 0; font-size: .88rem; line-height: 1.55; color: var(--ink-2); max-width: 44ch; }
-  .pcmp__chipwrap { background: var(--white); border: 1px solid var(--rule); border-radius: var(--r);
-    box-shadow: var(--shadow); padding: .7rem .8rem; max-width: 380px; }
-  .pcmp__chipcap { margin: .5rem 0 0; font-family: var(--mono); font-size: .7rem; color: var(--ink-3); line-height: 1.5; }
-  .pcmp__fresh { margin: 1rem 0 0; font-size: .88rem; line-height: 1.55; color: var(--ink-2); max-width: 44ch; }
 
   /* -- scene 5: the deal-ID landing (chip grammar from the index targeting steps) -- */
   .tstep-art { margin-top: .8rem; border: 1px solid var(--rule); background: var(--white);
@@ -489,7 +463,7 @@
         <div class="qf__grid" aria-hidden="true">
           <div class="qf__slot"><span class="qf__b qf__b--q qf__b--keep">&ldquo;Which of the following best describes your political leanings?&rdquo;<i>QID 494 &middot; always on</i></span><span class="qf__b qf__b--aud">Streaming-only households, by county<i>audience &rarr; deal ID</i></span></div>
           <div class="qf__slot"><span class="qf__b qf__b--a qf__b--keep">Answers landing now<i>over 1M land network-wide today</i></span><span class="qf__b qf__b--q">&ldquo;How do you receive television service?&rdquo;<i>QID 1516 &middot; always on</i></span></div>
-          <div class="qf__slot"><span class="qf__b qf__b--q qf__b--keep">&ldquo;Should your county approve new data centers?&rdquo;<i>QID 9918 &middot; three waves banked</i></span><span class="qf__b qf__b--cus">Your ballot test, written this week<i>custom &middot; invisible to the other side</i></span></div>
+          <div class="qf__slot"><span class="qf__b qf__b--q qf__b--keep">&ldquo;Should your county approve new data centers?&rdquo;<i>custom &middot; three waves banked</i></span><span class="qf__b qf__b--cus">Your ballot test, written this week<i>custom &middot; invisible to the other side</i></span></div>
           <div class="qf__slot"><span class="qf__b qf__b--aud qf__b--keep">Persuadable on the economy, undecided Senate<i>audience &rarr; deal ID</i></span><span class="qf__b qf__b--q">Favorability, tracked wave over wave<i>ask again &middot; every wave banks</i></span></div>
           <div class="qf__slot"><span class="qf__b qf__b--q qf__b--keep">Grocery prices, top concern or not<i>issue salience &middot; always on</i></span><span class="qf__b qf__b--a">A question moved overnight<i>the audience rebuilds itself</i></span></div>
           <div class="qf__slot"><span class="qf__b qf__b--cus qf__b--keep">School funding, asked only in your district<i>custom &middot; one CD &middot; fields in days</i></span><span class="qf__b qf__b--aud">Early voters who split tickets<i>audience &rarr; deal ID</i></span></div>
@@ -590,8 +564,8 @@
 
 <!-- ============ THE STORY (Pass E §4) ============ -->
 <!-- The page opens as a narrative, not a spec sheet: a question is asked today,
-     the answers arrive, the sparse matrix at scale, the contrast with the modeled
-     path, and the audience landing as a deal ID in the buyer's own seat. Scenes
+     the answers arrive, the sparse matrix at scale, and the audience landing as
+     a deal ID in the buyer's own seat. Scenes
      are fully readable with JS off and motion off; the one pinned scene (the
      matrix) is CSS scroll-driven and never captures the wheel. -->
 
@@ -1044,8 +1018,8 @@
           action="mailto:info@kpipolitical.com?subject=Send%20the%2048-segment%20list">
       <label class="mini-ask__lab" for="seg-email"><b>Want the 48 curated political segments?</b>
         Email only &mdash; no call attached. It names every
-        segment with the questions that build it, the same way the example builds
-        further down this page are named.</label>
+        segment with the questions that build it, the same way the example build
+        earlier on this page is named.</label>
       <div class="mini-ask__row">
         <input type="email" id="seg-email" name="email" required autocomplete="email" maxlength="150"
                placeholder="you@yourfirm.com" aria-label="Work email for the 48-segment list">

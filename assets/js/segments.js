@@ -88,8 +88,8 @@
 
   function render() {
     var rows = match();
-    elCount.innerHTML = '<b class="num">' + fmt(rows.length) + '</b> of <span class="num">' +
-      fmt(DATA.length) + '</span> questions';
+    elCount.innerHTML = rows.length === DATA.length ? '' :
+      '<b class="num">' + fmt(rows.length) + '</b> questions match';
     elEmpty.style.display = rows.length ? 'none' : 'block';
 
     var slice = rows.slice(0, shown);
@@ -313,7 +313,7 @@
       var c2 = {};
       pool.forEach(function (r) { c2[r.c] = (c2[r.c] || 0) + 1; });
       var keys = Object.keys(c2).sort();
-      elCats.innerHTML = '<option value="">All categories (' + fmt(pool.length) + ')</option>' +
+      elCats.innerHTML = '<option value="">All categories</option>' +
         keys.map(function (k) {
           return '<option value="' + esc(k) + '">' + esc(k) + ' (' + fmt(c2[k]) + ')</option>';
         }).join('');

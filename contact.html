@@ -110,23 +110,15 @@
     <h1 style="font-size:clamp(2.2rem,4.8vw,3.6rem)">Point it at a race you <span class="serif-accent">already know</span>.</h1>
     <p class="lede">Open it on a contest you have watched all cycle and see whether it
       tells you anything you did not already have. Name the race &mdash; or the market
-      you sell &mdash; when you book and we pull it before the call. History runs 9
-      years deep, so the same seat from the last cycle sits next to it.</p>
+      you sell &mdash; when you book and we pull it before the call. History runs a
+      decade+ deep, so the same seat from the last cycle sits next to it.</p>
 
     <div class="split split--wide-left mt2">
 
-      <!-- PUBLISH CHECKLIST (rulings 47b/48, 8/25): WIRING DONE. The form posts as JSON to
-           same-origin /api/contact, the live endpoint on the same host per
-           NMiQ/KPIPolitical.com's server.js (SendGrid; fields name/email/subject/description,
-           caps 150/150/150/1000; from info@notice.kpipolitical.com to info@kpipolitical.com).
-           Client-side mapping: subject = the race/market line ("Demo request" when blank);
-           organization, role and the race line fold into description under the 1000-character
-           cap. Success and error states follow the endpoint's JSON shape ({success:true},
-           400 {errors}, 500 {message}); when fetch fails or no handler answers, the script
-           falls back to composing a mail message, and the form's own mailto action covers
-           JS-off. AT DEPLOY: replace the contents of public/ in NMiQ/KPIPolitical.com with
-           this site's files, keep server.js untouched, and push via branch + PR, never
-           straight to main without Adam's nod. -->
+      <!-- WIRING DONE (rulings 47b/48, 8/25): the form posts as JSON to the same-origin
+           /api/contact endpoint; success and error states follow its JSON shape, fetch
+           failure falls back to composing a mail message, and the form's own mailto
+           action covers JS-off. Deploy details live in the production repo's docs. -->
       <div class="form-shell" id="demo-shell">
         <h2>Tell us the race &mdash; or the market &mdash; and we will have it open when you dial in.</h2>
         <p class="form-key">Fields marked <span class="req">*</span> are required.</p>
