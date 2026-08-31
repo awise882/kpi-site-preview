@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r104">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r105">
 <style>
   .hero--sub .hero-center { text-align: center; padding: clamp(56px, 8vw, 104px) 0 clamp(36px, 5vw, 60px); }
   .hero--sub .eyebrow { justify-content: center; }
@@ -117,170 +117,130 @@
     <article class="wk__story" id="wk-buy">
     <h3 class="wk__story-h">The buyer's week</h3>
 
-    <!-- Ruling 52a: THE CALENDAR TIMELINE, now Beat 1: the race on a
-         calendar, from the June order to Election Day. A pinned track where the
-         reader's own vertical scroll pans the calendar. The wheel always moves the
-         page 1:1 (position:sticky + CSS scroll-driven animation, zero JS, nothing
-         trapped). Without animation-timeline support, on phones, and under reduced
-         motion the same track renders as a swipeable horizontal strip, every
-         station visible. -->
-    <div class="tl">
-      <div class="tl__scroller">
-        <div class="tl__pin">
-          <div class="tl__head">
-            <span class="wk__day">Beat 1 &middot; The week arrives</span>
-            <span class="wk__big tl__big">Order placed. On your screen the morning it posts.</span>
-            <p class="tl__hint small"><span class="tl__hint-scroll">Keep scrolling: the calendar walks from the order to Election Day.</span><span class="tl__hint-swipe">Swipe through the weeks, from the order to Election Day.</span></p>
-            <div class="tl__rail" role="img" aria-label="June through November on one rail: the order posts June 9, the creative is found August 11, Election Day is November 3">
-              <span class="tl__rail-mo">JUN<i style="left:25%" title="Jun 9: the order posts"></i></span>
-              <span class="tl__rail-mo">JUL</span>
-              <span class="tl__rail-mo">AUG<i style="left:30%" title="Aug 11: the creative is found"></i></span>
-              <span class="tl__rail-mo">SEP</span>
-              <span class="tl__rail-mo">OCT</span>
-              <span class="tl__rail-mo">NOV 3</span>
-            </div>
+    <!-- r105 (the owner's call): ONE pinned stage where the scroll changes what
+         appears — four beats swap in place, everything present. JS-off, reduced
+         motion, and phones render the same four beats stacked. -->
+    <div class="wkx">
+      <div class="wkx__scroller">
+        <div class="wkx__pin">
+          <div class="wkx__rail" aria-hidden="true">
+            <span class="wkx__step wkx__step--1">1 &middot; The order posts</span>
+            <span class="wkx__step wkx__step--2">2 &middot; Orient</span>
+            <span class="wkx__step wkx__step--3">3 &middot; The alert, then Baker</span>
+            <span class="wkx__step wkx__step--4">4 &middot; Hold the floor</span>
           </div>
-          <ol class="tl__cal" tabindex="0" role="group" aria-label="The buy on a calendar, from the June order to Election Day">
-            <li class="tl__mo">
-              <span class="tl__mon num">JUN 9 &middot; 7:02 AM ET</span>
-              <h4 class="tl__h">The order posts</h4>
-              <p class="tl__p">Detected and on the grid before anything airs.</p>
-              <div class="wk-doc tl__doc">
-                <div class="wk-doc__bar"><span class="wk-doc__brand">KPI &middot; Order posted</span><span class="wk-doc__stamp">Jun 9, 2026</span></div>
-                <div class="wk-doc__row"><b>Granite State Forward PAC</b><span class="wk-doc__dim">North River Senate</span></div>
-                <div class="wk-doc__row"><span class="num">WZQV, Cleveland</span><span class="num"><b>$84K</b> &middot; 2 weeks</span><span class="wk-doc__hi num">flight opens Aug 14</span></div>
+          <p class="wkx__hint small" aria-hidden="true">Keep scrolling &mdash; the week advances on this screen.</p>
+          <div class="wkx__beats">
+
+            <div class="wkx__beat wkx__beat--1">
+              <div class="wk__when">
+                <span class="wk__day">Beat 1 &middot; The week arrives</span>
+                <span class="wk__stampline num">JUN 9 &middot; 7:02 AM ET</span>
+                <span class="wk__big">Order placed. On your screen the morning it posts.</span>
+                <div class="wk__copy">
+                  <p>Detected and on the grid before anything airs &mdash; then every week
+                    from the first order to Election Day, dated, on one strip. Aired prints
+                    solid, booked forward prints hatched.</p>
+                </div>
               </div>
-            </li>
-            <li class="tl__mo">
-              <span class="tl__mon num">AUG 2026 &middot; AS THE BOOK STOOD</span>
-              <h4 class="tl__h">The weeks fill</h4>
-              <p class="tl__p">Aired prints solid, booked forward prints hatched.</p>
-              <div class="tl__weeks" role="img" aria-label="Eight calendar weeks: five aired, two booked forward, one with no order on file">
-                <span class="tl__wk num">JUL 6</span>
-                <span class="tl__wk num">JUL 13</span>
-                <span class="tl__wk num">JUL 20</span>
-                <span class="tl__wk num">JUL 27</span>
-                <span class="tl__wk num">AUG 3</span>
-                <span class="tl__wk tl__wk--fwd num">AUG 10</span>
-                <span class="tl__wk tl__wk--fwd num">AUG 17</span>
-                <span class="tl__wk tl__wk--none num">AUG 24</span>
+              <div class="wk__art">
+                <div class="wk-doc">
+                  <div class="wk-doc__bar"><span class="wk-doc__brand">KPI &middot; Order posted</span><span class="wk-doc__stamp">Jun 9, 2026</span></div>
+                  <div class="wk-doc__row"><b>Granite State Forward PAC</b><span class="wk-doc__dim">North River Senate</span></div>
+                  <div class="wk-doc__row"><span class="num">WZQV, Cleveland</span><span class="num"><b>$84K</b> &middot; 2 weeks</span><span class="wk-doc__hi num">flight opens Aug 14</span></div>
+                  <div class="wk-doc__row" style="display:block">
+                    <div class="tl__grid" role="img" aria-label="All 22 weeks from June 8 to November 2 on one strip: the order week and five aired weeks solid, two booked-forward weeks hatched, one no-order week outlined, Election Day marked">
+                      <span class="tl__gw tl__gw--aired"></span><span class="tl__gw"></span><span class="tl__gw"></span><span class="tl__gw"></span><span class="tl__gw tl__gw--aired"></span><span class="tl__gw tl__gw--aired"></span><span class="tl__gw tl__gw--aired"></span><span class="tl__gw tl__gw--aired"></span><span class="tl__gw tl__gw--aired"></span><span class="tl__gw tl__gw--fwd"></span><span class="tl__gw tl__gw--fwd"></span><span class="tl__gw tl__gw--none"></span><span class="tl__gw"></span><span class="tl__gw"></span><span class="tl__gw"></span><span class="tl__gw"></span><span class="tl__gw"></span><span class="tl__gw"></span><span class="tl__gw"></span><span class="tl__gw"></span><span class="tl__gw"></span><span class="tl__gw tl__gw--end"></span>
+                    </div>
+                    <div class="tl__grid-months" aria-hidden="true"><span>JUN</span><span>JUL</span><span>AUG</span><span>SEP</span><span>OCT</span><span>NOV</span></div>
+                    <p class="tl__grid-cap">22 weeks &middot; solid aired &middot; hatched booked forward &middot; outlined no order on file</p>
+                  </div>
+                </div>
               </div>
-              <p class="tl__cap">hatched = booked forward</p>
-            </li>
-            <li class="tl__mo">
-              <span class="tl__mon num">AUG 11 &middot; 7:15 AM ET</span>
-              <h4 class="tl__h">Caught on the apps, alert in your inbox</h4>
-              <p class="tl__p">A new :30 launches on streaming, never touches broadcast &mdash; caught,
-                and in your inbox with tape and transcript before the first meeting.</p>
-              <div class="wk-doc tl__doc">
-                <div class="wk-doc__bar"><span class="wk-doc__brand">KPI &middot; Creative Alert</span><span class="wk-doc__stamp">Aug 11 &middot; your inbox</span></div>
-                <div class="wk-doc__row"><b>&ldquo;First Light&rdquo; &middot; :30</b><span class="wk-doc__dim">Heartland Priorities PAC</span></div>
-                <div class="wk-doc__row"><span>Captured on Hulu</span><span class="wk-doc__dim">days before broadcast</span></div>
-                <div class="wk-doc__row"><span class="wk-doc__dim">The alert itself, whole, is on <a href="monitoring.html#alert-demo">the monitoring page</a>.</span></div>
+            </div>
+
+            <div class="wkx__beat wkx__beat--2">
+              <div class="wk__when">
+                <span class="wk__day">Beat 2 &middot; Orient</span>
+                <span class="wk__stampline num">Posted through Aug 14, 2026</span>
+                <span class="wk__big">See the landscape.</span>
+                <div class="wk__copy">
+                  <p>What is the opponent doing, where are they buying, what changed since
+                    yesterday: the whole race on one screen, changes flagged.</p>
+                </div>
               </div>
-            </li>
-            <li class="tl__mo tl__mo--end">
-              <span class="tl__mon num">NOV 3</span>
-              <h4 class="tl__h">Election day</h4>
-              <p class="tl__p">Every week from the first order to the last, dated, on one grid.</p>
-              <div class="tl__grid" role="img" aria-label="All 22 weeks from June 8 to November 2 on one strip: the order week and five aired weeks solid, two booked-forward weeks hatched, one no-order week outlined, Election Day marked">
-                <span class="tl__gw tl__gw--aired"></span><span class="tl__gw"></span><span class="tl__gw"></span><span class="tl__gw"></span><span class="tl__gw tl__gw--aired"></span><span class="tl__gw tl__gw--aired"></span><span class="tl__gw tl__gw--aired"></span><span class="tl__gw tl__gw--aired"></span><span class="tl__gw tl__gw--aired"></span><span class="tl__gw tl__gw--fwd"></span><span class="tl__gw tl__gw--fwd"></span><span class="tl__gw tl__gw--none"></span><span class="tl__gw"></span><span class="tl__gw"></span><span class="tl__gw"></span><span class="tl__gw"></span><span class="tl__gw"></span><span class="tl__gw"></span><span class="tl__gw"></span><span class="tl__gw"></span><span class="tl__gw"></span><span class="tl__gw tl__gw--end"></span>
+              <div class="wk__art">
+                <div class="wk-doc wk-score">
+                  <div class="wk-doc__bar"><span class="wk-doc__brand">KPI &middot; Scoreboard</span><span class="wk-doc__stamp">Posted through Aug 14, 2026</span></div>
+                  <p class="wk-score__race"><b>North River Senate</b><span> &middot; 3 markets &middot; aired dollars, posted channels</span></p>
+                  <div class="wk-score__rows">
+                    <div class="wk-score__row"><span class="wk-score__name">Nora Hale for Senate <i>(D)</i></span><span class="wk-score__track"><span style="width:100%"></span></span><b class="num">$2.4M</b></div>
+                    <div class="wk-score__row"><span class="wk-score__name">Ellery for Senate <i>(R)</i></span><span class="wk-score__track"><span style="width:79%"></span></span><b class="num">$1.9M</b></div>
+                    <div class="wk-score__row"><span class="wk-score__name">Granite State Forward PAC</span><span class="wk-score__track"><span style="width:33%"></span></span><b class="num">$0.8M</b></div>
+                    <div class="wk-score__row wk-score__row--more"><span class="wk-score__name">2 more advertisers</span><span class="wk-score__track"><span style="width:17%"></span></span><b class="num">$0.4M</b></div>
+                  </div>
+                  <div class="wk-score__lanes num">Broadcast $3.6M &middot; Local cable $1.5M &middot; Radio $0.3M<span class="wk-score__est"> &middot; Streaming: caught floor $960K &middot; estimated minimum $1.58M, est. thru Aug 7 &mdash; beside the total</span></div>
+                  <div class="wk-score__foot"><span>Booked forward <b class="num">$1.7M</b>, on its own line</span><span>went dark: Hometown Values, Aug 11</span></div>
+                  <p class="wk-doc__note">One race&rsquo;s scoreboard. The demo shows every race with money in it.</p>
+                </div>
               </div>
-              <div class="tl__grid-months" aria-hidden="true"><span>JUN</span><span>JUL</span><span>AUG</span><span>SEP</span><span>OCT</span><span>NOV</span></div>
-              <p class="tl__grid-cap">22 weeks &middot; solid aired &middot; hatched booked forward &middot; outlined no order on file</p>
-            </li>
-          </ol>
+            </div>
+
+            <div class="wkx__beat wkx__beat--3">
+              <div class="wk__when">
+                <span class="wk__day">Beat 3 &middot; The alert, then Baker</span>
+                <span class="wk__stampline num">Aug 11 &middot; 7:15 &rarr; 7:24 AM ET</span>
+                <span class="wk__big">Caught on the apps. Answered in plain language.</span>
+                <div class="wk__copy">
+                  <p>A new :30 launches on streaming and never touches broadcast &mdash;
+                    caught, tape and transcript attached. Baker answers what it means for
+                    the book, from the same posted record.</p>
+                </div>
+              </div>
+              <div class="wk__art">
+                <div class="wk-doc">
+                  <div class="wk-doc__bar"><span class="wk-doc__brand">KPI &middot; Creative Alert</span><span class="wk-doc__stamp">Aug 11 &middot; 7:15 AM &middot; your inbox</span></div>
+                  <div class="wk-doc__row"><b>&ldquo;First Light&rdquo; &middot; :30</b><span class="wk-doc__dim">Heartland Priorities PAC &middot; captured on Hulu, days before broadcast</span></div>
+                </div>
+                <div class="wk-doc" style="margin-top:.7rem">
+                  <div class="wk-doc__bar"><span class="wk-doc__brand">KPI &middot; Baker</span><span class="wk-doc__stamp">Aug 11 &middot; 7:24 AM ET</span></div>
+                  <div class="wk-doc__row"><b>&ldquo;What did the other side book this morning?&rdquo;</b></div>
+                  <div class="wk-doc__row"><span>Ellery for Senate added <b class="num">$180K</b> on WZQV, Cleveland</span><span class="wk-doc__dim num">early news + prime &middot; Sep 7&ndash;Oct 12 &middot; posted 7:02 AM</span></div>
+                  <div class="wk-doc__row"><span class="wk-doc__dim">Where the posted record can&rsquo;t answer, Baker returns the gap, not a guess.</span></div>
+                  <p class="wk-doc__note">The whole alert lives on <a href="monitoring.html#alert-demo">monitoring</a>; Baker on <a href="platform.html#baker">the platform</a>.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="wkx__beat wkx__beat--4">
+              <div class="wk__when">
+                <span class="wk__day">Beat 4 &middot; Pull the file, hold the floor</span>
+                <span class="wk__stampline num">Political window &middot; lowest unit rate</span>
+                <span class="wk__big">Make sure no one pays less than you.</span>
+                <div class="wk__copy">
+                  <p>They booked early news &mdash; so pull what early news actually cleared.
+                    The page in hand: your $290 quote against $260 cleared in class &mdash;
+                    $30 a spot, <b class="num">$12K</b> back across a 400-spot flight. And the
+                    booked week that cleared short shows as the gap between its own columns:
+                    Meridian&rsquo;s week booked <b class="num">$96K</b>, aired <b class="num">$71K</b>,
+                    the $25K gap flagged before the make-good call.</p>
+                </div>
+              </div>
+              <div class="wk__art">
+                <div class="wk-doc">
+                  <div class="wk-doc__bar"><span class="wk-doc__brand">KPI &middot; Clearance check</span><span class="wk-doc__stamp">WZQV &middot; early news &middot; :30 &middot; FCC filings thru Aug 18</span></div>
+                  <div class="wk-doc__row"><span>Your quote</span><span class="num"><b>$290</b></span></div>
+                  <div class="wk-doc__row"><span>Cleared in class, wk of Aug 3</span><span class="num"><b>$260</b></span><span class="wk-doc__hi num">carry the page into the call</span></div>
+                  <div class="wk-doc__row"><span class="wk-doc__dim">Outside group class reads separately: <b class="num">$355</b> &middot; Q4 peak $445 / $610</span></div>
+                  <p class="wk-doc__note">Illustrative rates, real market &middot; the full rate ledger is on
+                    <a href="monitoring.html#fcc-rates">the monitoring page</a>.</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
         </div>
       </div>
-    </div>
-
-    <!-- r91 (Adam): the static alert beat was the runway retold — cut. The
-         calendar runway IS Beat 1 (order -> creative -> alert -> Election Day);
-         Beat 2 orients on the scoreboard; Beats 3-5 run the chain. -->
-    <div class="wk__scenes">
-      <article class="wk__scene">
-        <div class="wk__when">
-          <span class="wk__day">Beat 2 &middot; Orient</span>
-          <span class="wk__stampline num">Posted through Aug 14, 2026</span>
-          <span class="wk__big">See the landscape.</span>
-          <div class="wk__copy">
-            <p>What is the opponent doing, where are they buying, what changed since
-              yesterday: the whole race on one screen, changes flagged.</p>
-          </div>
-        </div>
-        <div class="wk__art">
-          <div class="wk-doc wk-score">
-            <div class="wk-doc__bar"><span class="wk-doc__brand">KPI &middot; Scoreboard</span><span class="wk-doc__stamp">Posted through Aug 14, 2026</span></div>
-            <p class="wk-score__race"><b>North River Senate</b><span> &middot; 3 markets &middot; aired dollars, posted channels</span></p>
-            <div class="wk-score__rows">
-              <div class="wk-score__row"><span class="wk-score__name">Nora Hale for Senate <i>(D)</i></span><span class="wk-score__track"><span style="width:100%"></span></span><b class="num">$2.4M</b></div>
-              <div class="wk-score__row"><span class="wk-score__name">Ellery for Senate <i>(R)</i></span><span class="wk-score__track"><span style="width:79%"></span></span><b class="num">$1.9M</b></div>
-              <div class="wk-score__row"><span class="wk-score__name">Granite State Forward PAC</span><span class="wk-score__track"><span style="width:33%"></span></span><b class="num">$0.8M</b></div>
-              <div class="wk-score__row wk-score__row--more"><span class="wk-score__name">2 more advertisers</span><span class="wk-score__track"><span style="width:17%"></span></span><b class="num">$0.4M</b></div>
-            </div>
-            <div class="wk-score__lanes num">Broadcast $3.6M &middot; Local cable $1.5M &middot; Radio $0.3M<span class="wk-score__est"> (channels rounded to the nearest $0.1M) &middot; Streaming: caught floor $960K &middot; estimated minimum $1.58M, est. thru Aug 7 &mdash; beside the total, never in it</span></div>
-            <div class="wk-score__foot"><span>Booked forward <b class="num">$1.7M</b>, on its own line</span><span>went dark: Hometown Values, Aug 11</span></div>
-            <div class="wk-score__foot"><span class="num">The weight read (estimated, indexed, Hale = 100): Ellery 79 &middot; Granite St 23 &mdash; outside money buys about 30% thinner at <a href="monitoring.html#fcc-rates">filed rates</a></span></div>
-            <p class="wk-doc__note">One race's scoreboard. The demo shows every race with money in it.</p>
-          </div>
-        </div>
-      </article>
-    </div>
-
-
-    <!-- r88b: the rest of the buyer's chain, in the order the morning actually
-         runs: ask Baker what moved, pull the filed rate, then walk into the rate
-         conversation holding the floor. -->
-    <div class="wk__scenes">
-      <article class="wk__scene">
-        <div class="wk__when">
-          <span class="wk__day">Beat 3 &middot; Ask Baker</span>
-          <span class="wk__stampline num">Aug 11 &middot; 7:24 AM ET</span>
-          <span class="wk__big">One question instead of six filters.</span>
-          <div class="wk__copy">
-            <p>The alert says what launched. Baker answers what it means for the
-              book &mdash; in plain language, from the same posted record.</p>
-          </div>
-        </div>
-        <div class="wk__art">
-          <div class="wk-doc">
-            <div class="wk-doc__bar"><span class="wk-doc__brand">KPI &middot; Baker</span><span class="wk-doc__stamp">Aug 11 &middot; 7:24 AM ET</span></div>
-            <div class="wk-doc__row"><b>&ldquo;What did the other side book this morning?&rdquo;</b></div>
-            <div class="wk-doc__row"><span>Ellery for Senate added <b class="num">$180K</b> on WZQV, Cleveland</span><span class="wk-doc__dim num">early news + prime &middot; Sep 7&ndash;Oct 12 &middot; posted 7:02 AM</span></div>
-            <div class="wk-doc__row"><span class="wk-doc__dim">Where the posted record can&rsquo;t answer, Baker returns the gap, not a guess.</span></div>
-            <p class="wk-doc__note">Baker runs over everything the platform tracks &mdash;
-              <a href="platform.html#baker">meet it on the platform page</a>.</p>
-          </div>
-        </div>
-      </article>
-
-      <article class="wk__scene">
-        <div class="wk__when">
-          <span class="wk__day">Beat 4 &middot; Pull the file, hold the floor</span>
-          <span class="wk__stampline num">Political window &middot; lowest unit rate</span>
-          <span class="wk__big">Make sure no one pays less than you.</span>
-          <div class="wk__copy">
-            <p>They booked early news &mdash; so pull what early news actually cleared.
-              In the window the station owes a candidate its lowest unit rate, and the
-              filed record beats the rate card. The page in hand: your $290 quote against
-              $260 cleared in class &mdash; $30 a spot, $12K back across a 400-spot flight.
-              And because aired and booked-forward print side by side, the booked week
-              that cleared short shows up as the gap between its own columns &mdash; in the
-              demo book, Meridian&rsquo;s week booked at $96K and aired $71K, and the $25K
-              gap flagged before the make-good call.</p>
-          </div>
-        </div>
-        <div class="wk__art">
-          <div class="wk-doc">
-            <div class="wk-doc__bar"><span class="wk-doc__brand">KPI &middot; Clearance check</span><span class="wk-doc__stamp">WZQV &middot; early news &middot; :30 &middot; FCC filings thru Aug 18</span></div>
-            <div class="wk-doc__row"><span>Your quote</span><span class="num"><b>$290</b></span></div>
-            <div class="wk-doc__row"><span>Cleared in class, wk of Aug 3</span><span class="num"><b>$260</b></span><span class="wk-doc__hi num">carry the page into the call</span></div>
-            <div class="wk-doc__row"><span class="wk-doc__dim">Outside group class reads separately: <b class="num">$355</b> &middot; Q4 peak $445 / $610</span></div>
-            <p class="wk-doc__note">Illustrative rates, real market &middot; the full rate ledger is on
-              <a href="monitoring.html#fcc-rates">the monitoring page</a>.</p>
-          </div>
-        </div>
-      </article>
     </div>
 
     <div class="wk-links" role="group" aria-label="The screens behind the buyer's week">
@@ -994,37 +954,7 @@
 
 <!-- ============ THE PLATFORM UNDER THE WEEK (r89: its own section, moved
      below the seller boards so story -> proof -> boards -> plumbing -> action) ============ -->
-<section class="section section--tint" id="platform-layers">
-  <div class="wrap">
-    <!-- Ruling 42c: the platform under the week, as four layers. Absorbs the old
-         flat screen-chip presentation; Baker is the ask-anything strip across it. -->
-    <div class="center mt3" data-rise>
-      <p class="eyebrow eyebrow--plain" style="justify-content:center">The platform under the week</p>
-      <h2>One dataset, three layers, and the screens on top.</h2>
-    </div>
-    <div class="lmap mt1">
-      <ol class="lmap__rail">
-        <!-- Ruling 50f: names + chips + 3-4 word glosses; the chips are the content. -->
-        <li class="lmap__layer">
-          <span class="lmap__name">Detect</span>
-          <span class="lmap__what">Airings, orders, creative.</span>
-          <span class="lmap__items"><a class="chip" href="monitoring.html">Monitoring network</a><a class="chip" href="monitoring.html#streaming-spend">Streaming &amp; Digital capture</a></span>
-        </li>
-        <li class="lmap__layer">
-          <span class="lmap__name">Measure</span>
-          <span class="lmap__what">The public file.</span>
-          <span class="lmap__items"><a class="chip" href="monitoring.html#fcc-rates">FCC pricing</a></span>
-        </li>
-        <li class="lmap__layer">
-          <span class="lmap__name">Decide</span>
-          <span class="lmap__what">Screens + exports.</span>
-          <span class="lmap__items"><a class="chip" href="platform.html#scoreboard">Scoreboard</a><a class="chip" href="platform.html#creative-matrix">Creative Matrix</a><a class="chip" href="platform.html#buy-sheet">Buy Sheet</a><a class="chip" href="platform.html#creative-explorer">Creative Explorer</a><a class="chip" href="#sell-side">The seller's boards</a></span>
-        </li>
-      </ol>
-      <a class="lmap__baker" href="platform.html#baker"><b>Baker</b><span>ask anything the platform tracks, through-date attached</span></a>
-    </div>
-  </div>
-</section>
+
 
 <!-- ============ CTA ============ -->
 
@@ -1033,6 +963,9 @@
     <h2>See your race &mdash; or your market &mdash; on it.</h2>
     <p class="lede" style="margin-inline:auto">Buyers: name the race. Sellers: name the
       market you sell. We pull it before the walkthrough.</p>
+    <p class="small" style="margin-top:.7rem">One dataset under all of it &mdash;
+      <a href="monitoring.html">detection</a> &middot; <a href="monitoring.html#fcc-rates">the public file</a> &middot;
+      <a href="platform.html#boards">the boards</a> &middot; <a href="platform.html#baker">Baker</a>.</p>
     <div class="btn-row mt2" style="justify-content:center">
       <a class="btn btn--lime btn--lg" href="contact.html">Request a demo</a>
       <a class="btn btn--outline btn--lg" href="platform.html">See the platform</a>
@@ -1095,6 +1028,6 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r103"></script>
+<script src="assets/js/site.js?v=r105"></script>
 </body>
 </html>
