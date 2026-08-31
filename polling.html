@@ -12,109 +12,80 @@
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
 <link rel="stylesheet" href="assets/css/kpi.css?v=r105">
 <style>
-  /* Light, centered, airy hero, same standard as the home page: display headline
-     in the green-to-teal gradient with the layered offset, the lede, two buttons,
-     and the partnership figures in the first fold. */
+  /* r106 (Adam): the loop IS the landing. Text left, the loop tape right, one
+     viewport. The tape is the old ring redrawn in the house receipt grammar:
+     six mono-indexed steps, one active at a time, the active step expanding
+     in place on a timed pace (2.6s a step, a lap forever -- the loop running
+     is the point). CSS-only; reduced motion = all six open, still. */
   .hero--poll { padding-top: 0; }
-  .hero--poll .hero-center { text-align: center; padding: clamp(64px, 9vw, 120px) 0 clamp(40px, 6vw, 72px); }
-  .hero--poll .eyebrow { justify-content: center; }
-  .hero--poll h1 { max-width: none; margin-inline: auto; font-size: clamp(2.8rem, 6.2vw, 5.2rem); }
-  .hero--poll .lede { margin: 1.4rem auto 0; max-width: 62ch; }
-  .hero--poll .btn-row { justify-content: center; margin-top: 2.1rem; }
-  /* Stats sit inside the centered hero column; the cells read left-aligned. */
-  .hero--poll .stats { text-align: left; }
-  /* THE LOOP AS A DRAWN RING (ruling 52c). Six stations sit ON a real drawn
-     racetrack: an SVG ellipse with directional arrowheads, the payoff line in
-     the center, and a highlight that walks the ring (the one allowed motion
-     form: a walking highlight on a static ring). Every station is fully
-     visible with no JS and no motion; a reduced-motion reader sees the same
-     six stations, still. Mobile is a vertical rail with a loop-back stroke.
-     Square cards, depth from shadow, never tilt. */
-  .ring { position: relative; }
-  .ring__orbit { display: none; }
-  .ring__steps { list-style: none; margin: 0; padding: 0; counter-reset: rs; }
-  .ring__st { position: relative; background: var(--white); border: 1.5px solid var(--rule);
-    border-radius: var(--r-lg); padding: 1rem 1.05rem 1.05rem;
-    box-shadow: 0 1px 2px rgba(13,46,74,.05), 0 6px 18px rgba(13,46,74,.06); }
-  .ring__st h3 { margin: .55rem 0 .3rem; font-size: 1.02rem; }
-  .ring__st h3::before { counter-increment: rs; content: counter(rs) " · ";
-    font-family: var(--mono); font-size: .85em; color: var(--lime-text); }
-  .ring__st p { margin: 0; font-size: .88rem; line-height: 1.5; color: var(--ink-2); }
-  .ring__ico { display: inline-grid; place-items: center; width: 38px; height: 38px;
-    border-radius: 50%; background: var(--paper); border: 1.5px solid var(--rule);
-    color: var(--blue-text); }
-  .ring__ico svg { width: 20px; height: 20px; }
-  .ring__again { margin: 1.2rem 0 0; text-align: center; font-size: .9rem; color: var(--ink-3); }
-  .ring__fine { max-width: 74ch; margin: 2.2rem auto 0; color: var(--ink-3); text-align: center; }
-  /* Mobile and narrow: the vertical rail with a loop-back stroke. */
+  .hero--poll .hero-split { display: grid; grid-template-columns: minmax(0, 1.04fr) minmax(0, .96fr);
+    gap: clamp(1.8rem, 4vw, 3.6rem); align-items: center;
+    padding: clamp(40px, 6vw, 84px) 0 clamp(36px, 5vw, 64px); }
+  .hero--poll h1 { max-width: none; font-size: clamp(2.5rem, 4.4vw, 4.1rem); }
+  .hero--poll .lede { margin: 1.2rem 0 0; max-width: 48ch; }
+  .hero--poll .btn-row { margin-top: 1.8rem; }
+  .hero--poll .ask-line { margin: .8rem 0 0; font-size: .9rem; line-height: 1.55; color: var(--ink-3); max-width: 52ch; }
+  .hero--poll .ask-line b { color: var(--navy-deep); }
+  .hero--poll .stats { grid-template-columns: repeat(4, 1fr); text-align: left; margin-top: 1.9rem; }
+  .hero--poll .stat { padding: .8rem .85rem .85rem; }
+  .hero--poll .stat__v { font-size: clamp(1.4rem, 1.9vw, 1.9rem); }
+  .hero--poll .stat__l { font-size: .64rem; letter-spacing: .08em; }
+  .hero--poll .stamp { margin-top: .9rem; }
   @media (max-width: 999px) {
-    .ring__steps { display: grid; gap: .9rem; position: relative; padding-left: 22px; }
-    .ring__steps::before { content: ""; position: absolute; left: 6px; top: 14px; bottom: 14px;
-      width: 2.5px; background: var(--lime-dark); border-radius: 2px; }
-    .ring__steps::after { content: ""; position: absolute; left: -9px; top: 14px; bottom: 14px;
-      width: 15px; border: 2.5px dashed color-mix(in srgb, var(--lime-dark) 55%, transparent);
-      border-right: 0; border-radius: 16px 0 0 16px; }
-    .ring__st::before { content: ""; position: absolute; left: -20px; top: 1.15rem; width: 10px;
-      height: 10px; border-radius: 50%; background: var(--lime); border: 2px solid var(--lime-dark); }
-    .ring__center { display: block; margin: 1.4rem auto 0; max-width: 32ch; text-align: center;
-      font-size: 1.15rem; line-height: 1.5; color: var(--ink-2); }
-    .ring__center b { color: var(--navy-deep); }
+    .hero--poll .hero-split { grid-template-columns: 1fr; align-items: start;
+      padding: clamp(36px, 7vw, 56px) 0 clamp(28px, 5vw, 44px); }
   }
-  /* Wide: the drawn ring. Station positions sit on the ellipse
-     (cx 500, cy 310, rx 430, ry 240 in a 1000 x 620 frame).
-     Paths pass: the one thing a circle must do is read as a circle, whole, on
-     one screen. The ring's width is capped so its height never exceeds
-     min(100vh - nav offset, 640px), and the station cards shrink to number +
-     title + one line. */
-  @media (min-width: 1000px) {
-    .ring { aspect-ratio: 1000 / 620;
-      max-width: min(1032px, max(760px, calc((100vh - 176px) * 1.6129)), 100%);
-      margin-inline: auto; }
-    .ring__orbit { display: block; position: absolute; inset: 0; width: 100%; height: 100%; }
-    .ring__steps { position: absolute; inset: 0; }
-    .ring__st { position: absolute; width: 208px; padding: .8rem .85rem .85rem;
-      transform: translate(-50%, -50%); text-align: center; }
-    .ring__st h3 { font-size: .95rem; margin: .45rem 0 .25rem; }
-    .ring__st p { font-size: .8rem; line-height: 1.45; }
-    .ring__ico { width: 32px; height: 32px; }
-    .ring__ico svg { width: 17px; height: 17px; }
-    .ring__ico { margin-inline: auto; }
-    .ring__st:nth-child(1) { left: 50%;   top: 11.3%; }
-    .ring__st:nth-child(2) { left: 87.2%; top: 30.6%; }
-    .ring__st:nth-child(3) { left: 87.2%; top: 69.4%; }
-    .ring__st:nth-child(4) { left: 50%;   top: 88.7%; }
-    .ring__st:nth-child(5) { left: 12.8%; top: 69.4%; }
-    .ring__st:nth-child(6) { left: 12.8%; top: 30.6%; }
-    .ring__center { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
-      width: 30ch; margin: 0; text-align: center; font-size: 1.18rem; line-height: 1.45;
-      color: var(--ink-2); }
-    .ring__center b { color: var(--navy-deep); }
-    .ring__again { display: none; }
+  @media (max-width: 560px) {
+    .hero--poll h1 { font-size: clamp(2.1rem, 9.5vw, 2.7rem); }
+    .hero--poll .btn-row { margin-top: 1.4rem; }
+    .hero--poll .stats { grid-template-columns: 1fr 1fr; }
   }
-  /* Paths pass: the walking highlight names itself, so a lit card never reads
-     as an unexplained callout. Hidden when the walker is (reduced motion). */
-  .ring__walkcap { display: block; margin-top: .5rem; font-family: var(--mono); font-size: .7rem;
-    letter-spacing: .05em; color: var(--ink-3); }
-  @media (prefers-reduced-motion: reduce) {
-    .ring__walkcap { display: none; }
-  }
-  /* The walking highlight: one station at a time, traveling the ring, with the
-     drawn dot walking the ellipse beside it. Reduced motion: static, all six lit
-     the same, the walker hidden. */
+  /* The loop tape. Open/close windows overlap one step to the next, so the
+     card's height stays steady while the lit step travels. */
+  .lp { background: var(--white); border: 1px solid var(--rule); border-radius: var(--r-lg);
+    box-shadow: var(--shadow-lg); padding: 1rem 1.15rem 1.05rem; }
+  .lp__bar { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between;
+    gap: .3rem .8rem; padding-bottom: .55rem; border-bottom: 1px solid var(--rule); }
+  .lp__brand { font-family: var(--label); text-transform: uppercase; letter-spacing: .13em;
+    font-size: .64rem; font-weight: 800; color: var(--navy); }
+  .lp__stamp { font-family: var(--mono); font-size: .66rem; letter-spacing: .06em;
+    text-transform: uppercase; color: var(--ink-3); }
+  .lp__steps { list-style: none; margin: 0; padding: 0; }
+  .lp__s { position: relative; display: grid; grid-template-columns: 2.1rem minmax(0, 1fr);
+    gap: .1rem .6rem; padding: .58rem .5rem .58rem .65rem; border-top: 1px solid var(--rule-soft); }
+  .lp__s:first-child { border-top: 0; }
+  .lp__s::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+    background: transparent; }
+  .lp__n { grid-row: 1; font-family: var(--mono); font-size: .78rem; font-weight: 700;
+    color: var(--ink-3); padding-top: .14rem; font-variant-numeric: tabular-nums lining-nums; }
+  .lp__s h3 { grid-column: 2; margin: 0; font-size: .98rem; letter-spacing: -.01em; }
+  .lp__d { grid-column: 2; margin: 0; font-size: .84rem; line-height: 1.5; color: var(--ink-2); }
+  .lp__loop { margin: .7rem 0 0; padding-top: .6rem; border-top: 1px dashed var(--rule);
+    font-family: var(--mono); font-size: .7rem; letter-spacing: .05em; color: var(--ink-3); }
   @media (prefers-reduced-motion: no-preference) {
-    .ring__st { animation: ring-hot 9s linear infinite; animation-delay: calc((var(--i) - 1) * 1.5s); }
-    .ring__st .ring__ico { animation: ring-hot-n 9s linear infinite; animation-delay: calc((var(--i) - 1) * 1.5s); }
-    @keyframes ring-hot {
-      0%, 10% { border-color: var(--lime-dark); background: color-mix(in srgb, var(--lime) 9%, var(--white)); box-shadow: 0 14px 34px rgba(124,179,66,.26), 0 1px 2px rgba(13,46,74,.05); }
-      16%, 100% { border-color: var(--rule); background: var(--white); box-shadow: 0 1px 2px rgba(13,46,74,.05), 0 6px 18px rgba(13,46,74,.06); }
-    }
-    @keyframes ring-hot-n {
-      0%, 10% { background: var(--lime); border-color: var(--lime-dark); color: var(--navy-ink); }
-      16%, 100% { background: var(--paper); border-color: var(--rule); color: var(--blue-text); }
-    }
+    .lp__s { animation: lp-row 15.6s linear infinite; animation-delay: calc((var(--i) - 1) * 2.6s); }
+    .lp__s::before { animation: lp-rail 15.6s linear infinite; animation-delay: calc((var(--i) - 1) * 2.6s); }
+    .lp__n { animation: lp-num 15.6s linear infinite; animation-delay: calc((var(--i) - 1) * 2.6s); }
+    .lp__d { max-height: 0; opacity: 0; overflow: hidden;
+      animation: lp-open 15.6s linear infinite; animation-delay: calc((var(--i) - 1) * 2.6s); }
   }
-  @media (prefers-reduced-motion: reduce) {
-    .ring__walker { display: none; }
+  @keyframes lp-open {
+    0% { max-height: 0; opacity: 0; }
+    2.6% { max-height: 3.6em; opacity: 1; }
+    16.667% { max-height: 3.6em; opacity: 1; }
+    19.2%, 100% { max-height: 0; opacity: 0; }
+  }
+  @keyframes lp-row {
+    0%, 16.667% { background: color-mix(in srgb, var(--lime) 8%, var(--white)); }
+    19.2%, 100% { background: transparent; }
+  }
+  @keyframes lp-rail {
+    0%, 16.667% { background: var(--lime); }
+    19.2%, 100% { background: transparent; }
+  }
+  @keyframes lp-num {
+    0%, 16.667% { color: var(--lime-text); }
+    19.2%, 100% { color: var(--ink-3); }
   }
   /* The two ways in: syndicated beside bespoke, both carried by the media
      investment. No pricing prints anywhere on this page by design. */
@@ -261,7 +232,7 @@
   @keyframes fade-in-soft { from { opacity: .45; } to { opacity: 1; } }
   /* r88: the matrix story, scrubbed by the universal driver — all browsers,
      phones included. Same ranges; shorter runway on small screens. */
-  html.scrub .mxs__scroller { height: 400vh; }
+  html.scrub .mxs__scroller { height: 320vh; }
   html.scrub .mxs__pin { position: sticky; top: 88px; }
   html.scrub .mxs__svg { max-width: min(960px, calc((100vh - 465px) * 1.786)); margin-inline: auto; }
   html.scrub .mxs__hint { display: block; }
@@ -277,11 +248,11 @@
   html.scrub .mxs__step--d { animation: fade-in-soft 1s linear paused both !important; animation-delay: calc((0.62 - var(--scrub, 0)) / 0.10 * 1s) !important; }
   html.scrub .mxs__step--e { animation: fade-in-soft 1s linear paused both !important; animation-delay: calc((0.76 - var(--scrub, 0)) / 0.08 * 1s) !important; }
   @media (max-width: 999px) {
-    html.scrub .mxs__scroller { height: 280vh; }
+    html.scrub .mxs__scroller { height: 230vh; }
     html.scrub .mxs__pin { top: 72px; }
   }
   @media (max-width: 699px) {
-    html.scrub .mxs__scroller { height: 220vh; }
+    html.scrub .mxs__scroller { height: 180vh; }
     html.scrub .mxs__svg { max-width: 100%; }
   }
 
@@ -336,7 +307,7 @@
       </li>
       <li class="nav__item"><a href="polling.html" aria-current="page">Voter Opinion</a>
         <div class="nav__drop" aria-label="Section shortcuts">
-          <a href="polling.html#loop">The loop</a>
+          <a href="polling.html#loop">The field, live</a>
           <a href="polling.html#story">How it works</a>
           <a href="questions.html">The question library</a>
           <a href="polling.html#offerings">Syndicated &amp; bespoke</a>
@@ -358,84 +329,46 @@
 
 <!-- ============ HERO ============ -->
 <header class="hero hero--light hero--poll">
-  <div class="wrap hero-center">
-    <p class="eyebrow eyebrow--plain">Voter opinion</p>
-    <h1 class="ht">
-      <span class="ht__l" data-t="The Poll That">The Poll That</span><br>
-      <span class="ht__l ht__l--accent" data-t="Never Closes">Never Closes</span>
-    </h1>
-    <p class="lede">Through our CivicScience partnership, the questions never leave the
-      field. Ask what your race needs to know, build the audience from the answers, put
-      it on the air &mdash; then ask again.</p>
-    <div class="btn-row">
-      <a class="btn btn--navy btn--lg" href="questions.html">Search the question library</a>
-      <a class="btn btn--outline btn--lg" href="contact.html">Request a demo</a>
+  <div class="wrap hero-split">
+    <div>
+      <p class="eyebrow eyebrow--plain">Voter opinion</p>
+      <h1 class="ht">
+        <span class="ht__l" data-t="The Poll That">The Poll That</span><br>
+        <span class="ht__l ht__l--accent" data-t="Never Closes">Never Closes</span>
+      </h1>
+      <p class="lede">Through our CivicScience partnership, the questions never leave the
+        field. Ask what your race needs to know, build the audience from the answers, put
+        it on the air &mdash; then ask again.</p>
+      <div class="btn-row">
+        <a class="btn btn--navy btn--lg" href="contact.html">Ask your own question</a>
+        <a class="btn btn--outline btn--lg" href="questions.html">Search the question library</a>
+      </div>
+      <p class="ask-line">Your own question: <b>from $30K net across three months</b> &mdash;
+        two custom questions and an audience included, written to your race.</p>
+      <div class="stats" data-rise>
+        <div class="stat"><div class="stat__v">10.2B</div><div class="stat__l">Answers banked &middot; 14 years</div></div>
+        <div class="stat"><div class="stat__v">1M+</div><div class="stat__l">Answers per day</div></div>
+        <div class="stat"><div class="stat__v">165M</div><div class="stat__l">U.S. consumer profiles</div></div>
+        <div class="stat"><div class="stat__v">48</div><div class="stat__l">Curated political segments</div></div>
+      </div>
+      <div class="stamp" style="text-align:left"><b>Source</b> CivicScience partner-published figures, as
+        of August 2026. A profile is a survey-answering record, not a verified person.</div>
     </div>
 
-    <div class="stats mt3" data-rise>
-      <div class="stat"><div class="stat__v">10.2B</div><div class="stat__l">Answers banked &middot; 14 years</div></div>
-      <div class="stat"><div class="stat__v">1M+</div><div class="stat__l">Answers per day</div></div>
-      <div class="stat"><div class="stat__v">165M</div><div class="stat__l">U.S. consumer profiles</div></div>
-      <div class="stat"><div class="stat__v">48</div><div class="stat__l">Curated political segments</div></div>
-    </div>
-    <div class="stamp" style="text-align:left"><b>Source</b> CivicScience partner-published figures, as
-      of August 2026. A profile is a survey-answering record, not a verified person.</div>
-
-    <!-- r89 (Adam): the loop lives in the hero — the page opens on the machine
-         itself, then drills. -->
-    <!-- Ruling 52c: the loop drawn as a loop. The ring is the content; the old card
-         paragraphs demote to the fine print below. All six stations are visible with
-         JS off and motion off; the only motion is the walking highlight on the
-         static ring, the allowed form. -->
-    <div class="ring">
-      <svg class="ring__orbit" viewBox="0 0 1000 620" aria-hidden="true" focusable="false">
-        <ellipse cx="500" cy="310" rx="430" ry="240" fill="none" stroke="#7CB342" stroke-width="2.5"/>
-        <g fill="#7CB342">
-          <polygon points="0,-7 12,0 0,7" transform="translate(930,310) rotate(90)"/>
-          <polygon points="0,-7 12,0 0,7" transform="translate(715,518) rotate(162)"/>
-          <polygon points="0,-7 12,0 0,7" transform="translate(285,518) rotate(198)"/>
-          <polygon points="0,-7 12,0 0,7" transform="translate(70,310) rotate(-90)"/>
-          <polygon points="0,-7 12,0 0,7" transform="translate(285,102) rotate(-18)"/>
-          <polygon points="0,-7 12,0 0,7" transform="translate(715,102) rotate(18)"/>
-        </g>
-        <circle class="ring__walker" r="8" fill="#A8D14E" stroke="#7CB342" stroke-width="2">
-          <animateMotion dur="9s" repeatCount="indefinite" path="M500,70 A430,240 0 0 1 500,550 A430,240 0 0 1 500,70"/>
-        </circle>
-      </svg>
-      <ol class="ring__steps" aria-label="The optimization loop: six steps that repeat">
-        <li class="ring__st" style="--i:1">
-          <span class="ring__ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"/><path d="M9.6 9.2a2.4 2.4 0 1 1 3.3 2.2c-.7.3-.9.7-.9 1.4"/><circle cx="12" cy="14.4" r=".4" fill="currentColor"/></svg></span>
-          <h3>Field the question</h3>
-        </li>
-        <li class="ring__st" style="--i:2">
-          <span class="ring__ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v10"/><path d="m8 9 4 4 4-4"/><path d="M4 17h16v4H4z"/></svg></span>
-          <h3>Answers stream back</h3>
-        </li>
-        <li class="ring__st" style="--i:3">
-          <span class="ring__ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="3.2"/><path d="M3.5 19c.6-3 2.8-4.8 5.5-4.8s4.9 1.8 5.5 4.8"/><circle cx="16.8" cy="10" r="2.6"/><path d="M16 14.6c2.6.2 4.2 1.8 4.8 4.4"/></svg></span>
-          <h3>Build the audience</h3>
-        </li>
-        <li class="ring__st" style="--i:4">
-          <span class="ring__ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M10 8.5 16 12l-6 3.5z"/></svg></span>
-          <h3>Activate</h3>
-        </li>
-        <li class="ring__st" style="--i:5">
-          <span class="ring__ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 20v-6"/><path d="M11 20V8"/><path d="M17 20v-9"/><path d="M3 20h18"/></svg></span>
-          <h3>Read delivery</h3>
-          <p>Your delivery beside their spend, labeled, never blurred.</p>
-        </li>
-        <li class="ring__st" style="--i:6">
-          <span class="ring__ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 1 1-2.3-5.6"/><path d="M20 3v4h-4"/></svg></span>
-          <h3>Re-field and optimize</h3>
-          <p>Ask again, read what moved, shift the buy.</p>
-        </li>
+    <!-- r106 (Adam): the ring, redrawn as the loop tape -- the active step
+         expands in place; the pace is the loop running. -->
+    <div class="lp" aria-label="The loop: six steps that repeat">
+      <div class="lp__bar"><span class="lp__brand">KPI &times; CivicScience &middot; The loop</span><span class="lp__stamp">always in the field</span></div>
+      <ol class="lp__steps">
+        <li class="lp__s" style="--i:1"><span class="lp__n">01</span><h3>Field the question</h3><p class="lp__d">Yours, or one of 10,000+ already running.</p></li>
+        <li class="lp__s" style="--i:2"><span class="lp__n">02</span><h3>Answers stream back</h3><p class="lp__d">Over 1M a day, nationwide &mdash; the read builds in days.</p></li>
+        <li class="lp__s" style="--i:3"><span class="lp__n">03</span><h3>Build the audience</h3><p class="lp__d">From what people actually said. Declared, not inferred.</p></li>
+        <li class="lp__s" style="--i:4"><span class="lp__n">04</span><h3>Activate</h3><p class="lp__d">A deal ID lands in the seat you already buy from.</p></li>
+        <li class="lp__s" style="--i:5"><span class="lp__n">05</span><h3>Read delivery</h3><p class="lp__d">Your delivery beside their spend &mdash; labeled, never blurred.</p></li>
+        <li class="lp__s" style="--i:6"><span class="lp__n">06</span><h3>Re-field and optimize</h3><p class="lp__d">Ask again, read what moved, shift the buy while it still matters.</p></li>
       </ol>
-      <p class="ring__center">The question keeps running.<br><b>The buy shifts while it
-        still matters.</b><span class="ring__walkcap" aria-hidden="true">the moving highlight is the loop running</span></p>
-      <p class="ring__again" aria-hidden="true">&#8635; and back to step 1: the question returns to the field.</p>
+      <p class="lp__loop">&#8635; back to 01 &mdash; the question returns to the field</p>
     </div>
-
-
   </div>
 </header>
 
@@ -444,9 +377,8 @@
   <div class="wrap">
     <div class="center" style="margin-bottom:2.4rem" data-rise>
       <p class="eyebrow eyebrow--plain" style="justify-content:center"><span class="folio">01</span>The field, live</p>
-      <h2>Ask. Hear back. Ask again. It never closes.</h2>
-      <p class="lede">Most polling is a report that arrives after the argument. This one
-        stays in the field &mdash; here it is, running.</p>
+      <h2>Most polling arrives after the argument.</h2>
+      <p class="lede">This one stays in the field &mdash; here it is, running.</p>
     </div>
 
     <!-- r85 (Adam, 8/29): "the feeling you wanna have is never ending possibilities…
@@ -557,12 +489,6 @@
 
 
 
-    <!-- Ruling 52c: the demoted card detail, small print, definitions intact. -->
-    <p class="small ring__fine">The details: activation lands as a private-marketplace
-      deal ID, your seat or ours, and managed service is optional. Run the media through
-      us or share your delivery report; either way your delivery prints labeled
-      advertiser-reported. What you run stays behind the firewall &mdash; the full
-      statement is on the <a href="privacy.html">privacy page</a>.</p>
   </div>
 </section>
 
@@ -771,8 +697,7 @@
       <p class="small">Ask it nationally, in one state, in a DMA, or inside a single
         congressional district. Declared density varies by question and geography, so
         the walkthrough opens <b>your geography's</b> counts, question by question. Thin in your state? You
-        see the number before a dollar moves. Then the deal ID lands in the seat you
-        name, identifiers named in writing before the IO.</p>
+        see the number before a dollar moves.</p>
     </div>
 
     <!-- r93 (persona round 1): Scene 4's lookalike-decay panel was the third
@@ -933,14 +858,15 @@
     <!-- r97 (Adam): weighting confidence without a copyable recipe. -->
     <div class="mt3" data-rise>
       <div class="center" style="margin-bottom:1.4rem">
-        <h3>How the weighting holds</h3>
+        <h3>How the audience holds up</h3>
       </div>
       <div class="grid grid--2" style="max-width:980px;margin-inline:auto">
         <div class="card card--flag">
           <p class="card__k">The declared seed</p>
           <p class="small" style="margin:0">Every audience starts from what people actually
-            answered &mdash; never inferred interest, never a rented segment. The questions
-            that built it are named, so the seed can be audited line by line.</p>
+            answered &mdash; never inferred interest, never the same rented voter file every
+            side is buying. Different inputs find different people, so the reach is net-new
+            &mdash; and the questions that built it are named, auditable line by line.</p>
         </div>
         <div class="card card--flag">
           <p class="card__k">The licensed spine</p>
@@ -951,8 +877,9 @@
         <div class="card card--flag">
           <p class="card__k">The freshness window</p>
           <p class="small" style="margin:0">Answers age out on a stated window and the
-            audience rebuilds from what people are saying now &mdash; the through-date
-            prints on every read, so stale never hides.</p>
+            audience rebuilds from what people are saying now &mdash; instead of decaying
+            like a modeled lookalike. The through-date prints on every read, and it ships
+            as a deal ID with no onboarding hop to bleed it out.</p>
         </div>
         <div class="card card--flag">
           <p class="card__k">The check before the dollar</p>
@@ -987,7 +914,7 @@
         <h3>10,000+ questions always on &mdash; usable today. 48 segments ready now.</h3>
         <p class="small">The library is <a href="questions.html">its own page</a>. Search the
           exact wording, build a shortlist, and send it to us. The audience comes back
-          in days, ready to buy against.</p>
+          in days, ready to buy against &mdash; and it runs without your voter file.</p>
       </div>
       <div class="card card--flag">
         <p class="card__k">Custom</p>
@@ -997,22 +924,6 @@
           <li><b>It fields in days</b> &mdash; nationally, one state, or a single district.</li>
           <li><b>It comes back as an audience</b> &mdash; auditable, delivered where you buy, in market in about two weeks.</li>
         </ol>
-      </div>
-    </div>
-    <div class="grid grid--2 mt3" data-rise>
-      <div class="card card--flag">
-        <p class="card__k">Incremental reach</p>
-        <h3>People the standard segments miss.</h3>
-        <p class="small">Built from declared answers, not the same rented voter file every
-          side is buying &mdash; different inputs find different people, so the reach is
-          net-new, not overlap. It runs without your voter file.</p>
-      </div>
-      <div class="card card--flag">
-        <p class="card__k">Less loss</p>
-        <h3>The audience you audit is the audience that serves.</h3>
-        <p class="small">The declared core rebuilds from new answers every day instead of
-          decaying like a modeled lookalike &mdash; and it ships as a deal ID, with no
-          onboarding hop to bleed it out.</p>
       </div>
     </div>
 
@@ -1035,7 +946,8 @@
     <p class="small center mt2">Always included with a flight: the deal ID, the declared
       audience, and the weekly read. Varies by flight: minimums and any data rate &mdash;
       stated in writing before the insertion order. Standalone research is by rate card,
-      on <a href="contact.html">request</a>.</p>
+      on <a href="contact.html">request</a>. What you run stays behind the firewall &mdash;
+      the full statement is on the <a href="privacy.html">privacy page</a>.</p>
   </div>
 </section>
 
