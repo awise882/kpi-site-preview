@@ -2020,33 +2020,30 @@ a.chip:hover { border-color: var(--blue); color: var(--navy); background: var(--
 
 /* ---------- R68: the next rail — every page ends pushing forward ---------- */
 .nextrail { border-top: 1px solid var(--rule-soft); }
-.nextrail .nextcard { position: relative; display: flex; align-items: center; gap: 1.1rem;
-  padding: 1.5rem 1.55rem; margin: 2.2rem auto 2.6rem; max-width: 720px;
-  text-decoration: none; background: var(--navy-ink); border: 1px solid rgba(255,255,255,.08);
-  border-radius: var(--r-lg); overflow: hidden;
-  box-shadow: 0 2px 6px rgba(13,46,74,.16), 0 14px 34px rgba(13,46,74,.22);
+.nextrail .nextcard { position: relative; display: block; text-decoration: none;
+  background: var(--navy-deep); border-radius: var(--r-lg); overflow: hidden;
+  padding: 2.2rem 2.4rem 2rem; margin: 2.6rem auto 2.8rem; max-width: 1080px;
   transition: transform .18s var(--smooth), box-shadow .18s var(--smooth); }
 .nextrail .nextcard::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 3px;
-  background: linear-gradient(90deg, var(--navy) 0%, #00ACC1 55%, var(--lime) 100%); }
-.nextrail .nextcard:hover { transform: translateY(-3px);
-  box-shadow: 0 4px 10px rgba(13,46,74,.2), 0 20px 44px rgba(13,46,74,.3); }
-.nextcard__k { flex: 0 0 auto; font-family: var(--label); font-size: .62rem; font-weight: 800;
-  letter-spacing: .16em; text-transform: uppercase; color: var(--navy-ink);
-  background: var(--lime); border-radius: 3px; padding: .3rem .55rem; }
-.nextcard__t { display: flex; flex-direction: column; gap: .2rem; min-width: 0; }
-.nextcard__t b { color: #fff; font-family: var(--display); font-weight: 400;
-  font-size: 1.35rem; line-height: 1.15; }
-.nextcard__t span { color: #A8C0D2; font-size: .88rem; line-height: 1.45; }
-.nextcard__go { margin-left: auto; flex: 0 0 auto; font-size: 1.6rem; color: var(--lime);
-  transition: transform .18s var(--smooth); }
-.nextrail .nextcard:hover .nextcard__go { transform: translateX(5px); }
-@media (max-width: 640px) {
-  .nextrail .nextcard { padding: 1.1rem 1.05rem; gap: .8rem; margin: 1.6rem auto 1.8rem; }
-  .nextcard__t b { font-size: 1.12rem; }
-  .nextcard__t span { font-size: .8rem; }
+  background: linear-gradient(90deg, var(--navy), #00ACC1 55%, var(--lime)); }
+.nextrail .nextcard:hover { transform: translateY(-3px); box-shadow: 0 18px 44px rgba(8,36,59,.28); }
+.nextcard__k { display: block; font-family: var(--label); text-transform: uppercase;
+  letter-spacing: .16em; font-size: .74rem; font-weight: 700; color: #9FBFD6; }
+.nextcard__t { display: block; margin-top: .45rem; }
+.nextcard__t b { display: block; font-family: var(--display); font-weight: 400;
+  font-size: clamp(2.1rem, 4.4vw, 3.4rem); line-height: 1.05; color: #fff; }
+.nextcard__t > span { display: block; margin-top: .55rem; font-size: .95rem; line-height: 1.5;
+  color: #C7D9E6; max-width: 58ch; }
+.nextcard__go { position: absolute; right: 2rem; bottom: 1.4rem; font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1; color: var(--lime); transition: transform .18s var(--smooth); }
+.nextrail .nextcard:hover .nextcard__go { transform: translateX(8px); }
+@media (max-width: 700px) {
+  .nextrail .nextcard { padding: 1.5rem 1.2rem 2.6rem; margin: 1.6rem auto 1.8rem; }
+  .nextcard__go { right: 1.1rem; bottom: .8rem; }
 }
 @media (prefers-reduced-motion: reduce) {
   .nextrail .nextcard, .nextcard__go { transition: none; }
+}
 }
 
 /* r88: the runways are back — driven by the universal JS scrub in site.js (the old
@@ -2181,3 +2178,32 @@ a.chip:hover { border-color: var(--blue); color: var(--navy); background: var(--
 @media (max-width: 700px) { .kbd-hint-mobile { display: block; } }
 /* r103: the beat-1 carousel stops stretching its shortest card */
 @media (max-width: 700px) { .tl__cal { align-items: flex-start; } .tl__mo { height: auto; } }
+
+/* r104: the curtain's coverage stack — names as the logo wall, numbers as the scale */
+.curtain__figwrap { min-width: 0; }
+.curtain__apps { margin: .8rem 0 0; display: flex; flex-wrap: wrap; gap: .35rem; align-items: center; }
+.curtain__apps span { font-family: var(--label); text-transform: uppercase; letter-spacing: .08em;
+  font-size: .7rem; font-weight: 700; color: #DCE9F2; border: 1px solid rgba(255,255,255,.25);
+  border-radius: 3px; padding: .22rem .5rem; }
+.curtain__apps b { font-family: var(--label); text-transform: uppercase; letter-spacing: .08em;
+  font-size: .7rem; font-weight: 700; color: var(--lime); }
+.curtain__scale { margin: .65rem 0 0; font-size: .85rem; color: #C7D9E6; }
+.curtain__scale b { color: #fff; }
+
+/* r104: the targeting proclamation — the curtain's light counterpart */
+.curtain--paper { background: var(--white); border: 1px solid var(--rule); }
+.curtain--paper .curtain__k { color: var(--blue-text); }
+.curtain--paper .curtain__h { color: var(--navy-deep); }
+.curtain--paper .curtain__p { color: var(--ink-2); }
+.curtain--paper .curtain__p b { color: var(--navy-deep); }
+.curtain--paper .curtain__go a { color: #4F7A25; }
+.tflow { display: grid; gap: .45rem; margin: 0; justify-items: start; }
+.tflow > span { display: block; }
+.tflow__q, .tflow__aud, .tflow__deal { background: var(--paper, #F4F8FB); border: 1px solid var(--rule);
+  border-radius: var(--r); padding: .6rem .75rem; font-size: .88rem; font-weight: 600; color: var(--navy-deep); max-width: 40ch; }
+.tflow__q i, .tflow__aud i, .tflow__deal i { display: block; margin-top: .25rem; font-style: normal;
+  font-family: var(--label); text-transform: uppercase; letter-spacing: .09em; font-size: .62rem;
+  font-weight: 700; color: var(--ink-3); }
+.tflow__deal { background: var(--navy-deep); color: var(--lime); border-color: var(--navy-deep); }
+.tflow__deal i { color: #9FBFD6; }
+.tflow__arrow { color: var(--ink-3); font-size: .9rem; padding-left: 1rem; }
