@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r103">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r104">
 <style>
   .fig-scroll > svg { min-width: 820px; }
   /* R69: the key graphic gets a phone-native stack; no panning a 1000px drawing */
@@ -145,16 +145,29 @@
       <div class="mhero__lane">
         <p class="mhero__k">Linear &middot; the filed world</p>
         <p class="mhero__p"><b>Broadcast, cable, radio.</b> The <b>$10.4B</b> cycle, order by
-          order &mdash; every occurrence priced from posted orders and invoices, not
-          rate-card math, with filed rates in all <b>210</b> markets.</p>
+          order &mdash; priced from posted orders and invoices, with filed rates in all
+          <b>210</b> markets.</p>
+        <div class="mhero__mini num" aria-hidden="true">
+          <span><i>WZQV</i><em>early news &middot; :30</em><b>$260</b></span>
+          <span><i>WQZL</i><em>prime &middot; :15</em><b>$410</b></span>
+          <span><i>CABLE Z4</i><em>news &middot; :30</em><b>$85</b></span>
+        </div>
         <a class="mhero__go" href="#lanes">Channel by channel &rarr;</a>
       </div>
       <div class="mhero__lane mhero__lane--dark">
         <p class="mhero__k">Streaming &amp; digital &middot; behind the curtain</p>
-        <p class="mhero__p"><b>Where the paper trail ends.</b> A third of measured political
-          TV ad impressions run here: <b>220M+</b> measured in one summer week, on the glass
-          in <b>40M</b> homes &mdash; and the fall projects to billions a week, implied and
-          labeled as such.</p>
+        <p class="mhero__p"><b>Where the paper trail ends.</b> <b>220M+</b> impressions
+          measured in one summer week, on the glass in <b>40M</b> homes &mdash; the fall
+          projects to billions a week, implied and labeled as such.</p>
+        <svg class="mhero__bar" viewBox="0 0 300 56" role="img" aria-label="A third of measured political TV ad impressions run on streaming">
+          <rect x="0" y="4" width="94" height="34" fill="#A8D14E"/>
+          <text x="47" y="26" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="800" fill="#08243B">1 in 3</text>
+          <defs><pattern id="mhHatch" width="6" height="6" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="6" stroke="#5B7C96" stroke-width="1.2"/></pattern></defs>
+          <rect x="98" y="4" width="202" height="34" fill="url(#mhHatch)" opacity=".5"/>
+          <rect x="98" y="4" width="202" height="34" fill="none" stroke="#5B7C96" stroke-width="1"/>
+          <text x="0" y="52" font-family="Inter, sans-serif" font-size="7.5" font-weight="700" letter-spacing=".8" fill="#A8D14E">STREAMING &middot; ON THE GLASS</text>
+          <text x="199" y="52" text-anchor="middle" font-family="Inter, sans-serif" font-size="7.5" font-weight="700" letter-spacing=".8" fill="#8FA9BE">THE FILED RECORD</text>
+        </svg>
         <a class="mhero__go" href="#streaming-spend">How streaming is measured &rarr;</a>
       </div>
     </div>
@@ -683,6 +696,14 @@
       .mhero__p b { color: var(--navy-deep); }
       .mhero__lane--dark .mhero__p { color: #C7D9E6; }
       .mhero__lane--dark .mhero__p b { color: #fff; }
+      .mhero__mini { margin-top: .7rem; display: grid; gap: 3px; }
+      .mhero__mini span { display: flex; align-items: baseline; gap: .6rem;
+        border: 1px solid var(--rule); border-left: 3px solid var(--lime);
+        border-radius: 3px; padding: .3rem .55rem; background: #FAFCFE; }
+      .mhero__mini i { font-style: normal; font-weight: 800; font-size: .68rem; letter-spacing: .06em; color: var(--navy-deep); }
+      .mhero__mini em { font-style: normal; font-size: .68rem; color: var(--ink-3); margin-right: auto; }
+      .mhero__mini b { font-size: .78rem; font-weight: 800; color: var(--navy-deep); }
+      .mhero__bar { display: block; width: 100%; max-width: 300px; height: auto; margin-top: .8rem; }
       .mhero__go { display: inline-block; margin-top: .6rem; font-size: .85rem; font-weight: 600;
         color: var(--navy); text-decoration: none; }
       .mhero__go:hover { text-decoration: underline; }
@@ -970,7 +991,7 @@
 <section class="nextrail">
   <div class="wrap">
     <a class="nextcard" href="platform.html">
-      <span class="nextcard__k">Next</span>
+      <span class="nextcard__k">On to the next</span>
       <span class="nextcard__t"><b>The Platform</b><span>The boards the detections feed: Scoreboard, Buy Sheet, Creative Matrix. Every read exports.</span></span>
       <span class="nextcard__go" aria-hidden="true">&#8594;</span>
     </a>

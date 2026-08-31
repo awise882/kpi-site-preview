@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r103">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r104">
 <style>
   /* Light, centered, airy hero, matching the live site: the announcement banner
      sits flush under the nav, then the display headline in the green-to-teal
@@ -27,17 +27,7 @@
   .hero-banner b.num { color: var(--navy-deep); font-size: 1.05em; }
   .hero-banner a { color: var(--navy); font-weight: 600; }
   .hero-banner a::after { content: "\00a0\2192"; }
-  .curtain { background: var(--navy-deep); border-radius: var(--r-lg); padding: 2rem 2.2rem; position: relative; overflow: hidden; }
-  .curtain::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 3px;
-    background: linear-gradient(90deg, var(--navy), #00ACC1 55%, var(--lime)); }
-  .curtain__k { font-family: var(--label); text-transform: uppercase; letter-spacing: .14em;
-    font-size: .72rem; font-weight: 700; color: #9FBFD6; margin: 0 0 .5rem; }
-  .curtain__h { color: #fff; font-family: var(--display); font-weight: 400; font-size: clamp(1.7rem, 3vw, 2.4rem); margin: 0 0 .6rem; }
-  .curtain__p { color: #C7D9E6; font-size: .97rem; line-height: 1.6; max-width: 66ch; margin: 0; }
-  .curtain__p b { color: #fff; }
-  .curtain__go { margin: .9rem 0 0; }
-  .curtain__go a { color: var(--lime); font-weight: 600; text-decoration: none; }
-  .curtain__go a:hover { text-decoration: underline; }
+
   @media (max-width: 640px) { .hero .btn-row { flex-direction: column; } }
   .hero-banner__in--dual { display: grid; justify-items: center;
     align-items: baseline; gap: .3rem 2.6rem; text-align: center; }
@@ -63,6 +53,15 @@
   .section--band .quote p { font-size: clamp(1.55rem, 2.6vw, 2.2rem); text-wrap: balance; }
   /* Ruling 15e: the substantiation rides with the superlative. Small mono
      receipt line directly under the H1. */
+  .hero-proclaim {
+    margin: 1.15rem auto 0; max-width: 46ch;
+    font-size: clamp(1.08rem, 1.9vw, 1.45rem); line-height: 1.5;
+    font-weight: 650; color: var(--navy-deep); letter-spacing: -.008em;
+  }
+  .hero-proclaim b.num { font-weight: 800; box-shadow: inset 0 -0.34em var(--lime); padding: 0 .06em; }
+  .hero-proclaim a { color: inherit; text-decoration: none; }
+  .hero-proclaim a:hover em { text-decoration: underline; text-underline-offset: 3px; }
+  .hero-proclaim em { font-style: normal; color: #4F7A25; font-weight: 800; }
   .hero-receipt {
     margin: 1.05rem auto 0; font-family: var(--mono); font-size: .8rem;
     letter-spacing: .07em; text-transform: uppercase; color: var(--ink-3);
@@ -419,7 +418,8 @@
       <span class="ht__l" data-t="Political Ad Intelligence">Political Ad Intelligence</span><br>
       <span class="ht__l ht__l--accent" data-t="Platform">Platform</span>
     </h1>
-    <p class="hero-receipt"><span>1.5M ad airings a day, all 210 markets</span><i class="hr-sep" aria-hidden="true">&middot;</i><span><a href="monitoring.html#streaming-spend" style="color:inherit;text-decoration:none">A third of political TV now streams &mdash; measured</a></span></p>
+    <p class="hero-proclaim"><b class="num">1.5M</b> ad airings a day. <b class="num">All&nbsp;210</b> markets.
+      <a href="monitoring.html#streaming-spend">A&nbsp;<b class="num">third</b> of political TV now streams &mdash; <em>measured.</em></a></p>
     <p class="lede">KPI tracks political ads and the money behind them &mdash; on TV,
       cable, radio and streaming, in every U.S. media market, near real time. When
       the other side moves, you know the same day.</p>
@@ -476,7 +476,7 @@
          keep a seat; volume and quality figures only, no first-person delivery. -->
     <div class="stats stats--6 mt3" data-rise>
       <div class="stat"><div class="stat__v num">1.5M</div><div class="stat__l">Ad occurrences detected per day &mdash; every category, real costs attached</div></div>
-      <div class="stat"><div class="stat__v num">1 in 3</div><div class="stat__l">Measured political TV ad impressions run on streaming</div></div>
+      <div class="stat"><div class="stat__v num">288</div><div class="stat__l">Streaming apps read in a single month &mdash; a floor, not the total</div></div>
       <div class="stat"><div class="stat__v num">40M</div><div class="stat__l">Households measuring streaming on the glass</div></div>
       <div class="stat"><div class="stat__v num">220M+</div><div class="stat__l">Political streaming ad impressions measured in one week</div></div>
       <div class="stat"><div class="stat__v num">210</div><div class="stat__l">U.S. media markets, all of them</div></div>
@@ -494,22 +494,24 @@
         board you read carries the whole fight, not the filed two-thirds.</p>
       <p class="curtain__go"><a href="monitoring.html#streaming-spend">How streaming is measured &rarr;</a></p>
       </div>
-      <svg class="curtain__fig" viewBox="0 0 300 150" role="img" aria-label="One in three measured political TV ad impressions run on streaming: a three-cell bar with one solid measured cell and two cells drawn in the public-record's hatched ink">
-        <text x="6" y="16" font-family="Inter, sans-serif" font-size="8.5" font-weight="700" letter-spacing="1" fill="#9FBFD6">MEASURED POLITICAL TV AD IMPRESSIONS</text>
-        <rect x="6" y="28" width="92" height="52" fill="#A8D14E"/>
-        <text x="52" y="60" text-anchor="middle" font-family="Inter, sans-serif" font-size="15" font-weight="800" fill="#08243B">1 in 3</text>
+      <div class="curtain__figwrap">
+      <svg class="curtain__fig" viewBox="0 0 300 96" role="img" aria-label="One in three measured political TV ad impressions run on streaming: a bar with one solid measured cell beside two cells in the public record's hatched ink">
+        <text x="6" y="14" font-family="Inter, sans-serif" font-size="8.5" font-weight="700" letter-spacing="1" fill="#9FBFD6">MEASURED POLITICAL TV AD IMPRESSIONS</text>
+        <rect x="6" y="24" width="92" height="50" fill="#A8D14E"/>
+        <text x="52" y="55" text-anchor="middle" font-family="Inter, sans-serif" font-size="15" font-weight="800" fill="#08243B">1 in 3</text>
         <defs><pattern id="cfHatch" width="7" height="7" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="7" stroke="#5B7C96" stroke-width="1.4"/></pattern></defs>
-        <rect x="102" y="28" width="192" height="52" fill="url(#cfHatch)" opacity=".55"/>
-        <rect x="102" y="28" width="192" height="52" fill="none" stroke="#5B7C96" stroke-width="1"/>
-        <text x="6" y="96" font-family="Inter, sans-serif" font-size="8" font-weight="700" letter-spacing=".8" fill="#A8D14E">STREAMING &middot; ON THE GLASS</text>
-        <text x="198" y="96" font-family="Inter, sans-serif" font-size="8" font-weight="700" letter-spacing=".8" fill="#8FA9BE" text-anchor="middle">THE FILED RECORD</text>
-        <text x="6" y="126" font-family="Inter, sans-serif" font-size="9" fill="#C7D9E6">Solid ink is measured &middot; 220M+ in one summer week, 40M homes</text>
-        <text x="6" y="140" font-family="Inter, sans-serif" font-size="9" fill="#8FA9BE">the hatched two-thirds is where public files still work</text>
+        <rect x="102" y="24" width="192" height="50" fill="url(#cfHatch)" opacity=".55"/>
+        <rect x="102" y="24" width="192" height="50" fill="none" stroke="#5B7C96" stroke-width="1"/>
+        <text x="6" y="90" font-family="Inter, sans-serif" font-size="8" font-weight="700" letter-spacing=".8" fill="#A8D14E">STREAMING &middot; ON THE GLASS</text>
+        <text x="198" y="90" font-family="Inter, sans-serif" font-size="8" font-weight="700" letter-spacing=".8" fill="#8FA9BE" text-anchor="middle">THE FILED RECORD</text>
       </svg>
+      <p class="curtain__apps"><span>YouTube</span><span>YouTube&nbsp;TV</span><span>Tubi</span><span>Peacock</span><span>Pluto</span><span>the vMVPDs</span><b>+&nbsp;280 more &mdash; 288 apps read in one month</b></p>
+      <p class="curtain__scale"><b class="num">40M</b> homes &middot; <b class="num">65M</b> devices &middot; <b class="num">220M+</b> impressions in one summer week</p>
+    </div>
     </div>
 
     <div class="built mt3" data-rise>
-      <p class="built__big">Built for today. By the people building tomorrow.</p>
+      <p class="built__big">Built today, by the people building tomorrow.</p>
       <p class="built__sub">Simple when you need the answer, detailed and powerful when
         you need it &mdash; down to the spot, the station, and the dollar. Built by the
         people building what comes next.</p>
@@ -519,51 +521,7 @@
 </section>
 
 <!-- ============ PRESS ============ -->
-<section class="section section--tint" id="press">
-  <div class="wrap">
-    <div class="center" style="margin-bottom:2.6rem" data-rise>
-      <p class="eyebrow eyebrow--plain" style="justify-content:center">Press</p>
-      <h2>The numbers the press prints.</h2>
-      <p class="lede">Built by the people defining what&rsquo;s next &mdash; and quoted by
-        the people covering it. Name the race; same day on deadline.</p>
-      <div class="press-nums" data-rise>
-                <span><b class="num">$1.2B</b> forward book on file</span>
-        <span><b class="num">17</b> Senate primaries in Axios&rsquo;s package</span>
-      </div>
-      <div class="btn-row mt2" style="justify-content:center">
-        <a class="btn btn--navy" href="https://kpipoliticalinsightsforecast.subscribepage.io/" target="_blank" rel="noopener">Download the 2026 forecast report</a>
-        <a class="btn btn--outline" href="press.html">The newsroom</a>
-      </div>
-    </div>
-    <a class="card card--flag press-card press-card--lead" href="https://www.axios.com/2026/08/14/senate-primaries-fundraising-cash-republicans-democrats" rel="noopener" data-rise>
-      <p class="card__k">Axios &middot; August 2026</p>
-      <h3>&ldquo;In 2026, money doesn&rsquo;t always matter&rdquo;</h3>
-      <p class="small">Axios&rsquo;s primary-money package ran on KPI data across all 17
-        competitive 2026 Senate primaries.</p>
-      <span class="press-card__go">Read the piece &rarr;</span>
-    </a>
-    <div class="grid grid--2 mt2">
-      <a class="card card--flag press-card" href="https://www.insideradio.com/free/political-ad-reservations-top-1-billion-for-2026-midterms/article_5cfde563-d649-4e1c-842c-af0eb0db602e.html" rel="noopener">
-        <p class="card__k">Inside Radio &middot; August 2026</p>
-        <h3>"Political ad reservations top $1 billion for 2026 midterms"</h3>
-        <p class="small">"Committing $1.2 billion in future media reservations," reported
-          from KPI forward-book data across the 209 federal and state races with forward
-          reservations on file, at the time of that report.</p>
-        <span class="press-card__go">Read the piece &rarr;</span>
-      </a>
-      <a class="card card--flag press-card" href="https://campaignsandelections.com/industry-news/new-report-forecasts-10-billion-in-midterm-ad-spending/" rel="noopener">
-        <p class="card__k">Campaigns &amp; Elections &middot; April 2026</p>
-        <h3>"New Report Forecasts $10 Billion in Midterm Ad Spending"</h3>
-        <p class="small">C&amp;E covered KPI's April forecast &mdash; and has tracked the
-          platform since launch.</p>
-        <span class="press-card__go">Read the piece &rarr;</span>
-      </a>
-    </div>
-    <!-- Ruling 50i: the Citing KPI block is killed here; citation guidance lives on
-         the contact press card only. -->
 
-  </div>
-</section>
 
 <!-- ============ THE WALL (r86) ============ -->
 <!-- Adam (8/29, from the AdImpact screenshots): "communicate more capabilities in a
@@ -719,6 +677,78 @@
   </div>
 </section>
 
+<!-- ============ TARGETING (r104, the owner's call: the homepage read all
+     competitive — the aim side gets its own proclamation) ============ -->
+<section class="section" id="targeting">
+  <div class="wrap">
+    <div class="curtain curtain--paper curtain--split" data-rise>
+      <div>
+        <p class="curtain__k">The other half &middot; targeting</p>
+        <h3 class="curtain__h">Watch the air war. Then aim.</h3>
+        <p class="curtain__p">The same machine runs the audience side: <b>10,000+</b>
+          always-on questions in the field today, declared answers &mdash; not rented
+          segments &mdash; built into audiences, and delivered as a private-marketplace
+          deal ID in the seat you already run. Syndicated audiences arrive in days;
+          a custom question takes about two weeks.</p>
+        <p class="curtain__go"><a href="polling.html">How targeting works &rarr;</a>
+          &nbsp;&middot;&nbsp; <a href="questions.html">Search the 10,000+ questions &rarr;</a></p>
+      </div>
+      <div class="curtain__figwrap">
+        <p class="tflow" aria-hidden="true">
+          <span class="tflow__q">&ldquo;How concerned are you right now about the economy and jobs?&rdquo;<i>QID 9918 &middot; always on</i></span>
+          <span class="tflow__arrow">&darr;</span>
+          <span class="tflow__aud">Persuadable on the economy, undecided Senate<i>declared audience &middot; composition read + effective n before the IO</i></span>
+          <span class="tflow__arrow">&darr;</span>
+          <span class="tflow__deal num">KPI-PMP-2026-0841<i>deal ID &middot; lands in your seat</i></span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--tint" id="press">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:2.6rem" data-rise>
+      <p class="eyebrow eyebrow--plain" style="justify-content:center">Press</p>
+      <h2>The numbers the press prints.</h2>
+      <p class="lede">Built by the people defining what&rsquo;s next &mdash; and quoted by
+        the people covering it. Name the race; same day on deadline.</p>
+      
+      <div class="btn-row mt2" style="justify-content:center">
+        <a class="btn btn--navy" href="https://kpipoliticalinsightsforecast.subscribepage.io/" target="_blank" rel="noopener">Download the 2026 forecast report</a>
+        <a class="btn btn--outline" href="press.html">The newsroom</a>
+      </div>
+    </div>
+    <a class="card card--flag press-card press-card--lead" href="https://www.axios.com/2026/08/14/senate-primaries-fundraising-cash-republicans-democrats" rel="noopener" data-rise>
+      <p class="card__k">Axios &middot; August 2026</p>
+      <h3>&ldquo;In 2026, money doesn&rsquo;t always matter&rdquo;</h3>
+      <p class="small">Axios&rsquo;s primary-money package ran on KPI data across all 17
+        competitive 2026 Senate primaries.</p>
+      <span class="press-card__go">Read the piece &rarr;</span>
+    </a>
+    <div class="grid grid--2 mt2">
+      <a class="card card--flag press-card" href="https://www.insideradio.com/free/political-ad-reservations-top-1-billion-for-2026-midterms/article_5cfde563-d649-4e1c-842c-af0eb0db602e.html" rel="noopener">
+        <p class="card__k">Inside Radio &middot; August 2026</p>
+        <h3>"Political ad reservations top $1 billion for 2026 midterms"</h3>
+        <p class="small">"Committing $1.2 billion in future media reservations," reported
+          from KPI forward-book data across the 209 federal and state races with forward
+          reservations on file, at the time of that report.</p>
+        <span class="press-card__go">Read the piece &rarr;</span>
+      </a>
+      <a class="card card--flag press-card" href="https://campaignsandelections.com/industry-news/new-report-forecasts-10-billion-in-midterm-ad-spending/" rel="noopener">
+        <p class="card__k">Campaigns &amp; Elections &middot; April 2026</p>
+        <h3>"New Report Forecasts $10 Billion in Midterm Ad Spending"</h3>
+        <p class="small">C&amp;E covered KPI's April forecast &mdash; and has tracked the
+          platform since launch.</p>
+        <span class="press-card__go">Read the piece &rarr;</span>
+      </a>
+    </div>
+    <!-- Ruling 50i: the Citing KPI block is killed here; citation guidance lives on
+         the contact press card only. -->
+
+  </div>
+</section>
+
 <!-- ============ CONTACT ============ -->
 <section class="section section--mega cta-final" id="contact">
   <div class="wrap">
@@ -742,7 +772,7 @@
 <section class="nextrail">
   <div class="wrap">
     <a class="nextcard" href="monitoring.html">
-      <span class="nextcard__k">Next</span>
+      <span class="nextcard__k">On to the next</span>
       <span class="nextcard__t"><b>Monitoring</b><span>Political ads, caught as they air &mdash; the alert lands with the tape and the transcript.</span></span>
       <span class="nextcard__go" aria-hidden="true">&#8594;</span>
     </a>
