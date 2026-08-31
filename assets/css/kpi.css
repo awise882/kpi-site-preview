@@ -2070,18 +2070,31 @@ a.chip:hover { border-color: var(--blue); color: var(--navy); background: var(--
 /* ::before, not ::after — the mobile drawer scrim owns .nav::after. */
 .nav::before { content: ""; position: absolute; left: 0; right: 0; bottom: -3px; height: 3px; z-index: 1;
   background: linear-gradient(90deg, var(--navy) 0%, #00ACC1 55%, var(--lime) 100%); }
-.nav__brand { position: relative; z-index: 6; }
-.nav__brand img { height: 76px; transform: translateY(12px);
-  filter: drop-shadow(0 10px 18px rgba(8,36,59,.28));
-  transition: height .32s var(--smooth), transform .32s var(--smooth), filter .32s var(--smooth); }
-.is-scrolled .nav__brand img { height: 44px; transform: translateY(0); filter: none; }
+/* r91 (Adam): the seam was slicing through the mark — sloppy, not bold. The
+   brand now sits on a badge plate that deliberately interrupts the seam: the
+   line runs edge to edge and visibly stops at the plate. Still oversized,
+   still hanging through the bar — just intentional about it. */
+.nav__brand { position: relative; z-index: 6;
+  background: var(--white); border: 1px solid var(--rule); border-radius: 16px;
+  padding: .35rem .85rem .5rem; margin-left: -.85rem;
+  transform: translateY(14px);
+  box-shadow: 0 14px 30px rgba(8,36,59,.16), 0 2px 6px rgba(8,36,59,.08);
+  transition: transform .32s var(--smooth), padding .32s var(--smooth),
+    box-shadow .32s var(--smooth), border-radius .32s var(--smooth); }
+.nav__brand img { height: 76px;
+  transition: height .32s var(--smooth); }
+.is-scrolled .nav__brand { transform: translateY(0); padding: .2rem .6rem .25rem;
+  border-radius: 10px; box-shadow: 0 4px 12px rgba(8,36,59,.1); }
+.is-scrolled .nav__brand img { height: 44px; }
 @media (max-width: 900px) {
-  .nav__brand img { height: 58px; transform: translateY(9px); }
+  .nav__brand { transform: translateY(10px); padding: .28rem .65rem .4rem; margin-left: -.65rem; }
+  .nav__brand img { height: 58px; }
   .is-scrolled .nav__brand img { height: 36px; }
 }
 /* At phone widths the full-size overhang crowds the menu button off the edge. */
 @media (max-width: 480px) {
-  .nav__brand img { height: 48px; transform: translateY(7px); }
+  .nav__brand { transform: translateY(8px); padding: .22rem .5rem .3rem; margin-left: -.5rem; }
+  .nav__brand img { height: 48px; }
   .is-scrolled .nav__brand img { height: 34px; }
 }
 
