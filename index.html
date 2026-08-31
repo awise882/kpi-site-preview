@@ -186,6 +186,109 @@
   .press-rel__date--pill { border: 1px solid var(--rule); padding: .08rem .5rem;
     text-transform: uppercase; letter-spacing: .07em; font-size: .68rem; }
 </style>
+
+<style>
+  /* r86: the wall — hand-placed collage over the market field. */
+  .kw { padding-bottom: 0; overflow: hidden; }
+  .kw__head { max-width: 60ch; }
+  .kw__head h2 { font-size: clamp(2rem, 4.2vw, 3.3rem); }
+  .kw__stage { position: relative; margin-top: .6rem; padding: 2.4rem 0 3.4rem;
+    background-image: radial-gradient(rgba(27,79,114,.14) 1.3px, transparent 1.3px);
+    background-size: 23px 23px; }
+  .kw__glow { position: absolute; border-radius: 50%; filter: blur(56px); pointer-events: none; }
+  .kw__glow--a { width: 420px; height: 300px; left: 6%; top: 8%; background: rgba(168,209,78,.16); }
+  .kw__glow--b { width: 460px; height: 320px; right: 4%; bottom: 4%; background: rgba(0,172,193,.13); }
+  .kw__cluster { position: relative; }
+  .kw__c { background: var(--white); border: 1px solid var(--rule); border-radius: 11px;
+    padding: .85rem .95rem; display: flex; flex-direction: column; gap: .34rem;
+    box-shadow: 0 14px 34px rgba(13,46,74,.15), 0 2px 6px rgba(13,46,74,.07); }
+  .kw__c > b { font-size: .92rem; color: var(--navy-deep); line-height: 1.3; letter-spacing: -.01em; }
+  .kw__k { font-family: var(--label); text-transform: uppercase; letter-spacing: .11em;
+    font-size: .6rem; font-weight: 800; color: var(--blue-text); display: inline-flex;
+    align-items: center; gap: .35rem; }
+  .kw__dot { width: 7px; height: 7px; border-radius: 50%; background: var(--lime); flex: 0 0 auto; }
+  .kw__m { font-size: .74rem; color: var(--ink-3); line-height: 1.45; }
+  .kw__up { color: var(--lime-text); font-weight: 800; }
+  .kw__bar { display: grid; grid-template-columns: 14px minmax(0,1fr) auto; gap: .45rem; align-items: center; }
+  .kw__bar i { font-style: normal; font-family: var(--label); font-size: .62rem; font-weight: 800; color: var(--ink-3); }
+  .kw__bar b { font-size: .78rem; color: var(--navy-deep); }
+  .kw__tr { height: 9px; background: var(--tint); border-radius: 2px; overflow: hidden; }
+  .kw__tr span { display: block; height: 100%; background: var(--navy); }
+  .kw__bar--r .kw__tr span { background: #97ABBC; }
+  .kw__row { display: flex; align-items: center; gap: .5rem; font-size: .78rem; color: var(--ink-2);
+    padding: .18rem 0; border-bottom: 1px solid color-mix(in srgb, var(--rule) 55%, transparent); }
+  .kw__row b { margin-left: auto; color: var(--navy-deep); }
+  .kw__row--est b { color: var(--blue-text); }
+  .kw__row--est { border-bottom: 0; }
+  .kw__sw { width: 9px; height: 9px; border-radius: 2px; flex: 0 0 auto; }
+  .kw__flag { align-self: flex-start; font-family: var(--label); font-size: .58rem; font-weight: 800;
+    letter-spacing: .07em; text-transform: uppercase; color: #B26A00; background: #FFF3E7;
+    border: 1px solid #F2D9A6; border-radius: 4px; padding: .2rem .45rem; }
+  .kw__c--deal { flex-direction: row; align-items: baseline; gap: .5rem; border-radius: 999px;
+    background: var(--navy-ink, #08243B); color: #fff; border: 0; font-weight: 800;
+    font-size: .8rem; padding: .55rem 1rem; white-space: nowrap;
+    box-shadow: 0 10px 26px rgba(8,36,59,.3); }
+  .kw__c--deal i { font-style: normal; font-family: var(--label); font-size: .56rem; font-weight: 700;
+    letter-spacing: .09em; text-transform: uppercase; color: var(--lime); }
+  .kw__stamp { position: absolute; right: clamp(12px, 3vw, 40px); bottom: 10px;
+    font-family: var(--label); font-size: .58rem; font-weight: 700; letter-spacing: .11em;
+    text-transform: uppercase; color: var(--ink-3); }
+  /* Desktop: hand placement. Nothing lines up on purpose. */
+  @media (min-width: 1100px) {
+    .kw__cluster { height: 560px; }
+    .kw__c { position: absolute; }
+    .kw__c--alert { left: 1%; top: 24px; width: 272px; transform: rotate(-2deg); z-index: 3; }
+    .kw__c--score { left: 17%; top: 168px; width: 308px; transform: rotate(1.1deg); z-index: 2; }
+    .kw__c--mix { left: 47%; top: 12px; width: 320px; transform: rotate(.7deg); z-index: 1; }
+    .kw__c--book { right: 1.5%; top: 196px; width: 296px; transform: rotate(-1.5deg); z-index: 2; }
+    .kw__c--rate { left: 34%; top: 356px; width: 292px; transform: rotate(-.9deg); z-index: 1; }
+    .kw__c--op { left: 4%; top: 372px; width: 288px; transform: rotate(1.7deg); z-index: 2; }
+    .kw__c--deal { right: -14px; top: 118px; transform: rotate(2.2deg); z-index: 4; }
+  }
+  /* Below 1100: a loose two-column cluster, still slightly off-kilter. */
+  @media (max-width: 1099px) {
+    .kw__cluster { display: grid; grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: .85rem; padding-bottom: .6rem; }
+    .kw__c--mix, .kw__c--deal { grid-column: 1 / -1; }
+    .kw__c--deal { justify-self: center; flex-wrap: wrap; white-space: normal; justify-content: center; }
+    .kw__c:nth-child(odd) { transform: rotate(-1.1deg) translateY(4px); }
+    .kw__c:nth-child(even) { transform: rotate(1deg) translateY(-3px); }
+  }
+  @media (max-width: 420px) {
+    .kw__c > b { font-size: .84rem; }
+    .kw__bar b, .kw__row { font-size: .72rem; }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .kw__c { transition: transform .35s var(--smooth), box-shadow .35s var(--smooth); }
+    .kw__c:hover { transform: rotate(0deg) translateY(-4px); z-index: 9;
+      box-shadow: 0 22px 44px rgba(13,46,74,.2); }
+  }
+
+  /* r86: the one-number slab. */
+  .impact { background: var(--navy-ink, #08243B); border-radius: var(--r-lg);
+    padding: clamp(1.6rem, 3.4vw, 2.8rem); position: relative; overflow: hidden; }
+  .impact::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 3px;
+    background: linear-gradient(90deg, var(--navy) 0%, #00ACC1 55%, var(--lime) 100%); }
+  .impact__main { display: flex; flex-wrap: wrap; gap: 2rem 3.4rem; align-items: center;
+    justify-content: space-between; }
+  .impact__n { display: block; font-family: var(--display); font-weight: 700;
+    font-size: clamp(4.2rem, 9.5vw, 7.6rem); line-height: .92; color: #fff;
+    letter-spacing: -.02em; }
+  .impact__l { display: block; margin-top: .7rem; font-family: var(--label);
+    text-transform: uppercase; letter-spacing: .13em; font-size: .72rem; font-weight: 700;
+    color: #9FBFD6; line-height: 1.8; }
+  .impact__l b { color: var(--lime); }
+  .impact__q { margin: 0; max-width: 30ch; }
+  .impact__q p { font-family: var(--display); font-size: clamp(1.25rem, 2vw, 1.6rem);
+    color: #E8F1F7; line-height: 1.35; }
+  .impact__q cite { display: block; margin-top: .6rem; font-style: normal; font-size: .8rem; color: #8FA9BE; }
+  .impact__q cite a { color: #B9CFDF; }
+  .impact__row { display: flex; flex-wrap: wrap; gap: .5rem 2.4rem; margin-top: 1.8rem;
+    border-top: 1px solid rgba(255,255,255,.14); padding-top: 1.1rem;
+    font-size: .88rem; color: #B9CFDF; }
+  .impact__row b { color: #fff; font-weight: 800; }
+  @media (max-width: 640px) { .impact__q { display: none; } }
+</style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -301,9 +404,9 @@
      lives on monitoring.html and week.html now, not here. -->
 <section class="section" id="doors">
   <div class="wrap">
-    <div class="center" style="margin-bottom:2.6rem" data-rise>
-      <h2>See the ads. Follow the dollars.</h2>
-      <p class="lede" style="margin-inline:auto">Four ways in. Each one goes deeper.</p>
+    <div class="split" style="margin-bottom:2.6rem;align-items:end" data-rise>
+      <h2>See the ads.<br>Follow the dollars.</h2>
+      <p class="lede">Four ways in. Each one goes deeper.</p>
     </div>
     <div class="grid grid--2" data-rise>
       <a class="card card--flag press-card" href="monitoring.html">
@@ -421,27 +524,100 @@
   </div>
 </section>
 
+
+<!-- ============ THE WALL (r86) ============ -->
+<!-- Adam (8/29, from the AdImpact screenshots): "communicate more capabilities in a
+     tight geographical space" + "make this look less like it was made by Claude."
+     A hand-placed cluster of live-product glimpses — rotated, overlapping, one card
+     breaking the frame — over a market dot-field. Absolute collage >=1100px; a loose
+     staggered two-column cluster below. Every figure is site canon or stamped
+     synthetic; every card exists as a real board in the product. -->
+<section class="section kw" aria-label="A cluster of product screens: alerts, the scoreboard, channel mix, the agency book, rates, voter opinion, and a deal ID">
+  <div class="wrap">
+    <div class="kw__head" data-rise>
+      <p class="eyebrow">One subscription &middot; every layer</p>
+      <h2>The whole air war,<br>on one screen.</h2>
+      <p class="lede">Detection to decision to delivery &mdash; the glimpses below are
+        boards subscribers pull today, not mockups of a roadmap.</p>
+    </div>
+  </div>
+  <div class="kw__stage">
+    <div class="kw__glow kw__glow--a" aria-hidden="true"></div>
+    <div class="kw__glow kw__glow--b" aria-hidden="true"></div>
+    <div class="wrap kw__cluster" aria-hidden="true">
+      <div class="kw__c kw__c--alert">
+        <span class="kw__k"><i class="kw__dot"></i>New creative &middot; 7:15 AM</span>
+        <b>&ldquo;Hometown Values&rdquo; &mdash; first air</b>
+        <span class="kw__m">Columbus &middot; tape + AI transcript attached</span>
+      </div>
+      <div class="kw__c kw__c--score">
+        <span class="kw__k">Scoreboard &middot; North River Senate</span>
+        <span class="kw__bar"><i>D</i><span class="kw__tr"><span style="width:95%"></span></span><b class="num">$14.2M</b></span>
+        <span class="kw__bar kw__bar--r"><i>R</i><span class="kw__tr"><span style="width:100%"></span></span><b class="num">$15.0M</b></span>
+        <span class="kw__m"><b class="kw__up num">+$1.8M</b> new money this week</span>
+      </div>
+      <div class="kw__c kw__c--mix">
+        <span class="kw__k">Channel mix &middot; Columbus &middot; committed $</span>
+        <span class="kw__row"><i class="kw__sw" style="background:var(--navy)"></i>Broadcast<b class="num">62%</b></span>
+        <span class="kw__row"><i class="kw__sw" style="background:#7FA8CC"></i>Cable<b class="num">21%</b></span>
+        <span class="kw__row"><i class="kw__sw" style="background:#B58A3A"></i>Radio<b class="num">9%</b></span>
+        <span class="kw__row kw__row--est"><i class="kw__sw" style="background:var(--teal,#00ACC1)"></i>Streaming<b class="num">8% est.</b></span>
+        <span class="kw__m">streaming rides beside posted &mdash; never blended</span>
+      </div>
+      <div class="kw__c kw__c--book">
+        <span class="kw__k">Agency book &middot; Ohio</span>
+        <b>Meridian Media Partners</b>
+        <span class="kw__m num">$11.2M filed &middot; 6 committees</span>
+        <span class="kw__flag">First call &middot; +$272K at your share</span>
+      </div>
+      <div class="kw__c kw__c--rate">
+        <span class="kw__k">FCC rate intel</span>
+        <b class="num">WQZL &middot; :30 early news &middot; $1,150</b>
+        <span class="kw__m">filed rate, from the public file &middot; LUR checked</span>
+      </div>
+      <div class="kw__c kw__c--op">
+        <span class="kw__k">Voter opinion &middot; QID 9918</span>
+        <b>Data centers: support &minus;7 since June</b>
+        <span class="kw__m">three waves banked &middot; n printed on the board</span>
+      </div>
+      <span class="kw__c kw__c--deal num">KPI-PMP-2026-0841 <i>deal ID &middot; lands in your seat</i></span>
+    </div>
+    <span class="kw__stamp">synthetic glimpses &middot; every board opens live in the demo</span>
+  </div>
+</section>
+
 <!-- ============ SCALE ============ -->
 <section class="section section--band section--mega">
   <div class="wrap">
-    <div class="split split--wide-left" style="align-items:center">
-      <div>
-        <p class="eyebrow">The monitoring network</p>
-        <h2 class="h-display">The most complete monitoring operation in politics.</h2>
-        <p class="lede">When the other side moves, the machine that catches it is
-          already running. Every occurrence, with real costs behind it.</p>
-      </div>
-      <blockquote class="quote">
-        <p>"A Bloomberg console for campaigns."</p>
-        <cite><a href="https://campaignsandelections.com/industry-news/firms-unveil-new-ad-tracking-platform/" rel="noopener">Campaigns &amp; Elections, April 2025</a></cite>
-      </blockquote>
+    <div style="max-width:56ch">
+      <p class="eyebrow">The monitoring network</p>
+      <h2 class="h-display">The most complete monitoring operation in politics.</h2>
+      <p class="lede">When the other side moves, the machine that catches it is
+        already running. Every occurrence, with real costs behind it.</p>
     </div>
 
-    <div class="stats mt3" data-rise>
-      <div class="stat"><div class="stat__v">1.5M</div><div class="stat__l">Ad occurrences per day, every category</div></div>
-      <div class="stat"><div class="stat__v">40M</div><div class="stat__l">Households measuring streaming on the glass</div></div>
-      <div class="stat"><div class="stat__v">210</div><div class="stat__l">U.S. media markets, all of them</div></div>
-      <div class="stat"><div class="stat__v">Decade+</div><div class="stat__l">Of history under every trend</div></div>
+    <!-- r86: the one-number read (per the AdImpact reference). The old four-up stat
+         grid folded into this slab. AWAITING ADAM (Snowflake/Domo pull): daily
+         streaming ad impressions measured + count of channels/services with streaming
+         capture — when the figures land, they take the second impact seat here and a
+         line on monitoring.html#streaming-spend. No interim numbers get invented. -->
+    <div class="impact mt3" data-rise>
+      <div class="impact__main">
+        <div class="impact__stat">
+          <span class="impact__n num">1.5M</span>
+          <span class="impact__l">ad occurrences detected <b>per day</b><br>
+            every category &middot; all 210 markets &middot; real costs attached</span>
+        </div>
+        <blockquote class="impact__q">
+          <p>&ldquo;A Bloomberg console for campaigns.&rdquo;</p>
+          <cite><a href="https://campaignsandelections.com/industry-news/firms-unveil-new-ad-tracking-platform/" rel="noopener">Campaigns &amp; Elections, April 2025</a></cite>
+        </blockquote>
+      </div>
+      <div class="impact__row num">
+        <span><b>40M</b> households on the glass</span>
+        <span><b>65M</b> smart-TV devices</span>
+        <span><b>Decade+</b> of history under every trend</span>
+      </div>
     </div>
     <div class="btn-row mt2" style="justify-content:center">
       <a class="btn btn--lime" href="contact.html">Request a demo</a>
