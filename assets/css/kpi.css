@@ -3009,3 +3009,18 @@ details.mdet--keep > summary { display: block; pointer-events: none; font-weight
   8% { visibility: visible; }
   100% { opacity: 1; visibility: visible; transform: none; border-top-color: var(--lime); }
 }
+
+/* ============ r137: the lineage (the owner, Sep 1) ============ */
+/* "We are the team that invented ad tracking with CMAG in 1996 … sold it
+   to TNS … the space cowboy vibe is a cool thing." One drawn line under
+   the owner's Built-today section: 1996 CMAG -> sold -> 2026 KPI. Phones
+   get the same story as three stacked mono lines. */
+.lineage { max-width: 660px; margin: 1.5rem auto 0; }
+.lineage svg { display: block; width: 100%; height: auto; }
+.lineage__mobile { display: none; }
+@media (max-width: 559px) {
+  .lineage svg { display: none; }
+  .lineage__mobile { display: block; font-family: var(--mono); font-size: .68rem;
+    letter-spacing: .05em; line-height: 1.9; color: var(--ink-2); text-align: center;
+    font-variant-numeric: tabular-nums lining-nums; margin: 0; }
+}
