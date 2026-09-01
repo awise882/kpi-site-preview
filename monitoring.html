@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r111c">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r112b">
 <style>
   .fig-scroll > svg { min-width: 820px; }
   /* R69: the key graphic gets a phone-native stack; no panning a 1000px drawing */
@@ -135,18 +135,17 @@
   <div class="wrap hero-center">
     <p class="eyebrow eyebrow--plain">Monitoring</p>
     <h1 class="ht">
-      <span class="ht__l" data-t="Every Market. Every Channel.">Every Market. Every Channel.</span><br>
-      <span class="ht__l ht__l--accent" data-t="As It Airs.">As It Airs.</span>
+      <span class="ht__l" data-t="Every Market. Every Screen.">Every Market. Every Screen.</span><br>
+      <span class="ht__l ht__l--accent" data-t="As It Runs.">As It Runs.</span>
     </h1>
     <p class="lede" style="margin-inline:auto">About <span class="num w-measured">1.5 million</span> ad
       airings detected every day, every ad category, across all
       <span class="num w-measured">210</span> U.S. media markets &mdash; two worlds, one machine:</p>
     <div class="mhero" data-rise>
       <div class="mhero__lane">
-        <p class="mhero__k">Linear &middot; the filed world</p>
-        <p class="mhero__p"><b>Broadcast, cable, radio.</b> The <b>$10.4B</b> cycle, order by
-          order &mdash; priced from posted orders and invoices, with filed rates in all
-          <b>210</b> markets.</p>
+        <p class="mhero__k">Linear</p>
+        <p class="mhero__p"><b>Broadcast, cable, radio</b> &mdash; order by order, priced
+          from posted orders and invoices, with filed rates in all <b>210</b> markets.</p>
         <div class="mhero__mini num" aria-hidden="true">
           <span><i>WZQV</i><em>early news &middot; :30</em><b>$260</b></span>
           <span><i>WQZL</i><em>prime &middot; :15</em><b>$410</b></span>
@@ -155,18 +154,19 @@
         <a class="mhero__go" href="#lanes">Channel by channel &rarr;</a>
       </div>
       <div class="mhero__lane mhero__lane--dark">
-        <p class="mhero__k">Streaming &amp; digital &middot; behind the curtain</p>
-        <p class="mhero__p"><b>Where the paper trail ends.</b> <b>220M+</b> impressions
-          measured in one summer week, on the glass in <b>40M</b> homes &mdash; the fall
-          projects to billions a week, implied and labeled as such.</p>
+        <p class="mhero__k">Streaming &amp; digital</p>
+        <p class="mhero__p"><b>1 in 3</b> political TV ad impressions now run on
+          streaming &mdash; and the share grows every cycle. Competitive tracking has
+          always covered the linear two-thirds; we measure the digital third too, on the
+          glass in <b>40M</b> homes: <b>220M+</b> impressions in one summer week.</p>
         <svg class="mhero__bar" viewBox="0 0 300 56" role="img" aria-label="A third of measured political TV ad impressions run on streaming">
           <rect x="0" y="4" width="94" height="34" fill="#A8D14E"/>
           <text x="47" y="26" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="800" fill="#08243B">1 in 3</text>
           <defs><pattern id="mhHatch" width="6" height="6" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="6" stroke="#5B7C96" stroke-width="1.2"/></pattern></defs>
           <rect x="98" y="4" width="202" height="34" fill="url(#mhHatch)" opacity=".5"/>
           <rect x="98" y="4" width="202" height="34" fill="none" stroke="#5B7C96" stroke-width="1"/>
-          <text x="0" y="52" font-family="Inter, sans-serif" font-size="7.5" font-weight="700" letter-spacing=".8" fill="#A8D14E">STREAMING &middot; ON THE GLASS</text>
-          <text x="199" y="52" text-anchor="middle" font-family="Inter, sans-serif" font-size="7.5" font-weight="700" letter-spacing=".8" fill="#8FA9BE">THE FILED RECORD</text>
+          <text x="0" y="52" font-family="Inter, sans-serif" font-size="7.5" font-weight="700" letter-spacing=".8" fill="#A8D14E">DIGITAL &middot; MEASURED HERE</text>
+          <text x="199" y="52" text-anchor="middle" font-family="Inter, sans-serif" font-size="7.5" font-weight="700" letter-spacing=".8" fill="#8FA9BE">LINEAR &middot; COVERED ORDER BY ORDER</text>
         </svg>
         <a class="mhero__go" href="#streaming-spend">How streaming is measured &rarr;</a>
       </div>
@@ -177,6 +177,218 @@
     </div>
   </div>
 </header>
+
+<!-- ============ COVERAGE FIRST (r112, the owner: two worlds, we track
+     everything, this is how — one conversation) ============ -->
+<section class="section" id="lanes">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:2.4rem" data-rise>
+      <p class="eyebrow eyebrow--plain" style="justify-content:center">Channel by channel</p>
+      <h2>We track everything.</h2>
+      <p class="lede" style="margin-inline:auto">TV, cable, radio, streaming and digital
+        &mdash; one machine: 1.5M airings a day, all 210 markets, every lane.</p>
+    </div>
+    <div class="lanefams mt1" role="group" aria-label="Four channels: what we detect, where the dollars come from, and where each signal thins">
+      <article class="lanefam">
+        <div class="lanefam__head">
+          <h4 class="lanefam__name">Broadcast TV</h4>
+          <span class="chip chip--lime">Order by order</span>
+        </div>
+        <div class="lanefam__body">
+          <p class="lanefam__what">Every airing on monitored stations &mdash; creative,
+            transcript, air date, markets &mdash; with dollars from orders on file, not
+            ratings models.</p>
+        </div>
+      </article>
+      <article class="lanefam">
+        <div class="lanefam__head">
+          <h4 class="lanefam__name">Local cable</h4>
+          <span class="chip chip--lime">Order by order</span>
+        </div>
+        <div class="lanefam__body">
+          <p class="lanefam__what">Placed orders by system, week and daypart, with the spots
+            running against them. Every dollar traces to a document.</p>
+        </div>
+      </article>
+      <article class="lanefam">
+        <div class="lanefam__head">
+          <h4 class="lanefam__name">Radio</h4>
+          <span class="chip chip--lime">Orders first</span>
+        </div>
+        <div class="lanefam__body">
+          <p class="lanefam__what">Placed radio orders and their audio, joined to TV's race
+            and advertiser records.</p>
+        </div>
+      </article>
+      <article class="lanefam">
+        <div class="lanefam__head">
+          <h4 class="lanefam__name">Streaming &amp; Digital&thinsp;&middot;&thinsp;caught on the apps</h4>
+          <span class="chip chip--warn">Estimated minimum</span>
+        </div>
+        <div class="lanefam__body">
+          <p class="lanefam__what">Streaming ads captured on the TV screen &mdash; tape,
+            platform, transcript &mdash; in 40 million measured households, including spots
+            that never touch broadcast. Impressions in the top 58 markets, monitoring in
+            all 210; below the 58, dollars print as a statewide estimated minimum &mdash;
+            the walkthrough opens your district&rsquo;s read.</p>
+        </div>
+      </article>
+      <article class="lanefam">
+        <div class="lanefam__head">
+          <h4 class="lanefam__name">Streaming &amp; Digital&thinsp;&middot;&thinsp;measured beyond the capture</h4>
+          <span class="chip">Estimated</span>
+        </div>
+        <!-- O2 ANSWERED by ruling 45 (Adam, 8/25): streaming and digital are ONE lane
+             family in the marketing taxonomy, presented at app grain; the two BASES in
+             this stack stay separate (caught floor vs modeled estimate) and are never
+             summed. The formal two-lane definitions live in the sales-call leave-behind
+             (ex-methodology page, preserved in git history at r44). -->
+        <div class="lanefam__body">
+          <p class="lanefam__what">Competitive digital activity estimated from measured smart-TV
+            viewing &mdash; always marked estimated, never blended into posted channels.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section section--tint" id="how-counted">
+  <div class="wrap">
+    <!-- The TV-glass count (Adam, 8/29): detection happens where the spot runs —
+         on the TV screen, app after app, in 40 million measured homes. Nothing
+         off-glass is detected, so nothing off-glass is claimed. Same drawing
+         grammar as the weighting spine: uniform 1.5px instruments, one rail,
+         solid observed ink, dashed modeled ink, a marked gate, brackets. -->
+    <div class="mt3" id="cross-screen">
+      <div class="center" style="margin:3rem 0 1.6rem" data-rise>
+        <p class="eyebrow eyebrow--plain" style="justify-content:center">The measurement, drawn once</p>
+        <h3 style="font-size:clamp(1.5rem,2.6vw,2rem)">Detected on the TV glass. Counted by the home.</h3>
+        <p class="lede" style="margin-inline:auto">Detected where it runs &mdash; on the
+          TV screen, in 40 million measured homes. The modeled share takes dashed ink.</p>
+      </div>
+      <figure class="fig fig--light" id="xscreen-fig">
+        <div class="xsm" role="img" aria-label="The TV-glass count, stacked for a phone: the same spot on three streaming apps on one TV, resolved to the household; the 40 million measured homes as a solid third of the every-U.S.-TV-home bar, weighted to census; the 740 thousand dollar estimate plate; and the claim: the same spot, caught on every app it runs, priced as a dated estimated minimum.">
+          <div class="xsm-tv">
+            <span class="xsm-k">THE SAME SPOT, APP AFTER APP</span>
+            <div class="xsm-app"><i>HULU</i><span class="xsm-chip" aria-hidden="true"></span><em></em></div>
+            <div class="xsm-app"><i>MAX</i><span class="xsm-chip" aria-hidden="true"></span><em></em></div>
+            <div class="xsm-app"><i>PEACOCK</i><span class="xsm-chip" aria-hidden="true"></span><em></em></div>
+            <span class="xsm-under">DETECTED ON THE TV GLASS</span>
+          </div>
+          <div class="xsm-home"><span class="xsm-x3">&times;3</span><span><b>Resolved to the household.</b><i>the TV glass is the unit of measure</i></span></div>
+          <div class="xsm-barwrap">
+            <span class="xsm-barlab"><b>MEASURED &middot; 40M HOMES &middot; ACR</b><b class="xsm-g">EVERY U.S. TV HOME</b></span>
+            <span class="xsm-bar"><i></i></span>
+            <span class="xsm-census">a third of U.S. TV homes measured &mdash; weighted to census, so they stand for the rest</span>
+          </div>
+          <div class="xsm-plate"><b>$740K EST.</b><i>ESTIMATED SPEND MINIMUM &middot; DATED</i></div>
+          <p class="xsm-claim">The same spot, caught on every app it runs &mdash; detected on the glass, priced as a dated estimated minimum.</p>
+        </div>
+        <p class="small fig-hint">Swipe the figure sideways to see the whole drawing.</p>
+        <div class="fig-swipe">
+        <div class="fig-scroll" tabindex="0" role="group" aria-label="The TV-glass count: the same spot on three streaming apps resolves to one household, then the read weights outward in dashed ink, scrolls sideways">
+        <svg viewBox="0 0 1000 352" role="img" aria-labelledby="xs-t xs-d" class="fig__svg" style="min-width:820px">
+          <title id="xs-t">One TV glass, one household, one read</title>
+          <desc id="xs-d">One continuous drawing. On the left, a single television
+            showing the same small teal spot on three app rows — Hulu, Max, Peacock —
+            captioned detected on the TV glass. Three
+            lines converge from the app rows into a single ringed household node
+            holding that same spot, resolved to the household. The line
+            continues through a gate marked modeled ink begins here into a read bar:
+            inside a light outline spanning every U.S. TV home, a solid navy segment
+            — the 40 million homes measured by recognition on the TV glass, a third of the frame —
+            extends as a dashed green segment weighted outward to fill it, with a
+            line reading: weighted to census, so they stand for the rest. Above the
+            bar's end, a dashed plate carries the payoff: 740 thousand dollars
+            estimated, labeled an estimated spend minimum, dated, printed beneath.
+            Brackets underneath span observed, solid ink and modeled, dashed ink,
+            labeled estimated. A bold line reads: a spot seen on three apps is one
+            same spot caught on every app it runs, priced as a dated estimated minimum.</desc>
+          <text x="985" y="14" text-anchor="end" font-family="Inter, sans-serif" font-size="8" font-weight="700" letter-spacing="1.6" fill="#8FA9BE">TV-GLASS MEASUREMENT &middot; ONE COUNT</text>
+
+          <!-- ============ the same spot, on every glass (2x2 device cluster) ============ -->
+          <g data-u="1">
+            <!-- one TV; the spot runs app after app on the glass -->
+            <g fill="none" stroke="#1B4F72" stroke-width="1.5">
+              <rect x="46" y="40" width="216" height="174" rx="6"/>
+              <path d="M128 222 h56" stroke-width="2.4"/>
+            </g>
+            <g font-family="Inter, sans-serif" font-size="7.5" font-weight="800" letter-spacing=".7" fill="#8296A8">
+              <text x="66" y="72">HULU</text>
+              <text x="66" y="128">MAX</text>
+              <text x="66" y="184">PEACOCK</text>
+            </g>
+            <g><rect x="118" y="58" width="36" height="22" rx="3" fill="rgba(0,172,193,.14)" stroke="#00ACC1" stroke-width="1.3"/><path d="M128 63 l10 6 -10 6 z" fill="#00ACC1"/><path d="M162 64 h72 M162 73 h48" stroke="#8FA9BE" stroke-width="1.6"/></g>
+            <g><rect x="118" y="114" width="36" height="22" rx="3" fill="rgba(0,172,193,.14)" stroke="#00ACC1" stroke-width="1.3"/><path d="M128 119 l10 6 -10 6 z" fill="#00ACC1"/><path d="M162 120 h72 M162 129 h48" stroke="#8FA9BE" stroke-width="1.6"/></g>
+            <g><rect x="118" y="170" width="36" height="22" rx="3" fill="rgba(0,172,193,.14)" stroke="#00ACC1" stroke-width="1.3"/><path d="M128 175 l10 6 -10 6 z" fill="#00ACC1"/><path d="M162 176 h72 M162 185 h48" stroke="#8FA9BE" stroke-width="1.6"/></g>
+            <text x="154" y="24" text-anchor="middle" font-family="Inter, sans-serif" font-size="8.5" font-weight="700" letter-spacing="1" fill="#40566A">THE SAME SPOT, APP AFTER APP</text>
+            <text x="154" y="244" text-anchor="middle" font-family="Inter, sans-serif" font-size="7.5" font-weight="700" letter-spacing=".9" fill="#5B7085">DETECTED ON THE TV GLASS</text>
+          </g>
+
+          <!-- ============ four lines converge on one home ============ -->
+          <g data-u="2">
+            <g fill="none" stroke="#1B4F72" stroke-width="1.5">
+              <path d="M262 69 C 330 69, 358 118, 390 136"/>
+              <path d="M262 125 C 330 125, 356 136, 390 144"/>
+              <path d="M262 181 C 330 181, 358 164, 390 152"/>
+            </g>
+            <g fill="#1B4F72"><circle cx="318" cy="78" r="2"/><circle cx="326" cy="127" r="2"/><circle cx="320" cy="172" r="2"/></g>
+            <circle cx="424" cy="144" r="36" fill="#FAFCFE" stroke="#1B4F72" stroke-width="1.6"/>
+            <path d="M408 146 l16 -13 16 13 v16 h-32 z" fill="none" stroke="#1B4F72" stroke-width="1.5" stroke-linejoin="round"/>
+            <g><rect x="413" y="148" width="22" height="13" rx="2.5" fill="rgba(0,172,193,.14)" stroke="#00ACC1" stroke-width="1.1"/><path d="M419 150.5 l6.5 4 -6.5 4 z" fill="#00ACC1"/></g>
+            <rect x="447" y="108" width="30" height="16" rx="8" fill="#0D2E4A"/>
+            <text x="462" y="119.5" text-anchor="middle" font-family="Inter, sans-serif" font-size="9.5" font-weight="800" fill="#FFFFFF">&times;3</text>
+            <text x="424" y="196" text-anchor="middle" font-family="Inter, sans-serif" font-size="7.5" font-weight="700" letter-spacing=".9" fill="#5B7085">RESOLVED TO THE HOUSEHOLD</text>
+          </g>
+
+          <!-- ============ the gate, then the read ============ -->
+          <g data-u="3">
+            <path d="M460 144 C 498 144, 500 190, 524 190" fill="none" stroke="#1B4F72" stroke-width="1.6"/>
+            <line x1="534" y1="136" x2="534" y2="230" stroke="#4F7A25" stroke-width="1.6"/>
+            <text x="534" y="244" text-anchor="middle" font-family="Inter, sans-serif" font-size="7.5" font-weight="700" letter-spacing="1" fill="#4F7A25">MODELED INK BEGINS HERE</text>
+            <text x="560" y="166" font-family="Inter, sans-serif" font-size="8" font-weight="700" letter-spacing=".8" fill="#40566A">MEASURED &middot; 40M HOMES &middot; ACR</text>
+            <rect x="556" y="174" width="396" height="30" rx="2" fill="none" stroke="#B9C9D6" stroke-width="1.2"/>
+            <rect x="558" y="176" width="130" height="26" fill="#1B4F72"/>
+            <rect x="690" y="176" width="260" height="26" fill="rgba(168,209,78,.13)" stroke="#7CB342" stroke-width="1.6" stroke-dasharray="6 4"/>
+            <text x="948" y="166" text-anchor="end" font-family="Inter, sans-serif" font-size="8" font-weight="700" letter-spacing=".8" fill="#4F7A25">EVERY U.S. TV HOME</text>
+            <path d="M950 189 H985" fill="none" stroke="#7CB342" stroke-width="1.6" stroke-dasharray="7 5"/>
+            <text x="754" y="226" text-anchor="middle" font-family="Inter, sans-serif" font-size="10.5" font-weight="600" fill="#40566A">a third of U.S. TV homes measured &mdash; weighted to census, so they stand for the rest</text>
+            <!-- the payoff plate: the biggest number on the figure -->
+            <g fill="none" stroke="#8FA9BE" stroke-width="1.1">
+              <path d="M660 58 V50 H668"/><path d="M948 58 V50 H940"/>
+              <path d="M660 110 V118 H668"/><path d="M948 110 V118 H940"/>
+            </g>
+            <rect x="666" y="56" width="276" height="56" rx="7" fill="rgba(168,209,78,.06)" stroke="#7CB342" stroke-width="1.8" stroke-dasharray="7 5"/>
+            <text x="804" y="88" text-anchor="middle" font-family="Inter, sans-serif" font-size="25" font-weight="800" fill="#0D2E4A">$740K EST.</text>
+            <text x="804" y="104" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" font-weight="700" letter-spacing="1" fill="#4F7A25">ESTIMATED SPEND MINIMUM &middot; DATED</text>
+            <path d="M804 118 V172" fill="none" stroke="#7CB342" stroke-width="1.1" stroke-dasharray="4 3"/>
+          </g>
+
+          <!-- ============ dimension brackets + the claim ============ -->
+          <g data-u="4">
+            <g stroke="#40566A" stroke-width="1">
+              <path d="M42 300 H196"/><path d="M364 300 H478"/>
+              <path d="M42 294 V306"/><path d="M478 294 V306"/>
+            </g>
+            <text x="280" y="303.5" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" font-weight="700" letter-spacing="1" fill="#40566A">OBSERVED &middot; SOLID INK</text>
+            <g stroke="#4F7A25" stroke-width="1">
+              <path d="M545 300 H640" stroke-dasharray="4 3"/><path d="M905 300 H985" stroke-dasharray="4 3"/>
+              <path d="M545 294 V306"/><path d="M985 294 V306"/>
+            </g>
+            <text x="772" y="303.5" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" font-weight="700" letter-spacing="1" fill="#4F7A25">MODELED &middot; DASHED INK &middot; LABELED EST.</text>
+            <text x="500" y="340" text-anchor="middle" font-family="Inter, sans-serif" font-size="12.5" font-weight="700" fill="#14232F">The same spot, caught on every app it runs &mdash; detected on the glass, priced as a dated estimated minimum.</text>
+          </g>
+        </svg>
+        </div>
+        </div>
+        <figcaption class="fig__cap">Impressions land per airing on the TV glass and resolve
+          to the household. The measured share is solid ink;
+          anything weighted outward to the household universe prints dashed, labeled est.,
+          and dated.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
 
 <!-- ============ THE CREATIVE ALERT (the specimen, whole) ============ -->
 <section class="section section--tint" id="alert-demo">
@@ -219,11 +431,11 @@
               <dl class="ac__dl">
                 <div><dt>Spot title</dt><dd>"Delivery Protection Act"</dd></div>
                 <div><dt>Advertiser</dt><dd>Five Borough Jobs Campaign</dd></div>
-                <div><dt>Race</dt><dd>&mdash; (issue advocacy)</dd></div>
+                <div><dt>Race</dt><dd>Issue Advocacy</dd></div>
                 <div><dt>First captured</dt><dd class="num">August 26, 2026 · 4:21:39 PM ET</dd></div>
                 <div><dt>In subscriber inboxes</dt><dd class="num">4:23:07 PM ET</dd></div>
-                <div><dt>Source channel</dt><dd>Hulu · OTT</dd></div>
                 <div><dt>Source market</dt><dd>Digital</dd></div>
+                <div><dt>Source channel</dt><dd>Hulu · OTT</dd></div>
                 <div><dt>Duration</dt><dd class="num">00:30</dd></div>
                 <div><dt>Broadcast</dt><dd>Nothing yet &mdash; caught on streaming first</dd></div>
                 <div><dt>Category</dt><dd>Government / Organizations</dd></div>
@@ -268,17 +480,14 @@
             impressions are streaming &mdash; beyond the reach of transparency reports and public
             ad libraries, measured here on the glass.</span>
           <span class="msp__n num" data-p="measuredPeakWeek">220M+</span>
-          <span class="msp__l">streaming ad impressions <b>measured</b> in panel households in the
-            peak summer week (week of <span data-p="peakWeekOf">August 3, 2026</span>) &mdash; a hard
-            floor, observed on real screens in real homes &middot;
-            <b><span class="num" data-p="measuredSixWeeks">1.06B</span> measured</b> across the six
-            summer weeks (<span data-p="sixWeekWindow">July 15 &ndash; August 29, 2026</span>).</span>
+          <span class="msp__l">streaming ad impressions <b>measured</b> in the peak summer
+            week (week of <span data-p="peakWeekOf">August 3, 2026</span>) &middot;
+            <b><span class="num" data-p="measuredSixWeeks">1.06B</span> measured</b> across
+            the six summer weeks.</span>
         </div>
         <ul class="msp__ticks num">
           <li><b><span data-p="impliedPeakWeek">~940M</span> implied national</b> streaming ad impressions in that same peak week &mdash; <b><span data-p="impliedSixWeeks">~4.5B</span></b> across the six weeks &middot; implied via our ratified capture calibration, always labeled</li>
-          <li><b><span data-p="rawPlaysPerWeek">~10M</span> individual ad plays</b> observed per week, app by app: YouTube and YouTube TV, Tubi, Peacock, Pluto, the vMVPDs</li>
           <li><b><span data-p="advertisersOneWeek">1,500+</span> active political advertisers</b> measured in a single week &middot; YouTube and YouTube TV carry <span data-p="youtubeShare">nearly half</span> of measured streaming</li>
-          <li><b>Set before the money arrived:</b> these weeks ran while less than 10% of projected cycle dollars had been spent. Fall projects to <b><span data-p="fallProjection">3&ndash;4B+ implied national streaming impressions per week at peak</span></b>, of which about a quarter is directly observed at household grain (projection; assumes streaming volume scales with spend)</li>
         </ul>
       </div>
       <p class="msp__foot">Measured and implied never blend: measured is the floor, panel-observed
@@ -297,18 +506,15 @@
           and priced as a dated, estimated minimum, service by service: YouTube and YouTube TV,
           Tubi, Peacock, Pluto, the vMVPDs.</p>
         <details class="mdet" open style="margin-top:.9rem;max-width:44ch"><summary>The measured set, in plain terms</summary>
-        <p class="small">The measured set, in plain
-          terms: whatever renders on the TV glass in the 40 million measured homes &mdash;
-          YouTube and YouTube TV, the premium ad-supported apps, free ad-supported TV, the
-          vMVPDs &mdash; read service by service, rolled up by platform class. If it plays
-          on a measured screen, it counts &mdash; a play is one captured airing of one
-          creative on one measured screen; impressions weight plays to the household
-          universe. Don&rsquo;t see your platform named? Ask on the
-          walkthrough &mdash; the class roster opens there.</p>
+        <p class="small">The measured set: whatever renders on the TV glass in the
+          40 million measured homes, read service by service and rolled up by platform
+          class. A play is one captured airing on one measured screen; impressions weight
+          plays to the household universe. Don&rsquo;t see your platform named? The class
+          roster opens on the walkthrough.</p>
         </details>
 
         <p class="small" style="margin-top:1.2rem">How that number is made &mdash; screens to
-          household to weight &mdash; is <a href="#cross-screen">drawn once, below</a>.</p>
+          household to weight &mdash; is <a href="#cross-screen">drawn once, above</a>.</p>
       </div>
 
       <!-- Paths pass: the board rides sticky beside the tall mechanism column, so
@@ -529,167 +735,7 @@
       </div>
     </div>
 
-    <!-- The TV-glass count (Adam, 8/29): detection happens where the spot runs —
-         on the TV screen, app after app, in 40 million measured homes. Nothing
-         off-glass is detected, so nothing off-glass is claimed. Same drawing
-         grammar as the weighting spine: uniform 1.5px instruments, one rail,
-         solid observed ink, dashed modeled ink, a marked gate, brackets. -->
-    <div class="mt3" id="cross-screen">
-      <div class="center" style="margin:3rem 0 1.6rem" data-rise>
-        <p class="eyebrow eyebrow--plain" style="justify-content:center">The measurement, drawn once</p>
-        <h3 style="font-size:clamp(1.5rem,2.6vw,2rem)">Detected on the TV glass. Counted by the home.</h3>
-        <p class="lede" style="margin-inline:auto">Streaming spots are detected where they
-          run: on the TV screen, app after app, in 40 million measured homes &mdash; the
-          air war nobody publishes. Meta and Google publish theirs. The modeled share
-          takes dashed ink.</p>
-      </div>
-      <figure class="fig fig--light" id="xscreen-fig">
-        <div class="xsm" role="img" aria-label="The TV-glass count, stacked for a phone: the same spot on three streaming apps on one TV, resolved to the household; the 40 million measured homes as a solid third of the every-U.S.-TV-home bar, weighted to census; the 740 thousand dollar estimate plate; and the claim: the same spot, caught on every app it runs, priced as a dated estimated minimum.">
-          <div class="xsm-tv">
-            <span class="xsm-k">THE SAME SPOT, APP AFTER APP</span>
-            <div class="xsm-app"><i>HULU</i><span class="xsm-chip" aria-hidden="true"></span><em></em></div>
-            <div class="xsm-app"><i>MAX</i><span class="xsm-chip" aria-hidden="true"></span><em></em></div>
-            <div class="xsm-app"><i>PEACOCK</i><span class="xsm-chip" aria-hidden="true"></span><em></em></div>
-            <span class="xsm-under">DETECTED ON THE TV GLASS</span>
-          </div>
-          <div class="xsm-home"><span class="xsm-x3">&times;3</span><span><b>Resolved to the household.</b><i>the TV glass is the unit of measure</i></span></div>
-          <div class="xsm-barwrap">
-            <span class="xsm-barlab"><b>MEASURED &middot; 40M HOMES &middot; ACR</b><b class="xsm-g">EVERY U.S. TV HOME</b></span>
-            <span class="xsm-bar"><i></i></span>
-            <span class="xsm-census">a third of U.S. TV homes measured &mdash; weighted to census, so they stand for the rest</span>
-          </div>
-          <div class="xsm-plate"><b>$740K EST.</b><i>ESTIMATED SPEND MINIMUM &middot; DATED</i></div>
-          <p class="xsm-claim">The same spot, caught on every app it runs &mdash; detected on the glass, priced as a dated estimated minimum.</p>
-        </div>
-        <p class="small fig-hint">Swipe the figure sideways to see the whole drawing.</p>
-        <div class="fig-swipe">
-        <div class="fig-scroll" tabindex="0" role="group" aria-label="The TV-glass count: the same spot on three streaming apps resolves to one household, then the read weights outward in dashed ink, scrolls sideways">
-        <svg viewBox="0 0 1000 352" role="img" aria-labelledby="xs-t xs-d" class="fig__svg" style="min-width:820px">
-          <title id="xs-t">One TV glass, one household, one read</title>
-          <desc id="xs-d">One continuous drawing. On the left, a single television
-            showing the same small teal spot on three app rows — Hulu, Max, Peacock —
-            captioned detected on the TV glass. Three
-            lines converge from the app rows into a single ringed household node
-            holding that same spot, resolved to the household. The line
-            continues through a gate marked modeled ink begins here into a read bar:
-            inside a light outline spanning every U.S. TV home, a solid navy segment
-            — the 40 million homes measured by recognition on the TV glass, a third of the frame —
-            extends as a dashed green segment weighted outward to fill it, with a
-            line reading: weighted to census, so they stand for the rest. Above the
-            bar's end, a dashed plate carries the payoff: 740 thousand dollars
-            estimated, labeled an estimated spend minimum, dated, printed beneath.
-            Brackets underneath span observed, solid ink and modeled, dashed ink,
-            labeled estimated. A bold line reads: a spot seen on three apps is one
-            same spot caught on every app it runs, priced as a dated estimated minimum.</desc>
-          <text x="985" y="14" text-anchor="end" font-family="Inter, sans-serif" font-size="8" font-weight="700" letter-spacing="1.6" fill="#8FA9BE">TV-GLASS MEASUREMENT &middot; ONE COUNT</text>
 
-          <!-- ============ the same spot, on every glass (2x2 device cluster) ============ -->
-          <g data-u="1">
-            <!-- one TV; the spot runs app after app on the glass -->
-            <g fill="none" stroke="#1B4F72" stroke-width="1.5">
-              <rect x="46" y="40" width="216" height="174" rx="6"/>
-              <path d="M128 222 h56" stroke-width="2.4"/>
-            </g>
-            <g font-family="Inter, sans-serif" font-size="7.5" font-weight="800" letter-spacing=".7" fill="#8296A8">
-              <text x="66" y="72">HULU</text>
-              <text x="66" y="128">MAX</text>
-              <text x="66" y="184">PEACOCK</text>
-            </g>
-            <g><rect x="118" y="58" width="36" height="22" rx="3" fill="rgba(0,172,193,.14)" stroke="#00ACC1" stroke-width="1.3"/><path d="M128 63 l10 6 -10 6 z" fill="#00ACC1"/><path d="M162 64 h72 M162 73 h48" stroke="#8FA9BE" stroke-width="1.6"/></g>
-            <g><rect x="118" y="114" width="36" height="22" rx="3" fill="rgba(0,172,193,.14)" stroke="#00ACC1" stroke-width="1.3"/><path d="M128 119 l10 6 -10 6 z" fill="#00ACC1"/><path d="M162 120 h72 M162 129 h48" stroke="#8FA9BE" stroke-width="1.6"/></g>
-            <g><rect x="118" y="170" width="36" height="22" rx="3" fill="rgba(0,172,193,.14)" stroke="#00ACC1" stroke-width="1.3"/><path d="M128 175 l10 6 -10 6 z" fill="#00ACC1"/><path d="M162 176 h72 M162 185 h48" stroke="#8FA9BE" stroke-width="1.6"/></g>
-            <text x="154" y="24" text-anchor="middle" font-family="Inter, sans-serif" font-size="8.5" font-weight="700" letter-spacing="1" fill="#40566A">THE SAME SPOT, APP AFTER APP</text>
-            <text x="154" y="244" text-anchor="middle" font-family="Inter, sans-serif" font-size="7.5" font-weight="700" letter-spacing=".9" fill="#5B7085">DETECTED ON THE TV GLASS</text>
-          </g>
-
-          <!-- ============ four lines converge on one home ============ -->
-          <g data-u="2">
-            <g fill="none" stroke="#1B4F72" stroke-width="1.5">
-              <path d="M262 69 C 330 69, 358 118, 390 136"/>
-              <path d="M262 125 C 330 125, 356 136, 390 144"/>
-              <path d="M262 181 C 330 181, 358 164, 390 152"/>
-            </g>
-            <g fill="#1B4F72"><circle cx="318" cy="78" r="2"/><circle cx="326" cy="127" r="2"/><circle cx="320" cy="172" r="2"/></g>
-            <circle cx="424" cy="144" r="36" fill="#FAFCFE" stroke="#1B4F72" stroke-width="1.6"/>
-            <path d="M408 146 l16 -13 16 13 v16 h-32 z" fill="none" stroke="#1B4F72" stroke-width="1.5" stroke-linejoin="round"/>
-            <g><rect x="413" y="148" width="22" height="13" rx="2.5" fill="rgba(0,172,193,.14)" stroke="#00ACC1" stroke-width="1.1"/><path d="M419 150.5 l6.5 4 -6.5 4 z" fill="#00ACC1"/></g>
-            <rect x="447" y="108" width="30" height="16" rx="8" fill="#0D2E4A"/>
-            <text x="462" y="119.5" text-anchor="middle" font-family="Inter, sans-serif" font-size="9.5" font-weight="800" fill="#FFFFFF">&times;3</text>
-            <text x="424" y="196" text-anchor="middle" font-family="Inter, sans-serif" font-size="7.5" font-weight="700" letter-spacing=".9" fill="#5B7085">RESOLVED TO THE HOUSEHOLD</text>
-          </g>
-
-          <!-- ============ the gate, then the read ============ -->
-          <g data-u="3">
-            <path d="M460 144 C 498 144, 500 190, 524 190" fill="none" stroke="#1B4F72" stroke-width="1.6"/>
-            <line x1="534" y1="136" x2="534" y2="230" stroke="#4F7A25" stroke-width="1.6"/>
-            <text x="534" y="244" text-anchor="middle" font-family="Inter, sans-serif" font-size="7.5" font-weight="700" letter-spacing="1" fill="#4F7A25">MODELED INK BEGINS HERE</text>
-            <text x="560" y="166" font-family="Inter, sans-serif" font-size="8" font-weight="700" letter-spacing=".8" fill="#40566A">MEASURED &middot; 40M HOMES &middot; ACR</text>
-            <rect x="556" y="174" width="396" height="30" rx="2" fill="none" stroke="#B9C9D6" stroke-width="1.2"/>
-            <rect x="558" y="176" width="130" height="26" fill="#1B4F72"/>
-            <rect x="690" y="176" width="260" height="26" fill="rgba(168,209,78,.13)" stroke="#7CB342" stroke-width="1.6" stroke-dasharray="6 4"/>
-            <text x="948" y="166" text-anchor="end" font-family="Inter, sans-serif" font-size="8" font-weight="700" letter-spacing=".8" fill="#4F7A25">EVERY U.S. TV HOME</text>
-            <path d="M950 189 H985" fill="none" stroke="#7CB342" stroke-width="1.6" stroke-dasharray="7 5"/>
-            <text x="754" y="226" text-anchor="middle" font-family="Inter, sans-serif" font-size="10.5" font-weight="600" fill="#40566A">a third of U.S. TV homes measured &mdash; weighted to census, so they stand for the rest</text>
-            <!-- the payoff plate: the biggest number on the figure -->
-            <g fill="none" stroke="#8FA9BE" stroke-width="1.1">
-              <path d="M660 58 V50 H668"/><path d="M948 58 V50 H940"/>
-              <path d="M660 110 V118 H668"/><path d="M948 110 V118 H940"/>
-            </g>
-            <rect x="666" y="56" width="276" height="56" rx="7" fill="rgba(168,209,78,.06)" stroke="#7CB342" stroke-width="1.8" stroke-dasharray="7 5"/>
-            <text x="804" y="88" text-anchor="middle" font-family="Inter, sans-serif" font-size="25" font-weight="800" fill="#0D2E4A">$740K EST.</text>
-            <text x="804" y="104" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" font-weight="700" letter-spacing="1" fill="#4F7A25">ESTIMATED SPEND MINIMUM &middot; DATED</text>
-            <path d="M804 118 V172" fill="none" stroke="#7CB342" stroke-width="1.1" stroke-dasharray="4 3"/>
-          </g>
-
-          <!-- ============ dimension brackets + the claim ============ -->
-          <g data-u="4">
-            <g stroke="#40566A" stroke-width="1">
-              <path d="M42 300 H196"/><path d="M364 300 H478"/>
-              <path d="M42 294 V306"/><path d="M478 294 V306"/>
-            </g>
-            <text x="280" y="303.5" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" font-weight="700" letter-spacing="1" fill="#40566A">OBSERVED &middot; SOLID INK</text>
-            <g stroke="#4F7A25" stroke-width="1">
-              <path d="M545 300 H640" stroke-dasharray="4 3"/><path d="M905 300 H985" stroke-dasharray="4 3"/>
-              <path d="M545 294 V306"/><path d="M985 294 V306"/>
-            </g>
-            <text x="772" y="303.5" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" font-weight="700" letter-spacing="1" fill="#4F7A25">MODELED &middot; DASHED INK &middot; LABELED EST.</text>
-            <text x="500" y="340" text-anchor="middle" font-family="Inter, sans-serif" font-size="12.5" font-weight="700" fill="#14232F">The same spot, caught on every app it runs &mdash; detected on the glass, priced as a dated estimated minimum.</text>
-          </g>
-        </svg>
-        </div>
-        </div>
-        <figcaption class="fig__cap">Impressions land per airing on the TV glass and resolve
-          to the household. The measured share is solid ink;
-          anything weighted outward to the household universe prints dashed, labeled est.,
-          and dated.</figcaption>
-      </figure>
-    </div>
-
-    <h3 class="center" style="margin:2.6rem 0 1.2rem">Why the estimates hold</h3>
-    <!-- r87: the operator's proof — real delivery figures, window Jan 1, 2025 –
-         Aug 31, 2026. Volume and quality figures only; the app count is presented
-         as a floor. -->
-    <div class="msp msp--quiet" data-rise>
-      <div class="msp__top">
-        <div>
-          <span class="msp__n num">955M+</span>
-          <span class="msp__l">political streaming impressions, log-verified
-            &mdash; logged and reconciled since January 2025. Straight from
-            the server log.</span>
-        </div>
-        <details class="mdet" open><summary>The receipts, line by line</summary>
-        <ul class="msp__ticks num">
-          <li><b>3.5M a day</b> in August 2026 &mdash; <b>24M+ a week</b>, up from 2.1M a day across 2026</li>
-          <li><b>98.0% completion</b> &mdash; 918.9M spots watched to the last frame, 7.5 million hours of finished viewing</li>
-          <li><b>608 of 608 days</b> with log-verified streaming &mdash; every single day since January 2025</li>
-          <li><b>At least 288 distinct apps</b> read in a single month</li>
-        </ul>
-        </details>
-      </div>
-      <p class="msp__foot">The estimates above are calibrated against nearly a billion
-        log-verified streaming impressions &mdash; the market&rsquo;s streaming is detected
-        on the glass; the calibration set lives on the server log.</p>
-    </div>
 
     <style>
       .mhero { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; max-width: 880px;
@@ -742,85 +788,10 @@
       @media (max-width: 800px) { .msp__top { grid-template-columns: 1fr; } }
     </style>
 
-        <p class="band-note center mt3">And when a new spot launches on the apps first, the
-      alert at the top of this page is how you hear about it.</p>
   </div>
 </section>
 
 
-<section class="section" id="lanes">
-  <div class="wrap">
-    <div class="center" style="margin-bottom:2.4rem" data-rise>
-      <p class="eyebrow eyebrow--plain" style="justify-content:center">Channel by channel</p>
-      <h2>We track everything.</h2>
-      <p class="lede" style="margin-inline:auto">TV, cable, radio, streaming and digital
-        &mdash; one machine: 1.5M airings a day, all 210 markets, every lane.</p>
-    </div>
-    <div class="lanefams mt1" role="group" aria-label="Four channels: what we detect, where the dollars come from, and where each signal thins">
-      <article class="lanefam">
-        <div class="lanefam__head">
-          <h4 class="lanefam__name">Broadcast TV</h4>
-          <span class="chip chip--lime">Order by order</span>
-        </div>
-        <div class="lanefam__body">
-          <p class="lanefam__what">Every airing on monitored stations &mdash; creative,
-            transcript, air date, markets &mdash; with dollars from orders on file, not
-            ratings models.</p>
-        </div>
-      </article>
-      <article class="lanefam">
-        <div class="lanefam__head">
-          <h4 class="lanefam__name">Local cable</h4>
-          <span class="chip chip--lime">Order by order</span>
-        </div>
-        <div class="lanefam__body">
-          <p class="lanefam__what">Placed orders by system, week and daypart, with the spots
-            running against them. Every dollar traces to a document.</p>
-        </div>
-      </article>
-      <article class="lanefam">
-        <div class="lanefam__head">
-          <h4 class="lanefam__name">Radio</h4>
-          <span class="chip chip--lime">Orders first</span>
-        </div>
-        <div class="lanefam__body">
-          <p class="lanefam__what">Placed radio orders and their audio, joined to TV's race
-            and advertiser records.</p>
-        </div>
-      </article>
-      <article class="lanefam">
-        <div class="lanefam__head">
-          <h4 class="lanefam__name">Streaming &amp; Digital&thinsp;&middot;&thinsp;caught on the apps</h4>
-          <span class="chip chip--warn">Estimated minimum</span>
-        </div>
-        <div class="lanefam__body">
-          <p class="lanefam__what">Streaming ads captured on the TV screen &mdash; estimates
-            post statewide at launch &mdash; tape, platform,
-            transcript &mdash; in 40 million measured households, including spots that
-            never touch broadcast. Impressions in the top 58 markets; monitoring in all 210. Below the top 58,
-            detection still lands market by market with tape and transcript, and dollars
-            print as a statewide estimated minimum &mdash; the walkthrough opens your
-            district&rsquo;s read.</p>
-        </div>
-      </article>
-      <article class="lanefam">
-        <div class="lanefam__head">
-          <h4 class="lanefam__name">Streaming &amp; Digital&thinsp;&middot;&thinsp;measured beyond the capture</h4>
-          <span class="chip">Estimated</span>
-        </div>
-        <!-- O2 ANSWERED by ruling 45 (Adam, 8/25): streaming and digital are ONE lane
-             family in the marketing taxonomy, presented at app grain; the two BASES in
-             this stack stay separate (caught floor vs modeled estimate) and are never
-             summed. The formal two-lane definitions live in the sales-call leave-behind
-             (ex-methodology page, preserved in git history at r44). -->
-        <div class="lanefam__body">
-          <p class="lanefam__what">Competitive digital activity estimated from measured smart-TV
-            viewing &mdash; always marked estimated, never blended into posted channels.</p>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
 
 <!-- ============ THE DIGITAL CLUSTER (rulings 52b + 53) ============ -->
 <!-- Digital is a first-class reason to buy: the mechanism, the app-split board and

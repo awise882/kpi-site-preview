@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r111c">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r112b">
 <style>
   /* Light, centered, airy hero, matching the live site: the announcement banner
      sits flush under the nav, then the display headline in the green-to-teal
@@ -48,6 +48,20 @@
   @media (max-width: 640px) { .hero-banner__in--dual { width: 100%; } }
   /* r109: the detail span only rides along when a full line fits it. */
   @media (max-width: 840px) { .hero-banner__d { display: none; } }
+  /* r112 (Adam): the announcement reads as a second header bar — it becomes a
+     floating centered pill above the hero instead. */
+  .hero-banner { background: transparent; border-bottom: 0; padding: .85rem 0 0; }
+  .hero-banner__in--dual { display: grid; justify-items: center; }
+  .hero-banner__in--dual a { background: color-mix(in srgb, var(--lime) 15%, var(--white));
+    border: 1px solid color-mix(in srgb, var(--lime-dark) 45%, transparent);
+    border-radius: 999px; padding: .32rem 1rem .32rem .5rem; }
+  /* r112: the hero detour ticket — dashed, the polling-desk grammar */
+  .hero-detour { margin: .85rem auto 0; text-align: center; }
+  .hero-detour a { display: inline-block; font-family: var(--mono); font-size: .76rem;
+    letter-spacing: .04em; color: var(--ink-2); text-decoration: none;
+    border: 1.5px dashed var(--lime-dark); border-radius: 999px; padding: .34rem .9rem; }
+  .hero-detour a:hover { color: var(--navy-deep);
+    background: color-mix(in srgb, var(--lime) 10%, var(--white)); }
   @media (max-width: 640px) {
     .press-card__shot { height: 190px; overflow: hidden; width: 100%; min-width: 0; align-self: stretch; }
     .press-card__shot img { width: 160%; max-width: none; }
@@ -437,6 +451,10 @@
     </div>
     <p class="small" style="margin-top:.55rem;color:var(--ink-3)">The walk: a buyer&rsquo;s
       Monday-to-Friday, then the seller&rsquo;s &mdash; real artifacts, hour by hour.</p>
+    <!-- r112 (Adam): targeting is a fun detour, not an act — one dashed ticket
+         off the hero; polling owns the full story. -->
+    <p class="hero-detour"><a href="polling.html">Detour: watch the air war, then aim
+      &mdash; a question becomes a deal&nbsp;ID &rarr;</a></p>
 
     <!-- The mobile hero's proof: a two-race glimpse of the scoreboard, matching the
          platform recreation's rows. Shown under 641px only; desktop keeps the type. -->
@@ -494,7 +512,7 @@
     <div class="curtain curtain--split mt3" data-rise>
       <div>
       <p class="curtain__k">Streaming &middot; the third everyone else misses</p>
-      <h3 class="curtain__h">See behind the curtain.</h3>
+      <h3 class="curtain__h">A third of the fight is digital. We measure it.</h3>
       <p class="curtain__p">Transparency reports and public ad libraries end where streaming
         begins &mdash; the third of the air war that runs there is invisible to every
         tracker that reads only the public record. We measure it where it actually plays:
@@ -689,32 +707,25 @@
       <div class="seats__grid">
         <details class="mdet mdet--seat" open>
           <summary>Buying?</summary>
-          <p>The overnight alert with the tape and transcript attached, the scoreboard
-            folded to your book &mdash; forty races from one desk &mdash; and the filed
-            rate behind every quote, worked to <b class="num">$12K</b> back on one
-            400-spot flight.</p>
+          <p>The alert, your whole book on one board, the filed rate behind every
+            quote &mdash; and <b class="num">$12K</b> back on one flight.</p>
           <a href="week.html#wk-buy">Walk the buyer&rsquo;s week &rarr;</a>
         </details>
         <details class="mdet mdet--seat" open>
           <summary>Selling?</summary>
-          <p>Your share as a checkable number, the agency buying around you priced at
-            <b class="num">+$272K</b> on the demo seat, the class the money starves at
-            <b class="num">$310K</b> &mdash; and the streaming money that never touches
-            a public file.</p>
+          <p>Your share, the agency buying around you priced at <b class="num">+$272K</b>,
+            and the streaming money that never touches a public file.</p>
           <a href="week.html#wk-sell">Open the seller&rsquo;s desk &rarr;</a>
         </details>
         <details class="mdet mdet--seat" open>
           <summary>Running the race?</summary>
-          <p>The poll that never closes: ask what the race is arguing about, build the
-            audience from declared answers, land it as a deal ID in the seat you already
-            run &mdash; from <b class="num">$30K</b> across three months, two custom
-            questions included.</p>
+          <p>Ask what the race is arguing about, build the audience from the answers,
+            land it as a deal ID &mdash; from <b class="num">$30K</b>.</p>
           <a href="polling.html">See the loop &rarr;</a>
         </details>
         <details class="mdet mdet--seat" open>
           <summary>Covering it?</summary>
-          <p>Dated, citable numbers with the credit line pre-written, custom pulls
-            usually same day on deadline, and a verified press login of your own.</p>
+          <p>Dated citable numbers, same-day pulls on deadline, a login of your own.</p>
           <a href="press.html">The newsroom &rarr;</a>
         </details>
       </div>
@@ -723,34 +734,6 @@
   </div>
 </section>
 
-<!-- ============ TARGETING (r104, the owner's call: the homepage read all
-     competitive — the aim side gets its own proclamation) ============ -->
-<section class="section" id="targeting">
-  <div class="wrap">
-    <div class="curtain curtain--paper curtain--split" data-rise>
-      <div>
-        <p class="curtain__k">The other half &middot; targeting</p>
-        <h3 class="curtain__h">Watch the air war. Then aim.</h3>
-        <p class="curtain__p">The same machine runs the audience side: <b>10,000+</b>
-          always-on questions in the field today, declared answers &mdash; not rented
-          segments &mdash; built into audiences, and delivered as a private-marketplace
-          deal ID in the seat you already run. Syndicated audiences arrive in days;
-          a custom question takes about two weeks.</p>
-        <p class="curtain__go"><a href="polling.html">How targeting works &rarr;</a>
-          &nbsp;&middot;&nbsp; <a href="questions.html">Search the 10,000+ questions &rarr;</a></p>
-      </div>
-      <div class="curtain__figwrap">
-        <p class="tflow" aria-hidden="true">
-          <span class="tflow__q">&ldquo;How concerned are you right now about the economy and jobs?&rdquo;<i>QID 9918 &middot; always on</i></span>
-          <span class="tflow__arrow">&darr;</span>
-          <span class="tflow__aud">Persuadable on the economy, undecided Senate<i>declared audience &middot; composition read + effective n before the IO</i></span>
-          <span class="tflow__arrow">&darr;</span>
-          <span class="tflow__deal num">KPI-PMP-2026-0841<i>deal ID &middot; lands in your seat</i></span>
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
 
 <section class="section section--tint" id="press">
   <div class="wrap">
