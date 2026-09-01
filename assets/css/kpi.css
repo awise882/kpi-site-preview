@@ -2735,3 +2735,9 @@ details.mdet--keep > summary { display: block; pointer-events: none; font-weight
   .lanefam--st .lanefam__more > div { display: grid;
     grid-template-columns: 1fr 1fr; gap: 0 1.2rem; }
 }
+
+/* ===== r125 — the real receipt stands alone ===== */
+/* The Des Moines-Ames receipt is the rate section's only exhibit now: white
+   card staging, aligned to the split's text column top. */
+#fcc-rates .press-card__art--hero { margin-top: 1.4rem; }
+@media (min-width: 900px) { #fcc-rates .press-card__art--hero { margin-top: 3.2rem; } }
