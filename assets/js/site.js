@@ -563,7 +563,7 @@
 (function () {
   try {
     if (window.matchMedia && matchMedia('(max-width: 640px)').matches) {
-      document.querySelectorAll('details.mdet[open]').forEach(function (d) {
+      document.querySelectorAll('details.mdet[open]:not(.mdet--seat)').forEach(function (d) {
         d.removeAttribute('open');
       });
     }

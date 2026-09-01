@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r113">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r114">
 <style>
   .fig-scroll > svg { min-width: 820px; }
   /* R69: the key graphic gets a phone-native stack; no panning a 1000px drawing */
@@ -161,11 +161,9 @@
         <svg class="mhero__bar" viewBox="0 0 300 56" role="img" aria-label="A third of measured political TV ad impressions run on streaming">
           <rect x="0" y="4" width="94" height="34" fill="#A8D14E"/>
           <text x="47" y="26" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="800" fill="#08243B">1 in 3</text>
-          <defs><pattern id="mhHatch" width="6" height="6" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="6" stroke="#5B7C96" stroke-width="1.2"/></pattern></defs>
-          <rect x="98" y="4" width="202" height="34" fill="url(#mhHatch)" opacity=".5"/>
-          <rect x="98" y="4" width="202" height="34" fill="none" stroke="#5B7C96" stroke-width="1"/>
+          <rect x="98" y="4" width="202" height="34" fill="#2E5E88"/>
           <text x="0" y="52" font-family="Inter, sans-serif" font-size="7.5" font-weight="700" letter-spacing=".8" fill="#A8D14E">DIGITAL &middot; MEASURED HERE</text>
-          <text x="199" y="52" text-anchor="middle" font-family="Inter, sans-serif" font-size="7.5" font-weight="700" letter-spacing=".8" fill="#8FA9BE">LINEAR &middot; COVERED ORDER BY ORDER</text>
+          <text x="300" y="52" text-anchor="end" font-family="Inter, sans-serif" font-size="7.5" font-weight="700" letter-spacing=".8" fill="#8FA9BE">LINEAR &middot; ORDER BY ORDER</text>
         </svg>
         <a class="mhero__go" href="#streaming-spend">How streaming is measured &rarr;</a>
       </div>
@@ -219,32 +217,23 @@
             and advertiser records.</p>
         </div>
       </article>
+      <!-- O2 / ruling 45 (Adam, 8/25): streaming and digital are ONE lane family;
+           the two BASES (caught floor vs modeled estimate) stay separate rows here,
+           never summed. r114: one card, two labeled rows (round-7 ia + mav2). -->
       <article class="lanefam">
         <div class="lanefam__head">
-          <h4 class="lanefam__name">Streaming &amp; Digital&thinsp;&middot;&thinsp;caught on the apps</h4>
-          <span class="chip chip--warn">Estimated minimum</span>
+          <h4 class="lanefam__name">Streaming &amp; Digital&thinsp;&middot;&thinsp;on the TV glass</h4>
+          <span class="chip chip--warn">Captured &middot; estimated &middot; never blended</span>
         </div>
         <div class="lanefam__body">
-          <p class="lanefam__what">Streaming ads captured on the TV screen &mdash; tape,
-            platform, transcript &mdash; in 40 million measured households, including spots
-            that never touch broadcast. Impressions in the top 58 markets, monitoring in
-            all 210; below the 58, dollars print as a statewide estimated minimum &mdash;
-            the walkthrough opens your district&rsquo;s read.</p>
-        </div>
-      </article>
-      <article class="lanefam">
-        <div class="lanefam__head">
-          <h4 class="lanefam__name">Streaming &amp; Digital&thinsp;&middot;&thinsp;measured beyond the capture</h4>
-          <span class="chip">Estimated</span>
-        </div>
-        <!-- O2 ANSWERED by ruling 45 (Adam, 8/25): streaming and digital are ONE lane
-             family in the marketing taxonomy, presented at app grain; the two BASES in
-             this stack stay separate (caught floor vs modeled estimate) and are never
-             summed. The formal two-lane definitions live in the sales-call leave-behind
-             (ex-methodology page, preserved in git history at r44). -->
-        <div class="lanefam__body">
-          <p class="lanefam__what">Competitive digital activity estimated from measured smart-TV
-            viewing &mdash; always marked estimated, never blended into posted channels.</p>
+          <p class="lanefam__what"><b>Captured:</b> streaming ads read on the TV screen
+            &mdash; tape, platform, transcript &mdash; in 40 million measured households,
+            including spots that never touch broadcast. Impressions in the top 58 markets,
+            monitoring in all 210; below the 58, dollars print as a statewide estimated
+            minimum.</p>
+          <p class="lanefam__what"><b>Estimated:</b> competitive digital activity modeled
+            from measured smart-TV viewing &mdash; always marked estimated, never blended
+            into posted channels. The walkthrough opens your district&rsquo;s read.</p>
         </div>
       </article>
     </div>
@@ -337,7 +326,7 @@
             <g><rect x="413" y="148" width="22" height="13" rx="2.5" fill="rgba(0,172,193,.14)" stroke="#00ACC1" stroke-width="1.1"/><path d="M419 150.5 l6.5 4 -6.5 4 z" fill="#00ACC1"/></g>
             <rect x="447" y="108" width="30" height="16" rx="8" fill="#0D2E4A"/>
             <text x="462" y="119.5" text-anchor="middle" font-family="Inter, sans-serif" font-size="9.5" font-weight="800" fill="#FFFFFF">&times;3</text>
-            <text x="424" y="196" text-anchor="middle" font-family="Inter, sans-serif" font-size="7.5" font-weight="700" letter-spacing=".9" fill="#5B7085">RESOLVED TO THE HOUSEHOLD</text>
+            <text x="424" y="199" text-anchor="middle" paint-order="stroke" stroke="#FAFCFE" stroke-width="3" font-family="Inter, sans-serif" font-size="7.5" font-weight="700" letter-spacing=".9" fill="#5B7085">RESOLVED TO THE HOUSEHOLD</text>
           </g>
 
           <!-- ============ the gate, then the read ============ -->
@@ -814,7 +803,7 @@
             <li>The competitive buy&rsquo;s actual clearances beside your quote</li>
             <li>Candidates and outside groups read separately &mdash; LUR-protected rates
               by class of time vs market rate</li>
-            <li>Sellers pull the same history to defend the rate</li>
+            <li>Sellers pull the same history to defend the rate &mdash; the <b class="num">$355</b> outside-group clear answers a buyer waving the <b class="num">$260</b> candidate rate: different class, filed apart</li>
           </ul>
         </div>
         <div class="btn-row mt2">
@@ -1034,6 +1023,6 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r113"></script>
+<script src="assets/js/site.js?v=r114"></script>
 </body>
 </html>
