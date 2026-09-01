@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r125">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r126">
 <style>
   /* r106: every hero its own composition -- this page opens on the two desks
      themselves. Text left; the buyer's and seller's doors right. */
@@ -156,11 +156,11 @@
       <div class="wk__rail" role="tablist" aria-label="Choose a desk">
         <button class="wk__tab" id="wk-tab-buy" type="button" role="tab" aria-selected="true" aria-controls="wk-buy">
           <span class="wk__tab-name">The buyer&rsquo;s week</span>
-          <span class="wk__tab-sub">Mon &rarr; Fri &middot; the alert, the boards, the rates, the money back</span>
+          <span class="wk__tab-sub">Mon &rarr; Fri &middot; walked in four beats</span>
         </button>
         <button class="wk__tab" id="wk-tab-sell" type="button" role="tab" aria-selected="false" aria-controls="wk-sell">
           <span class="wk__tab-name">The seller&rsquo;s week</span>
-          <span class="wk__tab-sub">Same data &middot; your share, the gaps, who to call</span>
+          <span class="wk__tab-sub">Same data &middot; from the other desk</span>
         </button>
       </div>
       <p class="wk__cue" aria-hidden="true">Two desks, one dataset &middot; click to switch</p>
@@ -422,10 +422,11 @@
       <a class="chip" href="#class-gap-board">Class gap</a>
       <a class="chip" href="#agency-book">Agency book</a>
     </div>
-    <div class="wk-doc" style="margin-top:1.1rem;max-width:640px">
+    <div class="wk-doc" id="wk-friday" style="margin-top:1.1rem;max-width:640px">
       <div class="wk-doc__bar"><span class="wk-doc__brand">KPI &middot; The back half of the week</span><span class="wk-doc__stamp">THU &middot; FRI</span></div>
       <div class="wk-doc__row"><span><b>THU</b> &middot; the make-good comes to you</span><span class="num">the <b>$25K</b> booked-vs-aired gap, posted on your air first</span></div>
       <div class="wk-doc__row"><span><b>FRI</b> &middot; hold the rate</span><span class="num">the buyer waves <b>$260</b> candidate &mdash; the <b>$355</b> OG page answers</span><span class="wk-doc__hi num">different class, filed apart</span></div>
+      <div class="wk-doc__row"><span><b>FRI</b> &middot; and it holds</span><span class="num">the <b>$355</b> stands across <b>180</b> booked spots</span><span class="wk-doc__hi num"><b>$17K</b> the class defense keeps on the books</span></div>
     </div>
     <p class="small" style="margin-top:.9rem">That&rsquo;s the seller&rsquo;s week &mdash;
       and these are its boards, in full:</p>
@@ -454,9 +455,8 @@
     <!-- r88b: the seller's boards as one deck. site.js adds .pb--live and the
          rail appears; JS-off all six boards render stacked exactly as before.
          Panels keep their ids so every existing deep link still lands. -->
-    <p class="small" style="max-width:72ch">The seller&rsquo;s week runs through these
-      boards: Monday&rsquo;s price, Tuesday&rsquo;s gap, Wednesday&rsquo;s calls &mdash; and the
-      alerts carry every morning after.</p>
+    <p class="small" style="max-width:72ch">Each board answers to a day of the week;
+      the alerts carry every morning after.</p>
     <div class="pb__rail mt3" role="tablist" aria-label="Choose a seller board">
       <button class="pb__tab" id="pb-tab-orderflow" type="button" role="tab" aria-selected="true" aria-controls="order-flow">
         <span class="wk__tab-name">Order flow</span>
@@ -910,9 +910,15 @@
     <div class="grid grid--2 mt3" data-rise>
       <div class="card card--flag">
         <p class="card__k">Third-party proof your air ran</p>
-        <p class="small" style="margin:0">App sellers export their platform&rsquo;s detected
+        <p class="small" style="margin:0 0 .7rem">App sellers export their platform&rsquo;s detected
           occurrences &mdash; dated, labeled, independent &mdash; the receipt a political
-          buyer&rsquo;s compliance desk asks for on make-goods.</p>
+          buyer&rsquo;s compliance desk asks for on make-goods:</p>
+        <div class="wk-doc">
+          <div class="wk-doc__bar"><span class="wk-doc__brand">KPI &middot; Occurrence export</span><span class="wk-doc__stamp">SYNTHETIC ROWS &middot; REAL FORMAT</span></div>
+          <div class="wk-doc__row"><span class="num">TUE 10:41:12 PM &middot; Columbus &middot; your service &middot; &ldquo;First Light&rdquo; :30</span><span class="num">aired &middot; independent read</span></div>
+          <div class="wk-doc__row"><span class="num">TUE 10:52:47 PM &middot; Columbus &middot; your service &middot; &ldquo;First Light&rdquo; :30</span><span class="num">aired &middot; independent read</span></div>
+          <div class="wk-doc__row"><span>dated, third-party, exportable</span><span class="wk-doc__hi num">the sheet the compliance desk asks for</span></div>
+        </div>
       </div>
       <div class="card card--flag">
         <p class="card__k">Collateral, not just intel</p>
@@ -1047,6 +1053,6 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r125"></script>
+<script src="assets/js/site.js?v=r126"></script>
 </body>
 </html>
