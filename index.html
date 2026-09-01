@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r134">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r135">
 <style>
   /* Light, centered, airy hero, matching the live site: the announcement banner
      sits flush under the nav, then the display headline in the green-to-teal
@@ -84,7 +84,7 @@
     font-size: clamp(1.08rem, 1.9vw, 1.45rem); line-height: 1.5;
     font-weight: 650; color: var(--navy-deep); letter-spacing: -.008em;
   }
-  .hero-proclaim b.num { font-weight: 800; box-shadow: inset 0 -0.34em var(--lime); padding: 0 .06em; }
+  .hero-proclaim .hp-s { display: inline-block; }
   .hero-proclaim a { color: inherit; text-decoration: none; }
   .hero-proclaim a:hover { text-decoration: underline; text-underline-offset: 3px;
     text-decoration-color: var(--lime-dark); }
@@ -93,6 +93,8 @@
     letter-spacing: .07em; text-transform: uppercase; color: var(--ink-3);
     font-variant-numeric: tabular-nums lining-nums;
   }
+  .hero-receipt a { color: inherit; text-decoration: underline;
+    text-underline-offset: 3px; text-decoration-color: var(--lime-dark); }
   .press-nums { display: flex; flex-wrap: wrap; justify-content: center; gap: .5rem 2rem;
     margin-top: 1.3rem; font-size: .85rem; color: var(--ink-3); }
   .press-nums b { font-size: 1.35rem; font-weight: 800; color: var(--navy-deep); margin-right: .3rem;
@@ -452,32 +454,38 @@
       <span class="ht__l" data-t="Political Ad Intelligence">Political Ad Intelligence</span><br>
       <span class="ht__l ht__l--accent" data-t="Platform">Platform</span>
     </h1>
-    <p class="hero-proclaim"><b class="num">1.5M</b> ad airings a day. <b class="num">All&nbsp;210</b> markets.
-      <a href="monitoring.html#lanes"><b class="num">288</b>&nbsp;streaming&nbsp;apps.</a></p>
+    <p class="hero-proclaim"><span class="hp-s">Every creative.</span> <span class="hp-s">Every channel.</span> <span class="hp-s">Every market.</span></p>
+    <p class="hero-receipt" aria-label="The numbers under the claim: over forty billion dollars in spending tracked, 1.5 million ad airings a day, more than a quarter-million TV and radio orders growing daily, 288 streaming apps, all 210 markets">
+      <span>$40B+ in spending tracked</span><i class="hr-sep" aria-hidden="true">&middot;</i>
+      <span>1.5M ad airings a day</span><i class="hr-sep" aria-hidden="true">&middot;</i>
+      <span>250K+ TV &amp; radio orders, growing daily</span><i class="hr-sep" aria-hidden="true">&middot;</i>
+      <span><a href="monitoring.html#lanes">288 streaming apps</a></span><i class="hr-sep" aria-hidden="true">&middot;</i>
+      <span>all 210 markets</span>
+    </p>
     <p class="lede">KPI tracks political ads and the money behind them &mdash; on TV,
       cable, radio and streaming, in every U.S. media market, near real time. When
       the other side moves, you know the same day.</p>
     <div class="btn-row">
       <a class="btn btn--lime btn--lg" href="contact.html">Request a demo</a>
-      <a class="btn btn--outline btn--lg" href="week.html">Walk a week with it</a>
+      <a class="btn btn--outline btn--lg" href="week.html">See a buyer&rsquo;s week</a>
     </div>
-    <p class="small" style="margin-top:.55rem;color:var(--ink-3)">The walk: a buyer&rsquo;s
+    <p class="small" style="margin-top:.55rem;color:var(--ink-3)">A buyer&rsquo;s
       Monday-to-Friday, then the seller&rsquo;s &mdash; worked boards, honestly stamped, beat by beat.</p>
     <!-- The mobile hero's proof: a two-race glimpse of the scoreboard, matching the
          platform recreation's rows. Shown under 641px only; desktop keeps the type. -->
-    <div class="hero-board" data-plx style="--plx-d:12px" role="img" aria-label="A glimpse of the scoreboard: two races, each side's share of committed money, the TV, cable and radio total with the streaming estimate riding beside it, and the week's new money on top. Synthetic sample.">
+    <div class="hero-board" data-plx style="--plx-d:12px" role="img" aria-label="A glimpse of the scoreboard: two races, each side's share of committed money, the TV, cable and radio total with the streaming estimate labeled apart, and the week's fresh spending on top. Synthetic sample.">
       <div class="hb-top"><span class="hb-dot"></span>SCOREBOARD<span class="hb-stamp">POSTED THRU AUG 30, 2026</span></div>
       <div class="hb-row">
         <div class="hb-l1"><span class="hb-tag">AG</span><b>Midstate Attorney General</b><span class="hb-wk">+$3.3M</span></div>
         <div class="hb-l2"><span class="hb-pct hb-pd">40%</span><span class="hb-bar"><i style="width:40%"></i><em style="width:60%"></em></span><span class="hb-pct hb-pr">60%</span></div>
-        <div class="hb-l3"><span>TV &middot; CABLE &middot; RADIO &middot; POSTED + BOOKED <b>$29.2M</b></span><span class="hb-str">STREAMING <b>$1.1M</b> EST. &middot; BESIDE</span></div>
+        <div class="hb-l3"><span>TV &middot; CABLE &middot; RADIO &middot; POSTED + BOOKED <b>$29.2M</b></span><span class="hb-str">STREAMING <b>$1.1M</b> EST. &middot; KEPT APART</span></div>
       </div>
       <div class="hb-row">
         <div class="hb-l1"><span class="hb-tag">GOV</span><b>North River Governor</b><span class="hb-wk">+$1.8M</span></div>
         <div class="hb-l2"><span class="hb-pct hb-pd">48%</span><span class="hb-bar"><i style="width:48%"></i><em style="width:52%"></em></span><span class="hb-pct hb-pr">52%</span></div>
-        <div class="hb-l3"><span>TV &middot; CABLE &middot; RADIO &middot; POSTED + BOOKED <b>$14.1M</b></span><span class="hb-str">STREAMING <b>$640K</b> EST. &middot; BESIDE</span></div>
+        <div class="hb-l3"><span>TV &middot; CABLE &middot; RADIO &middot; POSTED + BOOKED <b>$14.1M</b></span><span class="hb-str">STREAMING <b>$640K</b> EST. &middot; KEPT APART</span></div>
       </div>
-      <div class="hb-foot"><span>NEW MONEY RISES TO THE TOP</span><span>SYNTHETIC SAMPLE</span></div>
+      <div class="hb-foot"><span>WHAT MOVED THIS WEEK, ON TOP</span><span>SYNTHETIC SAMPLE</span></div>
     </div>
   </div>
 
@@ -517,7 +525,7 @@
       </div>
       <div class="statlead__side">
         <div class="statlead__row"><b class="num">40M</b><span>homes measuring streaming on the TV glass</span></div>
-        <div class="statlead__row"><b class="num">220M+</b><span>streaming ad impressions measured in one week</span></div>
+        <div class="statlead__row"><b class="num">1&ndash;4B</b><span>streaming ad impressions a day, weighted from the measured panel</span></div>
         <div class="statlead__row"><b class="num">65M</b><span>smart-TV devices behind the panel</span></div>
       </div>
       <p class="statlead__foot">BEHIND THE READS &middot; ALL 210 MARKETS &middot; A DECADE OF HISTORY UNDER EVERY TREND</p>
@@ -525,16 +533,16 @@
 
     <div class="curtain curtain--split mt3" data-rise>
       <div>
-      <p class="curtain__k">Streaming &middot; the third the public record misses</p>
-      <h3 class="curtain__h">A third of the measured fight is digital. We measure it.</h3>
-      <p class="curtain__p">Transparency reports and public ad libraries end where
-        streaming begins. We read it where it actually plays &mdash; on the TV glass,
-        app by app, through our VideoAmp partnership &mdash; so the board you read
-        carries the whole fight.</p>
+      <p class="curtain__k">Streaming &amp; digital &middot; measured on the TV glass</p>
+      <h3 class="curtain__h">Digital, covered &mdash; in a way no one else can.</h3>
+      <p class="curtain__p">We read streaming where it actually plays &mdash; on the
+        TV glass, app by app, in 40M measured homes through our VideoAmp partnership.
+        It matters because a third of the measured fight is already digital, and
+        it&rsquo;s only growing. Built for what&rsquo;s happening &mdash; and what&rsquo;s next.</p>
       <p class="curtain__go"><a href="monitoring.html#how-counted">How streaming is measured &rarr;</a></p>
       </div>
       <div class="curtain__figwrap">
-      <svg class="curtain__fig" data-plx style="--plx-d:26px" viewBox="0 0 300 96" role="img" aria-label="One in three measured political TV ad impressions run on streaming: a bar with one solid measured cell beside two cells in the public record's hatched ink">
+      <svg class="curtain__fig" data-plx style="--plx-d:26px" viewBox="0 0 300 96" role="img" aria-label="One in three measured political TV ad impressions run on streaming: a bar with one solid measured cell next to two cells in the public record's hatched ink">
         <text x="6" y="14" font-family="Inter, sans-serif" font-size="8.5" font-weight="700" letter-spacing="1" fill="#9FBFD6">MEASURED POLITICAL TV AD IMPRESSIONS</text>
         <rect x="6" y="24" width="92" height="50" fill="#A8D14E"/>
         <text x="52" y="55" text-anchor="middle" font-family="Inter, sans-serif" font-size="15" font-weight="800" fill="#08243B">1 in 3</text>
@@ -609,7 +617,7 @@
           <span class="kw__scrub"><span></span></span>
           <span class="kw__tc num">0:07 / 0:30</span>
         </span>
-        <span class="kw__m">every detected spot plays with its transcript beside it</span>
+        <span class="kw__m">every detected spot plays with its transcript attached</span>
       </div>
       <div class="kw__c kw__c--pod">
         <span class="kw__k">The commercial break &middot; WQZL &middot; 6:14 PM</span>
@@ -617,13 +625,13 @@
         <span class="kw__podrow kw__podrow--hi num"><i>b</i>&ldquo;First Light&rdquo; &middot; Heartland Priorities &middot; :30</span>
 
         <span class="kw__podrow kw__podrow--you num"><i>c</i>Your spot &middot; :30</span>
-        <span class="kw__m">the break&rsquo;s political spots, in air order &mdash; who ran beside you</span>
+        <span class="kw__m">the break&rsquo;s political spots, in air order &mdash; the company your spot kept</span>
       </div>
       <div class="kw__c kw__c--score">
         <span class="kw__k">Scoreboard &middot; North River Governor</span>
         <span class="kw__bar"><i>D</i><span class="kw__tr"><span style="width:93%"></span></span><b class="num">$6.8M</b></span>
         <span class="kw__bar kw__bar--r"><i>R</i><span class="kw__tr"><span style="width:100%"></span></span><b class="num">$7.3M</b></span>
-        <span class="kw__m"><b class="kw__up num">+$1.8M</b> new money this week</span>
+        <span class="kw__m"><b class="kw__up num">+$1.8M</b> added this week</span>
       </div>
       <div class="kw__c kw__c--mix">
         <span class="kw__k">Channel mix &middot; Columbus &middot; committed $</span>
@@ -631,7 +639,7 @@
         <span class="kw__row"><i class="kw__sw" style="background:#7FA8CC"></i>Cable<b class="num">21%</b></span>
         <span class="kw__row"><i class="kw__sw" style="background:#B58A3A"></i>Radio<b class="num">9%</b></span>
         <span class="kw__row kw__row--est"><i class="kw__sw" style="background:var(--teal,#00ACC1)"></i>Streaming<b class="num">8% est.</b></span>
-        <span class="kw__m">streaming rides beside posted, labeled apart</span>
+        <span class="kw__m">streaming rides with posted, labeled apart</span>
       </div>
       <div class="kw__c kw__c--stream">
         <span class="kw__k"><i class="kw__dot"></i>Streaming &middot; caught on the apps</span>
@@ -696,7 +704,7 @@
           <p class="pca__bar"><span>KPI &middot; Scoreboard</span><span>synthetic</span></p>
           <p class="pca__big">Two Rivers Governor <span class="num">+$420K posted overnight</span></p>
           <p class="pca__row num">D 52% &middot; R 48% &middot; AIRED $11.3M &middot; BOOKED FWD $1.1M</p>
-          <p class="pca__row num">STREAMING $1.1M EST. &mdash; beside the total, kept apart</p>
+          <p class="pca__row num">STREAMING $1.1M EST. &mdash; with the total, kept apart</p>
         </div>
         <p class="small">Scoreboard, Buy Sheet, Creative Matrix and the rest &mdash;
           proven on the 303 races it tracks (as of Aug 30, 2026). Every read exports.</p>
@@ -883,6 +891,6 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r134"></script>
+<script src="assets/js/site.js?v=r135"></script>
 </body>
 </html>
