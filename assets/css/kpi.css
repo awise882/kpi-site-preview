@@ -3010,6 +3010,11 @@ details.mdet--keep > summary { display: block; pointer-events: none; font-weight
   100% { opacity: 1; visibility: visible; transform: none; border-top-color: var(--lime); }
 }
 
+/* ===== r146: the RATE v MARKET index, drawn (round-24: the buyer's and
+   maverick-2's tens) — six per-station bars against the 1.0x market hairline,
+   inside the Des Moines FCC specimen. ===== */
+.pca__fig { display: block; width: 100%; height: auto; margin: .55rem 0 .25rem; }
+
 /* ============ r137: the lineage (the owner, Sep 1) ============ */
 /* "We are the team that invented ad tracking with CMAG in 1996 … sold it
    to TNS … the space cowboy vibe is a cool thing." One drawn line under
