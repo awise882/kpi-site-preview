@@ -201,7 +201,7 @@ p .num, .lede .num, .hero-banner .num { white-space: nowrap; }
 .caps { font-family: var(--label); text-transform: uppercase; letter-spacing: .1em; font-weight: 600; font-size: 1em; }
 .serif-accent {
   font-style: italic; font-weight: 400;
-  background: linear-gradient(92deg, var(--blue) 0%, var(--teal) 100%);
+  background: linear-gradient(92deg, var(--blue) 0%, #007A8A 100%);
   -webkit-background-clip: text; background-clip: text; color: transparent;
 }
 .center { text-align: center; }
@@ -3023,4 +3023,40 @@ details.mdet--keep > summary { display: block; pointer-events: none; font-weight
   .lineage__mobile { display: block; font-family: var(--mono); font-size: .68rem;
     letter-spacing: .05em; line-height: 1.9; color: var(--ink-2); text-align: center;
     font-variant-numeric: tabular-nums lining-nums; margin: 0; }
+}
+
+/* ============ r140 (round 22) ============ */
+/* The clock is a labeled instrument from the moment it locks: the stop
+   names print under their dots (scrub only — mobile's stacked stops carry
+   their own kickers). */
+.mtl__dotlab { display: none; }
+@media (min-width: 760px) {
+  html.scrub .mtl__dotlab { display: block; position: absolute; top: 34px;
+    left: var(--x); transform: translateX(-50%); font-family: var(--mono);
+    font-size: .6rem; letter-spacing: .08em; font-weight: 700;
+    color: var(--ink-3); white-space: nowrap; }
+  html.scrub .mtl__dotlab--1 { transform: none; }
+  /* The pinned week keeps a real gutter between claim and card. */
+  html.scrub .wkx__beat { column-gap: 3rem; }
+}
+/* The $12K save as a rate — one glance (cold-cfo). */
+.seats__bar { display: block; width: 100%; max-width: 300px; height: auto;
+  margin: .3rem 0 .55rem; }
+/* The hero's linear card fills like its dark sibling. */
+.mhero__lane { display: flex; flex-direction: column; }
+.mhero__lane .mhero__go { margin-top: auto; }
+/* The lineage draws itself on arrival (the owner-judge's ten): the line
+   runs 1996 -> 2026 and the lime dot lands last. JS-off and reduced
+   motion print the finished strip. */
+.lineage.in-view svg line { stroke-dasharray: 612 612; stroke-dashoffset: 612;
+  animation: lin-draw 1.1s .2s var(--smooth) forwards; }
+.lineage.in-view svg circle:last-of-type { opacity: 0;
+  transform-box: fill-box; transform-origin: center;
+  animation: lin-pop .4s 1.15s var(--smooth) forwards; }
+@keyframes lin-draw { to { stroke-dashoffset: 0; } }
+@keyframes lin-pop { from { opacity: 0; transform: scale(.4); }
+  to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .lineage.in-view svg line { animation: none; stroke-dashoffset: 0; }
+  .lineage.in-view svg circle:last-of-type { animation: none; opacity: 1; }
 }
