@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r123">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r124">
 <style>
   .fig-scroll > svg { min-width: 820px; }
   /* R69: the key graphic gets a phone-native stack; no panning a 1000px drawing */
@@ -85,7 +85,7 @@
       <li class="nav__item"><a href="monitoring.html">Monitoring</a>
         <div class="nav__drop" aria-label="Section shortcuts">
           <a href="monitoring.html#alert-demo">Creative alerts</a>
-          <a href="monitoring.html#streaming-spend">Streaming &amp; Digital</a>
+          <a href="monitoring.html#how-counted">Streaming &amp; digital</a>
           <a href="monitoring.html#cross-screen">The TV-glass count</a>
           <a href="monitoring.html#fcc-rates">FCC rates</a>
         </div>
@@ -103,7 +103,7 @@
         <div class="nav__drop" aria-label="Section shortcuts">
           <a href="week.html#wk-buy">The buyer's week</a>
           <a href="week.html#wk-sell">The seller's week</a>
-          <a href="week.html#air-war">Explore a live market</a>
+          <a href="monitoring.html#air-war">Explore a live market</a>
         </div>
       </li>
       <li class="nav__item"><a href="polling.html">Voter Opinion</a>
@@ -143,21 +143,15 @@
     <div class="mhero" data-rise data-plx style="--plx-d:16px">
       <div class="mhero__lane">
         <p class="mhero__k">Linear</p>
-        <p class="mhero__p"><b>Broadcast, cable, radio</b> &mdash; order by order, priced
-          from posted orders and invoices, with filed rates in all <b>210</b> markets.</p>
-        <div class="mhero__mini num" aria-hidden="true">
-          <span><i>WZQV</i><em>early news &middot; :30</em><b>$260</b></span>
-          <span><i>WQZL</i><em>prime &middot; :15</em><b>$410</b></span>
-          <span><i>CABLE Z4</i><em>news &middot; :30</em><b>$85</b></span>
-        </div>
+        <p class="mhero__p"><b>Broadcast, cable, radio</b> &mdash; order by order,
+          with filed rates in all <b>210</b> markets.</p>
         <a class="mhero__go" href="#lanes">Channel by channel &rarr;</a>
       </div>
       <div class="mhero__lane mhero__lane--dark">
         <p class="mhero__k">Streaming &amp; digital</p>
         <p class="mhero__p"><b>1 in 3</b> political TV ad impressions now run on
-          streaming &mdash; and the share grows every cycle. Competitive tracking has
-          always covered the linear two-thirds; we measure the digital third too, on the
-          glass in <b>40M</b> homes: <b>220M+</b> impressions in one summer week.</p>
+          streaming. We measure the digital third on the glass in <b>40M</b> homes
+          &mdash; <b>220M+</b> impressions in one summer week.</p>
         <svg class="mhero__bar" viewBox="0 0 300 56" role="img" aria-label="A third of measured political TV ad impressions run on streaming">
           <rect x="0" y="4" width="94" height="34" fill="#A8D14E"/>
           <text x="47" y="26" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="800" fill="#08243B">1 in 3</text>
@@ -166,7 +160,7 @@
           <text x="0" y="52" font-family="Inter, sans-serif" font-size="7.5" font-weight="700" letter-spacing=".8" fill="#A8D14E">DIGITAL &middot; MEASURED HERE</text>
           <text x="300" y="52" text-anchor="end" font-family="Inter, sans-serif" font-size="7.5" font-weight="700" letter-spacing=".8" fill="#8FA9BE">LINEAR &middot; ORDER BY ORDER</text>
         </svg>
-        <a class="mhero__go" href="#streaming-spend">How streaming is measured &rarr;</a>
+        <a class="mhero__go" href="#how-counted">How streaming is measured &rarr;</a>
       </div>
     </div>
     <div class="btn-row">
@@ -191,61 +185,76 @@
       <span class="fresh__i"><b>Alerts</b> minutes &mdash; the two stamps below</span>
       <span class="fresh__i"><b>Linear orders</b> post the morning they&rsquo;re placed</span>
       <span class="fresh__i"><b>FCC rates</b> near real time &middot; the read-through date is the check</span>
-      <span class="fresh__i"><b>Streaming dollars</b> settle about a week behind linear &mdash; read the stamps</span>
+      <span class="fresh__i"><b>Streaming dollars</b> settle about a week behind linear, labeled</span>
     </div>
-    <div class="lanefams mt1" role="group" aria-label="Four channels: what we detect, where the dollars come from, and where each signal thins">
-      <article class="lanefam">
+    <div class="lanefams mt1" role="group" aria-label="Four channels: what we detect and where the dollars come from; hover or focus a card for the methodology">
+      <article class="lanefam lanefam--bc" tabindex="0">
         <div class="lanefam__head">
           <h4 class="lanefam__name">Broadcast TV</h4>
           <span class="chip chip--lime">Order by order</span>
+          <span class="lanefam__hint" aria-hidden="true">methodology +</span>
         </div>
         <div class="lanefam__body">
-          <p class="lanefam__what">Every airing on monitored stations &mdash; creative,
-            transcript, air date, markets &mdash; with dollars from orders on file, not
-            ratings models.</p>
+          <p class="lanefam__what">Every airing on monitored stations &mdash; dollars from
+            orders on file.</p>
+          <div class="lanefam__more"><div>
+            <p class="lanefam__what">Creative, transcript, air date and markets ride every
+              airing; dollars come from orders and invoices, not ratings models.</p>
+          </div></div>
           <p class="lanefam__rcpt num">WZQV &middot; early news &middot; :30 &middot; $260 &middot; cleared in class</p>
         </div>
       </article>
-      <article class="lanefam">
+      <article class="lanefam lanefam--cb" tabindex="0">
         <div class="lanefam__head">
           <h4 class="lanefam__name">Local cable</h4>
           <span class="chip chip--lime">Order by order</span>
+          <span class="lanefam__hint" aria-hidden="true">methodology +</span>
         </div>
         <div class="lanefam__body">
-          <p class="lanefam__what">Placed orders by system, week and daypart, with the spots
-            running against them. Every dollar traces to a document.</p>
+          <p class="lanefam__what">Placed orders by system, week and daypart.</p>
+          <div class="lanefam__more"><div>
+            <p class="lanefam__what">The spots run against the order &mdash; every dollar
+              traces to a document.</p>
+          </div></div>
           <p class="lanefam__rcpt num">CABLE Z4 &middot; news &middot; :30 &middot; $85 &middot; posted</p>
         </div>
       </article>
-      <article class="lanefam">
+      <article class="lanefam lanefam--rd" tabindex="0">
         <div class="lanefam__head">
           <h4 class="lanefam__name">Radio</h4>
           <span class="chip chip--lime">Orders first</span>
+          <span class="lanefam__hint" aria-hidden="true">methodology +</span>
         </div>
         <div class="lanefam__body">
-          <p class="lanefam__what">Placed radio orders and their audio, joined to TV's race
-            and advertiser records.</p>
+          <p class="lanefam__what">Placed radio orders and their audio.</p>
+          <div class="lanefam__more"><div>
+            <p class="lanefam__what">Joined to TV&rsquo;s race and advertiser records.</p>
+          </div></div>
           <p class="lanefam__rcpt num">AM drive &middot; :60 &middot; the order + its audio</p>
         </div>
       </article>
       <!-- O2 / ruling 45 (Adam, 8/25): streaming and digital are ONE lane family;
-           the two BASES (caught floor vs modeled estimate) stay separate rows here,
-           never summed. r114: one card, two labeled rows (round-7 ia + mav2). -->
-      <article class="lanefam">
+           captured floor vs modeled estimate stay separate, never summed. r124: the
+           methodology folds into the hover (the owner: "double down, more visual"). -->
+      <article class="lanefam lanefam--st" tabindex="0">
         <div class="lanefam__head">
           <h4 class="lanefam__name">Streaming &amp; Digital&thinsp;&middot;&thinsp;on the TV glass</h4>
           <span class="chip chip--warn">Captured &middot; estimated &middot; never blended</span>
+          <span class="lanefam__hint" aria-hidden="true">methodology +</span>
         </div>
         <div class="lanefam__body">
-          <p class="lanefam__what"><b>Captured:</b> streaming ads read on the TV screen
-            &mdash; tape, platform, transcript &mdash; in 40 million measured households,
-            including spots that never touch broadcast. Impressions in the top 58 markets,
-            monitoring in all 210; below the 58, detection still lands market by
-            market &mdash; creative, tape, transcript &mdash; and dollars print as a
-            statewide estimated minimum.</p>
-          <p class="lanefam__what"><b>Estimated:</b> modeled from measured smart-TV
-            viewing &mdash; marked estimated, never blended. How the number is made is
-            <a href="#cross-screen">drawn once, below</a>.</p>
+          <p class="lanefam__what">Streaming ads read on the TV screen, in <b>40M</b>
+            measured homes &mdash; including spots that never touch broadcast.</p>
+          <div class="lanefam__more"><div>
+            <p class="lanefam__what"><b>Captured:</b> tape, platform, transcript &mdash;
+              impressions in the top 58 markets, monitoring in all 210; below the 58,
+              detection still lands market by market and dollars print as a statewide
+              estimated minimum.</p>
+            <p class="lanefam__what"><b>Estimated:</b> modeled from measured smart-TV
+              viewing &mdash; marked estimated, never blended. How the number is made is
+              <a href="#how-counted">drawn once, below</a>.</p>
+          </div></div>
+          <p class="lanefam__rcpt num">HULU &middot; :30 &middot; CAUGHT 4:21:39 PM &middot; NOTHING ON BROADCAST YET</p>
         </div>
       </article>
     </div>
@@ -263,8 +272,9 @@
       <div class="center" style="margin:3rem 0 1.6rem" data-rise>
         <p class="eyebrow eyebrow--plain" style="justify-content:center">The measurement, drawn once</p>
         <h3 style="font-size:clamp(1.5rem,2.6vw,2rem)">Detected on the TV glass. Counted by the home.</h3>
-        <p class="lede" style="margin-inline:auto">Detected where it runs &mdash; on the
-          TV screen, in 40 million measured homes. The modeled share takes dashed ink.</p>
+        <p class="lede" style="margin-inline:auto">We see the ad play on the TV screen,
+          in 40 million real homes. Anything we estimate beyond those homes is drawn
+          dashed and labeled.</p>
       </div>
       <figure class="fig fig--light" id="xscreen-fig">
         <div class="xsm" role="img" aria-label="The TV-glass count, stacked for a phone: the same spot on three streaming apps on one TV, resolved to the household; the 40 million measured homes as a solid third of the every-U.S.-TV-home bar, weighted to census; the 740 thousand dollar estimate plate; and the claim: the same spot, caught on every app it runs, priced as a dated estimated minimum.">
@@ -282,7 +292,7 @@
             <span class="xsm-census">a third of U.S. TV homes measured &mdash; weighted to census, so they stand for the rest</span>
           </div>
           <div class="xsm-plate"><b>$740K EST.</b><i>ESTIMATED SPEND MINIMUM &middot; DATED</i></div>
-          <p class="xsm-claim">The same spot, caught on every app it runs &mdash; detected on the glass, priced as a dated estimated minimum.</p>
+          <p class="xsm-claim">The same spot, caught on every app it runs on &mdash; counted once per home.</p>
         </div>
         <p class="small fig-hint">Swipe the figure sideways to see the whole drawing.</p>
         <div class="fig-swipe">
@@ -338,15 +348,15 @@
             <g><rect x="413" y="148" width="22" height="13" rx="2.5" fill="rgba(0,172,193,.14)" stroke="#00ACC1" stroke-width="1.1"/><path d="M419 150.5 l6.5 4 -6.5 4 z" fill="#00ACC1"/></g>
             <rect x="447" y="108" width="30" height="16" rx="8" fill="#0D2E4A"/>
             <text x="462" y="119.5" text-anchor="middle" font-family="Inter, sans-serif" font-size="9.5" font-weight="800" fill="#FFFFFF">&times;3</text>
-            <text x="424" y="213" text-anchor="middle" paint-order="stroke" stroke="#FAFCFE" stroke-width="3" font-family="Inter, sans-serif" font-size="7.5" font-weight="700" letter-spacing=".7" fill="#5B7085">RESOLVED TO THE HOUSEHOLD</text>
+            <text x="424" y="213" text-anchor="middle" paint-order="stroke" stroke="#FAFCFE" stroke-width="3" font-family="Inter, sans-serif" font-size="7.5" font-weight="700" letter-spacing=".7" fill="#5B7085">COUNTED BY THE HOME</text>
           </g>
 
           <!-- ============ the gate, then the read ============ -->
           <g data-u="3">
             <path d="M460 144 C 498 144, 500 190, 524 190" fill="none" stroke="#1B4F72" stroke-width="1.6"/>
             <line x1="534" y1="136" x2="534" y2="230" stroke="#4F7A25" stroke-width="1.6"/>
-            <text x="534" y="244" text-anchor="middle" font-family="Inter, sans-serif" font-size="7.5" font-weight="700" letter-spacing="1" fill="#4F7A25">MODELED INK BEGINS HERE</text>
-            <text x="560" y="166" font-family="Inter, sans-serif" font-size="8" font-weight="700" letter-spacing=".8" fill="#40566A">MEASURED &middot; 40M HOMES &middot; ACR</text>
+            <text x="534" y="244" text-anchor="middle" font-family="Inter, sans-serif" font-size="7.5" font-weight="700" letter-spacing="1" fill="#4F7A25">ESTIMATES START HERE</text>
+            <text x="560" y="166" font-family="Inter, sans-serif" font-size="8" font-weight="700" letter-spacing=".8" fill="#40566A">MEASURED &middot; 40M HOMES</text>
             <rect x="556" y="174" width="396" height="30" rx="2" fill="none" stroke="#B9C9D6" stroke-width="1.2"/>
             <rect x="558" y="176" width="130" height="26" fill="#1B4F72"/>
             <rect x="690" y="176" width="260" height="26" fill="rgba(168,209,78,.13)" stroke="#7CB342" stroke-width="1.6" stroke-dasharray="6 4"/>
@@ -370,21 +380,21 @@
               <path d="M42 300 H196"/><path d="M364 300 H478"/>
               <path d="M42 294 V306"/><path d="M478 294 V306"/>
             </g>
-            <text x="280" y="303.5" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" font-weight="700" letter-spacing="1" fill="#40566A">OBSERVED &middot; SOLID INK</text>
+            <text x="280" y="303.5" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" font-weight="700" letter-spacing="1" fill="#40566A">SEEN &middot; SOLID</text>
             <g stroke="#4F7A25" stroke-width="1">
               <path d="M545 300 H640" stroke-dasharray="4 3"/><path d="M905 300 H985" stroke-dasharray="4 3"/>
               <path d="M545 294 V306"/><path d="M985 294 V306"/>
             </g>
-            <text x="772" y="303.5" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" font-weight="700" letter-spacing="1" fill="#4F7A25">MODELED &middot; DASHED INK &middot; LABELED EST.</text>
-            <text x="500" y="340" text-anchor="middle" font-family="Inter, sans-serif" font-size="12.5" font-weight="700" fill="#14232F">The same spot, caught on every app it runs &mdash; detected on the glass, priced as a dated estimated minimum.</text>
+            <text x="772" y="303.5" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" font-weight="700" letter-spacing="1" fill="#4F7A25">ESTIMATED &middot; DASHED &middot; LABELED</text>
+            <text x="500" y="340" text-anchor="middle" font-family="Inter, sans-serif" font-size="12.5" font-weight="700" fill="#14232F">The same spot, caught on every app it runs on &mdash; counted once per home.</text>
           </g>
         </svg>
         </div>
         </div>
-        <figcaption class="fig__cap">Impressions land per airing on the TV glass and resolve
-          to the household. The measured share is solid ink;
-          anything weighted outward to the household universe prints dashed, labeled est.,
-          and dated.</figcaption>
+        <figcaption class="fig__cap">The ad plays on a TV we measure &mdash; one
+          airing, one home. To say what it means for the whole country, we scale those
+          homes to all U.S. TV homes; that part prints dashed, labeled as an estimate,
+          with its date.</figcaption>
       </figure>
     </div>
   </div>
@@ -467,341 +477,166 @@
   </div>
 </section>
 
-<!-- ============ LANE BY LANE (moved from platform per IA pass 1: the evidence
-     lives with the machine that promises "where our signal thins, it says so") ============ -->
-<section class="section" id="streaming-spend">
+<section class="section" id="air-war">
   <div class="wrap">
-    <div class="center" style="margin-bottom:2.4rem" data-rise>
-      <p class="eyebrow eyebrow--plain" style="justify-content:center">Streaming &amp; Digital</p>
-      <h2 class="h-display">The money with no paper trail, tracked anyway.</h2>
-      <p class="lede" style="margin-inline:auto">The streaming buy never touches a public
-        file, so we capture it on the screen itself &mdash; and read it service by
-        service, priced as a dated, estimated minimum.</p>
+    <div class="center" style="margin-bottom:2.6rem" data-rise>
+      <p class="eyebrow eyebrow--plain" style="justify-content:center">The air war, explorable</p>
+      <h2>Every market. Every channel. Down to the dollars.</h2>
+      <p class="lede">Pick a market and the picture redraws: what ran, what is booked
+        forward, which channel does the work.<span
+        class="kbd-hint"> Tab reaches the markets; arrow keys move between them.</span></p>
     </div>
 
-    <!-- r98: THE PULSE — cleared measurement numbers (handoff 2026-08-31, settled
-         weeks only). Fence: impressions only, aggregate only, measured vs implied
-         never blended, denominator is always MEASURED political TV impressions,
-         vendor unnamed in this band (partner naming rides the announcement).
-         Refresh contract + post-election pivot slot: assets/data/streaming-pulse.json.
-         Never render the trailing ~3 unsettled weeks. Never call any week typical. -->
-    <div class="msp" data-rise data-pulse>
-      <div class="msp__top">
-        <div>
-          <span class="msp__l" style="margin-top:0;font-weight:700;color:#E8F1F7">A third of measured political TV ad
-            impressions are streaming &mdash; beyond the reach of transparency reports and public
-            ad libraries, measured here on the glass.</span>
-          <span class="msp__n num" data-p="measuredPeakWeek">220M+</span>
-          <span class="msp__l">streaming ad impressions <b>measured</b> in the peak summer
-            week (week of <span data-p="peakWeekOf">August 3, 2026</span>) &middot;
-            <b><span class="num" data-p="measuredSixWeeks">1.06B</span> measured</b> across
-            the six summer weeks.</span>
-        </div>
-        <ul class="msp__ticks num">
-          <li><b><span data-p="impliedPeakWeek">~940M</span> implied national</b> streaming ad impressions in that same peak week &mdash; <b><span data-p="impliedSixWeeks">~4.5B</span></b> across the six weeks &middot; implied by weighting what the panel measured to the national household universe &mdash; always labeled</li>
-          <li><b><span data-p="advertisersOneWeek">1,500+</span> active political advertisers</b> measured in a single week &middot; YouTube and YouTube TV carry <span data-p="youtubeShare">nearly half</span> of measured streaming</li>
-        </ul>
-      </div>
-      <p class="msp__foot">Measured and implied never blend: measured is the floor, panel-observed
-        on our smart-TV measurement panel; implied is the national read, labeled &middot;
-        settled through <b data-p="settledThrough">August 29, 2026</b> &mdash; trailing weeks
-        publish only once they settle.</p>
-    </div>
-
-
-
-    <div class="split" style="align-items:start">
-      <div style="min-width:0">
-        <h3>The number on this board</h3>
-        <p style="margin-top:.9rem;max-width:38ch">Every ad is caught on the glass &mdash;
-          <b>100% of the creatives that run there, each with tape and transcript</b> &mdash;
-          and priced as a dated, estimated minimum, service by service: YouTube and YouTube TV,
-          Tubi, Peacock, Pluto, the vMVPDs.</p>
-        <details class="mdet" open style="margin-top:.9rem;max-width:44ch"><summary>The measured set, in plain terms</summary>
-        <p class="small">The measured set: whatever renders on the TV glass in the
-          40 million measured homes, read service by service and rolled up by platform
-          class. A play is one captured airing on one measured screen; impressions weight
-          plays to the household universe. Don&rsquo;t see your platform named? The class
-          roster opens on the walkthrough.</p>
-        </details>
-
-        <p class="small" style="margin-top:1.2rem">How that number is made &mdash; screens to
-          household to weight &mdash; is <a href="#cross-screen">drawn once, above</a>.</p>
+    <div class="aw" data-aw data-rise>
+      <div class="aw__rail" role="tablist" aria-label="Markets in the North River Senate race">
+        <button class="aw__mkt" id="aw-tab-cc" type="button" role="tab" aria-selected="true" aria-controls="aw-cc">
+          <span class="aw__mkt-name">Columbus</span>
+          <span class="aw__mkt-tot num">$2.6M</span>
+          <span class="aw__mkt-delta num">+$460K this week</span>
+        </button>
+        <button class="aw__mkt" id="aw-tab-ph" type="button" role="tab" aria-selected="false" aria-controls="aw-ph">
+          <span class="aw__mkt-name">Cleveland</span>
+          <span class="aw__mkt-tot num">$2.0M</span>
+          <span class="aw__mkt-delta num">+$120K this week</span>
+        </button>
+        <button class="aw__mkt" id="aw-tab-rv" type="button" role="tab" aria-selected="false" aria-controls="aw-rv">
+          <span class="aw__mkt-name">Toledo</span>
+          <span class="aw__mkt-tot num">$0.9M</span>
+          <span class="aw__mkt-delta num">+$300K this week</span>
+        </button>
       </div>
 
-      <!-- Paths pass: the board rides sticky beside the tall mechanism column, so
-           the right rail never opens into a white hole. -->
-      <div style="min-width:0;position:sticky;top:96px;align-self:start">
-        <div class="rc-spot">
-<div class="rc rc-digital">
-  <div class="rc-digital-edition"><b>The Aug 10 board</b><span class="rc-digital-edition-note">every number below is from this edition &middot; TV filed thru Aug 10 &middot; streaming est. thru Aug 3</span></div>
+      <div class="aw__stage">
+        <article class="aw__panel" id="aw-cc" role="tabpanel" aria-labelledby="aw-tab-cc">
+          <header class="aw__hd">
+            <h3 class="aw__race">Columbus<span class="aw__race-sub">North River Senate &middot; aired dollars by channel</span></h3>
+            <span class="aw__stamp">TV thru Aug 14 &middot; str. est. thru Aug 7, 2026</span>
+          </header>
+          <p class="aw__readline">The broadcast buy carries the market, and the forward
+            book says it holds: $880K is already on station books for the next two weeks.</p>
+          <div class="aw__lanes">
+            <div class="aw__lane" tabindex="0" data-note="Broadcast: order by order, FCC-verified where a filing exists.">
+              <span class="aw__lane-name">Broadcast <i class="aw__tag">Posted</i></span>
+              <span class="aw__track"><span class="aw__fill" style="--w:100%"></span></span>
+              <span class="aw__val w-measured num">$1.9M</span>
+            </div>
+            <div class="aw__lane" tabindex="0" data-note="Local cable: placed orders by system, week and daypart.">
+              <span class="aw__lane-name">Local cable <i class="aw__tag">Posted</i></span>
+              <span class="aw__track"><span class="aw__fill aw__fill--ca" style="--w:27%"></span></span>
+              <span class="aw__val w-measured num">$520K</span>
+            </div>
+            <div class="aw__lane" tabindex="0" data-note="Radio: dollars post from placed orders; where none exist, dollars from caught airings, labeled.">
+              <span class="aw__lane-name">Radio <i class="aw__tag">Posted</i></span>
+              <span class="aw__track"><span class="aw__fill aw__fill--ra" style="--w:7%"></span></span>
+              <span class="aw__val w-measured num">$140K</span>
+            </div>
+<!-- Ruling 50j: one Streaming & Digital row; the caught-vs-modeled split rides the lane note. -->
+            <div class="aw__lane" tabindex="0" data-note="Streaming &amp; Digital: estimated from measured smart-TV homes &mdash; at least $310K of it caught directly on the apps. Kept separate from the TV channels.">
+              <span class="aw__lane-name">Streaming &amp; Digital <i class="aw__tag aw__tag--est">Estimated</i></span>
+              <span class="aw__track"><span class="aw__fill aw__fill--dg" style="--w:21%"></span></span>
+              <span class="aw__val w-est num">$390K</span>
+            </div>
+          </div>
+          <p class="small aw__note" aria-live="polite">Tap a channel for what stands under the
+            number.<span class="kbd-hint"> Hovering or focusing a channel with a mouse or keyboard does the same.</span></p>
+          <dl class="aw__meta">
+            <div><dt>Aired</dt><dd class="w-measured num">$2.6M</dd></div>
+            <div><dt>Booked forward</dt><dd class="num">$880K</dd></div>
+            <div><dt>Top advertiser</dt><dd>Hale for Senate (D)</dd></div>
+            <div><dt>Went dark</dt><dd>Hometown Values, Aug 11</dd></div>
+          </dl>
+        </article>
 
-  <div class="rc-digital-toolbar">
-    <span class="rc-digital-brand"><span class="rc-digital-dot"></span>KPI &middot; Digital Competitive</span>
-    <span class="rc-digital-filters" aria-hidden="true">
-      <span class="rc-digital-filter">Cycle <b>2026</b> &#9662;</span>
-      <span class="rc-digital-filter">Race <b>Lakemont Gov</b> &#9662;</span>
-      <span class="rc-digital-filter">Market <b>All</b> &#9662;</span>
-      <span class="rc-digital-filter">Advertiser <b>All</b> &#9662;</span>
-      <span class="rc-digital-filter">Stage <b>General</b> &#9662;</span>
-    </span>
-    <span class="rc-digital-caption" aria-hidden="true">Cycle 2026 &middot; Lakemont Gov &middot; all markets &middot; general</span>
-  </div>
+        <article class="aw__panel" id="aw-ph" role="tabpanel" aria-labelledby="aw-tab-ph">
+          <header class="aw__hd">
+            <h3 class="aw__race">Cleveland<span class="aw__race-sub">North River Senate &middot; aired dollars by channel</span></h3>
+            <span class="aw__stamp">TV thru Aug 14 &middot; str. est. thru Aug 7, 2026</span>
+          </header>
+          <p class="aw__readline">The cable buy is the story: over 40% of Cleveland's
+            posted money runs on local cable, the channel a broadcast-only read misses.</p>
+          <div class="aw__lanes">
+            <div class="aw__lane" tabindex="0" data-note="Broadcast: order by order, FCC-verified where a filing exists.">
+              <span class="aw__lane-name">Broadcast <i class="aw__tag">Posted</i></span>
+              <span class="aw__track"><span class="aw__fill" style="--w:100%"></span></span>
+              <span class="aw__val w-measured num">$1.1M</span>
+            </div>
+            <div class="aw__lane" tabindex="0" data-note="Local cable: placed orders by system, week and daypart.">
+              <span class="aw__lane-name">Local cable <i class="aw__tag">Posted</i></span>
+              <span class="aw__track"><span class="aw__fill aw__fill--ca" style="--w:76%"></span></span>
+              <span class="aw__val w-measured num">$840K</span>
+            </div>
+            <div class="aw__lane" tabindex="0" data-note="Radio: dollars post from placed orders; where none exist, dollars from caught airings, labeled.">
+              <span class="aw__lane-name">Radio <i class="aw__tag">Posted</i></span>
+              <span class="aw__track"><span class="aw__fill aw__fill--ra" style="--w:9%"></span></span>
+              <span class="aw__val w-measured num">$95K</span>
+            </div>
+            <div class="aw__lane" tabindex="0" data-note="Streaming &amp; Digital: estimated from measured smart-TV homes &mdash; at least $240K of it caught directly on the apps. Kept separate from the TV channels.">
+              <span class="aw__lane-name">Streaming &amp; Digital <i class="aw__tag aw__tag--est">Estimated</i></span>
+              <span class="aw__track"><span class="aw__fill aw__fill--dg" style="--w:41%"></span></span>
+              <span class="aw__val w-est num">$450K</span>
+            </div>
+          </div>
+          <p class="small aw__note" aria-live="polite">Tap a channel for what stands under the
+            number.<span class="kbd-hint"> Hovering or focusing a channel with a mouse or keyboard does the same.</span></p>
+          <dl class="aw__meta">
+            <div><dt>Aired</dt><dd class="w-measured num">$2.0M</dd></div>
+            <div><dt>Booked forward</dt><dd class="num">$640K</dd></div>
+            <div><dt>Top advertiser</dt><dd>Ellery for Senate (R)</dd></div>
+            <div><dt>Added weight</dt><dd>Granite State Forward PAC, Aug 14</dd></div>
+          </dl>
+        </article>
 
-  <div class="rc-digital-titlerow">
-    <div class="rc-digital-title">
-      <h4 class="rc-digital-race">Lakemont Governor</h4>
-      <p class="rc-digital-sub">Synthetic race &middot; 1 of 303 &middot; D $45.1M &middot; R $33.8M committed</p>
-    </div>
-    <span class="rc-digital-delta">+$406K streaming vs prior wk</span>
-  </div>
-
-  <div class="rc-digital-pills" aria-hidden="true">
-    <button class="rc-digital-pill" type="button" tabindex="-1">Linear only</button>
-    <button class="rc-digital-pill rc-digital-pill-on" type="button" tabindex="-1">All channels (est.)</button>
-    <button class="rc-digital-export" type="button" tabindex="-1">Excel &#8595;</button>
-  </div>
-
-  <div class="rc-digital-sechead">
-    <span>All channels</span><span class="rc-digital-sechead-note">estimates never blended into filed lines &middot; the combined line prints dashed, labeled est.</span>
-  </div>
-
-  <div class="rc-digital-lanes">
-    <div class="rc-digital-lane">
-      <div class="rc-digital-lab"><span class="rc-digital-lane-name">D</span><span class="rc-digital-tag rc-digital-tag-d">Filed</span></div>
-      <div class="rc-digital-track"><div class="rc-digital-fill rc-digital-fill-d" style="width:100%"></div></div>
-      <span class="rc-digital-val">$45.1M</span>
-    </div>
-    <div class="rc-digital-lane">
-      <div class="rc-digital-lab"><span class="rc-digital-lane-name">R</span><span class="rc-digital-tag rc-digital-tag-est">Filed + est.</span></div>
-      <div class="rc-digital-track"><div class="rc-digital-fill rc-digital-fill-r" style="width:75%"></div><div class="rc-digital-fill rc-digital-fill-esttail" style="width:6%"></div></div>
-      <span class="rc-digital-val">$36.7M</span>
-    </div>
-  </div>
-
-  <div class="rc-digital-sechead">
-    <span>Streaming, by service</span><span class="rc-digital-sechead-note">estimated minimum &middot; settled thru Aug 3 &middot; not in posted totals</span>
-  </div>
-
-  <!-- Paths pass: the service is the first read. One total bar per service, scaled
-       to the largest service (YouTube, ~$1.03M), with the D/R split printed inside
-       the bar and stated in the split line beneath, so the partisan skew is the
-       second read and a thin D share never looks like a rendering error. -->
-  <div class="rc-digital-svcs">
-    <div class="rc-digital-svc">
-      <span class="rc-digital-svc-name">YouTube (TV screens)</span>
-      <span class="rc-digital-svc-rail"><span class="rc-digital-svc-track" style="width:100%"><span class="rc-digital-svc-fill rc-digital-svc-fill-d" style="width:2.5%"></span><span class="rc-digital-svc-fill rc-digital-svc-fill-r" style="width:97.5%"></span></span></span>
-      <b class="rc-digital-svc-v">$1.03M</b>
-      <span class="rc-digital-svc-split">D $26K &middot; R $1.0M</span>
-    </div>
-    <div class="rc-digital-svc">
-      <span class="rc-digital-svc-name">Premium streaming</span>
-      <span class="rc-digital-svc-rail"><span class="rc-digital-svc-track" style="width:93%"><span class="rc-digital-svc-fill rc-digital-svc-fill-d" style="width:1%"></span><span class="rc-digital-svc-fill rc-digital-svc-fill-r" style="width:99%"></span></span></span>
-      <b class="rc-digital-svc-v">$962K</b>
-      <span class="rc-digital-svc-split">D $8K &middot; R $954K</span>
-    </div>
-    <div class="rc-digital-apps">
-      <span class="rc-digital-apps-k">by app &#8595;</span>
-      <span class="rc-digital-app"><b>Hulu</b> $412K</span>
-      <span class="rc-digital-app"><b>Max</b> $287K</span>
-      <span class="rc-digital-app"><b>Peacock</b> $263K</span>
-    </div>
-    <div class="rc-digital-svc">
-      <span class="rc-digital-svc-name">Smart-TV channels</span>
-      <span class="rc-digital-svc-rail"><span class="rc-digital-svc-track" style="width:50%"><span class="rc-digital-svc-fill rc-digital-svc-fill-d" style="width:.5%"></span><span class="rc-digital-svc-fill rc-digital-svc-fill-r" style="width:99.5%"></span></span></span>
-      <b class="rc-digital-svc-v">$513K</b>
-      <span class="rc-digital-svc-split">D &lt;$1K &middot; R $513K</span>
-    </div>
-    <div class="rc-digital-svc">
-      <span class="rc-digital-svc-name">Free ad-supported TV</span>
-      <span class="rc-digital-svc-rail"><span class="rc-digital-svc-track" style="width:36%"><span class="rc-digital-svc-fill rc-digital-svc-fill-d" style="width:4%"></span><span class="rc-digital-svc-fill rc-digital-svc-fill-r" style="width:96%"></span></span></span>
-      <b class="rc-digital-svc-v">$374K</b>
-      <span class="rc-digital-svc-split">D $15K &middot; R $359K</span>
-    </div>
-    <div class="rc-digital-svc rc-digital-svc-pending">
-      <span class="rc-digital-svc-name">Live-TV streaming</span>
-      <span class="rc-digital-svc-note">dollars print only when measurement clears validation &middot; in validation as of Aug 2026 &middot; the covered-source list gets a version note when it lands</span>
-    </div>
-  </div>
-
-  <div class="rc-digital-foot">
-    <p>Illustrative figures, synthetic race &middot; the product tracks 303 races with posted or detected money as of Aug 2026 &middot; streaming creative captured on CTV, delivery measured on smart-TV viewing data across 40M households</p>
-    <p>Streaming dollars estimated, read as a minimum, never silently summed into the filed totals &middot; D streaming est. under $0.1M, inside display rounding</p>
-  </div>
-</div>
-
-<style>
-.rc-digital{
-  --rcd-navy:#1B4F72; --rcd-navy2:#0D2E4A; --rcd-navy3:#08243B;
-  --rcd-lime:#A8D14E; --rcd-blue:#2D8BBA; --rcd-blue2:#5B9BD5; --rcd-teal:#00ACC1;
-  --rcd-dem:#2C5F9E; --rcd-rep:#B03A48;
-  --rcd-ink:var(--mock-ink, #0D2E4A); --rcd-mute:var(--mock-dim, #5A6B7C); --rcd-line:var(--mock-rule, #D9E2E9); --rcd-track:#EBF1F5;
-  --rcd-sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
-  --rcd-mono:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  box-sizing:border-box; width:100%; max-width:480px; overflow:hidden;
-  background:#fff; border:1px solid var(--rcd-line); border-top:3px solid var(--rcd-navy2);
-  padding:10px 12px 9px; font-family:var(--rcd-sans); color:var(--rcd-ink);
-  box-shadow:0 1px 3px rgba(8,36,59,.08);
-  container-type:inline-size;
-}
-.rc-digital *,.rc-digital *::before,.rc-digital *::after{box-sizing:border-box;min-width:0;margin:0;padding:0}
-
-/* Size container: type steps up when the column gives the card room. */
-.rc-digital>*{--rcd-s:1}
-@container (min-width:420px){
-  .rc-digital>*{--rcd-s:1.2}
-}
-
-/* The edition banner: the product's own "every number is from this edition" strip. */
-.rc-digital .rc-digital-edition{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 8px;margin:-10px -12px 8px;padding:5px 12px;background:rgba(168,209,78,.14);border-bottom:1px solid var(--rcd-line)}
-.rc-digital .rc-digital-edition b{font-size:calc(8px*var(--rcd-s,1));font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--rcd-navy3);white-space:nowrap}
-.rc-digital .rc-digital-edition-note{font-family:var(--rcd-mono);font-variant-numeric:tabular-nums lining-nums;font-size:max(11px,calc(7px*var(--rcd-s,1)));color:var(--rcd-mute)}
-
-.rc-digital .rc-digital-toolbar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:5px 8px}
-.rc-digital .rc-digital-brand{display:inline-flex;align-items:center;gap:5px;font-size:calc(8px*var(--rcd-s,1));font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--rcd-navy);white-space:nowrap}
-.rc-digital .rc-digital-dot{width:6px;height:6px;border-radius:50%;background:var(--rcd-lime);flex:0 0 auto}
-/* The five filter dropdowns (portal notes §8): real chrome, inert here. */
-.rc-digital .rc-digital-filters{display:flex;flex-wrap:wrap;gap:3px}
-.rc-digital .rc-digital-filter{font-family:var(--rcd-sans);font-size:calc(7px*var(--rcd-s,1));font-weight:500;color:var(--rcd-mute);background:#FAFCFD;border:1px solid var(--rcd-line);border-radius:3px;padding:2px 5px;line-height:1.3;white-space:nowrap}
-.rc-digital .rc-digital-filter b{font-weight:700;color:var(--rcd-navy3)}
-.rc-digital .rc-digital-titlerow{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin-top:8px}
-.rc-digital .rc-digital-race{font-size:calc(13.5px*var(--rcd-s,1));font-weight:800;letter-spacing:-.01em;color:var(--rcd-navy3);line-height:1.15}
-.rc-digital .rc-digital-sub{font-family:var(--rcd-mono);font-variant-numeric:tabular-nums lining-nums;font-size:calc(8px*var(--rcd-s,1));color:var(--rcd-mute);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.rc-digital .rc-digital-delta{font-family:var(--rcd-mono);font-variant-numeric:tabular-nums lining-nums;font-size:calc(8.5px*var(--rcd-s,1));font-weight:600;color:var(--rcd-blue);white-space:nowrap;flex:0 0 auto}
-
-.rc-digital .rc-digital-pills{display:flex;align-items:center;gap:5px;margin-top:8px}
-.rc-digital .rc-digital-pill{font-family:var(--rcd-sans);font-size:calc(8.5px*var(--rcd-s,1));font-weight:600;color:var(--rcd-mute);background:#fff;border:1px solid var(--rcd-line);border-radius:3px;padding:3px 7px;line-height:1.2;cursor:pointer;white-space:nowrap}
-.rc-digital .rc-digital-pill-on{color:#fff;background:var(--rcd-navy);border-color:var(--rcd-navy)}
-.rc-digital .rc-digital-export{margin-left:auto;font-family:var(--rcd-sans);font-size:calc(8.5px*var(--rcd-s,1));font-weight:700;color:var(--rcd-navy3);background:var(--rcd-lime);border:1px solid #93BC3E;border-radius:3px;padding:3px 8px;line-height:1.2;cursor:pointer;white-space:nowrap}
-
-.rc-digital .rc-digital-sechead{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:2px 8px;margin:9px 0 5px;font-size:calc(7.5px*var(--rcd-s,1));font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--rcd-navy);border-bottom:1px solid var(--rcd-line);padding-bottom:3px}
-.rc-digital .rc-digital-sechead-note{font-family:var(--rcd-mono);font-variant-numeric:tabular-nums lining-nums;font-weight:500;letter-spacing:.04em;color:var(--rcd-mute);white-space:normal;font-size:max(11px,calc(7.5px*var(--rcd-s,1)));text-transform:none;line-height:1.4}
-@container (max-width:409px){
-  .rc-digital .rc-digital-sechead-note{white-space:normal;text-align:right;line-height:1.4}
-  /* Round-4 buyer nit: the subtitle ellipsized R's committed total on phones.
-     It wraps instead; both sides' totals always print. */
-  .rc-digital .rc-digital-sub{white-space:normal;overflow:visible;text-overflow:clip;line-height:1.45}
-}
-
-.rc-digital .rc-digital-lanes{display:flex;flex-direction:column;gap:3px}
-.rc-digital .rc-digital-lane{display:grid;grid-template-columns:calc(96px*var(--rcd-s,1)) 1fr calc(52px*var(--rcd-s,1));align-items:center;gap:8px;padding:3px 2px}
-.rc-digital .rc-digital-lab{display:flex;flex-direction:column;gap:1px}
-.rc-digital .rc-digital-lane-name{font-size:calc(9.5px*var(--rcd-s,1));font-weight:700;color:var(--rcd-navy3);line-height:1.1;white-space:nowrap}
-.rc-digital .rc-digital-tag{font-size:calc(6.5px*var(--rcd-s,1));font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--rcd-mute);line-height:1.2;white-space:nowrap}
-.rc-digital .rc-digital-tag-d{color:var(--rcd-dem)}
-.rc-digital .rc-digital-tag-r{color:var(--rcd-rep)}
-.rc-digital .rc-digital-tag-est{color:var(--rcd-blue);border-bottom:1px dashed var(--rcd-blue2);align-self:flex-start}
-.rc-digital .rc-digital-track{height:calc(10px*var(--rcd-s,1));background:var(--rcd-track);display:flex}
-.rc-digital .rc-digital-fill{height:100%;transform-origin:left center}
-.rc-digital .rc-digital-fill-d{background:var(--rcd-dem)}
-.rc-digital .rc-digital-fill-r{background:var(--rcd-rep)}
-.rc-digital .rc-digital-fill-esttail{background:repeating-linear-gradient(45deg,var(--rcd-rep) 0 3px,rgba(179,58,72,.25) 3px 6px);border:1px dashed rgba(179,58,72,.55)}
-.rc-digital .rc-digital-val{font-family:var(--rcd-mono);font-variant-numeric:tabular-nums lining-nums;font-size:calc(10px*var(--rcd-s,1));font-weight:600;color:var(--rcd-navy3);text-align:right;white-space:nowrap}
-
-/* The service-by-service split (rulings 50g + paths pass): the SERVICE is the
-   first read. One total bar per service, width scaled to the largest service
-   total (YouTube, ~$1.03M), the D/R split inside the bar and restated in the
-   split line beneath it. */
-.rc-digital .rc-digital-svcs{display:flex;flex-direction:column;gap:6px}
-.rc-digital .rc-digital-svc{display:grid;grid-template-columns:calc(96px*var(--rcd-s,1)) 1fr calc(52px*var(--rcd-s,1));align-items:center;gap:2px 8px;padding:2px 2px}
-.rc-digital .rc-digital-svc-name{font-size:calc(8.5px*var(--rcd-s,1));font-weight:600;color:var(--rcd-navy3);line-height:1.2}
-.rc-digital .rc-digital-svc-rail{display:flex}
-.rc-digital .rc-digital-svc-track{height:calc(9px*var(--rcd-s,1));background:var(--rcd-track);display:flex}
-.rc-digital .rc-digital-svc-fill{height:100%;min-width:2px;transform-origin:left center}
-.rc-digital .rc-digital-svc-fill-d{background:var(--rcd-dem)}
-.rc-digital .rc-digital-svc-fill-r{background:var(--rcd-rep)}
-.rc-digital .rc-digital-svc-v{font-family:var(--rcd-mono);font-variant-numeric:tabular-nums lining-nums;font-size:max(11px,calc(8.5px*var(--rcd-s,1)));font-weight:700;color:var(--rcd-navy3);text-align:right;white-space:nowrap}
-.rc-digital .rc-digital-apps{display:flex;flex-wrap:wrap;align-items:baseline;gap:calc(10px*var(--rcd-s,1));padding:calc(3px*var(--rcd-s,1)) 0 calc(6px*var(--rcd-s,1)) calc(14px*var(--rcd-s,1));border-left:2px dashed #C9D6E2;margin-left:calc(4px*var(--rcd-s,1))}
-.rc-digital .rc-digital-apps-k{font-size:calc(7px*var(--rcd-s,1));font-weight:800;letter-spacing:.1em;color:#8296A8;text-transform:uppercase}
-.rc-digital .rc-digital-app{font-size:calc(8.5px*var(--rcd-s,1));color:#5B7085;font-variant-numeric:tabular-nums}
-.rc-digital .rc-digital-app b{color:#0D2E4A;font-weight:700;margin-right:3px}
-.rc-digital .rc-digital-svc-split{grid-column:2/-1;font-family:var(--rcd-mono);font-variant-numeric:tabular-nums lining-nums;font-size:max(10px,calc(7px*var(--rcd-s,1)));color:var(--rcd-mute);white-space:nowrap}
-.rc-digital .rc-digital-svc-pending{border:1px dashed var(--rcd-line);background:#fff;padding:4px 6px}
-.rc-digital .rc-digital-svc-pending .rc-digital-svc-note{grid-column:2/-1}
-.rc-digital .rc-digital-svc-note{font-family:var(--rcd-mono);font-size:max(10px,calc(6.5px*var(--rcd-s,1)));line-height:1.4;color:var(--rcd-mute)}
-@container (max-width:349px){
-  .rc-digital .rc-digital-svc{grid-template-columns:1fr;gap:2px}
-  .rc-digital .rc-digital-svc-v{text-align:left}
-  .rc-digital .rc-digital-svc-split,.rc-digital .rc-digital-svc-pending .rc-digital-svc-note{grid-column:auto}
-}
-
-.rc-digital .rc-digital-foot{margin-top:8px;border-top:1px solid var(--rcd-line);padding-top:5px}
-.rc-digital .rc-digital-foot p{font-size:max(11px,calc(7.5px*var(--rcd-s,1)));line-height:1.45;color:var(--rcd-mute)}
-
-@keyframes rc-digital-draw{from{transform:scaleX(0)}}
-@keyframes rc-digital-pulse{0%{box-shadow:0 0 0 0 rgba(168,209,78,.5)}70%{box-shadow:0 0 0 5px rgba(168,209,78,0)}100%{box-shadow:0 0 0 0 rgba(168,209,78,0)}}
-
-@media (prefers-reduced-motion: no-preference){
-  .rc-digital .rc-digital-fill,.rc-digital .rc-digital-svc-fill{animation:rc-digital-draw .65s cubic-bezier(.25,.6,.3,1) backwards}
-  .rc-digital .rc-digital-lane:nth-child(2) .rc-digital-fill{animation-delay:.06s}
-  .rc-digital .rc-digital-svc:nth-child(1) .rc-digital-svc-fill{animation-delay:.12s}
-  .rc-digital .rc-digital-svc:nth-child(2) .rc-digital-svc-fill{animation-delay:.18s}
-  .rc-digital .rc-digital-svc:nth-child(3) .rc-digital-svc-fill{animation-delay:.24s}
-  .rc-digital .rc-digital-svc:nth-child(4) .rc-digital-svc-fill{animation-delay:.3s}
-  .rc-digital .rc-digital-dot{animation:rc-digital-pulse 2.6s ease-out .8s 2}
-}
-</style>
-        </div>
-        <p class="glimpse-cap">An estimated minimum built from what we caught. The full board
-          opens in <a href="contact.html">the demo</a>.</p>
+        <article class="aw__panel" id="aw-rv" role="tabpanel" aria-labelledby="aw-tab-rv">
+          <header class="aw__hd">
+            <h3 class="aw__race">Toledo<span class="aw__race-sub">North River Senate &middot; aired dollars by channel</span></h3>
+            <span class="aw__stamp">TV thru Aug 14 &middot; str. est. thru Aug 7, 2026</span>
+          </header>
+          <p class="aw__readline">Toledo is the streaming market: the posted channels carry
+            $0.9M, and the apps carry an estimated $740K beside them, at least $410K
+            of it caught, none of it visible in any public file.</p>
+          <div class="aw__lanes">
+            <div class="aw__lane" tabindex="0" data-note="Broadcast: order by order, FCC-verified where a filing exists.">
+              <span class="aw__lane-name">Broadcast <i class="aw__tag">Posted</i></span>
+              <span class="aw__track"><span class="aw__fill" style="--w:86%"></span></span>
+              <span class="aw__val w-measured num">$640K</span>
+            </div>
+            <div class="aw__lane" tabindex="0" data-note="Local cable: placed orders by system, week and daypart.">
+              <span class="aw__lane-name">Local cable <i class="aw__tag">Posted</i></span>
+              <span class="aw__track"><span class="aw__fill aw__fill--ca" style="--w:24%"></span></span>
+              <span class="aw__val w-measured num">$180K</span>
+            </div>
+            <div class="aw__lane" tabindex="0" data-note="Radio: dollars post from placed orders; where none exist, dollars from caught airings, labeled.">
+              <span class="aw__lane-name">Radio <i class="aw__tag">Posted</i></span>
+              <span class="aw__track"><span class="aw__fill aw__fill--ra" style="--w:8%"></span></span>
+              <span class="aw__val w-measured num">$60K</span>
+            </div>
+            <div class="aw__lane" tabindex="0" data-note="Streaming &amp; Digital: estimated from measured smart-TV homes &mdash; at least $410K of it caught directly on the apps. Kept separate from the TV channels.">
+              <span class="aw__lane-name">Streaming &amp; Digital <i class="aw__tag aw__tag--est">Estimated</i></span>
+              <span class="aw__track"><span class="aw__fill aw__fill--dg" style="--w:100%"></span></span>
+              <span class="aw__val w-est num">$740K</span>
+            </div>
+          </div>
+          <p class="small aw__note" aria-live="polite">Tap a channel for what stands under the
+            number.<span class="kbd-hint"> Hovering or focusing a channel with a mouse or keyboard does the same.</span></p>
+          <dl class="aw__meta">
+            <div><dt>Aired</dt><dd class="w-measured num">$0.9M</dd></div>
+            <div><dt>Booked forward</dt><dd class="num">$210K</dd></div>
+            <div><dt>Top advertiser &middot; all channels incl. est.</dt><dd>Heartland Priorities PAC</dd></div>
+            <div><dt>Streaming only</dt><dd>No forward book in that channel</dd></div>
+          </dl>
+        </article>
       </div>
     </div>
 
-
-
-    <style>
-      .mhero { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; max-width: 880px;
-        margin: 1.6rem auto 0; text-align: left; }
-      @media (max-width: 720px) { .mhero { grid-template-columns: 1fr; } }
-      .mhero__lane { background: var(--white); border: 1px solid var(--rule); border-radius: var(--r-lg);
-        padding: 1.15rem 1.25rem; box-shadow: 0 1px 2px rgba(13,46,74,.06); }
-      .mhero__lane--dark { background: var(--navy-deep); border-color: var(--navy-deep); }
-      .mhero__k { font-family: var(--label); text-transform: uppercase; letter-spacing: .13em;
-        font-size: .7rem; font-weight: 700; color: var(--blue-text); margin: 0 0 .45rem; }
-      .mhero__lane--dark .mhero__k { color: #9FBFD6; }
-      .mhero__p { margin: 0; font-size: .92rem; line-height: 1.55; color: var(--ink-2); }
-      .mhero__p b { color: var(--navy-deep); }
-      .mhero__lane--dark .mhero__p { color: #C7D9E6; }
-      .mhero__lane--dark .mhero__p b { color: #fff; }
-      .mhero__mini { margin-top: .7rem; display: grid; gap: 3px; }
-      .mhero__mini span { display: flex; align-items: baseline; gap: .6rem;
-        border: 1px solid var(--rule); border-left: 3px solid var(--lime);
-        border-radius: 3px; padding: .3rem .55rem; background: #FAFCFE; }
-      .mhero__mini i { font-style: normal; font-weight: 800; font-size: .68rem; letter-spacing: .06em; color: var(--navy-deep); }
-      .mhero__mini em { font-style: normal; font-size: .68rem; color: var(--ink-3); margin-right: auto; }
-      .mhero__mini b { font-size: .78rem; font-weight: 800; color: var(--navy-deep); }
-      .mhero__bar { display: block; width: 100%; max-width: 300px; height: auto; margin-top: .8rem; }
-      .mhero__go { display: inline-block; margin-top: .6rem; font-size: .85rem; font-weight: 600;
-        color: var(--navy); text-decoration: none; }
-      .mhero__go:hover { text-decoration: underline; }
-      .mhero__lane--dark .mhero__go { color: var(--lime); }
-      .msp.msp--quiet { background: #F2F7FB; border: 1px solid var(--rule); }
-      .msp.msp--quiet::before { opacity: .55; }
-      .msp--quiet .msp__n { color: var(--navy-deep); }
-      .msp--quiet .msp__l { color: var(--ink-2); }
-      .msp--quiet .msp__ticks li { color: var(--ink-2); }
-      .msp--quiet .msp__ticks b, .msp--quiet .msp__foot b { color: var(--navy-deep); }
-      .msp--quiet .msp__foot { color: var(--ink-3); }
-      .msp { background: var(--navy-ink, #08243B); border-radius: var(--r-lg);
-        padding: clamp(1.5rem, 3.2vw, 2.6rem); margin: 0 0 2.6rem; position: relative; overflow: hidden; }
-      .msp::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 3px;
-        background: linear-gradient(90deg, var(--navy) 0%, #00ACC1 55%, var(--lime) 100%); }
-      .msp__top { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
-        gap: 1.6rem 3rem; align-items: start; }
-      .msp__n { display: block; font-family: var(--display); font-weight: 700; color: #fff;
-        font-size: clamp(3.4rem, 7vw, 5.6rem); line-height: .95; letter-spacing: -.02em; }
-      .msp__l { display: block; margin-top: .8rem; color: #B9CFDF; font-size: .95rem; line-height: 1.6; max-width: 34ch; }
-      .msp__ticks { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: .55rem; }
-      .msp__ticks li { color: #9FBFD6; font-size: .88rem; line-height: 1.55;
-        border-left: 2px solid rgba(168,209,78,.5); padding-left: .8rem; }
-      .msp__ticks b { color: #fff; }
-      .msp__foot { margin-top: 1.5rem; border-top: 1px solid rgba(255,255,255,.14);
-        padding-top: 1rem; color: #8FA9BE; font-size: .84rem; line-height: 1.65; max-width: 88ch; }
-      @media (max-width: 800px) { .msp__top { grid-template-columns: 1fr; } }
-    </style>
-
+    <div class="stamp"><b>About this demo</b> Real markets, synthetic race, illustrative
+      figures &mdash; posted through Aug 14, 2026. Market totals are broadcast, cable and
+      radio; streaming prints beside them as an estimated minimum, since a third of
+      measured political TV ad impressions are streaming.</div>
   </div>
 </section>
+
+<!-- ============ LANE BY LANE (moved from platform per IA pass 1: the evidence
+     lives with the machine that promises "where our signal thins, it says so") ============ -->
 
 
 
@@ -1060,6 +895,6 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r114"></script>
+<script src="assets/js/site.js?v=r124"></script>
 </body>
 </html>
