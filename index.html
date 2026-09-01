@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r132">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r133">
 <style>
   /* Light, centered, airy hero, matching the live site: the announcement banner
      sits flush under the nav, then the display headline in the green-to-teal
@@ -60,6 +60,15 @@
   .hero-banner__in--dual a { background: color-mix(in srgb, var(--lime) 15%, var(--white));
     border: 1px solid color-mix(in srgb, var(--lime-dark) 45%, transparent);
     border-radius: 999px; padding: .32rem 1rem .32rem .5rem; }
+  /* r133 (Adam): the announcement stops jumping and stops whispering — the two
+     messages share ONE pill geometry (the grid column sizes to the longer one,
+     both links fill it), centered, bigger, with a real shadow. Only the words
+     swap; nothing moves or resizes. */
+  .hero-banner { padding: 1rem 0 0; }
+  .hero-banner__in--dual { display: grid; justify-content: center; justify-items: stretch; }
+  .hero-banner__in--dual a { width: 100%; justify-content: center;
+    font-size: 1.02rem; padding: .5rem 1.4rem .5rem .6rem; box-shadow: var(--shadow); }
+  .hero-banner .chip--lime { font-size: .78rem; padding: .34rem .8rem; }
   @media (max-width: 640px) {
     .press-card__shot { height: 190px; overflow: hidden; width: 100%; min-width: 0; align-self: stretch; }
     .press-card__shot img { width: 160%; max-width: none; }
@@ -128,7 +137,7 @@
     /* R5: the announcement banner condenses to its claim + link, two lines,
        buying back first-screen room for the CTA. */
     .hero-banner__d { display: none; }
-    .hero-banner { font-size: .8rem; }
+    .hero-banner { font-size: .9rem; }
     .hero-banner .chip--lime { font-size: .62rem; padding: .22rem .5rem; }
   }
   /* The chip + claim must still fit a 320px screen on one nowrap line. */
@@ -146,7 +155,10 @@
   /* R6: the announce bar is a flex row; the chip keeps its own column and the
      sentence wraps inside its own block, so at 375px the text never wraps
      under the chip. */
-  .hero-banner__in { display: flex; align-items: baseline; gap: .6rem; }
+  /* r133: this legacy flex rule sat LATER in the sheet than the dual-pill grid
+     and silently beat it — the root cause of the banner jumping between its two
+     messages since r112. Scoped away from the dual banner. */
+  .hero-banner__in:not(.hero-banner__in--dual) { display: flex; align-items: baseline; gap: .6rem; }
   .hero-banner__txt { min-width: 0; }
   /* R6 + round-3 panel (CMO): the receipt is a wrapping flex row — phrases
      never break mid-phrase (per-span nowrap), and the line always breaks
@@ -865,6 +877,6 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r132"></script>
+<script src="assets/js/site.js?v=r133"></script>
 </body>
 </html>
