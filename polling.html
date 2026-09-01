@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r133">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r134">
 <style>
   /* r106 (Adam): the loop IS the landing. Text left, the loop tape right, one
      viewport. The tape is the old ring redrawn in the house receipt grammar:
@@ -278,9 +278,9 @@
   html.scrub .mxs__mxc { animation: fade-in 1s linear paused both !important; animation-delay: calc((0.40 - var(--scrub, 0)) / 0.10 * 1s) !important; }
   html.scrub .mxs__mxd { animation: fade-in 1s linear paused both !important; animation-delay: calc((0.53 - var(--scrub, 0)) / 0.09 * 1s) !important; }
   html.scrub .mxs__mxe { animation: fade-in 1s linear paused both !important; animation-delay: calc((0.64 - var(--scrub, 0)) / 0.08 * 1s) !important; }
-  html.scrub .mxs__ann-big, html.scrub .mxs__ann-sub { animation: mxs-in 1s linear paused both !important; animation-delay: calc((0.74 - var(--scrub, 0)) / 0.16 * 1s) !important; }
+  html.scrub .mxs__ann-big, html.scrub .mxs__ann-sub { animation: mxs-in 1s linear paused both !important; animation-delay: calc((0.84 - var(--scrub, 0)) / 0.10 * 1s) !important; }
   html.scrub .mxs__svg text, html.scrub .mxs__cap { animation: mxs-off 1s linear paused both !important;
-    animation-delay: calc((0.60 - var(--scrub, 0)) / 0.10 * 1s) !important; }
+    animation-delay: calc((0.72 - var(--scrub, 0)) / 0.08 * 1s) !important; }
   @media (min-width: 760px) {
     html.scrub .mxs__ann { position: absolute; left: 50%; top: 55%; width: min(760px, 86%);
       transform: translateX(-50%); margin: 0; text-align: center; pointer-events: none; }
@@ -290,9 +290,9 @@
   /* r113 (the owner): the ending earns its beat — the grid recedes while the
      165M line prints, then the stage holds through the last tenth of the runway. */
   html.scrub .mxs__shell { animation: mxs-dim 1s linear paused both !important;
-    animation-delay: calc((0.58 - var(--scrub, 0)) / 0.14 * 1s) !important; }
+    animation-delay: calc((0.70 - var(--scrub, 0)) / 0.10 * 1s) !important; }
   html.scrub .mxs__steps { animation: mxs-dim 1s linear paused both !important;
-    animation-delay: calc((0.58 - var(--scrub, 0)) / 0.14 * 1s) !important; }
+    animation-delay: calc((0.70 - var(--scrub, 0)) / 0.10 * 1s) !important; }
   html.scrub .mxs__step--a { animation: fade-in-soft 1s linear paused both !important; animation-delay: calc((0.12 - var(--scrub, 0)) / 0.10 * 1s) !important; }
   html.scrub .mxs__step--b { animation: fade-in-soft 1s linear paused both !important; animation-delay: calc((0.26 - var(--scrub, 0)) / 0.10 * 1s) !important; }
   html.scrub .mxs__step--c { animation: fade-in-soft 1s linear paused both !important; animation-delay: calc((0.40 - var(--scrub, 0)) / 0.10 * 1s) !important; }
@@ -352,7 +352,7 @@
         <div class="nav__drop" aria-label="Section shortcuts">
           <a href="week.html#wk-buy">The buyer's week</a>
           <a href="week.html#wk-sell">The seller's week</a>
-          <a href="monitoring.html#air-war">Explore a live market</a>
+          <a href="monitoring.html#explore-market">Explore a live market</a>
         </div>
       </li>
       <li class="nav__item"><a href="polling.html" aria-current="page">Voter Opinion</a>
@@ -393,8 +393,8 @@
         <a class="btn btn--navy btn--lg" href="contact.html">Ask your own question</a>
         <a class="btn btn--outline btn--lg" href="questions.html">Search the question library</a>
       </div>
-      <p class="ask-line">Your own question: <b>from $30K net across three months</b> &mdash;
-        two custom questions and an audience included, written to your race.</p>
+      <p class="ask-line">Your own question: <b>from $30K net across three months</b>,
+        all-in &mdash; the full terms close this page.</p>
       <div class="stats" data-rise>
         <div class="stat"><div class="stat__v">10.2B</div><div class="stat__l">Answers banked &middot; 14 years</div></div>
         <div class="stat"><div class="stat__v">1M+</div><div class="stat__l">Answers a day &middot; today&rsquo;s pace</div></div>
@@ -437,6 +437,9 @@
          two bubbles per slot trading places on a 14s loop. Reduced-motion and JS-off:
          the first bubble of every slot shows static. Wordings marked ● are the site's
          canon QIDs; the rest are the kinds of questions the library carries. -->
+    <p class="sr-only">A live wall of questions from the always-on field, cycling by
+      category: issues, the ballot, favorability, and ad recall &mdash; each question
+      paired with the audience it builds.</p>
     <div class="qf-stage" data-rise>
       <div class="qf" tabindex="0" role="group" aria-label="The live field: questions cycling by category; keyboard focus pauses the motion">
         <div class="qf__head">
@@ -711,7 +714,7 @@
                 consumer attributes riding every profile, Experian-class demographics,
                 household and purchase data, used for representative weighting and the
                 identifier match. A dashed band marks the optional lookalike
-                extension: modeled, always labeled, never blended into declared
+                extension: modeled, always labeled, kept apart from declared
                 counts. The annotation reads: 165,000,000 profiles by 10,000-plus
                 questions. Declared, not inferred.</desc>
               <defs>
@@ -788,7 +791,7 @@
               <text class="mxs__lbl" x="100" y="486" font-family="Inter, sans-serif" font-size="10.5" fill="#5B7085">grid sampled for display &middot; density illustrative &middot; the counts are not</text>
             </svg></div>
             <div class="mxs__ann">
-              <span class="mxs__ann-big num">165,000,000 profiles &times; 10,000+&nbsp;questions.</span>
+              <span class="mxs__ann-big num">165,000,000 profiles&nbsp;&times; 10,000+&nbsp;questions.</span>
               <span class="mxs__ann-sub">Answers layer into a profile. An audience is the
                 intersection of real answers &mdash; declared, not inferred. Licensed
                 attributes carry the weighting and the match, and anything modeled
@@ -875,11 +878,12 @@
         <p class="pca__bar"><span>KPI &middot; Wave topline</span><span>synthetic &middot; real format</span></p>
         <p class="pca__row num">WAVE 3 OF 5 &middot; n=1,204 &middot; FIELDED SEP 2&ndash;6, 2026 &middot; GOVERNOR</p>
         <p class="pca__row num">WEIGHTED TO THE FRAME YOUR RACE NEEDS &mdash; ADULTS &middot; REGISTERED &middot; LIKELY &mdash; PRINTED ON THE SHEET</p>
+        <p class="pca__row num">ALWAYS-ON ONLINE PANEL &middot; WEIGHTED ON LICENSED ATTRIBUTES &middot; ERROR PRINTED PER WAVE</p>
         <p class="pca__row num">RECALL +9 WHERE THE FLIGHT RAN &middot; TOPLINE ATTACHED, ONE PAGE</p>
       </div>
       <p class="small" style="margin-top:.7rem">Dated, weighted, one page &mdash; every wave
       lands as one. Read before it ships by a team with decades of buying and campaign
-      experience &mdash; the reads hold up because someone here has run the race before.</p>
+      experience &mdash; the desk reading it has run races, not just models.</p>
     </div>
   </div>
 </section>
@@ -940,6 +944,6 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r133"></script>
+<script src="assets/js/site.js?v=r134"></script>
 </body>
 </html>

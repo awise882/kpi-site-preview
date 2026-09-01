@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r133">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r134">
 <style>
   /* Light, centered, airy hero, matching the live site: the announcement banner
      sits flush under the nav, then the display headline in the green-to-teal
@@ -319,7 +319,7 @@
     .kw__c--pod { left: 1%; top: 190px; width: 262px; z-index: 2; }
     .kw__c--share { left: 1.5%; top: 452px; width: 258px; z-index: 2; }
     .kw__c--player { left: 21%; top: 4px; width: 300px; z-index: 2; }
-    .kw__c--score { left: 22%; top: 318px; width: 294px; z-index: 1; }
+    .kw__c--score { left: 22%; top: 318px; width: 294px; z-index: 15; }
     .kw__c--mix { left: 45.5%; top: 14px; width: 276px; z-index: 1; }
     .kw__c--stream { left: 46%; top: 250px; width: 272px; z-index: 2; }
     .kw__c--rate { left: 45%; top: 418px; width: 278px; z-index: 1; }
@@ -410,7 +410,7 @@
         <div class="nav__drop" aria-label="Section shortcuts">
           <a href="week.html#wk-buy">The buyer's week</a>
           <a href="week.html#wk-sell">The seller's week</a>
-          <a href="monitoring.html#air-war">Explore a live market</a>
+          <a href="monitoring.html#explore-market">Explore a live market</a>
         </div>
       </li>
       <li class="nav__item"><a href="polling.html">Voter Opinion</a>
@@ -462,7 +462,7 @@
       <a class="btn btn--outline btn--lg" href="week.html">Walk a week with it</a>
     </div>
     <p class="small" style="margin-top:.55rem;color:var(--ink-3)">The walk: a buyer&rsquo;s
-      Monday-to-Friday, then the seller&rsquo;s &mdash; worked boards, honestly stamped, hour by hour.</p>
+      Monday-to-Friday, then the seller&rsquo;s &mdash; worked boards, honestly stamped, beat by beat.</p>
     <!-- The mobile hero's proof: a two-race glimpse of the scoreboard, matching the
          platform recreation's rows. Shown under 641px only; desktop keeps the type. -->
     <div class="hero-board" data-plx style="--plx-d:12px" role="img" aria-label="A glimpse of the scoreboard: two races, each side's share of committed money, the TV, cable and radio total with the streaming estimate riding beside it, and the week's new money on top. Synthetic sample.">
@@ -528,7 +528,7 @@
       <p class="curtain__k">Streaming &middot; the third the public record misses</p>
       <h3 class="curtain__h">A third of the measured fight is digital. We measure it.</h3>
       <p class="curtain__p">Transparency reports and public ad libraries end where
-        streaming begins. We measure it where it actually plays &mdash; on the TV glass,
+        streaming begins. We read it where it actually plays &mdash; on the TV glass,
         app by app, through our VideoAmp partnership &mdash; so the board you read
         carries the whole fight.</p>
       <p class="curtain__go"><a href="monitoring.html#how-counted">How streaming is measured &rarr;</a></p>
@@ -576,7 +576,7 @@
       <h2>The whole morning,<br>on one screen.</h2>
       <p class="lede">The alert, the board, the buy &mdash; the glimpses below are
         boards subscribers pull today, not renderings of a roadmap.</p>
-      <p class="small kw__readline" style="margin-top:.5rem;max-width:64ch">Read it like the morning, numbered on the wall: <b>1</b> the
+      <p class="small kw__readline" style="margin-top:.5rem;max-width:64ch">The morning, numbered on the wall: <b>1</b> the
         alert, <b>2</b> the tape, <b>3</b> the break &mdash; <b>4</b> the boards, <b>5</b> the
         rates &mdash; <b>6</b> ask Baker, the assistant in every seat. Unnumbered cards are asides: the share check, the mix, the streaming catch. The dashed corner
         is the polling desk.</p>
@@ -585,6 +585,12 @@
   <div class="kw__stage">
     <div class="kw__glow kw__glow--a" aria-hidden="true"></div>
     <div class="kw__glow kw__glow--b" aria-hidden="true"></div>
+    <p class="sr-only">The wall shows eleven live product boards: the First Light
+      creative alert with its tape, the commercial break in air order, the North River
+      Governor scoreboard, the channel mix, the share check, the streaming catch, the
+      filed rate that cleared, Baker answering &ldquo;what did the other side book this
+      morning&rdquo; with a dollar figure, and the voter-opinion corner with a tracked
+      wave and a deal ID. Every board is synthetic and opens live in the demo.</p>
     <div class="wrap kw__cluster" aria-hidden="true">
       <svg class="kw__route" viewBox="0 0 1140 762" preserveAspectRatio="none" aria-hidden="true">
         <path d="M 44 56 C 150 6, 210 8, 252 36 C 140 80, 52 110, 38 206 C 110 290, 210 300, 264 348 C 380 415, 450 400, 526 440 C 490 520, 370 560, 306 606"
@@ -625,7 +631,7 @@
         <span class="kw__row"><i class="kw__sw" style="background:#7FA8CC"></i>Cable<b class="num">21%</b></span>
         <span class="kw__row"><i class="kw__sw" style="background:#B58A3A"></i>Radio<b class="num">9%</b></span>
         <span class="kw__row kw__row--est"><i class="kw__sw" style="background:var(--teal,#00ACC1)"></i>Streaming<b class="num">8% est.</b></span>
-        <span class="kw__m">streaming rides beside posted &mdash; never blended</span>
+        <span class="kw__m">streaming rides beside posted, labeled apart</span>
       </div>
       <div class="kw__c kw__c--stream">
         <span class="kw__k"><i class="kw__dot"></i>Streaming &middot; caught on the apps</span>
@@ -660,7 +666,7 @@
             <span class="kw__c kw__c--deal num">KPI-PMP-2026-0841 <i>deal ID &middot; the audience lands in your seat</i></span>
     </div>
     <a class="kw__more wrap" href="contact.html">+ 9 more boards live on this wall &mdash; see them in the demo &rarr;</a>
-    <span class="kw__stamp">synthetic glimpses &middot; <a href="contact.html">every board opens live in the demo &rarr;</a></span>
+    <span class="kw__stamp">synthetic glimpses &middot; every board opens live in the demo</span>
     <span class="inkkey" aria-label="How the ink reads: solid is aired, hatched is booked, dashed is modeled"><i class="inkkey__s"></i>aired<i class="inkkey__h"></i>booked<i class="inkkey__d"></i>modeled</span>
   </div>
 
@@ -688,9 +694,9 @@
         <h3>One portal, shaped to your fight.</h3>
         <div class="press-card__art">
           <p class="pca__bar"><span>KPI &middot; Scoreboard</span><span>synthetic</span></p>
-          <p class="pca__big">Two Rivers Governor <span class="num">+$1.1M this week</span></p>
-          <p class="pca__row num">D 52% &middot; R 48% &middot; TV&middot;CABLE&middot;RADIO $8.4M, POSTED + BOOKED</p>
-          <p class="pca__row num">STREAMING $1.1M EST. &mdash; beside the total, never blended</p>
+          <p class="pca__big">Two Rivers Governor <span class="num">+$420K posted overnight</span></p>
+          <p class="pca__row num">D 52% &middot; R 48% &middot; AIRED $11.3M &middot; BOOKED FWD $1.1M</p>
+          <p class="pca__row num">STREAMING $1.1M EST. &mdash; beside the total, kept apart</p>
         </div>
         <p class="small">Scoreboard, Buy Sheet, Creative Matrix and the rest &mdash;
           proven on the 303 races it tracks (as of Aug 30, 2026). Every read exports.</p>
@@ -721,7 +727,7 @@
         </div>
         <p class="small">10.2 billion answers deep &mdash; 10,000+ questions always in the
           field. Build the audience from what people actually said &mdash; custom questions come
-          with the media &mdash; from <b class="num">$30K</b>.</p>
+          with the media &mdash; from <b class="num">$30K</b> net across three months.</p>
         <span class="press-card__go">Ask a question &rarr;</span>
       </a>
     </div>
@@ -741,17 +747,17 @@
         </details>
         <details class="mdet mdet--seat" open>
           <summary>Selling?</summary>
-          <p>Your share, the agency buying around you, and the streaming money that
-            never files &mdash; <b class="num">+$510K</b> under the line statewide.
+          <p>Your share, the agency buying around you, and the streaming money the
+            public file misses &mdash; <b class="num">+$510K</b> under the line statewide.
             Station, rep firm, or platform seller.</p>
           <a href="week.html#wk-sell">Open the seller&rsquo;s desk &rarr;</a>
         </details>
         <details class="mdet mdet--seat" open>
           <summary>Running the race?</summary>
           <p>Ask what the race is arguing about, build the audience from the answers,
-            land it as a deal ID &mdash; from <b class="num">$30K</b>. Every race you
+            land it as a deal ID &mdash; from <b class="num">$30K</b>, three months. Every race you
             carry, one login.</p>
-          <a href="polling.html">Ask your question &mdash; from $30K &rarr;</a>
+          <a href="polling.html">Ask your question &mdash; from $30K, three months &rarr;</a>
         </details>
         <details class="mdet mdet--seat" open>
           <summary>Covering it?</summary>
@@ -877,6 +883,6 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r133"></script>
+<script src="assets/js/site.js?v=r134"></script>
 </body>
 </html>
