@@ -110,7 +110,7 @@
           '<p class="sx-meta"><span class="sx-cat">' + esc(r.c) + '</span>' +
           (r.s ? '<span class="sx-sub">' + esc(r.s) + '</span>' : '') +
           '<span class="sx-qid num">QID ' + r.i + '</span>' +
-          '<a class="sx-ask" href="contact.html">Ask one like it &#8594;</a></p>' +
+          '<a class="sx-ask" href="contact.html">Ask a custom variant &#8594;</a></p>' +
         '</div></li>';
     }).join('');
 
