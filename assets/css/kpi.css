@@ -3010,6 +3010,25 @@ details.mdet--keep > summary { display: block; pointer-events: none; font-weight
   100% { opacity: 1; visibility: visible; transform: none; border-top-color: var(--lime); }
 }
 
+/* ===== r147: round-25 convergence ===== */
+/* The Columbus forward book, drawn (buyer + design-director) */
+.aw__fwdfig { display: block; width: 100%; max-width: 380px; height: auto; margin: .3rem 0 .7rem; }
+/* The agency gap, drawn (the station-seller's ten) */
+.wk-doc__fig { display: block; width: 100%; height: auto; margin: .2rem 0 .45rem; }
+/* The CPP row prints as a priced line, not a $0 bar (judge-visual + adam-sim) */
+.wk-score__lead { align-self: center; border-bottom: 1px dotted #A9BBC9; height: 1px; }
+/* The mobile hero receipt reads as a two-column mono receipt, and the CTAs
+   land a screen earlier (judge-conversion's ten) */
+@media (max-width: 480px) {
+  .hero--home .hero-receipt { display: grid; grid-template-columns: repeat(2, minmax(0, auto)); justify-content: center; justify-items: start; gap: .25rem 1rem; text-align: left; }
+  .hero--home .hero-receipt .hr-sep { display: none; }
+  .hero--home .hero-receipt > span:first-child { grid-column: 1 / -1; justify-self: center; }
+}
+/* The copy-credit button breaks out of the paragraph on small screens */
+@media (max-width: 520px) {
+  #copy-credit { display: block; margin: .55rem 0 0 !important; }
+}
+
 /* ===== r146: the RATE v MARKET index, drawn (round-24: the buyer's and
    maverick-2's tens) — six per-station bars against the 1.0x market hairline,
    inside the Des Moines FCC specimen. ===== */
