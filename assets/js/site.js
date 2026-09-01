@@ -31,6 +31,12 @@
          as the nav element itself (the scrim is the nav's ::after). */
       if (!e.target.closest('.nav') || e.target === nav) setOpen(false);
     });
+    /* Keyboard parity: tabbing out of the open drawer closes it, so focus
+       never lands behind the scrim. */
+    nav.addEventListener('focusout', function (e) {
+      if (nav.getAttribute('data-open') === 'true' &&
+          e.relatedTarget && !nav.contains(e.relatedTarget)) setOpen(false);
+    });
   }
 
   /* ---- nav scroll response: shadow after 8px, scroll-hint fade after 120px ---- */
@@ -624,11 +630,16 @@
   var b = document.getElementById('copy-credit');
   if (!b || !navigator.clipboard || !navigator.clipboard.writeText) return;
   b.hidden = false;
+  var st = document.createElement('span');
+  st.className = 'sr-only';
+  st.setAttribute('role', 'status');
+  b.insertAdjacentElement('afterend', st);
   b.addEventListener('click', function () {
     navigator.clipboard.writeText(b.getAttribute('data-credit')).then(function () {
       var t = b.textContent;
       b.textContent = 'Copied ✓';
-      setTimeout(function () { b.textContent = t; }, 1600);
+      st.textContent = 'Credit copied to clipboard';
+      setTimeout(function () { b.textContent = t; st.textContent = ''; }, 1600);
     });
   });
 })();

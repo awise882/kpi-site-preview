@@ -195,9 +195,18 @@
     var txt = 'Segment shortlist, built on kpipolitical.com\n\n' + picked.map(function (id) {
       return 'QID ' + id + '  ' + (byId[id] ? byId[id].q : '');
     }).join('\n');
+    var st = document.getElementById('sx-copy-status');
+    if (!st) {
+      st = document.createElement('span');
+      st.id = 'sx-copy-status';
+      st.className = 'sr-only';
+      st.setAttribute('role', 'status');
+      btn.insertAdjacentElement('afterend', st);
+    }
     var done = function () {
       btn.textContent = 'Copied';
-      setTimeout(function () { btn.textContent = 'Copy shortlist'; }, 1800);
+      st.textContent = 'Shortlist copied to clipboard';
+      setTimeout(function () { btn.textContent = 'Copy shortlist'; st.textContent = ''; }, 1800);
     };
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(txt).then(done, done);

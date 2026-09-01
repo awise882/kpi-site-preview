@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r139">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r140">
 <style>
   /* Light, centered, airy hero, matching the live site: the announcement banner
      sits flush under the nav, then the display headline in the green-to-teal
@@ -93,7 +93,8 @@
     letter-spacing: .07em; text-transform: uppercase; color: var(--ink-3);
     font-variant-numeric: tabular-nums lining-nums;
   }
-  .hero-receipt a { color: inherit; text-decoration: underline;
+  .hero-receipt a { color: inherit; text-decoration: none; }
+  .hero-receipt a:hover, .hero-receipt a:focus-visible { text-decoration: underline;
     text-underline-offset: 3px; text-decoration-color: var(--lime-dark); }
   .press-nums { display: flex; flex-wrap: wrap; justify-content: center; gap: .5rem 2rem;
     margin-top: 1.3rem; font-size: .85rem; color: var(--ink-3); }
@@ -203,7 +204,7 @@
       color: var(--navy-deep); font-variant-numeric: tabular-nums lining-nums; }
     .hb-l3 .hb-str { color: var(--lime-text, #4F7A25); margin-left: auto; }
     .hb-l3 .hb-str b { color: var(--lime-text, #4F7A25); }
-    @media (max-width: 374px) { .hb-l3 { flex-wrap: wrap; row-gap: .18rem; } }
+    @media (max-width: 640px) { .hb-l3 { flex-wrap: wrap; row-gap: .18rem; } }
     .hb-foot { display: flex; justify-content: space-between; gap: .5rem; font-family: var(--label);
       font-size: .52rem; font-weight: 700; letter-spacing: .1em; color: var(--ink-3);
       border-top: 1px solid var(--rule-soft); padding: .42rem .7rem; background: #FAFCFE; }
@@ -324,7 +325,7 @@
     .kw__c--score { left: 22%; top: 318px; width: 294px; z-index: 15; }
     .kw__c--mix { left: 45.5%; top: 14px; width: 276px; z-index: 1; }
     .kw__c--stream { left: 46%; top: 250px; width: 272px; z-index: 2; }
-    .kw__c--rate { left: 45%; top: 418px; width: 278px; z-index: 1; }
+    .kw__c--rate { left: 45%; top: 418px; width: 278px; z-index: 16; }
     .kw__c--baker { left: 23%; top: 596px; width: 490px; z-index: 4; }
     .kw__c--op { right: 2%; top: 58px; width: 23%; z-index: 2; }
     .kw__c--deal { right: 2%; top: 224px; max-width: 23%; white-space: normal;
@@ -518,15 +519,15 @@
     <!-- r113 (the owner): "no hierarchy, just numbers" — one lead read, three
          supporting, the rest in a footline. -->
     <div class="statlead mt3" data-rise>
-      <div class="statlead__hero">
-        <div class="statlead__v"><span class="num">1.5M</span></div>
-        <p class="statlead__l">ad occurrences detected <b>per day</b>, every ad
-          category &mdash; political flagged, dollars from orders and filings</p>
+      <div class="statlead__side">
+        <div class="statlead__row"><b class="num">1.5M</b><span>ad occurrences detected a day &mdash; every category, political flagged</span></div>
+        <div class="statlead__row"><b class="num">250K+</b><span>TV &amp; radio orders on file, growing daily &mdash; dollars from orders and filings</span></div>
+        <div class="statlead__row"><b class="num">40M</b><span>homes measuring streaming on the TV glass</span></div>
       </div>
       <div class="statlead__side">
-        <div class="statlead__row"><b class="num">40M</b><span>homes measuring streaming on the TV glass</span></div>
         <div class="statlead__row"><b class="num">1&ndash;4B</b><span>streaming ad impressions a day, weighted from the measured panel</span></div>
         <div class="statlead__row"><b class="num">65M</b><span>smart-TV devices behind the panel</span></div>
+        <div class="statlead__row"><b class="num">30 yrs</b><span>defining the ad intelligence space &mdash; since CMAG, 1996</span></div>
       </div>
       <p class="statlead__foot">BEHIND THE READS &middot; ALL 210 MARKETS &middot; A DECADE OF HISTORY UNDER EVERY TREND</p>
     </div>
@@ -534,12 +535,11 @@
     <div class="curtain curtain--split mt3" data-rise>
       <div>
       <p class="curtain__k">Streaming &amp; digital &middot; measured on the TV glass</p>
-      <h3 class="curtain__h">Digital, covered &mdash; in a way no one else can.</h3>
-      <p class="curtain__p">We read streaming where it actually plays &mdash; on the
-        TV glass, app by app, in 40M measured homes through our VideoAmp partnership.
-        It matters because a third of the measured fight is already digital, and
-        it&rsquo;s only growing. We created this category &mdash; we&rsquo;re redefining
-        it for what&rsquo;s happening, and what&rsquo;s next.</p>
+      <h3 class="curtain__h">Digital, covered &mdash; and filed next to the orders.</h3>
+      <p class="curtain__p"><b>A third of the measured fight is already digital.</b>
+        We read it where it actually plays &mdash; on the TV glass, app by app, in 40M
+        measured homes through our VideoAmp partnership. We created this category
+        &mdash; we&rsquo;re redefining it for what&rsquo;s happening, and what&rsquo;s next.</p>
       <p class="curtain__go"><a href="monitoring.html#how-counted">How streaming is measured &rarr;</a></p>
       </div>
       <div class="curtain__figwrap">
@@ -559,11 +559,10 @@
     <div class="built mt3" data-rise>
       <p class="built__big">Built today, by the people building tomorrow.</p>
       <p class="built__sub num" style="font-family:var(--mono);letter-spacing:.06em;font-size:.78rem;text-transform:uppercase">303 races &middot; posted or detected $ &middot; down to the spot, station and dollar &middot; Aug 30, 2026</p>
-      <p class="built__sub">Behind the machine: <b class="num">150+</b> people with
-        decades at the buying desk and inside campaigns &mdash; the team that
-        <b>created this category</b> in 1996 with CMAG, the first political ad
-        tracker, now back to redefine it. When a read looks wrong, someone here
-        has bought that daypart or run that race before.</p>
+      <p class="built__sub">Behind the machine: <b class="num">150+</b> people,
+        <b>three decades defining the ad intelligence space</b> &mdash; at the buying
+        desk, inside campaigns. When a read looks wrong, someone here has bought
+        that daypart or run that race before.</p>
       <div class="lineage" data-rise>
         <svg viewBox="0 0 640 74" role="img" aria-label="A timeline from 1996 to 2026: CMAG, the first political ad tracker — we created the category. Thirty years later: KPI — we are redefining it, every screen this time.">
           <line x1="14" y1="30" x2="626" y2="30" stroke="#C7D5E0" stroke-width="3"/>
@@ -620,7 +619,7 @@
       </svg>
       <div class="kw__c kw__c--alert">
         <span class="kw__k"><i class="kw__dot"></i>New creative &middot; 7:15 AM</span>
-        <b>&ldquo;First Light&rdquo; &mdash; first air</b>
+        <b>&ldquo;First Light&rdquo; &mdash; first catch</b>
         <span class="kw__m">the alert lands with tape + AI transcript attached</span>
       </div>
       <div class="kw__c kw__c--player">
@@ -657,7 +656,7 @@
       </div>
       <div class="kw__c kw__c--stream">
         <span class="kw__k"><i class="kw__dot"></i>Streaming &middot; caught on the apps</span>
-        <b>Captured on Hulu &mdash; days before broadcast</b>
+        <b>Captured on Hulu &mdash; nothing on broadcast yet</b>
         <span class="kw__m">eight days before it touched a transmitter &middot; 100% of what runs on the measured glass, caught</span>
       </div>
             <div class="kw__c kw__c--share">
@@ -766,6 +765,7 @@
           <summary>Buying?</summary>
           <p>The alert, your whole book on one board, the filed rate behind every
             quote &mdash; and <b class="num">$12K</b> back on one 400-spot, <b class="num">$116K</b> flight.</p>
+          <svg class="seats__bar" viewBox="0 0 300 26" role="img" aria-label="The $116K flight drawn as a bar; the $12K found is the lime slice — about a tenth of one audited flight"><rect x="0" y="6" width="300" height="14" fill="#DEE7EE"/><rect x="0" y="6" width="31" height="14" fill="#A8D14E"/><text x="36" y="17" font-family="Inter,sans-serif" font-size="9" font-weight="700" fill="#4F7A25">$12K FOUND</text><text x="298" y="17" text-anchor="end" font-family="Inter,sans-serif" font-size="9" font-weight="700" fill="#5A6B7C">$116K FLIGHT</text></svg>
           <a href="week.html#wk-buy">See the buyer&rsquo;s week &rarr;</a>
         </details>
         <details class="mdet mdet--seat" open>
@@ -784,7 +784,7 @@
         </details>
         <details class="mdet mdet--seat" open>
           <summary>Covering it?</summary>
-          <p>Dated citable numbers, same-day pulls on deadline, a login of your own.</p>
+          <p>A login of your own &mdash; citable numbers, dated.</p>
           <a href="press.html">The newsroom &rarr;</a>
         </details>
       </div>
@@ -844,9 +844,8 @@
     <p class="small center" style="margin-top:.55rem;color:var(--ink-3)">Talk to us &mdash; pricing and pilots, no walkthrough.</p>
     <div hidden>
       </div>
-      <p class="small mt2">Name a race or a state and we pull it before the walkthrough.
-        Press inquiries: <a href="contact.html#press">contact press</a>. Subscribers:
-        <a href="https://portal.kpipolitical.com">log in</a>.</p>
+      <p class="small mt2">Press inquiries: <a href="contact.html#press">contact press</a>.
+        Subscribers: <a href="https://portal.kpipolitical.com">log in</a>.</p>
     </div>
   </div>
 </section>
@@ -906,6 +905,6 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r139"></script>
+<script src="assets/js/site.js?v=r140"></script>
 </body>
 </html>
