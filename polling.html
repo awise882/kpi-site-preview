@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r123">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r124">
 <style>
   /* r106 (Adam): the loop IS the landing. Text left, the loop tape right, one
      viewport. The tape is the old ring redrawn in the house receipt grammar:
@@ -115,9 +115,8 @@
   .fb__rule i { flex: 1; border-top: 1.5px solid var(--rule); position: relative; }
   .fb__rule i::after { content: ""; position: absolute; right: -1px; top: -5px;
     border: 4px solid transparent; border-left: 7px solid var(--rule); }
-  .fb__scroll { list-style: none; margin: 0; padding: .2rem .2rem 1rem; display: grid;
-    grid-auto-flow: column; grid-auto-columns: min(400px, 82vw); gap: 1rem;
-    overflow-x: auto; scroll-snap-type: x proximity; -webkit-overflow-scrolling: touch; }
+  .fb__scroll { list-style: none; margin: 0; padding: .2rem .2rem .4rem; display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .9rem; align-items: stretch; }
   .fb__page { position: relative; scroll-snap-align: start; background: var(--white);
     border: 1px solid var(--rule); border-radius: var(--r-lg);
     padding: 1.05rem 1.15rem 1.1rem; min-height: 220px;
@@ -171,12 +170,9 @@
     padding: .22rem .5rem; }
   @media (prefers-reduced-motion: no-preference) {
     .fb__pulse { animation: fb-pulse 2.2s ease-in-out infinite; }
-    .fb.in-view .fb__page { animation: fb-deal .6s var(--smooth) backwards; }
-    .fb.in-view .fb__page:nth-child(2) { animation-delay: .13s; }
-    .fb.in-view .fb__page:nth-child(3) { animation-delay: .26s; }
-    .fb.in-view .fb__page:nth-child(4) { animation-delay: .39s; }
-    .fb.in-view .fb__page:nth-child(5) { animation-delay: .52s; }
-    .fb.in-view .fb__page:nth-child(6) { animation-delay: .65s; }
+    .fb__page.in-view { animation: fb-deal .55s var(--smooth) backwards; }
+    .fb__page.in-view:nth-child(3n+2) { animation-delay: .12s; }
+    .fb__page.in-view:nth-child(3n) { animation-delay: .24s; }
   }
   @keyframes fb-pulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(124,179,66,.5); }
     55% { box-shadow: 0 0 0 7px rgba(124,179,66,0); } }
@@ -322,7 +318,7 @@
       <li class="nav__item"><a href="monitoring.html">Monitoring</a>
         <div class="nav__drop" aria-label="Section shortcuts">
           <a href="monitoring.html#alert-demo">Creative alerts</a>
-          <a href="monitoring.html#streaming-spend">Streaming &amp; Digital</a>
+          <a href="monitoring.html#how-counted">Streaming &amp; digital</a>
           <a href="monitoring.html#cross-screen">How impressions are counted</a>
           <a href="monitoring.html#fcc-rates">FCC rates</a>
         </div>
@@ -340,7 +336,7 @@
         <div class="nav__drop" aria-label="Section shortcuts">
           <a href="week.html#wk-buy">The buyer's week</a>
           <a href="week.html#wk-sell">The seller's week</a>
-          <a href="week.html#air-war">Explore a live market</a>
+          <a href="monitoring.html#air-war">Explore a live market</a>
         </div>
       </li>
       <li class="nav__item"><a href="polling.html" aria-current="page">Voter Opinion</a>
@@ -658,7 +654,6 @@
           <p class="fb__go"><a href="contact.html">Run it on your race &rarr;</a></p>
         </li>
       </ol>
-      <p class="fb__hint small" aria-hidden="true">Drag across the calendar &rarr;</p>
     </div>
 
     <!-- ===== §6.5 THE SPARSE MATRIX, at scale ===== -->
@@ -854,17 +849,6 @@
       behind the firewall &mdash; the full statement is on the
       <a href="privacy.html">privacy page</a>.</p>
     </details>
-    <div class="lp-close">
-      <ol class="lp-close__row" aria-label="The loop, closing: back to step one">
-        <li class="is-lit"><b class="num">01</b>Field</li>
-        <li><b class="num">02</b>Answers</li>
-        <li><b class="num">03</b>Audience</li>
-        <li><b class="num">04</b>Activate</li>
-        <li><b class="num">05</b>Delivery</li>
-        <li><b class="num">06</b>Re-field</li>
-      </ol>
-      <p class="lp-close__cap">&#8635; the question returns to the field &mdash; <a href="contact.html">ask yours</a></p>
-    </div>
   </div>
 </section>
 
@@ -923,6 +907,6 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r114"></script>
+<script src="assets/js/site.js?v=r124"></script>
 </body>
 </html>

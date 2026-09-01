@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r123">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r124">
 <style>
   /* r106: every hero its own composition -- this page opens on the two desks
      themselves. Text left; the buyer's and seller's doors right. */
@@ -64,7 +64,7 @@
       <li class="nav__item"><a href="monitoring.html">Monitoring</a>
         <div class="nav__drop" aria-label="Section shortcuts">
           <a href="monitoring.html#alert-demo">Creative alerts</a>
-          <a href="monitoring.html#streaming-spend">Streaming &amp; Digital</a>
+          <a href="monitoring.html#how-counted">Streaming &amp; digital</a>
           <a href="monitoring.html#cross-screen">How impressions are counted</a>
           <a href="monitoring.html#fcc-rates">FCC rates</a>
         </div>
@@ -82,7 +82,7 @@
         <div class="nav__drop" aria-label="Section shortcuts">
           <a href="week.html#wk-buy">The buyer's week</a>
           <a href="week.html#wk-sell">The seller's week</a>
-          <a href="week.html#air-war">Explore a live market</a>
+          <a href="monitoring.html#air-war">Explore a live market</a>
         </div>
       </li>
       <li class="nav__item"><a href="polling.html">Voter Opinion</a>
@@ -303,7 +303,7 @@
     <p class="btn-row" style="margin-top:1.1rem"><a class="btn btn--lime" href="contact.html">Run this week on your race</a></p>
     <p class="small" style="margin-top:.9rem">That&rsquo;s the buyer&rsquo;s week &mdash; the
       seller&rsquo;s runs on the same data, one desk over. Buying? The boards above are
-      your next stop; the <a href="#air-war">explorable market</a> works for both.</p>
+      your next stop; the <a href="monitoring.html#air-war">explorable market</a> works for both.</p>
     </article>
 
     <!-- r113: the seller's week, same device — four beats on one pinned stage.
@@ -423,180 +423,10 @@
       <div class="wk-doc__row"><span><b>THU</b> &middot; the make-good comes to you</span><span class="num">the <b>$25K</b> booked-vs-aired gap, posted on your air first</span></div>
       <div class="wk-doc__row"><span><b>FRI</b> &middot; hold the rate</span><span class="num">the buyer waves <b>$260</b> candidate &mdash; the <b>$355</b> OG page answers</span><span class="wk-doc__hi num">different class, filed apart</span></div>
     </div>
-    <p class="small" style="margin-top:.9rem">That&rsquo;s the seller&rsquo;s week; the four
-      boards it runs through are <a href="#sell-side">below, in full</a>.</p>
-    </article>
+    <p class="small" style="margin-top:.9rem">That&rsquo;s the seller&rsquo;s week &mdash;
+      and these are its boards, in full:</p>
 
-        </div>
-
-    <p class="small center mt2">Synthetic races, stations and advertisers; real markets. Illustrative figures; the stamps and dates work exactly as shown.</p>
-  </div>
-</section>
-
-<!-- ============ THE EXPLORABLE AIR WAR (ruling 16) ============ -->
-<!-- Synthetic race, illustrative figures. User-driven only: choosing a market
-     redraws the spend picture; nothing moves on its own. With JS off, all three
-     market panels render stacked and complete. -->
-<section class="section" id="air-war">
-  <div class="wrap">
-    <div class="center" style="margin-bottom:2.6rem" data-rise>
-      <p class="eyebrow eyebrow--plain" style="justify-content:center">The air war, explorable</p>
-      <h2>Every market. Every channel. Down to the dollars.</h2>
-      <p class="lede">Pick a market and the picture redraws: what ran, what is booked
-        forward, which channel does the work.<span
-        class="kbd-hint"> Tab reaches the markets; arrow keys move between them.</span></p>
-    </div>
-
-    <div class="aw" data-aw data-rise>
-      <div class="aw__rail" role="tablist" aria-label="Markets in the North River Senate race">
-        <button class="aw__mkt" id="aw-tab-cc" type="button" role="tab" aria-selected="true" aria-controls="aw-cc">
-          <span class="aw__mkt-name">Columbus</span>
-          <span class="aw__mkt-tot num">$2.6M</span>
-          <span class="aw__mkt-delta num">+$460K this week</span>
-        </button>
-        <button class="aw__mkt" id="aw-tab-ph" type="button" role="tab" aria-selected="false" aria-controls="aw-ph">
-          <span class="aw__mkt-name">Cleveland</span>
-          <span class="aw__mkt-tot num">$2.0M</span>
-          <span class="aw__mkt-delta num">+$120K this week</span>
-        </button>
-        <button class="aw__mkt" id="aw-tab-rv" type="button" role="tab" aria-selected="false" aria-controls="aw-rv">
-          <span class="aw__mkt-name">Toledo</span>
-          <span class="aw__mkt-tot num">$0.9M</span>
-          <span class="aw__mkt-delta num">+$300K this week</span>
-        </button>
-      </div>
-
-      <div class="aw__stage">
-        <article class="aw__panel" id="aw-cc" role="tabpanel" aria-labelledby="aw-tab-cc">
-          <header class="aw__hd">
-            <h3 class="aw__race">Columbus<span class="aw__race-sub">North River Senate &middot; aired dollars by channel</span></h3>
-            <span class="aw__stamp">TV thru Aug 14 &middot; str. est. thru Aug 7, 2026</span>
-          </header>
-          <p class="aw__readline">The broadcast buy carries the market, and the forward
-            book says it holds: $880K is already on station books for the next two weeks.</p>
-          <div class="aw__lanes">
-            <div class="aw__lane" tabindex="0" data-note="Broadcast: order by order, FCC-verified where a filing exists.">
-              <span class="aw__lane-name">Broadcast <i class="aw__tag">Posted</i></span>
-              <span class="aw__track"><span class="aw__fill" style="--w:100%"></span></span>
-              <span class="aw__val w-measured num">$1.9M</span>
-            </div>
-            <div class="aw__lane" tabindex="0" data-note="Local cable: placed orders by system, week and daypart.">
-              <span class="aw__lane-name">Local cable <i class="aw__tag">Posted</i></span>
-              <span class="aw__track"><span class="aw__fill aw__fill--ca" style="--w:27%"></span></span>
-              <span class="aw__val w-measured num">$520K</span>
-            </div>
-            <div class="aw__lane" tabindex="0" data-note="Radio: dollars post from placed orders; where none exist, dollars from caught airings, labeled.">
-              <span class="aw__lane-name">Radio <i class="aw__tag">Posted</i></span>
-              <span class="aw__track"><span class="aw__fill aw__fill--ra" style="--w:7%"></span></span>
-              <span class="aw__val w-measured num">$140K</span>
-            </div>
-<!-- Ruling 50j: one Streaming & Digital row; the caught-vs-modeled split rides the lane note. -->
-            <div class="aw__lane" tabindex="0" data-note="Streaming &amp; Digital: estimated from measured smart-TV homes &mdash; at least $310K of it caught directly on the apps. Kept separate from the TV channels.">
-              <span class="aw__lane-name">Streaming &amp; Digital <i class="aw__tag aw__tag--est">Estimated</i></span>
-              <span class="aw__track"><span class="aw__fill aw__fill--dg" style="--w:21%"></span></span>
-              <span class="aw__val w-est num">$390K</span>
-            </div>
-          </div>
-          <p class="small aw__note" aria-live="polite">Tap a channel for what stands under the
-            number.<span class="kbd-hint"> Hovering or focusing a channel with a mouse or keyboard does the same.</span></p>
-          <dl class="aw__meta">
-            <div><dt>Aired</dt><dd class="w-measured num">$2.6M</dd></div>
-            <div><dt>Booked forward</dt><dd class="num">$880K</dd></div>
-            <div><dt>Top advertiser</dt><dd>Hale for Senate (D)</dd></div>
-            <div><dt>Went dark</dt><dd>Hometown Values, Aug 11</dd></div>
-          </dl>
-        </article>
-
-        <article class="aw__panel" id="aw-ph" role="tabpanel" aria-labelledby="aw-tab-ph">
-          <header class="aw__hd">
-            <h3 class="aw__race">Cleveland<span class="aw__race-sub">North River Senate &middot; aired dollars by channel</span></h3>
-            <span class="aw__stamp">TV thru Aug 14 &middot; str. est. thru Aug 7, 2026</span>
-          </header>
-          <p class="aw__readline">The cable buy is the story: over 40% of Cleveland's
-            posted money runs on local cable, the channel a broadcast-only read misses.</p>
-          <div class="aw__lanes">
-            <div class="aw__lane" tabindex="0" data-note="Broadcast: order by order, FCC-verified where a filing exists.">
-              <span class="aw__lane-name">Broadcast <i class="aw__tag">Posted</i></span>
-              <span class="aw__track"><span class="aw__fill" style="--w:100%"></span></span>
-              <span class="aw__val w-measured num">$1.1M</span>
-            </div>
-            <div class="aw__lane" tabindex="0" data-note="Local cable: placed orders by system, week and daypart.">
-              <span class="aw__lane-name">Local cable <i class="aw__tag">Posted</i></span>
-              <span class="aw__track"><span class="aw__fill aw__fill--ca" style="--w:76%"></span></span>
-              <span class="aw__val w-measured num">$840K</span>
-            </div>
-            <div class="aw__lane" tabindex="0" data-note="Radio: dollars post from placed orders; where none exist, dollars from caught airings, labeled.">
-              <span class="aw__lane-name">Radio <i class="aw__tag">Posted</i></span>
-              <span class="aw__track"><span class="aw__fill aw__fill--ra" style="--w:9%"></span></span>
-              <span class="aw__val w-measured num">$95K</span>
-            </div>
-            <div class="aw__lane" tabindex="0" data-note="Streaming &amp; Digital: estimated from measured smart-TV homes &mdash; at least $240K of it caught directly on the apps. Kept separate from the TV channels.">
-              <span class="aw__lane-name">Streaming &amp; Digital <i class="aw__tag aw__tag--est">Estimated</i></span>
-              <span class="aw__track"><span class="aw__fill aw__fill--dg" style="--w:41%"></span></span>
-              <span class="aw__val w-est num">$450K</span>
-            </div>
-          </div>
-          <p class="small aw__note" aria-live="polite">Tap a channel for what stands under the
-            number.<span class="kbd-hint"> Hovering or focusing a channel with a mouse or keyboard does the same.</span></p>
-          <dl class="aw__meta">
-            <div><dt>Aired</dt><dd class="w-measured num">$2.0M</dd></div>
-            <div><dt>Booked forward</dt><dd class="num">$640K</dd></div>
-            <div><dt>Top advertiser</dt><dd>Ellery for Senate (R)</dd></div>
-            <div><dt>Added weight</dt><dd>Granite State Forward PAC, Aug 14</dd></div>
-          </dl>
-        </article>
-
-        <article class="aw__panel" id="aw-rv" role="tabpanel" aria-labelledby="aw-tab-rv">
-          <header class="aw__hd">
-            <h3 class="aw__race">Toledo<span class="aw__race-sub">North River Senate &middot; aired dollars by channel</span></h3>
-            <span class="aw__stamp">TV thru Aug 14 &middot; str. est. thru Aug 7, 2026</span>
-          </header>
-          <p class="aw__readline">Toledo is the streaming market: the posted channels carry
-            $0.9M, and the apps carry an estimated $740K beside them, at least $410K
-            of it caught, none of it visible in any public file.</p>
-          <div class="aw__lanes">
-            <div class="aw__lane" tabindex="0" data-note="Broadcast: order by order, FCC-verified where a filing exists.">
-              <span class="aw__lane-name">Broadcast <i class="aw__tag">Posted</i></span>
-              <span class="aw__track"><span class="aw__fill" style="--w:86%"></span></span>
-              <span class="aw__val w-measured num">$640K</span>
-            </div>
-            <div class="aw__lane" tabindex="0" data-note="Local cable: placed orders by system, week and daypart.">
-              <span class="aw__lane-name">Local cable <i class="aw__tag">Posted</i></span>
-              <span class="aw__track"><span class="aw__fill aw__fill--ca" style="--w:24%"></span></span>
-              <span class="aw__val w-measured num">$180K</span>
-            </div>
-            <div class="aw__lane" tabindex="0" data-note="Radio: dollars post from placed orders; where none exist, dollars from caught airings, labeled.">
-              <span class="aw__lane-name">Radio <i class="aw__tag">Posted</i></span>
-              <span class="aw__track"><span class="aw__fill aw__fill--ra" style="--w:8%"></span></span>
-              <span class="aw__val w-measured num">$60K</span>
-            </div>
-            <div class="aw__lane" tabindex="0" data-note="Streaming &amp; Digital: estimated from measured smart-TV homes &mdash; at least $410K of it caught directly on the apps. Kept separate from the TV channels.">
-              <span class="aw__lane-name">Streaming &amp; Digital <i class="aw__tag aw__tag--est">Estimated</i></span>
-              <span class="aw__track"><span class="aw__fill aw__fill--dg" style="--w:100%"></span></span>
-              <span class="aw__val w-est num">$740K</span>
-            </div>
-          </div>
-          <p class="small aw__note" aria-live="polite">Tap a channel for what stands under the
-            number.<span class="kbd-hint"> Hovering or focusing a channel with a mouse or keyboard does the same.</span></p>
-          <dl class="aw__meta">
-            <div><dt>Aired</dt><dd class="w-measured num">$0.9M</dd></div>
-            <div><dt>Booked forward</dt><dd class="num">$210K</dd></div>
-            <div><dt>Top advertiser &middot; all channels incl. est.</dt><dd>Heartland Priorities PAC</dd></div>
-            <div><dt>Streaming only</dt><dd>No forward book in that channel</dd></div>
-          </dl>
-        </article>
-      </div>
-    </div>
-
-    <div class="stamp"><b>About this demo</b> Real markets, synthetic race, illustrative
-      figures &mdash; posted through Aug 14, 2026. Market totals are broadcast, cable and
-      radio; streaming prints beside them as an estimated minimum, since a third of
-      measured political TV ad impressions are streaming.</div>
-  </div>
-</section>
-
-<!-- ============ SELL-SIDE ============ -->
-<section class="section pb" id="sell-side" data-pb>
+<div class="pb wk-boards" id="sell-side" data-pb>
   <div class="wrap">
     <div class="split" style="margin-bottom:2.2rem">
       <div>
@@ -1117,7 +947,21 @@
       <a class="btn btn--outline" href="platform.html#buy-sheet">See the grid your buyers read</a>
     </div>
   </div>
+</div>
+    </article>
+
+        </div>
+
+    <p class="small center mt2">Synthetic races, stations and advertisers; real markets. Illustrative figures; the stamps and dates work exactly as shown.</p>
+  </div>
 </section>
+
+<!-- ============ THE EXPLORABLE AIR WAR (ruling 16) ============ -->
+<!-- Synthetic race, illustrative figures. User-driven only: choosing a market
+     redraws the spend picture; nothing moves on its own. With JS off, all three
+     market panels render stacked and complete. -->
+
+<!-- ============ SELL-SIDE ============ -->
 
 
 
@@ -1199,6 +1043,6 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r114"></script>
+<script src="assets/js/site.js?v=r124"></script>
 </body>
 </html>

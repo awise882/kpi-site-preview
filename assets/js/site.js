@@ -68,7 +68,7 @@
          diagonal scenes (.ct-stage/.sd-stage — their scrubbed desktop variants
          override these one-shots), the matrix pieces (.mxt/.mxs) and the
          platform vignettes (.vig). All are fully visible without JS. */
-      [].forEach.call(document.querySelectorAll('[data-rise], .fig--light, .ledger, .acs, .ct-stage, .sd-stage, .mxt, .mxs, .vig, .wk__scene'), function (el) { io.observe(el); });
+      [].forEach.call(document.querySelectorAll('[data-rise], .fig--light, .ledger, .acs, .ct-stage, .sd-stage, .mxt, .mxs, .vig, .wk__scene, .fb__page'), function (el) { io.observe(el); });
     }
   } catch (e) { /* motion is optional; content was never hidden */ }
 
@@ -194,7 +194,17 @@
         var id = location.hash.slice(1);
         wkTabs.forEach(function (t) { if (t.getAttribute('aria-controls') === id) wkActivate(t); });
       });
-      var wkHash = (location.hash === '#wk-sell' || location.hash === '#wk-buy') ? location.hash.slice(1) : null;
+      /* r124: a deep link to anything inside a hidden story (the seller's
+         boards now live in the seller article) activates that story first. */
+      var wkDeep = null;
+      if (location.hash && location.hash.length > 1) {
+        try {
+          var wkTgt = document.getElementById(location.hash.slice(1));
+          var wkHost = wkTgt && wkTgt.closest ? wkTgt.closest('.wk__story') : null;
+          if (wkHost) wkDeep = wkHost.id;
+        } catch (e) {}
+      }
+      var wkHash = (location.hash === '#wk-sell' || location.hash === '#wk-buy') ? location.hash.slice(1) : wkDeep;
       var wkInit = null;
       if (wkHash) {
         wkTabs.forEach(function (t) { if (t.getAttribute('aria-controls') === wkHash) wkInit = t; });
