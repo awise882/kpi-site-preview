@@ -2622,3 +2622,48 @@ details.mdet--keep > summary { display: block; pointer-events: none; font-weight
 }
 @keyframes relight { 0%, 100% { box-shadow: 0 0 0 0 rgba(168,209,78,.55); }
   50% { box-shadow: 0 0 0 9px rgba(168,209,78,0); } }
+
+/* ============ r119 (round-11 fixes) ============ */
+/* Cascade fix: the page sheets load after this one, so the lead read insists. */
+.hero-proclaim b.num { box-shadow: none !important; }
+.hero-proclaim b.num:first-of-type { box-shadow: inset 0 -0.3em var(--lime) !important;
+  font-size: 1.32em; }
+/* Micro-receipts fill the linear channel cards. */
+.lanefam__rcpt { margin: .6rem 0 0; font-family: var(--mono); font-size: .68rem;
+  letter-spacing: .04em; color: var(--ink-3); border-top: 1px dashed var(--rule);
+  padding-top: .5rem; }
+/* The ink key, legible: swatches, not 9px caps. */
+.inkkey { position: absolute; left: clamp(12px, 3vw, 40px); bottom: 10px;
+  display: flex; align-items: center; gap: .45rem; font-family: var(--label);
+  text-transform: uppercase; letter-spacing: .1em; font-size: .62rem; font-weight: 700;
+  color: var(--ink-3); }
+.inkkey i { width: 22px; height: 10px; border-radius: 2px; }
+.inkkey__s { background: var(--navy); }
+.inkkey__h { background: repeating-linear-gradient(45deg, #5B7C96 0 3px, transparent 3px 6px);
+  border: 1px solid #5B7C96; }
+.inkkey__d { border: 1.5px dashed #5B7085; background: transparent; }
+@media (max-width: 700px) { .inkkey { display: none; } }
+/* The freshness chips sit 2x2, each self-contained. */
+@media (min-width: 700px) {
+  .fresh { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .5rem;
+    max-width: 880px; margin-inline: auto; }
+  .fresh__k { grid-column: 1 / -1; }
+  .fresh__i { text-align: center; }
+}
+/* The pinned week's artifacts own the frame (wide desks only — narrow
+   viewports keep 1:1 so nothing spills). */
+@media (min-width: 1050px) {
+  html.scrub .wkx__beat .wk__art { transform: scale(1.09); transform-origin: top left; }
+  html.scrub .wkx__beat--2 .wk__art { transform: none; }
+}
+/* Polling's ending band tightens; the relight is the finale. */
+#offerings { padding-bottom: clamp(28px, 4vw, 44px); }
+.lp__loop--end { margin: 1.6rem 0 0; font-size: 1rem; }
+.lp__relight { width: 2.3em; height: 2.3em; }
+/* Press: the pull quotes read inline, not as folds. */
+.nr-release .quote p { font-size: clamp(1.05rem, 1.7vw, 1.3rem); }
+.nr-release .quote { margin: 1.4rem 0; }
+/* The mobile banner holds one tight line. */
+@media (max-width: 400px) {
+  .hero-banner__txt { font-size: .8rem !important; }
+}
