@@ -2869,3 +2869,8 @@ details.mdet--keep > summary { display: block; pointer-events: none; font-weight
   .rcbk-more-p { display: block; margin: .6rem 0 0; }
   tr.rcbk-more { display: none; }
 }
+
+/* The rights-cleared REAL artifacts wear their own shell: a lime top rule and
+   warmer paper — synthetic exhibits stay flat white (maverick ruling, r128). */
+.press-card__art--real { border-top: 3px solid var(--lime-dark); background: #FDFDF7; }
+.press-card__art--real .pca__bar span:last-child { color: #3E6A16; font-weight: 800; }

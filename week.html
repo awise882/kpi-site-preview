@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r127">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r128">
 <style>
   /* r106: every hero its own composition -- this page opens on the two desks
      themselves. Text left; the buyer's and seller's doors right. */
@@ -489,7 +489,7 @@
     <!-- The seller's screen: the market's order flow, advertiser by advertiser, with the
          seller's own air marked. Same rc- recreation pattern as the buyer surfaces. -->
     <div class="rc-seller-stage" data-rise>
-<div class="rc rc-seller">
+<div class="rc rc-seller" role="table" aria-label="Market order flow: six advertisers, aired dollars, booked forward, and aired share. Synthetic data.">
   <div class="rc-seller-toolbar">
     <span class="rc-seller-brand"><span class="rc-seller-dot"></span>KPI &middot; Market Order Flow</span>
     <button class="rc-seller-export" type="button" tabindex="-1" aria-hidden="true">&#8595; Excel</button>
@@ -504,50 +504,50 @@
     <span class="rc-seller-tot">$3.8M aired &middot; $432K streaming est (statewide at launch) &middot; $1.2M booked fwd</span>
   </div>
 
-  <div class="rc-seller-head">
-    <span>Advertiser</span><span class="rc-seller-num-h">Aired / est.</span><span class="rc-seller-num-h">Booked fwd</span><span class="rc-seller-num-h">Aired share</span>
+  <div class="rc-seller-head" role="row">
+    <span role="columnheader">Advertiser</span><span class="rc-seller-num-h" role="columnheader">Aired / est.</span><span class="rc-seller-num-h" role="columnheader">Booked fwd</span><span class="rc-seller-num-h" role="columnheader">Aired share</span>
   </div>
 
-  <div class="rc-seller-rows">
-    <div class="rc-seller-row">
-      <span class="rc-seller-name">Nora Hale for Senate <i class="rc-seller-pty">(D)</i></span>
-      <span class="rc-seller-val">$1.24M</span>
-      <span class="rc-seller-val">$380K</span>
-      <span class="rc-seller-share"><span class="rc-seller-track"><span class="rc-seller-fill" style="width:100%"></span></span><b>33%</b></span>
+  <div class="rc-seller-rows" role="rowgroup">
+    <div class="rc-seller-row" role="row">
+      <span class="rc-seller-name" role="cell">Nora Hale for Senate <i class="rc-seller-pty">(D)</i></span>
+      <span class="rc-seller-val" role="cell">$1.24M</span>
+      <span class="rc-seller-val" role="cell">$380K</span>
+      <span class="rc-seller-share" role="cell"><span class="rc-seller-track"><span class="rc-seller-fill" style="width:100%"></span></span><b>33%</b></span>
     </div>
-    <div class="rc-seller-row rc-seller-row-hi">
-      <span class="rc-seller-name">Ellery for Senate <i class="rc-seller-pty">(R)</i>
+    <div class="rc-seller-row rc-seller-row-hi" role="row">
+      <span class="rc-seller-name" role="cell">Ellery for Senate <i class="rc-seller-pty">(R)</i>
         <span class="rc-seller-note rc-seller-note-call">first call &middot; $520K booked fwd &middot; 4 wks of orders, runs through Oct 12 &middot; $0 of it on WQZL</span></span>
-      <span class="rc-seller-val">$1.02M</span>
-      <span class="rc-seller-val rc-seller-val-call">$520K</span>
-      <span class="rc-seller-share"><span class="rc-seller-track"><span class="rc-seller-fill" style="width:82%"></span></span><b>27%</b></span>
+      <span class="rc-seller-val" role="cell">$1.02M</span>
+      <span class="rc-seller-val rc-seller-val-call" role="cell">$520K</span>
+      <span class="rc-seller-share" role="cell"><span class="rc-seller-track"><span class="rc-seller-fill" style="width:82%"></span></span><b>27%</b></span>
     </div>
-    <div class="rc-seller-row">
-      <span class="rc-seller-name">Granite State Forward PAC</span>
-      <span class="rc-seller-val">$836K</span>
-      <span class="rc-seller-val">$240K</span>
-      <span class="rc-seller-share"><span class="rc-seller-track"><span class="rc-seller-fill" style="width:67%"></span></span><b>22%</b></span>
+    <div class="rc-seller-row" role="row">
+      <span class="rc-seller-name" role="cell">Granite State Forward PAC</span>
+      <span class="rc-seller-val" role="cell">$836K</span>
+      <span class="rc-seller-val" role="cell">$240K</span>
+      <span class="rc-seller-share" role="cell"><span class="rc-seller-track"><span class="rc-seller-fill" style="width:67%"></span></span><b>22%</b></span>
     </div>
-    <div class="rc-seller-row">
-      <span class="rc-seller-name">Heartland Priorities PAC
+    <div class="rc-seller-row" role="row">
+      <span class="rc-seller-name" role="cell">Heartland Priorities PAC
         <span class="rc-seller-note">streaming only &middot; dollars estimated &middot; outside the aired share</span></span>
       <span class="rc-seller-val rc-seller-val-est">$432K</span>
       <span class="rc-seller-val rc-seller-val-none">no horizon</span>
-      <span class="rc-seller-share"><b class="rc-seller-share-na">est &middot; no share</b></span>
+      <span class="rc-seller-share" role="cell"><b class="rc-seller-share-na">est &middot; no share</b></span>
     </div>
     <div class="rc-seller-row rc-seller-row-more">
-      <span class="rc-seller-name">+ 1 more advertiser
+      <span class="rc-seller-name" role="cell">+ 1 more advertiser
         <span class="rc-seller-note">the demo shows the full flow</span></span>
-      <span class="rc-seller-val">$388K</span>
-      <span class="rc-seller-val">$85K</span>
-      <span class="rc-seller-share"><span class="rc-seller-track"><span class="rc-seller-fill" style="width:31%"></span></span><b>10%</b></span>
+      <span class="rc-seller-val" role="cell">$388K</span>
+      <span class="rc-seller-val" role="cell">$85K</span>
+      <span class="rc-seller-share" role="cell"><span class="rc-seller-track"><span class="rc-seller-fill" style="width:31%"></span></span><b>10%</b></span>
     </div>
     <div class="rc-seller-row rc-seller-row-dark">
-      <span class="rc-seller-name">Hometown Values
+      <span class="rc-seller-name" role="cell">Hometown Values
         <span class="rc-seller-darkchip">went dark Aug 11 &middot; $48K booked, since cancelled</span></span>
-      <span class="rc-seller-val">$296K</span>
-      <span class="rc-seller-val">$0</span>
-      <span class="rc-seller-share"><span class="rc-seller-track"><span class="rc-seller-fill" style="width:24%"></span></span><b>8%</b></span>
+      <span class="rc-seller-val" role="cell">$296K</span>
+      <span class="rc-seller-val" role="cell">$0</span>
+      <span class="rc-seller-share" role="cell"><span class="rc-seller-track"><span class="rc-seller-fill" style="width:24%"></span></span><b>8%</b></span>
     </div>
   </div>
 
@@ -1052,6 +1052,6 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r127"></script>
+<script src="assets/js/site.js?v=r128"></script>
 </body>
 </html>
