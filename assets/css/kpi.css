@@ -2510,18 +2510,18 @@ details.mdet[open] > summary::before { content: "\2212\00a0"; }
 @media (prefers-reduced-motion: no-preference) {
   .acs.in-view .ac { animation: ac-land .6s var(--smooth) backwards; }
   .acs.in-view .ac__dl > div { animation: rise .38s var(--smooth) backwards; }
-  .acs.in-view .ac__dl > div:nth-child(1) { animation-delay: .45s; }
-  .acs.in-view .ac__dl > div:nth-child(2) { animation-delay: .52s; }
-  .acs.in-view .ac__dl > div:nth-child(3) { animation-delay: .59s; }
-  .acs.in-view .ac__dl > div:nth-child(4) { animation-delay: .66s; }
-  .acs.in-view .ac__dl > div:nth-child(5) { animation-delay: .73s; }
-  .acs.in-view .ac__dl > div:nth-child(6) { animation-delay: .8s; }
-  .acs.in-view .ac__dl > div:nth-child(7) { animation-delay: .87s; }
-  .acs.in-view .ac__dl > div:nth-child(8) { animation-delay: .94s; }
-  .acs.in-view .ac__dl > div:nth-child(9) { animation-delay: 1.01s; }
-  .acs.in-view .ac__dl > div:nth-child(10) { animation-delay: 1.08s; }
-  .acs.in-view .ac__dl > div:nth-child(4) dd { animation: ac-stamp .5s cubic-bezier(.2,1.4,.3,1) 1.15s backwards; }
-  .acs.in-view .ac__dl > div:nth-child(5) dd { animation: ac-stamp .5s cubic-bezier(.2,1.4,.3,1) 1.5s backwards; }
+  .acs.in-view .ac__dl > div:nth-child(1) { animation-delay: .2s; }
+  .acs.in-view .ac__dl > div:nth-child(2) { animation-delay: .25s; }
+  .acs.in-view .ac__dl > div:nth-child(3) { animation-delay: .3s; }
+  .acs.in-view .ac__dl > div:nth-child(4) { animation-delay: .35s; }
+  .acs.in-view .ac__dl > div:nth-child(5) { animation-delay: .4s; }
+  .acs.in-view .ac__dl > div:nth-child(6) { animation-delay: .45s; }
+  .acs.in-view .ac__dl > div:nth-child(7) { animation-delay: .5s; }
+  .acs.in-view .ac__dl > div:nth-child(8) { animation-delay: .55s; }
+  .acs.in-view .ac__dl > div:nth-child(9) { animation-delay: .6s; }
+  .acs.in-view .ac__dl > div:nth-child(10) { animation-delay: .65s; }
+  .acs.in-view .ac__dl > div:nth-child(4) dd { animation: ac-stamp .5s cubic-bezier(.2,1.4,.3,1) .75s backwards; }
+  .acs.in-view .ac__dl > div:nth-child(5) dd { animation: ac-stamp .5s cubic-bezier(.2,1.4,.3,1) 1s backwards; }
 }
 @keyframes ac-land { from { opacity: 0; transform: translateY(26px) scale(.985); }
   to { opacity: 1; transform: none; } }
@@ -2609,3 +2609,16 @@ details.mdet--keep > summary { display: block; pointer-events: none; font-weight
   border-radius: var(--r); background: var(--white); }
 .relindex .num { font-family: var(--mono); font-size: .7rem; letter-spacing: .04em;
   color: var(--ink-3); margin-right: .3rem; }
+
+/* ============ r118 ============ */
+/* Mid-page display heads step down one size where a page carries many. */
+.section--quiet-h2 h2 { font-size: clamp(1.55rem, 2.6vw, 2.15rem); }
+/* The polling loop's return relights step 01. */
+.lp__relight { display: inline-grid; place-items: center; width: 1.9em; height: 1.9em;
+  margin-right: .55em; border-radius: 50%; background: var(--lime); color: var(--navy-deep);
+  font-weight: 800; font-size: .85em; vertical-align: middle; }
+@media (prefers-reduced-motion: no-preference) {
+  .lp__relight { animation: relight 3.2s ease-in-out infinite; }
+}
+@keyframes relight { 0%, 100% { box-shadow: 0 0 0 0 rgba(168,209,78,.55); }
+  50% { box-shadow: 0 0 0 9px rgba(168,209,78,0); } }
