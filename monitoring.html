@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r122">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r123">
 <style>
   .fig-scroll > svg { min-width: 820px; }
   /* R69: the key graphic gets a phone-native stack; no panning a 1000px drawing */
@@ -440,9 +440,16 @@
                 <div><dt>Broadcast</dt><dd>Nothing yet &mdash; caught on streaming first</dd></div>
                 <div><dt>Category</dt><dd>Government / Organizations</dd></div>
               </dl>
-              <p class="ac__bcast small">Broadcast catches print the same receipt &mdash;
-                station, first air, inbox: <span class="num">WZQV &middot; first air 6:12 AM &middot;
-                inbox 6:14 AM ET</span> &middot; synthetic example.</p>
+              <p class="ac__bcast small">The broadcast lane prints the same receipt
+                &mdash; this one landed the same morning, real:</p>
+              <div class="press-card__art" role="group" style="margin:.5rem 0 0;background:var(--white)"
+                aria-label="A second real alert, broadcast: Amy Acton Hiked Taxes, caught on WKYC Cleveland, first aired 5:24 AM, in the inbox at 8:20 AM">
+                <p class="pca__bar"><span>KPI &middot; Creative alert &middot; broadcast</span><span>real alert &middot; as it landed</span></p>
+                <p class="pca__big">&ldquo;Amy Acton Hiked Taxes&rdquo; &middot; :30 &mdash; Vivek Ramaswamy and Rob McColley for Ohio</p>
+                <p class="pca__row num">OH GOVERNOR &middot; FIRST AIRED AUG 30, 2026 &middot; 5:24:02 AM ET &middot; WKYC, CLEVELAND</p>
+                <p class="pca__row num">IN THE INBOX 8:20 AM ET &mdash; TAPE + AI TRANSCRIPT ATTACHED</p>
+                <p class="pca__row">&ldquo;&hellip;Acton hiked taxes and made everything cost more&hellip;&rdquo; &mdash; AI transcript, exactly as landed &middot; creative &copy; its advertiser</p>
+              </div>
               <p class="ac__bcast small">Delivery: the inbox stamped above, and the
                 API &mdash; alerts and the data behind them, straight into your own stack.</p>
               <div class="ac__tr">
@@ -812,6 +819,17 @@
         <p>Station-level political rates, read off public FCC filings &mdash; what
           stations charged, by daypart and week. Both sides of the rate conversation
           arrive holding the same file.</p>
+        <div class="press-card__art" role="group" style="margin:1.1rem 0 1.2rem"
+          aria-label="A real market's rate read: Des Moines-Ames, from public FCC filings">
+          <p class="pca__bar"><span>KPI &middot; FCC rate intelligence &middot; Des Moines&ndash;Ames, IA</span><span>real filed rates</span></p>
+          <p class="pca__big">Avg <span class="num">$580</span> a spot &middot; <span class="num">2K</span> contracts
+            processed &middot; window <span class="num">Jan 29, 2025 &ndash; Nov 4, 2026</span></p>
+          <p class="pca__row num">EARLY NEWS, PER :30 &mdash; KCCI $1,444 &middot; WHO $1,258 &middot; WOI $486 &middot; KDSM $222 &middot; KFPX $125 &middot; KCWI $54</p>
+          <p class="pca__row num">KDSM &middot; PRIME &mdash; AVG $1,090: CANDIDATE $803 &middot; ISSUE $1,468 &middot; 51 ADVERTISERS &middot; 232 CONTRACTS</p>
+          <p class="pca__row num">RATE v MARKET &mdash; KCCI 1.5&times; &middot; WHO 1.2&times; &middot; KDSM 0.5&times; &middot; WOI 0.5&times; &middot; KFPX 0.2&times; &middot; KCWI 0.1&times;</p>
+          <p class="pca__row">Real market, exactly as filed &mdash; the candidate-vs-issue class split prints
+            per station, per daypart, from the public file.</p>
+        </div>
         <div class="card card--flag">
           <p class="card__k">What subscribers pull</p>
           <ul class="small" style="margin-bottom:0">
