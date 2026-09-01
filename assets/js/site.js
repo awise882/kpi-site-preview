@@ -591,3 +591,28 @@
     });
   } catch (e) {}
 })();
+
+
+/* r134 (maverick ten): the nameable signature — the header's navy-to-lime
+   hairline is also the page's progress spine. It draws with the read on every
+   page; informational, so it runs under reduced motion too. */
+(function () {
+  try {
+    var spine = document.createElement('div');
+    spine.id = 'page-spine';
+    spine.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(spine);
+    var doc = document.documentElement;
+    var raf = false;
+    function draw() {
+      raf = false;
+      var max = doc.scrollHeight - innerHeight;
+      var p = max > 0 ? Math.min(1, Math.max(0, scrollY / max)) : 0;
+      spine.style.transform = 'scaleX(' + p.toFixed(4) + ')';
+    }
+    addEventListener('scroll', function () {
+      if (!raf) { raf = true; requestAnimationFrame(draw); }
+    }, { passive: true });
+    draw();
+  } catch (e) {}
+})();

@@ -2222,7 +2222,7 @@ a.chip:hover { border-color: var(--blue); color: var(--navy); background: var(--
    Base (JS-off, reduced motion, phones): four beats stacked, everything visible.
    With the scrub engine (html.scrub, >=760px): the stage pins and the scroll
    swaps beats in place. */
-.wkx__beat { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+.wkx__beat { display: grid; align-content: center; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
   gap: 2rem; align-items: start; margin: 0 0 2.6rem; }
 @media (max-width: 759px) { .wkx__beat { grid-template-columns: 1fr; gap: 1rem; } }
 .wkx__rail { display: none; }
@@ -2230,7 +2230,9 @@ a.chip:hover { border-color: var(--blue); color: var(--navy); background: var(--
 
 @media (min-width: 760px) {
   html.scrub .wkx__scroller { height: 320vh; }
-  html.scrub .wkx__pin { position: sticky; top: calc(var(--nav-h, 64px) + 18px); }
+  html.scrub .wkx__pin { position: sticky; top: calc(var(--nav-h, 64px) + 18px);
+    display: flex; flex-direction: column; justify-content: center;
+    min-height: calc(100vh - var(--nav-h, 64px) - 30px); }
   html.scrub .wkx__rail { display: flex; gap: .6rem; flex-wrap: wrap; margin-bottom: .5rem; }
   html.scrub .wkx__step { font-family: var(--label); text-transform: uppercase;
     letter-spacing: .1em; font-size: .7rem; font-weight: 700; color: var(--ink-3);
@@ -2658,6 +2660,7 @@ details.mdet--keep > summary { display: block; pointer-events: none; font-weight
    viewports keep 1:1 so nothing spills). */
 @media (min-width: 1050px) {
   html.scrub .wkx__beat .wk__art { transform: scale(1.09); transform-origin: top left; }
+  @media (min-width: 1240px) { html.scrub .wkx__beat .wk__art { transform: scale(1.12); transform-origin: top right; } }
   html.scrub .wkx__beat--2 .wk__art { transform: none; }
 }
 /* Polling's ending band tightens; the relight is the finale. */
@@ -2710,6 +2713,7 @@ details.mdet--keep > summary { display: block; pointer-events: none; font-weight
 .lanefam--cb { border-left: 4px solid #00ACC1 !important; }
 .lanefam--rd { border-left: 4px solid #5B7C96 !important; }
 .lanefam--st { border-left: 4px dashed var(--lime-dark) !important; }
+@media (min-width: 700px) { #lanes .lanefam--st { grid-column: 1 / -1; } }
 .lanefam__hint { margin-left: auto; font-family: var(--mono); font-size: .64rem;
   letter-spacing: .05em; color: var(--ink-3); white-space: nowrap;
   transition: opacity .25s ease; }
@@ -2786,7 +2790,7 @@ details.mdet--keep > summary { display: block; pointer-events: none; font-weight
 .lad__ruler { position: relative; height: 118px; }
 .lad__line { position: absolute; left: 0; right: 0; top: 50%; height: 0;
   border-top: 1px solid var(--rule); }
-.lad__line::after { content: "older \2192"; position: absolute; right: 0; top: .35rem;
+.lad__line::after { content: "a week \2192"; position: absolute; right: 0; top: .35rem;
   font-family: var(--mono); font-size: .62rem; letter-spacing: .08em; color: var(--ink-3); }
 .lad__tick { position: absolute; left: var(--x); top: 50%; width: 13rem; max-width: 24vw;
   transform: translateX(-6px); }
@@ -2891,6 +2895,7 @@ details.mdet--keep > summary { display: block; pointer-events: none; font-weight
   animation: grow-x .9s var(--smooth) .7s backwards; }
 .latbar b { font-family: var(--mono); font-size: .62rem; letter-spacing: .06em;
   font-weight: 600; color: var(--ink-2); white-space: nowrap; }
+@media (max-width: 640px) { .latbar b { white-space: normal; } }
 @media (prefers-reduced-motion: reduce) { .latbar i::after { animation: none !important; } }
 /* The exit band carries the next page's receipt, not an empty right half. */
 .nextcard__stat { margin-left: auto; margin-right: 1.2rem; font-family: var(--mono);
@@ -2910,3 +2915,15 @@ details.mdet--keep > summary { display: block; pointer-events: none; font-weight
 /* The phone's matrix carries its axis line; desktop keeps it on the figure. */
 .mxs__mobcap { display: none; }
 @media (max-width: 760px) { .mxs__mobcap { display: block; margin: .4rem 0 0; color: var(--ink-3); } }
+
+/* ===== r134 — the spine, the units, the readers' wall ===== */
+/* The signature: the brand hairline draws the page position, every page. */
+#page-spine { position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 90;
+  background: linear-gradient(90deg, var(--navy-deep), #00ACC1, var(--lime));
+  transform: scaleX(0); transform-origin: left center; pointer-events: none; }
+/* The ladder's rail carries magnitude at both ends (maverick-2, third ask). */
+.lad__line::before { content: "minutes"; position: absolute; left: 0; top: .35rem;
+  font-family: var(--mono); font-size: .62rem; letter-spacing: .08em; color: var(--ink-3); }
+/* Screen readers get the walls the readline promises (a11y, second ask). */
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip-path: inset(50%); margin: 0; padding: 0; }

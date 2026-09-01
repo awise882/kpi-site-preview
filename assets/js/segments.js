@@ -221,6 +221,12 @@
       elMail.setAttribute('aria-disabled', picked.length ? 'false' : 'true');
       elMail.style.opacity = picked.length ? '' : '.45';
       elMail.style.pointerEvents = picked.length ? '' : 'none';
+      if (!elMail.dataset.guard) {
+        elMail.dataset.guard = '1';
+        elMail.addEventListener('click', function (ev) {
+          if (elMail.getAttribute('aria-disabled') === 'true') ev.preventDefault();
+        });
+      }
     }
     if (!picked.length) {
       elBasketList.innerHTML = '<li class="sx-basket-empty">Nothing picked yet. A working shortlist looks like: economy concern (QID 9918) + party lean (QID 494) &rarr; one audience. Add a question to start yours.</li>';
@@ -231,7 +237,7 @@
     elBasketList.innerHTML = picked.map(function (id) {
       var r = byId[id];
       if (!r) return '';
-      return '<li><button class="sx-drop" data-qid="' + id + '" title="Remove">&times;</button>' +
+      return '<li><button class="sx-drop" data-qid="' + id + '" title="Remove" aria-label="Remove from shortlist">&times;</button>' +
         '<span class="sx-basket-q">' + esc(r.q) + '</span>' +
         '<span class="sx-qid num">QID ' + id + '</span></li>';
     }).join('');
@@ -312,7 +318,7 @@
       var b = e.target.closest('.sx-chip');
       if (!b) return;
       [].forEach.call(elDomains.children, function (c) { c.classList.remove('is-on'); c.setAttribute('aria-pressed', 'false'); });
-      e.target.setAttribute('aria-pressed', 'true');
+      var chipEl = e.target.closest('.sx-chip'); if (chipEl) chipEl.setAttribute('aria-pressed', 'true');
       b.classList.add('is-on');
       state.domain = b.getAttribute('data-dom');
       state.cat = '';
