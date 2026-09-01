@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r114">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r116">
 <style>
   /* Light, centered, airy hero, matching the live site: the announcement banner
      sits flush under the nav, then the display headline in the green-to-teal
@@ -151,9 +151,7 @@
   .hero-receipt .hr-sep { font-style: normal; color: var(--ink-3); }
 
   /* R66: the mobile hero's scoreboard glimpse (two rows of the platform recreation) */
-  .hero-board { display: none; }
-  @media (max-width: 640px) {
-    .hero-board { display: block; margin: 1.5rem auto 0; max-width: 430px; text-align: left;
+  .hero-board { display: none; margin: 1.5rem auto 0; max-width: 430px; text-align: left;
       background: var(--white); border: 1px solid var(--rule); border-radius: 8px;
       box-shadow: 0 1px 2px rgba(13,46,74,.06), 0 10px 28px rgba(13,46,74,.12); overflow: hidden; }
     .hb-top { display: flex; align-items: center; gap: .45rem; background: var(--navy-ink);
@@ -190,6 +188,13 @@
     .hb-foot { display: flex; justify-content: space-between; gap: .5rem; font-family: var(--label);
       font-size: .52rem; font-weight: 700; letter-spacing: .1em; color: var(--ink-3);
       border-top: 1px solid var(--rule-soft); padding: .42rem .7rem; background: #FAFCFE; }
+  @media (max-width: 640px) { .hero-board { display: block; } }
+  /* r116 (the owner: the website is the spec) — the scoreboard sits in the
+     flagship hero on desktop too, riding a beat behind the page. */
+  @media (min-width: 900px) {
+    .hero-board { display: block; max-width: 720px; margin-top: 2.4rem; }
+    .hero-board .hb-row { display: grid; grid-template-columns: 1fr 1fr; gap: .2rem 1.6rem; align-items: center; }
+    .hero-board .hb-row .hb-l3 { grid-column: 1 / -1; }
   }
 </style>
 
@@ -445,7 +450,7 @@
       Monday-to-Friday, then the seller&rsquo;s &mdash; real artifacts, hour by hour.</p>
     <!-- The mobile hero's proof: a two-race glimpse of the scoreboard, matching the
          platform recreation's rows. Shown under 641px only; desktop keeps the type. -->
-    <div class="hero-board" role="img" aria-label="A glimpse of the scoreboard: two races, each side's share of committed money, the TV, cable and radio total with the streaming estimate riding beside it, and the week's new money on top. Synthetic sample.">
+    <div class="hero-board" data-plx style="--plx-d:12px" role="img" aria-label="A glimpse of the scoreboard: two races, each side's share of committed money, the TV, cable and radio total with the streaming estimate riding beside it, and the week's new money on top. Synthetic sample.">
       <div class="hb-top"><span class="hb-dot"></span>SCOREBOARD<span class="hb-stamp">POSTED THRU AUG 30, 2026</span></div>
       <div class="hb-row">
         <div class="hb-l1"><span class="hb-tag">AG</span><b>Midstate Attorney General</b><span class="hb-wk">+$3.3M</span></div>
@@ -519,6 +524,7 @@
         <rect x="6" y="24" width="92" height="50" fill="#A8D14E"/>
         <text x="52" y="55" text-anchor="middle" font-family="Inter, sans-serif" font-size="15" font-weight="800" fill="#08243B">1 in 3</text>
         <rect x="102" y="24" width="192" height="50" fill="#1B4F72"/>
+        <text x="198" y="55" text-anchor="middle" font-family="Inter, sans-serif" font-size="15" font-weight="800" fill="#E7EFF6">2 in 3</text>
         <text x="6" y="90" font-family="Inter, sans-serif" font-size="8" font-weight="700" letter-spacing=".8" fill="#A8D14E">STREAMING &middot; ON THE GLASS</text>
         <text x="198" y="90" font-family="Inter, sans-serif" font-size="8" font-weight="700" letter-spacing=".8" fill="#8FA9BE" text-anchor="middle">THE FILED RECORD</text>
       </svg>
@@ -528,10 +534,10 @@
     </div>
 
     <div class="built mt3" data-rise>
-      <p class="built__big">Down to the spot, the station, and the dollar.</p>
+      <p class="built__big">Built today, by the people building tomorrow.</p>
       <p class="built__sub">Simple when you need the answer, detailed when you need
-        it &mdash; <b class="num">303</b> races carrying posted or detected money today,
-        and every read exports.</p>
+        it &mdash; down to the spot, the station, and the dollar: <b class="num">303</b>
+        races carrying posted or detected money today, and every read exports.</p>
 
     </div>
   </div>
@@ -554,9 +560,10 @@
       <h2>The whole air war,<br>on one screen.</h2>
       <p class="lede">Detection to decision to delivery &mdash; the glimpses below are
         boards subscribers pull today, not mockups of a roadmap.</p>
-      <p class="small kw__readline" style="margin-top:.5rem;max-width:64ch">Read it like the morning: the
-        alert, the tape, the break &mdash; then the boards and the rates &mdash; then ask
-        Baker, the assistant in every seat. The dashed corner is the polling desk.</p>
+      <p class="small kw__readline" style="margin-top:.5rem;max-width:64ch">Read it like the morning, numbered on the wall: <b>1</b> the
+        alert, <b>2</b> the tape, <b>3</b> the break &mdash; <b>4</b> the boards, <b>5</b> the
+        rates &mdash; <b>6</b> ask Baker, the assistant in every seat. The dashed corner
+        is the polling desk.</p>
     </div>
   </div>
   <div class="kw__stage">
@@ -643,7 +650,7 @@
       <span class="kw__c kw__c--deal num">KPI-PMP-2026-0841 <i>deal ID &middot; the audience lands in your seat</i></span>
     </div>
     <a class="kw__more wrap" href="contact.html">+ 9 more boards live on this wall &mdash; see them in the demo &rarr;</a>
-    <span class="kw__stamp">synthetic glimpses &middot; every board opens live in the demo</span>
+    <span class="kw__stamp">synthetic glimpses &middot; ink: solid aired &middot; hatched booked &middot; dashed modeled &middot; every board opens live in the demo</span>
   </div>
 
   <!-- r102 (consolidation round): the doors are the collage's closing row, not a
@@ -657,8 +664,12 @@
       <a class="card card--flag press-card" href="monitoring.html">
         <p class="card__k">Monitoring</p>
         <h3>Political ads, caught as they air.</h3>
-        <figure class="press-card__shot"><img width="2400" height="1502" src="assets/apps/app-alert-card-real.png?v=r102" loading="lazy"
-          alt="A real creative alert as it landed: the Five Borough Jobs Campaign :30 with its frame, AI transcript, first-captured time, source channel and category &mdash; caught on Hulu at 4:21 PM."><i aria-hidden="true">real alert &middot; creative &copy; its advertiser</i></figure>
+        <div class="press-card__art">
+          <p class="pca__bar"><span>KPI &middot; Creative alert</span><span>real alert</span></p>
+          <p class="pca__big">&ldquo;Delivery Driver&rdquo; &middot; :30 &mdash; Five Borough Jobs Campaign</p>
+          <p class="pca__row num">FIRST CAPTURED 4:21:39 PM &middot; IN INBOXES 4:23:07 PM</p>
+          <p class="pca__row">Hulu &middot; OTT &mdash; nothing on broadcast yet &middot; tape + transcript attached</p>
+        </div>
         <p class="small">TV, cable, radio and streaming, in every market &mdash; the alert
           lands with the tape and the transcript.</p>
         <span class="press-card__go">What we monitor &rarr;</span>
@@ -666,8 +677,12 @@
       <a class="card card--flag press-card" href="platform.html">
         <p class="card__k">The platform</p>
         <h3>One portal, shaped to your fight.</h3>
-        <figure class="press-card__shot"><img width="2400" height="1298" src="assets/apps/app-creative-matrix.webp?v=r47" loading="lazy"
-          alt="The Creative Matrix: each side's money split into the case for and the case against, theme by theme. Synthetic data."><i aria-hidden="true">synthetic data</i></figure>
+        <div class="press-card__art">
+          <p class="pca__bar"><span>KPI &middot; Scoreboard</span><span>synthetic</span></p>
+          <p class="pca__big">Midstate Attorney General <span class="num">+$3.3M this week</span></p>
+          <p class="pca__row num">D 40% &middot; R 60% &middot; TV&middot;CABLE&middot;RADIO $29.2M</p>
+          <p class="pca__row num">STREAMING $1.1M EST. &mdash; beside the total, never blended</p>
+        </div>
         <p class="small">Scoreboard, Buy Sheet, Creative Matrix and the rest &mdash;
           battle-tested on the 303 races it tracks right now. Every read exports.</p>
         <span class="press-card__go">See it working &rarr;</span>
@@ -675,17 +690,25 @@
       <a class="card card--flag press-card" href="week.html">
         <p class="card__k">Buyers &amp; sellers</p>
         <h3>One week, from both sides of the table.</h3>
-        <figure class="press-card__shot"><img width="2400" height="1350" src="assets/apps/app-seller-desk.webp?v=r64" loading="lazy"
-          alt="The seller's desk: share by station with your air at 25% of a $3.8M market against the average advertiser's mix, and the leads the share read throws off &mdash; advertisers light on your air with the gap at your share, streaming-only money for the linear pitch, and the agency gap. Synthetic data."><i aria-hidden="true">synthetic data</i></figure>
+        <div class="press-card__art">
+          <p class="pca__bar"><span>KPI &middot; Seller desk</span><span>synthetic</span></p>
+          <p class="pca__big">First call: Ellery for Senate &mdash; <span class="num">$520K booked fwd, $0 on your air</span></p>
+          <p class="pca__row num">YOUR SHARE 25% OF $3.8M &middot; FORWARD BOOK 19%</p>
+          <p class="pca__row num">THE AGENCY BUYING AROUND YOU: +$272K AT YOUR SHARE</p>
+        </div>
         <p class="small">The buyer&rsquo;s Monday-to-Friday, then the seller&rsquo;s desk on the
           same data &mdash; your share, the gaps, the agency book, and who to call.</p>
         <span class="press-card__go">Walk the week &rarr;</span>
       </a>
       <a class="card card--flag press-card" href="polling.html">
-        <p class="card__k">Voter opinion</p>
+        <p class="card__k"><span class="dotmark" aria-hidden="true"></span>Voter opinion</p>
         <h3>The poll that never closes.</h3>
-        <figure class="press-card__shot"><img width="2280" height="1280" src="assets/apps/app-question-library.png?v=r103" loading="lazy"
-          alt="The question library: real always-on questions with their QIDs &mdash; economy and jobs QID 9918, gas and energy prices QID 9919 &mdash; domain counts, and the shortlist that comes back as a deal ID."><i aria-hidden="true">the live library</i></figure>
+        <div class="press-card__art">
+          <p class="pca__bar"><span>KPI &middot; Question library</span><span>the live library</span></p>
+          <p class="pca__big">&ldquo;How concerned are you right now about the economy and jobs?&rdquo;</p>
+          <p class="pca__row num">QID 9918 &middot; ALWAYS ON &rarr; THE AUDIENCE, DECLARED</p>
+          <p class="pca__row num">&rarr; DEAL ID KPI-PMP-2026-0841 &middot; IN YOUR SEAT</p>
+        </div>
         <p class="small">10.2 billion answers deep &mdash; 10,000+ questions always in the
           field. Build the audience from what people actually said &mdash; custom questions come
           with the media &mdash; from <b class="num">$30K</b>.</p>
@@ -717,7 +740,7 @@
           <summary>Running the race?</summary>
           <p>Ask what the race is arguing about, build the audience from the answers,
             land it as a deal ID &mdash; from <b class="num">$30K</b>.</p>
-          <a href="polling.html">Voter opinion: the loop &rarr;</a>
+          <a href="polling.html">Ask your question &mdash; from $30K &rarr;</a>
         </details>
         <details class="mdet mdet--seat" open>
           <summary>Covering it?</summary>
@@ -740,7 +763,7 @@
         the race.</p>
       
       <div class="btn-row mt2" style="justify-content:center">
-        <a class="btn btn--navy" href="https://kpipoliticalinsightsforecast.subscribepage.io/" target="_blank" rel="noopener">Get the 2026 forecast report</a>
+        <a class="btn btn--navy" href="https://kpipoliticalinsightsforecast.subscribepage.io/" target="_blank" rel="noopener">Request the 2026 forecast report</a>
         <a class="btn btn--outline" href="press.html">The newsroom</a>
       </div>
     </div>
@@ -814,7 +837,7 @@
           Press: <a href="mailto:press@kpipolitical.com">press@kpipolitical.com</a></p>
       </div>
       <div>
-        <h4>Platform</h4>
+        <h4>Product</h4>
         <ul>
           <li><a href="monitoring.html">Monitoring</a></li>
           <li><a href="platform.html">The platform</a></li>
