@@ -2226,7 +2226,7 @@ a.chip:hover { border-color: var(--blue); color: var(--navy); background: var(--
 .wkx__hint { display: none; color: var(--ink-3); }
 
 @media (min-width: 760px) {
-  html.scrub .wkx__scroller { height: 380vh; }
+  html.scrub .wkx__scroller { height: 320vh; }
   html.scrub .wkx__pin { position: sticky; top: calc(var(--nav-h, 64px) + 18px); }
   html.scrub .wkx__rail { display: flex; gap: .6rem; flex-wrap: wrap; margin-bottom: .5rem; }
   html.scrub .wkx__step { font-family: var(--label); text-transform: uppercase;
@@ -2248,17 +2248,17 @@ a.chip:hover { border-color: var(--blue); color: var(--navy); background: var(--
 }
 @keyframes wkx-win {
   0% { opacity: 0; visibility: hidden; transform: translateY(16px); }
-  10% { opacity: 1; visibility: visible; transform: none; }
-  90% { opacity: 1; visibility: visible; transform: none; }
+  14% { opacity: 1; visibility: visible; transform: none; }
+  86% { opacity: 1; visibility: visible; transform: none; }
   100% { opacity: 0; visibility: hidden; transform: translateY(-12px); }
 }
 @keyframes wkx-win-first {
-  0%, 90% { opacity: 1; visibility: visible; transform: none; }
+  0%, 86% { opacity: 1; visibility: visible; transform: none; }
   100% { opacity: 0; visibility: hidden; transform: translateY(-12px); }
 }
 @keyframes wkx-win-last {
   0% { opacity: 0; visibility: hidden; transform: translateY(16px); }
-  10%, 100% { opacity: 1; visibility: visible; transform: none; }
+  14%, 100% { opacity: 1; visibility: visible; transform: none; }
 }
 @keyframes wkx-step { 0% { opacity: .45; } 10%, 90% { opacity: 1; border-top-color: var(--lime); color: var(--navy-deep); } 100% { opacity: .45; } }
 @keyframes wkx-step-first { 0%, 90% { opacity: 1; border-top-color: var(--lime); color: var(--navy-deep); } 100% { opacity: .45; } }
@@ -2389,4 +2389,61 @@ details.mdet[open] > summary::before { content: "\2212\00a0"; }
   #lanes .lanefam:last-child { grid-column: 1 / -1; }
   #lanes .lanefam__what { max-width: none; }
   #lanes .lanefam__body { max-width: none; }
+}
+
+/* ============ r113 ============ */
+/* The lead read (the owner: "no hierarchy, just numbers") — one number leads,
+   three ride beside it, the rest is a footline. */
+.statlead { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+  gap: 1.2rem 2.8rem; align-items: center; background: var(--white);
+  border: 1px solid var(--rule); border-radius: var(--r-lg); box-shadow: var(--shadow);
+  padding: clamp(1.4rem, 3vw, 2.2rem) clamp(1.2rem, 3vw, 2.4rem);
+  position: relative; overflow: hidden; }
+.statlead::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 3px;
+  background: linear-gradient(90deg, var(--lime) 0%, #00ACC1 60%, var(--navy) 100%); }
+.statlead__v { font-weight: 800; letter-spacing: -.03em; line-height: 1;
+  font-size: clamp(3.2rem, 6.4vw, 5rem); color: var(--navy-deep); }
+.statlead__v span { box-shadow: inset 0 -0.14em var(--lime); padding: 0 .05em; }
+.statlead__l { margin: .6rem 0 0; font-size: .95rem; line-height: 1.5;
+  color: var(--ink-2); max-width: 34ch; }
+.statlead__row { display: grid; grid-template-columns: 6.6rem 1fr; align-items: baseline;
+  gap: 1rem; padding: .62rem 0; border-top: 1px solid var(--rule); }
+.statlead__side .statlead__row:first-child { border-top: 0; }
+.statlead__row b { font-size: clamp(1.5rem, 2.4vw, 1.9rem); font-weight: 800;
+  color: var(--navy-deep); letter-spacing: -.01em; }
+.statlead__row span { font-size: .88rem; color: var(--ink-2); line-height: 1.45; }
+.statlead__foot { grid-column: 1 / -1; margin: .1rem 0 0; border-top: 1px solid var(--rule);
+  padding-top: .75rem; font-family: var(--label); letter-spacing: .1em; font-weight: 700;
+  font-size: .64rem; color: var(--ink-3); }
+@media (max-width: 720px) {
+  .statlead { grid-template-columns: 1fr; gap: .9rem; }
+  .statlead__row { grid-template-columns: 5.2rem 1fr; }
+}
+
+/* The doors and the seats say what they are (the owner: "see our products /
+   look by use case, but not making that obvious"). */
+.doors__h, .seats__h { margin: .25rem 0 0; font-family: var(--display);
+  font-size: clamp(1.4rem, 2.6vw, 1.9rem); letter-spacing: -.01em; color: var(--navy-deep); }
+.seats__h { margin-bottom: 1.2rem; }
+
+/* The accent line breathes — a slow drift across the same AA gradient family.
+   Reduced motion (and browsers without text clipping) keep the static line. */
+@supports (-webkit-background-clip: text) {
+  @media (prefers-reduced-motion: no-preference) {
+    .ht .ht__l--accent {
+      background: linear-gradient(100deg, var(--lime-text) 0%, #007A8A 38%, #1F6E96 60%, var(--lime-text) 100%);
+      background-size: 250% 100%;
+      -webkit-background-clip: text; background-clip: text;
+      animation: ht-drift 17s ease-in-out infinite alternate;
+    }
+  }
+}
+@keyframes ht-drift { from { background-position: 0% 50%; } to { background-position: 100% 50%; } }
+
+/* Depth (the owner: "a parallax effect somewhere... more cinematic"): a few
+   hero set pieces ride the scroll a beat behind the page. site.js sets --plx
+   (-.7 to .7, viewport-centered) on [data-plx]; reduced motion never gets the
+   scrub class, so the pieces sit still. */
+@media (min-width: 760px) {
+  html.scrub [data-plx] { transform: translate3d(0, calc(var(--plx, 0) * var(--plx-d, 18px)), 0); }
 }

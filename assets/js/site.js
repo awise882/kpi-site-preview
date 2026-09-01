@@ -174,6 +174,8 @@
           if (p.id === tab.getAttribute('aria-controls')) { p.removeAttribute('hidden'); }
           else { p.setAttribute('hidden', ''); }
         });
+        /* the scrub driver re-measures the freshly shown runway */
+        try { window.dispatchEvent(new Event('scroll')); } catch (e) {}
         if (focus) tab.focus();
       };
       wkTabs.forEach(function (t, i) {
@@ -188,6 +190,10 @@
       });
       /* Round-1 panel fix (seller): #wk-sell and #wk-buy are deep links — a
          forwarded link opens the right desk instead of always the buyer's. */
+      window.addEventListener('hashchange', function () {
+        var id = location.hash.slice(1);
+        wkTabs.forEach(function (t) { if (t.getAttribute('aria-controls') === id) wkActivate(t); });
+      });
       var wkHash = (location.hash === '#wk-sell' || location.hash === '#wk-buy') ? location.hash.slice(1) : null;
       var wkInit = null;
       if (wkHash) {
@@ -371,31 +377,60 @@
 (function () {
   var els = Array.prototype.slice.call(
     document.querySelectorAll('.sd__scroller,.tl__scroller,.ct__scroller,.mxs__scroller,.wkx__scroller'));
-  if (!els.length) return;
+  var plx = Array.prototype.slice.call(document.querySelectorAll('[data-plx]'));
+  if (!els.length && !plx.length) return;
   var root = document.documentElement;
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
   function gate() { root.classList.toggle('scrub', !reduce.matches); }
   gate();
-  if (reduce.addEventListener) reduce.addEventListener('change', function () { gate(); frame(); });
-  var ticking = false;
-  function frame() {
-    ticking = false;
-    if (!root.classList.contains('scrub')) return;
+  if (reduce.addEventListener) reduce.addEventListener('change', function () { gate(); kick(); });
+  /* r113: an eased follower sits between the wheel and the stage — the wheel's
+     discrete steps land as targets and the stage glides to them, so the pinned
+     scenes stop printing every notch as a jerk. The loop keeps running only
+     while something is still settling. */
+  var cur = [], tgt = [], pcur = [], ptgt = [], raf = null;
+  function measure() {
     var vh = window.innerHeight;
     for (var i = 0; i < els.length; i++) {
       var r = els[i].getBoundingClientRect();
       var span = r.height - vh;
-      if (span <= 0) continue;
+      if (span <= 0) { tgt[i] = null; continue; }
       var p = -r.top / span;
-      p = p < 0 ? 0 : p > 1 ? 1 : p;
-      els[i].style.setProperty('--scrub', p.toFixed(4));
+      tgt[i] = p < 0 ? 0 : p > 1 ? 1 : p;
+      if (cur[i] == null) cur[i] = tgt[i];
+    }
+    for (var j = 0; j < plx.length; j++) {
+      var q = plx[j].getBoundingClientRect();
+      if (!q.height) { ptgt[j] = null; continue; }
+      var c = (vh / 2 - (q.top + q.height / 2)) / vh;
+      ptgt[j] = c < -0.7 ? -0.7 : c > 0.7 ? 0.7 : c;
+      if (pcur[j] == null) pcur[j] = ptgt[j];
     }
   }
-  function kick() { if (!ticking) { ticking = true; requestAnimationFrame(frame); } }
+  function frame() {
+    raf = null;
+    if (!root.classList.contains('scrub')) return;
+    measure();
+    var live = false, i, d;
+    for (i = 0; i < els.length; i++) {
+      if (tgt[i] == null) continue;
+      d = tgt[i] - cur[i];
+      if (Math.abs(d) > 0.0006) { cur[i] += d * 0.16; live = true; } else { cur[i] = tgt[i]; }
+      els[i].style.setProperty('--scrub', cur[i].toFixed(4));
+    }
+    for (i = 0; i < plx.length; i++) {
+      if (ptgt[i] == null) continue;
+      d = ptgt[i] - pcur[i];
+      if (Math.abs(d) > 0.0015) { pcur[i] += d * 0.14; live = true; } else { pcur[i] = ptgt[i]; }
+      plx[i].style.setProperty('--plx', pcur[i].toFixed(4));
+    }
+    if (live) kick();
+  }
+  function kick() { if (!raf) raf = requestAnimationFrame(frame); }
   window.addEventListener('scroll', kick, { passive: true });
   window.addEventListener('resize', kick, { passive: true });
   window.addEventListener('load', kick);
-  frame();
+  kick();
 })();
 
 /* r88b: the platform board deck. The rail is in the HTML, hidden JS-off; this

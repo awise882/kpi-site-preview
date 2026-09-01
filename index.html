@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r112b">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r113">
 <style>
   /* Light, centered, airy hero, matching the live site: the announcement banner
      sits flush under the nav, then the display headline in the green-to-teal
@@ -55,13 +55,6 @@
   .hero-banner__in--dual a { background: color-mix(in srgb, var(--lime) 15%, var(--white));
     border: 1px solid color-mix(in srgb, var(--lime-dark) 45%, transparent);
     border-radius: 999px; padding: .32rem 1rem .32rem .5rem; }
-  /* r112: the hero detour ticket — dashed, the polling-desk grammar */
-  .hero-detour { margin: .85rem auto 0; text-align: center; }
-  .hero-detour a { display: inline-block; font-family: var(--mono); font-size: .76rem;
-    letter-spacing: .04em; color: var(--ink-2); text-decoration: none;
-    border: 1.5px dashed var(--lime-dark); border-radius: 999px; padding: .34rem .9rem; }
-  .hero-detour a:hover { color: var(--navy-deep);
-    background: color-mix(in srgb, var(--lime) 10%, var(--white)); }
   @media (max-width: 640px) {
     .press-card__shot { height: 190px; overflow: hidden; width: 100%; min-width: 0; align-self: stretch; }
     .press-card__shot img { width: 160%; max-width: none; }
@@ -79,8 +72,8 @@
   }
   .hero-proclaim b.num { font-weight: 800; box-shadow: inset 0 -0.34em var(--lime); padding: 0 .06em; }
   .hero-proclaim a { color: inherit; text-decoration: none; }
-  .hero-proclaim a:hover em { text-decoration: underline; text-underline-offset: 3px; }
-  .hero-proclaim em { font-style: normal; color: #4F7A25; font-weight: 800; }
+  .hero-proclaim a:hover { text-decoration: underline; text-underline-offset: 3px;
+    text-decoration-color: var(--lime-dark); }
   .hero-receipt {
     margin: 1.05rem auto 0; font-family: var(--mono); font-size: .8rem;
     letter-spacing: .07em; text-transform: uppercase; color: var(--ink-3);
@@ -380,9 +373,8 @@
         <div class="nav__drop" aria-label="Section shortcuts">
           <a href="monitoring.html#alert-demo">Creative alerts</a>
           <a href="monitoring.html#streaming-spend">Streaming &amp; Digital</a>
-          <a href="monitoring.html#cross-screen">Impressions across screens</a>
-          <a href="monitoring.html#fcc-rates">FCC rate intelligence</a>
-          <a href="monitoring.html#cross-screen">How we count</a>
+          <a href="monitoring.html#cross-screen">How impressions are counted</a>
+          <a href="monitoring.html#fcc-rates">FCC rates</a>
         </div>
       </li>
       <li class="nav__item"><a href="platform.html">Platform</a>
@@ -398,15 +390,15 @@
         <div class="nav__drop" aria-label="Section shortcuts">
           <a href="week.html#wk-buy">The buyer's week</a>
           <a href="week.html#wk-sell">The seller's week</a>
-          <a href="week.html#air-war">The air war, explorable</a>
+          <a href="week.html#air-war">Explore a live market</a>
         </div>
       </li>
       <li class="nav__item"><a href="polling.html">Voter Opinion</a>
         <div class="nav__drop" aria-label="Section shortcuts">
-          <a href="polling.html#loop">The field, live</a>
-          <a href="polling.html#story">Labor Day to Election Day</a>
+          <a href="polling.html#loop">The always-on poll</a>
+          <a href="polling.html#story">One campaign, start to finish</a>
           <a href="questions.html">The question library</a>
-          <a href="polling.html#offerings">Syndicated &amp; bespoke</a>
+          <a href="polling.html#offerings">Syndicated &amp; custom</a>
         </div>
       </li>
       <li class="nav__login"><a href="https://portal.kpipolitical.com">Log in</a></li>
@@ -441,7 +433,7 @@
       <span class="ht__l ht__l--accent" data-t="Platform">Platform</span>
     </h1>
     <p class="hero-proclaim"><b class="num">1.5M</b> ad airings a day. <b class="num">All&nbsp;210</b> markets.
-      <a href="monitoring.html#streaming-spend"><b class="num">288</b>&nbsp;streaming apps &mdash; <em>measured.</em></a></p>
+      <a href="monitoring.html#streaming-spend"><b class="num">288</b>&nbsp;streaming apps.</a></p>
     <p class="lede">KPI tracks political ads and the money behind them &mdash; on TV,
       cable, radio and streaming, in every U.S. media market, near real time. When
       the other side moves, you know the same day.</p>
@@ -451,11 +443,6 @@
     </div>
     <p class="small" style="margin-top:.55rem;color:var(--ink-3)">The walk: a buyer&rsquo;s
       Monday-to-Friday, then the seller&rsquo;s &mdash; real artifacts, hour by hour.</p>
-    <!-- r112 (Adam): targeting is a fun detour, not an act — one dashed ticket
-         off the hero; polling owns the full story. -->
-    <p class="hero-detour"><a href="polling.html">Detour: watch the air war, then aim
-      &mdash; a question becomes a deal&nbsp;ID &rarr;</a></p>
-
     <!-- The mobile hero's proof: a two-race glimpse of the scoreboard, matching the
          platform recreation's rows. Shown under 641px only; desktop keeps the type. -->
     <div class="hero-board" role="img" aria-label="A glimpse of the scoreboard: two races, each side's share of committed money, the TV, cable and radio total with the streaming estimate riding beside it, and the week's new money on top. Synthetic sample.">
@@ -500,13 +487,20 @@
     <!-- r89/r95: the console format — the quote beside the headline, the key
          metrics big, light, and first. Detection and log-level verification each
          keep a seat; volume and quality figures only, no first-person delivery. -->
-    <div class="stats stats--6 mt3" data-rise>
-      <div class="stat"><div class="stat__v num">1.5M</div><div class="stat__l">Ad occurrences detected per day &mdash; every category, real costs attached</div></div>
-      <div class="stat"><div class="stat__v num">65M</div><div class="stat__l">Smart-TV devices in those households</div></div>
-      <div class="stat"><div class="stat__v num">40M</div><div class="stat__l">Households measuring streaming on the glass</div></div>
-      <div class="stat"><div class="stat__v num">220M+</div><div class="stat__l">Political streaming ad impressions measured in one week</div></div>
-      <div class="stat"><div class="stat__v num">210</div><div class="stat__l">U.S. media markets monitored</div></div>
-      <div class="stat"><div class="stat__v num">Decade+</div><div class="stat__l">Of history under every trend</div></div>
+    <!-- r113 (the owner): "no hierarchy, just numbers" — one lead read, three
+         supporting, the rest in a footline. -->
+    <div class="statlead mt3" data-rise>
+      <div class="statlead__hero">
+        <div class="statlead__v"><span class="num">1.5M</span></div>
+        <p class="statlead__l">ad occurrences detected <b>per day</b> &mdash; every
+          category, with real costs attached</p>
+      </div>
+      <div class="statlead__side">
+        <div class="statlead__row"><b class="num">40M</b><span>homes measuring streaming on the TV glass</span></div>
+        <div class="statlead__row"><b class="num">220M+</b><span>streaming ad impressions measured in one week</span></div>
+        <div class="statlead__row"><b class="num">210</b><span>U.S. media markets monitored</span></div>
+      </div>
+      <p class="statlead__foot">BEHIND THE READS &middot; 65M SMART-TV DEVICES &middot; A DECADE OF HISTORY UNDER EVERY TREND</p>
     </div>
 
     <div class="curtain curtain--split mt3" data-rise>
@@ -521,7 +515,7 @@
       <p class="curtain__go"><a href="monitoring.html#streaming-spend">How streaming is measured &rarr;</a></p>
       </div>
       <div class="curtain__figwrap">
-      <svg class="curtain__fig" viewBox="0 0 300 96" role="img" aria-label="One in three measured political TV ad impressions run on streaming: a bar with one solid measured cell beside two cells in the public record's hatched ink">
+      <svg class="curtain__fig" data-plx style="--plx-d:26px" viewBox="0 0 300 96" role="img" aria-label="One in three measured political TV ad impressions run on streaming: a bar with one solid measured cell beside two cells in the public record's hatched ink">
         <text x="6" y="14" font-family="Inter, sans-serif" font-size="8.5" font-weight="700" letter-spacing="1" fill="#9FBFD6">MEASURED POLITICAL TV AD IMPRESSIONS</text>
         <rect x="6" y="24" width="92" height="50" fill="#A8D14E"/>
         <text x="52" y="55" text-anchor="middle" font-family="Inter, sans-serif" font-size="15" font-weight="800" fill="#08243B">1 in 3</text>
@@ -658,7 +652,10 @@
   <!-- r102 (consolidation round): the doors are the collage's closing row, not a
        second overview act — one intro, one section. -->
   <div class="wrap" id="doors" style="margin-top:3.2rem">
-    <p class="eyebrow" data-rise>Four doors in &middot; each one goes deeper</p>
+    <div data-rise style="margin-bottom:1.4rem">
+      <p class="eyebrow">The product</p>
+      <h3 class="doors__h">What we sell, page by page.</h3>
+    </div>
     <div class="grid grid--2" data-rise>
       <a class="card card--flag press-card" href="monitoring.html">
         <p class="card__k">Monitoring</p>
@@ -703,7 +700,8 @@
          band — "here's how you use us," per seat, with the worked dollars
          they leave out. Accordion on a phone; all four open on desktop. -->
     <div class="seats" id="seats">
-      <p class="eyebrow">Start from your seat</p>
+      <p class="eyebrow">By use case</p>
+      <h3 class="seats__h">Start from your seat.</h3>
       <div class="seats__grid">
         <details class="mdet mdet--seat" open>
           <summary>Buying?</summary>
@@ -851,6 +849,6 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r111"></script>
+<script src="assets/js/site.js?v=r113"></script>
 </body>
 </html>

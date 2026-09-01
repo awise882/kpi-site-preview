@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r112b">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r113">
 <style>
   /* r106: every hero its own composition -- this page opens on the two desks
      themselves. Text left; the buyer's and seller's doors right. */
@@ -65,9 +65,8 @@
         <div class="nav__drop" aria-label="Section shortcuts">
           <a href="monitoring.html#alert-demo">Creative alerts</a>
           <a href="monitoring.html#streaming-spend">Streaming &amp; Digital</a>
-          <a href="monitoring.html#cross-screen">Impressions across screens</a>
-          <a href="monitoring.html#fcc-rates">FCC rate intelligence</a>
-          <a href="monitoring.html#cross-screen">How we count</a>
+          <a href="monitoring.html#cross-screen">How impressions are counted</a>
+          <a href="monitoring.html#fcc-rates">FCC rates</a>
         </div>
       </li>
       <li class="nav__item"><a href="platform.html">Platform</a>
@@ -83,15 +82,15 @@
         <div class="nav__drop" aria-label="Section shortcuts">
           <a href="week.html#wk-buy">The buyer's week</a>
           <a href="week.html#wk-sell">The seller's week</a>
-          <a href="week.html#air-war">The air war, explorable</a>
+          <a href="week.html#air-war">Explore a live market</a>
         </div>
       </li>
       <li class="nav__item"><a href="polling.html">Voter Opinion</a>
         <div class="nav__drop" aria-label="Section shortcuts">
-          <a href="polling.html#loop">The field, live</a>
-          <a href="polling.html#story">Labor Day to Election Day</a>
+          <a href="polling.html#loop">The always-on poll</a>
+          <a href="polling.html#story">One campaign, start to finish</a>
           <a href="questions.html">The question library</a>
-          <a href="polling.html#offerings">Syndicated &amp; bespoke</a>
+          <a href="polling.html#offerings">Syndicated &amp; custom</a>
         </div>
       </li>
       <li class="nav__login"><a href="https://portal.kpipolitical.com">Log in</a></li>
@@ -122,7 +121,7 @@
         <a class="btn btn--lime btn--lg" href="contact.html">Run it on your race &mdash; or your market</a>
       </div>
     </div>
-    <div class="wkh">
+    <div class="wkh" data-plx style="--plx-d:20px">
       <a class="wkh__desk" href="#wk-buy">
         <p class="wkh__k">The buyer&rsquo;s desk <span class="num">MON &rarr; FRI</span></p>
         <p class="wkh__t">Four beats: the alert, the boards, the rates, the money back.</p>
@@ -151,9 +150,20 @@
   <div class="wrap">
 
     <div class="wk" data-wk>
-      <!-- r102: one pinned story device only; the seller's week is told through
-           the four boards below. r106: the hero's two desk doors carry the
-           buy/sell wayfinding, so the duplicate button pair here is gone. -->
+      <!-- r113 (the owner): the seller's week runs the same swap-stage as the
+           buyer's, and only one desk shows at a time — the ruling-39b rail
+           returns. JS-off both stories render stacked as chapters. -->
+      <div class="wk__rail" role="tablist" aria-label="Choose a desk">
+        <button class="wk__tab" id="wk-tab-buy" type="button" role="tab" aria-selected="true" aria-controls="wk-buy">
+          <span class="wk__tab-name">The buyer&rsquo;s week</span>
+          <span class="wk__tab-sub">Mon &rarr; Fri &middot; the alert, the boards, the rates, the money back</span>
+        </button>
+        <button class="wk__tab" id="wk-tab-sell" type="button" role="tab" aria-selected="false" aria-controls="wk-sell">
+          <span class="wk__tab-name">The seller&rsquo;s week</span>
+          <span class="wk__tab-sub">Same data &middot; your share, the gaps, who to call</span>
+        </button>
+      </div>
+      <p class="wk__cue" aria-hidden="true">Two desks, one dataset &middot; click to switch</p>
 
     <article class="wk__story" id="wk-buy">
     <h3 class="wk__story-h">The buyer's week</h3>
@@ -290,9 +300,125 @@
       <a class="chip" href="platform.html#buy-sheet">Buy Sheet</a>
       <a class="chip" href="platform.html#creative-explorer">Creative Explorer</a>
     </div>
-    <p class="small" style="margin-top:.9rem">That&rsquo;s the buyer&rsquo;s week &mdash; the rest of this
-      page is the seller&rsquo;s desk. Buying? The boards above are your next stop; the
-      <a href="#air-war">explorable market</a> works for both.</p>
+    <p class="small" style="margin-top:.9rem">That&rsquo;s the buyer&rsquo;s week &mdash; the
+      seller&rsquo;s runs on the same data, one desk over. Buying? The boards above are
+      your next stop; the <a href="#air-war">explorable market</a> works for both.</p>
+    </article>
+
+    <!-- r113: the seller's week, same device — four beats on one pinned stage.
+         Canon figures from the boards below (Columbus, WQZL): $3.8M aired, 25%
+         share, 19% forward book, $432K streaming est., +$272K at your share. -->
+    <article class="wk__story" id="wk-sell">
+    <h3 class="wk__story-h">The seller's week</h3>
+    <div class="wkx">
+      <div class="wkx__scroller">
+        <div class="wkx__pin">
+          <div class="wkx__rail" aria-hidden="true">
+            <span class="wkx__step wkx__step--1">1 &middot; The order flow</span>
+            <span class="wkx__step wkx__step--2">2 &middot; Your share</span>
+            <span class="wkx__step wkx__step--3">3 &middot; The unfiled money</span>
+            <span class="wkx__step wkx__step--4">4 &middot; Who to call</span>
+          </div>
+          <p class="wkx__hint small" aria-hidden="true">Keep scrolling &mdash; the week advances on this screen.</p>
+          <div class="wkx__beats">
+
+            <div class="wkx__beat wkx__beat--1">
+              <div class="wk__when">
+                <span class="wk__day">Beat 1 &middot; The order flow</span>
+                <span class="wk__stampline num">MON &middot; TV posted thru Aug 18</span>
+                <span class="wk__big">Every order in your market &mdash; including the ones that didn&rsquo;t come to you.</span>
+                <div class="wk__copy">
+                  <p>The market&rsquo;s full book, advertiser by advertiser, with your air
+                    marked &mdash; the same view your buyers read, so your share is a
+                    number both sides of the table can check.</p>
+                </div>
+              </div>
+              <div class="wk__art">
+                <div class="wk-doc">
+                  <div class="wk-doc__bar"><span class="wk-doc__brand">KPI &middot; Market Order Flow</span><span class="wk-doc__stamp">Columbus &middot; aired Jun 1&ndash;Aug 18, 2026</span></div>
+                  <div class="wk-doc__row"><span>Market aired</span><span class="num"><b>$3.8M</b> &middot; 6 advertisers &middot; 3 races</span></div>
+                  <div class="wk-doc__row"><span>Your air &middot; WQZL</span><span class="num"><b>$0.95M</b> &middot; 25% share</span></div>
+                  <div class="wk-doc__row"><span>Ellery for Senate</span><span class="num">$520K booked fwd</span><span class="wk-doc__hi num">$0 of it on WQZL</span></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="wkx__beat wkx__beat--2">
+              <div class="wk__when">
+                <span class="wk__day">Beat 2 &middot; Your share, checked</span>
+                <span class="wk__stampline num">TUE &middot; aired vs. booked forward</span>
+                <span class="wk__big">25% of the aired dollars. 19% of the forward book.</span>
+                <div class="wk__copy">
+                  <p>The money already placed for the fall runs ahead of your share in
+                    two specific weeks &mdash; the gap prints in dollars, before that
+                    money airs around you.</p>
+                </div>
+              </div>
+              <div class="wk__art">
+                <div class="wk-doc">
+                  <div class="wk-doc__bar"><span class="wk-doc__brand">KPI &middot; Share check</span><span class="wk-doc__stamp">WQZL &middot; posted thru Aug 18</span></div>
+                  <div class="wk-doc__row"><span>Your share of aired</span><span class="num"><b>25%</b> &middot; $0.95M of $3.8M</span></div>
+                  <div class="wk-doc__row"><span>Your share of the forward book</span><span class="num"><b>19%</b> &middot; $1.2M booked fwd in market</span></div>
+                  <div class="wk-doc__row"><span class="wk-doc__dim">The two weeks where the book outruns your share</span><span class="wk-doc__hi num">Wednesday&rsquo;s calls</span></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="wkx__beat wkx__beat--3">
+              <div class="wk__when">
+                <span class="wk__day">Beat 3 &middot; The money that never files</span>
+                <span class="wk__stampline num">TUE &middot; streaming est. thru Aug 11</span>
+                <span class="wk__big">$432K running on the apps. No filing, no paper trail.</span>
+                <div class="wk__copy">
+                  <p>Streaming money in your market that never touches a public file
+                    &mdash; read from measured homes, kept beside the TV total, never
+                    blended. The linear pitch, with receipts.</p>
+                </div>
+              </div>
+              <div class="wk__art">
+                <div class="wk-doc">
+                  <div class="wk-doc__bar"><span class="wk-doc__brand">KPI &middot; Class gap</span><span class="wk-doc__stamp">Columbus &middot; streaming est. thru Aug 11</span></div>
+                  <div class="wk-doc__row"><span>Streaming, estimated</span><span class="num"><b>$432K</b> &middot; beside the $3.8M aired</span></div>
+                  <div class="wk-doc__row"><span>Advertisers on the apps, light on your air</span><span class="wk-doc__hi num">the linear pitch, named</span></div>
+                  <div class="wk-doc__row"><span class="wk-doc__dim">Aired and estimated never blend &mdash; the estimate is labeled on every read.</span></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="wkx__beat wkx__beat--4">
+              <div class="wk__when">
+                <span class="wk__day">Beat 4 &middot; Who to call</span>
+                <span class="wk__stampline num">WED &middot; the agency book</span>
+                <span class="wk__big">The agency buying around you: +$272K at your share.</span>
+                <div class="wk__copy">
+                  <p>Every agency placing political money in the state, linear and
+                    digital, tied back to spend &mdash; your share of each book beside
+                    your market average. One recovered order covers the subscription.</p>
+                </div>
+              </div>
+              <div class="wk__art">
+                <div class="wk-doc">
+                  <div class="wk-doc__bar"><span class="wk-doc__brand">KPI &middot; Agency book</span><span class="wk-doc__stamp">statewide &middot; posted thru Aug 18</span></div>
+                  <div class="wk-doc__row"><span>Agency at 9% of your air &middot; market avg 25%</span><span class="num"><b>+$272K</b> at your share</span></div>
+                  <div class="wk-doc__row"><span>Linear and digital books, side by side</span><span class="wk-doc__dim num">streaming est. labeled</span></div>
+                  <div class="wk-doc__row"><span class="wk-doc__dim">Contacts unlock in the demo.</span><span class="wk-doc__hi num">first call flagged</span></div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="wk-links" role="group" aria-label="The boards behind the seller's week">
+      <a class="chip" href="#order-flow">Order flow</a>
+      <a class="chip" href="#share-diagonal">Share diagonal</a>
+      <a class="chip" href="#class-gap-board">Class gap</a>
+      <a class="chip" href="#agency-book">Agency book</a>
+    </div>
+    <p class="small" style="margin-top:.9rem">That&rsquo;s the seller&rsquo;s week &mdash; the four
+      boards it runs through are <a href="#sell-side">below, in full</a>.</p>
     </article>
 
         </div>
@@ -466,7 +592,6 @@
 <!-- ============ SELL-SIDE ============ -->
 <section class="section pb" id="sell-side" data-pb>
   <div class="wrap">
-    <span id="wk-sell" aria-hidden="true"></span>
     <div class="split" style="margin-bottom:2.2rem">
       <div>
         <p class="eyebrow">Sell-side intelligence &middot; the seller&rsquo;s week</p>
@@ -1069,6 +1194,6 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r111"></script>
+<script src="assets/js/site.js?v=r113"></script>
 </body>
 </html>
