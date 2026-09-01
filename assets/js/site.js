@@ -386,7 +386,7 @@
    Reduced motion or no JS: no .scrub class, static end-states render. */
 (function () {
   var els = Array.prototype.slice.call(
-    document.querySelectorAll('.sd__scroller,.tl__scroller,.ct__scroller,.mxs__scroller,.wkx__scroller'));
+    document.querySelectorAll('.sd__scroller,.tl__scroller,.ct__scroller,.mxs__scroller,.wkx__scroller,.mtl__scroller'));
   var plx = Array.prototype.slice.call(document.querySelectorAll('[data-plx]'));
   if (!els.length && !plx.length) return;
   var root = document.documentElement;

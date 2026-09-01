@@ -2927,3 +2927,84 @@ details.mdet--keep > summary { display: block; pointer-events: none; font-weight
 /* Screen readers get the walls the readline promises (a11y, second ask). */
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden;
   clip-path: inset(50%); margin: 0; padding: 0; }
+
+/* ============ r135: the monitoring clock ============ */
+/* The owner: "the timeline … should be the unifying element … scroll jack
+   it — that takes you through monitoring." A pinned stage after the hero:
+   the time-true rail from minutes to a week; the marker walks it with the
+   scroll and the four stops compose in staleness order and STAY — stages
+   compose at lock, accumulate, never recede mid-hold. Stop one stands
+   composed at lock. JS-off / reduced motion / mobile: no pin, everything
+   prints complete. */
+.mtl .wrap { max-width: 1060px; }
+.mtl__sub { margin-inline: auto; }
+.mtl__hint { display: none; }
+.mtl__rail { position: relative; height: 46px; margin: 2.4rem 0 1.7rem; }
+.mtl__line { position: absolute; left: 0; right: 0; top: 21px; height: 3px;
+  background: var(--rule); border-radius: 2px; }
+.mtl__dot { position: absolute; left: var(--x); top: 16px; width: 13px;
+  height: 13px; border-radius: 50%; background: var(--lime);
+  border: 3px solid var(--navy-deep); transform: translateX(-50%); }
+.mtl__dot--st { border-color: #0B5560; }
+.mtl__marker { display: none; position: absolute; top: 11px; left: 2%;
+  width: 23px; height: 23px; border-radius: 50%; transform: translateX(-50%);
+  background: var(--navy-deep); border: 3px solid var(--paper);
+  box-shadow: 0 2px 10px rgba(13, 46, 74, .35); }
+.mtl__end { position: absolute; top: -10px; font-family: var(--mono);
+  font-size: .66rem; letter-spacing: .09em; text-transform: uppercase;
+  color: var(--ink-3); }
+.mtl__end--l { left: 0; }
+.mtl__end--r { right: 0; }
+.mtl__stops { list-style: none; display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.3rem 1.4rem;
+  margin: 0; padding: 0; }
+.mtl__stop { border-top: 2.5px solid var(--lime); padding-top: .75rem; }
+.mtl__when { font-family: var(--label); text-transform: uppercase;
+  letter-spacing: .13em; font-size: .64rem; font-weight: 800;
+  color: var(--ink-3); margin: 0 0 .35rem; }
+.mtl__name { font-size: 1.08rem; margin: 0 0 .4rem; }
+.mtl__p { font-size: .92rem; line-height: 1.5; color: var(--ink-2);
+  margin: 0 0 .55rem; }
+.mtl__rcpt { font-family: var(--mono); font-size: .66rem; letter-spacing: .03em;
+  line-height: 1.5; color: var(--navy-deep); border-left: 3px solid var(--lime);
+  padding-left: .55rem; margin: 0 0 .55rem;
+  font-variant-numeric: tabular-nums lining-nums; }
+.mtl__go { font-weight: 700; font-size: .86rem; }
+@media (max-width: 899px) { .mtl__stops { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 559px) { .mtl__stops { grid-template-columns: 1fr; } }
+
+@media (min-width: 760px) {
+  html.scrub .mtl__scroller { height: 300vh; }
+  html.scrub .mtl__pin { position: sticky; top: calc(var(--nav-h, 64px) + 10px);
+    display: flex; flex-direction: column; justify-content: center;
+    min-height: calc(100vh - var(--nav-h, 64px) - 30px); }
+  html.scrub .mtl__hint { display: block; text-align: center;
+    font-family: var(--mono); font-size: .68rem; letter-spacing: .09em;
+    text-transform: uppercase; color: var(--ink-3); margin: .7rem 0 0; }
+  /* The marker walks the rail: 2% (alerts) at lock, past 84% (streaming)
+     by 0.86 so the last stop composes before the hold, parking at the
+     "a week" end as the stage releases. */
+  html.scrub .mtl__marker { display: block;
+    left: calc(2% + var(--scrub, 0) * 95%); }
+  /* Dots fill as the marker crosses them; the first is lit at lock. */
+  html.scrub .mtl__dot { animation: mtl-dot 1s linear paused both; }
+  html.scrub .mtl__dot--1 { animation: none; }
+  html.scrub .mtl__dot--2 { animation-delay: calc((0.23 - var(--scrub, 0)) / 0.05 * 1s); }
+  html.scrub .mtl__dot--3 { animation-delay: calc((0.50 - var(--scrub, 0)) / 0.05 * 1s); }
+  html.scrub .mtl__dot--4 { animation-delay: calc((0.83 - var(--scrub, 0)) / 0.05 * 1s); }
+  /* Stops compose as their dot lights and stay; the hold from 0.90 shows
+     the finished clock — the same frame the no-JS page prints. */
+  html.scrub .mtl__stop { animation: mtl-in 1s linear paused both; }
+  html.scrub .mtl__stop--1 { animation: none; }
+  html.scrub .mtl__stop--2 { animation-delay: calc((0.20 - var(--scrub, 0)) / 0.10 * 1s); }
+  html.scrub .mtl__stop--3 { animation-delay: calc((0.47 - var(--scrub, 0)) / 0.10 * 1s); }
+  html.scrub .mtl__stop--4 { animation-delay: calc((0.80 - var(--scrub, 0)) / 0.10 * 1s); }
+}
+@keyframes mtl-dot {
+  0% { background: var(--paper); }
+  100% { background: var(--lime); }
+}
+@keyframes mtl-in {
+  0% { opacity: 0; transform: translateY(18px); border-top-color: var(--rule); }
+  100% { opacity: 1; transform: none; border-top-color: var(--lime); }
+}

@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r134">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r135">
 <style>
   .fig-scroll > svg { min-width: 820px; }
   /* R69: the key graphic gets a phone-native stack; no panning a 1000px drawing */
@@ -150,9 +150,9 @@
       </div>
       <div class="mhero__lane mhero__lane--dark">
         <p class="mhero__k">Streaming &amp; digital</p>
-        <p class="mhero__p"><b>1 in 3</b> measured political TV ad impressions now run on
-          streaming. We measure the digital third on the glass in <b>40M</b> homes
-          &mdash; <b>220M+</b> impressions in one summer week.</p>
+        <p class="mhero__p"><b>Streaming, measured like broadcast</b> &mdash; on the TV
+          glass, app by app, in <b>40M</b> homes: <b>1&ndash;4B</b> impressions a day,
+          weighted. A third of the fight already runs here, and it&rsquo;s only growing.</p>
         <svg class="mhero__bar" viewBox="0 0 300 56" role="img" aria-label="A third of measured political TV ad impressions run on streaming">
           <rect x="0" y="4" width="94" height="34" fill="#A8D14E"/>
           <text x="47" y="26" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="800" fill="#08243B">1 in 3</text>
@@ -171,6 +171,72 @@
   </div>
 </header>
 
+<!-- ============ THE CLOCK (r135, the owner): the timeline is the page's
+     unifying element — scroll-jacked, it takes you through monitoring. Every
+     lane on this page posts somewhere on this line; each stop names the
+     section that proves it. JS-off / reduced motion / mobile: no pin — the
+     rail prints complete and the four stops stand stacked, fully composed. -->
+<section class="section section--tint mtl" id="timeline" aria-label="The monitoring clock: how old each number is when you act on it, from minutes to about a week">
+  <div class="mtl__scroller">
+    <div class="mtl__pin">
+      <div class="wrap">
+        <div class="center" data-rise>
+          <p class="eyebrow eyebrow--plain" style="justify-content:center">One clock</p>
+          <h2>Everything this page counts lands on one line.</h2>
+          <p class="lede mtl__sub">From a catch measured in seconds to dollars that settle
+            in about a week &mdash; every number on this page posts somewhere on this
+            line, and each stop names the section that proves it.</p>
+          <p class="mtl__hint" aria-hidden="true">Scroll &mdash; the marker walks the clock.</p>
+        </div>
+        <div class="mtl__rail" aria-hidden="true">
+          <span class="mtl__line"></span>
+          <span class="mtl__dot mtl__dot--1" style="--x:2%"></span>
+          <span class="mtl__dot mtl__dot--2" style="--x:26%"></span>
+          <span class="mtl__dot mtl__dot--3" style="--x:52%"></span>
+          <span class="mtl__dot mtl__dot--4 mtl__dot--st" style="--x:84%"></span>
+          <span class="mtl__marker"></span>
+          <span class="mtl__end mtl__end--l">minutes</span>
+          <span class="mtl__end mtl__end--r">a week &rarr;</span>
+        </div>
+        <ol class="mtl__stops">
+          <li class="mtl__stop mtl__stop--1">
+            <p class="mtl__when num">MINUTES</p>
+            <h3 class="mtl__name">Alerts</h3>
+            <p class="mtl__p">The catch reaches your phone with the tape and the
+              transcript already on it.</p>
+            <p class="mtl__rcpt num">HULU &middot; :30 &middot; CAUGHT 4:21:39 PM &middot; 88 SECONDS, CAPTURE TO SEND</p>
+            <a class="mtl__go" href="#alert-demo">See one land &darr;</a>
+          </li>
+          <li class="mtl__stop mtl__stop--2">
+            <p class="mtl__when num">NEAR REAL TIME</p>
+            <h3 class="mtl__name">FCC rates</h3>
+            <p class="mtl__p">Filed rates as stations post them &mdash; the read-through
+              date printed on the row is the check.</p>
+            <p class="mtl__rcpt num">DES MOINES &middot; 2,000+ CONTRACTS &middot; READ AS STATIONS POST</p>
+            <a class="mtl__go" href="#fcc-rates">The rate file &darr;</a>
+          </li>
+          <li class="mtl__stop mtl__stop--3">
+            <p class="mtl__when num">THE MORNING</p>
+            <h3 class="mtl__name">Linear orders</h3>
+            <p class="mtl__p">TV, cable and radio orders post the morning
+              they&rsquo;re placed.</p>
+            <p class="mtl__rcpt num">WKLD &middot; EARLY NEWS &middot; :30 &middot; $260 &middot; CLEARED IN CLASS</p>
+            <a class="mtl__go" href="#lanes">Channel by channel &darr;</a>
+          </li>
+          <li class="mtl__stop mtl__stop--4">
+            <p class="mtl__when num">ABOUT A WEEK</p>
+            <h3 class="mtl__name">Streaming dollars</h3>
+            <p class="mtl__p">Detection lands in minutes; the estimated dollars settle
+              about a week behind linear, labeled.</p>
+            <p class="mtl__rcpt num">TOLEDO &middot; APPS EST. $740K &middot; $410K+ OF IT CAUGHT</p>
+            <a class="mtl__go" href="#how-counted">How it&rsquo;s counted &darr;</a>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ COVERAGE FIRST (r112, the owner: two worlds, we track
      everything, this is how — one conversation) ============ -->
 <section class="section" id="lanes">
@@ -180,16 +246,6 @@
       <h2>Four lanes, one machine.</h2>
       <p class="lede" style="margin-inline:auto">TV, cable, radio, streaming and digital
         &mdash; and how each one is counted.</p>
-    </div>
-    <div class="lad" role="note" aria-label="How old each number is when you act on it, in staleness order">
-      <span class="lad__k">How old is the number when you act on it?</span>
-      <div class="lad__ruler">
-        <span class="lad__line" aria-hidden="true"></span>
-        <span class="lad__tick lad__tick--up" style="--x:2%"><b>Alerts</b><i>minutes from capture &mdash; the Hulu stamp below</i></span>
-        <span class="lad__tick" style="--x:26%"><b>FCC rates</b><i>near real time &middot; the read-through date is the check</i></span>
-        <span class="lad__tick lad__tick--up" style="--x:52%"><b>Linear orders</b><i>post the morning they&rsquo;re placed</i></span>
-        <span class="lad__tick lad__tick--st" style="--x:84%"><b>Streaming dollars</b><i>settle about a week behind linear, labeled</i></span>
-      </div>
     </div>
     <div class="lanefams mt1" role="group" aria-label="Four channels: what we detect and where the dollars come from; hover or focus a card for the methodology">
       <article class="lanefam lanefam--bc" tabindex="0">
@@ -424,7 +480,7 @@
             <div class="ac__body">
               <h3 class="ac__race">Five Borough Jobs Campaign</h3>
               <p class="ac__who">:30 &ldquo;Delivery Protection Act&rdquo; &middot; caught on Hulu &middot; first aired 4:21:39 PM ET</p>
-              <div class="ac__frame" role="img" aria-label="Video player paused at 7 seconds of a 30 second spot: the real frame as captured — a delivery driver named on screen, standing beside his van">
+              <div class="ac__frame" role="img" aria-label="Video player paused at 7 seconds of a 30 second spot: the real frame as captured — a delivery driver named on screen, standing at his van">
                 <img class="ac__real" src="assets/media/five-borough-still.jpg" alt="" aria-hidden="true">
                 <svg class="ac__play" width="62" height="62" viewBox="0 0 62 62" fill="none" aria-hidden="true">
                   <circle cx="31" cy="31" r="29.5" fill="rgba(8,36,59,.38)" stroke="rgba(255,255,255,.8)" stroke-width="1.5"/>
@@ -607,7 +663,7 @@
             <span class="aw__stamp">TV thru Aug 14 &middot; str. est. thru Aug 7, 2026</span>
           </header>
           <p class="aw__readline">Toledo is the streaming market: the posted channels carry
-            $0.9M, and the apps carry an estimated $740K beside them, at least $410K
+            $0.9M, and the apps carry an estimated $740K of their own, at least $410K
             of it caught, none of it visible in any public file.</p>
           <div class="aw__lanes">
             <div class="aw__lane" tabindex="0" data-note="Broadcast: order by order, FCC-verified where a filing exists.">
@@ -645,7 +701,7 @@
 
     <div class="stamp"><b>About this demo</b> Real markets, synthetic race, illustrative
       figures &mdash; posted through Aug 14, 2026. Market totals are broadcast, cable and
-      radio; streaming prints beside them as an estimated minimum.</div>
+      radio; streaming prints alongside as an estimated minimum.</div>
   </div>
 </section>
 
@@ -673,9 +729,9 @@
           <ul class="small" style="margin-bottom:0">
             <li>Rate history by station, daypart and week &mdash; FCC-verified where filed</li>
             <li>Flight-over-flight movement as election pressure builds</li>
-            <li>Last cycle&rsquo;s filed rate beside this one&rsquo;s &mdash; same station,
+            <li>Last cycle&rsquo;s filed rate against this one&rsquo;s &mdash; same station,
               same daypart, same week of the calendar</li>
-            <li>The competitive buy&rsquo;s actual clearances beside your quote</li>
+            <li>The competitive buy&rsquo;s actual clearances against your quote</li>
             <li>Candidates and outside groups read separately &mdash; LUR-protected rates
               by class of time vs market rate</li>
             <li>Sellers pull the same history to defend the rate &mdash; <a href="week.html#wk-friday">Friday on the week page</a> prices the class defense at <b class="num">$17K</b> held</li>
@@ -777,6 +833,6 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r134"></script>
+<script src="assets/js/site.js?v=r135"></script>
 </body>
 </html>
