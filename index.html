@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r128">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r129">
 <style>
   /* Light, centered, airy hero, matching the live site: the announcement banner
      sits flush under the nav, then the display headline in the green-to-teal
@@ -41,6 +41,8 @@
     @keyframes bann-a { 0%, 44% { opacity: 1; visibility: visible; } 50%, 94% { opacity: 0; visibility: hidden; } 100% { opacity: 1; } }
     @keyframes bann-b { 0%, 44% { opacity: 0; visibility: hidden; } 50%, 94% { opacity: 1; visibility: visible; } 100% { opacity: 0; } }
   }
+  .hero-banner:hover .hero-banner__in--dual a,
+  .hero-banner:focus-within .hero-banner__in--dual a { animation-play-state: paused; }
   @media (prefers-reduced-motion: reduce) {
     .hero-banner__in--dual a:first-child { grid-area: 1 / 1; }
     .hero-banner__in--dual a:last-child { grid-area: 2 / 1; }
@@ -439,7 +441,7 @@
       <span class="ht__l ht__l--accent" data-t="Platform">Platform</span>
     </h1>
     <p class="hero-proclaim"><b class="num">1.5M</b> ad airings a day. <b class="num">All&nbsp;210</b> markets.
-      <a href="monitoring.html#lanes"><b class="num">288</b>&nbsp;streaming apps.</a></p>
+      <a href="monitoring.html#lanes"><b class="num">288</b>&nbsp;streaming&nbsp;apps.</a></p>
     <p class="lede">KPI tracks political ads and the money behind them &mdash; on TV,
       cable, radio and streaming, in every U.S. media market, near real time. When
       the other side moves, you know the same day.</p>
@@ -511,7 +513,7 @@
 
     <div class="curtain curtain--split mt3" data-rise>
       <div>
-      <p class="curtain__k">Streaming &middot; the third everyone else misses</p>
+      <p class="curtain__k">Streaming &middot; the third the public record misses</p>
       <h3 class="curtain__h">A third of the measured fight is digital. We measure it.</h3>
       <p class="curtain__p">Transparency reports and public ad libraries end where
         streaming begins. We measure it where it actually plays &mdash; on the TV glass,
@@ -562,7 +564,7 @@
         boards subscribers pull today, not mockups of a roadmap.</p>
       <p class="small kw__readline" style="margin-top:.5rem;max-width:64ch">Read it like the morning, numbered on the wall: <b>1</b> the
         alert, <b>2</b> the tape, <b>3</b> the break &mdash; <b>4</b> the boards, <b>5</b> the
-        rates &mdash; <b>6</b> ask Baker, the assistant in every seat. The dashed corner
+        rates &mdash; <b>6</b> ask Baker, the assistant in every seat. Unnumbered cards are asides: the share check, the mix, the streaming catch. The dashed corner
         is the polling desk.</p>
     </div>
   </div>
@@ -643,7 +645,7 @@
             <span class="kw__c kw__c--deal num">KPI-PMP-2026-0841 <i>deal ID &middot; the audience lands in your seat</i></span>
     </div>
     <a class="kw__more wrap" href="contact.html">+ 9 more boards live on this wall &mdash; see them in the demo &rarr;</a>
-    <span class="kw__stamp">synthetic glimpses &middot; every board opens live in the demo</span>
+    <span class="kw__stamp">synthetic glimpses &middot; <a href="contact.html">every board opens live in the demo &rarr;</a></span>
     <span class="inkkey" aria-label="How the ink reads: solid is aired, hatched is booked, dashed is modeled"><i class="inkkey__s"></i>aired<i class="inkkey__h"></i>booked<i class="inkkey__d"></i>modeled</span>
   </div>
 
@@ -675,7 +677,7 @@
           <p class="pca__row num">STREAMING $1.1M EST. &mdash; beside the total, never blended</p>
         </div>
         <p class="small">Scoreboard, Buy Sheet, Creative Matrix and the rest &mdash;
-          battle-tested on the 303 races it tracks right now. Every read exports.</p>
+          proven on the 303 races it tracks (as of Aug 30, 2026). Every read exports.</p>
         <span class="press-card__go">See it working &rarr;</span>
       </a>
       <a class="card card--flag press-card" href="week.html">
@@ -699,7 +701,7 @@
           <p class="pca__bar"><span>KPI &middot; Question library</span><span>the live library</span></p>
           <p class="pca__big">&ldquo;How concerned are you right now about the economy and jobs?&rdquo;</p>
           <p class="pca__row num">QID 9918 &middot; ALWAYS ON &rarr; THE AUDIENCE, DECLARED</p>
-          <p class="pca__row num">&rarr; DEAL ID KPI-PMP-2026-0841 &middot; IN YOUR SEAT</p>
+          <p class="pca__row num">&rarr; A DEAL ID LANDS IN YOUR SEAT &middot; KPI &times; CIVICSCIENCE</p>
         </div>
         <p class="small">10.2 billion answers deep &mdash; 10,000+ questions always in the
           field. Build the audience from what people actually said &mdash; custom questions come
@@ -810,6 +812,7 @@
     <a class="nextcard" href="monitoring.html">
       <span class="nextcard__k">On to the next</span>
       <span class="nextcard__t"><b>Monitoring</b><span>Political ads, caught as they air &mdash; the alert lands with the tape and the transcript.</span></span>
+      <span class="nextcard__stat num" aria-hidden="true">1.5M A DAY &middot; EVERY CATEGORY</span>
       <span class="nextcard__go" aria-hidden="true">&#8594;</span>
     </a>
   </div>
@@ -858,6 +861,6 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r128"></script>
+<script src="assets/js/site.js?v=r129"></script>
 </body>
 </html>

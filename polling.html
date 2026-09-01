@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r128">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r129">
 <style>
   /* r106 (Adam): the loop IS the landing. Text left, the loop tape right, one
      viewport. The tape is the old ring redrawn in the house receipt grammar:
@@ -42,6 +42,10 @@
     .hero--poll .stat:first-child { grid-column: 1 / -1; }
     .hero--poll .stats > .stat:last-child:nth-child(odd) { grid-column: auto; }
   }
+  /* A pointer or keyboard focus pauses the loop tape and the question wall
+     (WCAG 2.2.2 — moving content gets a pause mechanism). */
+  .lp:hover .lp__s, .lp:focus-within .lp__s,
+  .qf:hover .qf__b, .qf:focus-within .qf__b { animation-play-state: paused !important; }
   /* The loop tape. Open/close windows overlap one step to the next, so the
      card's height stays steady while the lit step travels. */
   .lp { background: var(--white); border: 1px solid var(--rule); border-radius: var(--r-lg);
@@ -433,8 +437,8 @@
     <div class="qf-stage" data-rise>
       <div class="qf">
         <div class="qf__head">
-          <p class="qf__sub">10,000+ questions always on &middot; over 1 million answers landing
-            a day &middot; a new audience possible every time one moves &mdash; nationally, in
+          <p class="qf__sub">The always-on field, cycling by category &middot; a new audience
+            possible every time a question moves &mdash; nationally, in
             one state, or inside a single congressional district.</p>
         </div>
         <div class="qf__cats" aria-hidden="true">
@@ -617,6 +621,7 @@
           <p class="fb__p">The deal ID runs where you already buy, and delivery starts
             printing beside the answers the same week, labeled.</p>
           <div class="fb__live" aria-hidden="true"><span class="fb__pulse"></span>live &middot; delivery prints beside the answers</div>
+          <p class="fb__fine num" style="margin-top:.5rem">WEEK 1 &middot; 2.1M IMPRESSIONS DELIVERED &middot; LABELED &mdash; SYNTHETIC ROW</p>
           <p class="fb__tag">your seat or ours</p>
         </li>
         <li class="fb__page">
@@ -648,10 +653,10 @@
             </svg>
           </div>
           <p class="fb__fine">A wave-over-wave read prints as: recall 31% &rarr; 44%, wave 1
-            to wave 2, n&asymp;1,200 a wave, beside the flight dates &mdash; synthetic example. Matched
-            commercial tests: declared audiences ran
-            36&ndash;80% higher click-through, 45&ndash;62% higher conversion &mdash;
-            the partner&rsquo;s numbers, not a guarantee.</p>
+            to wave 2, n&asymp;1,200 a wave, beside the flight dates &mdash; synthetic
+            example. The recall read is the argument; the partner&rsquo;s matched
+            commercial tests (36&ndash;80% higher click-through) are the supporting
+            evidence, not a guarantee.</p>
         </li>
         <li class="fb__page fb__page--end">
           <span class="fb__folio" aria-hidden="true">06</span>
@@ -669,7 +674,7 @@
     <div class="mxs-block mt3" id="matrix">
       <div class="center" style="margin-bottom:1.2rem">
         <span class="wk__day">The modeling &middot; what it adds up to</span>
-        <h3 class="wk__big" style="max-width:none">The sparse matrix: every lit cell is an answer somebody gave.</h3>
+        <h3 style="max-width:none;font-family:var(--display);font-weight:600;font-size:clamp(1.5rem,2.6vw,2rem);letter-spacing:-.01em">The sparse matrix: every lit cell is an answer somebody gave.</h3>
       </div>
       <div class="mxs">
         <div class="mxs__scroller">
@@ -681,7 +686,7 @@
             <ol class="mxs__steps">
               <li class="mxs__step mxs__step--a"><b>One person</b>Answers layering over months.</li>
               <li class="mxs__step mxs__step--b"><b>One question</b>Everyone who answered it, dated.</li>
-              <li class="mxs__step mxs__step--c"><b>The audience</b>Answered both. Declared, not inferred.</li>
+              <li class="mxs__step mxs__step--c"><b>The audience</b>Answered both &mdash; the overlap is the audience.</li>
               <li class="mxs__step mxs__step--d"><b>The match</b>Licensed attributes: weighting + ID.</li>
               <li class="mxs__step mxs__step--e"><b>More reach</b>Modeled &mdash; always labeled.</li>
             </ol>
@@ -822,7 +827,7 @@
 
 
 
-    <div class="grid grid--2" data-rise>
+    <div class="grid grid--2" data-rise style="align-items:start">
       <div class="card card--lead">
         <p class="card__k">Syndicated</p>
         <h3>On the shelf, ready to field.</h3>
@@ -876,6 +881,7 @@
     <a class="nextcard" href="questions.html">
       <span class="nextcard__k">On to the next</span>
       <span class="nextcard__t"><b>The Question Library</b><span>10,000+ questions in the field, ready to use today.</span></span>
+      <span class="nextcard__stat num" aria-hidden="true">6 DOMAINS &middot; 38 CATEGORIES</span>
       <span class="nextcard__go" aria-hidden="true">&#8594;</span>
     </a>
   </div>
@@ -924,6 +930,6 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r128"></script>
+<script src="assets/js/site.js?v=r129"></script>
 </body>
 </html>
