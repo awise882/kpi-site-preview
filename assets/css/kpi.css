@@ -2667,3 +2667,52 @@ details.mdet--keep > summary { display: block; pointer-events: none; font-weight
 @media (max-width: 400px) {
   .hero-banner__txt { font-size: .8rem !important; }
 }
+
+/* ============ r121: the maverick bets ============ */
+/* The front door goes asymmetric on wide desks: the claim flush-left, the
+   live scoreboard sharing the first fold (the owner's challenge: the website
+   is the spec). Guarded by :has so only the board-bearing hero recomposes. */
+@media (min-width: 1080px) {
+  .hero--light .hero-center:has(> .hero-board) { display: grid;
+    grid-template-columns: minmax(0, 1.04fr) minmax(0, .96fr);
+    column-gap: clamp(2rem, 4vw, 4rem); text-align: left; align-items: center; }
+  .hero--light .hero-center:has(> .hero-board) > * { grid-column: 1; }
+  .hero--light .hero-center:has(> .hero-board) .hero-board { grid-column: 2;
+    grid-row: 1 / span 7; align-self: center; justify-self: end;
+    margin: 0 !important; width: 100%; max-width: 560px !important; }
+  .hero--light .hero-center:has(> .hero-board) .hero-board .hb-row { display: block; }
+  .hero--light .hero-center:has(> .hero-board) .eyebrow--plain { justify-content: flex-start; }
+  .hero--light .hero-center:has(> .hero-board) .ht { font-size: clamp(2.3rem, 3.3vw, 3.4rem); }
+  .hero--light .hero-center:has(> .hero-board) .btn-row { justify-content: flex-start; }
+  .hero--light .hero-center:has(> .hero-board) .lede,
+  .hero--light .hero-center:has(> .hero-board) .hero-proclaim { margin-left: 0; }
+}
+/* The scoreboard assembles as the door opens. */
+@media (prefers-reduced-motion: no-preference) {
+  .hero-board .hb-top { animation: rise .45s var(--smooth) .35s backwards; }
+  .hero-board .hb-row { animation: rise .5s var(--smooth) backwards; }
+  .hero-board .hb-row:nth-of-type(2) { animation-delay: .55s; }
+  .hero-board .hb-row:nth-of-type(3) { animation-delay: .75s; }
+  .hero-board .hb-foot { animation: rise .45s var(--smooth) .95s backwards; }
+}
+/* Polling's ending: the loop closes on screen. */
+.lp-close { margin: 2rem auto 0; max-width: 760px; }
+.lp-close__row { list-style: none; margin: 0; padding: 0; display: grid;
+  grid-template-columns: repeat(6, 1fr); gap: .45rem; }
+.lp-close__row li { border: 1px solid var(--rule); border-radius: 8px;
+  padding: .5rem .35rem .45rem; text-align: center; font-family: var(--label);
+  text-transform: uppercase; letter-spacing: .08em; font-size: .6rem; font-weight: 800;
+  color: var(--ink-3); background: var(--white); }
+.lp-close__row li b { display: block; font-family: var(--mono); font-size: .82rem;
+  color: var(--ink-2); margin-bottom: .15rem; }
+.lp-close__row li.is-lit { background: var(--lime); border-color: var(--lime-dark);
+  color: var(--navy-deep); }
+.lp-close__row li.is-lit b { color: var(--navy-deep); }
+@media (prefers-reduced-motion: no-preference) {
+  .lp-close__row li.is-lit { animation: relight 3.2s ease-in-out infinite; }
+}
+.lp-close__cap { margin: .7rem 0 0; text-align: center; font-family: var(--mono);
+  font-size: .78rem; letter-spacing: .03em; color: var(--ink-2); }
+@media (max-width: 640px) {
+  .lp-close__row { grid-template-columns: repeat(3, 1fr); }
+}
