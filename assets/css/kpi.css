@@ -1663,7 +1663,14 @@ a.chip:hover { border-color: var(--blue); color: var(--navy); background: var(--
   .ac__tr p { font-style: italic; font-size: .95rem; line-height: 1.6; color: var(--ink-2); margin: 0 0 .6rem; }
   .ac__ai { display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; font-size: .78rem; color: var(--ink-3); }
   .ac__aitag { font-family: var(--label); text-transform: uppercase; letter-spacing: .08em; font-size: .64rem; font-weight: 700; color: var(--blue-text); border: 1px solid color-mix(in srgb, var(--teal) 45%, transparent); border-radius: 3px; padding: .08rem .35rem; }
-  @media (max-width: 560px) { .ac__dl { grid-template-columns: 1fr; } }
+  /* r111 (owner, from his phone): the metadata receipt was one giant row per
+   field on mobile — a full viewport of labels. Two columns hold, type tightens:
+   the whole receipt reads in about a third of a screen. */
+@media (max-width: 560px) {
+  .ac__dl { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .6rem .9rem; margin-top: 1rem; padding-top: .9rem; }
+  .ac__dl dt { font-size: .56rem; letter-spacing: .08em; margin-bottom: .12rem; }
+  .ac__dl dd { font-size: .84rem; line-height: 1.35; }
+}
   /* The Spend-by-app figure is a live recreation now; self-contained, rc- prefixed. */
   .rc-spot { margin-top: 1.4rem; }
   /* ===== Ruling 52a: the calendar timeline (buy path, beat 1) =====
@@ -2044,7 +2051,6 @@ a.chip:hover { border-color: var(--blue); color: var(--navy); background: var(--
 @media (prefers-reduced-motion: reduce) {
   .nextrail .nextcard, .nextcard__go { transition: none; }
 }
-}
 
 /* r88: the runways are back — driven by the universal JS scrub in site.js (the old
    animation-timeline path was Chrome-only, which is why "the scroll jacking stopped
@@ -2256,3 +2262,119 @@ a.chip:hover { border-color: var(--blue); color: var(--navy); background: var(--
 @keyframes wkx-step { 0% { opacity: .45; } 10%, 90% { opacity: 1; border-top-color: var(--lime); color: var(--navy-deep); } 100% { opacity: .45; } }
 @keyframes wkx-step-first { 0%, 90% { opacity: 1; border-top-color: var(--lime); color: var(--navy-deep); } 100% { opacity: .45; } }
 @keyframes wkx-step-last { 0% { opacity: .45; } 10%, 100% { opacity: 1; border-top-color: var(--lime); color: var(--navy-deep); } }
+
+
+/* ================= r111: the mobile renditions (owner: "feels off and
+   complicated on mobile"; four-specialist panel, avg 6.72). Doctrine: no
+   desktop furniture on a phone. Boards re-lay as receipt rows, walls collapse
+   behind disclosures, drag verbs become taps, mono captions get an 11px floor.
+   Everything below is mobile-scoped or inert on desktop. ================= */
+
+/* the mobile disclosure: ships open in markup (JS-off safe); site.js closes it
+   on small screens; on desktop the summary hides and the content just shows. */
+details.mdet > summary { cursor: pointer; list-style: none; font-family: var(--mono);
+  font-size: .72rem; letter-spacing: .06em; text-transform: uppercase;
+  color: var(--ink-3); padding: .3rem 0; }
+details.mdet > summary::-webkit-details-marker { display: none; }
+details.mdet > summary::before { content: "+ "; color: var(--lime-text); font-weight: 700; }
+details.mdet[open] > summary::before { content: "\2212\00a0"; }
+@media (min-width: 641px) { details.mdet > summary { display: none; } }
+
+/* touch verb for pointer-aware copy (mirror of .kbd-hint) */
+.tap-only { display: none; }
+@media (hover: none) { .tap-only { display: inline; } }
+
+/* the shortlist's copy/clear buttons appear once something is picked */
+.sx-basket[data-has="false"] .sx-basket__ft-row { display: none; }
+
+/* the rate book's one-market card (mobile only) */
+.rc-mobile-rate { display: none; border: 1px solid var(--rule); border-radius: var(--r);
+  background: var(--white); padding: .8rem .9rem .85rem; margin: .6rem 0 .2rem; }
+.rc-mobile-rate__m { margin: 0 0 .5rem; font-weight: 800; color: var(--navy-deep);
+  display: flex; justify-content: space-between; align-items: baseline; gap: .6rem; }
+.rc-mobile-rate__m span { font-family: var(--mono); font-size: .68rem; font-weight: 400;
+  color: var(--ink-3); text-transform: uppercase; letter-spacing: .05em; }
+.rc-mobile-rate dl { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem .9rem; margin: 0; }
+.rc-mobile-rate dt { font-family: var(--label); text-transform: uppercase;
+  letter-spacing: .08em; font-size: .58rem; font-weight: 700; color: var(--ink-3); }
+.rc-mobile-rate dd { margin: .05rem 0 0; font-family: var(--mono); font-size: 1.15rem;
+  font-weight: 700; color: var(--navy-deep); font-variant-numeric: tabular-nums lining-nums; }
+.rc-mobile-rate__n { margin: .6rem 0 0; font-size: .78rem; line-height: 1.5; color: var(--ink-3); }
+
+/* the collage's mobile more-row */
+.kw__more { display: none; }
+
+@media (max-width: 640px) {
+  /* page inline sheets load after this file, so these terminal mobile
+     renditions carry !important on the contested properties. */
+  /* 1. the collage: four full-width beats (alert, board, Baker, deal ID) */
+  .kw__cluster { grid-template-columns: 1fr !important; gap: .8rem !important; }
+  .kw__cluster .kw__c:nth-child(odd), .kw__cluster .kw__c:nth-child(even) { transform: none !important; }
+  .kw__c--player, .kw__c--pod, .kw__c--mix, .kw__c--stream, .kw__c--book,
+  .kw__c--share, .kw__c--rate, .kw__c--op, .kw__c--op2 { display: none !important; }
+  .kw__zone { border-top: 0 !important; padding-top: 0 !important; margin-top: 0 !important; }
+  .kw__zone-k { display: none !important; }
+  .kw__readline { display: none !important; }
+  .kw__more { display: block !important; margin-top: 1rem; font-weight: 700; font-size: .9rem;
+    color: var(--blue-text); text-decoration: none; }
+
+  /* 2. the four doors: the words carry it; desktop screenshots go */
+  #doors .press-card__shot { display: none !important; }
+  #doors .press-card h3 { margin-top: .15rem; }
+
+  /* 3. the flip book stacks; the dots become the spine */
+  .fb .fb__scroll { grid-auto-flow: row !important; grid-auto-columns: unset !important;
+    grid-template-columns: 1fr !important; overflow: visible !important; padding-bottom: .2rem !important; }
+  .fb .fb__rule, .fb .fb__hint { display: none !important; }
+  .fb .fb__page { min-height: 0 !important; padding: .85rem .95rem .9rem !important; }
+
+  /* 4. the rate book: table and swipe hint yield to the one-market card */
+  .rc-ratebook-scroll, .rc-ratebook .tbl-hint { display: none !important; }
+  .rc-mobile-rate { display: block !important; }
+
+  /* 5. board chrome: the five inert filter chips become one printed caption */
+  .rc-digital .rc-digital-filters { display: none !important; }
+  .rc-digital-caption { display: block !important; font-family: var(--mono); font-size: .68rem;
+    letter-spacing: .04em; color: var(--ink-3); margin-top: .2rem; }
+
+  /* 6. type floors: mono captions never dip under ~11px on a phone */
+  .rc-seller .rc-seller-foot p { font-size: 11px !important; }
+  .kw__fl, .kw__tc { font-size: .7rem !important; }
+  .qcard__meta, .qcard__count, .tstep-art__meta, .lp__stamp, .mxs__stamp,
+  .rct-stamp, .wk-doc__stamp { font-size: .7rem !important; }
+
+  /* 7. long fine print reads left-aligned on a phone */
+  p.small.center { text-align: left !important; }
+
+  /* 8. the contact form's submit goes full width */
+  form button[type="submit"].btn { width: 100% !important; justify-content: center; }
+
+  /* 9. press pull quotes cost half a screen, not a full one */
+  .quote p { font-size: clamp(1.15rem, 5.4vw, 1.4rem) !important; }
+}
+@media (min-width: 641px) { .rc-digital-caption { display: none; } }
+
+/* r111: the audience-addressed band. Desktop: four open cards in a 2x2 grid,
+   the seat name as the card kicker. Phone: four accordion rows — the
+   "here's how you use us" move, with the worked dollars. */
+.seats { margin-top: 3rem; }
+.seats__grid { display: grid; grid-template-columns: 1fr 1fr; gap: .9rem; margin-top: 1rem; }
+.mdet--seat { background: var(--white); border: 1px solid var(--rule); border-radius: var(--r-lg);
+  padding: .95rem 1.05rem 1rem; }
+.mdet--seat > summary { font-family: var(--display); font-size: 1.3rem; letter-spacing: -.01em;
+  text-transform: none; color: var(--navy-deep); padding: 0 0 .3rem; }
+.mdet--seat > summary::before { content: ""; }
+.mdet--seat > p { margin: .1rem 0 .5rem; font-size: .9rem; line-height: 1.55; color: var(--ink-2); }
+.mdet--seat > p b { color: var(--navy-deep); }
+.mdet--seat > a { font-size: .88rem; font-weight: 700; color: var(--blue-text); text-decoration: none; }
+@media (min-width: 641px) {
+  /* always open on desktop: the summary is the card kicker, not a control */
+  .mdet--seat > summary { display: block; pointer-events: none; }
+}
+@media (max-width: 640px) {
+  .seats__grid { grid-template-columns: 1fr; gap: .6rem; }
+  .mdet--seat { padding: .8rem .95rem; }
+  .mdet--seat > summary { font-size: 1.15rem; padding: .1rem 0; }
+  .mdet--seat > summary::after { content: "+"; float: right; color: var(--lime-text); font-weight: 700; }
+  .mdet--seat[open] > summary::after { content: "\2212"; }
+}

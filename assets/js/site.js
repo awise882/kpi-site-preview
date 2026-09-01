@@ -522,3 +522,15 @@
     });
   }).catch(function () { /* static values stand */ });
 })();
+
+/* r111: mobile disclosures. The markup ships open so JS-off readers always see
+   everything; on a small screen the walls fold to their one-line summaries. */
+(function () {
+  try {
+    if (window.matchMedia && matchMedia('(max-width: 640px)').matches) {
+      document.querySelectorAll('details.mdet[open]').forEach(function (d) {
+        d.removeAttribute('open');
+      });
+    }
+  } catch (e) {}
+})();

@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r105">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r111c">
 <style>
   .fig-scroll > svg { min-width: 820px; }
   /* R69: the key graphic gets a phone-native stack; no panning a 1000px drawing */
@@ -296,7 +296,8 @@
           <b>100% of the creatives that run there, each with tape and transcript</b> &mdash;
           and priced as a dated, estimated minimum, service by service: YouTube and YouTube TV,
           Tubi, Peacock, Pluto, the vMVPDs.</p>
-        <p style="margin-top:.9rem;max-width:44ch" class="small">The measured set, in plain
+        <details class="mdet" open style="margin-top:.9rem;max-width:44ch"><summary>The measured set, in plain terms</summary>
+        <p class="small">The measured set, in plain
           terms: whatever renders on the TV glass in the 40 million measured homes &mdash;
           YouTube and YouTube TV, the premium ad-supported apps, free ad-supported TV, the
           vMVPDs &mdash; read service by service, rolled up by platform class. If it plays
@@ -304,6 +305,7 @@
           creative on one measured screen; impressions weight plays to the household
           universe. Don&rsquo;t see your platform named? Ask on the
           walkthrough &mdash; the class roster opens there.</p>
+        </details>
 
         <p class="small" style="margin-top:1.2rem">How that number is made &mdash; screens to
           household to weight &mdash; is <a href="#cross-screen">drawn once, below</a>.</p>
@@ -325,6 +327,7 @@
       <span class="rc-digital-filter">Advertiser <b>All</b> &#9662;</span>
       <span class="rc-digital-filter">Stage <b>General</b> &#9662;</span>
     </span>
+    <span class="rc-digital-caption" aria-hidden="true">Cycle 2026 &middot; Lakemont Gov &middot; all markets &middot; general</span>
   </div>
 
   <div class="rc-digital-titlerow">
@@ -674,12 +677,14 @@
             &mdash; logged and reconciled since January 2025. Straight from
             the server log.</span>
         </div>
+        <details class="mdet" open><summary>The receipts, line by line</summary>
         <ul class="msp__ticks num">
           <li><b>3.5M a day</b> in August 2026 &mdash; <b>24M+ a week</b>, up from 2.1M a day across 2026</li>
           <li><b>98.0% completion</b> &mdash; 918.9M spots watched to the last frame, 7.5 million hours of finished viewing</li>
           <li><b>608 of 608 days</b> with log-verified streaming &mdash; every single day since January 2025</li>
           <li><b>At least 288 distinct apps</b> read in a single month</li>
         </ul>
+        </details>
       </div>
       <p class="msp__foot">The estimates above are calibrated against nearly a billion
         log-verified streaming impressions &mdash; the market&rsquo;s streaming is detected
@@ -860,6 +865,17 @@
     <span class="rc-ratebook-tbpair"><span class="rc-ratebook-stamp">Filings read thru Aug 18, 2026</span><button class="rc-ratebook-export" type="button" tabindex="-1" aria-hidden="true">&#8595; Export XLSX</button></span>
   </div>
   <p class="small tbl-hint">Swipe the rate book sideways to see every column.</p>
+  <div class="rc-mobile-rate" aria-label="One market from the rate book: Columbus, early news, per :30">
+    <p class="rc-mobile-rate__m">Columbus <span>early news &middot; per :30</span></p>
+    <dl>
+      <div><dt>Q3 Cand</dt><dd>$310</dd></div>
+      <div><dt>Q3 OG</dt><dd>$430</dd></div>
+      <div><dt>Q4 Cand &middot; peak</dt><dd>$520</dd></div>
+      <div><dt>Q4 OG &middot; peak</dt><dd>$740</dd></div>
+    </dl>
+    <p class="rc-mobile-rate__n">One market of 210. The full book &mdash; every market,
+      every column, the trend &mdash; opens on a bigger screen or in the demo.</p>
+  </div>
   <div class="rc-ratebook-scroll" tabindex="0" role="group" aria-label="Rate book by market and quarter, scrolls sideways">
   <table class="rc-ratebook-grid">
     <thead>
@@ -901,8 +917,10 @@
   </table>
   </div>
   <div class="rc-ratebook-foot">
+    <details class="mdet" open><summary>About these rates</summary>
     <p>Illustrative rates per :30, real markets &middot; Cand = candidate rate, OG = outside group &middot; demand dot: rate pressure in the market, green typical, amber peak &middot; 207 more markets in the product</p>
     <p>Rates read from public FCC filings where the filing exists &middot; order to filing runs near real time, and the read-through date on every page is the check &middot; the Q4 group is the peak quarter and carries the sort &middot; market row = midpoint of filed early-news rates across the market's stations; station ladders and clearance history open in the demo</p>
+    </details>
   </div>
 </div>
 
@@ -1046,6 +1064,6 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r105"></script>
+<script src="assets/js/site.js?v=r111"></script>
 </body>
 </html>
