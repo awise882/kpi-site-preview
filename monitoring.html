@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r145">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r146">
 <style>
   .fig-scroll > svg { min-width: 820px; }
   /* R69: the key graphic gets a phone-native stack; no panning a 1000px drawing */
@@ -242,7 +242,7 @@
             <p class="mtl__when num">REAL TIME &middot; ESTIMATED</p>
             <h3 class="mtl__name">Streaming dollars</h3>
             <p class="mtl__p">Detection lands in minutes; the estimated dollars
-              print in real time &mdash; labeled, kept apart.</p>
+              print in real time &mdash; labeled, never in the TV total.</p>
             <div class="press-card__art mtl__spec" role="img" aria-label="The daily CTV read, by app: Hulu, Max, Peacock and 285 more — Toledo prints $740K estimated, at least $410K of it caught">
               <p class="pca__bar"><span>KPI &middot; CTV DAILY &middot; BY APP</span><span>est.</span></p>
               <p class="pca__row num">HULU &middot; MAX &middot; PEACOCK &middot; +285 MORE APPS</p>
@@ -262,9 +262,9 @@
     <div class="center" style="margin-bottom:2rem">
       <p class="eyebrow eyebrow--plain" style="justify-content:center">Stop 01 &middot; minutes &middot; Creative alerts</p>
       <h2>When a new spot launches, this lands in your inbox.</h2>
-      <p class="lede">Detection runs near real time: the alert lands when the spot is
-        caught &mdash; race, tape and transcript attached, even when it never touches
-        broadcast &mdash; and the morning brief collects everything overnight.</p>
+      <p class="lede"><b>The alert lands when the spot is caught</b> &mdash; race, tape and
+        transcript attached, broadcast or not &mdash; and the morning brief collects
+        everything overnight.</p>
     </div>
     <div class="acs" data-acs>
           <div class="ac">
@@ -537,7 +537,29 @@
             processed &middot; window <span class="num">Jan 29, 2025 &ndash; Nov 4, 2026</span></p>
           <p class="pca__row num">EARLY NEWS, PER :30 &mdash; KCCI $1,444 &middot; WHO $1,258 &middot; WOI $486 &middot; KDSM $222 &middot; KFPX $125 &middot; KCWI $54</p>
           <p class="pca__row num">KDSM &middot; PRIME &mdash; AVG $1,090: CANDIDATE $803 &middot; ISSUE $1,468 &middot; 51 ADVERTISERS &middot; 232 CONTRACTS</p>
-          <p class="pca__row num">RATE v MARKET &mdash; KCCI 1.5&times; &middot; WHO 1.2&times; &middot; KDSM 0.5&times; &middot; WOI 0.5&times; &middot; KFPX 0.2&times; &middot; KCWI 0.1&times;</p>
+          <svg class="pca__fig" viewBox="0 0 560 100" role="img" aria-label="Rate versus the market average, per station: KCCI at 1.5 times and WHO at 1.2 times sit above the market line; KDSM and WOI at 0.5, KFPX at 0.2 and KCWI at 0.1 sit below it">
+            <rect x="42" y="14" width="40" height="66" fill="#0D2E4A"/>
+            <rect x="130" y="27" width="40" height="53" fill="#0D2E4A"/>
+            <rect x="218" y="58" width="40" height="22" fill="#C7D5E0"/>
+            <rect x="306" y="58" width="40" height="22" fill="#C7D5E0"/>
+            <rect x="394" y="71" width="40" height="9" fill="#C7D5E0"/>
+            <rect x="482" y="75" width="40" height="5" fill="#C7D5E0"/>
+            <line x1="14" y1="80" x2="546" y2="80" stroke="#C7D5E0" stroke-width="2"/>
+            <line x1="14" y1="36" x2="546" y2="36" stroke="#8A5200" stroke-width="1.5" stroke-dasharray="5 4"/>
+            <text x="546" y="30" text-anchor="end" font-family="Inter, sans-serif" font-size="8.5" font-weight="800" letter-spacing=".5" fill="#8A5200">1.0&times; = MARKET AVG</text>
+            <text x="62" y="9" text-anchor="middle" font-size="10" font-weight="800" fill="#08243B">1.5&times;</text>
+            <text x="150" y="22" text-anchor="middle" font-size="10" font-weight="800" fill="#08243B">1.2&times;</text>
+            <text x="238" y="53" text-anchor="middle" font-size="10" font-weight="700" fill="#5A6B7C">0.5&times;</text>
+            <text x="326" y="53" text-anchor="middle" font-size="10" font-weight="700" fill="#5A6B7C">0.5&times;</text>
+            <text x="414" y="66" text-anchor="middle" font-size="10" font-weight="700" fill="#5A6B7C">0.2&times;</text>
+            <text x="502" y="70" text-anchor="middle" font-size="10" font-weight="700" fill="#5A6B7C">0.1&times;</text>
+            <text x="62" y="94" text-anchor="middle" font-size="9.5" font-weight="700" letter-spacing=".5" fill="#5A6B7C">KCCI</text>
+            <text x="150" y="94" text-anchor="middle" font-size="9.5" font-weight="700" letter-spacing=".5" fill="#5A6B7C">WHO</text>
+            <text x="238" y="94" text-anchor="middle" font-size="9.5" font-weight="700" letter-spacing=".5" fill="#5A6B7C">KDSM</text>
+            <text x="326" y="94" text-anchor="middle" font-size="9.5" font-weight="700" letter-spacing=".5" fill="#5A6B7C">WOI</text>
+            <text x="414" y="94" text-anchor="middle" font-size="9.5" font-weight="700" letter-spacing=".5" fill="#5A6B7C">KFPX</text>
+            <text x="482" y="94" font-size="9.5" font-weight="700" letter-spacing=".5" fill="#5A6B7C">KCWI</text>
+          </svg>
           <p class="pca__row num">READ AS STATIONS POST TO THE PUBLIC FILE &middot; THE READ-THROUGH DATE IS THE CHECK</p>
           <p class="pca__row">Real market, exactly as filed &mdash; the candidate-vs-issue class split prints
             per station, per daypart, from the public file.</p>
@@ -570,7 +592,6 @@
           tape, platform and transcript; dollars print as a dated estimated minimum,
           never in the totals.</p>
         <p class="lanefam__rcpt num">HULU &middot; :30 &middot; CAUGHT 4:21:39 PM &middot; NOTHING ON BROADCAST YET</p>
-        <p class="lanefam__rcpt num">TOLEDO &middot; CTV BY APP: HULU &middot; MAX &middot; PEACOCK &middot; +285 MORE &mdash; $740K EST. &middot; $410K+ CAUGHT</p>
         <p class="lanefam__rcpt num">BELOW THE 58 &mdash; CHEYENNE: DETECTION FULL &middot; DOLLARS STATEWIDE EST. &middot; THIN PRINTS &ldquo;INSUFFICIENT&rdquo; &mdash; SYNTHETIC ROW</p>
       </div>
 <div class="lanefam lanefam--key" id="grain">
@@ -807,6 +828,6 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r145"></script>
+<script src="assets/js/site.js?v=r146"></script>
 </body>
 </html>
