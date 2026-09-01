@@ -2763,8 +2763,8 @@ details.mdet--keep > summary { display: block; pointer-events: none; font-weight
 .mhero__lane--dark { background: var(--navy-deep); border-color: transparent; }
 .mhero__lane--dark .mhero__p { color: #C9D9E6; }
 .mhero__lane--dark .mhero__p b { color: #fff; }
-.mhero__k { font-family: var(--label); text-transform: uppercase; letter-spacing: .14em;
-  font-size: .66rem; font-weight: 800; color: var(--ink-3); margin: 0 0 .6rem;
+.mhero__k { font-family: var(--label); text-transform: uppercase; letter-spacing: .12em;
+  font-size: .92rem; font-weight: 800; color: var(--navy-deep); margin: 0 0 .6rem;
   padding-bottom: .45rem; border-bottom: 1px solid var(--rule); }
 .mhero__lane--dark .mhero__k { color: #9FBFD6; border-bottom-color: rgba(159,191,214,.35); }
 .mhero__p { margin: 0; font-size: .95rem; line-height: 1.6; color: var(--ink-2); }
