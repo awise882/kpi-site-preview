@@ -579,3 +579,15 @@
     }
   } catch (e) {}
 })();
+
+/* r127 (a11y): Escape dismisses an open nav dropdown — hover/focus opens it,
+   and a keyboard reader needs a way out that isn't tabbing through the menu. */
+(function () {
+  try {
+    document.addEventListener('keydown', function (e) {
+      if (e.key !== 'Escape') return;
+      var el = document.activeElement;
+      if (el && el.closest && el.closest('.nav__item')) el.blur();
+    });
+  } catch (e) {}
+})();

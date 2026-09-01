@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r126">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r127">
 <style>
   /* r106 (Adam): the loop IS the landing. Text left, the loop tape right, one
      viewport. The tape is the old ring redrawn in the house receipt grammar:
@@ -40,6 +40,7 @@
     .hero--poll .btn-row { margin-top: 1.4rem; }
     .hero--poll .stats { grid-template-columns: 1fr 1fr; }
     .hero--poll .stat:first-child { grid-column: 1 / -1; }
+    .hero--poll .stats > .stat:last-child:nth-child(odd) { grid-column: auto; }
   }
   /* The loop tape. Open/close windows overlap one step to the next, so the
      card's height stays steady while the lit step travels. */
@@ -389,7 +390,7 @@
         two custom questions and an audience included, written to your race.</p>
       <div class="stats" data-rise>
         <div class="stat"><div class="stat__v">10.2B</div><div class="stat__l">Answers banked &middot; 14 years</div></div>
-        <div class="stat"><div class="stat__v">1M+</div><div class="stat__l">Answers per day</div></div>
+        <div class="stat"><div class="stat__v">1M+</div><div class="stat__l">Answers a day &middot; today&rsquo;s pace</div></div>
         <div class="stat"><div class="stat__v">165M</div><div class="stat__l">U.S. consumer profiles</div></div>
       </div>
       <div class="stamp" style="text-align:left"><b>Source</b> CivicScience partner-published figures, as
@@ -824,10 +825,11 @@
     <div class="grid grid--2" data-rise>
       <div class="card card--lead">
         <p class="card__k">Syndicated</p>
-        <h3>10,000+ questions always on &mdash; usable today.</h3>
+        <h3>On the shelf, ready to field.</h3>
         <p class="small">The library is <a href="questions.html">its own page</a>. Search the
           exact wording, build a shortlist, and send it to us. The audience comes back
           in days, ready to buy against &mdash; and it runs without your voter file.</p>
+        <p class="small num" style="margin:.7rem 0 0;color:var(--ink-3)">10,000+ WORDINGS &middot; 6 DOMAINS &middot; 38 CATEGORIES &middot; THE BALLOT TO AD RECALL</p>
       </div>
       <div class="card card--flag">
         <p class="card__k">Custom</p>
@@ -837,8 +839,14 @@
           <li><b>It fields in days</b> &mdash; nationally, one state, or a single district.</li>
           <li><b>It comes back as an audience</b> &mdash; auditable, delivered where you buy, in market in about two weeks.</li>
           <li><b>Every wave lands as a dated topline</b> &mdash; n, field dates, and the
-            frame it is weighted to &mdash; the sheet you hand the finance chair.</li>
+            frame it is weighted to &mdash; the sheet you hand the finance chair:</li>
         </ol>
+        <div class="press-card__art" role="group" style="margin:.8rem 0 0"
+          aria-label="A wave topline sheet: synthetic data in the real format">
+          <p class="pca__bar"><span>KPI &middot; Wave topline</span><span>synthetic &middot; real format</span></p>
+          <p class="pca__row num">WAVE 3 OF 5 &middot; n=1,204 &middot; FIELDED SEP 2&ndash;6, 2026 &middot; GOVERNOR</p>
+          <p class="pca__row num">WEIGHTING FRAME PRINTED ON THE SHEET &middot; RECALL +9 WHERE THE FLIGHT RAN</p>
+        </div>
       </div>
     </div>
 
@@ -916,6 +924,6 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r126"></script>
+<script src="assets/js/site.js?v=r127"></script>
 </body>
 </html>

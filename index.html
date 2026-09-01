@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r126">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r127">
 <style>
   /* Light, centered, airy hero, matching the live site: the announcement banner
      sits flush under the nav, then the display headline in the green-to-teal
@@ -41,7 +41,10 @@
     @keyframes bann-a { 0%, 44% { opacity: 1; visibility: visible; } 50%, 94% { opacity: 0; visibility: hidden; } 100% { opacity: 1; } }
     @keyframes bann-b { 0%, 44% { opacity: 0; visibility: hidden; } 50%, 94% { opacity: 1; visibility: visible; } 100% { opacity: 0; } }
   }
-  @media (prefers-reduced-motion: reduce) { .hero-banner__in--dual a:last-child { display: none; } }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-banner__in--dual a:first-child { grid-area: 1 / 1; }
+    .hero-banner__in--dual a:last-child { grid-area: 2 / 1; }
+  }
   /* r109 (three rounds of judges): on mobile the banner is two clean lines at
      most — chip, then the claim with the arrow gled to it — never an orphaned
      arrow. The arrow moves from the link onto the claim span itself. */
@@ -453,12 +456,12 @@
       <div class="hb-row">
         <div class="hb-l1"><span class="hb-tag">AG</span><b>Midstate Attorney General</b><span class="hb-wk">+$3.3M</span></div>
         <div class="hb-l2"><span class="hb-pct hb-pd">40%</span><span class="hb-bar"><i style="width:40%"></i><em style="width:60%"></em></span><span class="hb-pct hb-pr">60%</span></div>
-        <div class="hb-l3"><span>TV &middot; CABLE &middot; RADIO <b>$29.2M</b></span><span class="hb-str">STREAMING <b>$1.1M</b> EST. &middot; BESIDE</span></div>
+        <div class="hb-l3"><span>TV &middot; CABLE &middot; RADIO &middot; POSTED + BOOKED <b>$29.2M</b></span><span class="hb-str">STREAMING <b>$1.1M</b> EST. &middot; BESIDE</span></div>
       </div>
       <div class="hb-row">
         <div class="hb-l1"><span class="hb-tag">GOV</span><b>North River Governor</b><span class="hb-wk">+$1.8M</span></div>
         <div class="hb-l2"><span class="hb-pct hb-pd">48%</span><span class="hb-bar"><i style="width:48%"></i><em style="width:52%"></em></span><span class="hb-pct hb-pr">52%</span></div>
-        <div class="hb-l3"><span>TV &middot; CABLE &middot; RADIO <b>$14.1M</b></span><span class="hb-str">STREAMING <b>$640K</b> EST. &middot; BESIDE</span></div>
+        <div class="hb-l3"><span>TV &middot; CABLE &middot; RADIO &middot; POSTED + BOOKED <b>$14.1M</b></span><span class="hb-str">STREAMING <b>$640K</b> EST. &middot; BESIDE</span></div>
       </div>
       <div class="hb-foot"><span>NEW MONEY RISES TO THE TOP</span><span>SYNTHETIC SAMPLE</span></div>
     </div>
@@ -501,15 +504,15 @@
       <div class="statlead__side">
         <div class="statlead__row"><b class="num">40M</b><span>homes measuring streaming on the TV glass</span></div>
         <div class="statlead__row"><b class="num">220M+</b><span>streaming ad impressions measured in one week</span></div>
-        <div class="statlead__row"><b class="num">210</b><span>U.S. media markets monitored</span></div>
+        <div class="statlead__row"><b class="num">65M</b><span>smart-TV devices behind the panel</span></div>
       </div>
-      <p class="statlead__foot">BEHIND THE READS &middot; 65M SMART-TV DEVICES &middot; A DECADE OF HISTORY UNDER EVERY TREND</p>
+      <p class="statlead__foot">BEHIND THE READS &middot; ALL 210 MARKETS &middot; A DECADE OF HISTORY UNDER EVERY TREND</p>
     </div>
 
     <div class="curtain curtain--split mt3" data-rise>
       <div>
       <p class="curtain__k">Streaming &middot; the third everyone else misses</p>
-      <h3 class="curtain__h">A third of the fight is digital. We measure it.</h3>
+      <h3 class="curtain__h">A third of the measured fight is digital. We measure it.</h3>
       <p class="curtain__p">Transparency reports and public ad libraries end where
         streaming begins. We measure it where it actually plays &mdash; on the TV glass,
         app by app, through our VideoAmp partnership &mdash; so the board you read
@@ -668,7 +671,7 @@
         <div class="press-card__art">
           <p class="pca__bar"><span>KPI &middot; Scoreboard</span><span>synthetic</span></p>
           <p class="pca__big">Midstate Attorney General <span class="num">+$3.3M this week</span></p>
-          <p class="pca__row num">D 40% &middot; R 60% &middot; TV&middot;CABLE&middot;RADIO $29.2M</p>
+          <p class="pca__row num">D 40% &middot; R 60% &middot; TV&middot;CABLE&middot;RADIO $29.2M, POSTED + BOOKED</p>
           <p class="pca__row num">STREAMING $1.1M EST. &mdash; beside the total, never blended</p>
         </div>
         <p class="small">Scoreboard, Buy Sheet, Creative Matrix and the rest &mdash;
@@ -715,14 +718,14 @@
         <details class="mdet mdet--seat" open>
           <summary>Buying?</summary>
           <p>The alert, your whole book on one board, the filed rate behind every
-            quote &mdash; and <b class="num">$12K</b> back on one flight.</p>
+            quote &mdash; and <b class="num">$12K</b> back on one <b class="num">$116K</b> flight.</p>
           <a href="week.html#wk-buy">Walk the buyer&rsquo;s week &rarr;</a>
         </details>
         <details class="mdet mdet--seat" open>
           <summary>Selling?</summary>
-          <p>Your share, the agency buying around you priced at <b class="num">+$272K</b>,
-            and the streaming money that never files &mdash; station, rep firm, or
-            platform seller.</p>
+          <p>Your share, the agency buying around you, and the streaming money that
+            never files &mdash; <b class="num">+$510K</b> under the line statewide.
+            Station, rep firm, or platform seller.</p>
           <a href="week.html#wk-sell">Open the seller&rsquo;s desk &rarr;</a>
         </details>
         <details class="mdet mdet--seat" open>
@@ -787,7 +790,7 @@
       <p class="eyebrow eyebrow--plain" style="justify-content:center">Contact us</p>
       <h2>See your race on it.</h2>
       <p class="lede" style="margin-inline:auto">A 20-minute walkthrough on a race you know
-        cold. If the read does not match what you lived, you will know in the first five.</p>
+        cold &mdash; we pull its boards before the call.</p>
       <div class="btn-row mt2" style="justify-content:center">
         <a class="btn btn--lime btn--lg" href="contact.html">Request a demo</a>
         <a class="btn btn--outline btn--lg" href="mailto:info@kpipolitical.com">Talk to us</a></div>
@@ -855,6 +858,6 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r126"></script>
+<script src="assets/js/site.js?v=r127"></script>
 </body>
 </html>
