@@ -3010,6 +3010,25 @@ details.mdet--keep > summary { display: block; pointer-events: none; font-weight
   100% { opacity: 1; visibility: visible; transform: none; border-top-color: var(--lime); }
 }
 
+/* ===== r148: section tabs (Doug, the first outside reader, via the owner:
+   "tabs up top that navigate you to each section") ===== */
+.ptabs { position: sticky; top: var(--nav-h); z-index: 55; background: var(--paper);
+  border-bottom: 1px solid var(--rule); }
+.ptabs__in { display: flex; gap: 1.5rem; overflow-x: auto;
+  -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+.ptabs__in::-webkit-scrollbar { display: none; }
+.ptabs a { flex: 0 0 auto; padding: .6rem 0 .52rem; font-family: var(--mono);
+  font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--ink-3); text-decoration: none; border-bottom: 2px solid transparent; }
+.ptabs a:hover, .ptabs a:focus-visible { color: var(--navy-ink); }
+.ptabs__k { flex: 0 0 auto; padding: .6rem 0 .52rem; font-family: var(--mono);
+  font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--ink-3); opacity: .72; }
+.ptabs a.is-on { color: var(--navy-ink); border-bottom-color: var(--lime-dark); }
+@media (max-width: 640px) { .ptabs__in { gap: 1.05rem; } }
+/* anchor jumps land clear of the two sticky bars */
+[id] { scroll-margin-top: calc(var(--nav-h) + 48px); }
+
 /* ===== r147: round-25 convergence ===== */
 /* The Columbus forward book, drawn (buyer + design-director) */
 .aw__fwdfig { display: block; width: 100%; max-width: 380px; height: auto; margin: .3rem 0 .7rem; }

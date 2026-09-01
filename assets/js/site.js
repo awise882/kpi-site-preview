@@ -600,7 +600,9 @@
 
 
 /* r134 (maverick ten): the nameable signature — the header's navy-to-lime
-   hairline is also the page's progress spine. It draws with the read on every
+   r148 (Doug, the outside reader): the section tabs under the main nav.
+   Scroll-spy sets the active tab; week's desk links switch the desk first.
+   The hairline is also the page's progress spine. It draws with the read on every
    page; informational, so it runs under reduced motion too. */
 (function () {
   try {
@@ -659,4 +661,50 @@
   }
   window.addEventListener('hashchange', openTo);
   openTo();
+})();
+
+
+/* ===== r148: section tabs — scroll-spy + week desk switching ===== */
+(function () {
+  var bar = document.querySelector('.ptabs');
+  if (!bar) return;
+  var links = Array.prototype.slice.call(bar.querySelectorAll('a[href^="#"]'));
+  var map = [];
+  links.forEach(function (a) {
+    var el = document.getElementById(a.getAttribute('href').slice(1));
+    if (el) map.push({ a: a, el: el });
+  });
+  if (!map.length) return;
+
+  bar.addEventListener('click', function (e) {
+    var a = e.target.closest('a[href^="#"]');
+    if (!a) return;
+    var id = a.getAttribute('href').slice(1);
+    if (id === 'wk-buy' || id === 'wk-sell') {
+      var tab = document.getElementById(id === 'wk-buy' ? 'wk-tab-buy' : 'wk-tab-sell');
+      if (tab) tab.click();
+    }
+  });
+
+  var setOn = function (on) {
+    links.forEach(function (l) { l.classList.toggle('is-on', l === on); });
+  };
+  var navH = 78;
+  try { navH = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) || 78; } catch (e) {}
+  var ticking = false;
+  var spy = function () {
+    ticking = false;
+    var y = window.scrollY + navH + 120;
+    var cur = map[0].a;
+    for (var i = 0; i < map.length; i++) {
+      var el = map[i].el;
+      if (el.offsetParent === null && !el.getClientRects().length) continue;
+      if (el.getBoundingClientRect().top + window.scrollY <= y) cur = map[i].a;
+    }
+    setOn(cur);
+  };
+  window.addEventListener('scroll', function () {
+    if (!ticking) { ticking = true; requestAnimationFrame(spy); }
+  }, { passive: true });
+  spy();
 })();
