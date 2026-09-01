@@ -223,7 +223,7 @@
       elMail.style.pointerEvents = picked.length ? '' : 'none';
     }
     if (!picked.length) {
-      elBasketList.innerHTML = '<li class="sx-basket-empty">Nothing picked yet. Add a question to start a shortlist.</li>';
+      elBasketList.innerHTML = '<li class="sx-basket-empty">Nothing picked yet. A working shortlist looks like: economy concern (QID 9918) + party lean (QID 494) &rarr; one audience. Add a question to start yours.</li>';
       return;
     }
     var byId = {};
