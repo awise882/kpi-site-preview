@@ -2485,7 +2485,7 @@ details.mdet[open] > summary::before { content: "\2212\00a0"; }
 .kw__c { position: relative; }
 .kw__c--alert::before, .kw__c--player::before, .kw__c--pod::before,
 .kw__c--score::before, .kw__c--rate::before, .kw__c--baker::before {
-  position: absolute; top: -9px; left: -9px; z-index: 6; width: 21px; height: 21px;
+  position: absolute; top: -11px; left: -11px; z-index: 9; width: 21px; height: 21px;
   border-radius: 50%; display: grid; place-items: center; font-family: var(--label);
   font-size: .64rem; font-weight: 800; background: var(--navy-deep); color: #fff;
   border: 1.5px solid var(--lime); }
@@ -2626,7 +2626,7 @@ details.mdet--keep > summary { display: block; pointer-events: none; font-weight
 /* ============ r119 (round-11 fixes) ============ */
 /* Cascade fix: the page sheets load after this one, so the lead read insists. */
 .hero-proclaim b.num { box-shadow: none !important; }
-.hero-proclaim b.num:first-of-type { box-shadow: inset 0 -0.3em var(--lime) !important;
+.hero-proclaim > b.num:first-of-type { box-shadow: inset 0 -0.3em var(--lime) !important;
   font-size: 1.32em; }
 /* Micro-receipts fill the linear channel cards. */
 .lanefam__rcpt { margin: .6rem 0 0; font-family: var(--mono); font-size: .68rem;
