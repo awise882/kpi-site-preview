@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r124">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r125">
 <style>
   .fig-scroll > svg { min-width: 820px; }
   /* R69: the key graphic gets a phone-native stack; no panning a 1000px drawing */
@@ -457,7 +457,7 @@
                 <p class="pca__bar"><span>KPI &middot; Creative alert &middot; broadcast</span><span>real alert &middot; as it landed</span></p>
                 <p class="pca__big">&ldquo;Amy Acton Hiked Taxes&rdquo; &middot; :30 &mdash; Vivek Ramaswamy and Rob McColley for Ohio</p>
                 <p class="pca__row num">OH GOVERNOR &middot; FIRST AIRED AUG 30, 2026 &middot; 5:24:02 AM ET &middot; WKYC, CLEVELAND</p>
-                <p class="pca__row num">IN THE INBOX 8:20 AM ET &mdash; TAPE + AI TRANSCRIPT ATTACHED</p>
+                <p class="pca__row num">IN THE INBOX 8:20 AM ET, WITH THE MORNING SEND &mdash; TAPE + AI TRANSCRIPT ATTACHED</p>
                 <p class="pca__row">&ldquo;&hellip;Acton hiked taxes and made everything cost more&hellip;&rdquo; &mdash; AI transcript, exactly as landed &middot; creative &copy; its advertiser</p>
               </div>
               <p class="ac__bcast small">Delivery: the inbox stamped above, and the
@@ -654,17 +654,6 @@
         <p>Station-level political rates, read off public FCC filings &mdash; what
           stations charged, by daypart and week. Both sides of the rate conversation
           arrive holding the same file.</p>
-        <div class="press-card__art" role="group" style="margin:1.1rem 0 1.2rem"
-          aria-label="A real market's rate read: Des Moines-Ames, from public FCC filings">
-          <p class="pca__bar"><span>KPI &middot; FCC rate intelligence &middot; Des Moines&ndash;Ames, IA</span><span>real filed rates</span></p>
-          <p class="pca__big">Avg <span class="num">$580</span> a spot &middot; <span class="num">2K</span> contracts
-            processed &middot; window <span class="num">Jan 29, 2025 &ndash; Nov 4, 2026</span></p>
-          <p class="pca__row num">EARLY NEWS, PER :30 &mdash; KCCI $1,444 &middot; WHO $1,258 &middot; WOI $486 &middot; KDSM $222 &middot; KFPX $125 &middot; KCWI $54</p>
-          <p class="pca__row num">KDSM &middot; PRIME &mdash; AVG $1,090: CANDIDATE $803 &middot; ISSUE $1,468 &middot; 51 ADVERTISERS &middot; 232 CONTRACTS</p>
-          <p class="pca__row num">RATE v MARKET &mdash; KCCI 1.5&times; &middot; WHO 1.2&times; &middot; KDSM 0.5&times; &middot; WOI 0.5&times; &middot; KFPX 0.2&times; &middot; KCWI 0.1&times;</p>
-          <p class="pca__row">Real market, exactly as filed &mdash; the candidate-vs-issue class split prints
-            per station, per daypart, from the public file.</p>
-        </div>
         <div class="card card--flag">
           <p class="card__k">What subscribers pull</p>
           <ul class="small" style="margin-bottom:0">
@@ -683,139 +672,16 @@
         </div>
       </div>
       <div style="min-width:0">
-        <!-- Rate Details recreation (ruling 36b, portal notes §12). Portal-true shape:
-             Cand|OG quarterly ladders, Q4 PEAK group, demand dots, trend sparklines, the
-             product's own scale strap (210 markets, 312,197 cells). The portal's
-             CONFIDENCE stat is deliberately omitted: accuracy-class figures never appear
-             in site recreations (ledger law). Illustrative rates, real markets. -->
-        <div class="rc-spot">
-<div class="rc rc-ratebook">
-  <div class="rc-ratebook-toolbar">
-    <span class="rc-ratebook-brand"><span class="rc-ratebook-dot"></span>KPI &middot; Rate Details &middot; Rate Book &middot; Early news &middot; :30</span>
-    <span class="rc-ratebook-scale">MARKETS 210 &middot; CELLS 312,197 &middot; AUG 2026</span>
-    <span class="rc-ratebook-tbpair"><span class="rc-ratebook-stamp">Filings read thru Aug 18, 2026</span><button class="rc-ratebook-export" type="button" tabindex="-1" aria-hidden="true">&#8595; Export XLSX</button></span>
-  </div>
-  <p class="small tbl-hint">Swipe the rate book sideways to see every column.</p>
-  <div class="rc-mobile-rate" aria-label="One market from the rate book: Columbus, early news, per :30">
-    <p class="rc-mobile-rate__m">Columbus <span>early news &middot; per :30</span></p>
-    <dl>
-      <div><dt>Q3 Cand</dt><dd>$310</dd></div>
-      <div><dt>Q3 OG</dt><dd>$430</dd></div>
-      <div><dt>Q4 Cand &middot; peak</dt><dd>$520</dd></div>
-      <div><dt>Q4 OG &middot; peak</dt><dd>$740</dd></div>
-    </dl>
-    <p class="rc-mobile-rate__n">One market of 210. The full book &mdash; every market,
-      every column, the trend &mdash; opens on a bigger screen or in the demo.</p>
-  </div>
-  <div class="rc-ratebook-scroll" tabindex="0" role="group" aria-label="Rate book by market and quarter, scrolls sideways">
-  <table class="rc-ratebook-grid">
-    <thead>
-      <tr class="rc-ratebook-h1">
-        <th rowspan="2" class="rc-ratebook-hm" scope="col">Market</th>
-        <th rowspan="2" class="rc-ratebook-hd" scope="col">Demand</th>
-        <th colspan="2" scope="colgroup">Q3 2026</th>
-        <th colspan="2" class="rc-ratebook-peak" scope="colgroup">Q4 2026 &middot; PEAK</th>
-        <th rowspan="2" class="rc-ratebook-ht" scope="col">Trend</th>
-      </tr>
-      <tr class="rc-ratebook-h2">
-        <th scope="col">Cand</th><th class="rc-ratebook-og" scope="col">OG</th>
-        <th class="rc-ratebook-peak" scope="col">Cand &#9660;</th><th class="rc-ratebook-peak rc-ratebook-og" scope="col">OG</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th class="rc-ratebook-m" scope="row">Columbus</th>
-        <td class="rc-ratebook-dcell"><span class="rc-ratebook-demand"></span></td>
-        <td class="rc-ratebook-n">$310</td><td class="rc-ratebook-n rc-ratebook-nog">$430</td>
-        <td class="rc-ratebook-n rc-ratebook-npk">$520</td><td class="rc-ratebook-n rc-ratebook-nog rc-ratebook-npk">$740</td>
-        <td class="rc-ratebook-tcell"><svg viewBox="0 0 44 12" aria-hidden="true"><polyline points="1,10 12,9 23,7 34,5 43,2" fill="none" stroke="#4F7A25" stroke-width="1.5"/></svg></td>
-      </tr>
-      <tr>
-        <th class="rc-ratebook-m" scope="row">Cleveland</th>
-        <td class="rc-ratebook-dcell"><span class="rc-ratebook-demand"></span></td>
-        <td class="rc-ratebook-n">$260</td><td class="rc-ratebook-n rc-ratebook-nog">$355</td>
-        <td class="rc-ratebook-n rc-ratebook-npk">$445</td><td class="rc-ratebook-n rc-ratebook-nog rc-ratebook-npk">$610</td>
-        <td class="rc-ratebook-tcell"><svg viewBox="0 0 44 12" aria-hidden="true"><polyline points="1,9 12,9 23,8 34,6 43,3" fill="none" stroke="#4F7A25" stroke-width="1.5"/></svg></td>
-      </tr>
-      <tr>
-        <th class="rc-ratebook-m" scope="row">Toledo <span class="rc-ratebook-note">big-race demand, small market</span></th>
-        <td class="rc-ratebook-dcell"><span class="rc-ratebook-demand rc-ratebook-demand-hot"></span></td>
-        <td class="rc-ratebook-n">$190</td><td class="rc-ratebook-n rc-ratebook-nog">$270</td>
-        <td class="rc-ratebook-n rc-ratebook-npk">$410</td><td class="rc-ratebook-n rc-ratebook-nog rc-ratebook-npk">$580</td>
-        <td class="rc-ratebook-tcell"><svg viewBox="0 0 44 12" aria-hidden="true"><polyline points="1,10 12,8 23,6 34,4 43,1" fill="none" stroke="#4F7A25" stroke-width="1.5"/></svg></td>
-      </tr>
-    </tbody>
-  </table>
-  </div>
-  <div class="rc-ratebook-foot">
-    <details class="mdet" open><summary>About these rates</summary>
-    <p>Illustrative rates per :30, real markets &middot; Cand = candidate rate, OG = outside group &middot; demand dot: rate pressure in the market, green typical, amber peak &middot; 207 more markets in the product</p>
-    <p>Rates read from public FCC filings where the filing exists &middot; order to filing runs near real time, and the read-through date on every page is the check &middot; the Q4 group is the peak quarter and carries the sort &middot; market row = midpoint of filed early-news rates across the market's stations; station ladders and clearance history open in the demo</p>
-    </details>
-  </div>
-</div>
-
-<style>
-/* The card sits in a .split grid column (1fr = minmax(auto,1fr)): without min-width:0
-   the table's min-content propagates up and widens the page at 375px. */
-#fcc-rates{min-width:0}
-.rc-ratebook{
-  --rcrb-navy:#1B4F72; --rcrb-navy2:#0D2E4A; --rcrb-navy3:#08243B;
-  --rcrb-lime:#A8D14E; --rcrb-green:#4F7A25; --rcrb-og:#2D8BBA;
-  --rcrb-mute:var(--mock-dim, #5A6B7C); --rcrb-line:var(--mock-rule, #D9E2E9); --rcrb-track:#EBF1F5;
-  --rcrb-sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
-  --rcrb-mono:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  box-sizing:border-box; width:100%; max-width:480px; overflow:hidden;
-  background:#fff; border:1px solid var(--rcrb-line); border-top:3px solid var(--rcrb-navy2);
-  padding:10px 12px 9px; font-family:var(--rcrb-sans); color:var(--rcrb-navy2);
-  box-shadow:0 1px 3px rgba(8,36,59,.08);
-}
-.rc-ratebook *,.rc-ratebook *::before,.rc-ratebook *::after{box-sizing:border-box;min-width:0;margin:0;padding:0}
-.rc-ratebook .rc-ratebook-toolbar{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.rc-ratebook .rc-ratebook-brand{display:inline-flex;align-items:center;gap:5px;font-size:8.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--rcrb-navy);white-space:nowrap}
-.rc-ratebook .rc-ratebook-dot{width:6px;height:6px;border-radius:50%;background:var(--rcrb-lime);flex:0 0 auto}
-.rc-ratebook .rc-ratebook-scale{font-family:var(--rcrb-mono);font-variant-numeric:tabular-nums lining-nums;font-size:8.5px;font-weight:600;letter-spacing:.08em;color:var(--rcrb-mute);border:1px solid var(--rcrb-line);padding:2px 5px;white-space:nowrap}
-.rc-ratebook .rc-ratebook-stamp{font-family:var(--rcrb-mono);font-variant-numeric:tabular-nums lining-nums;font-size:8.5px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--rcrb-mute);border:1px solid var(--rcrb-line);padding:2px 5px;white-space:nowrap}
-.rc-ratebook .tbl-hint{font-size:9px;line-height:1.4;margin:6px 0 0}
-/* R9 (W1): the stamp and the export button are one toolbar unit, so when the narrow
-   toolbar wraps they land on a shared row instead of the export sitting alone. The
-   unit grows to fill its line; the export's auto margin keeps it on the right edge. */
-.rc-ratebook .rc-ratebook-tbpair{display:flex;align-items:center;gap:8px;flex:1 0 auto}
-.rc-ratebook .rc-ratebook-export{margin-left:auto;font-family:var(--rcrb-sans);font-size:8.5px;font-weight:700;color:var(--rcrb-navy3);background:var(--rcrb-lime);border:1px solid #93BC3E;border-radius:3px;padding:3px 8px;line-height:1.2;cursor:default;white-space:nowrap}
-.rc-ratebook .rc-ratebook-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:8px}
-.rc-ratebook .rc-ratebook-grid{width:100%;min-width:300px;border-collapse:collapse}
-.rc-ratebook .rc-ratebook-grid thead th{font-family:var(--rcrb-mono);font-size:8.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--rcrb-mute);text-align:right;padding:2px 4px;border-bottom:1px solid var(--rcrb-line);white-space:nowrap}
-.rc-ratebook .rc-ratebook-hm{text-align:left}
-.rc-ratebook .rc-ratebook-hd,.rc-ratebook .rc-ratebook-ht{text-align:center}
-.rc-ratebook .rc-ratebook-h2 th{border-bottom:1px solid var(--rcrb-line);color:var(--rcrb-navy)}
-.rc-ratebook .rc-ratebook-og{color:var(--rcrb-og)}
-.rc-ratebook thead th.rc-ratebook-peak,.rc-ratebook td.rc-ratebook-npk{background:rgba(168,209,78,.12)}
-.rc-ratebook .rc-ratebook-grid td,.rc-ratebook .rc-ratebook-grid tbody th{padding:4px;border-bottom:1px solid var(--rcrb-track)}
-.rc-ratebook .rc-ratebook-m{font-size:9.5px;font-weight:600;color:var(--rcrb-navy3);white-space:nowrap;text-align:left}
-.rc-ratebook .rc-ratebook-note{display:block;font-family:var(--rcrb-mono);font-size:8.5px;font-weight:500;color:var(--rcrb-mute);white-space:nowrap}
-.rc-ratebook .rc-ratebook-n{font-family:var(--rcrb-mono);font-variant-numeric:tabular-nums lining-nums;font-size:9.5px;font-weight:600;color:var(--rcrb-navy3);text-align:right;white-space:nowrap}
-.rc-ratebook .rc-ratebook-n.rc-ratebook-nog{color:var(--rcrb-og)}
-.rc-ratebook .rc-ratebook-dcell{text-align:center}
-.rc-ratebook .rc-ratebook-demand{display:inline-block;width:7px;height:7px;border-radius:50%;background:#7CB342}
-.rc-ratebook .rc-ratebook-demand-hot{background:#C77700}
-.rc-ratebook .rc-ratebook-tcell{text-align:center}
-.rc-ratebook .rc-ratebook-tcell svg{width:44px;height:12px;vertical-align:middle}
-.rc-ratebook .rc-ratebook-foot{margin-top:7px;border-top:1px solid var(--rcrb-line);padding-top:5px}
-.rc-ratebook .rc-ratebook-foot p{font-size:9px;line-height:1.45;color:var(--rcrb-mute)}
-/* R5: desktop scale. The wider stage carries a larger type ramp, so the card
-   reads in the same size class as the export tables beside it. */
-@media (min-width:1024px){
-  .rc-ratebook .rc-ratebook-brand{font-size:9px}
-  .rc-ratebook .rc-ratebook-scale,.rc-ratebook .rc-ratebook-stamp{font-size:8.5px}
-  .rc-ratebook .rc-ratebook-export{font-size:9px}
-  .rc-ratebook .rc-ratebook-grid th{font-size:8.5px}
-  .rc-ratebook .rc-ratebook-m{font-size:11px}
-  .rc-ratebook .rc-ratebook-note{font-size:8.5px}
-  .rc-ratebook .rc-ratebook-n{font-size:11px}
-  .rc-ratebook .rc-ratebook-foot p{font-size:10px}
-  .rc-ratebook .rc-ratebook-tcell svg{width:52px;height:14px}
-}
-</style>
+        <div class="press-card__art press-card__art--hero" role="group" data-rise
+          aria-label="A real market's rate read: Des Moines-Ames, from public FCC filings">
+          <p class="pca__bar"><span>KPI &middot; FCC rate intelligence &middot; Des Moines&ndash;Ames, IA</span><span>real filed rates</span></p>
+          <p class="pca__big">Avg <span class="num">$580</span> a spot &middot; <span class="num">2K</span> contracts
+            processed &middot; window <span class="num">Jan 29, 2025 &ndash; Nov 4, 2026</span></p>
+          <p class="pca__row num">EARLY NEWS, PER :30 &mdash; KCCI $1,444 &middot; WHO $1,258 &middot; WOI $486 &middot; KDSM $222 &middot; KFPX $125 &middot; KCWI $54</p>
+          <p class="pca__row num">KDSM &middot; PRIME &mdash; AVG $1,090: CANDIDATE $803 &middot; ISSUE $1,468 &middot; 51 ADVERTISERS &middot; 232 CONTRACTS</p>
+          <p class="pca__row num">RATE v MARKET &mdash; KCCI 1.5&times; &middot; WHO 1.2&times; &middot; KDSM 0.5&times; &middot; WOI 0.5&times; &middot; KFPX 0.2&times; &middot; KCWI 0.1&times;</p>
+          <p class="pca__row">Real market, exactly as filed &mdash; the candidate-vs-issue class split prints
+            per station, per daypart, from the public file.</p>
         </div>
       </div>
     </div>
@@ -895,6 +761,6 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r124"></script>
+<script src="assets/js/site.js?v=r125"></script>
 </body>
 </html>
