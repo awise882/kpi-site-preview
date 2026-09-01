@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r114">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r115">
 <style>
   /* r106 (Adam): the loop IS the landing. Text left, the loop tape right, one
      viewport. The tape is the old ring redrawn in the house receipt grammar:
@@ -268,7 +268,13 @@
   html.scrub .mxs__mxc { animation: fade-in 1s linear paused both !important; animation-delay: calc((0.40 - var(--scrub, 0)) / 0.10 * 1s) !important; }
   html.scrub .mxs__mxd { animation: fade-in 1s linear paused both !important; animation-delay: calc((0.53 - var(--scrub, 0)) / 0.09 * 1s) !important; }
   html.scrub .mxs__mxe { animation: fade-in 1s linear paused both !important; animation-delay: calc((0.64 - var(--scrub, 0)) / 0.08 * 1s) !important; }
-  html.scrub .mxs__ann { animation: mxs-in 1s linear paused both !important; animation-delay: calc((0.74 - var(--scrub, 0)) / 0.16 * 1s) !important; }
+  html.scrub .mxs__ann-big, html.scrub .mxs__ann-sub { animation: mxs-in 1s linear paused both !important; animation-delay: calc((0.74 - var(--scrub, 0)) / 0.16 * 1s) !important; }
+  @media (min-width: 760px) {
+    html.scrub .mxs__ann { position: absolute; left: 50%; top: 55%; width: min(760px, 86%);
+      transform: translateX(-50%); margin: 0; text-align: center; pointer-events: none; }
+    html.scrub .mxs__ann-big { font-size: clamp(1.7rem, 3vw, 2.6rem); color: var(--navy-deep); }
+    html.scrub .mxs__ann .mxs__ann-sub { margin-inline: auto; }
+  }
   /* r113 (the owner): the ending earns its beat — the grid recedes while the
      165M line prints, then the stage holds through the last tenth of the runway. */
   html.scrub .mxs__shell { animation: mxs-dim 1s linear paused both !important;
@@ -408,8 +414,8 @@
   <div class="wrap">
     <div class="center" style="margin-bottom:2.4rem" data-rise>
       <p class="eyebrow eyebrow--plain" style="justify-content:center"><span class="folio">01</span>The field, live</p>
-      <h2>Most polling arrives after the argument.</h2>
-      <p class="lede">This one stays in the field &mdash; here it is, running.</p>
+      <h2>Most polls close before the buy moves.</h2>
+      <p class="lede">This one is still in the field &mdash; over 1M answers land today. Here it is, running.</p>
     </div>
 
     <!-- r85 (Adam, 8/29): "the feeling you wanna have is never ending possibilities…
@@ -636,7 +642,9 @@
               <text x="190" y="62" text-anchor="middle" font-family="Inter,sans-serif" font-size="8.5" font-weight="700" fill="#4F7A25">WAVE 3</text>
             </svg>
           </div>
-          <p class="fb__fine">Matched commercial tests: declared audiences ran
+          <p class="fb__fine">A wave-over-wave read prints as: recall 31% &rarr; 44%, wave 1
+            to wave 2, beside the flight dates &mdash; synthetic example. Matched
+            commercial tests: declared audiences ran
             36&ndash;80% higher click-through, 45&ndash;62% higher conversion &mdash;
             the partner&rsquo;s numbers, not a guarantee.</p>
         </li>
@@ -832,7 +840,11 @@
 
 
     <p class="offer-cta mt2"><a class="btn btn--navy" href="contact.html">Ask your own question &mdash; from $30K</a></p>
-    <p class="small mt2 offer-fine">Always included with a flight: the deal ID, the declared
+    <p class="small center mt2">Deal ID, declared audience, and the weekly read
+      included &mdash; minimums and terms in writing before the insertion order.</p>
+    <details class="mdet mt1" style="max-width:70ch;margin-inline:auto">
+      <summary>The full terms, plainly</summary>
+    <p class="small offer-fine">Always included with a flight: the deal ID, the declared
       audience, and the weekly read. It runs where you already buy &mdash; The Trade Desk,
       DV360, Yahoo, Xandr, any seat that takes a private-marketplace deal ID &mdash; or
       ours, managed. Varies by flight: minimums and any data rate &mdash; the identifiers
@@ -841,6 +853,8 @@
       research is by rate card, on <a href="contact.html">request</a>. What you run stays
       behind the firewall &mdash; the full statement is on the
       <a href="privacy.html">privacy page</a>.</p>
+    </details>
+    <p class="lp__loop lp__loop--end" aria-hidden="true">&#8635; back to 01 &mdash; the question returns to the field</p>
   </div>
 </section>
 
@@ -866,7 +880,7 @@
           Press: <a href="mailto:press@kpipolitical.com">press@kpipolitical.com</a></p>
       </div>
       <div>
-        <h4>Platform</h4>
+        <h4>Product</h4>
         <ul>
           <li><a href="monitoring.html">Monitoring</a></li>
           <li><a href="platform.html">The platform</a></li>
