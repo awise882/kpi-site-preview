@@ -2534,10 +2534,8 @@ details.mdet[open] > summary::before { content: "\2212\00a0"; }
   .curtain__fig rect, .mhero__bar rect { transform-box: fill-box; transform-origin: left center; }
   .in-view .curtain__fig rect:nth-of-type(1) { animation: grow-x .8s var(--smooth) .15s backwards; }
   .in-view .curtain__fig rect:nth-of-type(2) { animation: grow-x .7s var(--smooth) .75s backwards; }
-  .in-view .curtain__fig text { animation: fade-in .45s ease-out 1.2s backwards; }
   .mhero.in-view .mhero__bar rect:nth-of-type(1) { animation: grow-x .8s var(--smooth) .3s backwards; }
   .mhero.in-view .mhero__bar rect:nth-of-type(2) { animation: grow-x .7s var(--smooth) .9s backwards; }
-  .mhero.in-view .mhero__bar text { animation: fade-in .45s ease-out 1.35s backwards; }
   .rc-seller-stage.in-view .rc-seller-fill { transform-origin: left center;
     animation: grow-x .8s var(--smooth) .3s backwards; }
 }
@@ -2564,3 +2562,50 @@ details.mdet[open] > summary::before { content: "\2212\00a0"; }
     box-shadow: 0 18px 40px rgba(13,46,74,.16); transition: transform .35s var(--smooth); }
   html.scrub .wkx__beat--4 .wk-doc:hover { transform: none; }
 }
+
+/* ============ r117 (round-9 fixes) ============ */
+/* The hero receipt leads with its lead read. */
+.hero-proclaim b.num { box-shadow: none; }
+.hero-proclaim b.num:first-of-type { box-shadow: inset 0 -0.3em var(--lime);
+  font-size: 1.32em; }
+/* The freshness ledger: one strip, channel by channel. */
+.fresh { display: flex; flex-wrap: wrap; gap: .5rem .7rem; align-items: baseline;
+  justify-content: center; margin: 0 0 1.4rem; }
+.fresh__k { flex-basis: 100%; text-align: center; font-family: var(--label);
+  text-transform: uppercase; letter-spacing: .13em; font-size: .64rem; font-weight: 800;
+  color: var(--ink-3); }
+.fresh__i { font-family: var(--mono); font-size: .72rem; letter-spacing: .02em;
+  color: var(--ink-2); border: 1px solid var(--rule); border-radius: 999px;
+  padding: .3rem .75rem; background: var(--white); }
+.fresh__i b { font-family: var(--label); text-transform: uppercase; letter-spacing: .09em;
+  font-size: .62rem; color: var(--navy-deep); margin-right: .3rem; }
+/* The seats read as a slim index, not a second router. */
+@media (min-width: 641px) {
+  .seats__grid { display: grid; grid-template-columns: 1fr; gap: 0;
+    border: 1px solid var(--rule); border-radius: var(--r-lg); overflow: hidden;
+    background: var(--white); box-shadow: var(--shadow); }
+  .seats__grid details.mdet--seat { display: grid !important;
+    grid-template-columns: 9.5rem minmax(0, 1fr) auto; gap: .4rem 1.4rem;
+    align-items: baseline; margin: 0 !important; padding: .8rem 1.1rem !important;
+    border: 0 !important; border-radius: 0 !important; background: transparent !important;
+    box-shadow: none !important; }
+  .seats__grid details.mdet--seat + details.mdet--seat { border-top: 1px solid var(--rule) !important; }
+  .seats__grid details.mdet--seat p { margin: 0; }
+  .seats__grid details.mdet--seat > a { white-space: nowrap; }
+}
+/* The labeled fine-print drawer keeps its label on desktop. */
+details.mdet--keep > summary { display: block; pointer-events: none; font-weight: 700; }
+/* The flagship board excerpt in the platform hero. */
+.press-card__art--hero { margin: 0; background: var(--white); box-shadow: var(--shadow); }
+/* The pinned week loses its top gulf. */
+@media (min-width: 760px) {
+  html.scrub .wkx__pin { top: calc(var(--nav-h, 64px) + 6px); }
+  html.scrub .wkx__hint { margin: 0 0 .55rem; }
+  html.scrub .wkx__beats { height: min(74vh, 690px); }
+}
+/* The release index on the newsroom. */
+.relindex { list-style: none; margin: 0 auto 2.6rem; padding: .9rem 1.1rem;
+  max-width: 860px; display: grid; gap: .45rem; border: 1px solid var(--rule);
+  border-radius: var(--r); background: var(--white); }
+.relindex .num { font-family: var(--mono); font-size: .7rem; letter-spacing: .04em;
+  color: var(--ink-3); margin-right: .3rem; }

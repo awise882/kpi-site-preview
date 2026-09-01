@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r116">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r117">
 <style>
   .fig-scroll > svg { min-width: 820px; }
   /* R69: the key graphic gets a phone-native stack; no panning a 1000px drawing */
@@ -184,7 +184,14 @@
       <p class="eyebrow eyebrow--plain" style="justify-content:center">Channel by channel</p>
       <h2>We track everything.</h2>
       <p class="lede" style="margin-inline:auto">TV, cable, radio, streaming and digital
-        &mdash; one machine: 1.5M airings a day, all 210 markets, every lane.</p>
+        &mdash; one machine, every lane.</p>
+    </div>
+    <div class="fresh" role="note" aria-label="How fresh each number is when you act on it">
+      <span class="fresh__k">How old is the number when you act on it?</span>
+      <span class="fresh__i"><b>Alerts</b> minutes &mdash; the two stamps below</span>
+      <span class="fresh__i"><b>Linear orders</b> post the morning they&rsquo;re placed</span>
+      <span class="fresh__i"><b>FCC rates</b> near real time &middot; the read-through date is the check</span>
+      <span class="fresh__i"><b>Streaming dollars</b> settle about a week behind linear &mdash; read the stamps</span>
     </div>
     <div class="lanefams mt1" role="group" aria-label="Four channels: what we detect, where the dollars come from, and where each signal thins">
       <article class="lanefam">
@@ -232,9 +239,9 @@
             including spots that never touch broadcast. Impressions in the top 58 markets,
             monitoring in all 210; below the 58, dollars print as a statewide estimated
             minimum.</p>
-          <p class="lanefam__what"><b>Estimated:</b> competitive digital activity modeled
-            from measured smart-TV viewing &mdash; always marked estimated, never blended
-            into posted channels. The walkthrough opens your district&rsquo;s read.</p>
+          <p class="lanefam__what"><b>Estimated:</b> modeled from measured smart-TV
+            viewing &mdash; marked estimated, never blended. How the number is made is
+            <a href="#cross-screen">drawn once, below</a>.</p>
         </div>
       </article>
     </div>
@@ -327,7 +334,7 @@
             <g><rect x="413" y="148" width="22" height="13" rx="2.5" fill="rgba(0,172,193,.14)" stroke="#00ACC1" stroke-width="1.1"/><path d="M419 150.5 l6.5 4 -6.5 4 z" fill="#00ACC1"/></g>
             <rect x="447" y="108" width="30" height="16" rx="8" fill="#0D2E4A"/>
             <text x="462" y="119.5" text-anchor="middle" font-family="Inter, sans-serif" font-size="9.5" font-weight="800" fill="#FFFFFF">&times;3</text>
-            <text x="424" y="199" text-anchor="middle" paint-order="stroke" stroke="#FAFCFE" stroke-width="3" font-family="Inter, sans-serif" font-size="7.5" font-weight="700" letter-spacing=".9" fill="#5B7085">RESOLVED TO THE HOUSEHOLD</text>
+            <text x="424" y="213" text-anchor="middle" paint-order="stroke" stroke="#FAFCFE" stroke-width="3" font-family="Inter, sans-serif" font-size="7.5" font-weight="700" letter-spacing=".7" fill="#5B7085">RESOLVED TO THE HOUSEHOLD</text>
           </g>
 
           <!-- ============ the gate, then the read ============ -->
@@ -341,7 +348,7 @@
             <rect x="690" y="176" width="260" height="26" fill="rgba(168,209,78,.13)" stroke="#7CB342" stroke-width="1.6" stroke-dasharray="6 4"/>
             <text x="948" y="166" text-anchor="end" font-family="Inter, sans-serif" font-size="8" font-weight="700" letter-spacing=".8" fill="#4F7A25">EVERY U.S. TV HOME</text>
             <path d="M950 189 H985" fill="none" stroke="#7CB342" stroke-width="1.6" stroke-dasharray="7 5"/>
-            <text x="754" y="226" text-anchor="middle" font-family="Inter, sans-serif" font-size="10.5" font-weight="600" fill="#40566A">a third of U.S. TV homes measured &mdash; weighted to census, so they stand for the rest</text>
+            <text x="754" y="238" text-anchor="middle" paint-order="stroke" stroke="#FAFCFE" stroke-width="3.5" font-family="Inter, sans-serif" font-size="10.5" font-weight="600" fill="#40566A">a third of U.S. TV homes measured &mdash; weighted to census, so they stand for the rest</text>
             <!-- the payoff plate: the biggest number on the figure -->
             <g fill="none" stroke="#8FA9BE" stroke-width="1.1">
               <path d="M660 58 V50 H668"/><path d="M948 58 V50 H940"/>
@@ -806,6 +813,8 @@
           <ul class="small" style="margin-bottom:0">
             <li>Rate history by station, daypart and week &mdash; FCC-verified where filed</li>
             <li>Flight-over-flight movement as election pressure builds</li>
+            <li>Last cycle&rsquo;s filed rate beside this one&rsquo;s &mdash; same station,
+              same daypart, same week of the calendar</li>
             <li>The competitive buy&rsquo;s actual clearances beside your quote</li>
             <li>Candidates and outside groups read separately &mdash; LUR-protected rates
               by class of time vs market rate</li>

@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r116">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r117">
 <style>
   /* contact.html only. Built from existing custom properties, no new colors. */
   .form-shell { background: var(--paper); border: 1px solid var(--rule); border-radius: var(--r-lg); padding: clamp(20px, 3vw, 32px); }
@@ -140,8 +140,8 @@
             <label for="c-race">Race or market</label>
             <input type="text" id="c-race" name="race" aria-describedby="c-race-hint" maxlength="150"
                    placeholder="A state and an office, or the market you sell">
-            <p class="field-hint" id="c-race-hint">The state and the office is enough. Sellers: name your
-              market and we pull its full order flow.</p>
+            <p class="field-hint" id="c-race-hint">The state and the office is enough. Sellers: name the
+              market &mdash; or the app &mdash; you sell; we confirm its read before the call.</p>
           </div>
 
           <!-- Ruling 49a: everything else folds shut; three fields stay visible. -->
@@ -227,7 +227,7 @@
 
     <!-- The honesty stamp, applied to the demo itself: what we open in front of you
          carries the same honesty language every figure in the product carries. -->
-    <details class="mdet mt3" open style="max-width:78ch"><summary>How to read the numbers</summary>
+    <details class="mdet mdet--keep mt3" open style="max-width:78ch"><summary>How to read the numbers</summary>
     <div class="stamp" style="max-width:78ch">
       <span><b>Posted through</b> the most recent complete day in each channel</span>
       <span><b>Channels</b> broadcast, local cable, radio order by order</span>
