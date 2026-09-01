@@ -1833,12 +1833,12 @@ a.chip:hover { border-color: var(--blue); color: var(--navy); background: var(--
   @media (prefers-reduced-motion: no-preference) {
     .acs.in-view .ac__mast { animation: acs-in .45s var(--smooth) backwards; }
     .acs.in-view .ac__race,
-    .acs.in-view .ac__who { animation: acs-in .5s var(--smooth) .22s backwards; }
+    .acs.in-view .ac__who { animation: acs-in .4s var(--smooth) .12s backwards; }
     .acs.in-view .ac__frame,
-    .acs.in-view .ac__framenote { animation: acs-clip .65s var(--smooth) .5s backwards; }
+    .acs.in-view .ac__framenote { animation: acs-clip .5s var(--smooth) .26s backwards; }
     .acs.in-view .ac__actions,
-    .acs.in-view .ac__dl { animation: acs-in .55s var(--smooth) .95s backwards; }
-    .acs.in-view .ac__tr { animation: acs-clip .6s var(--smooth) 1.25s backwards; }
+    .acs.in-view .ac__dl { animation: acs-in .45s var(--smooth) .5s backwards; }
+    .acs.in-view .ac__tr { animation: acs-clip .5s var(--smooth) .7s backwards; }
   }
   @keyframes acs-in { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
   @keyframes acs-clip { from { opacity: 0; clip-path: inset(0 0 86% 0); } to { opacity: 1; clip-path: inset(0 0 0 0); } }
@@ -2550,7 +2550,8 @@ details.mdet[open] > summary::before { content: "\2212\00a0"; }
 
 /* Fingerprints in the chrome: selection, focus, and the flip book's rail. */
 ::selection { background: var(--lime); color: var(--navy-deep); }
-:focus-visible { outline: 2.5px solid var(--lime-dark); outline-offset: 2px; }
+:focus-visible { outline: 2.5px solid var(--navy-deep, #08243B); outline-offset: 2px;
+  box-shadow: 0 0 0 5px rgba(255,255,255,.85); }
 .fb__scroll { scrollbar-color: var(--lime-dark) transparent; scrollbar-width: thin; }
 .fb__scroll::-webkit-scrollbar { height: 8px; }
 .fb__scroll::-webkit-scrollbar-track { background: transparent; }
@@ -2656,7 +2657,6 @@ details.mdet--keep > summary { display: block; pointer-events: none; font-weight
    viewports keep 1:1 so nothing spills). */
 @media (min-width: 1050px) {
   html.scrub .wkx__beat .wk__art { transform: scale(1.09); transform-origin: top left; }
-  @media (min-width: 1240px) { html.scrub .wkx__beat .wk__art { transform: scale(1.16); transform-origin: top right; } }
   html.scrub .wkx__beat--2 .wk__art { transform: none; }
 }
 /* Polling's ending band tightens; the relight is the finale. */
@@ -2841,4 +2841,31 @@ details.mdet--keep > summary { display: block; pointer-events: none; font-weight
 @media (max-width: 880px) {
   .kbd-hint { display: none; }
   .pb__rail { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; }
+}
+
+/* ===== r127 — the teardown answered ===== */
+/* Phones cut cards 2/3/5 off the morning wall; the ordinals (and the numbered
+   readline) are desktop grammar, so below the absolute layout they go quiet. */
+@media (max-width: 1099px) {
+  .kw__c::before { display: none !important; }
+  .kw__readline { display: none; }
+}
+/* The LINEAR lane carries a proof row like its dark neighbor. */
+.mhero__rcpt { align-self: stretch; margin: .8rem 0 0; padding-top: .6rem;
+  border-top: 1px dashed var(--rule); font-family: var(--mono); font-size: .7rem;
+  letter-spacing: .04em; color: var(--ink-2); }
+/* Air-war market tiles rank by ink, not by reading. */
+.aw__mkt-bar { display: block; height: 3px; margin-top: .35rem; background: var(--rule);
+  border-radius: 2px; overflow: hidden; }
+.aw__mkt-bar b { display: block; height: 100%; width: var(--w, 100%);
+  background: var(--navy-deep); }
+
+/* One party-ink law: D navy, R slate — the same two inks the index wall uses. */
+.wk-score__track--d span { background: var(--navy-deep) !important; }
+.wk-score__track--r span { background: #97ABBC !important; }
+/* The book caption prints outside the scroll region on phones. */
+.rcbk-more-p { display: none; }
+@media (max-width: 700px) {
+  .rcbk-more-p { display: block; margin: .6rem 0 0; }
+  tr.rcbk-more { display: none; }
 }

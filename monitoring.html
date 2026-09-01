@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r126">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r127">
 <style>
   .fig-scroll > svg { min-width: 820px; }
   /* R69: the key graphic gets a phone-native stack; no panning a 1000px drawing */
@@ -145,11 +145,12 @@
         <p class="mhero__k">Linear</p>
         <p class="mhero__p"><b>Broadcast, cable, radio</b> &mdash; order by order,
           with filed rates in all <b>210</b> markets.</p>
+        <p class="mhero__rcpt num">LAKESHORE CD-9 &middot; FIRST TV ORDER &middot; CAUGHT BEFORE ANYTHING AIRS</p>
         <a class="mhero__go" href="#lanes">Channel by channel &rarr;</a>
       </div>
       <div class="mhero__lane mhero__lane--dark">
         <p class="mhero__k">Streaming &amp; digital</p>
-        <p class="mhero__p"><b>1 in 3</b> political TV ad impressions now run on
+        <p class="mhero__p"><b>1 in 3</b> measured political TV ad impressions now run on
           streaming. We measure the digital third on the glass in <b>40M</b> homes
           &mdash; <b>220M+</b> impressions in one summer week.</p>
         <svg class="mhero__bar" viewBox="0 0 300 56" role="img" aria-label="A third of measured political TV ad impressions run on streaming">
@@ -176,15 +177,15 @@
   <div class="wrap">
     <div class="center" style="margin-bottom:2.4rem" data-rise>
       <p class="eyebrow eyebrow--plain" style="justify-content:center">Channel by channel</p>
-      <h2>We track everything.</h2>
+      <h2>Four lanes, one machine.</h2>
       <p class="lede" style="margin-inline:auto">TV, cable, radio, streaming and digital
-        &mdash; one machine, every lane.</p>
+        &mdash; and how each one is counted.</p>
     </div>
     <div class="lad" role="note" aria-label="How old each number is when you act on it, in staleness order">
       <span class="lad__k">How old is the number when you act on it?</span>
       <div class="lad__ruler">
         <span class="lad__line" aria-hidden="true"></span>
-        <span class="lad__tick lad__tick--up" style="--x:2%"><b>Alerts</b><i>minutes &mdash; the two stamps below</i></span>
+        <span class="lad__tick lad__tick--up" style="--x:2%"><b>Alerts</b><i>minutes from capture &mdash; the Hulu stamp below</i></span>
         <span class="lad__tick" style="--x:26%"><b>Linear orders</b><i>post the morning they&rsquo;re placed</i></span>
         <span class="lad__tick lad__tick--up" style="--x:52%"><b>FCC rates</b><i>near real time &middot; the read-through date is the check</i></span>
         <span class="lad__tick lad__tick--st" style="--x:76%"><b>Streaming dollars</b><i>settle about a week behind linear, labeled</i></span>
@@ -464,8 +465,11 @@
                 <p class="pca__row num">TAPE + AI TRANSCRIPT ATTACHED</p>
                 <p class="pca__row">&ldquo;&hellip;Acton hiked taxes and made everything cost more&hellip;&rdquo; &mdash; AI transcript, exactly as landed &middot; creative &copy; its advertiser</p>
               </div>
-              <p class="ac__bcast small">Delivery: the inbox stamped above, and the
-                API &mdash; alerts and the data behind them, straight into your own stack.</p>
+              <p class="ac__bcast small">A daytime first-air rides the same
+                lands-when-caught lane as the Hulu alert above; overnight catches, like
+                this one, collect into the morning send. Delivery: the inbox stamped
+                above, and the API &mdash; alerts and the data behind them, straight
+                into your own stack.</p>
               <div class="ac__tr">
                 <p>"Choosing my own path and making it in New York City, that was my dream. As a
                   delivery driver, that freedom is real. The Delivery Protection Act is not
@@ -485,7 +489,7 @@
   <div class="wrap">
     <div class="center" style="margin-bottom:2.6rem" data-rise>
       <p class="eyebrow eyebrow--plain" style="justify-content:center">The air war, explorable</p>
-      <h2>Every market. Every channel. Down to the dollars.</h2>
+      <h2>The air war, market by market &mdash; down to the dollars.</h2>
       <p class="lede">Pick a market and the picture redraws: what ran, what is booked
         forward, which channel does the work.<span
         class="kbd-hint"> Tab reaches the markets; arrow keys move between them.</span></p>
@@ -496,16 +500,19 @@
         <button class="aw__mkt" id="aw-tab-cc" type="button" role="tab" aria-selected="true" aria-controls="aw-cc">
           <span class="aw__mkt-name">Columbus</span>
           <span class="aw__mkt-tot num">$2.6M</span>
+          <i class="aw__mkt-bar" aria-hidden="true"><b style="--w:100%"></b></i>
           <span class="aw__mkt-delta num">+$460K this week</span>
         </button>
         <button class="aw__mkt" id="aw-tab-ph" type="button" role="tab" aria-selected="false" aria-controls="aw-ph">
           <span class="aw__mkt-name">Cleveland</span>
           <span class="aw__mkt-tot num">$2.0M</span>
+          <i class="aw__mkt-bar" aria-hidden="true"><b style="--w:77%"></b></i>
           <span class="aw__mkt-delta num">+$120K this week</span>
         </button>
         <button class="aw__mkt" id="aw-tab-rv" type="button" role="tab" aria-selected="false" aria-controls="aw-rv">
           <span class="aw__mkt-name">Toledo</span>
           <span class="aw__mkt-tot num">$0.9M</span>
+          <i class="aw__mkt-bar" aria-hidden="true"><b style="--w:35%"></b></i>
           <span class="aw__mkt-delta num">+$300K this week</span>
         </button>
       </div>
@@ -765,6 +772,6 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r126"></script>
+<script src="assets/js/site.js?v=r127"></script>
 </body>
 </html>
