@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r130">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r131">
 <style>
   /* r106 (Adam): the loop IS the landing. Text left, the loop tape right, one
      viewport. The tape is the old ring redrawn in the house receipt grammar:
@@ -265,6 +265,7 @@
   @keyframes mxs-in { from { opacity: 0; transform: translateY(26px) scale(.93); }
     55% { opacity: 1; } to { opacity: 1; transform: none; } }
   @keyframes mxs-dim { from { opacity: 1; } to { opacity: .18; } }
+  @keyframes mxs-off { from { opacity: 1; } to { opacity: .04; } }
   @keyframes fade-in-soft { from { opacity: .45; } to { opacity: 1; } }
   /* r88: the matrix story, scrubbed by the universal driver — all browsers,
      phones included. Same ranges; shorter runway on small screens. */
@@ -278,6 +279,8 @@
   html.scrub .mxs__mxd { animation: fade-in 1s linear paused both !important; animation-delay: calc((0.53 - var(--scrub, 0)) / 0.09 * 1s) !important; }
   html.scrub .mxs__mxe { animation: fade-in 1s linear paused both !important; animation-delay: calc((0.64 - var(--scrub, 0)) / 0.08 * 1s) !important; }
   html.scrub .mxs__ann-big, html.scrub .mxs__ann-sub { animation: mxs-in 1s linear paused both !important; animation-delay: calc((0.74 - var(--scrub, 0)) / 0.16 * 1s) !important; }
+  html.scrub .mxs__svg text, html.scrub .mxs__cap { animation: mxs-off 1s linear paused both !important;
+    animation-delay: calc((0.60 - var(--scrub, 0)) / 0.10 * 1s) !important; }
   @media (min-width: 760px) {
     html.scrub .mxs__ann { position: absolute; left: 50%; top: 55%; width: min(760px, 86%);
       transform: translateX(-50%); margin: 0; text-align: center; pointer-events: none; }
@@ -403,7 +406,7 @@
 
     <!-- r106 (Adam): the ring, redrawn as the loop tape -- the active step
          expands in place; the pace is the loop running. -->
-    <div class="lp" data-plx style="--plx-d:20px" aria-label="The loop: six steps that repeat">
+    <div class="lp" data-plx style="--plx-d:20px" tabindex="0" role="group" aria-label="The loop: six steps that repeat; keyboard focus pauses the motion">
       <div class="lp__bar"><span class="lp__brand">KPI &times; CivicScience &middot; The loop</span><span class="lp__stamp">always in the field</span></div>
       <ol class="lp__steps">
         <li class="lp__s" style="--i:1"><span class="lp__n">01</span><h3>Field the question</h3><p class="lp__d">Yours, or one of 10,000+ already running.</p></li>
@@ -435,7 +438,7 @@
          the first bubble of every slot shows static. Wordings marked ● are the site's
          canon QIDs; the rest are the kinds of questions the library carries. -->
     <div class="qf-stage" data-rise>
-      <div class="qf">
+      <div class="qf" tabindex="0" role="group" aria-label="The live field: questions cycling by category; keyboard focus pauses the motion">
         <div class="qf__head">
           <p class="qf__sub">The always-on field, cycling by category &middot; a new audience
             possible every time a question moves &mdash; nationally, in
@@ -691,6 +694,7 @@
               <li class="mxs__step mxs__step--e"><b>More reach</b>Modeled &mdash; always labeled.</li>
             </ol>
             <p class="mxs__hint small">Keep scrolling: each step draws on the grid below.</p>
+            <p class="small mxs__mobcap num" aria-hidden="true">165M PROFILES &times; 10,000+ QUESTIONS &mdash; LIT = ANSWERED</p>
             <div class="mxs__shell"><svg class="mxs__svg" viewBox="0 0 1000 560" role="img" aria-labelledby="mxs-t mxs-d">
               <title id="mxs-t">The sparse matrix: 165 million profiles by more than ten thousand questions, cells lit where a person actually answered</title>
               <desc id="mxs-d">A vast sparse grid: rows are 165 million consumer
@@ -784,7 +788,7 @@
               <text class="mxs__lbl" x="100" y="486" font-family="Inter, sans-serif" font-size="10.5" fill="#5B7085">grid sampled for display &middot; density illustrative &middot; the counts are not</text>
             </svg></div>
             <div class="mxs__ann">
-              <span class="mxs__ann-big num">165,000,000 profiles &times; 10,000+ questions.</span>
+              <span class="mxs__ann-big num">165,000,000 profiles &times; 10,000+&nbsp;questions.</span>
               <span class="mxs__ann-sub">Answers layer into a profile. An audience is the
                 intersection of real answers &mdash; declared, not inferred. Licensed
                 attributes carry the weighting and the match, and anything modeled
@@ -843,25 +847,17 @@
           <li><b>It fields in days</b> &mdash; nationally, one state, or a single district.</li>
           <li><b>It comes back as an audience</b> &mdash; auditable, delivered where you buy, in market in about two weeks.</li>
           <li><b>Every wave lands as a dated topline</b> &mdash; n, field dates, and the
-            frame it is weighted to &mdash; the sheet you hand the finance chair:</li>
+            frame it is weighted to &mdash; the sheet closes this page.</li>
         </ol>
-        <div class="press-card__art" role="group" style="margin:.8rem 0 0"
-          aria-label="A wave topline sheet: synthetic data in the real format">
-          <p class="pca__bar"><span>KPI &middot; Wave topline</span><span>synthetic &middot; real format</span></p>
-          <p class="pca__row num">WAVE 3 OF 5 &middot; n=1,204 &middot; FIELDED SEP 2&ndash;6, 2026 &middot; GOVERNOR</p>
-          <p class="pca__row num">WEIGHTED TO THE FRAME YOUR RACE NEEDS &mdash; ADULTS &middot; REGISTERED &middot; LIKELY &mdash; PRINTED ON THE SHEET</p>
-          <p class="pca__row num">RECALL +9 WHERE THE FLIGHT RAN &middot; TOPLINE ATTACHED, ONE PAGE</p>
-        </div>
       </div>
     </div>
 
 
     <p class="offer-cta mt2"><a class="btn btn--navy" href="contact.html">Ask your own question &mdash; from $30K</a></p>
-    <p class="small center mt2">Deal ID, declared audience, and the weekly read
-      included &mdash; minimums and terms in writing before the insertion order.</p>
+
     <details class="mdet mt1" open style="max-width:70ch;margin-inline:auto">
       <summary>The full terms, plainly</summary>
-    <p class="small offer-fine">Always included with a flight: the deal ID, the declared
+    <p class="small offer-fine" style="text-align:left;max-width:62ch;margin-inline:auto">Always included with a flight: the deal ID, the declared
       audience, and the weekly read. It runs where you already buy &mdash; The Trade Desk,
       DV360, Yahoo, Xandr, any seat that takes a private-marketplace deal ID &mdash; or
       ours, managed. Varies by flight: minimums and any data rate &mdash; the identifiers
@@ -871,6 +867,18 @@
       behind the firewall &mdash; the full statement is on the
       <a href="privacy.html">privacy page</a>.</p>
     </details>
+
+    <div class="center mt3" data-rise>
+      <p class="eyebrow eyebrow--plain" style="justify-content:center">The sheet that ends the argument</p>
+      <div class="press-card__art press-card__art--hero" role="group" style="max-width:640px;margin:1rem auto 0;text-align:left"
+        aria-label="A wave topline sheet: synthetic data in the real format">
+        <p class="pca__bar"><span>KPI &middot; Wave topline</span><span>synthetic &middot; real format</span></p>
+        <p class="pca__row num">WAVE 3 OF 5 &middot; n=1,204 &middot; FIELDED SEP 2&ndash;6, 2026 &middot; GOVERNOR</p>
+        <p class="pca__row num">WEIGHTED TO THE FRAME YOUR RACE NEEDS &mdash; ADULTS &middot; REGISTERED &middot; LIKELY &mdash; PRINTED ON THE SHEET</p>
+        <p class="pca__row num">RECALL +9 WHERE THE FLIGHT RAN &middot; TOPLINE ATTACHED, ONE PAGE</p>
+      </div>
+      <p class="small" style="margin-top:.7rem">Dated, weighted, one page &mdash; every wave lands as one.</p>
+    </div>
   </div>
 </section>
 
@@ -930,6 +938,6 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r130"></script>
+<script src="assets/js/site.js?v=r131"></script>
 </body>
 </html>
