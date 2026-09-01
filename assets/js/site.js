@@ -643,3 +643,20 @@
     });
   });
 })();
+
+
+/* r143: deep links into a closed <details> open it first — the measurement
+   drawing lives in an expansion now, and six pages link straight to it. */
+(function () {
+  function openTo() {
+    if (!location.hash || location.hash.length < 2) return;
+    var t;
+    try { t = document.querySelector(location.hash); } catch (e) { return; }
+    if (!t) return;
+    var d = t.closest ? t.closest('details') : null;
+    if (t.tagName === 'DETAILS') d = t;
+    if (d && !d.open) { d.open = true; t.scrollIntoView(); }
+  }
+  window.addEventListener('hashchange', openTo);
+  openTo();
+})();
