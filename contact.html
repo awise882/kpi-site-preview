@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r105">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r111c">
 <style>
   /* contact.html only. Built from existing custom properties, no new colors. */
   .form-shell { background: var(--paper); border: 1px solid var(--rule); border-radius: var(--r-lg); padding: clamp(20px, 3vw, 32px); }
@@ -228,13 +228,15 @@
 
     <!-- The honesty stamp, applied to the demo itself: what we open in front of you
          carries the same honesty language every figure in the product carries. -->
-    <div class="stamp mt3" style="max-width:78ch">
+    <details class="mdet mt3" open style="max-width:78ch"><summary>How to read the numbers</summary>
+    <div class="stamp" style="max-width:78ch">
       <span><b>Posted through</b> the most recent complete day in each channel</span>
       <span><b>Channels</b> broadcast, local cable, radio order by order</span>
       <span><b>Booked forward</b> a separate line, orders on file rather than delivery posted</span>
       <span><b>Streaming</b> detected, with dollars stated as an estimated minimum</span>
       <span><b>Thin signal</b> labeled insufficient instead of printed as a zero</span>
     </div>
+    </details>
   </div>
 </section>
 
@@ -406,6 +408,6 @@
   });
 })();
 </script>
-<script src="assets/js/site.js?v=r105"></script>
+<script src="assets/js/site.js?v=r111"></script>
 </body>
 </html>

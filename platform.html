@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r105">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r111c">
 <style>
   /* The "what it exports" line that closes each app section. */
   .exports { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; margin-top: 1.3rem; }
@@ -29,6 +29,8 @@
      mini. It sits still: the ambient float died with the auto-motion ruling. */
   .hero__grid { display: grid; gap: clamp(28px, 4vw, 64px); align-items: center; grid-template-columns: 1fr; }
   .hero-float { max-width: 440px; width: 100%; justify-self: center; }
+  /* r111 (mobile panel): the desktop board shot is unreadable texture at 390px. */
+  @media (max-width: 640px) { .hero .hero-float { display: none; } }
   @media (min-width: 960px) {
     .hero__grid { grid-template-columns: 1.2fr .8fr; }
     .hero-float { justify-self: end; }
@@ -350,7 +352,7 @@
         <span class="wk__tab-sub">One question, the whole dataset</span>
       </button>
     </div>
-    <p class="pb__cue" aria-hidden="true">One dataset, five tabs &middot; click or tap to switch<span class="kbd-hint">, or use the arrow keys</span></p>
+    <p class="pb__cue" aria-hidden="true">One dataset, five tabs &middot; <span class="kbd-hint">click or </span>tap to switch<span class="kbd-hint">, or use the arrow keys</span></p>
   </div>
 
 <div class="pb__panel section" role="tabpanel" id="scoreboard" aria-labelledby="pb-tab-scoreboard">
@@ -1604,7 +1606,7 @@ tbody th.rcb2-m{font-weight:400;background:transparent}
       </div>
 
     </div>
-    <p class="small center mt2">Hover &mdash; or tap &mdash; a card to replay.</p>
+    <p class="small center mt2"><span class="kbd-hint">Hover &mdash; or tap &mdash; a</span><span class="tap-only">Tap a</span> card to replay.</p>
 </div>
 </section>
 
@@ -1720,6 +1722,6 @@ tbody th.rcb2-m{font-weight:400;background:transparent}
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r105"></script>
+<script src="assets/js/site.js?v=r111"></script>
 </body>
 </html>
