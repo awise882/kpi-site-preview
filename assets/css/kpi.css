@@ -2605,7 +2605,7 @@ details.mdet--keep > summary { display: block; pointer-events: none; font-weight
 @media (min-width: 760px) {
   html.scrub .wkx__pin { top: calc(var(--nav-h, 64px) + 6px); }
   html.scrub .wkx__hint { margin: 0 0 .55rem; }
-  html.scrub .wkx__beats { height: min(74vh, 690px); }
+  html.scrub .wkx__beats { height: min(66vh, 620px); }
 }
 /* The release index on the newsroom. */
 .relindex { list-style: none; margin: 0 auto 2.6rem; padding: .9rem 1.1rem;
@@ -2849,6 +2849,9 @@ details.mdet--keep > summary { display: block; pointer-events: none; font-weight
    readline) are desktop grammar, so below the absolute layout they go quiet. */
 @media (max-width: 1099px) {
   .kw__c::before { display: none !important; }
+  .kw__c--alert::before { content: "1"; display: grid !important; }
+  .kw__c--score::before { content: "2"; display: grid !important; }
+  .kw__c--baker::before { content: "3"; display: grid !important; }
   .kw__readline { display: none; }
 }
 /* The LINEAR lane carries a proof row like its dark neighbor. */
@@ -2892,7 +2895,7 @@ details.mdet--keep > summary { display: block; pointer-events: none; font-weight
 /* The exit band carries the next page's receipt, not an empty right half. */
 .nextcard__stat { margin-left: auto; margin-right: 1.2rem; font-family: var(--mono);
   font-size: .68rem; letter-spacing: .06em; color: var(--ink-3); white-space: nowrap; }
-@media (max-width: 700px) { .nextcard__stat { display: none; } }
+@media (max-width: 700px) { .nextcard__stat { margin: .3rem 0 0; white-space: normal; } }
 /* The six numbered collage cards ride above the asides so no chip is occluded. */
 @media (min-width: 1100px) {
   .kw__c--alert { z-index: 13; } .kw__c--player { z-index: 12; } .kw__c--pod { z-index: 12; }
