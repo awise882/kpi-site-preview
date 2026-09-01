@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r130">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r131">
 <style>
   /* contact.html only. Built from existing custom properties, no new colors. */
   .form-shell { background: var(--paper); border: 1px solid var(--rule); border-radius: var(--r-lg); padding: clamp(20px, 3vw, 32px); }
@@ -145,7 +145,7 @@
             <label for="c-race">Race or market</label>
             <input type="text" id="c-race" name="race" aria-describedby="c-race-hint" maxlength="150"
                    placeholder="A state and an office, or the market you sell">
-            <p class="field-hint" id="c-race-hint">The state and the office is enough.<br>
+            <p class="field-hint" id="c-race-hint">The state and the office are enough.<br>
               <b>Selling?</b> Name the market or the app &mdash; we confirm its read first.<br>
               <b>Below the top 58?</b> Name your markets &mdash; we say which side of the grain each sits on.<br>
               <b>Running a book?</b> Name the agency &mdash; the walkthrough opens the book board.</p>
@@ -186,6 +186,7 @@
           <p class="form-status" id="form-status" role="status" aria-live="polite" hidden></p>
 
           <button class="btn btn--lime" type="submit">Request the walkthrough &mdash; we pull your race first</button>
+          <p class="small" style="margin:.55rem 0 0">We reply within one business day &mdash; mid-flight asks same day.</p>
 
           <!-- Notice at collection. Keep this visible at the point of collection. The privacy page
                (privacy.html) carries the retention term and is linked from every footer. COUNSEL TO
@@ -204,7 +205,9 @@
         <div class="card card--flag">
           <div class="card__k">What happens next</div>
           <ol class="nextlines">
-            <li>Name your race or your market.</li>
+            <li>Name your race or your market. Sign, and your whole book is already on
+              the boards &mdash; the races were tracked before you called; seats and
+              alert routing are set on the setup call.</li>
             <li>We reply within one business day &mdash; mid-flight asks same day.</li>
             <li>A 20-minute walkthrough opens on your contest &mdash; or your
               market&rsquo;s order flow, already open. If the read does not
@@ -228,7 +231,7 @@
           <div class="card__k">Existing subscriber</div>
           <p class="small">Already have a seat? Go straight to the scoreboard, the creative matrix and your
             saved races at <a href="https://portal.kpipolitical.com">portal.kpipolitical.com</a>. Support
-            requests from inside the product route to your analyst.</p>
+            requests from inside the product route to your analyst. Saved races and boards are visible to your org&rsquo;s seats alone.</p>
         </div>
       </div>
     </div>
@@ -415,6 +418,6 @@
   });
 })();
 </script>
-<script src="assets/js/site.js?v=r130"></script>
+<script src="assets/js/site.js?v=r131"></script>
 </body>
 </html>

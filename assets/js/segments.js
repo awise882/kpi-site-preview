@@ -305,13 +305,14 @@
     var dkeys = Object.keys(doms).sort(function (a, b) { return doms[b] - doms[a]; });
     elDomains.innerHTML = '<button class="sx-chip is-on" aria-pressed="true" data-dom="">All domains</button>' +
       dkeys.map(function (d) {
-        return '<button class="sx-chip" data-dom="' + esc(d) + '">' + esc(d) +
+        return '<button class="sx-chip" aria-pressed="false" data-dom="' + esc(d) + '">' + esc(d) +
           ' <span class="num">' + fmt(doms[d]) + '</span></button>';
       }).join('');
     elDomains.addEventListener('click', function (e) {
       var b = e.target.closest('.sx-chip');
       if (!b) return;
       [].forEach.call(elDomains.children, function (c) { c.classList.remove('is-on'); c.setAttribute('aria-pressed', 'false'); });
+      e.target.setAttribute('aria-pressed', 'true');
       b.classList.add('is-on');
       state.domain = b.getAttribute('data-dom');
       state.cat = '';

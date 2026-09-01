@@ -2899,10 +2899,14 @@ details.mdet--keep > summary { display: block; pointer-events: none; font-weight
 /* The six numbered collage cards ride above the asides so no chip is occluded. */
 @media (min-width: 1100px) {
   .kw__c--alert { z-index: 13; } .kw__c--player { z-index: 12; } .kw__c--pod { z-index: 12; }
-  .kw__c--score { z-index: 11; } .kw__c--rate { z-index: 11; } .kw__c--baker { z-index: 14; }
+  .kw__c--score { z-index: 15; } .kw__c--rate { z-index: 11; } .kw__c--baker { z-index: 14; }
 }
 /* The last ladder tick grows leftward from its mark so nothing leaves the rail. */
 @media (min-width: 701px) {
   .lad__tick--st { transform: translateX(calc(-100% + 8px)); text-align: right; }
   .lad__tick--st::before { left: auto; right: 0; }
 }
+
+/* The phone's matrix carries its axis line; desktop keeps it on the figure. */
+.mxs__mobcap { display: none; }
+@media (max-width: 760px) { .mxs__mobcap { display: block; margin: .4rem 0 0; color: var(--ink-3); } }
