@@ -3072,3 +3072,6 @@ details.mdet--keep > summary { display: block; pointer-events: none; font-weight
 /* In the streaming section's grid the grain card flows as a block. */
 #streaming .lanefam--key .lanefam__body { display: block; }
 #streaming .grainfig { display: block; width: 100%; max-width: 560px; margin: .2rem 0 .6rem; }
+/* r145: the measurement fold ships CLOSED and must toggle — unlike the
+   always-open labeled drawers whose summaries are inert by design. */
+details.mdet--fold > summary { display: block; font-weight: 700; }

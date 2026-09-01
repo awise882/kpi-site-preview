@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r144">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r145">
 <style>
   /* r106: every hero its own composition -- this page opens on the two desks
      themselves. Text left; the buyer's and seller's doors right. */
@@ -217,8 +217,9 @@
                 <span class="wk__stampline num">Posted through Aug 14, 2026</span>
                 <span class="wk__big">Three markets, both sides, changes&nbsp;flagged.</span>
                 <div class="wk__copy">
-                  <p>What is the opponent doing, where are they buying, what changed since
-                    yesterday: the whole race on one screen, changes flagged.</p>
+                  <p>What is the opponent doing, where are they buying, what changed
+                    since yesterday &mdash; and what it really costs: CPPs computed from
+                    posted orders, not rate cards.</p>
                 </div>
               </div>
               <div class="wk__art">
@@ -230,6 +231,7 @@
                     <div class="wk-score__row"><span class="wk-score__name">Ellery for Senate <i>(R)</i></span><span class="wk-score__track wk-score__track--r"><span style="width:79%"></span></span><b class="num">$1.9M</b></div>
                     <div class="wk-score__row"><span class="wk-score__name">Granite State Forward PAC</span><span class="wk-score__track"><span style="width:33%"></span></span><b class="num">$0.8M</b></div>
                     <div class="wk-score__row wk-score__row--more"><span class="wk-score__name">2 more advertisers</span><span class="wk-score__track"><span style="width:13%"></span></span><b class="num">$0.3M</b></div>
+                    <div class="wk-score__row"><span class="wk-score__name">Real CPP, Columbus A35+</span><span class="wk-score__track"></span><b class="num">$585/pt</b></div>
                   </div>
                   <div class="wk-score__lanes num">Broadcast $3.6M &middot; Local cable $1.5M &middot; Radio $0.3M<span class="wk-score__est"> &middot; Streaming: caught floor $960K &middot; estimated minimum $1.58M, est. thru Aug 14 &mdash; not in the total</span></div>
                   <div class="wk-score__foot"><span>Booked forward <b class="num">$1.7M</b>, on its own line</span><span>went dark: Hometown Values, Aug 11</span></div>
@@ -269,7 +271,7 @@
                 <span class="wk__stampline num">Political window &middot; lowest unit rate</span>
                 <span class="wk__big">Make sure no one pays less than&nbsp;you.</span>
                 <div class="wk__copy">
-                  <p>They booked early news &mdash; so pull what early news actually cleared.
+                  <p>They booked early news &mdash; so pull the comparative rate: what early news actually cleared.
                     The page in hand: your $290 quote against $260 cleared in class &mdash;
                     $30 a spot, <b class="num">$12K</b> back across a 400-spot,
                     $116K flight. The short-cleared week flags itself on the page,
@@ -356,9 +358,9 @@
                 <span class="wk__stampline num">TUE &middot; aired vs. booked forward</span>
                 <span class="wk__big">25% of the aired dollars. 19% of the forward&nbsp;book.</span>
                 <div class="wk__copy">
-                  <p>The money already placed for the fall runs ahead of your share in
-                    two specific weeks &mdash; the gap prints in dollars, before that
-                    money airs around you.</p>
+                  <p>The money already placed for the fall runs ahead of your share
+                    in two booked weeks &mdash; dated on the board, priced in dollars,
+                    before that money airs around you.</p>
                 </div>
               </div>
               <div class="wk__art">
@@ -366,7 +368,11 @@
                   <div class="wk-doc__bar"><span class="wk-doc__brand">KPI &middot; Share check</span><span class="wk-doc__stamp">WQZL &middot; posted thru Aug 18</span></div>
                   <div class="wk-doc__row"><span>Your share of aired</span><span class="num"><b>25%</b> &middot; $0.95M of $3.8M</span></div>
                   <div class="wk-doc__row"><span>Your share of the forward book</span><span class="num"><b>19%</b> &middot; $1.2M booked fwd in market</span></div>
-                  <div class="wk-doc__row"><span>The gap at your 25%, priced</span><span class="num"><b>+$72K</b> across the two weeks</span><span class="wk-doc__hi num">Wednesday&rsquo;s calls</span></div>
+                  <div class="wk-doc__row"><span>The gap at your 25%, priced</span><span class="num"><b>+$72K</b> across two booked weeks</span><span class="wk-doc__hi num">Wednesday&rsquo;s calls</span></div>
+                  <svg viewBox="0 0 300 34" role="img" aria-label="Two bars: your share of aired at 25 percent; your share of the forward book at 19 percent — the shortfall is the shaded gap, priced at plus $72K" style="display:block;width:100%;max-width:340px;margin:.35rem 0 0">
+                    <rect x="0" y="4" width="190" height="9" fill="#0D2E4A"/><text x="194" y="12" font-family="Inter,sans-serif" font-size="8.5" font-weight="800" fill="#0D2E4A">AIRED 25%</text>
+                    <rect x="0" y="20" width="144" height="9" fill="#7C93A6"/><rect x="144" y="20" width="46" height="9" fill="#EAD9A0"/><text x="194" y="28" font-family="Inter,sans-serif" font-size="8.5" font-weight="800" fill="#5A6B7C">FWD 19% &middot; GAP +$72K</text>
+                  </svg>
                 </div>
               </div>
             </div>
@@ -480,12 +486,10 @@
     <p class="pb__cue" aria-hidden="true">Four boards, one subscription &middot; click or tap to switch<span class="kbd-hint">, or use the arrow keys</span></p>
 
     <div class="pb__panel mt3" role="tabpanel" id="order-flow" aria-labelledby="pb-tab-orderflow">
-      <p class="dek" style="margin-bottom:1.2rem">The market's full order flow with your own
-        air alongside it, <a href="platform.html#buy-sheet">in the same view your buyers
-        read</a> &mdash; your share stops being an estimate,
-        and the same public file <a href="monitoring.html#fcc-rates">defends your rate</a>.
-        Price the window before it opens: the market&rsquo;s filed political rates run
-        flight over flight, last cycle against this one.</p>
+      <p class="dek" style="margin-bottom:1.2rem"><b>Your share stops being an
+        estimate.</b> The full order flow, your own air alongside it,
+        <a href="platform.html#buy-sheet">in the same view your buyers read</a> &mdash;
+        and the same public file <a href="monitoring.html#fcc-rates">defends your rate</a>.</p>
       <p class="small" style="max-width:70ch;margin-bottom:1rem">The worked read prints
         in the seller&rsquo;s week above; this board carries it advertiser by advertiser,
         with the two gap weeks flagged.</p>
@@ -671,9 +675,9 @@
 
     <div class="pb__panel mt3" role="tabpanel" id="agency-book" aria-labelledby="pb-tab-agencybook">
       <h3>The agency book</h3>
-      <p class="dek"><b>The gap says how much more you should be getting.</b> Every
-        agency&rsquo;s book &mdash; filed dollars against what is on your air, digital
-        included. The names to call ride behind the subscription, and the
+      <p class="dek"><b>The gap, priced at your share.</b> Every agency&rsquo;s
+        book &mdash; filed dollars against what is on your air, digital included.
+        The names to call ride behind the subscription, and the
         same board opens as the drill-down table &mdash; advertiser by advertiser, the
         agency as printed on the order.</p>
       <figure class="app-shot" data-rise>
@@ -920,9 +924,9 @@
           <div class="wk-doc__row"><span class="num">TUE 10:52:47 PM &middot; Columbus &middot; your service &middot; &ldquo;First Light&rdquo; :30</span><span class="num">aired &middot; independent read</span></div>
           <div class="wk-doc__row"><span>dated, third-party, exportable</span><span class="wk-doc__hi num">independent &mdash; the make-good sheet</span></div>
         </div>
-        <p class="small" style="margin:.6rem 0 0">One caught make-good pays for this export
-          many times over &mdash; the <b class="num">$25K</b> gap in the week above was
-          caught by exactly this sheet.</p>
+        <p class="small" style="margin:.6rem 0 0">One caught make-good pays for this
+          export many times over &mdash; the same dated, third-party sheet family that
+          flagged the <b class="num">$25K</b> broadcast gap in the week above.</p>
       </div>
       <div class="card card--flag">
         <p class="card__k">Collateral, not just intel</p>
@@ -1057,6 +1061,6 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r144"></script>
+<script src="assets/js/site.js?v=r145"></script>
 </body>
 </html>
