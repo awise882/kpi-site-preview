@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r146">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r147">
 <style>
   /* r106 (Adam): the loop IS the landing. Text left, the loop tape right, one
      viewport. The tape is the old ring redrawn in the house receipt grammar:
@@ -437,9 +437,9 @@
          two bubbles per slot trading places on a 14s loop. Reduced-motion and JS-off:
          the first bubble of every slot shows static. Wordings marked ● are the site's
          canon QIDs; the rest are the kinds of questions the library carries. -->
-    <p class="sr-only">A live wall of questions from the always-on field, cycling by
-      category: issues, the ballot, favorability, and ad recall &mdash; each question
-      paired with the audience it builds.</p>
+    <p class="sr-only">A rotating wall of survey questions &mdash; issues, the
+      ballot, favorability, ad recall &mdash; each paired with the audience it
+      builds.</p>
     <div class="qf-stage" data-rise>
       <div class="qf" tabindex="0" role="group" aria-label="The live field: questions cycling by category; keyboard focus pauses the motion">
         <div class="qf__head">
@@ -453,14 +453,14 @@
             <div class="qf__row">
               <div class="qf__slot"><span class="qf__b qf__b--q qf__b--keep">Grocery prices, top concern or not<i>issue salience &middot; always on</i></span><span class="qf__b qf__b--q">Property taxes: too high, or about right?<i>issue salience &middot; always on</i></span></div>
               <div class="qf__slot"><span class="qf__b qf__b--q qf__b--keep">&ldquo;Should your county approve new data centers?&rdquo;<i>custom &middot; three waves banked</i></span><span class="qf__b qf__b--q">Broadband, utilities, land use<i>local issues &middot; always on</i></span></div>
-              <div class="qf__slot"><span class="qf__b qf__b--cus qf__b--keep">School funding, asked only in your district<i>custom &middot; one CD &middot; fields in days</i></span><span class="qf__b qf__b--cus">Your issue, asked in one district only<i>custom &middot; yours alone</i></span></div>
+              <div class="qf__slot"><span class="qf__b qf__b--cus qf__b--keep">School funding, asked only in your district<i>custom &middot; one CD &middot; fields in days</i></span><span class="qf__b qf__b--q">&ldquo;Have grocery prices changed what you buy?&rdquo;<i>always on</i></span></div>
             </div>
           </div>
           <div class="qf__cat">
             <p class="qf__cath">The ballot</p>
             <div class="qf__row">
               <div class="qf__slot"><span class="qf__b qf__b--q qf__b--keep">&ldquo;How closely are you following the race for governor?&rdquo;<i>QID 2231 &middot; always on</i></span><span class="qf__b qf__b--q">Early, by mail, or on Election Day?<i>turnout &middot; always on</i></span></div>
-              <div class="qf__slot"><span class="qf__b qf__b--cus qf__b--keep">Your ballot test, written this week<i>custom &middot; invisible to the other side</i></span><span class="qf__b qf__b--cus">The attack you expect next week, pre-tested<i>custom &middot; yours alone</i></span></div>
+              <div class="qf__slot"><span class="qf__b qf__b--cus qf__b--keep">Your ballot test, written this week<i>custom &middot; invisible to the other side</i></span><span class="qf__b qf__b--q">&ldquo;Do you trust the election results where you live?&rdquo;<i>always on</i></span></div>
               <div class="qf__slot"><span class="qf__b qf__b--aud qf__b--keep">Persuadable on the economy, undecided Senate<i>audience &rarr; deal ID</i></span><span class="qf__b qf__b--aud">Mail-ballot households, by DMA<i>audience &rarr; deal ID</i></span></div>
             </div>
           </div>
@@ -794,7 +794,7 @@
             <div class="mxs__ann">
               <span class="mxs__ann-big num">165,000,000 profiles&nbsp;&times; 10,000+&nbsp;questions.</span>
               <span class="mxs__ann-sub">Answers layer into a profile. An audience is the
-                intersection of real answers &mdash; declared, not inferred. Licensed
+                intersection of real answers, as people gave them. Licensed
                 attributes carry the weighting and the match, and anything modeled
                 prints dashed and labeled.</span>
             </div>
@@ -880,14 +880,14 @@
       <div class="press-card__art press-card__art--hero" role="group" style="max-width:640px;margin:1rem auto 0;text-align:left"
         aria-label="A wave topline sheet: synthetic data in the real format">
         <p class="pca__bar"><span>KPI &middot; Wave topline</span><span>synthetic &middot; real format</span></p>
-        <p class="pca__row num">WAVE 3 OF 5 &middot; n=1,204 &middot; FIELDED SEP 2&ndash;6, 2026 &middot; GOVERNOR</p>
+        <p class="pca__row num">WAVE 1 OF 5 &middot; n=1,204 &middot; FIELDED SEP 2&ndash;6, 2026 &middot; GOVERNOR</p>
         <p class="pca__row num">WEIGHTED TO THE FRAME YOUR RACE NEEDS &mdash; ADULTS &middot; REGISTERED &middot; LIKELY &mdash; PRINTED ON THE SHEET</p>
         <p class="pca__row num">ALWAYS-ON ONLINE PANEL &middot; WEIGHTED ON LICENSED ATTRIBUTES &middot; ERROR PRINTED PER WAVE &mdash; THIS ONE: &plusmn;2.8 PTS &middot; n=1,204</p>
         <p class="pca__row num">RECALL +9 WHERE THE FLIGHT RAN &middot; TOPLINE ATTACHED, ONE PAGE</p>
       </div>
-      <p class="small" style="margin-top:.7rem">Dated, weighted, one page &mdash; every wave
-      lands as one. Read before it ships by a desk with decades of buying and campaign
-      experience &mdash; the desk reading it has run races, not just models.</p>
+      <p class="small" style="margin-top:.7rem;max-width:70ch">Dated, weighted, one
+      page &mdash; every wave lands as one, read before it ships by a desk that has
+      run races.</p>
     </div>
   </div>
 </section>
@@ -948,6 +948,6 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r146"></script>
+<script src="assets/js/site.js?v=r147"></script>
 </body>
 </html>

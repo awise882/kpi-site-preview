@@ -6,11 +6,11 @@
 <title>Request a Demo · Kinetiq Political Insights</title>
 <meta name="description" content="Name a race you already know — or the market you sell — and we pull it before the walkthrough, so the demo runs on your contest instead of a canned dataset. Request a demo, reach press, or log in as a subscriber.">
 <meta property="og:title" content="Request a demo · Kinetiq Political Insights">
-<meta property="og:description" content="Name the race when you book. We pull it before the call and you judge it against what you already know.">
+<meta property="og:description" content="Tell us the contest when you book &mdash; we pull it before the call, and you judge it against what you already know.">
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r146">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r147">
 <style>
   /* contact.html only. Built from existing custom properties, no new colors. */
   .form-shell { background: var(--paper); border: 1px solid var(--rule); border-radius: var(--r-lg); padding: clamp(20px, 3vw, 32px); }
@@ -145,7 +145,7 @@
             <label for="c-race">Race or market</label>
             <input type="text" id="c-race" name="race" aria-describedby="c-race-hint" maxlength="150"
                    placeholder="A state and an office, or the market you sell">
-            <p class="field-hint" id="c-race-hint">The state and the office are enough.<br>
+            <p class="field-hint" id="c-race-hint">The state and the office are enough. Carrying several races? Name them all.<br>
               <b>Selling?</b> Name the market or the app &mdash; we confirm its read first.<br>
               <b>Below the top 58?</b> Name your markets &mdash; we say which side of the grain each sits on.<br>
               <b>Running a book?</b> Name the agency &mdash; the walkthrough opens the book board.</p>
@@ -349,7 +349,7 @@
   var hush = function () { if (status) { status.hidden = true; status.textContent = ''; } };
   var btn = form.querySelector('button[type="submit"]');
   var restore = function () {
-    if (btn) { btn.disabled = false; btn.textContent = 'Request a demo'; }
+    if (btn) { btn.disabled = false; btn.textContent = 'Request the walkthrough \u2014 we pull your race first'; }
   };
 
   var showSent = function () {
@@ -417,6 +417,6 @@
   });
 })();
 </script>
-<script src="assets/js/site.js?v=r146"></script>
+<script src="assets/js/site.js?v=r147"></script>
 </body>
 </html>

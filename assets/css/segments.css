@@ -74,7 +74,7 @@
 .sx-basket li { display: grid; grid-template-columns: 22px 1fr; gap: .5rem; align-items: start; padding: .6rem .9rem; border-bottom: 1px solid var(--rule-soft); font-size: .86rem; }
 .sx-basket li:last-child { border-bottom: 0; }
 .sx-basket-empty { display: block !important; grid-template-columns: 1fr !important; }
-.sx-drop { grid-row: span 2; width: 20px; height: 20px; border: 1px solid var(--rule); background: var(--white); border-radius: 2px; cursor: pointer; color: var(--ink-3); line-height: 1; }
+.sx-drop { grid-row: span 2; width: 24px; height: 24px; border: 1px solid var(--rule); background: var(--white); border-radius: 2px; cursor: pointer; color: var(--ink-3); line-height: 1; }
 /* Remove affordance uses the warm caution tone, never --rep: partisan colors
    mean party and nothing else, anywhere on this site. */
 .sx-drop:hover { border-color: #8A6A16; color: #8A6A16; }
