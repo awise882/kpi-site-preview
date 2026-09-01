@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r128">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r129">
 <style>
   /* The "what it exports" line that closes each app section. */
   .exports { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; margin-top: 1.3rem; }
@@ -317,7 +317,7 @@
     <div class="pb__rail pb__rail--5" role="tablist" aria-label="Choose a board">
       <button class="pb__tab" id="pb-tab-scoreboard" type="button" role="tab" aria-selected="true" aria-controls="scoreboard">
         <span class="wk__tab-name">Scoreboard</span>
-        <span class="wk__tab-sub">Every race, new money first</span>
+        <span class="wk__tab-sub">Every race, new money first &middot; <span class="num">303 tracked</span></span>
       </button>
       <button class="pb__tab" id="pb-tab-matrix" type="button" role="tab" aria-selected="false" aria-controls="creative-matrix">
         <span class="wk__tab-name">Creative Matrix</span>
@@ -325,18 +325,18 @@
       </button>
       <button class="pb__tab" id="pb-tab-buysheet" type="button" role="tab" aria-selected="false" aria-controls="buy-sheet">
         <span class="wk__tab-name">Buy Sheet</span>
-        <span class="wk__tab-sub">Which station got the money</span>
+        <span class="wk__tab-sub">Which station got the money &middot; <span class="num">the $12K check</span></span>
       </button>
       <button class="pb__tab" id="pb-tab-explorer" type="button" role="tab" aria-selected="false" aria-controls="creative-explorer">
         <span class="wk__tab-name">Creative Explorer</span>
-        <span class="wk__tab-sub">Tape, transcript, markets</span>
+        <span class="wk__tab-sub">Tape, transcript, markets &middot; <span class="num">288 apps</span></span>
       </button>
       <button class="pb__tab" id="pb-tab-baker" type="button" role="tab" aria-selected="false" aria-controls="baker">
         <span class="wk__tab-name">Ask Baker</span>
         <span class="wk__tab-sub">One question, the whole dataset</span>
       </button>
     </div>
-    <p class="pb__cue" aria-hidden="true">Four boards + Baker &mdash; five tabs &middot; <span class="kbd-hint">click or </span>tap to switch<span class="kbd-hint">, or use the arrow keys</span> &middot; ink: solid aired, hatched booked, dashed modeled</p>
+    <p class="pb__cue" aria-hidden="true">Four boards + Baker &mdash; five tabs &middot; <span class="kbd-hint">click or </span>tap to switch<span class="kbd-hint">, or use the arrow keys</span> &middot; <b>ink: solid aired, hatched booked, dashed modeled</b></p>
   </div>
 
 <div class="pb__panel section" role="tabpanel" id="scoreboard" aria-labelledby="pb-tab-scoreboard">
@@ -1648,6 +1648,7 @@ tbody th.rcb2-m{font-weight:400;background:transparent}
     <a class="nextcard" href="week.html">
       <span class="nextcard__k">On to the next</span>
       <span class="nextcard__t"><b>Buyers &amp; Sellers</b><span>One week, from both sides of the table.</span></span>
+      <span class="nextcard__stat num" aria-hidden="true">$12K BACK &middot; +$272K FOUND</span>
       <span class="nextcard__go" aria-hidden="true">&#8594;</span>
     </a>
   </div>
@@ -1696,6 +1697,6 @@ tbody th.rcb2-m{font-weight:400;background:transparent}
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r128"></script>
+<script src="assets/js/site.js?v=r129"></script>
 </body>
 </html>

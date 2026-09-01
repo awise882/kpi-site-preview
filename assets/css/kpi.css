@@ -677,7 +677,7 @@ a.chip { text-decoration: none; transition: border-color .16s ease-out, color .1
 a.chip:hover { border-color: var(--blue); color: var(--navy); background: var(--white); }
 .chip--lime { background: color-mix(in srgb, var(--lime) 22%, transparent); border-color: color-mix(in srgb, var(--lime-dark) 45%, transparent); color: #3E6A16; }
 .chip--navy { background: var(--navy); border-color: var(--navy); color: #fff; }
-.chip--warn { background: #FFF4E0; border-color: #E8CF9E; color: #7A5410; }
+.chip--warn { background: #E4F4F6; border-color: #9ED2DA; color: #0B5560; }
 .yes { color: var(--lime-text); font-weight: 700; }
 .no { color: var(--ink-3); }
 .partial { color: #8A6A16; font-weight: 600; }
@@ -1389,7 +1389,8 @@ a.chip:hover { border-color: var(--blue); color: var(--navy); background: var(--
   font-size: .78rem; font-weight: 700; color: var(--blue-text);
 }
 .wk__story:first-of-type .wk__story-h { margin-top: 0; padding-top: 0; border-top: 0; }
-.wk--live .wk__story-h { display: none; }
+.wk--live .wk__story-h { position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip-path: inset(50%); margin: 0; padding: 0; }
 .wk--live .wk__story[hidden] { display: none; }
 
 /* ---------- ruling 28: the week, scroll-driven. ----------
@@ -2874,3 +2875,31 @@ details.mdet--keep > summary { display: block; pointer-events: none; font-weight
    warmer paper — synthetic exhibits stay flat white (maverick ruling, r128). */
 .press-card__art--real { border-top: 3px solid var(--lime-dark); background: #FDFDF7; }
 .press-card__art--real .pca__bar span:last-child { color: #3E6A16; font-weight: 800; }
+
+/* ===== r128 — the latency draw + exit-band receipts ===== */
+/* Every timestamp pair draws: a thin rail fills capture -> inbox when the
+   receipt posts. The site's one truth, moving. */
+.latbar { display: flex; align-items: center; gap: .55rem; margin: .5rem 0 0; }
+.latbar i { flex: 1; height: 2px; background: var(--rule); position: relative; overflow: hidden; }
+.latbar i::after { content: ""; position: absolute; inset: 0; background: var(--lime-dark);
+  transform-origin: left center; }
+.latbar--fast i::after { background: var(--navy-deep); }
+.acs.in-view .latbar i::after, .in-view[data-rise] .latbar i::after {
+  animation: grow-x .9s var(--smooth) .7s backwards; }
+.latbar b { font-family: var(--mono); font-size: .62rem; letter-spacing: .06em;
+  font-weight: 600; color: var(--ink-2); white-space: nowrap; }
+@media (prefers-reduced-motion: reduce) { .latbar i::after { animation: none !important; } }
+/* The exit band carries the next page's receipt, not an empty right half. */
+.nextcard__stat { margin-left: auto; margin-right: 1.2rem; font-family: var(--mono);
+  font-size: .68rem; letter-spacing: .06em; color: var(--ink-3); white-space: nowrap; }
+@media (max-width: 700px) { .nextcard__stat { display: none; } }
+/* The six numbered collage cards ride above the asides so no chip is occluded. */
+@media (min-width: 1100px) {
+  .kw__c--alert { z-index: 13; } .kw__c--player { z-index: 12; } .kw__c--pod { z-index: 12; }
+  .kw__c--score { z-index: 11; } .kw__c--rate { z-index: 11; } .kw__c--baker { z-index: 14; }
+}
+/* The last ladder tick grows leftward from its mark so nothing leaves the rail. */
+@media (min-width: 701px) {
+  .lad__tick--st { transform: translateX(calc(-100% + 8px)); text-align: right; }
+  .lad__tick--st::before { left: auto; right: 0; }
+}

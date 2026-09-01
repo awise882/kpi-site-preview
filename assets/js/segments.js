@@ -303,7 +303,7 @@
       cats[r.c] = (cats[r.c] || 0) + 1;
     });
     var dkeys = Object.keys(doms).sort(function (a, b) { return doms[b] - doms[a]; });
-    elDomains.innerHTML = '<button class="sx-chip is-on" data-dom="">All domains</button>' +
+    elDomains.innerHTML = '<button class="sx-chip is-on" aria-pressed="true" data-dom="">All domains</button>' +
       dkeys.map(function (d) {
         return '<button class="sx-chip" data-dom="' + esc(d) + '">' + esc(d) +
           ' <span class="num">' + fmt(doms[d]) + '</span></button>';
@@ -311,7 +311,7 @@
     elDomains.addEventListener('click', function (e) {
       var b = e.target.closest('.sx-chip');
       if (!b) return;
-      [].forEach.call(elDomains.children, function (c) { c.classList.remove('is-on'); });
+      [].forEach.call(elDomains.children, function (c) { c.classList.remove('is-on'); c.setAttribute('aria-pressed', 'false'); });
       b.classList.add('is-on');
       state.domain = b.getAttribute('data-dom');
       state.cat = '';
