@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r125">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r126">
 <style>
   .fig-scroll > svg { min-width: 820px; }
   /* R69: the key graphic gets a phone-native stack; no panning a 1000px drawing */
@@ -180,12 +180,15 @@
       <p class="lede" style="margin-inline:auto">TV, cable, radio, streaming and digital
         &mdash; one machine, every lane.</p>
     </div>
-    <div class="fresh" role="note" aria-label="How fresh each number is when you act on it">
-      <span class="fresh__k">How old is the number when you act on it?</span>
-      <span class="fresh__i"><b>Alerts</b> minutes &mdash; the two stamps below</span>
-      <span class="fresh__i"><b>Linear orders</b> post the morning they&rsquo;re placed</span>
-      <span class="fresh__i"><b>FCC rates</b> near real time &middot; the read-through date is the check</span>
-      <span class="fresh__i"><b>Streaming dollars</b> settle about a week behind linear, labeled</span>
+    <div class="lad" role="note" aria-label="How old each number is when you act on it, in staleness order">
+      <span class="lad__k">How old is the number when you act on it?</span>
+      <div class="lad__ruler">
+        <span class="lad__line" aria-hidden="true"></span>
+        <span class="lad__tick lad__tick--up" style="--x:2%"><b>Alerts</b><i>minutes &mdash; the two stamps below</i></span>
+        <span class="lad__tick" style="--x:26%"><b>Linear orders</b><i>post the morning they&rsquo;re placed</i></span>
+        <span class="lad__tick lad__tick--up" style="--x:52%"><b>FCC rates</b><i>near real time &middot; the read-through date is the check</i></span>
+        <span class="lad__tick lad__tick--st" style="--x:76%"><b>Streaming dollars</b><i>settle about a week behind linear, labeled</i></span>
+      </div>
     </div>
     <div class="lanefams mt1" role="group" aria-label="Four channels: what we detect and where the dollars come from; hover or focus a card for the methodology">
       <article class="lanefam lanefam--bc" tabindex="0">
@@ -273,7 +276,7 @@
         <p class="eyebrow eyebrow--plain" style="justify-content:center">The measurement, drawn once</p>
         <h3 style="font-size:clamp(1.5rem,2.6vw,2rem)">Detected on the TV glass. Counted by the home.</h3>
         <p class="lede" style="margin-inline:auto">We see the ad play on the TV screen,
-          in 40 million real homes. Anything we estimate beyond those homes is drawn
+          in 40 million real homes &mdash; smart-TV glass, measured with VideoAmp. Anything we estimate beyond those homes is drawn
           dashed and labeled.</p>
       </div>
       <figure class="fig fig--light" id="xscreen-fig">
@@ -456,8 +459,9 @@
                 aria-label="A second real alert, broadcast: Amy Acton Hiked Taxes, caught on WKYC Cleveland, first aired 5:24 AM, in the inbox at 8:20 AM">
                 <p class="pca__bar"><span>KPI &middot; Creative alert &middot; broadcast</span><span>real alert &middot; as it landed</span></p>
                 <p class="pca__big">&ldquo;Amy Acton Hiked Taxes&rdquo; &middot; :30 &mdash; Vivek Ramaswamy and Rob McColley for Ohio</p>
-                <p class="pca__row num">OH GOVERNOR &middot; FIRST AIRED AUG 30, 2026 &middot; 5:24:02 AM ET &middot; WKYC, CLEVELAND</p>
-                <p class="pca__row num">IN THE INBOX 8:20 AM ET, WITH THE MORNING SEND &mdash; TAPE + AI TRANSCRIPT ATTACHED</p>
+                <p class="pca__row num">OH GOVERNOR &middot; WKYC, CLEVELAND &middot; AUG 30, 2026</p>
+                <p class="pca__row pca__row--lead num">FIRST AIR 5:24:02 AM ET &rarr; IN THE INBOX 8:20 AM ET &middot; WITH THE MORNING SEND</p>
+                <p class="pca__row num">TAPE + AI TRANSCRIPT ATTACHED</p>
                 <p class="pca__row">&ldquo;&hellip;Acton hiked taxes and made everything cost more&hellip;&rdquo; &mdash; AI transcript, exactly as landed &middot; creative &copy; its advertiser</p>
               </div>
               <p class="ac__bcast small">Delivery: the inbox stamped above, and the
@@ -664,7 +668,7 @@
             <li>The competitive buy&rsquo;s actual clearances beside your quote</li>
             <li>Candidates and outside groups read separately &mdash; LUR-protected rates
               by class of time vs market rate</li>
-            <li>Sellers pull the same history to defend the rate &mdash; the Friday scene on <a href="week.html#wk-sell">the week page</a> stages the class defense</li>
+            <li>Sellers pull the same history to defend the rate &mdash; <a href="week.html#wk-friday">Friday on the week page</a> prices the class defense</li>
           </ul>
         </div>
         <div class="btn-row mt2">
@@ -694,8 +698,8 @@
 <section class="section section--mega cta-final">
   <div class="wrap center">
     <h2>Name a race. We will show you what the machine caught.</h2>
-    <p class="lede" style="margin-inline:auto">A 20-minute walkthrough on a race you know
-      cold.</p>
+    <p class="lede" style="margin-inline:auto">Twenty minutes, the machine you just read
+      pointed at your race &mdash; its boards open live.</p>
       <p class="small" style="max-width:70ch;margin-top:.8rem">The rate book: all 210
         markets, flight over flight &mdash; the <b class="num">$12K</b> clawback it prices
         is worked through in <a href="week.html#wk-buy">the buyer&rsquo;s week</a>.</p>
@@ -761,6 +765,6 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r125"></script>
+<script src="assets/js/site.js?v=r126"></script>
 </body>
 </html>

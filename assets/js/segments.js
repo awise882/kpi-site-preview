@@ -61,6 +61,10 @@
     'Healthy Living', 'Disasters', 'War and Conflicts', 'Religion & Spirituality',
     'Family and Relationships', 'Real Estate', 'Demographic'
   ];
+  /* Within those categories, rows that read like the job come first: a
+     strategist scanning the default list should hit ballots and issues before
+     brand batteries that happen to share a category. */
+  var POLITICAL_TERMS = /election|vote|voting|ballot|candidate|politic|government|congress|governor|president|senate|taxes|inflation|economy|immigration|abortion|guns|climate|health care|healthcare|local news|cable news/i;
 
   function match() {
     var q = state.q.trim().toLowerCase();
@@ -75,10 +79,11 @@
     });
     if (!terms.length && !state.domain && !state.cat) {
       rows = rows.slice().sort(function (a, b) {
+        var ak = POLITICAL_TERMS.test(a.q) ? 0 : 1, bk = POLITICAL_TERMS.test(b.q) ? 0 : 1;
         var ai = POLITICAL_FIRST.indexOf(a.c), bi = POLITICAL_FIRST.indexOf(b.c);
         if (ai === -1) ai = 999;
         if (bi === -1) bi = 999;
-        return ai - bi || a.i - b.i;
+        return ak - bk || ai - bi || a.i - b.i;
       });
     }
     return rows;

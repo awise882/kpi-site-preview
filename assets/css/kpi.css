@@ -792,7 +792,7 @@ a.chip:hover { border-color: var(--blue); color: var(--navy); background: var(--
    `[data-rise] > * { will-change: transform }` promoted hundreds of nodes to
    their own layers permanently, for a one-shot entrance the animation promotes
    by itself. Removed; nothing pre-promotes. */
-.in-view[data-rise] > * { animation: rise .32s var(--smooth) backwards; }
+.in-view[data-rise] > * { animation: rise .42s var(--smooth) backwards; }
 .in-view[data-rise] > *:nth-child(2) { animation-delay: .04s; }
 .in-view[data-rise] > *:nth-child(3) { animation-delay: .08s; }
 .in-view[data-rise] > *:nth-child(4) { animation-delay: .12s; }
@@ -800,7 +800,9 @@ a.chip:hover { border-color: var(--blue); color: var(--navy); background: var(--
 .in-view[data-rise] > *:nth-child(6) { animation-delay: .25s; }
 .in-view[data-rise] > *:nth-child(7) { animation-delay: .3s; }
 .in-view[data-rise] > *:nth-child(8) { animation-delay: .35s; }
-@keyframes rise { from { opacity: .01; transform: translateY(26px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes rise { 0% { opacity: .01; transform: translateY(22px); }
+  72% { opacity: 1; transform: translateY(-2px); }
+  100% { opacity: 1; transform: translateY(0); } }
 .in-view .fig__svg rect { transform-origin: left center; animation: grow-x .9s var(--smooth) backwards; }
 .in-view .fig__svg rect:nth-of-type(2) { animation-delay: .12s; }
 .in-view .fig__svg rect:nth-of-type(3) { animation-delay: .24s; }
@@ -2654,6 +2656,7 @@ details.mdet--keep > summary { display: block; pointer-events: none; font-weight
    viewports keep 1:1 so nothing spills). */
 @media (min-width: 1050px) {
   html.scrub .wkx__beat .wk__art { transform: scale(1.09); transform-origin: top left; }
+  @media (min-width: 1240px) { html.scrub .wkx__beat .wk__art { transform: scale(1.16); transform-origin: top right; } }
   html.scrub .wkx__beat--2 .wk__art { transform: none; }
 }
 /* Polling's ending band tightens; the relight is the finale. */
@@ -2741,3 +2744,101 @@ details.mdet--keep > summary { display: block; pointer-events: none; font-weight
    card staging, aligned to the split's text column top. */
 #fcc-rates .press-card__art--hero { margin-top: 1.4rem; }
 @media (min-width: 900px) { #fcc-rates .press-card__art--hero { margin-top: 3.2rem; } }
+
+/* ===== r126 — the panel's convergence round ===== */
+/* 1) The monitoring hero's two lanes get their chrome (six evaluators flagged
+   the orphan labels): mono kicker over a hairline, side-by-side cards >=880px.
+   The page sheet defines no .mhero layout, so no !important needed here. */
+.mhero { display: grid; gap: .9rem; max-width: 920px; margin: 2rem auto 0; text-align: left; }
+@media (min-width: 880px) { .mhero { grid-template-columns: 1fr 1.12fr; gap: 1.2rem; } }
+.mhero__lane { min-width: 0; display: flex; flex-direction: column; align-items: flex-start;
+  background: var(--white); border: 1px solid var(--rule);
+  border-radius: var(--r-lg); box-shadow: var(--shadow); padding: 1.05rem 1.2rem 1.1rem; }
+.mhero__k { align-self: stretch; }
+.mhero__lane--dark { background: var(--navy-deep); border-color: transparent; }
+.mhero__lane--dark .mhero__p { color: #C9D9E6; }
+.mhero__lane--dark .mhero__p b { color: #fff; }
+.mhero__k { font-family: var(--label); text-transform: uppercase; letter-spacing: .14em;
+  font-size: .66rem; font-weight: 800; color: var(--ink-3); margin: 0 0 .6rem;
+  padding-bottom: .45rem; border-bottom: 1px solid var(--rule); }
+.mhero__lane--dark .mhero__k { color: #9FBFD6; border-bottom-color: rgba(159,191,214,.35); }
+.mhero__p { margin: 0; font-size: .95rem; line-height: 1.6; color: var(--ink-2); }
+.mhero__p b { color: var(--navy-deep); }
+.mhero__bar { display: block; width: 100%; height: auto; max-width: 300px; margin: .8rem 0 0; }
+.mhero__go { display: inline-block; margin-top: auto; padding-top: .8rem; font-weight: 700; font-size: .88rem; }
+.mhero__lane--dark .mhero__go { color: var(--lime); }
+/* 2) The stamp: mono kickers print AFTER their artifact posts. One physics —
+   everything arrives the way an alert lands (post, settle, stamp). */
+.in-view[data-rise] .eyebrow, .in-view[data-rise] .card__k,
+.in-view[data-rise] .pca__bar, .in-view[data-rise] .wk-doc__bar {
+  animation: stamp-in .22s ease-out .34s backwards; }
+@keyframes stamp-in { from { opacity: .01; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) {
+  .in-view[data-rise] .eyebrow, .in-view[data-rise] .card__k,
+  .in-view[data-rise] .pca__bar, .in-view[data-rise] .wk-doc__bar { animation: none; } }
+/* 3) The latency ladder: one hairline from minutes to a week behind, the four
+   lanes ticked in staleness order (replaces the 2x2 pills). */
+.lad { max-width: 880px; margin: 0 auto 1.6rem; }
+.lad__k { display: block; text-align: center; font-family: var(--label);
+  text-transform: uppercase; letter-spacing: .13em; font-size: .64rem; font-weight: 800;
+  color: var(--ink-3); margin-bottom: 1rem; }
+.lad__ruler { position: relative; height: 118px; }
+.lad__line { position: absolute; left: 0; right: 0; top: 50%; height: 0;
+  border-top: 1px solid var(--rule); }
+.lad__line::after { content: "older \2192"; position: absolute; right: 0; top: .35rem;
+  font-family: var(--mono); font-size: .62rem; letter-spacing: .08em; color: var(--ink-3); }
+.lad__tick { position: absolute; left: var(--x); top: 50%; width: 13rem; max-width: 24vw;
+  transform: translateX(-6px); }
+.lad__tick::before { content: ""; position: absolute; left: 0; top: -7px; width: 0;
+  height: 14px; border-left: 2px solid var(--navy-deep); }
+.lad__tick b { display: block; font-family: var(--label); text-transform: uppercase;
+  letter-spacing: .09em; font-size: .62rem; color: var(--navy-deep); margin: 14px 0 .1rem; }
+.lad__tick i { display: block; font-style: normal; font-family: var(--mono);
+  font-size: .68rem; line-height: 1.45; color: var(--ink-2); }
+.lad__tick:nth-child(odd) b { margin-top: 14px; }
+.lad__tick--up { transform: translate(-6px, -100%); padding-bottom: 14px; }
+.lad__tick--up::before { top: auto; bottom: -7px; }
+.lad__tick--up b { margin: 0 0 .1rem; }
+.lad__tick--st::before { border-left-style: dashed; border-left-color: var(--ink-3); }
+@media (max-width: 700px) {
+  .lad__ruler { height: auto; }
+  .lad__line { display: none; }
+  .lad__tick, .lad__tick--up { position: static; transform: none; width: auto; max-width: none;
+    padding: 0 0 0 .8rem; border-left: 2px solid var(--navy-deep); margin-bottom: .6rem; }
+  .lad__tick::before, .lad__tick--up::before { display: none; }
+  .lad__tick b, .lad__tick--up b { margin: 0 0 .1rem; }
+  .lad__tick--st { border-left-style: dashed; border-left-color: var(--ink-3); }
+}
+/* 4) The two real specimens claim the full card: the broadcast receipt spans
+   both columns of the alert grid instead of squeezing into one. */
+@media (min-width: 1000px) {
+  .ac__body > .ac__bcast, .ac__body > .press-card__art { grid-column: 1 / -1; }
+}
+.pca__row--lead { font-size: .8rem; font-weight: 700; color: var(--navy-deep); letter-spacing: .04em; }
+/* 5) The index press band folds to a citation strip; the newsroom keeps the story. */
+.pressline { border: 1px solid var(--rule); border-radius: var(--r-lg); background: var(--white);
+  box-shadow: var(--shadow); overflow: hidden; max-width: 980px; margin-inline: auto;
+  text-align: left; }
+.pressline__row { display: grid; grid-template-columns: 11.5rem minmax(0,1fr) auto; gap: 1rem;
+  align-items: baseline; padding: .95rem 1.2rem; text-decoration: none; color: inherit; }
+.pressline__row + .pressline__row { border-top: 1px solid var(--rule-soft); }
+.pressline__who { font-family: var(--mono); font-size: .7rem; letter-spacing: .06em; color: var(--ink-3); }
+.pressline__what { font-size: .92rem; line-height: 1.55; color: var(--ink-2); }
+.pressline__what b { color: var(--navy-deep); }
+.pressline__go { font-weight: 800; color: var(--navy-deep); }
+.pressline__row:hover .pressline__what b { text-decoration: underline; }
+@media (max-width: 700px) { .pressline__row { grid-template-columns: 1fr auto; }
+  .pressline__who { grid-column: 1 / -1; } }
+/* 6) The collage walk gets its drawn route (>=1100 only, where the wall is
+   absolute); the unnumbered asides step back half a stop. */
+.kw__route { display: none; }
+@media (min-width: 1100px) {
+  .kw__route { display: block; position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+  .kw__c--mix, .kw__c--stream, .kw__c--share, .kw__c--deal, .kw__c--op { opacity: .93; filter: saturate(.82); }
+}
+/* 7) Touch gets touch copy: the arrow-keys hint is desktop-only, and board
+   tabs grid up instead of wrapping into a cloud. */
+@media (max-width: 880px) {
+  .kbd-hint { display: none; }
+  .pb__rail { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; }
+}
