@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r112b">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r113">
 <style>
   /* r106 (Adam): the loop IS the landing. Text left, the loop tape right, one
      viewport. The tape is the old ring redrawn in the house receipt grammar:
@@ -142,6 +142,50 @@
   .fb__go { margin: .8rem 0 0; font-weight: 700; }
   .fb__go a { color: var(--lime); text-decoration: none; }
   .fb__hint { margin: 0; color: var(--ink-3); }
+  /* r113 (the owner): the book unfolds — pages deal in, each carries a chapter
+     numeral and its own artifact instead of a text blob. */
+  .fb__folio { position: absolute; top: .05rem; right: .55rem; font-family: var(--display);
+    font-size: 3rem; font-weight: 700; line-height: 1; color: var(--navy);
+    opacity: .07; pointer-events: none; }
+  .fb__page--end .fb__folio { color: #fff; opacity: .14; }
+  .fb__qs { margin: .75rem 0 0; display: grid; gap: .45rem; }
+  .fb__q { margin: 0; background: var(--paper); border: 1px solid var(--rule);
+    border-left: 3px solid var(--lime); border-radius: 8px; padding: .5rem .65rem;
+    font-family: var(--display); font-size: .92rem; line-height: 1.4; color: var(--navy-deep); }
+  .fb__q span { display: block; font-family: var(--label); text-transform: uppercase;
+    letter-spacing: .11em; font-size: .58rem; font-weight: 800; color: var(--lime-text);
+    margin-bottom: .2rem; }
+  .fb__ask { margin: 0 0 .45rem; font-family: var(--display); font-size: 1.08rem;
+    line-height: 1.45; color: var(--navy-deep); }
+  .fb__live { margin: .8rem 0 0; display: flex; align-items: center; gap: .5rem;
+    font-family: var(--label); text-transform: uppercase; letter-spacing: .1em;
+    font-size: .62rem; font-weight: 800; color: var(--lime-text);
+    border: 1.5px dashed var(--lime-dark); border-radius: 999px; padding: .4rem .8rem;
+    width: fit-content; }
+  .fb__pulse { width: 9px; height: 9px; border-radius: 50%; background: var(--lime-dark); }
+  .fb__lift { margin: .75rem 0 0; max-width: 235px; }
+  .fb__lift svg { width: 100%; height: auto; display: block; }
+  .fb__waves { margin: .75rem 0 0; display: flex; flex-wrap: wrap; gap: .4rem; }
+  .fb__waves span { font-family: var(--mono); font-size: .66rem; letter-spacing: .05em;
+    color: #DDEBC9; border: 1px solid rgba(168,209,78,.55); border-radius: 4px;
+    padding: .22rem .5rem; }
+  @media (prefers-reduced-motion: no-preference) {
+    .fb__pulse { animation: fb-pulse 2.2s ease-in-out infinite; }
+    .fb.in-view .fb__page { animation: fb-deal .6s var(--smooth) backwards; }
+    .fb.in-view .fb__page:nth-child(2) { animation-delay: .13s; }
+    .fb.in-view .fb__page:nth-child(3) { animation-delay: .26s; }
+    .fb.in-view .fb__page:nth-child(4) { animation-delay: .39s; }
+    .fb.in-view .fb__page:nth-child(5) { animation-delay: .52s; }
+    .fb.in-view .fb__page:nth-child(6) { animation-delay: .65s; }
+  }
+  @keyframes fb-pulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(124,179,66,.5); }
+    55% { box-shadow: 0 0 0 7px rgba(124,179,66,0); } }
+  @keyframes fb-deal { from { opacity: 0; transform: translateX(34px); }
+    to { opacity: 1; transform: none; } }
+  /* phones: the artifacts are desktop furniture — the stacked pages stay lean */
+  @media (max-width: 640px) {
+    .fb__qs, .fb__live, .fb__lift, .fb__waves, .fb__folio { display: none; }
+  }
 
   /* -- scene 3: THE SPARSE MATRIX, the signature visual (§6.5). Default:
      lit whole. Entry (IO): stages fade in once. On screens >=700px where
@@ -209,31 +253,39 @@
     .mxs.in-view .mxs__step--e { animation: fade-in .4s ease-out .9s backwards; }
     .mxs.in-view .mxs__ann { animation: mxs-in .55s var(--smooth) 1.3s backwards; }
   }
-  @keyframes mxs-in { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+  @keyframes mxs-in { from { opacity: 0; transform: translateY(26px) scale(.93); }
+    55% { opacity: 1; } to { opacity: 1; transform: none; } }
+  @keyframes mxs-dim { from { opacity: 1; } to { opacity: .3; } }
   @keyframes fade-in-soft { from { opacity: .45; } to { opacity: 1; } }
   /* r88: the matrix story, scrubbed by the universal driver — all browsers,
      phones included. Same ranges; shorter runway on small screens. */
-  html.scrub .mxs__scroller { height: 320vh; }
+  html.scrub .mxs__scroller { height: 420vh; }
   html.scrub .mxs__pin { position: sticky; top: 88px; }
   html.scrub .mxs__svg { max-width: min(960px, calc((100vh - 465px) * 1.786)); margin-inline: auto; }
   html.scrub .mxs__hint { display: block; }
-  html.scrub .mxs__mxa { animation: fade-in 1s linear paused both !important; animation-delay: calc((0.14 - var(--scrub, 0)) / 0.12 * 1s) !important; }
-  html.scrub .mxs__mxb { animation: fade-in 1s linear paused both !important; animation-delay: calc((0.30 - var(--scrub, 0)) / 0.12 * 1s) !important; }
-  html.scrub .mxs__mxc { animation: fade-in 1s linear paused both !important; animation-delay: calc((0.46 - var(--scrub, 0)) / 0.12 * 1s) !important; }
-  html.scrub .mxs__mxd { animation: fade-in 1s linear paused both !important; animation-delay: calc((0.62 - var(--scrub, 0)) / 0.10 * 1s) !important; }
-  html.scrub .mxs__mxe { animation: fade-in 1s linear paused both !important; animation-delay: calc((0.76 - var(--scrub, 0)) / 0.08 * 1s) !important; }
-  html.scrub .mxs__ann { animation: mxs-in 1s linear paused both !important; animation-delay: calc((0.86 - var(--scrub, 0)) / 0.05 * 1s) !important; }
-  html.scrub .mxs__step--a { animation: fade-in-soft 1s linear paused both !important; animation-delay: calc((0.14 - var(--scrub, 0)) / 0.12 * 1s) !important; }
-  html.scrub .mxs__step--b { animation: fade-in-soft 1s linear paused both !important; animation-delay: calc((0.30 - var(--scrub, 0)) / 0.12 * 1s) !important; }
-  html.scrub .mxs__step--c { animation: fade-in-soft 1s linear paused both !important; animation-delay: calc((0.46 - var(--scrub, 0)) / 0.12 * 1s) !important; }
-  html.scrub .mxs__step--d { animation: fade-in-soft 1s linear paused both !important; animation-delay: calc((0.62 - var(--scrub, 0)) / 0.10 * 1s) !important; }
-  html.scrub .mxs__step--e { animation: fade-in-soft 1s linear paused both !important; animation-delay: calc((0.76 - var(--scrub, 0)) / 0.08 * 1s) !important; }
+  html.scrub .mxs__mxa { animation: fade-in 1s linear paused both !important; animation-delay: calc((0.12 - var(--scrub, 0)) / 0.10 * 1s) !important; }
+  html.scrub .mxs__mxb { animation: fade-in 1s linear paused both !important; animation-delay: calc((0.26 - var(--scrub, 0)) / 0.10 * 1s) !important; }
+  html.scrub .mxs__mxc { animation: fade-in 1s linear paused both !important; animation-delay: calc((0.40 - var(--scrub, 0)) / 0.10 * 1s) !important; }
+  html.scrub .mxs__mxd { animation: fade-in 1s linear paused both !important; animation-delay: calc((0.53 - var(--scrub, 0)) / 0.09 * 1s) !important; }
+  html.scrub .mxs__mxe { animation: fade-in 1s linear paused both !important; animation-delay: calc((0.64 - var(--scrub, 0)) / 0.08 * 1s) !important; }
+  html.scrub .mxs__ann { animation: mxs-in 1s linear paused both !important; animation-delay: calc((0.74 - var(--scrub, 0)) / 0.16 * 1s) !important; }
+  /* r113 (the owner): the ending earns its beat — the grid recedes while the
+     165M line prints, then the stage holds through the last tenth of the runway. */
+  html.scrub .mxs__shell { animation: mxs-dim 1s linear paused both !important;
+    animation-delay: calc((0.74 - var(--scrub, 0)) / 0.16 * 1s) !important; }
+  html.scrub .mxs__steps { animation: mxs-dim 1s linear paused both !important;
+    animation-delay: calc((0.74 - var(--scrub, 0)) / 0.16 * 1s) !important; }
+  html.scrub .mxs__step--a { animation: fade-in-soft 1s linear paused both !important; animation-delay: calc((0.12 - var(--scrub, 0)) / 0.10 * 1s) !important; }
+  html.scrub .mxs__step--b { animation: fade-in-soft 1s linear paused both !important; animation-delay: calc((0.26 - var(--scrub, 0)) / 0.10 * 1s) !important; }
+  html.scrub .mxs__step--c { animation: fade-in-soft 1s linear paused both !important; animation-delay: calc((0.40 - var(--scrub, 0)) / 0.10 * 1s) !important; }
+  html.scrub .mxs__step--d { animation: fade-in-soft 1s linear paused both !important; animation-delay: calc((0.53 - var(--scrub, 0)) / 0.09 * 1s) !important; }
+  html.scrub .mxs__step--e { animation: fade-in-soft 1s linear paused both !important; animation-delay: calc((0.64 - var(--scrub, 0)) / 0.08 * 1s) !important; }
   @media (max-width: 999px) {
-    html.scrub .mxs__scroller { height: 230vh; }
+    html.scrub .mxs__scroller { height: 300vh; }
     html.scrub .mxs__pin { top: 72px; }
   }
   @media (max-width: 699px) {
-    html.scrub .mxs__scroller { height: 180vh; }
+    html.scrub .mxs__scroller { height: 240vh; }
     html.scrub .mxs__svg { max-width: 100%; }
   }
 
@@ -265,9 +317,8 @@
         <div class="nav__drop" aria-label="Section shortcuts">
           <a href="monitoring.html#alert-demo">Creative alerts</a>
           <a href="monitoring.html#streaming-spend">Streaming &amp; Digital</a>
-          <a href="monitoring.html#cross-screen">Impressions across screens</a>
-          <a href="monitoring.html#fcc-rates">FCC rate intelligence</a>
-          <a href="monitoring.html#cross-screen">How we count</a>
+          <a href="monitoring.html#cross-screen">How impressions are counted</a>
+          <a href="monitoring.html#fcc-rates">FCC rates</a>
         </div>
       </li>
       <li class="nav__item"><a href="platform.html">Platform</a>
@@ -283,15 +334,15 @@
         <div class="nav__drop" aria-label="Section shortcuts">
           <a href="week.html#wk-buy">The buyer's week</a>
           <a href="week.html#wk-sell">The seller's week</a>
-          <a href="week.html#air-war">The air war, explorable</a>
+          <a href="week.html#air-war">Explore a live market</a>
         </div>
       </li>
       <li class="nav__item"><a href="polling.html" aria-current="page">Voter Opinion</a>
         <div class="nav__drop" aria-label="Section shortcuts">
-          <a href="polling.html#loop">The field, live</a>
-          <a href="polling.html#story">Labor Day to Election Day</a>
+          <a href="polling.html#loop">The always-on poll</a>
+          <a href="polling.html#story">One campaign, start to finish</a>
           <a href="questions.html">The question library</a>
-          <a href="polling.html#offerings">Syndicated &amp; bespoke</a>
+          <a href="polling.html#offerings">Syndicated &amp; custom</a>
         </div>
       </li>
       <li class="nav__login"><a href="https://portal.kpipolitical.com">Log in</a></li>
@@ -337,7 +388,7 @@
 
     <!-- r106 (Adam): the ring, redrawn as the loop tape -- the active step
          expands in place; the pace is the loop running. -->
-    <div class="lp" aria-label="The loop: six steps that repeat">
+    <div class="lp" data-plx style="--plx-d:20px" aria-label="The loop: six steps that repeat">
       <div class="lp__bar"><span class="lp__brand">KPI &times; CivicScience &middot; The loop</span><span class="lp__stamp">always in the field</span></div>
       <ol class="lp__steps">
         <li class="lp__s" style="--i:1"><span class="lp__n">01</span><h3>Field the question</h3><p class="lp__d">Yours, or one of 10,000+ already running.</p></li>
@@ -375,19 +426,39 @@
             a day &middot; a new audience possible every time one moves &mdash; nationally, in
             one state, or inside a single congressional district.</p>
         </div>
-        <div class="qf__grid" aria-hidden="true">
-          <div class="qf__slot"><span class="qf__b qf__b--q qf__b--keep">&ldquo;Which of the following best describes your political leanings?&rdquo;<i>QID 494 &middot; always on</i></span><span class="qf__b qf__b--aud">Streaming-only households, by county<i>audience &rarr; deal ID</i></span></div>
-          <div class="qf__slot"><span class="qf__b qf__b--a qf__b--keep">Answers landing now<i>over 1M land network-wide today</i></span><span class="qf__b qf__b--q">&ldquo;How do you receive television service?&rdquo;<i>QID 1516 &middot; always on</i></span></div>
-          <div class="qf__slot"><span class="qf__b qf__b--q qf__b--keep">&ldquo;Should your county approve new data centers?&rdquo;<i>custom &middot; three waves banked</i></span><span class="qf__b qf__b--cus">Your ballot test, written this week<i>custom &middot; invisible to the other side</i></span></div>
-          <div class="qf__slot"><span class="qf__b qf__b--aud qf__b--keep">Persuadable on the economy, undecided Senate<i>audience &rarr; deal ID</i></span><span class="qf__b qf__b--q">Favorability, tracked wave over wave<i>ask again &middot; every wave banks</i></span></div>
-          <div class="qf__slot"><span class="qf__b qf__b--q qf__b--keep">Grocery prices, top concern or not<i>issue salience &middot; always on</i></span><span class="qf__b qf__b--a">A question moved overnight<i>the audience rebuilds itself</i></span></div>
-          <div class="qf__slot"><span class="qf__b qf__b--cus qf__b--keep">School funding, asked only in your district<i>custom &middot; one CD &middot; fields in days</i></span><span class="qf__b qf__b--aud">Early voters who split tickets<i>audience &rarr; deal ID</i></span></div>
-          <div class="qf__slot"><span class="qf__b qf__b--q qf__b--keep">News habits: where they actually hear it<i>media &middot; always on</i></span><span class="qf__b qf__b--q">Broadband, utilities, land use<i>local issues &middot; always on</i></span></div>
-          <div class="qf__slot"><span class="qf__b qf__b--aud qf__b--keep">Veterans&rsquo; households, message-tested<i>audience &rarr; deal ID</i></span><span class="qf__b qf__b--cus">The attack you expect next week, pre-tested<i>custom &middot; yours alone</i></span></div>
-          <div class="qf__slot"><span class="qf__b qf__b--q qf__b--keep">Early, by mail, or on Election Day?<i>turnout &middot; always on</i></span><span class="qf__b qf__b--aud">Mail-ballot households, by DMA<i>audience &rarr; deal ID</i></span></div>
-          <div class="qf__slot"><span class="qf__b qf__b--a qf__b--keep">Support moved four points overnight<i>the audience rebuilt itself by morning</i></span><span class="qf__b qf__b--q">Property taxes: too high, or about right?<i>issue salience &middot; always on</i></span></div>
-          <div class="qf__slot"><span class="qf__b qf__b--aud qf__b--keep">412,000 devices matched<i>composition read attached</i></span><span class="qf__b qf__b--q">Where do you actually get local news?<i>media &middot; always on</i></span></div>
-          <div class="qf__slot"><span class="qf__b qf__b--cus qf__b--keep">Your issue, asked in one district only<i>custom &middot; one CD &middot; fields in days</i></span><span class="qf__b qf__b--a">New wave banked &mdash; ask again<i>every wave banks</i></span></div>
+        <div class="qf__cats" aria-hidden="true">
+          <div class="qf__cat">
+            <p class="qf__cath">Issues</p>
+            <div class="qf__row">
+              <div class="qf__slot"><span class="qf__b qf__b--q qf__b--keep">Grocery prices, top concern or not<i>issue salience &middot; always on</i></span><span class="qf__b qf__b--q">Property taxes: too high, or about right?<i>issue salience &middot; always on</i></span></div>
+              <div class="qf__slot"><span class="qf__b qf__b--q qf__b--keep">&ldquo;Should your county approve new data centers?&rdquo;<i>custom &middot; three waves banked</i></span><span class="qf__b qf__b--q">Broadband, utilities, land use<i>local issues &middot; always on</i></span></div>
+              <div class="qf__slot"><span class="qf__b qf__b--cus qf__b--keep">School funding, asked only in your district<i>custom &middot; one CD &middot; fields in days</i></span><span class="qf__b qf__b--cus">Your issue, asked in one district only<i>custom &middot; yours alone</i></span></div>
+            </div>
+          </div>
+          <div class="qf__cat">
+            <p class="qf__cath">The ballot</p>
+            <div class="qf__row">
+              <div class="qf__slot"><span class="qf__b qf__b--q qf__b--keep">&ldquo;Which of the following best describes your political leanings?&rdquo;<i>QID 494 &middot; always on</i></span><span class="qf__b qf__b--q">Early, by mail, or on Election Day?<i>turnout &middot; always on</i></span></div>
+              <div class="qf__slot"><span class="qf__b qf__b--cus qf__b--keep">Your ballot test, written this week<i>custom &middot; invisible to the other side</i></span><span class="qf__b qf__b--cus">The attack you expect next week, pre-tested<i>custom &middot; yours alone</i></span></div>
+              <div class="qf__slot"><span class="qf__b qf__b--aud qf__b--keep">Persuadable on the economy, undecided Senate<i>audience &rarr; deal ID</i></span><span class="qf__b qf__b--aud">Mail-ballot households, by DMA<i>audience &rarr; deal ID</i></span></div>
+            </div>
+          </div>
+          <div class="qf__cat">
+            <p class="qf__cath">Favorability</p>
+            <div class="qf__row">
+              <div class="qf__slot"><span class="qf__b qf__b--q qf__b--keep">Favorability, tracked wave over wave<i>ask again &middot; every wave banks</i></span><span class="qf__b qf__b--a">Support moved four points overnight<i>the audience rebuilt itself by morning</i></span></div>
+              <div class="qf__slot"><span class="qf__b qf__b--a qf__b--keep">New wave banked &mdash; ask again<i>every wave banks</i></span><span class="qf__b qf__b--q">&ldquo;How closely are you following the race?&rdquo;<i>attention &middot; always on</i></span></div>
+              <div class="qf__slot"><span class="qf__b qf__b--aud qf__b--keep">Veterans&rsquo; households, message-tested<i>audience &rarr; deal ID</i></span><span class="qf__b qf__b--aud">412,000 devices matched<i>composition read attached</i></span></div>
+            </div>
+          </div>
+          <div class="qf__cat">
+            <p class="qf__cath">Ad recall &amp; media</p>
+            <div class="qf__row">
+              <div class="qf__slot"><span class="qf__b qf__b--cus qf__b--keep">&ldquo;Seen, read, or heard anything about the race lately?&rdquo;<i>custom &middot; the recall wave</i></span><span class="qf__b qf__b--a">A question moved overnight<i>the audience rebuilds itself</i></span></div>
+              <div class="qf__slot"><span class="qf__b qf__b--q qf__b--keep">&ldquo;How do you receive television service?&rdquo;<i>QID 1516 &middot; always on</i></span><span class="qf__b qf__b--q">Where do you actually get local news?<i>media &middot; always on</i></span></div>
+              <div class="qf__slot"><span class="qf__b qf__b--aud qf__b--keep">Streaming-only households, by county<i>audience &rarr; deal ID</i></span><span class="qf__b qf__b--a">Answers landing now<i>over 1M land network-wide today</i></span></div>
+            </div>
+          </div>
         </div>
         <p class="qf__foot">Wordings with a QID are in the library today &middot; the rest are the kinds
           of questions it carries &middot; every one can become an audience, and every audience ships
@@ -406,8 +477,14 @@
       .qf__h { font-family: var(--display); color: #fff; font-size: clamp(1.5rem, 2.6vw, 2.1rem);
         margin-top: .45rem; letter-spacing: -.01em; }
       .qf__sub { color: #B9CFDF; font-size: .95rem; max-width: 62ch; margin-top: .55rem; line-height: 1.6; }
-      .qf__grid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: .7rem;
-        margin-top: 1.5rem; }
+      /* r113 (the owner): categories give the wall a hierarchy — issues, the
+         ballot, favorability, ad recall — and the pace slows to a read. */
+      .qf__cats { display: grid; gap: 1.15rem; margin-top: 1.4rem; }
+      .qf__cath { margin: 0 0 .5rem; font-family: var(--label); text-transform: uppercase;
+        letter-spacing: .16em; font-size: .66rem; font-weight: 800; color: var(--lime);
+        display: flex; align-items: center; gap: .6rem; }
+      .qf__cath::after { content: ""; flex: 1; border-top: 1px solid rgba(255,255,255,.14); }
+      .qf__row { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: .7rem; }
       .qf__slot { position: relative; min-height: 96px; }
       .qf__b { position: absolute; inset: 0; display: flex; flex-direction: column;
         justify-content: center; gap: .3rem; padding: .7rem .8rem; border-radius: 10px;
@@ -426,27 +503,27 @@
       .qf__b--cus i { color: var(--lime); opacity: 1; }
       .qf__foot { margin-top: 1.2rem; border-top: 1px solid rgba(255,255,255,.14);
         padding-top: .7rem; font-size: .74rem; color: #8FA9BE; line-height: 1.55; }
-      /* r88: faster, denser — twelve slots, a pop every three-quarters of a second
-         somewhere on the wall, nine-second cycles. Never-ending is the point. */
+      /* r113: eighteen-second cycles, one gentle swap per slot — a category at a
+         time, left to right, top to bottom. Calm enough to actually read. */
       @media (prefers-reduced-motion: no-preference) {
-        .qf__b { animation: qf-pop 9s infinite; }
-        .qf__b:nth-child(2) { animation-delay: 4.5s; }
-        .qf__slot:nth-child(2) .qf__b { animation-delay: 0.4s; } .qf__slot:nth-child(2) .qf__b:nth-child(2) { animation-delay: 4.9s; }
-        .qf__slot:nth-child(3) .qf__b { animation-delay: 0.8s; } .qf__slot:nth-child(3) .qf__b:nth-child(2) { animation-delay: 5.3s; }
-        .qf__slot:nth-child(4) .qf__b { animation-delay: 1.2s; } .qf__slot:nth-child(4) .qf__b:nth-child(2) { animation-delay: 5.7s; }
-        .qf__slot:nth-child(5) .qf__b { animation-delay: 1.6s; } .qf__slot:nth-child(5) .qf__b:nth-child(2) { animation-delay: 6.1s; }
-        .qf__slot:nth-child(6) .qf__b { animation-delay: 2.0s; } .qf__slot:nth-child(6) .qf__b:nth-child(2) { animation-delay: 6.5s; }
-        .qf__slot:nth-child(7) .qf__b { animation-delay: 2.4s; } .qf__slot:nth-child(7) .qf__b:nth-child(2) { animation-delay: 6.9s; }
-        .qf__slot:nth-child(8) .qf__b { animation-delay: 2.8s; } .qf__slot:nth-child(8) .qf__b:nth-child(2) { animation-delay: 7.3s; }
-        .qf__slot:nth-child(9) .qf__b { animation-delay: 3.2s; } .qf__slot:nth-child(9) .qf__b:nth-child(2) { animation-delay: 7.7s; }
-        .qf__slot:nth-child(10) .qf__b { animation-delay: 3.6s; } .qf__slot:nth-child(10) .qf__b:nth-child(2) { animation-delay: 8.1s; }
-        .qf__slot:nth-child(11) .qf__b { animation-delay: 4.0s; } .qf__slot:nth-child(11) .qf__b:nth-child(2) { animation-delay: 8.5s; }
-        .qf__slot:nth-child(12) .qf__b { animation-delay: 4.4s; } .qf__slot:nth-child(12) .qf__b:nth-child(2) { animation-delay: 8.9s; }
+        .qf__b { animation: qf-pop 18s infinite; }
+        .qf__cat:nth-child(1) .qf__slot:nth-child(1) .qf__b { animation-delay: 0s; }    .qf__cat:nth-child(1) .qf__slot:nth-child(1) .qf__b:nth-child(2) { animation-delay: 9s; }
+        .qf__cat:nth-child(1) .qf__slot:nth-child(2) .qf__b { animation-delay: .2s; }  .qf__cat:nth-child(1) .qf__slot:nth-child(2) .qf__b:nth-child(2) { animation-delay: 9.2s; }
+        .qf__cat:nth-child(1) .qf__slot:nth-child(3) .qf__b { animation-delay: .4s; }   .qf__cat:nth-child(1) .qf__slot:nth-child(3) .qf__b:nth-child(2) { animation-delay: 9.4s; }
+        .qf__cat:nth-child(2) .qf__slot:nth-child(1) .qf__b { animation-delay: .5s; }  .qf__cat:nth-child(2) .qf__slot:nth-child(1) .qf__b:nth-child(2) { animation-delay: 9.5s; }
+        .qf__cat:nth-child(2) .qf__slot:nth-child(2) .qf__b { animation-delay: .7s; } .qf__cat:nth-child(2) .qf__slot:nth-child(2) .qf__b:nth-child(2) { animation-delay: 9.7s; }
+        .qf__cat:nth-child(2) .qf__slot:nth-child(3) .qf__b { animation-delay: .9s; }  .qf__cat:nth-child(2) .qf__slot:nth-child(3) .qf__b:nth-child(2) { animation-delay: 9.9s; }
+        .qf__cat:nth-child(3) .qf__slot:nth-child(1) .qf__b { animation-delay: 1s; }  .qf__cat:nth-child(3) .qf__slot:nth-child(1) .qf__b:nth-child(2) { animation-delay: 10s; }
+        .qf__cat:nth-child(3) .qf__slot:nth-child(2) .qf__b { animation-delay: 1.2s; } .qf__cat:nth-child(3) .qf__slot:nth-child(2) .qf__b:nth-child(2) { animation-delay: 10.2s; }
+        .qf__cat:nth-child(3) .qf__slot:nth-child(3) .qf__b { animation-delay: 1.4s; }  .qf__cat:nth-child(3) .qf__slot:nth-child(3) .qf__b:nth-child(2) { animation-delay: 10.4s; }
+        .qf__cat:nth-child(4) .qf__slot:nth-child(1) .qf__b { animation-delay: 1.5s; }  .qf__cat:nth-child(4) .qf__slot:nth-child(1) .qf__b:nth-child(2) { animation-delay: 10.5s; }
+        .qf__cat:nth-child(4) .qf__slot:nth-child(2) .qf__b { animation-delay: 1.7s; } .qf__cat:nth-child(4) .qf__slot:nth-child(2) .qf__b:nth-child(2) { animation-delay: 10.7s; }
+        .qf__cat:nth-child(4) .qf__slot:nth-child(3) .qf__b { animation-delay: 1.9s; }    .qf__cat:nth-child(4) .qf__slot:nth-child(3) .qf__b:nth-child(2) { animation-delay: 10.9s; }
       }
       @keyframes qf-pop {
         0% { opacity: 0; transform: translateY(9px) scale(.96); }
-        3.5% { opacity: 1; transform: none; }
-        46% { opacity: 1; transform: none; }
+        2% { opacity: 1; transform: none; }
+        47.5% { opacity: 1; transform: none; }
         50%, 100% { opacity: 0; transform: translateY(-6px) scale(.98); }
       }
       /* Reduced motion (and anything that can't run the loop): the first bubble of each
@@ -457,11 +534,13 @@
         .qf__slot { min-height: 0; }
       }
       @media (max-width: 880px) {
-        .qf__grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
-        .qf__slot:nth-child(n+11) { display: none; }
+        .qf__row { grid-template-columns: repeat(2, minmax(0,1fr)); }
+        .qf__row .qf__slot:nth-child(3) { display: none; }
       }
       @media (max-width: 560px) {
-        .qf__slot { min-height: 108px; }
+        .qf__row { grid-template-columns: 1fr; }
+        .qf__row .qf__slot:nth-child(n+2) { display: none; }
+        .qf__slot { min-height: 96px; }
         .qf__b { font-size: .78rem; }
       }
     </style>
@@ -497,14 +576,20 @@
       <div class="fb__rule" aria-hidden="true"><span>SEP</span><i></i><span>NOV</span></div>
       <ol class="fb__scroll" aria-label="One flight, Labor Day to Election Day, six pages">
         <li class="fb__page">
+          <span class="fb__folio" aria-hidden="true">01</span>
           <p class="fb__date">SEP 7 &middot; LABOR DAY</p>
           <h3 class="fb__h">The questions go in.</h3>
           <p class="fb__p">The ballot test and the issue question, written with you
             &mdash; yours alone, invisible to the other side. In the field in days,
             nationally or inside a single district.</p>
+          <div class="fb__qs" aria-hidden="true">
+            <p class="fb__q"><span>Q1 &middot; the ballot test</span>&ldquo;If the election were held today&hellip;&rdquo; &mdash; completed with your names.</p>
+            <p class="fb__q"><span>Q2 &middot; the issue</span>The argument you need read, worded with you.</p>
+          </div>
           <p class="fb__tag">custom &middot; wave 1 banks</p>
         </li>
         <li class="fb__page">
+          <span class="fb__folio" aria-hidden="true">02</span>
           <p class="fb__date">MID-SEPTEMBER</p>
           <h3 class="fb__h">Create the audience.</h3>
           <p class="fb__p">Persuadable on the economy, undecided on the race &mdash;
@@ -515,35 +600,53 @@
           </div>
         </li>
         <li class="fb__page">
+          <span class="fb__folio" aria-hidden="true">03</span>
           <p class="fb__date">LATE SEPTEMBER</p>
           <h3 class="fb__h">The buy goes live.</h3>
           <p class="fb__p">The deal ID runs where you already buy, and delivery starts
             printing beside the answers the same week, labeled.</p>
+          <div class="fb__live" aria-hidden="true"><span class="fb__pulse"></span>live &middot; delivery prints beside the answers</div>
           <p class="fb__tag">your seat or ours</p>
         </li>
         <li class="fb__page">
+          <span class="fb__folio" aria-hidden="true">04</span>
           <p class="fb__date">MID-OCTOBER</p>
           <h3 class="fb__h">The second question.</h3>
-          <p class="fb__p">&ldquo;Seen, read, or heard anything about the race
-            lately?&rdquo; The recall wave, fielded to the same panel while the
-            flight is still running.</p>
+          <p class="fb__ask">&ldquo;Seen, read, or heard anything about the race lately?&rdquo;</p>
+          <p class="fb__p">The recall wave, fielded to the same panel while the flight
+            is still running.</p>
           <p class="fb__tag">custom &middot; wave 2 banks</p>
         </li>
         <li class="fb__page">
+          <span class="fb__folio" aria-hidden="true">05</span>
           <p class="fb__date">LATE OCTOBER</p>
           <h3 class="fb__h">Read the lift. Refine the audience.</h3>
           <p class="fb__p">Recall and movement wave over wave, beside what was on the
             air when it moved &mdash; and the audience rebuilds from what people are
             saying now.</p>
+          <div class="fb__lift" aria-hidden="true">
+            <svg viewBox="0 0 220 62">
+              <line x1="8" y1="52" x2="212" y2="52" stroke="#DCE4EC" stroke-width="1.5"/>
+              <path d="M30 44 L110 31 L190 15" fill="none" stroke="#7CB342" stroke-width="2.5" stroke-linecap="round"/>
+              <circle cx="30" cy="44" r="4" fill="#0D2E4A"/>
+              <circle cx="110" cy="31" r="4" fill="#0D2E4A"/>
+              <circle cx="190" cy="15" r="4.5" fill="#7CB342"/>
+              <text x="30" y="62" text-anchor="middle" font-family="Inter,sans-serif" font-size="8.5" font-weight="700" fill="#5B7085">WAVE 1</text>
+              <text x="110" y="62" text-anchor="middle" font-family="Inter,sans-serif" font-size="8.5" font-weight="700" fill="#5B7085">WAVE 2</text>
+              <text x="190" y="62" text-anchor="middle" font-family="Inter,sans-serif" font-size="8.5" font-weight="700" fill="#4F7A25">WAVE 3</text>
+            </svg>
+          </div>
           <p class="fb__fine">Matched commercial tests: declared audiences ran
             36&ndash;80% higher click-through, 45&ndash;62% higher conversion &mdash;
             the partner&rsquo;s numbers, not a guarantee.</p>
         </li>
         <li class="fb__page fb__page--end">
+          <span class="fb__folio" aria-hidden="true">06</span>
           <p class="fb__date">NOV 3 &middot; ELECTION DAY</p>
           <h3 class="fb__h">Every wave banked.</h3>
           <p class="fb__p">You know what moved, when it moved, and what was on the air
             when it did &mdash; dated, on the shelf, ready for the postmortem.</p>
+          <p class="fb__waves" aria-hidden="true"><span>WAVE 1 &middot; SEP</span><span>WAVE 2 &middot; OCT</span><span>WAVE 3 &middot; NOV</span></p>
           <p class="fb__go"><a href="contact.html">Run it on your race &rarr;</a></p>
         </li>
       </ol>
@@ -689,43 +792,6 @@
       <p class="small" style="margin:.55rem 0 0;font-family:var(--mono);font-size:.72rem;letter-spacing:.03em;color:var(--ink-3)">ONE CD &middot; QID 9918 &middot; 4,800 declared answers, trailing 90 days &rarr; the effective n prints before the IO &middot; synthetic example</p>
     </div>
 
-    <!-- r97 (Adam): weighting confidence without a copyable recipe. -->
-    <div class="mt3" data-rise>
-      <div class="center" style="margin-bottom:1.4rem">
-        <h3>How the audience holds up</h3>
-      </div>
-      <div class="grid grid--2" style="max-width:980px;margin-inline:auto">
-        <div class="card card--flag">
-          <p class="card__k">The declared seed</p>
-          <p class="small" style="margin:0">Every audience starts from what people actually
-            answered &mdash; never inferred interest, never the same rented voter file every
-            side is buying. Different inputs find different people, so the reach is net-new
-            &mdash; and the questions that built it are named, auditable line by line.</p>
-        </div>
-        <div class="card card--flag">
-          <p class="card__k">The licensed spine</p>
-          <p class="small" style="margin:0">Experian-class consumer attributes carry every
-            profile to census benchmarks &mdash; used only for the weighting and the
-            identifier match.</p>
-        </div>
-        <div class="card card--flag">
-          <p class="card__k">The freshness window</p>
-          <p class="small" style="margin:0">Answers age out on a stated window and the
-            audience rebuilds from what people are saying now &mdash; instead of decaying
-            like a modeled lookalike. The through-date prints on every read, and it ships
-            as a deal ID with no onboarding hop to bleed it out.</p>
-        </div>
-        <div class="card card--flag">
-          <p class="card__k">The check before the dollar</p>
-          <p class="small" style="margin:0">Every audience ships with a composition read and its
-            effective n before the IO &mdash; you see what you are buying while it is
-            still refusable. Anything modeled sits apart, labeled.</p>
-        </div>
-      </div>
-      <p class="small center mt2" style="color:var(--ink-3)">The full weighting spec &mdash;
-        benchmarks, windows, and the QA gates &mdash; opens in the walkthrough: enough to
-        audit us, not enough to copy us.</p>
-    </div>
   </div>
 </section>
 
@@ -777,22 +843,6 @@
   </div>
 </section>
 
-<!-- ============ FINAL CTA ============ -->
-
-<section class="section section--mega cta-final">
-  <div class="wrap center">
-    <p class="eyebrow eyebrow--plain" style="justify-content:center">Next step</p>
-    <h2>Bring the question your race is arguing about.</h2>
-    <p class="lede" style="margin-inline:auto">We will check it against the library on the
-      call, and show what an audience built from the answers looks like on a buy. The
-      competitive side of the same product is on the <a href="platform.html">platform
-      page</a>.</p>
-    <div class="btn-row mt2" style="justify-content:center">
-      <a class="btn btn--lime btn--lg" href="contact.html">Request a demo</a>
-      <a class="btn btn--outline btn--lg" href="mailto:info@kpipolitical.com">Talk to us</a>
-    </div>
-  </div>
-</section>
 </main>
 
 <section class="nextrail">
@@ -848,6 +898,6 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r111"></script>
+<script src="assets/js/site.js?v=r113"></script>
 </body>
 </html>
