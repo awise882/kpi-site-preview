@@ -92,7 +92,7 @@
     }
   });
 
-  /* ---- the explorable air war (ruling 16, index) ----
+  /* ---- the explorable market walls (ruling 16, index) ----
      JS-off the section renders all three market panels stacked, complete; this
      block only ADDS the market rail and collapses the stage to the chosen panel.
      Hover, click and keyboard all drive it; nothing in it moves on its own. */
@@ -532,7 +532,7 @@
     btn.hidden = false;
     var note = [
       'THE BOOK - MORNING VIEW - posted thru Aug 30, 2026',
-      'North River Senate: +$180K posted overnight (Ellery, WZQV Cleveland, opens Sep 7); Heartland Priorities PAC\'s :30 "First Light" runs Hulu-only, not yet on broadcast. Aired $5.5M / booked fwd $1.7M.',
+      'North River Senate: +$95K posted overnight (Ellery, WQZL Columbus, prime, flight opens Sep 7); Heartland Priorities PAC\'s :30 "First Light" runs Hulu-only, not yet on broadcast. Aired $5.5M / booked fwd $1.7M.',
       'Midstate Attorney General: +$3.3M this week; challenger side leads aired 60/40. Aired $16.0M / booked fwd $13.2M.',
       'North River Governor: +$1.8M booked forward, two weeks out. Aired $9.6M / booked fwd $4.5M.',
       'Granite Senate primary: WENT DARK overnight; remaining booked dollars pulled.',
@@ -615,4 +615,20 @@
     }, { passive: true });
     draw();
   } catch (e) {}
+})();
+
+/* r136: the press credit copies exactly — the reporter retypes nothing at
+   11 PM (round 21). The button ships hidden; it appears only when the
+   clipboard is actually available. */
+(function () {
+  var b = document.getElementById('copy-credit');
+  if (!b || !navigator.clipboard || !navigator.clipboard.writeText) return;
+  b.hidden = false;
+  b.addEventListener('click', function () {
+    navigator.clipboard.writeText(b.getAttribute('data-credit')).then(function () {
+      var t = b.textContent;
+      b.textContent = 'Copied ✓';
+      setTimeout(function () { b.textContent = t; }, 1600);
+    });
+  });
 })();

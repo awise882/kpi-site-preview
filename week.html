@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r135">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r136">
 <style>
   /* r106: every hero its own composition -- this page opens on the two desks
      themselves. Text left; the buyer's and seller's doors right. */
@@ -165,7 +165,7 @@
       </div>
       <p class="wk__cue" aria-hidden="true">Same dataset &mdash; click to switch desks</p>
 
-    <article class="wk__story" id="wk-buy">
+    <article class="wk__story" id="wk-buy" role="tabpanel" aria-labelledby="wk-tab-buy">
     <h2 class="wk__story-h">The buyer's week</h2>
 
     <!-- r105 (the owner's call): ONE pinned stage where the scroll changes what
@@ -271,10 +271,9 @@
                 <div class="wk__copy">
                   <p>They booked early news &mdash; so pull what early news actually cleared.
                     The page in hand: your $290 quote against $260 cleared in class &mdash;
-                    $30 a spot, <b class="num">$12K</b> back across a 400-spot flight. And the
-                    booked week that cleared short shows as the gap between its own columns:
-                    Your flight booked <b class="num">$96K</b>, aired <b class="num">$71K</b>,
-                    the $25K gap flagged before the make-good call.</p>
+                    $30 a spot, <b class="num">$12K</b> back across a 400-spot,
+                    $116K flight. The short-cleared week flags itself on the page,
+                    before the make-good call.</p>
                 </div>
               </div>
               <div class="wk__art">
@@ -283,6 +282,7 @@
                   <div class="wk-doc__row"><span>Your quote</span><span class="num"><b>$290</b></span></div>
                   <div class="wk-doc__row"><span>Cleared in class, wk of Aug 3</span><span class="num"><b>$260</b></span><span class="wk-doc__hi num">carry the page into the call</span></div>
                   <div class="wk-doc__row"><span class="wk-doc__dim">Outside group class reads separately: <b class="num">$355</b> &middot; Q4 peak $445 / $610</span></div>
+                  <div class="wk-doc__row"><span>Booked vs aired, your flight</span><span class="num"><b>$96K</b> / <b>$71K</b></span><span class="wk-doc__hi num">$25K gap &middot; before the make-good call</span></div>
                   <p class="wk-doc__note">Illustrative rates, real market &middot; the full rate ledger is on
                     <a href="monitoring.html#fcc-rates">the monitoring page</a>.</p>
                 </div>
@@ -312,7 +312,7 @@
     <!-- r113: the seller's week, same device — four beats on one pinned stage.
          Canon figures from the boards below (Columbus, WQZL): $3.8M aired, 25%
          share, 19% forward book, $432K streaming est., +$272K at your share. -->
-    <article class="wk__story" id="wk-sell">
+    <article class="wk__story" id="wk-sell" role="tabpanel" aria-labelledby="wk-tab-sell">
     <h2 class="wk__story-h">The seller's week</h2>
     <p class="small" style="max-width:70ch;margin:0 0 1rem">Station, rep firm, or app
       &mdash; the same week from any selling desk. App and FAST sellers: your board is
@@ -483,7 +483,7 @@
     <div class="pb__panel mt3" role="tabpanel" id="order-flow" aria-labelledby="pb-tab-orderflow">
       <p class="dek" style="margin-bottom:1.2rem">The market's full order flow with your own
         air alongside it, <a href="platform.html#buy-sheet">in the same view your buyers
-        read</a> &mdash; your share stops being an estimate (duopoly? both call signs read combined or apart),
+        read</a> &mdash; your share stops being an estimate,
         and the same public file <a href="monitoring.html#fcc-rates">defends your rate</a>.
         Price the window before it opens: the market&rsquo;s filed political rates run
         flight over flight, last cycle against this one.</p>
@@ -493,7 +493,7 @@
     <!-- The seller's screen: the market's order flow, advertiser by advertiser, with the
          seller's own air marked. Same rc- recreation pattern as the buyer surfaces. -->
     <div class="rc-seller-stage" data-rise>
-<div class="rc rc-seller" role="table" aria-label="Market order flow: six advertisers, aired dollars, booked forward, and aired share. Synthetic data.">
+<div class="rc rc-seller">
   <div class="rc-seller-toolbar">
     <span class="rc-seller-brand"><span class="rc-seller-dot"></span>KPI &middot; Market Order Flow</span>
     <button class="rc-seller-export" type="button" tabindex="-1" aria-hidden="true">&#8595; Excel</button>
@@ -508,6 +508,7 @@
     <span class="rc-seller-tot">$3.8M aired &middot; $432K streaming est (statewide at launch) &middot; $1.2M booked fwd</span>
   </div>
 
+  <div role="table" aria-label="Market order flow: six advertisers, aired dollars, booked forward, and aired share. Synthetic data.">
   <div class="rc-seller-head" role="row">
     <span role="columnheader">Advertiser</span><span class="rc-seller-num-h" role="columnheader">Aired / est.</span><span class="rc-seller-num-h" role="columnheader">Booked fwd</span><span class="rc-seller-num-h" role="columnheader">Aired share</span>
   </div>
@@ -554,6 +555,7 @@
       <span class="rc-seller-share" role="cell"><span class="rc-seller-track"><span class="rc-seller-fill" style="width:24%"></span></span><b>8%</b></span>
     </div>
   </div>
+  </div>
 
   <div class="rc-seller-own">
     <div class="rc-seller-own-lab"><span>Your air &middot; WQZL</span><span class="rc-seller-own-val">$0.95M of $3.8M aired &middot; 25% share</span></div>
@@ -563,7 +565,7 @@
   <div class="rc-seller-foot">
     <details class="mdet" open><summary>How to read this board</summary>
     <p>Real market; synthetic stations, advertisers and figures &middot; your air = the subscribing station</p>
-    <p>Share = share of the $3.8M aired in Columbus, stated window, stated channels &middot; the streaming row is estimated and carries no share of aired &middot; aired and booked kept apart &middot; TV posted through Aug 18, streaming estimated through Aug 11, 2026 &middot; impression grain runs in the top 58 markets; dollar estimates post statewide at launch &mdash; the split here illustrates the read</p>
+    <p>Share = share of the $3.8M aired in Columbus, stated window, stated channels &middot; the streaming row is estimated and carries no share of aired &middot; aired and booked kept apart &middot; TV posted through Aug 18, streaming estimated through Aug 11, 2026 &middot; the grain rule is <a href="monitoring.html#grain">drawn once, on monitoring</a> &mdash; the split here illustrates the read</p>
     </details>
   </div>
 </div>
@@ -848,7 +850,7 @@
   <p class="rc-classgap-read">The 18%-vs-4% gap on free ad-supported TV is the pitch.</p>
   <div class="rc-classgap-foot">
     <p>Real state; synthetic advertiser and shares. Measured streaming spend by platform class, stated window, estimated; each column sums to 100%</p>
-    <p>Same grain rule as the order board above: top-58 impressions per market, dollars statewide at launch &mdash; detection lands everywhere either way</p>
+    <p>Same grain rule as the order board above &mdash; <a href="monitoring.html#grain">drawn once, on monitoring</a></p>
     <p>From the measured market &mdash; never a platform&rsquo;s own logs</p>
   </div>
 </div>
@@ -1059,6 +1061,6 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r135"></script>
+<script src="assets/js/site.js?v=r136"></script>
 </body>
 </html>

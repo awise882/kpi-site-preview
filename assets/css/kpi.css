@@ -47,7 +47,7 @@
 
   /* --- partisan encoding. Separate system. Never mixes with brand colors. --- */
   --dem: #2C5F9E;
-  --rep: #B03A48;
+  --rep: #97ABBC; /* party ink law: D navy / R slate — no red (r131 ruling) */
   --dem-soft: #C8D8EC;
   --rep-soft: #EBC8CC;
 
@@ -2660,7 +2660,7 @@ details.mdet--keep > summary { display: block; pointer-events: none; font-weight
    viewports keep 1:1 so nothing spills). */
 @media (min-width: 1050px) {
   html.scrub .wkx__beat .wk__art { transform: scale(1.09); transform-origin: top left; }
-  @media (min-width: 1240px) { html.scrub .wkx__beat .wk__art { transform: scale(1.12); transform-origin: top right; } }
+  @media (min-width: 1240px) { html.scrub .wkx__beat .wk__art { transform: scale(1.05); transform-origin: top right; } }
   html.scrub .wkx__beat--2 .wk__art { transform: none; }
 }
 /* Polling's ending band tightens; the relight is the finale. */
@@ -2845,7 +2845,7 @@ details.mdet--keep > summary { display: block; pointer-events: none; font-weight
    tabs grid up instead of wrapping into a cloud. */
 @media (max-width: 880px) {
   .kbd-hint { display: none; }
-  .pb__rail { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; }
+  .pb--live .pb__rail { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; }
 }
 
 /* ===== r127 — the teardown answered ===== */
@@ -3005,6 +3005,7 @@ details.mdet--keep > summary { display: block; pointer-events: none; font-weight
   100% { background: var(--lime); }
 }
 @keyframes mtl-in {
-  0% { opacity: 0; transform: translateY(18px); border-top-color: var(--rule); }
-  100% { opacity: 1; transform: none; border-top-color: var(--lime); }
+  0% { opacity: 0; visibility: hidden; transform: translateY(18px); border-top-color: var(--rule); }
+  8% { visibility: visible; }
+  100% { opacity: 1; visibility: visible; transform: none; border-top-color: var(--lime); }
 }

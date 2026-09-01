@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r135">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r136">
 <style>
   /* The "what it exports" line that closes each app section. */
   .exports { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; margin-top: 1.3rem; }
@@ -262,7 +262,7 @@
         <p class="pca__big">North River Senate &mdash; aired + booked, by channel</p>
         <p class="pca__row num">BROADCAST $3.6M &middot; LOCAL CABLE $1.5M &middot; RADIO $0.3M</p>
         <svg class="pca__bars" viewBox="0 0 300 12" aria-hidden="true" style="display:block;width:100%;max-width:340px;margin:.2rem 0 .3rem"><rect x="0" y="2" width="199" height="8" fill="#1B4F72"/><rect x="201" y="2" width="82" height="8" fill="#5B7C96"/><rect x="285" y="2" width="15" height="8" fill="#8FA9BE"/></svg>
-        <p class="pca__row num">STREAMING EST. MIN $1.58M &middot; CAUGHT FLOOR $960K &mdash; KEPT APART</p>
+        <p class="pca__row num">STREAMING EST. MIN $1.58M &middot; CAUGHT FLOOR $960K &middot; EST. THRU AUG 7 &mdash; KEPT APART</p>
         <p class="pca__row num">BOOKED FWD $1.7M &middot; ITS OWN LINE &middot; POSTED THRU AUG 14, 2026</p>
       </div>
       <p class="feed__note">the full board opens live in the demo</p>
@@ -581,7 +581,7 @@
 }
 .rc-scoreboard-row:hover{ background:#F4F8FB; }
 .rc-scoreboard-lead-d{ border-left-color:#2C5F9E; }
-.rc-scoreboard-lead-r{ border-left-color:#B03A48; }
+.rc-scoreboard-lead-r{ border-left-color:#5B7085; }
 .rc-scoreboard-toprow{ animation:rc-scoreboard-settle 1.8s ease-out .2s both; }
 
 .rc-scoreboard-l1{ display:flex; align-items:baseline; gap:5px; }
@@ -617,7 +617,7 @@
   font-variant-numeric:tabular-nums lining-nums;
 }
 .rc-scoreboard-pd{ color:#2C5F9E; }
-.rc-scoreboard-pr{ color:#B03A48; }
+.rc-scoreboard-pr{ color:#5B7085; }
 
 /* aired v booked split line: only some rows carry it, demonstrating the separation */
 .rc-scoreboard-l3{ display:flex; justify-content:space-between; gap:6px; margin-top:2px; flex-wrap:wrap; }
@@ -627,7 +627,7 @@
   font-variant-numeric:tabular-nums lining-nums; white-space:nowrap;
 }
 .rc-scoreboard-split-d{ color:#2C5F9E; }
-.rc-scoreboard-split-r{ color:#B03A48; }
+.rc-scoreboard-split-r{ color:#5B7085; }
 
 /* share-of-money bar: D fills from left, R from right */
 .rc-scoreboard-bar{
@@ -641,7 +641,7 @@
   animation:rc-scoreboard-draw .7s ease-out;
 }
 .rc-scoreboard-fr{
-  display:block; height:100%; background:#B03A48;
+  display:block; height:100%; background:#97ABBC;
   transform-origin:right center;
   animation:rc-scoreboard-draw .7s ease-out;
 }
@@ -727,7 +727,7 @@
           <th class="rcbk-n" scope="col">Aired $</th><th class="rcbk-n" scope="col">Booked fwd</th><th scope="col">Alerts</th>
         </tr></thead>
         <tbody>
-          <tr class="rcbk-row rcbk-row--hot" aria-expanded="true"><th scope="row">North River Senate</th><td>3</td><td class="rcbk-d num">+$180K posted</td><td class="rcbk-n num">$5.5M</td><td class="rcbk-n num">$1.7M</td><td><span class="rcbk-a num">2</span></td></tr>
+          <tr class="rcbk-row rcbk-row--hot" aria-expanded="true"><th scope="row">North River Senate</th><td>3</td><td class="rcbk-d num">+$95K posted</td><td class="rcbk-n num">$5.5M</td><td class="rcbk-n num">$1.7M</td><td><span class="rcbk-a num">2</span></td></tr>
           <tr class="rcbk-drow"><td colspan="6"><b>Ellery for Senate</b> +$95K on WQZL, Columbus &mdash; prime, posted this morning, flight opens Sep 7 &middot; Heartland Priorities PAC&rsquo;s :30 &ldquo;First Light&rdquo; still streaming-only at this stamp &mdash; nothing on broadcast &mdash; tape + transcript attached &middot; streaming est. <span class="num">$1.58M</span> rides with the total &middot; <a href="#scoreboard">open the race &rarr;</a></td></tr>
           <tr class="rcbk-row" aria-expanded="true"><th scope="row">Midstate Attorney General</th><td>5</td><td class="rcbk-d num">+$3.3M this week</td><td class="rcbk-n num">$16.0M</td><td class="rcbk-n num">$13.2M</td><td><span class="rcbk-a num">1</span></td></tr>
           <tr class="rcbk-drow"><td colspan="6">Challenger side takes the lead on aired dollars, 60/40 &middot; streaming est. <span class="num">$1.1M</span> kept apart &middot; <a href="#scoreboard">open the race &rarr;</a></td></tr>
@@ -1094,7 +1094,7 @@
       <div class="rcb2-cap">
         <span class="rcb2-sw rcb2-swp"></span>Posted weeks are pink
         <span class="rcb2-sw rcb2-swc"></span>the blue rule is this week
-        <em>Booked to Nov 3 in the export&thinsp;&#8594;</em>
+        <em>Flight totals run to Nov 3 &mdash; beyond the three printed weeks &middot; the full span is in the export&thinsp;&#8594;</em>
       </div>
     </section>
 
@@ -1354,7 +1354,7 @@ tbody th.rcb2-m{font-weight:400;background:transparent}
   .rc-explorer{
     --rce-navy:#1B4F72; --rce-deep:#0D2E4A; --rce-ink:#08243B;
     --rce-lime:#A8D14E; --rce-blue:#2D8BBA; --rce-sky:#5B9BD5; --rce-teal:#00ACC1;
-    --rce-dem:#2C5F9E; --rce-rep:#B03A48;
+    --rce-dem:#2C5F9E; --rce-rep:#5B7085;
     --rce-mute:rgba(13,46,74,.72); --rce-faint:rgba(13,46,74,.68); --rce-line:rgba(13,46,74,.12);
     --rce-mono:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-family:'Inter',-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;
@@ -1475,7 +1475,7 @@ tbody th.rcb2-m{font-weight:400;background:transparent}
       booked before a single spot aired; the case against Hale added $410K behind &ldquo;A rule they wrote,&rdquo;
       tested in the spring and dropped. Aired money: $5.5M across three markets, posted
       channels.</p>
-    <p class="rc-bdemo-receipt">Posted through Aug 30, 2026; posted channels: broadcast, local cable, radio; streaming caught floor $960K on its own line, estimated minimum $1.58M in the product</p>
+    <p class="rc-bdemo-receipt">Posted through Aug 30, 2026; posted channels: broadcast, local cable, radio; streaming caught floor $960K on its own line, estimated minimum $1.58M (est. thru Aug 7) in the product</p>
   </div>
   <div class="rc-bdemo-a" id="bd-a2" role="tabpanel" aria-labelledby="bd-q2" hidden>
     <p class="rc-bdemo-ans">Six stations: four in Columbus, two in Cleveland; WQZL holds 41%
@@ -1700,6 +1700,6 @@ tbody th.rcb2-m{font-weight:400;background:transparent}
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r135"></script>
+<script src="assets/js/site.js?v=r136"></script>
 </body>
 </html>
