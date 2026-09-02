@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r153">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r154">
 <style>
   /* r106 (Adam): the loop IS the landing. Text left, the loop tape right, one
      viewport. The tape is the old ring redrawn in the house receipt grammar:
@@ -186,7 +186,7 @@
     to { opacity: 1; transform: none; } }
   /* phones: the artifacts are desktop furniture — the stacked pages stay lean */
   @media (max-width: 640px) {
-    .fb__qs, .fb__live, .fb__lift, .fb__waves, .fb__folio { display: none; }
+    .fb__qs, .fb__live, .fb__waves, .fb__folio { display: none; }
   }
 
   /* -- scene 3: THE SPARSE MATRIX, the signature visual (§6.5). Default:
@@ -324,12 +324,12 @@
 <a class="skip" href="#main">Skip to content</a>
 
 
-<nav class="nav nav--light" data-open="false">
+<nav aria-label="Primary" class="nav nav--light" data-open="false">
   <div class="wrap nav__in">
     <a class="nav__brand" href="index.html" aria-label="Kinetiq Political Insights, home">
       <img src="assets/img/kpi-logo.png" alt="Kinetiq Political Insights">
     </a>
-    <ul class="nav__links">
+    <ul class="nav__links" id="nav-links">
       <li class="nav__item nav__home"><a href="index.html">Home</a></li>
       <li class="nav__item"><a href="monitoring.html">Monitoring</a>
         <div class="nav__drop" aria-label="Section shortcuts">
@@ -369,11 +369,11 @@
       <a class="btn btn--outline btn--sm" href="https://portal.kpipolitical.com">Log in</a>
       <a class="btn btn--lime btn--sm" href="contact.html">Request a demo</a>
     </div>
-    <button class="nav__toggle" aria-expanded="false" aria-label="Menu">Menu</button>
+    <button class="nav__toggle" aria-expanded="false" aria-label="Menu" aria-controls="nav-links">Menu</button>
   </div>
 </nav>
 <nav class="ptabs" aria-label="Sections on this page">
-  <button class="ptabs__stamp num" type="button" aria-expanded="false" aria-controls="ptabs-menu"></button>
+  <button class="ptabs__stamp num" type="button" aria-label="Jump to a section on this page" aria-expanded="false" aria-controls="ptabs-menu"></button>
   <div class="wrap ptabs__in" id="ptabs-menu">
     <span class="ptabs__k" aria-hidden="true">VOTER OPINION &mdash;</span>
     <a href="#story" data-t="How it works"><i>01</i>How it works</a>
@@ -420,7 +420,7 @@
         <li class="lp__s" style="--i:1"><span class="lp__n">01</span><h3>Field the question</h3><p class="lp__d">Yours, or one of 10,000+ already running.</p></li>
         <li class="lp__s" style="--i:2"><span class="lp__n">02</span><h3>Answers stream back</h3><p class="lp__d">Over 1M a day, nationwide &mdash; the read builds in days.</p></li>
         <li class="lp__s" style="--i:3"><span class="lp__n">03</span><h3>Build the audience</h3><p class="lp__d">From what people actually said. Declared, not inferred.</p></li>
-        <li class="lp__s" style="--i:4"><span class="lp__n">04</span><h3>Activate</h3><p class="lp__d">A deal ID lands in the seat you already buy from &mdash.</p></li>
+        <li class="lp__s" style="--i:4"><span class="lp__n">04</span><h3>Activate</h3><p class="lp__d">A deal ID lands in the seat you already buy from.</p></li>
         <li class="lp__s" style="--i:5"><span class="lp__n">05</span><h3>Read delivery</h3><p class="lp__d">What you delivered, next to what they spent &mdash; labeled.</p></li>
         <li class="lp__s" style="--i:6"><span class="lp__n">06</span><h3>Re-field and optimize</h3><p class="lp__d">Ask again, read what moved, shift the buy while it still matters.</p></li>
       </ol>
@@ -616,7 +616,7 @@
           <span class="fb__folio" aria-hidden="true">02</span>
           <p class="fb__date">MID-SEPTEMBER</p>
           <h3 class="fb__h">Create the audience.</h3>
-          <p class="fb__p">Persuadable on the economy, undecided on the race &mdash.</p>
+          <p class="fb__p">Persuadable on the economy, undecided on the race.</p>
           <div class="tstep-art">
             <p class="tstep-art__row"><span class="dealid">KPI-PMP-2026-0841</span><span class="dealid-tag">Deal ID &middot; in your seat</span></p>
             <span class="tstep-art__meta num">matched audience 412,000 devices &middot; composition read attached &middot; illustrative</span>
@@ -626,7 +626,6 @@
           <span class="fb__folio" aria-hidden="true">03</span>
           <p class="fb__date">LATE SEPTEMBER</p>
           <h3 class="fb__h">The buy goes live.</h3>
-          <p class="fb__p">.</p>
           <div class="fb__live" aria-hidden="true"><span class="fb__pulse"></span>live &middot; delivery prints with the answers</div>
           <p class="fb__fine num" style="margin-top:.5rem">WEEK 1 &middot; 2.1M IMPRESSIONS DELIVERED &middot; LABELED &mdash; SYNTHETIC ROW</p>
           <p class="fb__tag">your seat or ours</p>
@@ -644,7 +643,6 @@
           <span class="fb__folio" aria-hidden="true">05</span>
           <p class="fb__date">LATE OCTOBER</p>
           <h3 class="fb__h">Read the lift. Refine the audience.</h3>
-          <p class="fb__p">.</p>
           <div class="fb__lift" aria-hidden="true">
             <svg viewBox="0 0 220 62">
               <line x1="8" y1="52" x2="212" y2="52" stroke="#DCE4EC" stroke-width="1.5"/>
@@ -660,7 +658,7 @@
             </svg>
           </div>
           <p class="fb__fine">n&asymp;1,200 a wave, flight dates attached &mdash;
-            synthetic example. PARTNER MATCHED-COMMERCIAL TESTS &middot; 36&ndash;80% HIGHER CLICK-THROUGH &middot; SUPPORTING EVIDENCE, NOT A GUARANTEE</p>
+            synthetic example. MATCHED-COMMERCIAL TESTS &middot; 36&ndash;80% HIGHER CLICK-THROUGH &middot; SUPPORTING EVIDENCE, NOT A GUARANTEE</p>
         </li>
         <li class="fb__page fb__page--end">
           <span class="fb__folio" aria-hidden="true">06</span>
@@ -694,7 +692,7 @@
               <li class="mxs__step mxs__step--e"><b>More reach</b>Modeled &mdash; always labeled.</li>
             </ol>
             <p class="small mxs__mobcap num" aria-hidden="true">165M PROFILES &times; 10,000+ QUESTIONS &mdash; LIT = ANSWERED</p>
-            <div class="mxs__shell"><svg class="mxs__svg" viewBox="0 0 1000 560" role="img" aria-labelledby="mxs-t mxs-d">
+            <div class="mxs__shell" tabindex="0" role="group" aria-label="The sparse matrix, scrolls sideways on small screens"><svg class="mxs__svg" viewBox="0 0 1000 560" role="img" aria-labelledby="mxs-t mxs-d">
               <title id="mxs-t">The sparse matrix: 165 million profiles by more than ten thousand questions, cells lit where a person actually answered</title>
               <desc id="mxs-d">A vast sparse grid: rows are 165 million consumer
                 profiles, columns are more than ten thousand always-on questions, cells
@@ -866,7 +864,7 @@
       <div class="press-card__art press-card__art--hero" role="group" style="max-width:640px;margin:1rem auto 0;text-align:left"
         aria-label="A wave topline sheet: synthetic data in the real format">
         <p class="pca__bar"><span>KPI &middot; Wave topline</span><span>synthetic &middot; real format</span></p>
-        <p class="pca__row num">WAVE 1 OF 5 &middot; n=1,204 &middot; FIELDED SEP 2&ndash;6, 2026 &middot; GOVERNOR</p>
+        <p class="pca__row num">WAVE 1 OF 3 &middot; n=1,204 &middot; FIELDED SEP 7&ndash;11, 2026 &middot; GOVERNOR</p>
         <p class="pca__row num">WEIGHTED TO THE FRAME YOUR RACE NEEDS &mdash; ADULTS &middot; REGISTERED &middot; LIKELY</p>
         <p class="pca__row num">ALWAYS-ON ONLINE PANEL &middot; WEIGHTED ON LICENSED ATTRIBUTES &middot; ERROR PRINTED PER WAVE &mdash; THIS ONE: &plusmn;2.8 PTS &middot; n=1,204</p>
         <p class="pca__row num">RECALL +9 WHERE THE FLIGHT RAN &middot; TOPLINE ATTACHED, ONE PAGE</p>
@@ -932,6 +930,6 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r153"></script>
+<script src="assets/js/site.js?v=r154"></script>
 </body>
 </html>

@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r153">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r154">
 <style>
   /* r106: every hero its own composition -- this page opens on the two desks
      themselves. Text left; the buyer's and seller's doors right. */
@@ -54,12 +54,12 @@
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
-<nav class="nav nav--light" data-open="false">
+<nav aria-label="Primary" class="nav nav--light" data-open="false">
   <div class="wrap nav__in">
     <a class="nav__brand" href="index.html" aria-label="Kinetiq Political Insights, home">
       <img src="assets/img/kpi-logo.png" alt="Kinetiq Political Insights">
     </a>
-    <ul class="nav__links">
+    <ul class="nav__links" id="nav-links">
       <li class="nav__item nav__home"><a href="index.html">Home</a></li>
       <li class="nav__item"><a href="monitoring.html">Monitoring</a>
         <div class="nav__drop" aria-label="Section shortcuts">
@@ -99,11 +99,11 @@
       <a class="btn btn--outline btn--sm" href="https://portal.kpipolitical.com">Log in</a>
       <a class="btn btn--lime btn--sm" href="contact.html">Request a demo</a>
     </div>
-    <button class="nav__toggle" aria-expanded="false" aria-label="Menu">Menu</button>
+    <button class="nav__toggle" aria-expanded="false" aria-label="Menu" aria-controls="nav-links">Menu</button>
   </div>
 </nav>
 <nav class="ptabs" aria-label="Sections on this page">
-  <button class="ptabs__stamp num" type="button" aria-expanded="false" aria-controls="ptabs-menu"></button>
+  <button class="ptabs__stamp num" type="button" aria-label="Jump to a section on this page" aria-expanded="false" aria-controls="ptabs-menu"></button>
   <div class="wrap ptabs__in" id="ptabs-menu">
     <span class="ptabs__k" aria-hidden="true">THE WEEK &mdash;</span>
     <a href="#wk-buy" data-t="The buyer&rsquo;s week"><i>01</i>The buyer&rsquo;s week</a>
@@ -161,7 +161,7 @@
       <div class="wk__rail" role="tablist" aria-label="Choose a desk">
         <button class="wk__tab" id="wk-tab-buy" type="button" role="tab" aria-selected="true" aria-controls="wk-buy">
           <span class="wk__tab-name">The buyer&rsquo;s week</span>
-          <span class="wk__tab-sub">Alert to rate call &middot</span>
+          <span class="wk__tab-sub">Alert to rate call</span>
         </button>
         <button class="wk__tab" id="wk-tab-sell" type="button" role="tab" aria-selected="false" aria-controls="wk-sell">
           <span class="wk__tab-name">The seller&rsquo;s week</span>
@@ -282,7 +282,7 @@
                   <div class="wk-doc__bar"><span class="wk-doc__brand">KPI &middot; Clearance check</span><span class="wk-doc__stamp">WKLD &middot; early news &middot; :30 &middot; FCC filings thru Aug 18</span></div>
                   <div class="wk-doc__row"><span>Your quote</span><span class="num"><b>$290</b></span></div>
                   <div class="wk-doc__row"><span>Cleared in class, wk of Aug 3</span><span class="num"><b>$260</b></span><span class="wk-doc__hi num">carry the page into the call</span></div>
-                  <div class="wk-doc__row"><span class="wk-doc__dim">Outside group class reads separately: <b class="num">$355</b> &middot; Q4 peak $445 / $610</span></div>
+                  <div class="wk-doc__row"><span class="wk-doc__dim">Outside group class reads separately: <b class="num">$355</b> &middot; Q4 peak wks $445 / $610</span></div>
                   <div class="wk-doc__row"><span>Booked vs aired, your flight</span><span class="num"><b>$96K</b> / <b>$71K</b></span><span class="wk-doc__hi num">$25K gap &middot; before the make-good call</span></div>
                   <p class="wk-doc__note">Illustrative rates, real market &middot; <a href="monitoring.html#fcc-rates">the rate ledger</a>.</p>
                 </div>
@@ -300,11 +300,9 @@
     </div>
     <p class="wk-index num" aria-label="The screens behind the buyer's week">THE SCREENS BEHIND IT &mdash; <a href="platform.html#scoreboard">SCOREBOARD</a> &middot; <a href="platform.html#creative-matrix">CREATIVE MATRIX</a> &middot; <a href="platform.html#buy-sheet">BUY SHEET</a> &middot; <a href="platform.html#creative-explorer">CREATIVE EXPLORER</a></p>
     <p class="btn-row" style="margin-top:1.1rem"><a class="btn btn--lime" href="contact.html">Run this week on your race</a></p>
-    <p class="small" style="margin-top:.9rem">Every morning after, the alerts run this
-      desk &mdash; and the whole book folds to <a href="platform.html#your-book">one board</a>.</p>
-    <p class="small" style="margin-top:.55rem">That&rsquo;s the buyer&rsquo;s week &mdash; the
-      seller&rsquo;s runs on the same data, one desk over; the
-      <a href="monitoring.html#explore-market">explorable market</a> works for both.</p>
+    <p class="small" style="margin-top:.9rem">Every morning after, the whole book folds to
+      <a href="platform.html#your-book">one dashboard</a> &mdash; and the seller&rsquo;s week
+      runs on the same data, one desk over.</p>
     </article>
 
     <!-- r113: the seller's week, same device — four beats on one pinned stage.
@@ -431,10 +429,11 @@
       </div>
     </div>
 
-    <p class="wk-index num" aria-label="The dashboards behind the seller's week">THE DASHBOARDS BELOW &mdash; <a href="#order-flow">ORDER FLOW</a> &middot; <a href="#share-diagonal">SHARE DIAGONAL</a> &middot; <a href="#class-gap-board">CLASS GAP</a> &middot; <a href="#agency-book">AGENCY BOOK</a></p>
+    <p class="wk-index num" aria-label="The dashboards behind the seller's week">THE DASHBOARDS BELOW &mdash; <a href="#order-flow">ORDER FLOW</a> &middot; <a href="#share-diagonal">UNDER THE LINE</a> &middot; <a href="#class-gap-board">CLASS GAP</a> &middot; <a href="#agency-book">AGENCY BOOK</a></p>
     <div class="wk-doc" id="wk-friday" style="margin-top:1.1rem;max-width:640px">
       <div class="wk-doc__bar"><span class="wk-doc__brand">KPI &middot; The back half of the week</span><span class="wk-doc__stamp">THU &middot; FRI</span></div>
       <div class="wk-doc__row"><span><b>THU</b> &middot; the make-good comes to you</span><span class="num">the <b>$25K</b> booked-vs-aired gap, posted on your air first</span></div>
+      <div class="wk-doc__row"><span><b>THU</b> &middot; the app desk&rsquo;s proof call</span><span class="num">compliance asks &mdash; the dated occurrence export answers</span></div>
       <div class="wk-doc__row"><span><b>FRI</b> &middot; hold the rate</span><span class="num">the buyer quotes <b>$260</b> candidate &mdash; the <b>$355</b> outside-group page answers</span><span class="wk-doc__hi num">different class, filed apart</span></div>
       <div class="wk-doc__row"><span><b>FRI</b> &middot; and it holds</span><span class="num">the <b>$355</b> stands across <b>180</b> booked spots</span><span class="wk-doc__hi num"><b>$17K</b> the class defense keeps on the books</span></div>
     </div>
@@ -668,9 +667,7 @@
       <h3>The agency book</h3>
       <p class="dek"><b>The gap, priced at your share.</b> Every agency&rsquo;s
         book &mdash; filed dollars against what is on your air, digital included.
-        The names to call ride behind the subscription, and the
-        same board opens as the drill-down table &mdash; advertiser by advertiser, the
-        agency as printed on the order.</p>
+        The names to call come with the subscription.</p>
       <figure class="app-shot" data-rise>
         <img width="2400" height="966" src="assets/apps/app-agency-book.webp?v=r84" loading="lazy"
           alt="The agency book: every agency placing political money in the state, filed TV and radio dollars with streaming and digital estimates, what runs on your air, and your share of each agency's market dollars against your 25% average, with the contact column blurred until it unlocks. The first call is flagged: an agency at 9% of your market share with $272K on the table. Synthetic data.">
@@ -694,7 +691,7 @@
         <p class="dek" style="margin:.5rem auto 0;max-width:62ch"><b>The pitch:</b>
           <b class="num">+$510K</b> on the table under the line &mdash; the agencies
           placing it, one unlock away.</p>
-        <p class="dek" style="margin:.6rem auto 0;max-width:62ch"><b>Station with OTT:</b> your extension prints as its own service row, under your call letters &mdash.</p>
+        <p class="dek" style="margin:.6rem auto 0;max-width:62ch"><b>Station with OTT:</b> your extension prints as its own service row, under your call letters.</p>
         <p class="dek" style="margin:.6rem auto 0;max-width:62ch"><b>App seller:</b> the
           inclusion rule is <a href="monitoring.html#streaming">one line, drawn on
           monitoring</a> &mdash; if it renders on the TV glass, it&rsquo;s read. Defend
@@ -1034,6 +1031,6 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r153"></script>
+<script src="assets/js/site.js?v=r154"></script>
 </body>
 </html>

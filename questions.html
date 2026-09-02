@@ -11,7 +11,7 @@
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r153">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r154">
 <link rel="stylesheet" href="assets/css/segments.css?v=r50">
 <style>
   /* r106: the library is a tool, so the hero is a masthead, not a landing --
@@ -60,12 +60,12 @@
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
-<nav class="nav nav--light" data-open="false">
+<nav aria-label="Primary" class="nav nav--light" data-open="false">
   <div class="wrap nav__in">
     <a class="nav__brand" href="index.html" aria-label="Kinetiq Political Insights, home">
       <img src="assets/img/kpi-logo.png" alt="Kinetiq Political Insights">
     </a>
-    <ul class="nav__links">
+    <ul class="nav__links" id="nav-links">
       <li class="nav__item nav__home"><a href="index.html">Home</a></li>
       <li class="nav__item"><a href="monitoring.html">Monitoring</a>
         <div class="nav__drop" aria-label="Section shortcuts">
@@ -105,7 +105,7 @@
       <a class="btn btn--outline btn--sm" href="https://portal.kpipolitical.com">Log in</a>
       <a class="btn btn--lime btn--sm" href="contact.html">Request a demo</a>
     </div>
-    <button class="nav__toggle" aria-expanded="false" aria-label="Menu">Menu</button>
+    <button class="nav__toggle" aria-expanded="false" aria-label="Menu" aria-controls="nav-links">Menu</button>
   </div>
 </nav>
 
@@ -153,9 +153,9 @@
         <div class="sx-ask0">
           <div>
             <p class="sx-ask0__k">Not on the shelf? Ask your own</p>
-            <p class="sx-ask0__t">Written with you, invisible to the other side, fielded in
-              days. <b>From $30K net across three months</b>, audience included &mdash;
-              the polling page carries the full terms.</p>
+            <p class="sx-ask0__t">Written with you, invisible to the other side &mdash;
+              <b>from $30K net across three months</b>, audience included.
+              <a href="polling.html">Full terms on the polling page</a>.</p>
           </div>
           <a class="btn btn--navy btn--sm" href="contact.html">Ask your own question</a>
         </div>
@@ -180,7 +180,7 @@
             <li><b>The audience comes back</b> &mdash; deal ID, matched size and a
               composition read, private-marketplace, your seat or ours.</li>
             <li><b>Check it, then spend</b> &mdash; identifiers confirmed in writing before
-              the insertion order, every question that built it named..</li>
+              the insertion order, every question that built it named.</li>
           </ol>
           <p class="small num" style="font-family:var(--mono);letter-spacing:.05em;font-size:.72rem;margin:.2rem 0 .6rem">SHORTLIST SENT &rarr; DEAL ID &middot; DAYS &rarr; CUSTOM &middot; ~2 WEEKS</p>
         </div>
@@ -272,8 +272,8 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r153"></script>
-<script src="assets/js/segments.js?v=r153" defer></script>
+<script src="assets/js/site.js?v=r154"></script>
+<script src="assets/js/segments.js?v=r154" defer></script>
 <script>
 /* R6 (item 74): on a narrow phone the long placeholder clips mid-number, so it
    swaps to the short form before the field ever renders a cut digit. */

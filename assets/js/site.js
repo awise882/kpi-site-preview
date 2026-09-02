@@ -195,10 +195,25 @@
         });
       });
       /* Round-1 panel fix (seller): #wk-sell and #wk-buy are deep links — a
-         forwarded link opens the right desk instead of always the buyer's. */
+         forwarded link opens the right desk instead of always the buyer's.
+         r154 (a11y round 28): a hash pointing anywhere inside a hidden story
+         (e.g. #sell-side from the section rail or the nav dropdown) activates
+         that story too — the load-time resolution now runs on every change. */
       window.addEventListener('hashchange', function () {
         var id = location.hash.slice(1);
-        wkTabs.forEach(function (t) { if (t.getAttribute('aria-controls') === id) wkActivate(t); });
+        var hit = null;
+        wkTabs.forEach(function (t) { if (t.getAttribute('aria-controls') === id) hit = t; });
+        if (!hit && id) {
+          try {
+            var tgt = document.getElementById(id);
+            var host = tgt && tgt.closest ? tgt.closest('.wk__story') : null;
+            if (host) {
+              wkTabs.forEach(function (t) { if (t.getAttribute('aria-controls') === host.id) hit = t; });
+              if (hit) { wkActivate(hit); tgt.scrollIntoView(); return; }
+            }
+          } catch (e) {}
+        }
+        if (hit) wkActivate(hit);
       });
       /* r124: a deep link to anything inside a hidden story (the seller's
          boards now live in the seller article) activates that story first. */
@@ -686,6 +701,15 @@
     if (id === 'wk-buy' || id === 'wk-sell') {
       var tab = document.getElementById(id === 'wk-buy' ? 'wk-tab-buy' : 'wk-tab-sell');
       if (tab) tab.click();
+    } else {
+      /* r154: a rail target inside a hidden week story opens that story first,
+         so the browser's own hash-jump lands on a visible element. */
+      var tgt = document.getElementById(id);
+      var host = tgt && tgt.closest ? tgt.closest('.wk__story') : null;
+      if (host) {
+        var tab2 = document.getElementById(host.id === 'wk-buy' ? 'wk-tab-buy' : 'wk-tab-sell');
+        if (tab2) tab2.click();
+      }
     }
     bar.removeAttribute('data-open');
     if (stamp) stamp.setAttribute('aria-expanded', 'false');
@@ -695,6 +719,23 @@
       var open = bar.hasAttribute('data-open');
       if (open) bar.removeAttribute('data-open'); else bar.setAttribute('data-open', '');
       stamp.setAttribute('aria-expanded', String(!open));
+    });
+    /* r154 (a11y round 28): the open jump menu closes on Escape and when
+       focus leaves the rail — mirroring the main drawer's behavior. */
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && bar.hasAttribute('data-open')) {
+        bar.removeAttribute('data-open');
+        stamp.setAttribute('aria-expanded', 'false');
+        stamp.focus();
+      }
+    });
+    bar.addEventListener('focusout', function () {
+      requestAnimationFrame(function () {
+        if (bar.hasAttribute('data-open') && !bar.contains(document.activeElement)) {
+          bar.removeAttribute('data-open');
+          stamp.setAttribute('aria-expanded', 'false');
+        }
+      });
     });
   }
 

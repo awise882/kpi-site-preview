@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r153">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r154">
 <style>
   /* The "what it exports" line that closes each app section. */
   .exports { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; margin-top: 1.3rem; }
@@ -191,12 +191,12 @@
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
-<nav class="nav nav--light" data-open="false">
+<nav aria-label="Primary" class="nav nav--light" data-open="false">
   <div class="wrap nav__in">
     <a class="nav__brand" href="index.html" aria-label="Kinetiq Political Insights, home">
       <img src="assets/img/kpi-logo.png" alt="Kinetiq Political Insights">
     </a>
-    <ul class="nav__links">
+    <ul class="nav__links" id="nav-links">
       <li class="nav__item nav__home"><a href="index.html">Home</a></li>
       <li class="nav__item"><a href="monitoring.html">Monitoring</a>
         <div class="nav__drop" aria-label="Section shortcuts">
@@ -236,11 +236,11 @@
       <a class="btn btn--outline btn--sm" href="https://portal.kpipolitical.com">Log in</a>
       <a class="btn btn--lime btn--sm" href="contact.html">Request a demo</a>
     </div>
-    <button class="nav__toggle" aria-expanded="false" aria-label="Menu">Menu</button>
+    <button class="nav__toggle" aria-expanded="false" aria-label="Menu" aria-controls="nav-links">Menu</button>
   </div>
 </nav>
 <nav class="ptabs" aria-label="Sections on this page">
-  <button class="ptabs__stamp num" type="button" aria-expanded="false" aria-controls="ptabs-menu"></button>
+  <button class="ptabs__stamp num" type="button" aria-label="Jump to a section on this page" aria-expanded="false" aria-controls="ptabs-menu"></button>
   <div class="wrap ptabs__in" id="ptabs-menu">
     <span class="ptabs__k" aria-hidden="true">THE PLATFORM &mdash;</span>
     <a href="#scoreboard" data-t="Scoreboard"><i>01</i>Scoreboard</a>
@@ -330,7 +330,7 @@
         <h2>What moved this week, on top.</h2>
       </div>
       <div>
-      <p class="lede">Every race on one screen &mdash; <span class="num">303</span> tracked today: share of the money by side, and the
+      <p class="lede">Every race on one screen &mdash; <span class="num">303</span> tracked today. Share of the money by side, and the
         definitional advantage &mdash; who is writing whose story.</p>
       </div>
     </div>
@@ -691,7 +691,7 @@
     <div class="rc rc-book" data-book>
       <div class="rcbk-bar">
         <span class="rcbk-brand"><span class="rcbk-dot"></span>KPI &middot; The Book &middot; Morning view</span>
-        <span class="rcbk-scale num">42 RACES &middot; 9 STATES</span>
+        <span class="rcbk-scale num">40 RACES &middot; 9 STATES</span>
         <button class="rcbk-copy" type="button" hidden>&#10697; Copy the morning note</button>
         <span class="rcbk-stamp">POSTED THRU AUG 30, 2026</span>
       </div>
@@ -704,15 +704,15 @@
         </tr></thead>
         <tbody>
           <tr class="rcbk-row rcbk-row--hot" aria-expanded="true"><th scope="row">North River Senate</th><td>3</td><td class="rcbk-d num">+$95K posted</td><td class="rcbk-n num">$5.5M</td><td class="rcbk-n num">$1.7M</td><td><span class="rcbk-a num">2</span></td></tr>
-          <tr class="rcbk-drow"><td colspan="6"><b>Ellery for Senate</b> +$95K on WQZL &mdash; prime, posted this morning, flight opens Sep 7 &middot; <a href="#scoreboard">open the race &rarr;</a></td></tr>
+          <tr class="rcbk-drow"><td colspan="6"><b>Ellery for Senate</b> +$95K on WQZL &mdash; prime, posted this morning, flight opens Sep 7 &middot; <a href="#scoreboard">open the race&nbsp;&rarr;</a></td></tr>
           <tr class="rcbk-row" aria-expanded="true"><th scope="row">Midstate Attorney General</th><td>5</td><td class="rcbk-d num">+$3.3M this week</td><td class="rcbk-n num">$16.0M</td><td class="rcbk-n num">$13.2M</td><td><span class="rcbk-a num">1</span></td></tr>
-          <tr class="rcbk-drow"><td colspan="6">Challenger side takes the lead on aired dollars, 60/40 &middot; streaming est. <span class="num">$1.1M</span>, not in the total &middot; <a href="#scoreboard">open the race &rarr;</a></td></tr>
+          <tr class="rcbk-drow"><td colspan="6">Challenger side takes the lead on aired dollars, 60/40 &middot; streaming est. <span class="num">$1.1M</span>, not in the total &middot; <a href="#scoreboard">open the race&nbsp;&rarr;</a></td></tr>
           <tr class="rcbk-row" aria-expanded="true"><th scope="row">Granite Senate primary</th><td>3</td><td class="rcbk-d rcbk-d--dark">went dark</td><td class="rcbk-n num">$2.1M</td><td class="rcbk-n num">$0</td><td><span class="rcbk-a num">1</span></td></tr>
-          <tr class="rcbk-drow"><td colspan="6">Marsh committee stopped airing overnight; booked dollars pulled, the stop dated &middot; <a href="#scoreboard">open the race &rarr;</a></td></tr>
+          <tr class="rcbk-drow"><td colspan="6">Marsh committee stopped airing overnight; booked dollars pulled, the stop dated &middot; <a href="#scoreboard">open the race&nbsp;&rarr;</a></td></tr>
           <tr class="rcbk-row" aria-expanded="true"><th scope="row">Lakeshore CD-9</th><td>1</td><td class="rcbk-d num">first TV order</td><td class="rcbk-n num">$0</td><td class="rcbk-n num">$340K</td><td><span class="rcbk-a num">1</span></td></tr>
           <tr class="rcbk-drow"><td colspan="6">The race&rsquo;s first broadcast order &mdash; caught before anything airs &middot; <a href="#creative-explorer">watch for the creative &rarr;</a></td></tr>
           <tr class="rcbk-row" aria-expanded="true"><th scope="row">Prairie Senate</th><td>4</td><td class="rcbk-d rcbk-d--quiet">quiet</td><td class="rcbk-n num">$8.4M</td><td class="rcbk-n num">$0.9M</td><td><span class="rcbk-a num">0</span></td></tr>
-          <tr class="rcbk-drow"><td colspan="6">No overnight movement &mdash; quiet prints as quiet &middot; <a href="#scoreboard">open the race &rarr;</a></td></tr>
+          <tr class="rcbk-drow"><td colspan="6">No overnight movement &mdash; quiet prints as quiet &middot; <a href="#scoreboard">open the race&nbsp;&rarr;</a></td></tr>
           <tr class="rcbk-more"><td colspan="6">+ 35 more races in the book</td></tr>
         </tbody>
       </table>
@@ -918,7 +918,7 @@
 }
 </style>
     </div>
-      <p class="pca__row num" style="max-width:640px;margin:.3rem auto 0">&ldquo;THE RULE THEY WROTE&rdquo; &middot; 3 CREATIVES &middot; <b>$1.9M</b> AIRED BEHIND IT &middot; POSTED THRU AUG 14 &mdash; SYNTHETIC</p>
+      <p class="pca__row num" style="max-width:640px;margin:.3rem auto 0">&ldquo;A RULE THEY WROTE&rdquo; &middot; 3 CREATIVES &middot; THEME TOTAL <b>$1.9M</b> AIRED &middot; POSTED THRU AUG 14 &mdash; SYNTHETIC</p>
   </div>
 </div>
 
@@ -1062,7 +1062,7 @@
       </div>
       <div class="rcb2-cap">
         <span class="rcb2-sw rcb2-swp"></span>Posted weeks are pink
-        <span class="rcb2-sw rcb2-swc"></span>the blue rule is this week
+        <span class="rcb2-sw rcb2-swc"></span>the blue line marks this week
         <em>Flight totals run to Nov 3 &mdash; beyond the three printed weeks &middot; the full span is in the export&thinsp;&#8594;</em>
       </div>
       <p class="small" style="margin:.5rem 0 0">This grid feeds the clearance check
@@ -1432,8 +1432,8 @@ tbody th.rcb2-m{font-weight:400;background:transparent}
     <button class="rc-bdemo-chip" type="button" role="tab" id="bd-q4" aria-selected="false" aria-controls="bd-a4" tabindex="-1">Newest creative in the race?</button>
   </div>
   <div class="rc-bdemo-a" id="bd-a1" role="tabpanel" aria-labelledby="bd-q1">
-    <p class="rc-bdemo-ans">Granite State Forward PAC posted its $84K Cleveland flight Monday
-      morning, Aug 17 &mdash; booked before a single spot aired. The case against Hale added $410K behind &ldquo;A rule they wrote.&rdquo;</p>
+    <p class="rc-bdemo-ans">Granite State Forward PAC posted a $140K Cleveland flight this week &mdash;
+      booked before a single spot airs. The case against Hale added $410K behind &ldquo;A rule they wrote.&rdquo;</p>
     <p class="rc-bdemo-receipt">Posted through Aug 30, 2026; posted channels: broadcast, local cable, radio; streaming caught floor $1.04M on its own line, estimated minimum $1.66M (est. thru Aug 30) in the product</p>
   </div>
   <div class="rc-bdemo-a" id="bd-a4" role="tabpanel" aria-labelledby="bd-q4" hidden>
@@ -1643,6 +1643,6 @@ tbody th.rcb2-m{font-weight:400;background:transparent}
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r153"></script>
+<script src="assets/js/site.js?v=r154"></script>
 </body>
 </html>
