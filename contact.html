@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Request a Demo · Kinetiq Political Insights</title>
-<meta name="description" content="Name a race you already know — or the market you sell — and we pull it before the walkthrough, so the demo runs on your contest instead of a canned dataset. Request a demo, reach press, or log in as a subscriber.">
+<meta name="description" content="Name a race you already know — or the market you sell — and we pull it before the walkthrough, so the demo runs on your race instead of a canned dataset. Request a demo, reach press, or log in as a subscriber.">
 <meta property="og:title" content="Request a demo · Kinetiq Political Insights">
-<meta property="og:description" content="Tell us the contest when you book &mdash; we pull it before the call, and you judge it against what you already know.">
+<meta property="og:description" content="Tell us the race when you book &mdash; we pull it before the call, and you judge it against what you already know.">
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r153">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r154">
 <style>
   /* contact.html only. Built from existing custom properties, no new colors. */
   .form-shell { background: var(--paper); border: 1px solid var(--rule); border-radius: var(--r-lg); padding: clamp(20px, 3vw, 32px); }
@@ -49,12 +49,12 @@
 <a class="skip" href="#main">Skip to content</a>
 
 <!-- ============ NAV ============ -->
-<nav class="nav nav--light" data-open="false">
+<nav aria-label="Primary" class="nav nav--light" data-open="false">
   <div class="wrap nav__in">
     <a class="nav__brand" href="index.html" aria-label="Kinetiq Political Insights, home">
       <img src="assets/img/kpi-logo.png" alt="Kinetiq Political Insights">
     </a>
-    <ul class="nav__links">
+    <ul class="nav__links" id="nav-links">
       <li class="nav__item nav__home"><a href="index.html">Home</a></li>
       <li class="nav__item"><a href="monitoring.html">Monitoring</a>
         <div class="nav__drop" aria-label="Section shortcuts">
@@ -94,7 +94,7 @@
       <a class="btn btn--outline btn--sm" href="https://portal.kpipolitical.com">Log in</a>
       <a class="btn btn--lime btn--sm" href="contact.html" aria-current="page">Request a demo</a>
     </div>
-    <button class="nav__toggle" aria-expanded="false" aria-label="Menu">Menu</button>
+    <button class="nav__toggle" aria-expanded="false" aria-label="Menu" aria-controls="nav-links">Menu</button>
   </div>
 </nav>
 
@@ -112,7 +112,7 @@
       aria-label="The shape of the deal, in three stamped lines">
       <p class="pca__row num">HISTORY: DECADE+ &mdash; LAST CYCLE&rsquo;S NUMBERS AGAINST THIS ONE&rsquo;S</p>
       <p class="pca__row num">LICENSE: ONE ORG &mdash; EVERY SEAT, EVERY RACE YOU CARRY</p>
-      <p class="pca__row num">PRICING + PILOTS: THE FIRST FIVE MINUTES &mdash; THE $30K POLLING FLOOR IS THE ONE PRICE PRINTED</p>
+      <p class="pca__row num">PRICING + PILOTS: ANSWERED IN THE FIRST FIVE MINUTES &mdash; THE $30K POLLING FLOOR IS THE ONE PRICE PRINTED</p>
     </div>
 
     <div class="split split--wide-left mt2">
@@ -203,7 +203,7 @@
         <div class="card card--flag">
           <div class="card__k">What happens next</div>
           <ol class="nextlines">
-            <li><b>20 minutes on your contest</b> &mdash; or your market&rsquo;s order
+            <li><b>20 minutes on your race</b> &mdash; or your market&rsquo;s order
               flow. Wrong read? You will know in the first five.</li>
             <li><b>Sign</b> &mdash; your whole book is already on the dashboards.</li>
           </ol>
@@ -348,6 +348,14 @@
     if (rq) {
       var rf = document.getElementById('c-race');
       if (rf && !rf.value) rf.value = rq.slice(0, 150);
+      var cf = document.getElementById('demo-form');
+      if (cf && cf.parentNode) {
+        var conf = document.createElement('p');
+        conf.className = 'small num';
+        conf.style.cssText = 'font-family:var(--mono);letter-spacing:.05em;color:var(--navy-ink);margin:0 0 .6rem';
+        conf.textContent = 'YOUR RACE: ' + rq.slice(0, 150).toUpperCase() + ' \u2014 DASHBOARDS OPEN WHEN YOU DIAL IN';
+        cf.parentNode.insertBefore(conf, cf);
+      }
     }
   } catch (e) {}
   var restore = function () {
@@ -419,6 +427,6 @@
   });
 })();
 </script>
-<script src="assets/js/site.js?v=r153"></script>
+<script src="assets/js/site.js?v=r154"></script>
 </body>
 </html>

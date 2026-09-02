@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r153">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r154">
 <style>
   /* press.html only: the newsroom. Existing tokens, no new colors. */
   .nr-release { max-width: 860px; margin-inline: auto; }
@@ -32,12 +32,12 @@
 <a class="skip" href="#main">Skip to content</a>
 
 <!-- ============ NAV ============ -->
-<nav class="nav nav--light" data-open="false">
+<nav aria-label="Primary" class="nav nav--light" data-open="false">
   <div class="wrap nav__in">
     <a class="nav__brand" href="index.html" aria-label="Kinetiq Political Insights, home">
       <img src="assets/img/kpi-logo.png" alt="Kinetiq Political Insights">
     </a>
-    <ul class="nav__links">
+    <ul class="nav__links" id="nav-links">
       <li class="nav__item nav__home"><a href="index.html">Home</a></li>
       <li class="nav__item"><a href="monitoring.html">Monitoring</a>
         <div class="nav__drop" aria-label="Section shortcuts">
@@ -77,7 +77,7 @@
       <a class="btn btn--outline btn--sm" href="https://portal.kpipolitical.com">Log in</a>
       <a class="btn btn--lime btn--sm" href="contact.html">Request a demo</a>
     </div>
-    <button class="nav__toggle" aria-expanded="false" aria-label="Menu">Menu</button>
+    <button class="nav__toggle" aria-expanded="false" aria-label="Menu" aria-controls="nav-links">Menu</button>
   </div>
 </nav>
 
@@ -102,7 +102,7 @@
       <div class="presskit" style="margin:.7rem 0 0">
         <p class="small"><b>Credit</b> &mdash; <i>&ldquo;Kinetiq Political Insights, data posted
           through Aug 30, 2026&rdquo;</i> &mdash; with your own pull date in the stamp. Estimated figures cite as <i>&ldquo;at least $X,
-          estimated&rdquo;</i> &mdash.
+          estimated&rdquo;</i>.
           <button class="btn btn--outline btn--sm" type="button" id="copy-credit" hidden
             data-credit="Kinetiq Political Insights, data posted through Aug 30, 2026"
             style="margin-left:.5rem;vertical-align:baseline">Copy the credit</button></p>
@@ -131,10 +131,9 @@
       <p class="card__k">About KPI &middot; boilerplate &mdash; lift it as written</p>
       <p class="small mb0">Kinetiq Political Insights (KPI) measures U.S. political
         advertising as it airs. The machine behind it reads about 1.5 million ad
-        occurrences a day across every ad category in all 210 media markets, political
-        flagged. Broadcast, cable and radio post order by order; streaming is measured
+        occurrences a day across every ad category in all 210 media markets, with political ads flagged. Broadcast, cable and radio post order by order; streaming is measured
         on the TV glass in 40 million homes, across 288 apps in a single month&rsquo;s capture, with
-        VideoAmp. Station rates come from the FCC public file, and an always-on opinion
+        VideoAmp. Station rates come from the FCC public file. An always-on opinion
         panel run with CivicScience &mdash; 10.2 billion answers banked &mdash; carries
         the voter side. Cite as &ldquo;Kinetiq Political Insights&rdquo; (KPI on second
         reference). The machine is run by 150+ people, three decades defining the ad intelligence
@@ -153,9 +152,7 @@
         <text x="20" y="60" font-family="Inter, sans-serif" font-size="9" font-weight="700" fill="#40566A">$10.0B &middot; APR 2026</text>
         <text x="300" y="12" text-anchor="end" font-family="Inter, sans-serif" font-size="9" font-weight="800" fill="#3E6A16">$10.4B &middot; AUG 30, 2026</text>
       </svg>
-      <p class="mt1">Kinetiq Political Insights projects <b>$10.4 billion</b> in 2026 political
-        advertising across broadcast, cable, radio, and streaming &amp; digital.</p>
-      <p class="small num" style="font-family:var(--mono);letter-spacing:.04em">APR 2026: $10.0B &rarr; AUG 30: $10.4B, ON POSTED ORDERS &middot; $1.2B FORWARD RESERVATIONS ALREADY ON FILE, ACROSS 209 OF THE 303 TRACKED RACES</p>
+      <p class="small num" style="font-family:var(--mono);letter-spacing:.04em">APR 2026: $10.0B &rarr; AUG 30: $10.4B, ON POSTED ORDERS &middot; $1.2B FORWARD RESERVATIONS ALREADY ON FILE, ACROSS 209 OF THE 303 TRACKED RACES &middot; BROADCAST, CABLE, RADIO, STREAMING &amp; DIGITAL</p>
       <p class="small">The forecast rides the platform&rsquo;s own dataset &mdash; posted
         orders and invoices, not rate-card math. How streaming is measured is
         <a href="#videoamp-partnership">the partnership announcement below</a>.</p>
@@ -217,25 +214,24 @@
             actually on file, updating as orders post.</li>
           <li><b>The creative library for your races</b> &mdash; watch the spot, quote the
             transcript, cite the air dates.</li>
-          <li><b>Citation-ready charts</b> with the credit line built in &mdash.</li>
+          <li><b>Citation-ready charts</b> with the credit line built in.</li>
         </ul>
       </div>
       <div class="card">
         <p class="card__k">Not in it</p>
         <ul class="small" style="margin:.4rem 0 0;padding-left:1.1rem;display:grid;gap:.5rem">
-          <li>Toplines are weekly and market-level. The subscription is near real time,
+          <li><b>Toplines are weekly and market-level.</b> The subscription is near real time,
             down to the spot, the station, and the dollar.</li>
           <li><b>No alerts. No Baker.</b> No raw data exports and no order/rate data &mdash; the account&rsquo;s citable charts publish with credit; deeper pulls come through the press desk.</li>
           <li><b>Capped to your beat.</b> A national money beat counts as one; say so and the account scopes to it. Editorial use, with credit.</li>
-          <li>If someone on the business side is asking for your login, what they want
-            is <a href="contact.html">the walkthrough</a>.</li>
+          <li><b>The login is the walkthrough.</b> If someone on the business side is
+            asking for your login, what they want is <a href="contact.html">the walkthrough</a>.</li>
         </ul>
       </div>
     </div>
     <p class="small" style="margin-top:.9rem"><b>And either way: we help you find the
-      story.</b> Name the beat and the desk pulls the numbers that make the story &mdash; the
-      first order no one has covered, the money moving against the polls, the market
-      where the story lands a week early. Dated and citable.</p>
+      story.</b> Name the beat and the desk pulls the numbers that make it.</p>
+    <p class="small num" style="font-family:var(--mono);letter-spacing:.04em;margin-top:.45rem">THE FIRST ORDER NO ONE HAS COVERED &middot; THE MONEY MOVING AGAINST THE POLLS &middot; THE MARKET WHERE IT LANDS A WEEK EARLY &mdash; DATED AND CITABLE</p>
     <div class="btn-row mt2">
       <a class="btn btn--navy" href="mailto:press@kpipolitical.com?subject=Press%20account%20application">Apply for a press account</a>
       <span class="small" style="align-self:center">A newsroom email, two recent bylines, and the
@@ -300,6 +296,6 @@
 </footer>
 
 
-<script src="assets/js/site.js?v=r153"></script>
+<script src="assets/js/site.js?v=r154"></script>
 </body>
 </html>

@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r153">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r154">
 <style>
   /* Light, centered, airy hero, matching the live site: the announcement banner
      sits flush under the nav, then the display headline in the green-to-teal
@@ -392,12 +392,12 @@
 <a class="skip" href="#main">Skip to content</a>
 
 
-<nav class="nav nav--light" data-open="false">
+<nav aria-label="Primary" class="nav nav--light" data-open="false">
   <div class="wrap nav__in">
     <a class="nav__brand" href="index.html" aria-current="page" aria-label="Kinetiq Political Insights, home">
       <img src="assets/img/kpi-logo.png" alt="Kinetiq Political Insights">
     </a>
-    <ul class="nav__links">
+    <ul class="nav__links" id="nav-links">
       <li class="nav__item nav__home"><a href="index.html" aria-current="page">Home</a></li>
       <li class="nav__item"><a href="monitoring.html">Monitoring</a>
         <div class="nav__drop" aria-label="Section shortcuts">
@@ -437,11 +437,11 @@
       <a class="btn btn--outline btn--sm" href="https://portal.kpipolitical.com">Log in</a>
       <a class="btn btn--lime btn--sm" href="contact.html">Request a demo</a>
     </div>
-    <button class="nav__toggle" aria-expanded="false" aria-label="Menu">Menu</button>
+    <button class="nav__toggle" aria-expanded="false" aria-label="Menu" aria-controls="nav-links">Menu</button>
   </div>
 </nav>
 <nav class="ptabs" aria-label="Sections on this page">
-  <button class="ptabs__stamp num" type="button" aria-expanded="false" aria-controls="ptabs-menu"></button>
+  <button class="ptabs__stamp num" type="button" aria-label="Jump to a section on this page" aria-expanded="false" aria-controls="ptabs-menu"></button>
   <div class="wrap ptabs__in" id="ptabs-menu">
     <span class="ptabs__k" aria-hidden="true">KPI &mdash;</span>
     <a href="#machine" data-t="The machine"><i>01</i>The machine</a>
@@ -486,16 +486,16 @@
       time. When the other side moves, you know in minutes &mdash; overnight
       moves ride the morning send.</p>
     <div class="btn-row">
-      <form class="racebox" action="contact.html#demo-form" method="get" aria-label="Name the race you buy">
+      <form class="racebox" action="contact.html#demo-form" method="get" aria-label="Name the race you buy &mdash; or the market you sell">
         <input id="rb-race" name="race" type="text" maxlength="150"
           placeholder="What race do you buy?"
           aria-label="The race you buy">
-        <button class="btn btn--lime btn--lg" type="submit">Open its dashboards &rarr;</button>
+        <button class="btn btn--lime btn--lg" type="submit">Have its dashboards open &rarr;</button>
       </form>
     </div>
     <p class="small" style="margin-top:.55rem;color:var(--ink-3)">A 20-minute walkthrough
       &mdash; your race&rsquo;s dashboards are open when you dial in &middot;
-      <a href="week.html"></a></p>
+      <a href="week.html">see a buyer&rsquo;s week &rarr;</a></p>
     <!-- The mobile hero's proof: a two-race glimpse of the scoreboard, matching the
          platform recreation's rows. Shown under 641px only; desktop keeps the type. -->
     <div class="hero-board" data-plx style="--plx-d:12px" role="img" aria-label="A glimpse of the scoreboard: two races, each side's share of committed money, the TV, cable and radio total with the streaming estimate labeled apart, and the week's fresh spending on top. Synthetic sample.">
@@ -544,7 +544,7 @@
       <div class="statlead__side">
         <div class="statlead__row"><b class="num">1.5M</b><span>ad occurrences detected a day &mdash; every category, political flagged</span></div>
         <div class="statlead__row"><b class="num">250K+</b><span>TV &amp; radio orders on file, growing daily &mdash; dollars from orders and filings</span></div>
-        <div class="statlead__row"><b class="num">40M</b><span>homes measuring streaming on the TV glass</span></div>
+        <div class="statlead__row"><b class="num">40M</b><span>homes where streaming is measured on the TV glass</span></div>
       </div>
       <div class="statlead__side">
         <div class="statlead__row"><b class="num">1&ndash;4B</b><span>streaming ad impressions a day, every ad category &mdash; weighted from the measured panel</span></div>
@@ -758,8 +758,8 @@
           <p class="pca__row num">&rarr; A DEAL ID LANDS IN YOUR SEAT &middot; KPI &times; CIVICSCIENCE</p>
         </div>
         <p class="small">10.2 billion answers deep &mdash; 10,000+ questions always in the
-          field. Build the audience from what people actually said &mdash; custom questions come
-          with the media &mdash; from <b class="num">$30K</b> net across three months.</p>
+          field. Build the audience from what people actually said. Custom questions come
+          with the media, from <b class="num">$30K</b> net across three months.</p>
         <span class="press-card__go">Ask a question &rarr;</span>
       </a>
     </div>
@@ -774,9 +774,9 @@
       <div class="seats__grid">
         <details class="mdet mdet--seat" open>
           <summary>Buying?</summary>
-          <p>Hold every quote against the filed rate. On one audited 400-spot
+          <p>Hold every quote against the filed rate. On one 400-spot
             flight: <b class="num">$12K</b> back.</p>
-          <svg class="seats__bar" viewBox="0 0 300 26" role="img" aria-label="The $116K flight drawn as a bar; the $12K found is the lime slice — about a tenth of one audited flight"><rect x="0" y="6" width="300" height="14" fill="#DEE7EE"/><rect x="0" y="6" width="31" height="14" fill="#A8D14E"/><text x="36" y="17" font-family="Inter,sans-serif" font-size="9" font-weight="700" fill="#4F7A25">$12K FOUND</text><text x="298" y="17" text-anchor="end" font-family="Inter,sans-serif" font-size="9" font-weight="700" fill="#5A6B7C">$116K FLIGHT</text></svg>
+          <svg class="seats__bar" viewBox="0 0 300 26" role="img" aria-label="The $116K flight drawn as a bar; the $12K found is the lime slice — about a tenth of the flight"><rect x="0" y="6" width="300" height="14" fill="#DEE7EE"/><rect x="0" y="6" width="31" height="14" fill="#A8D14E"/><text x="36" y="17" font-family="Inter,sans-serif" font-size="9" font-weight="700" fill="#4F7A25">$12K FOUND</text><text x="298" y="17" text-anchor="end" font-family="Inter,sans-serif" font-size="9" font-weight="700" fill="#5A6B7C">$116K FLIGHT</text></svg>
           <a href="week.html#wk-buy">See the buyer&rsquo;s week &rarr;</a>
         </details>
         <details class="mdet mdet--seat" open>
@@ -841,13 +841,13 @@
   <div class="wrap">
     <div class="center" style="margin-bottom:3rem" data-rise>
       <p class="eyebrow eyebrow--plain" style="justify-content:center">Contact us</p>
-      <h2>See your race on it.</h2>
+      <h2>See your race &mdash; or your market &mdash; on it.</h2>
       <div class="btn-row mt2" style="justify-content:center">
-        <form class="racebox racebox--band" action="contact.html#demo-form" method="get" aria-label="Name the race you buy">
+        <form class="racebox racebox--band" action="contact.html#demo-form" method="get" aria-label="Name the race you buy &mdash; or the market you sell">
           <input name="race" type="text" maxlength="150"
             placeholder="Your race &mdash; state + office"
             aria-label="The race you buy">
-          <button class="btn btn--lime btn--lg" type="submit">Open its dashboards &rarr;</button>
+          <button class="btn btn--lime btn--lg" type="submit">Have its dashboards open &rarr;</button>
         </form>
         <a class="btn btn--outline btn--lg" href="mailto:info@kpipolitical.com">Talk to us</a></div>
     <p class="small center" style="margin-top:.55rem;color:var(--ink-3)">Pricing and pilots.</p>
@@ -914,6 +914,6 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r153"></script>
+<script src="assets/js/site.js?v=r154"></script>
 </body>
 </html>

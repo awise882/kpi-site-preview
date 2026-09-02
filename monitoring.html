@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r153">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r154">
 <style>
   .fig-scroll > svg { min-width: 820px; }
   /* R69: the key graphic gets a phone-native stack; no panning a 1000px drawing */
@@ -75,12 +75,12 @@
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
-<nav class="nav nav--light" data-open="false">
+<nav aria-label="Primary" class="nav nav--light" data-open="false">
   <div class="wrap nav__in">
     <a class="nav__brand" href="index.html" aria-label="Kinetiq Political Insights, home">
       <img src="assets/img/kpi-logo.png" alt="Kinetiq Political Insights">
     </a>
-    <ul class="nav__links">
+    <ul class="nav__links" id="nav-links">
       <li class="nav__item nav__home"><a href="index.html">Home</a></li>
       <li class="nav__item"><a href="monitoring.html">Monitoring</a>
         <div class="nav__drop" aria-label="Section shortcuts">
@@ -120,11 +120,11 @@
       <a class="btn btn--outline btn--sm" href="https://portal.kpipolitical.com">Log in</a>
       <a class="btn btn--lime btn--sm" href="contact.html">Request a demo</a>
     </div>
-    <button class="nav__toggle" aria-expanded="false" aria-label="Menu">Menu</button>
+    <button class="nav__toggle" aria-expanded="false" aria-label="Menu" aria-controls="nav-links">Menu</button>
   </div>
 </nav>
 <nav class="ptabs" aria-label="Sections on this page">
-  <button class="ptabs__stamp num" type="button" aria-expanded="false" aria-controls="ptabs-menu"></button>
+  <button class="ptabs__stamp num" type="button" aria-label="Jump to a section on this page" aria-expanded="false" aria-controls="ptabs-menu"></button>
   <div class="wrap ptabs__in" id="ptabs-menu">
     <span class="ptabs__k" aria-hidden="true">MONITORING &mdash;</span>
     <a href="#timeline" data-t="The clock"><i>01</i>The clock</a>
@@ -158,7 +158,6 @@
         <p class="mhero__p"><b>Broadcast, cable, radio</b> &mdash; order by order,
           with filed rates in all <b>210</b> markets.</p>
         <p class="mhero__rcpt num">250K+ TV &amp; RADIO ORDERS ON FILE &middot; GROWING DAILY</p>
-        <p class="mhero__rcpt num"></p>
         <a class="mhero__go" href="#explore-market">Order by order &rarr;</a>
       </div>
       <div class="mhero__lane mhero__lane--dark">
@@ -300,7 +299,7 @@
                 <div class="ac__scrub" aria-hidden="true"><span style="width:23%"></span></div>
               </div>
               <div class="ac__strip ac__strip--real" aria-hidden="true"><i data-t="0:00"></i><i data-t="0:07"></i><i data-t="0:14"></i><i data-t="0:21"></i><i data-t="0:28"></i></div>
-              <p class="ac__framenote">A real alert, exactly as it landed. Creative &copy; its advertiser.</p>
+              <p class="ac__framenote">A real alert, exactly as it landed. Creative &copy; its advertiser. The buttons live in the product &mdash; this card is the specimen.</p>
               <div class="ac__actions" role="group" aria-label="Alert actions, illustrative" aria-hidden="true">
                 <button class="btn btn--outline btn--sm" type="button" tabindex="-1">Copy transcript</button>
                 <button class="btn btn--navy btn--sm" type="button" tabindex="-1">Download video</button>
@@ -339,6 +338,7 @@
               </div>
               <div class="lat2 num" role="group" aria-label="The two delivery lanes">
                 <p class="lat2__row"><span>DAYTIME: SENT WHEN CAUGHT</span><span>OVERNIGHT: THE 8:20 SEND</span></p>
+                <p class="lat2__row"><span>INBOX &middot; AND THE API</span><span>THE SAME ALERT, WITH THE DATA BEHIND IT</span></p>
               </div>
             </div>
           </div>
@@ -528,13 +528,13 @@
           <ul class="small" style="margin-bottom:0">
             <li><b>Rate history</b> &mdash; by station, daypart and week; FCC-verified where filed</li>
             <li><b>Cleared vs quoted</b> &mdash; the competitive buy&rsquo;s actual clearances against your quote</li>
-            <li><b>Class vs market</b> &mdash; candidates and outside groups read separately, LUR-protected</li>
+            <li><b>Class vs market</b> &mdash; candidates and outside groups read separately, lowest-unit-rate (LUR) protected</li>
             <li><b>Sellers pull it too</b> &mdash; to <a href="week.html#wk-friday">defend the rate</a></li>
           </ul>
         </div>
-        <p class="small" style="max-width:60ch;margin-top:.8rem">The <b class="num">$12K</b> clawback is worked through in
-          <a href="week.html#wk-buy">the buyer&rsquo;s week</a>; the seller&rsquo;s
-          Friday defends <b class="num">$17K</b> with the same file.</p>
+        <div class="lat2 num" role="group" aria-label="The same filed page, worked from both desks" style="margin-top:.8rem">
+          <p class="lat2__row"><span>$12K BACK &middot; <a href="week.html#wk-buy">THE BUYER&rsquo;S WEEK&nbsp;&rarr;</a></span><span>$17K HELD &middot; <a href="week.html#wk-friday">THE SELLER&rsquo;S FRIDAY&nbsp;&rarr;</a></span></p>
+        </div>
         <div class="btn-row mt2">
           <a class="btn btn--navy" href="contact.html">See rates in your market</a>
         </div>
@@ -619,7 +619,7 @@
             <text x="0" y="64" font-family="Inter, sans-serif" font-size="7.6" font-weight="700" fill="#4F7A25">TOP 58: IMPRESSIONS + DOLLARS, PER MARKET</text>
             <text x="0" y="78" font-family="Inter, sans-serif" font-size="7.6" font-weight="700" fill="#5A6B7C">BELOW THE 58: DETECTION FULL &middot; DOLLARS STATEWIDE EST. MIN</text>
           </svg>
-          <p class="lanefam__rcpt num">THIN PRINTS &ldquo;INSUFFICIENT&rdquo;, NEVER A FAKE ZERO &mdash; CHEYENNE, WORKED: DETECTION FULL &middot; DOLLARS STATEWIDE EST. &middot; SYNTHETIC</p>
+          <p class="lanefam__rcpt num">THIN SIGNAL PRINTS &ldquo;INSUFFICIENT&rdquo;, NEVER A FAKE ZERO &mdash; CHEYENNE, WORKED: DETECTION FULL &middot; DOLLARS STATEWIDE EST. &middot; SYNTHETIC</p>
         </div>
       </div>
     </div>
@@ -771,7 +771,7 @@
   <div class="wrap center">
     <h2>Name a race. We will show you what the machine caught.</h2>
     <p class="lede" style="margin-inline:auto">Twenty minutes &mdash; its dashboards open live.</p>
-      <p class="small" style="max-width:70ch;margin-top:.8rem">Bring the race you
+      <p class="small" style="max-width:70ch;margin-top:.8rem;margin-inline:auto">Bring the race you
         know best.</p>
     <div class="btn-row mt2" style="justify-content:center">
       <a class="btn btn--lime btn--lg" href="contact.html">Request a demo</a>
@@ -836,6 +836,6 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r153"></script>
+<script src="assets/js/site.js?v=r154"></script>
 </body>
 </html>
