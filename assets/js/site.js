@@ -594,7 +594,7 @@
 (function () {
   try {
     if (window.matchMedia && matchMedia('(max-width: 640px)').matches) {
-      document.querySelectorAll('details.mdet[open]:not(.mdet--seat)').forEach(function (d) {
+      document.querySelectorAll('details.mdet[open]:not(.mdet--seat):not(.mdet--keep)').forEach(function (d) {
         d.removeAttribute('open');
       });
     }
