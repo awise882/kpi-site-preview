@@ -2853,12 +2853,12 @@ details.mdet--keep > summary { display: block; pointer-events: none; font-weight
 /* ===== r127 — the teardown answered ===== */
 /* Phones cut cards 2/3/5 off the morning wall; the ordinals (and the numbered
    readline) are desktop grammar, so below the absolute layout they go quiet. */
-@media (max-width: 1099px) {
+@media (max-width: 1099px) { .kw__readline { display: none; } }
+@media (max-width: 640px) {
   .kw__c::before { display: none !important; }
   .kw__c--alert::before { content: "1"; display: grid !important; }
   .kw__c--score::before { content: "2"; display: grid !important; }
   .kw__c--baker::before { content: "3"; display: grid !important; }
-  .kw__readline { display: none; }
 }
 /* The LINEAR lane carries a proof row like its dark neighbor. */
 .mhero__rcpt { align-self: stretch; margin: .8rem 0 0; padding-top: .6rem;
@@ -3215,3 +3215,8 @@ details.mdet--fold > summary { display: block; font-weight: 700; }
    every base seam now prints, and the kicker steps up half a size. */
 .section:not(.section--mega) + .section:not(.section--mega) { border-top: 1px solid var(--rule-soft); }
 .eyebrow { font-weight: 700; }
+
+/* r160: long doc stamps wrap at tablet instead of pushing the bar wide */
+@media (max-width: 880px) {
+  .wk-doc__stamp { white-space: normal; max-width: 58%; text-align: right; }
+}
