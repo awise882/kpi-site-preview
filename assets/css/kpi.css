@@ -3189,3 +3189,8 @@ details.mdet--fold > summary { display: block; font-weight: 700; }
 .mtl__play { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
 .mtl__tc { position: absolute; right: 6px; bottom: 5px; color: #fff; font-size: .6rem;
   font-weight: 700; letter-spacing: .05em; background: rgba(8,36,59,.55); padding: .1rem .3rem; border-radius: 2px; }
+
+/* r157: the team's awards receipt (owner: team-attributed, never the entity) */
+.built__awards { font-family: var(--mono); font-size: .72rem; letter-spacing: .07em; color: var(--ink-2);
+  margin: .85rem auto 0; max-width: 620px; padding-top: .55rem; border-top: 1px dotted #A9BBC9; }
+.built__awards b { color: var(--navy-deep); font-weight: 800; }
