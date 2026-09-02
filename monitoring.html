@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r148">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r149">
 <style>
   .fig-scroll > svg { min-width: 820px; }
   /* R69: the key graphic gets a phone-native stack; no panning a 1000px drawing */
@@ -124,14 +124,16 @@
   </div>
 </nav>
 <nav class="ptabs" aria-label="Sections on this page">
-  <div class="wrap ptabs__in">
-    <span class="ptabs__k" aria-hidden="true">On this page &mdash;</span>
-    <a href="#timeline">The clock</a>
-    <a href="#alert-demo">Alerts</a>
-    <a href="#explore-market">The market</a>
-    <a href="#fcc-rates">Rates</a>
-    <a href="#streaming">Streaming</a>
+  <button class="ptabs__stamp num" type="button" aria-expanded="false" aria-controls="ptabs-menu"></button>
+  <div class="wrap ptabs__in" id="ptabs-menu">
+    <span class="ptabs__k" aria-hidden="true">MONITORING &mdash;</span>
+    <a href="#timeline" data-t="The clock"><i>01</i>The clock</a>
+    <a href="#alert-demo" data-t="Alerts"><i>02</i>Alerts</a>
+    <a href="#explore-market" data-t="The market"><i>03</i>The market</a>
+    <a href="#fcc-rates" data-t="Rates"><i>04</i>Rates</a>
+    <a href="#streaming" data-t="Streaming"><i>05</i>Streaming</a>
   </div>
+  <i class="ptabs__dot" aria-hidden="true"></i>
 </nav>
 
 <main id="main">
@@ -156,7 +158,7 @@
         <p class="mhero__p"><b>Broadcast, cable, radio</b> &mdash; order by order,
           with filed rates in all <b>210</b> markets.</p>
         <p class="mhero__rcpt num">250K+ TV &amp; RADIO ORDERS ON FILE &middot; GROWING DAILY</p>
-        <p class="mhero__rcpt num">WKLD &middot; EARLY NEWS &middot; :30 &middot; $260 CLEARED IN CLASS</p>
+        <p class="mhero__rcpt num">WKLD &middot; EARLY NEWS &middot; :30 &middot; $260 &middot; CLEARED IN CLASS</p>
         <a class="mhero__go" href="#explore-market">Order by order &rarr;</a>
       </div>
       <div class="mhero__lane mhero__lane--dark">
@@ -167,8 +169,8 @@
         <svg class="mhero__bar" viewBox="0 0 300 56" role="img" aria-label="A third of measured political TV ad impressions run on streaming">
           <rect x="0" y="4" width="94" height="34" fill="#A8D14E"/>
           <text x="47" y="26" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="800" fill="#08243B">1 in 3</text>
-          <rect x="98" y="4" width="202" height="34" fill="#2E5E88"/>
-          <text x="199" y="26" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="800" fill="#CFE0EE">2 in 3</text>
+          <rect x="94" y="4" width="206" height="34" fill="#2E5E88"/><line x1="94" y1="4" x2="94" y2="38" stroke="#FFFFFF" stroke-width="2"/>
+          <text x="197" y="26" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="800" fill="#CFE0EE">2 in 3</text>
           <text x="0" y="52" font-family="Inter, sans-serif" font-size="7.5" font-weight="700" letter-spacing=".8" fill="#A8D14E">STREAMING &middot; MEASURED HERE</text>
           <text x="300" y="52" text-anchor="end" font-family="Inter, sans-serif" font-size="7.5" font-weight="700" letter-spacing=".8" fill="#8FA9BE">LINEAR &middot; ORDER BY ORDER</text>
         </svg>
@@ -338,8 +340,10 @@
                 <p class="pca__row num">TAPE + AI TRANSCRIPT ATTACHED</p>
                 <p class="pca__row">&ldquo;&hellip;Acton hiked taxes and made everything cost more&hellip;&rdquo; &mdash; AI transcript, exactly as landed &middot; creative &copy; its advertiser</p>
               </div>
-              <p class="lanefam__rcpt num">DAYTIME FIRST-AIR &rarr; THE LANDS-WHEN-CAUGHT LANE, LIKE THE HULU ALERT ABOVE</p>
-              <p class="lanefam__rcpt num">OVERNIGHT FIRST-AIR &rarr; THE MORNING SEND &mdash; THE WKYC ALERT ABOVE: 8:20 AM</p>
+              <div class="lat2 num" role="group" aria-label="The two delivery lanes">
+                <p class="lat2__row"><span>DAYTIME FIRST-AIR</span><span>SENT WHEN CAUGHT</span></p>
+                <p class="lat2__row"><span>OVERNIGHT FIRST-AIR</span><span>THE MORNING SEND &middot; 8:20 AM</span></p>
+              </div>
               <p class="ac__bcast small num"><b>INBOX</b> &mdash; stamped above, with the
                 morning send &middot; <b>API</b> &mdash; the same fields plus the data behind
                 them; the spec opens with the walkthrough.</p>
@@ -398,12 +402,14 @@
             <span class="aw__stamp">TV thru Aug 14 &middot; str. est. thru Aug 14, 2026</span>
           </header>
           <p class="aw__readline"><b>The broadcast buy carries the market &mdash; and the forward book says it holds.</b></p>
-          <svg class="aw__fwdfig" viewBox="0 0 360 36" role="img" aria-label="Aired: 2.6 million dollars, drawn solid. Booked forward: 880 thousand dollars for the next two weeks, drawn hatched on the same scale">
+          <svg class="aw__fwdfig" viewBox="0 0 360 58" role="img" aria-label="Aired: 2.6 million dollars, drawn solid. Booked forward: 880 thousand dollars for the next two weeks, drawn hatched on the same scale — its own strip, its own scale">
             <defs><pattern id="awh" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" fill="#EAF0F5"/><line x1="0" y1="0" x2="0" y2="6" stroke="#5B7C96" stroke-width="2.2"/></pattern></defs>
-            <rect x="0" y="6" width="252" height="14" fill="#0D2E4A"/>
-            <rect x="252" y="6" width="85" height="14" fill="url(#awh)" stroke="#5B7C96" stroke-width="1"/>
-            <text x="4" y="16.5" font-family="Inter,sans-serif" font-size="8.5" font-weight="800" fill="#DDE7EF">AIRED $2.6M</text>
-            <text x="360" y="33" text-anchor="end" font-family="Inter,sans-serif" font-size="8" font-weight="700" letter-spacing=".4" fill="#3E5468">BOOKED FWD $880K &middot; NEXT TWO WKS &middot; HATCHED</text>
+            <text x="0" y="9" font-family="Inter,sans-serif" font-size="8" font-weight="800" letter-spacing="1" fill="#5A6B7C">THE WEEK, AIRED + BOOKED &middot; ITS OWN SCALE</text>
+            <line x1="0" y1="14" x2="360" y2="14" stroke="#DCE4EC" stroke-width="1"/>
+            <rect x="0" y="20" width="252" height="15" fill="#0D2E4A"/>
+            <rect x="252" y="20" width="85" height="15" fill="url(#awh)" stroke="#5B7C96" stroke-width="1"/>
+            <text x="5" y="31.5" font-family="Inter,sans-serif" font-size="10" font-weight="800" fill="#DDE7EF">AIRED $2.6M</text>
+            <text x="360" y="50" text-anchor="end" font-family="Inter,sans-serif" font-size="9" font-weight="700" letter-spacing=".4" fill="#3E5468">BOOKED FWD $880K &middot; NEXT TWO WKS &middot; HATCHED</text>
           </svg>
           <div class="aw__lanes">
             <div class="aw__lane" tabindex="0" data-note="Broadcast: order by order, FCC-verified where a filing exists.">
@@ -564,10 +570,10 @@
           <svg class="pca__fig" viewBox="0 0 560 100" role="img" aria-label="Rate versus the market average, per station: KCCI at 1.5 times and WHO at 1.2 times sit above the market line; KDSM and WOI at 0.5, KFPX at 0.2 and KCWI at 0.1 sit below it">
             <rect x="42" y="14" width="40" height="66" fill="#0D2E4A"/>
             <rect x="130" y="27" width="40" height="53" fill="#0D2E4A"/>
-            <rect x="218" y="58" width="40" height="22" fill="#C7D5E0"/>
-            <rect x="306" y="58" width="40" height="22" fill="#C7D5E0"/>
-            <rect x="394" y="71" width="40" height="9" fill="#C7D5E0"/>
-            <rect x="482" y="75" width="40" height="5" fill="#C7D5E0"/>
+            <rect x="218" y="58" width="40" height="22" fill="#B7C6D2"/>
+            <rect x="306" y="58" width="40" height="22" fill="#B7C6D2"/>
+            <rect x="394" y="71" width="40" height="9" fill="#B7C6D2"/>
+            <rect x="482" y="75" width="40" height="5" fill="#B7C6D2"/>
             <line x1="14" y1="80" x2="546" y2="80" stroke="#C7D5E0" stroke-width="2"/>
             <line x1="14" y1="36" x2="546" y2="36" stroke="#8A5200" stroke-width="1.5" stroke-dasharray="5 4"/>
             <text x="546" y="30" text-anchor="end" font-family="Inter, sans-serif" font-size="8.5" font-weight="800" letter-spacing=".5" fill="#8A5200">1.0&times; = MARKET AVG</text>
@@ -582,7 +588,7 @@
             <text x="238" y="94" text-anchor="middle" font-size="9.5" font-weight="700" letter-spacing=".5" fill="#5A6B7C">KDSM</text>
             <text x="326" y="94" text-anchor="middle" font-size="9.5" font-weight="700" letter-spacing=".5" fill="#5A6B7C">WOI</text>
             <text x="414" y="94" text-anchor="middle" font-size="9.5" font-weight="700" letter-spacing=".5" fill="#5A6B7C">KFPX</text>
-            <text x="482" y="94" font-size="9.5" font-weight="700" letter-spacing=".5" fill="#5A6B7C">KCWI</text>
+            <text x="502" y="94" text-anchor="middle" font-size="9.5" font-weight="700" letter-spacing=".5" fill="#5A6B7C">KCWI</text>
           </svg>
           <p class="pca__row num">READ AS STATIONS POST TO THE PUBLIC FILE &middot; THIS READ RUNS THROUGH AUG 30, 2026</p>
           <p class="pca__row">Real market, exactly as filed &mdash; the candidate-vs-issue class split prints
@@ -613,14 +619,19 @@
           &mdash; including spots that never touch broadcast. Captured spots carry
           tape, platform and transcript; dollars print as a dated estimated minimum,
           never in the totals.</p>
-        <p class="lanefam__rcpt num">READ &mdash; WHATEVER RENDERS ON THE TV GLASS &middot; 288 APPS IN A SINGLE MONTH&rsquo;S CAPTURE</p>
-        <p class="lanefam__rcpt num">NOT READ &mdash; SEARCH &amp; SOCIAL FEEDS</p>
-        <p class="lanefam__rcpt num">WHERE THOSE ANSWER &mdash; THE PLATFORMS&rsquo; OWN AD ARCHIVES</p>
+        <svg class="lanefam__fig" viewBox="0 0 360 88" role="img" aria-label="The boundary drawn as one line labeled THE GLASS: whatever renders on the TV glass is read — 288 apps in a single month's capture; search and social feeds sit below the line, not read; their platforms' own ad archives answer there">
+          <text x="0" y="12" font-family="Inter,sans-serif" font-size="9.5" font-weight="800" letter-spacing=".4" fill="#08243B">READ &mdash; RENDERS ON THE TV GLASS &middot; 288 APPS, ONE MONTH</text>
+          <line x1="0" y1="24" x2="360" y2="24" stroke="#0D2E4A" stroke-width="2"/>
+          <text x="360" y="35" text-anchor="end" font-family="Inter,sans-serif" font-size="8" font-weight="800" letter-spacing="1" fill="#5A6B7C">THE GLASS</text>
+          <text x="0" y="50" font-family="Inter,sans-serif" font-size="9.5" font-weight="800" letter-spacing=".4" fill="#7A8C9C">NOT READ &mdash; SEARCH &amp; SOCIAL FEEDS</text>
+          <line x1="0" y1="62" x2="360" y2="62" stroke="#A9BBC9" stroke-width="1.2" stroke-dasharray="2 4"/>
+          <text x="0" y="80" font-family="Inter,sans-serif" font-size="9" font-weight="700" letter-spacing=".4" fill="#5A6B7C">WHERE THOSE ANSWER &mdash; THE PLATFORMS&rsquo; OWN AD ARCHIVES</text>
+        </svg>
       </div>
 <div class="lanefam lanefam--key" id="grain">
         <div class="lanefam__head">
           <h3 class="lanefam__name">The grain, drawn</h3>
-          <span class="chip chip--warn">One rule, every lane</span>
+          <span class="stampl">One rule, every lane</span>
         </div>
         <div class="lanefam__body">
           <svg class="grainfig" viewBox="0 0 300 88" role="img" aria-label="A strip of all 210 markets. The first band, the top 58, is solid: impressions and dollars land per market. The remaining 152 are hatched: detection is full everywhere; dollars print statewide as an estimated minimum, and thin prints insufficient.">
@@ -851,6 +862,6 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r148"></script>
+<script src="assets/js/site.js?v=r149"></script>
 </body>
 </html>
