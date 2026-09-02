@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r149">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r150">
 <style>
   /* contact.html only. Built from existing custom properties, no new colors. */
   .form-shell { background: var(--paper); border: 1px solid var(--rule); border-radius: var(--r-lg); padding: clamp(20px, 3vw, 32px); }
@@ -107,7 +107,7 @@
 <section class="section section--tight hero-wash">
   <div class="wrap">
     <p class="eyebrow">Request a demo</p>
-    <h1 style="font-size:clamp(2.2rem,4.8vw,3.6rem)">Point it at a race you <span class="serif-accent">already know</span>.</h1>
+    <h1 style="font-size:clamp(2.2rem,4.8vw,3.6rem)">Point the platform at a race you <span class="serif-accent">already know</span>.</h1>
     <p class="lede">Open it on a contest you have watched all cycle and see whether it
       tells you anything you did not already have. Name the race &mdash; or the market
       you sell &mdash; when you book.</p>
@@ -145,10 +145,12 @@
             <label for="c-race">Race or market</label>
             <input type="text" id="c-race" name="race" aria-describedby="c-race-hint" maxlength="150"
                    placeholder="A state and an office, or the market you sell">
-            <p class="field-hint" id="c-race-hint">The state and the office are enough. Carrying several races? Name them all.<br>
-              <b>Selling?</b> Name the market or the app &mdash; we confirm its read first.<br>
-              <b>Below the top 58?</b> Name your markets &mdash; we say which side of the grain each sits on.<br>
-              <b>Running a book?</b> Name the agency &mdash; the walkthrough opens the book board.</p>
+            <div class="field-hint field-hint--rows" id="c-race-hint">
+              <p><b>A RACE</b> &mdash; the state and the office are enough; carrying several, list them all.</p>
+              <p><b>SELLING</b> &mdash; the market or the app; we confirm its read first.</p>
+              <p><b>BELOW THE TOP 58</b> &mdash; we say which markets carry impression measurement and which run on detection alone.</p>
+              <p><b>RUNNING A BOOK</b> &mdash; the agency; the walkthrough opens the book board.</p>
+            </div>
           </div>
 
           <!-- Ruling 49a: everything else folds shut; three fields stay visible. -->
@@ -191,12 +193,11 @@
           <!-- Notice at collection. Keep this visible at the point of collection. The privacy page
                (privacy.html) carries the retention term and is linked from every footer. COUNSEL TO
                CONFIRM the retention term and the full notice before deploy. -->
-          <p class="form-note">We use what you send to prepare and run your walkthrough and to reply to you.
-            The recipient is Kinetiq Political Insights. We do not sell it, and we do not share it with a
-            campaign or a committee. We keep it while we are in contact with you about a walkthrough, no
-            longer than 24 months, and we delete it on request. To see what we hold, correct it, or have it
-            deleted, write to <a href="mailto:info@kpipolitical.com">info@kpipolitical.com</a>. Full notice:
-            <a href="privacy.html">privacy</a>.</p>
+          <div class="form-note form-note--rows">
+            <p><b>USED FOR</b> &mdash; preparing and running your walkthrough, and replying to you. The recipient is Kinetiq Political Insights.</p>
+            <p><b>NEVER</b> &mdash; sold, or shared with a campaign or a committee.</p>
+            <p><b>KEPT</b> &mdash; while we are in contact about a walkthrough, no longer than 24 months &middot; deleted, corrected, or shown to you on request: <a href="mailto:info@kpipolitical.com">info@kpipolitical.com</a> &middot; full notice: <a href="privacy.html">privacy</a>.</p>
+          </div>
         </form>
       </div>
 
@@ -207,10 +208,10 @@
           <ol class="nextlines">
             <li>Name your race or your market.</li>
             <li>We reply &mdash; and pull your race before the call.</li>
-            <li><b>Sign</b> &mdash; your whole book is already on the boards; seats
-              and alert routing are set on the setup call.</li>
             <li><b>20 minutes on your contest</b> &mdash; or your market&rsquo;s order
               flow. Wrong read? You will know in the first five.</li>
+            <li><b>Sign</b> &mdash; your whole book is already on the boards; seats
+              and alert routing are set on the setup call.</li>
           </ol>
           <p class="small" style="margin:.6rem 0 0">Rather skip the form? Straight to the desk:
             <a href="mailto:info@kpipolitical.com">info@kpipolitical.com</a>.</p>
@@ -348,6 +349,13 @@
   var say = function (msg) { if (status) { status.hidden = false; status.textContent = msg; } };
   var hush = function () { if (status) { status.hidden = true; status.textContent = ''; } };
   var btn = form.querySelector('button[type="submit"]');
+  try {
+    var rq = new URLSearchParams(location.search).get('race');
+    if (rq) {
+      var rf = document.getElementById('c-race');
+      if (rf && !rf.value) rf.value = rq.slice(0, 150);
+    }
+  } catch (e) {}
   var restore = function () {
     if (btn) { btn.disabled = false; btn.textContent = 'Request the walkthrough \u2014 we pull your race first'; }
   };
@@ -417,6 +425,6 @@
   });
 })();
 </script>
-<script src="assets/js/site.js?v=r149"></script>
+<script src="assets/js/site.js?v=r150"></script>
 </body>
 </html>

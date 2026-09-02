@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r149">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r150">
 <style>
   /* r106: every hero its own composition -- this page opens on the two desks
      themselves. Text left; the buyer's and seller's doors right. */
@@ -134,17 +134,13 @@
     </div>
     <div class="wkh" data-plx style="--plx-d:20px">
       <a class="wkh__desk" href="#wk-buy">
-        <p class="wkh__k">The buyer&rsquo;s desk <span class="num">MON &rarr; FRI</span></p>
+        <p class="wkh__k">The buyer&rsquo;s desk <span class="num">FOUR BEATS</span></p>
         <p class="wkh__t">Four beats: the alert, the boards, the rates, the money back.</p>
-        <p class="wkh__p">The overnight catch, the scoreboard that reads itself, the filed
-          page in hand &mdash; and $12K back on one 400-spot flight.</p>
         <span class="wkh__go">Walk the buyer&rsquo;s week &rarr;</span>
       </a>
       <a class="wkh__desk wkh__desk--sell" href="#wk-sell">
         <p class="wkh__k">The seller&rsquo;s desk</p>
         <p class="wkh__t">Your share, the gaps, and who to call.</p>
-        <p class="wkh__p">The order flow, the share diagonal, the class the money starves,
-          the agency book &mdash; each priced in dollars on the table.</p>
         <span class="wkh__go">Open the seller&rsquo;s desk &rarr;</span>
       </a>
     </div>
@@ -167,7 +163,7 @@
       <div class="wk__rail" role="tablist" aria-label="Choose a desk">
         <button class="wk__tab" id="wk-tab-buy" type="button" role="tab" aria-selected="true" aria-controls="wk-buy">
           <span class="wk__tab-name">The buyer&rsquo;s week</span>
-          <span class="wk__tab-sub">Mon &rarr; Fri &middot; walked in four beats</span>
+          <span class="wk__tab-sub">Alert to rate call &middot; four beats</span>
         </button>
         <button class="wk__tab" id="wk-tab-sell" type="button" role="tab" aria-selected="false" aria-controls="wk-sell">
           <span class="wk__tab-name">The seller&rsquo;s week</span>
@@ -232,7 +228,7 @@
               <div class="wk__when">
                 <span class="wk__day">Beat 2 &middot; Orient</span>
                 <span class="wk__stampline num">Posted through Aug 14, 2026</span>
-                <span class="wk__big">Three markets, both sides, changes&nbsp;flagged.</span>
+                <span class="wk__big">Three markets, both&nbsp;sides, changes&nbsp;flagged.</span>
                 <div class="wk__copy">
                   <p>What is the opponent doing, where are they buying, what changed
                     since yesterday &mdash; and what it really costs: CPPs computed from
@@ -339,9 +335,9 @@
       +$272K at your share &mdash; and Friday the rate holds: the $355 outside-group
       page answers the $260 candidate quote, $17K stays on the books.</p>
     <p class="small" style="max-width:70ch;margin:0 0 1rem">Station, rep firm, or app
-      &mdash; the same week from any selling desk. App and FAST sellers: your board is
-      <a href="#share-diagonal">Under the line</a>, and the proof-of-air export below
-      is yours.</p>
+      &mdash; the same week from any selling desk. Selling an app or a FAST (free
+      ad-supported TV) service? Your board is the <a href="#share-diagonal">&ldquo;Under
+      the line&rdquo;</a> tab, and the proof-of-air export below is yours.</p>
     <div class="wkx">
       <div class="wkx__scroller">
         <div class="wkx__pin">
@@ -381,9 +377,9 @@
                 <span class="wk__stampline num">TUE &middot; aired vs. booked forward</span>
                 <span class="wk__big">25% of the aired dollars. 19% of the forward&nbsp;book.</span>
                 <div class="wk__copy">
-                  <p>The money already placed for the fall runs ahead of your share
-                    in two booked weeks &mdash; dated on the board, priced in dollars,
-                    before that money airs around you.</p>
+                  <p>Fall money is already on the books &mdash; and your share of it
+                    runs behind your share of the air. Two booked weeks, dated on the
+                    board, priced in dollars before that money airs around you.</p>
                 </div>
               </div>
               <div class="wk__art">
@@ -413,7 +409,7 @@
               </div>
               <div class="wk__art">
                 <div class="wk-doc">
-                  <div class="wk-doc__bar"><span class="wk-doc__brand">KPI &middot; Class gap</span><span class="wk-doc__stamp">Columbus &middot; streaming est. thru Aug 18</span></div>
+                  <div class="wk-doc__bar"><span class="wk-doc__brand">KPI &middot; Streaming, unfiled</span><span class="wk-doc__stamp">Columbus &middot; est. thru Aug 18</span></div>
                   <div class="wk-doc__row"><span>Streaming, estimated</span><span class="num"><b>$432K</b> &middot; with the $3.8M aired</span></div>
                   <div class="wk-doc__row"><span>Advertisers on the apps, light on your air</span><span class="wk-doc__hi num">the linear pitch, named</span></div>
                   <div class="wk-doc__row"><span class="wk-doc__dim">Top-58 grain &mdash; Columbus qualifies.</span></div>
@@ -490,8 +486,8 @@
     <!-- r88b: the seller's boards as one deck. site.js adds .pb--live and the
          rail appears; JS-off all six boards render stacked exactly as before.
          Panels keep their ids so every existing deep link still lands. -->
-    <p class="small" style="max-width:72ch">Each board answers to a day of the week;
-      the alerts carry every morning after.</p>
+    <p class="small" style="max-width:72ch">Each board belongs to one day of the
+      seller&rsquo;s week &mdash; and after Friday, the morning alerts keep the watch.</p>
     <div class="pb__rail mt3" role="tablist" aria-label="Choose a seller board">
       <button class="pb__tab" id="pb-tab-orderflow" type="button" role="tab" aria-selected="true" aria-controls="order-flow">
         <span class="wk__tab-name">Order flow</span>
@@ -736,9 +732,9 @@
           streaming money.</p>
         <p class="dek" style="margin:.6rem auto 0;max-width:62ch"><b>App seller:</b> the
           inclusion rule is <a href="monitoring.html#streaming">one line, drawn on
-          monitoring</a> &mdash; if it renders on the TV glass, it&rsquo;s read. Price
-          defense is the diagonal plus the delivery receipt, dated; your service&rsquo;s
-          own read opens on the walkthrough.</p>
+          monitoring</a> &mdash; if it renders on the TV glass, it&rsquo;s read. Defend
+          your price with the diagonal and the dated delivery receipt; your
+          service&rsquo;s own read opens on the walkthrough.</p>
       </div>
       <div class="sd sd-stage">
         <div class="sd__scroller">
@@ -813,8 +809,9 @@
             </svg>
             <p class="sd__hint small">Keep scrolling: the services settle, the diagonal draws, the gap lights.</p>
             <p class="sd__note">The annotated service holds 4% of the viewing time and
-              1.5% of the political dollars &mdash; under its share. The TV money above
-              the line is the evidence for the incremental pitch. Statewide, the
+              1.5% of the political dollars &mdash; under its share. The TV money above the line is the
+              incremental pitch: those advertisers already buy TV &mdash; and not
+              yet your service. Statewide, the
               under-the-line services sum to <b class="num">+$510K</b> est. &mdash;
               your service&rsquo;s own row opens on the walkthrough.</p>
             <p class="ct__cap">Illustrative figures, synthetic state &middot; spend share =
@@ -830,10 +827,10 @@
 
     <div class="pb__panel" role="tabpanel" id="class-gap-board" aria-labelledby="pb-tab-classgap">
 <h3 class="mt3">The class gap</h3>
-      <p class="dek" style="max-width:70ch;margin:.5rem 0 0"><b class="num">4%</b> of one
-        buyer&rsquo;s streaming dollars sit in the class holding <b class="num">18%</b> of
-        the market&rsquo;s &mdash; at this market&rsquo;s pace, <b class="num">$310K</b> on
-        the table for the starved class, estimated.</p>
+      <p class="dek" style="max-width:70ch;margin:.5rem 0 0">One buyer puts <b class="num">4%</b>
+        of its streaming dollars into the class where the market puts <b class="num">18%</b>.
+        At this market&rsquo;s pace, that leaves an estimated <b class="num">$310K</b> on
+        the table for the starved class.</p>
       <p class="small" style="max-width:70ch">Stations with an OTT product read it the same
         way &mdash; your classes, your share.</p>
       <!-- Ruling 40f: the platform seller's read. One buyer's digital mix by platform
@@ -1090,6 +1087,6 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r149"></script>
+<script src="assets/js/site.js?v=r150"></script>
 </body>
 </html>

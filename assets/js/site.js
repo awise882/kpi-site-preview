@@ -709,7 +709,7 @@
       var p = ((ar.left + ar.width / 2 - br.left) / br.width) * 100;
       bar.style.setProperty('--pt-p', Math.max(0, Math.min(100, p)).toFixed(2) + '%');
     }
-    if (stamp) stamp.textContent = 'STOP ' + pad(idx + 1) + ' OF ' + pad(map.length) +
+    if (stamp) stamp.textContent = pad(idx + 1) + ' / ' + pad(map.length) +
       ' \u00B7 ' + (m.a.getAttribute('data-t') || m.a.textContent).toUpperCase();
   };
   var navH = 78;
