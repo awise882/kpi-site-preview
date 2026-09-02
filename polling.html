@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r148">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r149">
 <style>
   /* r106 (Adam): the loop IS the landing. Text left, the loop tape right, one
      viewport. The tape is the old ring redrawn in the house receipt grammar:
@@ -373,12 +373,14 @@
   </div>
 </nav>
 <nav class="ptabs" aria-label="Sections on this page">
-  <div class="wrap ptabs__in">
-    <span class="ptabs__k" aria-hidden="true">On this page &mdash;</span>
-    <a href="#story">How it works</a>
-    <a href="#matrix">The audience</a>
-    <a href="#offerings">Plans &amp; terms</a>
+  <button class="ptabs__stamp num" type="button" aria-expanded="false" aria-controls="ptabs-menu"></button>
+  <div class="wrap ptabs__in" id="ptabs-menu">
+    <span class="ptabs__k" aria-hidden="true">VOTER OPINION &mdash;</span>
+    <a href="#story" data-t="How it works"><i>01</i>How it works</a>
+    <a href="#matrix" data-t="The audience"><i>02</i>The audience</a>
+    <a href="#offerings" data-t="Plans &amp; terms"><i>03</i>Plans &amp; terms</a>
   </div>
+  <i class="ptabs__dot" aria-hidden="true"></i>
 </nav>
 
 <main id="main">
@@ -956,6 +958,6 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r148"></script>
+<script src="assets/js/site.js?v=r149"></script>
 </body>
 </html>

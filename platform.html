@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r148">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r149">
 <style>
   /* The "what it exports" line that closes each app section. */
   .exports { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; margin-top: 1.3rem; }
@@ -240,14 +240,16 @@
   </div>
 </nav>
 <nav class="ptabs" aria-label="Sections on this page">
-  <div class="wrap ptabs__in">
-    <span class="ptabs__k" aria-hidden="true">On this page &mdash;</span>
-    <a href="#scoreboard">Scoreboard</a>
-    <a href="#creative-matrix">Creative Matrix</a>
-    <a href="#buy-sheet">Buy Sheet</a>
-    <a href="#creative-explorer">Explorer</a>
-    <a href="#baker">Ask Baker</a>
+  <button class="ptabs__stamp num" type="button" aria-expanded="false" aria-controls="ptabs-menu"></button>
+  <div class="wrap ptabs__in" id="ptabs-menu">
+    <span class="ptabs__k" aria-hidden="true">THE PLATFORM &mdash;</span>
+    <a href="#scoreboard" data-t="Scoreboard"><i>01</i>Scoreboard</a>
+    <a href="#creative-matrix" data-t="Creative Matrix"><i>02</i>Creative Matrix</a>
+    <a href="#buy-sheet" data-t="Buy Sheet"><i>03</i>Buy Sheet</a>
+    <a href="#creative-explorer" data-t="Explorer"><i>04</i>Explorer</a>
+    <a href="#baker" data-t="Ask Baker"><i>05</i>Ask Baker</a>
   </div>
+  <i class="ptabs__dot" aria-hidden="true"></i>
 </nav>
 
 <main id="main">
@@ -287,19 +289,19 @@
         <li class="lmap__layer">
           <span class="lmap__name">Monitoring &amp; alerts</span>
           <span class="lmap__what">Every ad, every market, as it airs.</span>
-          <span class="lmap__items"><a class="chip" href="monitoring.html#alert-demo" title="Opens on the monitoring page">Creative alerts &#8599;</a><a class="chip" href="monitoring.html#timeline" title="Opens on the monitoring page">The monitoring timeline &#8599;</a><a class="chip" href="monitoring.html#fcc-rates" title="Opens on the monitoring page">FCC rate intelligence &#8599;</a></span>
+          <span class="lmap__items lmap__items--ln"><a href="monitoring.html#alert-demo" title="Opens on the monitoring page">CREATIVE ALERTS &#8599;</a> &middot; <a href="monitoring.html#timeline" title="Opens on the monitoring page">THE TIMELINE &#8599;</a> &middot; <a href="monitoring.html#fcc-rates" title="Opens on the monitoring page">FCC RATES &#8599;</a></span>
           <span class="lmap__stat"><b class="num">210</b> markets monitored</span>
         </li>
         <li class="lmap__layer">
           <span class="lmap__name">Competitive intelligence</span>
           <span class="lmap__what">The tracked money, one working portal.</span>
-          <span class="lmap__items"><a class="chip" href="#scoreboard">Scoreboard</a><a class="chip" href="#creative-matrix">Creative Matrix</a><a class="chip" href="#buy-sheet">Buy Sheet</a><a class="chip" href="#creative-explorer">Creative Explorer</a></span>
+          <span class="lmap__items lmap__items--ln"><a href="#scoreboard">SCOREBOARD</a> &middot; <a href="#creative-matrix">CREATIVE MATRIX</a> &middot; <a href="#buy-sheet">BUY SHEET</a> &middot; <a href="#creative-explorer">CREATIVE EXPLORER</a></span>
           <span class="lmap__stat"><b class="num">303</b> races tracked right now</span>
         </li>
         <li class="lmap__layer">
           <span class="lmap__name">Sell-side</span>
           <span class="lmap__what">The market you sell, on the same data.</span>
-          <span class="lmap__items"><a class="chip" href="#sellers">The seller's week</a><a class="chip" href="week.html#class-gap">Streaming share</a></span>
+          <span class="lmap__items lmap__items--ln"><a href="#sellers">THE SELLER&rsquo;S WEEK</a> &middot; <a href="week.html#class-gap">STREAMING SHARE</a></span>
           <span class="lmap__stat"><b class="num">$1.2B</b> forward book reported &middot; Inside Radio, Aug 2026</span>
         </li>
       </ol>
@@ -1711,6 +1713,6 @@ tbody th.rcb2-m{font-weight:400;background:transparent}
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r148"></script>
+<script src="assets/js/site.js?v=r149"></script>
 </body>
 </html>

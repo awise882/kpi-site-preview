@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r148">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r149">
 <style>
   /* r106: every hero its own composition -- this page opens on the two desks
      themselves. Text left; the buyer's and seller's doors right. */
@@ -103,12 +103,14 @@
   </div>
 </nav>
 <nav class="ptabs" aria-label="Sections on this page">
-  <div class="wrap ptabs__in">
-    <span class="ptabs__k" aria-hidden="true">On this page &mdash;</span>
-    <a href="#wk-buy">The buyer&rsquo;s week</a>
-    <a href="#wk-sell">The seller&rsquo;s week</a>
-    <a href="#sell-side">The boards</a>
+  <button class="ptabs__stamp num" type="button" aria-expanded="false" aria-controls="ptabs-menu"></button>
+  <div class="wrap ptabs__in" id="ptabs-menu">
+    <span class="ptabs__k" aria-hidden="true">THE WEEK &mdash;</span>
+    <a href="#wk-buy" data-t="The buyer&rsquo;s week"><i>01</i>The buyer&rsquo;s week</a>
+    <a href="#wk-sell" data-t="The seller&rsquo;s week"><i>02</i>The seller&rsquo;s week</a>
+    <a href="#sell-side" data-t="The boards"><i>03</i>The boards</a>
   </div>
+  <i class="ptabs__dot" aria-hidden="true"></i>
 </nav>
 
 <main id="main">
@@ -313,14 +315,8 @@
     <div class="wk-doc" style="margin-top:1.1rem;max-width:640px">
       <div class="wk-doc__bar"><span class="wk-doc__brand">KPI &middot; The morning after</span><span class="wk-doc__stamp">SAT &middot; the morning send &middot; synthetic</span></div>
       <div class="wk-doc__row"><span><b>Ellery for Senate</b> +$95K on WQZL &mdash; prime, posted this morning</span><span class="wk-doc__hi num">flight opens Sep 7 &middot; flagged first</span></div>
-      <div class="wk-doc__row"><span class="wk-doc__dim">Next week opens the way this one did &mdash; with the board already read.</span></div>
     </div>
-    <div class="wk-links" role="group" aria-label="The screens behind the buyer's week">
-      <a class="chip" href="platform.html#scoreboard">Scoreboard</a>
-      <a class="chip" href="platform.html#creative-matrix">Creative Matrix</a>
-      <a class="chip" href="platform.html#buy-sheet">Buy Sheet</a>
-      <a class="chip" href="platform.html#creative-explorer">Creative Explorer</a>
-    </div>
+    <p class="wk-index num" aria-label="The screens behind the buyer's week">THE SCREENS BEHIND IT &mdash; <a href="platform.html#scoreboard">SCOREBOARD</a> &middot; <a href="platform.html#creative-matrix">CREATIVE MATRIX</a> &middot; <a href="platform.html#buy-sheet">BUY SHEET</a> &middot; <a href="platform.html#creative-explorer">CREATIVE EXPLORER</a></p>
     <p class="btn-row" style="margin-top:1.1rem"><a class="btn btn--lime" href="contact.html">Run this week on your race</a></p>
     <p class="small" style="margin-top:.9rem">Every morning after, the alerts run this
       desk &mdash; and the whole book folds to <a href="platform.html#your-book">one board</a>.</p>
@@ -440,12 +436,12 @@
                 <div class="wk-doc">
                   <div class="wk-doc__bar"><span class="wk-doc__brand">KPI &middot; Agency book</span><span class="wk-doc__stamp">statewide &middot; posted thru Aug 18</span></div>
                   <svg class="wk-doc__fig" viewBox="0 0 360 66" role="img" aria-label="One agency's book: 9 percent of it on your air, drawn against your 25 percent share of the market — the shaded gap prices at 272 thousand dollars at your share">
-                    <text x="0" y="10" font-family="Inter,sans-serif" font-size="8.5" font-weight="800" letter-spacing=".6" fill="#5A6B7C">ITS BOOK, ON YOUR AIR</text>
+                    <text x="0" y="10" font-family="Inter,sans-serif" font-size="10" font-weight="800" letter-spacing=".5" fill="#5A6B7C">ITS BOOK, ON YOUR AIR</text>
                     <rect x="0" y="14" width="108" height="13" fill="#5B7C96"/>
                     <rect x="108" y="14" width="192" height="13" fill="#EAD9A0"/>
                     <text x="114" y="24" font-family="Inter,sans-serif" font-size="9" font-weight="800" fill="#6B4E00">+$272K AT YOUR SHARE</text>
-                    <text x="306" y="24" font-family="Inter,sans-serif" font-size="9" font-weight="800" fill="#0D2E4A">9%</text>
-                    <text x="0" y="42" font-family="Inter,sans-serif" font-size="8.5" font-weight="800" letter-spacing=".6" fill="#5A6B7C">YOUR SHARE OF THE MARKET</text>
+                    <text x="102" y="24.5" text-anchor="end" font-family="Inter,sans-serif" font-size="9.5" font-weight="800" fill="#FFFFFF">9%</text>
+                    <text x="0" y="42" font-family="Inter,sans-serif" font-size="10" font-weight="800" letter-spacing=".5" fill="#5A6B7C">YOUR SHARE OF THE MARKET</text>
                     <rect x="0" y="46" width="300" height="13" fill="#0D2E4A"/>
                     <text x="306" y="56" font-family="Inter,sans-serif" font-size="9" font-weight="800" fill="#0D2E4A">25%</text>
                   </svg>
@@ -460,12 +456,7 @@
       </div>
     </div>
 
-    <div class="wk-links" role="group" aria-label="The boards behind the seller's week">
-      <a class="chip" href="#order-flow">Order flow</a>
-      <a class="chip" href="#share-diagonal">Share diagonal</a>
-      <a class="chip" href="#class-gap-board">Class gap</a>
-      <a class="chip" href="#agency-book">Agency book</a>
-    </div>
+    <p class="wk-index num" aria-label="The boards behind the seller's week">THE BOARDS BELOW &mdash; <a href="#order-flow">ORDER FLOW</a> &middot; <a href="#share-diagonal">SHARE DIAGONAL</a> &middot; <a href="#class-gap-board">CLASS GAP</a> &middot; <a href="#agency-book">AGENCY BOOK</a></p>
     <div class="wk-doc" id="wk-friday" style="margin-top:1.1rem;max-width:640px">
       <div class="wk-doc__bar"><span class="wk-doc__brand">KPI &middot; The back half of the week</span><span class="wk-doc__stamp">THU &middot; FRI</span></div>
       <div class="wk-doc__row"><span><b>THU</b> &middot; the make-good comes to you</span><span class="num">the <b>$25K</b> booked-vs-aired gap, posted on your air first</span></div>
@@ -1099,6 +1090,6 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r148"></script>
+<script src="assets/js/site.js?v=r149"></script>
 </body>
 </html>

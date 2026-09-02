@@ -1304,12 +1304,15 @@ a.chip:hover { border-color: var(--blue); color: var(--navy); background: var(--
 /* R72: punched up — the keyline, a claim that leads, chips as solid pills,
    and the layer's number at display weight. */
 .lmap__layer { position: relative; background: var(--white); border: 1px solid var(--rule); border-radius: var(--r-lg); padding: 1.15rem 1.15rem 1.05rem; overflow: hidden; box-shadow: 0 1px 2px rgba(13,46,74,.06), 0 10px 26px rgba(13,46,74,.09); }
-.lmap__layer::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 3px;
-  background: linear-gradient(90deg, var(--navy) 0%, #00ACC1 55%, var(--lime) 100%); }
+.lmap__layer::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 2px;
+  background: var(--navy-deep); }
 .lmap__name { display: block; font-family: var(--label); text-transform: uppercase; letter-spacing: .14em; font-size: .68rem; font-weight: 800; color: var(--lime-text); }
 .lmap__what { display: block; margin-top: .3rem; font-size: 1.04rem; line-height: 1.4; font-weight: 650; color: var(--navy-deep); }
 .lmap__items { display: flex; flex-wrap: wrap; gap: .45rem; margin-top: .75rem; }
-.lmap__items a.chip { background: var(--navy-deep); color: #fff; border: 1px solid var(--navy-deep); font-weight: 700; }
+.lmap__items--ln { display: block; font-family: var(--mono); font-size: .68rem;
+  letter-spacing: .06em; line-height: 1.9; color: var(--ink-3); }
+.lmap__items--ln a { color: var(--navy); text-decoration: underline dotted; text-underline-offset: 3px; white-space: nowrap; }
+.lmap__items--ln a:hover { text-decoration-style: solid; }
 .lmap__items a.chip:hover { background: var(--navy); border-color: var(--navy); color: #fff; }
 /* Paths pass: each layer owns one quiet number, seated at the card foot so the
    equal-height cards carry weight instead of white space. The layer becomes a
@@ -2191,12 +2194,9 @@ a.chip:hover { border-color: var(--blue); color: var(--navy); background: var(--
 
 /* r104: the curtain's coverage stack — names as the logo wall, numbers as the scale */
 .curtain__figwrap { min-width: 0; }
-.curtain__apps { margin: .8rem 0 0; display: flex; flex-wrap: wrap; gap: .35rem; align-items: center; }
-.curtain__apps span { font-family: var(--label); text-transform: uppercase; letter-spacing: .08em;
-  font-size: .7rem; font-weight: 700; color: #DCE9F2; border: 1px solid rgba(255,255,255,.25);
-  border-radius: 3px; padding: .22rem .5rem; }
-.curtain__apps b { font-family: var(--label); text-transform: uppercase; letter-spacing: .08em;
-  font-size: .7rem; font-weight: 700; color: var(--lime); }
+.curtain__apps { margin: .85rem 0 0; font-size: .7rem; font-weight: 700;
+  letter-spacing: .06em; line-height: 1.8; color: #DCE9F2; }
+.curtain__apps b { font-weight: 700; color: var(--lime); }
 .curtain__scale { margin: .65rem 0 0; font-size: .85rem; color: #C7D9E6; }
 .curtain__scale b { color: #fff; }
 
@@ -3010,22 +3010,74 @@ details.mdet--keep > summary { display: block; pointer-events: none; font-weight
   100% { opacity: 1; visibility: visible; transform: none; border-top-color: var(--lime); }
 }
 
-/* ===== r148: section tabs (Doug, the first outside reader, via the owner:
-   "tabs up top that navigate you to each section") ===== */
-.ptabs { position: sticky; top: var(--nav-h); z-index: 55; background: var(--paper);
-  border-bottom: 1px solid var(--rule); }
-.ptabs__in { display: flex; gap: 1.5rem; overflow-x: auto;
+/* ===== r149: the de-generic purge (owner: "generic badges and designs
+   started to creep back in" — 5-evaluator audit) ===== */
+/* square hairline stamp — the house label form (replaces rounded info chips) */
+.stampl { font-family: var(--mono); font-size: .64rem; font-weight: 800; letter-spacing: .08em;
+  text-transform: uppercase; border: 1px solid var(--rule); padding: .18rem .45rem;
+  color: var(--ink-3); white-space: nowrap; align-self: center; }
+/* the two delivery lanes as true ruled receipt rows */
+.lat2 { grid-column: 1 / -1; margin-top: .55rem; border-top: 1px solid var(--rule);
+  font-family: var(--mono); font-size: .68rem; letter-spacing: .05em; color: var(--ink-2); }
+.lat2__row { display: flex; justify-content: space-between; gap: 1rem; margin: 0;
+  padding: .32rem 0; border-bottom: 1px dotted #A9BBC9; }
+.lat2__row span:last-child { color: var(--navy-ink); font-weight: 700; text-align: right; }
+/* week close index lines (the chip rows died) */
+.wk-index { font-family: var(--mono); font-size: .7rem; letter-spacing: .06em;
+  color: var(--ink-3); margin: 1.05rem 0 0; line-height: 2; }
+.wk-index a { color: var(--navy); text-decoration: underline dotted; text-underline-offset: 3px; white-space: nowrap; }
+.wk-index a:hover { text-decoration-style: solid; }
+/* zero prints as absence, not an unfilled progress bar */
+.kw__tr--zero { background: transparent !important; border-bottom: 2px dotted #A9BBC9;
+  border-radius: 0; height: 5px; }
+/* the drawn boundary + figure margins */
+.lanefam__fig { display: block; width: 100%; height: auto; margin: .5rem 0 .2rem; }
+.seats__bar--file { margin: .55rem 0 .45rem; }
+/* the rounded-pill DNA purge: house stamps are square-cornered */
+.ac__pill, .ac__aitag { border-radius: 2px; }
+.wk__tab { border-radius: 3px; }
+.kw__tr, .kw__tr span, .wk-score__track, .wk-score__track span { border-radius: 0; }
+
+/* ===== r149: the section rail — the marker walks the line (de-generic audit:
+   the r148 tab bar read as the stock docs-site anchor bar; the rail is the
+   clock's own move — a dot riding a rule, the traveled stretch inked lime).
+   Numbered stops, the page stamp leads; phones get one advancing stamp that
+   opens the numbered list. No-JS phones keep the scrolling row. ===== */
+.ptabs { position: sticky; top: var(--nav-h); z-index: 55; background: var(--paper); }
+.ptabs::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2px;
+  background: linear-gradient(90deg, var(--lime-dark) var(--pt-p, 0%), var(--rule) var(--pt-p, 0%)); }
+.ptabs__dot { position: absolute; bottom: -3px; left: var(--pt-p, 0%); width: 8px; height: 8px;
+  border-radius: 50%; background: var(--navy-ink); transform: translateX(-50%); z-index: 1;
+  transition: left .35s var(--smooth, ease-out); }
+.ptabs__in { display: flex; align-items: baseline; gap: 1.5rem; overflow-x: auto;
   -webkit-overflow-scrolling: touch; scrollbar-width: none; }
 .ptabs__in::-webkit-scrollbar { display: none; }
-.ptabs a { flex: 0 0 auto; padding: .6rem 0 .52rem; font-family: var(--mono);
+.ptabs__k { flex: 0 0 auto; padding: .6rem 0 .5rem; font-family: var(--mono);
+  font-size: .72rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--navy-ink); }
+.ptabs a { flex: 0 0 auto; padding: .6rem 0 .5rem; font-family: var(--mono);
   font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
-  color: var(--ink-3); text-decoration: none; border-bottom: 2px solid transparent; }
-.ptabs a:hover, .ptabs a:focus-visible { color: var(--navy-ink); }
-.ptabs__k { flex: 0 0 auto; padding: .6rem 0 .52rem; font-family: var(--mono);
-  font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
-  color: var(--ink-3); opacity: .72; }
-.ptabs a.is-on { color: var(--navy-ink); border-bottom-color: var(--lime-dark); }
-@media (max-width: 640px) { .ptabs__in { gap: 1.05rem; } }
+  color: var(--ink-3); text-decoration: none; }
+.ptabs a i { font-style: normal; font-weight: 800; color: #A9BBC9; margin-right: .35em; }
+.ptabs a:hover, .ptabs a:focus-visible, .ptabs a.is-on { color: var(--navy-ink); }
+.ptabs a.is-on i { color: var(--lime-dark); }
+.ptabs__stamp { display: none; }
+@media (max-width: 640px) {
+  .ptabs__in { gap: 1.05rem; }
+  .ptabs--js .ptabs__in { display: none; }
+  .ptabs--js[data-open] .ptabs__in { display: block; position: absolute; top: 100%; left: 0; right: 0;
+    background: var(--paper); border-bottom: 1px solid var(--rule);
+    padding: .25rem 1.1rem .6rem; box-shadow: 0 12px 26px rgba(8,36,59,.14); }
+  .ptabs--js[data-open] .ptabs__in a { display: block; padding: .5rem 0; }
+  .ptabs--js[data-open] .ptabs__k { display: none; }
+  .ptabs--js .ptabs__stamp { display: flex; width: 100%; justify-content: space-between;
+    align-items: center; gap: 1rem; padding: .6rem 1.1rem .55rem; background: none; border: 0;
+    font-family: var(--mono); font-size: .7rem; font-weight: 800; letter-spacing: .08em;
+    text-transform: uppercase; color: var(--navy-ink); cursor: pointer; text-align: left; }
+  .ptabs--js .ptabs__stamp::after { content: "JUMP \2193"; color: var(--ink-3);
+    font-weight: 700; font-size: .62rem; letter-spacing: .1em; flex: 0 0 auto; }
+  .ptabs__dot { display: none; }
+}
 /* anchor jumps land clear of the two sticky bars */
 [id] { scroll-margin-top: calc(var(--nav-h) + 48px); }
 
@@ -3036,13 +3088,6 @@ details.mdet--keep > summary { display: block; pointer-events: none; font-weight
 .wk-doc__fig { display: block; width: 100%; height: auto; margin: .2rem 0 .45rem; }
 /* The CPP row prints as a priced line, not a $0 bar (judge-visual + adam-sim) */
 .wk-score__lead { align-self: center; border-bottom: 1px dotted #A9BBC9; height: 1px; }
-/* The mobile hero receipt reads as a two-column mono receipt, and the CTAs
-   land a screen earlier (judge-conversion's ten) */
-@media (max-width: 480px) {
-  .hero--home .hero-receipt { display: grid; grid-template-columns: repeat(2, minmax(0, auto)); justify-content: center; justify-items: start; gap: .25rem 1rem; text-align: left; }
-  .hero--home .hero-receipt .hr-sep { display: none; }
-  .hero--home .hero-receipt > span:first-child { grid-column: 1 / -1; justify-self: center; }
-}
 /* The copy-credit button breaks out of the paragraph on small screens */
 @media (max-width: 520px) {
   #copy-credit { display: block; margin: .55rem 0 0 !important; }
