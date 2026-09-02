@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r149">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r150">
 <style>
   /* Light, centered, airy hero, matching the live site: the announcement banner
      sits flush under the nav, then the display headline in the green-to-teal
@@ -140,7 +140,6 @@
     .hero--home .hero-receipt span { display: block; white-space: normal;
       font-size: .66rem; letter-spacing: .06em; color: var(--ink-2);
       padding: .3rem 0; border-bottom: 1px dotted #A9BBC9; }
-    .hero--home .hero-receipt span:first-child { font-weight: 700; color: var(--navy-deep); }
     .hero--home .lede { margin-top: 1rem; font-size: .98rem; }
     .hero--home .btn-row { margin-top: 1.15rem; display: grid; grid-template-columns: 1fr 1fr; gap: .6rem; }
     .hero--home .btn-row .btn--lg { padding: .72rem .5rem; font-size: .92rem; justify-content: center; }
@@ -484,13 +483,19 @@
       <span>all 210 markets</span>
     </p>
     <p class="lede">The ads, and the money behind them &mdash; caught near real
-      time. When the other side moves, you know the same day.</p>
+      time. When the other side moves, you know in minutes &mdash; overnight
+      moves ride the morning send.</p>
     <div class="btn-row">
-      <a class="btn btn--lime btn--lg" href="contact.html">Request a demo</a>
-      <a class="btn btn--outline btn--lg" href="week.html">See a buyer&rsquo;s week</a>
+      <form class="racebox" action="contact.html#demo-form" method="get" aria-label="Name the race you buy">
+        <input id="rb-race" name="race" type="text" maxlength="150"
+          placeholder="What race do you buy?"
+          aria-label="The race you buy">
+        <button class="btn btn--lime btn--lg" type="submit">Open its boards &rarr;</button>
+      </form>
     </div>
-    <p class="small" style="margin-top:.55rem;color:var(--ink-3)">A 20-minute
-      walkthrough &mdash; name a race, and its boards are open when you dial in.</p>
+    <p class="small" style="margin-top:.55rem;color:var(--ink-3)">A 20-minute walkthrough
+      &mdash; your race&rsquo;s boards are open when you dial in &middot;
+      <a href="week.html">or see a buyer&rsquo;s week first</a></p>
     <!-- The mobile hero's proof: a two-race glimpse of the scoreboard, matching the
          platform recreation's rows. Shown under 641px only; desktop keeps the type. -->
     <div class="hero-board" data-plx style="--plx-d:12px" role="img" aria-label="A glimpse of the scoreboard: two races, each side's share of committed money, the TV, cable and radio total with the streaming estimate labeled apart, and the week's fresh spending on top. Synthetic sample.">
@@ -523,8 +528,8 @@
       <div>
         <p class="eyebrow">The monitoring network</p>
         <h2 class="h-display">The machine behind the boards.</h2>
-        <p class="lede">Detection, measurement, verification &mdash; every occurrence
-          counted, the dollars traced to orders and filings, estimates labeled.</p>
+        <p class="lede">The machine counts every occurrence, traces the dollars
+          to orders and filings, and labels every estimate.</p>
       </div>
       <blockquote class="quote">
         <p>&ldquo;A Bloomberg console for campaigns.&rdquo;</p>
@@ -544,7 +549,7 @@
         <div class="statlead__row"><b class="num">40M</b><span>homes measuring streaming on the TV glass</span></div>
       </div>
       <div class="statlead__side">
-        <div class="statlead__row"><b class="num">1&ndash;4B</b><span>streaming ad impressions a day &mdash; the spread is day-to-day volume &mdash; weighted from the measured panel</span></div>
+        <div class="statlead__row"><b class="num">1&ndash;4B</b><span>streaming ad impressions a day, every ad category &mdash; the spread is day-to-day volume &mdash; weighted from the measured panel</span></div>
         <div class="statlead__row"><b class="num">65M</b><span>smart-TV devices behind the panel</span></div>
         <div class="statlead__row"><b class="num">30 yrs</b><span>defining the ad intelligence space &mdash; since CMAG, 1996</span></div>
       </div>
@@ -575,7 +580,7 @@
     </div>
 
     <div class="built mt3" data-rise>
-      <p class="built__big">Built today, by the people building tomorrow.</p>
+      <p class="built__big">Built for today, by the people building tomorrow.</p>
       <p class="built__sub">Behind the machine: <b class="num">150+</b> people,
         <b>three decades defining the ad intelligence space</b> &mdash; at the buying
         desk and inside campaigns. When a read looks wrong, someone here has
@@ -723,8 +728,7 @@
           <p class="pca__big">&ldquo;Delivery Protection Act&rdquo; &middot; :30 &mdash; Five Borough Jobs Campaign</p>
           <p class="pca__row num">FIRST CAPTURED 4:21:39 PM &middot; IN INBOXES 4:23:07 PM</p>
           <p class="pca__row">Hulu &middot; OTT &mdash; nothing on broadcast yet &middot; tape + transcript attached</p>
-          <p class="pca__row num">AND REAL FILED RATES: DES MOINES&ndash;AMES &middot; AVG $580 &middot; 2K CONTRACTS</p>
-        </div>
+                  </div>
         <p class="small">Coverage that runs wide and holds up close &mdash; every number
           traces to a tape, an order, or a filing.</p>
         <span class="press-card__go">What we monitor &rarr;</span>
@@ -817,8 +821,8 @@
     <div class="center" style="margin-bottom:2.6rem" data-rise>
       <p class="eyebrow eyebrow--plain" style="justify-content:center">Press</p>
       <h2>Already in print.</h2>
-      <p class="lede">Dated, labeled, and pulled the same day on deadline. Name
-        the race.</p>
+      <p class="lede">Numbers a newsroom can cite &mdash; dated, labeled,
+        pulled the same day on deadline.</p>
       
       <div class="btn-row mt2" style="justify-content:center">
         <a class="btn btn--outline" href="assets/reports/kpi-2026-political-ad-forecast.pdf">Get the one-page forecast (PDF)</a>
@@ -854,10 +858,15 @@
     <div class="center" style="margin-bottom:3rem" data-rise>
       <p class="eyebrow eyebrow--plain" style="justify-content:center">Contact us</p>
       <h2>See your race on it.</h2>
-      <p class="lede" style="margin-inline:auto">On your race &mdash; judged
-        against what you already know.</p>
+      <p class="lede" style="margin-inline:auto">Judged against what you
+        already know.</p>
       <div class="btn-row mt2" style="justify-content:center">
-        <a class="btn btn--lime btn--lg" href="contact.html">Request a demo</a>
+        <form class="racebox racebox--band" action="contact.html#demo-form" method="get" aria-label="Name the race you buy">
+          <input name="race" type="text" maxlength="150"
+            placeholder="Your race &mdash; state + office"
+            aria-label="The race you buy">
+          <button class="btn btn--lime btn--lg" type="submit">Open its boards &rarr;</button>
+        </form>
         <a class="btn btn--outline btn--lg" href="mailto:info@kpipolitical.com">Talk to us</a></div>
     <p class="small center" style="margin-top:.55rem;color:var(--ink-3)">Talk to us &mdash; pricing and pilots, no walkthrough.</p>
     <div hidden>
@@ -923,6 +932,6 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r149"></script>
+<script src="assets/js/site.js?v=r150"></script>
 </body>
 </html>

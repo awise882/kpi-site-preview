@@ -3010,6 +3010,23 @@ details.mdet--keep > summary { display: block; pointer-events: none; font-weight
   100% { opacity: 1; visibility: visible; transform: none; border-top-color: var(--lime); }
 }
 
+/* ===== r150: the race box (the bounced prospect's ten — the site's best
+   promise becomes its primary input) + contact rows ===== */
+.racebox { display: flex; gap: .55rem; max-width: 620px; margin: 2.1rem auto 0; }
+.racebox input { flex: 1 1 auto; min-width: 0; padding: .8rem 1rem; border: 1.5px solid var(--rule);
+  border-radius: 0; background: var(--white); font: inherit; font-size: .98rem; color: var(--navy-ink); }
+.racebox input::placeholder { color: var(--ink-3); }
+.racebox input:focus-visible { outline: 2px solid var(--lime-dark); outline-offset: 1px; border-color: var(--lime-dark); }
+.racebox .btn { flex: 0 0 auto; white-space: nowrap; }
+.racebox--band { margin: 0; max-width: 460px; display: inline-flex; vertical-align: middle; }
+@media (max-width: 640px) {
+  .racebox { flex-direction: column; }
+  .racebox .btn, .racebox--band { width: 100%; }
+}
+.field-hint--rows p, .form-note--rows p { margin: .22rem 0; }
+.field-hint--rows b, .form-note--rows b { font-family: var(--mono); font-size: .6rem;
+  font-weight: 800; letter-spacing: .07em; color: var(--ink-3); }
+
 /* ===== r149: the de-generic purge (owner: "generic badges and designs
    started to creep back in" — 5-evaluator audit) ===== */
 /* square hairline stamp — the house label form (replaces rounded info chips) */
