@@ -3180,3 +3180,12 @@ details.mdet--keep > summary { display: block; pointer-events: none; font-weight
 /* r145: the measurement fold ships CLOSED and must toggle — unlike the
    always-open labeled drawers whose summaries are inert by design. */
 details.mdet--fold > summary { display: block; font-weight: 700; }
+
+/* r156: the clock stops carry their artifacts (owner directive) */
+.mtl__fig { display: block; width: 100%; height: auto; margin: .55rem 0 .1rem; }
+.mtl__frame { position: relative; aspect-ratio: 16 / 9; border-radius: 3px; overflow: hidden;
+  background: var(--navy-ink); margin: .55rem 0 .1rem; }
+.mtl__frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.mtl__play { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+.mtl__tc { position: absolute; right: 6px; bottom: 5px; color: #fff; font-size: .6rem;
+  font-weight: 700; letter-spacing: .05em; background: rgba(8,36,59,.55); padding: .1rem .3rem; border-radius: 2px; }
