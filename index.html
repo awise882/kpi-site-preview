@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r154">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r155">
 <style>
   /* Light, centered, airy hero, matching the live site: the announcement banner
      sits flush under the nav, then the display headline in the green-to-teal
@@ -132,14 +132,14 @@
     .hero--home .ht .ht__l { display: inline; }
     .hero--home h1 { font-size: clamp(1.95rem, 8.6vw, 2.55rem); line-height: 1.14;
       letter-spacing: -.01em; text-wrap: balance; }
-    /* r149 (de-generic audit, 5/5): the pill chips die — the receipt prints
-       as a ledger: five ruled rows, nothing clipped, no radius anywhere. */
-    .hero--home .hero-receipt { display: block; margin-top: .95rem; max-width: 330px;
-      margin-inline: auto; text-align: left; }
-    .hero--home .hero-receipt .hr-sep { display: none; }
-    .hero--home .hero-receipt span { display: block; white-space: normal;
-      font-size: .66rem; letter-spacing: .06em; color: var(--ink-2);
-      padding: .3rem 0; border-bottom: 1px dotted #A9BBC9; }
+    /* r155 (owner-proxy, round 29): the ledger ate the first screen — the
+       receipt prints as centered wrapped mono lines, dot-separated: no rules,
+       and still no pills (r149 ban holds). */
+    .hero--home .hero-receipt { display: block; margin-top: .95rem; max-width: 340px;
+      margin-inline: auto; text-align: center; line-height: 1.8; }
+    .hero--home .hero-receipt .hr-sep { display: inline; margin: 0 .3em; }
+    .hero--home .hero-receipt span { display: inline; white-space: normal;
+      font-size: .66rem; letter-spacing: .06em; color: var(--ink-2); }
     .hero--home .lede { margin-top: 1rem; font-size: .98rem; }
     .hero--home .btn-row { margin-top: 1.15rem; display: grid; grid-template-columns: 1fr 1fr; gap: .6rem; }
     .hero--home .btn-row .btn--lg { padding: .72rem .5rem; font-size: .92rem; justify-content: center; }
@@ -262,7 +262,7 @@
   .kw__flag { align-self: flex-start; font-family: var(--label); font-size: .58rem; font-weight: 800;
     letter-spacing: .07em; text-transform: uppercase; color: #8A5200; background: #FFF3E7;
     border: 1px solid #F2D9A6; border-radius: 4px; padding: .2rem .45rem; }
-  .kw__c--deal { flex-direction: row; align-items: baseline; gap: .5rem; border-radius: 999px;
+  .kw__c--deal { flex-direction: row; align-items: baseline; gap: .5rem; border-radius: 2px;
     background: var(--navy-ink, #08243B); color: #fff; border: 0; font-weight: 800;
     font-size: .8rem; padding: .55rem 1rem; white-space: nowrap;
     box-shadow: 0 10px 26px rgba(8,36,59,.3); }
@@ -768,7 +768,7 @@
          band — "here's how you use us," per seat, with the worked dollars
          they leave out. Accordion on a phone; all four open on desktop. -->
     <div class="seats" id="seats">
-      <p class="eyebrow">By use case</p>
+      <p class="eyebrow">Your seat</p>
       <h3 class="seats__h">Your seat, your first dashboard.</h3>
       <p class="small num" style="font-family:var(--mono);letter-spacing:.06em;font-size:.68rem;text-transform:uppercase;color:var(--ink-3);margin:.2rem 0 .6rem">Worked demo dollars &mdash; every figure opens on a labeled dashboard</p>
       <div class="seats__grid">
@@ -914,6 +914,6 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r154"></script>
+<script src="assets/js/site.js?v=r155"></script>
 </body>
 </html>
