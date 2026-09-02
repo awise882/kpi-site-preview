@@ -3210,3 +3210,8 @@ details.mdet--fold > summary { display: block; font-weight: 700; }
 @media (max-width: 374px) {
   .nav .btn { font-size: .6rem; padding: .5rem .55rem; letter-spacing: .04em; }
 }
+
+/* r159 chapter seams (outside reader): white-on-white sections were bleeding —
+   every base seam now prints, and the kicker steps up half a size. */
+.section:not(.section--mega) + .section:not(.section--mega) { border-top: 1px solid var(--rule-soft); }
+.eyebrow { font-weight: 700; }

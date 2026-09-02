@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r158">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r159">
 <style>
   /* The "what it exports" line that closes each app section. */
   .exports { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; margin-top: 1.3rem; }
@@ -212,7 +212,7 @@
           <a href="platform.html#creative-matrix">The Creative Matrix</a>
           <a href="platform.html#buy-sheet">The Buy Sheet</a>
           <a href="week.html#sell-side">For sellers</a>
-          <a href="platform.html#baker">Ask Baker</a>
+          <a href="platform.html#baker">Ask Baker AI</a>
         </div>
       </li>
       <li class="nav__item"><a href="week.html">Buyers &amp; Sellers</a>
@@ -247,7 +247,7 @@
     <a href="#creative-matrix" data-t="Creative Matrix"><i>02</i>Creative Matrix</a>
     <a href="#buy-sheet" data-t="Buy Sheet"><i>03</i>Buy Sheet</a>
     <a href="#creative-explorer" data-t="Explorer"><i>04</i>Explorer</a>
-    <a href="#baker" data-t="Ask Baker"><i>05</i>Ask Baker</a>
+    <a href="#baker" data-t="Baker AI"><i>05</i>Baker AI</a>
   </div>
   <i class="ptabs__dot" aria-hidden="true"></i>
 </nav>
@@ -296,7 +296,7 @@
 <section class="pb" id="boards" data-pb>
   <div class="wrap pb__head">
     <p class="eyebrow">The dashboards</p>
-    <h2>Four dashboards. One assistant.</h2>
+    <h2>Four dashboards. One AI assistant.</h2>
     <div class="pb__rail pb__rail--5" role="tablist" aria-label="Choose a dashboard">
       <button class="pb__tab" id="pb-tab-scoreboard" type="button" role="tab" aria-selected="true" aria-controls="scoreboard">
         <span class="wk__tab-name">Scoreboard</span>
@@ -315,7 +315,7 @@
         <span class="wk__tab-sub">Tape, transcript, markets</span>
       </button>
       <button class="pb__tab" id="pb-tab-baker" type="button" role="tab" aria-selected="false" aria-controls="baker">
-        <span class="wk__tab-name">Ask Baker</span>
+        <span class="wk__tab-name">Ask Baker AI</span>
         <span class="wk__tab-sub">One question, the whole dataset</span>
       </button>
     </div>
@@ -1416,11 +1416,13 @@ tbody th.rcb2-m{font-weight:400;background:transparent}
   <div class="wrap">
     <div class="split" style="margin-bottom:1.4rem">
       <div>
-        <p class="eyebrow">Baker &middot; the assistant in every seat</p>
+        <p class="eyebrow">Baker AI &middot; the assistant in every seat</p>
         <h3 style="font-size:clamp(1.5rem,2.6vw,2rem)">Ask the whole dataset a question.</h3>
       </div>
       <ul class="small">
         <li>One question spans the dataset &mdash; placements, creatives, rates, races.</li>
+        <li>A multi-agent AI system: it queries millions of posted rows and answers in
+          real time &mdash; citing the receipt.</li>
         <li>Where the posted data cannot answer, Baker returns the gap, not a guess</li>
       </ul>
     </div>
@@ -1643,6 +1645,6 @@ tbody th.rcb2-m{font-weight:400;background:transparent}
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r158"></script>
+<script src="assets/js/site.js?v=r159"></script>
 </body>
 </html>
