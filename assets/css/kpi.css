@@ -2845,7 +2845,9 @@ details.mdet--keep > summary { display: block; pointer-events: none; font-weight
    tabs grid up instead of wrapping into a cloud. */
 @media (max-width: 880px) {
   .kbd-hint { display: none; }
+  .tap-only { display: inline; }
   .pb--live .pb__rail { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; }
+  .pb--live .pb__tab:last-child { grid-column: 1 / -1; }
 }
 
 /* ===== r127 — the teardown answered ===== */
@@ -3194,3 +3196,17 @@ details.mdet--fold > summary { display: block; font-weight: 700; }
 .built__awards { font-family: var(--mono); font-size: .72rem; letter-spacing: .07em; color: var(--ink-2);
   margin: .85rem auto 0; max-width: 620px; padding-top: .55rem; border-top: 1px dotted #A9BBC9; }
 .built__awards b { color: var(--navy-deep); font-weight: 800; }
+
+/* r158 tablet fixes (round 30, first tablet walks) */
+@media (max-width: 880px) {
+  .foot__grid { grid-template-columns: 1fr 1fr; }
+  .foot__brand { grid-column: 1 / -1; }
+}
+@media (min-width: 641px) and (max-width: 1024px) {
+  .kw__c--player { width: 100%; max-width: 520px; justify-self: center; margin-inline: auto; }
+}
+
+/* r158 nav floor: the walkthrough button fits the 320px QA floor */
+@media (max-width: 374px) {
+  .nav .btn { font-size: .6rem; padding: .5rem .55rem; letter-spacing: .04em; }
+}

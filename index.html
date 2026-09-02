@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r157">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r158">
 <style>
   /* Light, centered, airy hero, matching the live site: the announcement banner
      sits flush under the nav, then the display headline in the green-to-teal
@@ -46,6 +46,9 @@
   }
   .hero-banner:hover .hero-banner__in--dual a,
   .hero-banner:focus-within .hero-banner__in--dual a { animation-play-state: paused; }
+  .hero-banner:focus-within .hero-banner__in--dual a { animation: none; opacity: 1; visibility: visible; }
+  .hero-banner:focus-within .hero-banner__in--dual a:first-child { grid-area: 1 / 1; }
+  .hero-banner:focus-within .hero-banner__in--dual a:last-child { grid-area: 2 / 1; }
   @media (prefers-reduced-motion: reduce) {
     .hero-banner__in--dual a:first-child { grid-area: 1 / 1; }
     .hero-banner__in--dual a:last-child { grid-area: 2 / 1; }
@@ -138,7 +141,7 @@
     .hero--home .hero-receipt { display: block; margin-top: .95rem; max-width: 340px;
       margin-inline: auto; text-align: center; line-height: 1.8; }
     .hero--home .hero-receipt .hr-sep { display: inline; margin: 0 .3em; }
-    .hero--home .hero-receipt span { display: inline; white-space: normal;
+    .hero--home .hero-receipt span { display: inline; white-space: nowrap;
       font-size: .66rem; letter-spacing: .06em; color: var(--ink-2); }
     .hero--home .lede { margin-top: 1rem; font-size: .98rem; }
     .hero--home .btn-row { margin-top: 1.15rem; display: grid; grid-template-columns: 1fr 1fr; gap: .6rem; }
@@ -435,7 +438,7 @@
     </ul>
     <div class="nav__cta">
       <a class="btn btn--outline btn--sm" href="https://portal.kpipolitical.com">Log in</a>
-      <a class="btn btn--lime btn--sm" href="contact.html">Request a demo</a>
+      <a class="btn btn--lime btn--sm" href="contact.html">Request the walkthrough</a>
     </div>
     <button class="nav__toggle" aria-expanded="false" aria-label="Menu" aria-controls="nav-links">Menu</button>
   </div>
@@ -571,7 +574,7 @@
         <text x="6" y="90" font-family="Inter, sans-serif" font-size="8" font-weight="700" letter-spacing=".8" fill="#A8D14E">STREAMING &middot; ON THE GLASS</text>
         <text x="198" y="90" font-family="Inter, sans-serif" font-size="8" font-weight="700" letter-spacing=".8" fill="#8FA9BE" text-anchor="middle">THE FILED RECORD</text>
       </svg>
-      <p class="curtain__apps num">YOUTUBE &middot; YOUTUBE&nbsp;TV &middot; TUBI &middot; PEACOCK &middot; PLUTO &middot; THE VMVPDS <b>&mdash; +280 MORE: 288 APPS IN A SINGLE MONTH&rsquo;S CAPTURE</b></p>
+      <p class="curtain__apps num">YOUTUBE &middot; YOUTUBE&nbsp;TV &middot; TUBI &middot; PEACOCK &middot; PLUTO &middot; THE VMVPDS <b>&mdash; +280&nbsp;MORE: 288 APPS IN A SINGLE MONTH&rsquo;S CAPTURE</b></p>
     </div>
     </div>
 
@@ -846,12 +849,12 @@
       <div class="btn-row mt2" style="justify-content:center">
         <form class="racebox racebox--band" action="contact.html#demo-form" method="get" aria-label="Name the race you buy &mdash; or the market you sell">
           <input name="race" type="text" maxlength="150"
-            placeholder="Your race &mdash; state + office"
+            placeholder="State + office"
             aria-label="The race you buy">
           <button class="btn btn--lime btn--lg" type="submit">Have its dashboards open &rarr;</button>
         </form>
         <a class="btn btn--outline btn--lg" href="mailto:info@kpipolitical.com?subject=KPI%20site%20%5Bindex%20page%5D">Talk to us</a></div>
-    <p class="small center" style="margin-top:.55rem;color:var(--ink-3)">Pricing and pilots.</p>
+    <p class="small center" style="margin-top:.55rem;color:var(--ink-3)">Talk to us covers pricing and pilots.</p>
     <div hidden>
       </div>
       <p class="small mt2">Press inquiries: <a href="contact.html#press">contact press</a>.
@@ -866,7 +869,7 @@
     <a class="nextcard" href="monitoring.html">
       <span class="nextcard__k">On to the next</span>
       <span class="nextcard__t"><b>Monitoring</b><span>Caught as it airs &mdash; the alert lands with the tape.</span></span>
-      <span class="nextcard__stat num" aria-hidden="true">1.5M A DAY &middot; EVERY CATEGORY</span>
+      <span class="nextcard__stat num" aria-hidden="true">1.5M PER DAY &middot; EVERY CATEGORY</span>
       <span class="nextcard__go" aria-hidden="true">&#8594;</span>
     </a>
   </div>
@@ -902,7 +905,7 @@
       <div>
         <h4>Get in touch</h4>
         <ul>
-          <li><a href="contact.html">Request a demo</a></li>
+          <li><a href="contact.html">Request the walkthrough</a></li>
           <li><a href="mailto:info@kpipolitical.com?subject=KPI%20site%20%5Bindex%20page%5D">info@kpipolitical.com</a></li>
           <li><a href="https://portal.kpipolitical.com">Subscriber log in</a></li>
           <li><a href="privacy.html">Privacy</a></li>
@@ -915,6 +918,6 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r157"></script>
+<script src="assets/js/site.js?v=r158"></script>
 </body>
 </html>
