@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r151">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r152">
 <style>
   /* The "what it exports" line that closes each app section. */
   .exports { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; margin-top: 1.3rem; }
@@ -261,9 +261,7 @@
     <div>
       <p class="eyebrow">The platform</p>
       <h1>Every detection lands here. <em>One platform.</em></h1>
-      <p class="lede">Monitoring catches it &mdash; this page is where you work it.
-        Alerts, filed rates, your share, and the agency book &mdash; each is a dashboard
-        below, folded to your races.</p>
+      <p class="lede">Monitoring catches it &mdash; this page is where you work it.</p>
       <div class="btn-row mt1">
         <a class="btn btn--lime btn--lg" href="contact.html">Request a demo</a>
       </div>
@@ -287,7 +285,7 @@
 
 
 
-<!-- ============ THE BOARDS: one deck, four panels (r88b) ============
+<!-- ============ THE DASHBOARDS: one deck, four panels (r88b) ============
      One place on the page instead of four full-height sections in a row.
      site.js adds .pb--live: the rail appears and the deck collapses to one
      board at a time. JS-off (and print) all four panels render stacked
@@ -298,7 +296,7 @@
 <section class="pb" id="boards" data-pb>
   <div class="wrap pb__head">
     <p class="eyebrow">The dashboards</p>
-    <h2>The dashboards &mdash; and the assistant that answers from them.</h2>
+    <h2>Four dashboards. One assistant.</h2>
     <div class="pb__rail pb__rail--5" role="tablist" aria-label="Choose a dashboard">
       <button class="pb__tab" id="pb-tab-scoreboard" type="button" role="tab" aria-selected="true" aria-controls="scoreboard">
         <span class="wk__tab-name">Scoreboard</span>
@@ -321,7 +319,7 @@
         <span class="wk__tab-sub">One question, the whole dataset</span>
       </button>
     </div>
-    <p class="pb__cue" aria-hidden="true">Four dashboards + Baker &mdash; five tabs &middot; <span class="kbd-hint">click or </span>tap to switch<span class="kbd-hint">, or use the arrow keys</span> &middot; <b>ink: solid aired, hatched booked, dashed modeled</b></p>
+    <p class="pb__cue" aria-hidden="true">Four dashboards + Baker<span class="kbd-hint"> &middot; arrow keys switch</span> &middot; <b>ink: solid aired, hatched booked, dashed modeled</b></p>
   </div>
 
 <div class="pb__panel section" role="tabpanel" id="scoreboard" aria-labelledby="pb-tab-scoreboard">
@@ -333,8 +331,7 @@
       </div>
       <div>
       <p class="lede">Every race on one screen &mdash; <span class="num">303</span> tracked today: share of the money by side, and the
-        definitional advantage &mdash; who is writing whose story. The board moves as
-        the day&rsquo;s detections post.</p>
+        definitional advantage &mdash; who is writing whose story.</p>
       </div>
     </div>
     <!-- Ruling 22: shown as a cropped glimpse; the demo is the reveal. -->
@@ -687,16 +684,10 @@
 }
 </style>
     </div>
-      <p class="glimpse-cap">Cropped on purpose; the full grid opens in the demo.
-        <a href="contact.html">Request one</a></p>
 
   <div class="wrap mt3" id="your-book">
     <h3 style="font-size:clamp(1.35rem,2.2vw,1.7rem)">The same board, folded to your book.</h3>
-    <p class="small" style="max-width:64ch">Overnight, the morning brief rolls every alert
-      in your book into one send.</p>
-    <p class="dek" style="margin:.4rem 0 1.2rem;max-width:72ch">Every race you own on one
-      screen &mdash; what moved overnight, ranked by what needs you first. Click a race to
-      open it; copy the note and it rides the morning send.</p>
+    <p class="dek" style="margin:.4rem 0 1.2rem;max-width:72ch">What moved overnight, ranked by what needs you first. Your notes ride the morning send.</p>
     <div class="rc rc-book" data-book>
       <div class="rcbk-bar">
         <span class="rcbk-brand"><span class="rcbk-dot"></span>KPI &middot; The Book &middot; Morning view</span>
@@ -713,24 +704,19 @@
         </tr></thead>
         <tbody>
           <tr class="rcbk-row rcbk-row--hot" aria-expanded="true"><th scope="row">North River Senate</th><td>3</td><td class="rcbk-d num">+$95K posted</td><td class="rcbk-n num">$5.5M</td><td class="rcbk-n num">$1.7M</td><td><span class="rcbk-a num">2</span></td></tr>
-          <tr class="rcbk-drow"><td colspan="6"><b>Ellery for Senate</b> +$95K on WQZL, Columbus &mdash; prime, posted this morning, flight opens Sep 7 &middot; Heartland Priorities PAC&rsquo;s :30 &ldquo;First Light&rdquo; still streaming-only at this stamp &mdash; nothing on broadcast &middot; streaming est. <span class="num">$1.66M</span> (thru Aug 30) &mdash; not in the total &middot; <a href="#scoreboard">open the race &rarr;</a></td></tr>
+          <tr class="rcbk-drow"><td colspan="6"><b>Ellery for Senate</b> +$95K on WQZL &mdash; prime, posted this morning, flight opens Sep 7 &middot; <a href="#scoreboard">open the race &rarr;</a></td></tr>
           <tr class="rcbk-row" aria-expanded="true"><th scope="row">Midstate Attorney General</th><td>5</td><td class="rcbk-d num">+$3.3M this week</td><td class="rcbk-n num">$16.0M</td><td class="rcbk-n num">$13.2M</td><td><span class="rcbk-a num">1</span></td></tr>
           <tr class="rcbk-drow"><td colspan="6">Challenger side takes the lead on aired dollars, 60/40 &middot; streaming est. <span class="num">$1.1M</span>, not in the total &middot; <a href="#scoreboard">open the race &rarr;</a></td></tr>
-          <tr class="rcbk-row" aria-expanded="true"><th scope="row">North River Governor</th><td>3</td><td class="rcbk-d num">+$1.8M booked</td><td class="rcbk-n num">$9.6M</td><td class="rcbk-n num">$4.5M</td><td><span class="rcbk-a num">1</span></td></tr>
-          <tr class="rcbk-drow"><td colspan="6">Forward book jumps two weeks out &mdash; reservations, not aired money, on its own line &middot; <a href="#buy-sheet">open the buy sheet &rarr;</a></td></tr>
           <tr class="rcbk-row" aria-expanded="true"><th scope="row">Granite Senate primary</th><td>3</td><td class="rcbk-d rcbk-d--dark">went dark</td><td class="rcbk-n num">$2.1M</td><td class="rcbk-n num">$0</td><td><span class="rcbk-a num">1</span></td></tr>
-          <tr class="rcbk-drow"><td colspan="6">Marsh committee stopped airing overnight; remaining booked dollars pulled &mdash; the stop, with its date, prints on the board &middot; <a href="#scoreboard">open the race &rarr;</a></td></tr>
-          <tr class="rcbk-row" aria-expanded="true"><th scope="row">Two Rivers Governor</th><td>6</td><td class="rcbk-d num">+$420K posted</td><td class="rcbk-n num">$11.3M</td><td class="rcbk-n num">$1.1M</td><td><span class="rcbk-a num">1</span></td></tr>
-          <tr class="rcbk-drow"><td colspan="6">Beacon Hill Strategies adds two weeks of early news across four of six markets &middot; <a href="#buy-sheet">open the buy sheet &rarr;</a></td></tr>
+          <tr class="rcbk-drow"><td colspan="6">Marsh committee stopped airing overnight; booked dollars pulled, the stop dated &middot; <a href="#scoreboard">open the race &rarr;</a></td></tr>
           <tr class="rcbk-row" aria-expanded="true"><th scope="row">Lakeshore CD-9</th><td>1</td><td class="rcbk-d num">first TV order</td><td class="rcbk-n num">$0</td><td class="rcbk-n num">$340K</td><td><span class="rcbk-a num">1</span></td></tr>
-          <tr class="rcbk-drow"><td colspan="6">Citizens for Fair Elections posts the race&rsquo;s first broadcast order &mdash; caught before anything airs &middot; <a href="#creative-explorer">watch for the creative &rarr;</a></td></tr>
+          <tr class="rcbk-drow"><td colspan="6">The race&rsquo;s first broadcast order &mdash; caught before anything airs &middot; <a href="#creative-explorer">watch for the creative &rarr;</a></td></tr>
           <tr class="rcbk-row" aria-expanded="true"><th scope="row">Prairie Senate</th><td>4</td><td class="rcbk-d rcbk-d--quiet">quiet</td><td class="rcbk-n num">$8.4M</td><td class="rcbk-n num">$0.9M</td><td><span class="rcbk-a num">0</span></td></tr>
           <tr class="rcbk-drow"><td colspan="6">No overnight movement &mdash; quiet prints as quiet &middot; <a href="#scoreboard">open the race &rarr;</a></td></tr>
-          <tr class="rcbk-more"><td colspan="6">+ 35 more races in the book &mdash; every one with the same drill-in</td></tr>
+          <tr class="rcbk-more"><td colspan="6">+ 35 more races in the book</td></tr>
         </tbody>
       </table>
       </div>
-      <p class="small rcbk-more-p">Every seat gets its own routing &mdash; set on the setup call.</p>
       <div class="rcbk-foot">
         <p>Synthetic races and dollars, real behavior &middot; the walkthrough runs this view on your actual book</p>
       </div>
@@ -932,7 +918,6 @@
 }
 </style>
     </div>
-      <p class="glimpse-cap">Both sides' case, abridged here &mdash; one row in full:</p>
       <p class="pca__row num" style="max-width:640px;margin:.3rem auto 0">&ldquo;THE RULE THEY WROTE&rdquo; &middot; 3 CREATIVES &middot; <b>$1.9M</b> AIRED BEHIND IT &middot; POSTED THRU AUG 14 &mdash; SYNTHETIC</p>
   </div>
 </div>
@@ -1236,8 +1221,6 @@ tbody th.rcb2-m{font-weight:400;background:transparent}
        </p>
 
         <h3 class="mt3">Open the market: share of the flight, station by station</h3>
-    <p class="dek">Click the market and the stations spill out &mdash; share of the
-      flight, dollars, orders.</p>
     <figure class="app-shot" data-rise>
       <img width="2400" height="960" src="assets/apps/app-drill-in.webp?v=r57" loading="lazy"
         alt="The drill-in: the Columbus market row opened into its stations, share of the flight and dollars per station, with the day's posted orders updating in near real time. Synthetic data.">
@@ -1255,11 +1238,8 @@ tbody th.rcb2-m{font-weight:400;background:transparent}
         <h2>Every detected spot ships with tape, transcript and markets.</h2>
       </div>
       <div>
-      <p class="lede">A new ad drops: what does it say, where is it running, what weight
-        is behind it. One place answers all three.</p>
       <ul class="small">
         <li>Tape, AI transcript, first and last detection, markets, points</li>
-        <li>Filter by advertiser, party, team, on-air status, flight</li>
         <li>Search what ads say &mdash; a decade of transcripts</li>
       </ul>
       </div>
@@ -1304,7 +1284,6 @@ tbody th.rcb2-m{font-weight:400;background:transparent}
       <div class="rc-explorer-casehead">The case against the Democrat</div>
       <p class="rc-explorer-caseempty">2 ads on air&thinsp;&middot;&thinsp;$724K behind them</p>
     </div>
-    <p class="rc-explorer-casemore">two more worked examples open in the demo</p>
 
     <div class="rc-explorer-under">
       <div class="rc-explorer-underhead">The undercard: <span class="rc-explorer-mono">318 pts ($4.4M)</span>; 7 ads not aimed at either side of the general</div>
@@ -1328,7 +1307,7 @@ tbody th.rcb2-m{font-weight:400;background:transparent}
           <span class="rc-explorer-ucsince">Citizens for Fair Elections&thinsp;&middot;&thinsp;since Feb 15, '26</span>
         </div>
       </div>
-      <p class="rc-explorer-ucmore">+4 more undercard ads, each opening to tape, AI transcript and market list; pts population-weighted across markets, HH universe; sorted by first detection, not spend</p>
+      <p class="rc-explorer-ucmore">+4 more undercard ads &middot; sorted by first detection, not spend</p>
     </div>
   </div>
 
@@ -1425,8 +1404,6 @@ tbody th.rcb2-m{font-weight:400;background:transparent}
   }
 </style>
     </div>
-      <p class="glimpse-cap">Tape and full market list open in the demo.
-       </p>
     <p class="tbl-note">Screens show synthetic and illustrative races &mdash; never client data.</p>
   </div>
 </div>
@@ -1443,39 +1420,21 @@ tbody th.rcb2-m{font-weight:400;background:transparent}
         <h3 style="font-size:clamp(1.5rem,2.6vw,2rem)">Ask the whole dataset a question.</h3>
       </div>
       <ul class="small">
-        <li>One question spans the dataset &mdash; placements, creatives, rates, races; no filter path to learn</li>
+        <li>One question spans the dataset &mdash; placements, creatives, rates, races.</li>
         <li>Where the posted data cannot answer, Baker returns the gap, not a guess</li>
       </ul>
     </div>
     <div class="rc-stage mt2">
 <div class="rc rc-bdemo" data-bdemo>
-  <p class="rc-bdemo-k">Baker in action&thinsp;&middot;&thinsp;example questions, illustrative answers</p>
   <div class="rc-bdemo-composer" aria-hidden="true"><span class="rc-bdemo-type" data-bdemo-type></span><span class="rc-bdemo-caret"></span></div>
   <div class="rc-bdemo-chips" role="tablist" aria-label="Example questions, illustrative answers">
     <button class="rc-bdemo-chip" type="button" role="tab" id="bd-q1" aria-selected="true" aria-controls="bd-a1">What moved in the North River Senate this week?</button>
-    <button class="rc-bdemo-chip" type="button" role="tab" id="bd-q2" aria-selected="false" aria-controls="bd-a2" tabindex="-1">Which stations carry the &ldquo;rule they wrote&rdquo; theme?</button>
-    <button class="rc-bdemo-chip" type="button" role="tab" id="bd-q3" aria-selected="false" aria-controls="bd-a3" tabindex="-1">Where does digital sit against TV in this race?</button>
     <button class="rc-bdemo-chip" type="button" role="tab" id="bd-q4" aria-selected="false" aria-controls="bd-a4" tabindex="-1">Newest creative in the race?</button>
   </div>
   <div class="rc-bdemo-a" id="bd-a1" role="tabpanel" aria-labelledby="bd-q1">
     <p class="rc-bdemo-ans">Granite State Forward PAC posted its $84K Cleveland flight Monday
-      morning, Aug 17 &mdash; booked before a single spot aired. The case against Hale
-      added $410K behind &ldquo;A rule they wrote,&rdquo; a theme tested in the spring
-      and back on the air now. Aired money: $5.5M across three markets, posted
-      channels.</p>
+      morning, Aug 17 &mdash; booked before a single spot aired. The case against Hale added $410K behind &ldquo;A rule they wrote.&rdquo;</p>
     <p class="rc-bdemo-receipt">Posted through Aug 30, 2026; posted channels: broadcast, local cable, radio; streaming caught floor $1.04M on its own line, estimated minimum $1.66M (est. thru Aug 30) in the product</p>
-  </div>
-  <div class="rc-bdemo-a" id="bd-a2" role="tabpanel" aria-labelledby="bd-q2" hidden>
-    <p class="rc-bdemo-ans">Six stations: four in Columbus, two in Cleveland; WQZL holds 41%
-      of the theme&rsquo;s Columbus points. Both cuts :30s; tape and AI transcript one click
-      away.</p>
-    <p class="rc-bdemo-receipt">Detections posted through Aug 30, 2026; station by station, Columbus&thinsp;+&thinsp;Cleveland; points are household points on the market universe</p>
-  </div>
-  <div class="rc-bdemo-a" id="bd-a3" role="tabpanel" aria-labelledby="bd-q3" hidden>
-    <p class="rc-bdemo-ans">Heartland Priorities PAC is the digital story: $720K
-      estimated on streaming statewide against $0 of its own on TV. Both candidates sit
-      heavy on TV, with no streaming detections yet.</p>
-    <p class="rc-bdemo-receipt">TV posted through Aug 30; streaming estimated through Aug 30, 2026; estimates labeled</p>
   </div>
   <div class="rc-bdemo-a" id="bd-a4" role="tabpanel" aria-labelledby="bd-q4" hidden>
     <p class="rc-bdemo-ans">One: &ldquo;First Light,&rdquo; a :30 from Heartland Priorities
@@ -1529,8 +1488,6 @@ tbody th.rcb2-m{font-weight:400;background:transparent}
 }
 </style>
     </div>
-    <p class="glimpse-cap" style="text-align:center">The live assistant answers on your
-      races.</p>
   </div>
 </div>
 
@@ -1558,7 +1515,6 @@ tbody th.rcb2-m{font-weight:400;background:transparent}
             <span class="vig__bigsub">estimated minimum&thinsp;&middot;&thinsp;thru Aug 30</span>
           </div>
         </div>
-        <p class="vig__what">The board&rsquo;s own filter row &mdash; every dropdown is real &mdash; and the answer lands already carrying its date.</p>
       </div>
 
       <div class="vig" data-replay>
@@ -1580,7 +1536,7 @@ tbody th.rcb2-m{font-weight:400;background:transparent}
           </div>
           <div class="vig__desk vig__b3" aria-hidden="true"><span>your side of the table</span><span>their side</span></div>
         </div>
-        <p class="vig__what">What you see is what lands in Excel: the date in row one, aired and booked forward as separate columns &mdash; the same rows the market board prints, to the dollar.</p>
+        <p class="vig__what">What you see is what lands in Excel &mdash; the same rows, to the dollar.</p>
       </div>
 
     </div>
@@ -1623,7 +1579,7 @@ tbody th.rcb2-m{font-weight:400;background:transparent}
   <div class="wrap center">
     <p class="eyebrow eyebrow--plain" style="justify-content:center">Next step</p>
     <h2>Bring your hardest race.</h2>
-    <p class="lede" style="margin-inline:auto">Twenty minutes on its boards, live.
+    <p class="lede" style="margin-inline:auto">Twenty minutes on its dashboards, live.
       Prefer reading first? <a href="monitoring.html#cross-screen">How we count</a>.</p>
     <div class="btn-row mt2" style="justify-content:center">
       <a class="btn btn--lime btn--lg" href="contact.html">Request a demo</a>
@@ -1687,6 +1643,6 @@ tbody th.rcb2-m{font-weight:400;background:transparent}
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r151"></script>
+<script src="assets/js/site.js?v=r152"></script>
 </body>
 </html>
