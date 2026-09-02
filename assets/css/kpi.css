@@ -3220,3 +3220,7 @@ details.mdet--fold > summary { display: block; font-weight: 700; }
 @media (max-width: 880px) {
   .wk-doc__stamp { white-space: normal; max-width: 58%; text-align: right; }
 }
+
+/* r161 lineage scale (Kevin: go bigger on CMAG) */
+.built__big { font-size: clamp(1.7rem, 3.4vw, 2.5rem); line-height: 1.18; text-wrap: balance; }
+.lineage svg { max-width: 760px; width: 100%; display: block; margin: 1.1rem auto 0; }
