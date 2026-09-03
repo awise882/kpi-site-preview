@@ -3018,7 +3018,7 @@ details.mdet--keep > summary { display: block; pointer-events: none; font-weight
 .racebox input { flex: 1 1 auto; min-width: 0; padding: .8rem 1rem; border: 1.5px solid var(--rule);
   border-radius: 0; background: var(--white); font: inherit; font-size: .98rem; color: var(--navy-ink); }
 .racebox input::placeholder { color: var(--ink-3); }
-.racebox input:focus-visible { outline: 2px solid var(--lime-dark); outline-offset: 1px; border-color: var(--lime-dark); }
+.racebox input:focus-visible { outline: 2px solid var(--lime-text); outline-offset: 1px; border-color: var(--lime-dark); }
 .racebox .btn { flex: 0 0 auto; white-space: nowrap; }
 .racebox--band { margin: 0; max-width: 460px; display: inline-flex; vertical-align: middle; }
 @media (max-width: 640px) {
@@ -3250,3 +3250,13 @@ details.mdet--fold > summary { display: block; font-weight: 700; }
 .wk-doc .tl__grid-cap { color: var(--ink-3); }
 /* Always-open honesty drawers show no toggle glyph — their summary is inert. */
 details.mdet--keep > summary::before { content: "" !important; }
+
+/* ============ r165 launch punch list (round 32) ============ */
+/* The door cards share one floor: all four go-links on a baseline. */
+.press-card { display: flex; flex-direction: column; }
+.press-card .press-card__go { margin-top: auto; padding-top: .6rem; }
+/* The hero receipt row on phones: no orphaned separators — items stack clean. */
+@media (max-width: 640px) {
+  .hero-receipt .hr-sep { display: none !important; }
+  .hero-receipt > span { display: block !important; padding: .12rem 0; }
+}

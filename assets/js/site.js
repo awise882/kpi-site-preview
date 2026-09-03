@@ -371,6 +371,8 @@
   function stop() { stopped = true; clearTimeout(timer); }
   demo.addEventListener('pointerdown', stop, { once: true });
   demo.addEventListener('keydown', stop, { once: true });
+  demo.addEventListener('pointerenter', stop, { once: true });
+  demo.addEventListener('focusin', stop, { once: true });
   var io = new IntersectionObserver(function (es) {
     es.forEach(function (e) { if (e.isIntersecting) { cycle(); io.disconnect(); } });
   }, { threshold: 0.4 });
