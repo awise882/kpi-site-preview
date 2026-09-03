@@ -3221,6 +3221,19 @@ details.mdet--fold > summary { display: block; font-weight: 700; }
   .wk-doc__stamp { white-space: normal; max-width: 58%; text-align: right; }
 }
 
-/* r161 lineage scale (Kevin: go bigger on CMAG) */
-.built__big { font-size: clamp(1.7rem, 3.4vw, 2.5rem); line-height: 1.18; text-wrap: balance; }
-.lineage svg { max-width: 760px; width: 100%; display: block; margin: 1.1rem auto 0; }
+/* r162 (owner, Sep 3): the lineage carries the claim — type down a notch,
+   ticks labeled, receipts under the line. */
+.built__big { font-size: clamp(1.45rem, 2.7vw, 2.05rem); line-height: 1.22; text-wrap: balance; max-width: 34ch; }
+@media (min-width: 560px) { .lineage svg { max-width: 760px; margin: 1.1rem auto 0; } }
+
+/* r162: the clock stops share one vertical grid (owner: "clean up vertical
+   justification" + "punch up looks junky"). Tops align on the lime rule, the
+   intro holds a two-line band, each spec card stretches to the row and pins
+   its artifact to its own floor, and the four go-links sit on one baseline. */
+.mtl__stop { display: flex; flex-direction: column; }
+.mtl__spec { flex: 1 0 auto; display: flex; flex-direction: column; }
+.mtl__spec .mtl__fig { margin-top: auto; }
+.mtl__spec .mtl__frame { margin-top: .55rem; }
+.mtl__frame { aspect-ratio: 21 / 9; }
+.mtl__go { margin-top: .65rem; align-self: flex-start; }
+@media (min-width: 560px) { .mtl__p { min-height: 3em; } }

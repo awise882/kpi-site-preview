@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r161">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r162">
 <style>
   /* contact.html only. Built from existing custom properties, no new colors. */
   .form-shell { background: var(--paper); border: 1px solid var(--rule); border-radius: var(--r-lg); padding: clamp(20px, 3vw, 32px); }
@@ -107,13 +107,10 @@
   <div class="wrap">
     <p class="eyebrow">Request the walkthrough</p>
     <h1 style="font-size:clamp(2.2rem,4.8vw,3.6rem)">Point the platform at a race you <span class="serif-accent">already know</span>.</h1>
-    <div class="press-card__art" role="group" style="max-width:640px;margin:1.1rem 0 0"
-      aria-label="The shape of the deal, in three stamped lines">
-      <p class="pca__row num">HISTORY: DECADE+ &mdash; LAST CYCLE&rsquo;S NUMBERS AGAINST THIS ONE&rsquo;S</p>
-      <p class="pca__row num">LICENSE: ONE ORG &mdash; EVERY SEAT, EVERY RACE YOU CARRY</p>
-      <p class="pca__row num"><a href="assets/reports/kpi-buyer-onepager.pdf" target="_blank" rel="noopener">THE ONE-PAGER (PDF)</a> &mdash; FORWARD IT TO THE DESK YOU REPORT TO</p>
-      <p class="pca__row num">PRICING + PILOTS: ANSWERED IN THE FIRST FIVE MINUTES &mdash; THE $30K POLLING FLOOR IS THE ONE PRICE PRINTED</p>
-    </div>
+    <p class="dek" style="max-width:58ch;margin:.9rem 0 0">Twenty minutes on your
+      race&rsquo;s dashboards, live &mdash; pricing and pilots answered in the first
+      five. <a href="assets/reports/kpi-buyer-onepager.pdf" target="_blank" rel="noopener">The
+      one-pager (PDF)</a> forwards to the desk you report to.</p>
 
     <div class="split split--wide-left mt2">
 
@@ -142,12 +139,8 @@
             <label for="c-race">Race or market</label>
             <input type="text" id="c-race" name="race" aria-describedby="c-race-hint" maxlength="150"
                    placeholder="State + office &mdash; or your market">
-            <div class="field-hint field-hint--rows" id="c-race-hint">
-              <p><b>A RACE</b> &mdash; the state and the office are enough.</p>
-              <p><b>SELLING</b> &mdash; the market, the footprint, or the app.</p>
-              <p><b>BELOW THE TOP 58</b> &mdash; we say which markets carry impression measurement and which run on detection alone.</p>
-              <p><b>RUNNING A BOOK</b> &mdash; the agency.</p>
-            </div>
+            <p class="field-hint" id="c-race-hint">A race: the state and the office
+              are enough. Selling: the market, the footprint, or the app.</p>
           </div>
 
           <!-- Ruling 49a: everything else folds shut; three fields stay visible. -->
@@ -191,9 +184,9 @@
                (privacy.html) carries the retention term and is linked from every footer. COUNSEL TO
                CONFIRM the retention term and the full notice before deploy. -->
           <div class="form-note form-note--rows">
-            <p><b>USED FOR</b> &mdash; your walkthrough and our reply.</p>
-            <p><b>NEVER</b> &mdash; sold, or shared with a campaign or a committee.</p>
-            <p><b>KEPT</b> &mdash; no longer than 24 months &middot; deleted or corrected on request: <a href="mailto:info@kpipolitical.com?subject=KPI%20site%20%5Bcontact%20page%5D">info@kpipolitical.com</a> &middot; <a href="privacy.html">full notice</a>.</p>
+            <p><b>YOUR INFO</b> &mdash; used for the walkthrough and our reply; never
+              sold, never shared with a campaign or a committee &middot;
+              <a href="privacy.html">the full notice</a>, retention included.</p>
           </div>
         </form>
       </div>
@@ -223,16 +216,17 @@
 
         <div class="card">
           <div class="card__k">Existing subscriber</div>
-          <p class="small">Already have a seat? Go straight to the scoreboard, the creative matrix and your
-            saved races at <a href="https://portal.kpipolitical.com">portal.kpipolitical.com</a>. Support
-            requests from inside the product route to your analyst. Saved races and dashboards are visible to your org&rsquo;s seats alone.</p>
+          <p class="small">Already have a seat? The scoreboard, the creative matrix
+            and your saved races live at
+            <a href="https://portal.kpipolitical.com">portal.kpipolitical.com</a> &mdash;
+            visible to your org&rsquo;s seats alone.</p>
         </div>
       </div>
     </div>
 
     <!-- The honesty stamp, applied to the demo itself: what we open in front of you
          carries the same honesty language every figure in the product carries. -->
-    <details class="mdet mdet--keep" open style="margin:1.2rem 0 0"><summary>How to read the numbers</summary>
+    <details class="mdet mdet--keep" style="margin:1.2rem 0 0"><summary>How to read the numbers</summary>
     <div class="stamp" style="max-width:78ch">
       <span><b>Posted through</b> the most recent complete day in each channel</span>
       <span><b>Channels</b> broadcast, local cable, radio order by order</span>
@@ -428,6 +422,6 @@
   });
 })();
 </script>
-<script src="assets/js/site.js?v=r161"></script>
+<script src="assets/js/site.js?v=r162"></script>
 </body>
 </html>
