@@ -2546,11 +2546,6 @@ details.mdet[open] > summary::before { content: "\2212\00a0"; }
 }
 
 /* The dot-matrix is the house mark — a 12-cell echo of the declared matrix. */
-.dotmark { display: inline-block; width: 27px; height: 13px; margin-right: .55rem;
-  vertical-align: -1px; opacity: .85;
-  background-image: radial-gradient(circle, currentColor 1.4px, transparent 1.55px);
-  background-size: 6.5px 6.5px; }
-
 /* Fingerprints in the chrome: selection, focus, and the flip book's rail. */
 ::selection { background: var(--lime); color: var(--navy-deep); }
 :focus-visible { outline: 2.5px solid var(--navy-deep, #08243B); outline-offset: 2px;
@@ -2561,12 +2556,11 @@ details.mdet[open] > summary::before { content: "\2212\00a0"; }
 .fb__scroll::-webkit-scrollbar-thumb { background: var(--lime-dark); border-radius: 4px; }
 
 /* The pinned week varies its blocking: the scoreboard takes the stage in
-   beat 2; beat 4's clearance page sits in the hand, slightly turned. */
+   beat 2; beat 4's page sits in the hand. (r170: the slight turn read as a
+   rendering bug to two reviewers — the cards sit straight now.) */
 @media (min-width: 760px) {
   html.scrub .wkx__beat--2 { grid-template-columns: minmax(0, .62fr) minmax(0, 1.38fr); }
-  html.scrub .wkx__beat--4 .wk-doc { transform: rotate(-1.2deg);
-    box-shadow: 0 18px 40px rgba(13,46,74,.16); transition: transform .35s var(--smooth); }
-  html.scrub .wkx__beat--4 .wk-doc:hover { transform: none; }
+  html.scrub .wkx__beat--4 .wk-doc { box-shadow: 0 18px 40px rgba(13,46,74,.16); }
 }
 
 /* ============ r117 (round-9 fixes) ============ */
