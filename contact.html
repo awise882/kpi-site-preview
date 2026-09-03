@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r172">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r173">
 <style>
   /* contact.html only. Built from existing custom properties, no new colors. */
   .form-shell { background: var(--paper); border: 1px solid var(--rule); border-radius: var(--r-lg); padding: clamp(20px, 3vw, 32px); }
@@ -370,20 +370,21 @@
 
   /* Mail fallback: same content, composed as a message, for when no handler answers
      (a static preview, an offline moment) so nothing typed is lost. */
+  /* r173 (the owner): the fallback never launches the mail client on its own.
+     What was typed is packed into a ready-to-send message behind one click. */
   var showMailReady = function (p) {
     var lines = ['Name: ' + p.name, 'Work email: ' + p.email, '', p.description, '',
       'PATH: mail compose \u00b7 the form fell back to email'].join('\r\n');
     var subject = 'Demo request' + (v('c-org') ? ', ' + v('c-org') : '');
-    window.location.href = 'mailto:info@kpipolitical.com?subject=' +
+    var href = 'mailto:info@kpipolitical.com?subject=' +
       encodeURIComponent(subject) + '&body=' + encodeURIComponent(lines);
     shell.className = 'form-shell form-done';
     shell.innerHTML =
-      '<h2 tabindex="-1" id="demo-done">Your request is ready to send.</h2>' +
-      '<p>We have opened a message in your email program with what you entered. It reaches the analysts ' +
-      'who run the walkthroughs once you send it.</p>' +
-      '<p>The first reply is usually a question about your race rather than a scheduling link. If nothing ' +
-      'opened, write to <a href="mailto:info@kpipolitical.com?subject=KPI%20site%20%5Bcontact%20page%5D">info@kpipolitical.com</a> with the state and ' +
-      'the office, or the market you sell.</p>';
+      '<h2 tabindex="-1" id="demo-done">Nothing sent yet. One click finishes it.</h2>' +
+      '<p>The form could not reach the desk from here, so everything you typed is packed ' +
+      'into a message instead.</p>' +
+      '<p><a class="btn btn--lime" href="' + href + '">Open the email, ready to send</a></p>' +
+      '<p class="small">It goes to <a href="mailto:info@kpipolitical.com?subject=KPI%20site%20%5Bcontact%20page%5D">info@kpipolitical.com</a> and reaches the analysts who run the walkthroughs.</p>';
     var h = document.getElementById('demo-done');
     if (h) h.focus();
   };
@@ -422,6 +423,6 @@
   });
 })();
 </script>
-<script src="assets/js/site.js?v=r172"></script>
+<script src="assets/js/site.js?v=r173"></script>
 </body>
 </html>
