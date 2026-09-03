@@ -3237,3 +3237,16 @@ details.mdet--fold > summary { display: block; font-weight: 700; }
 .mtl__frame { aspect-ratio: 21 / 9; }
 .mtl__go { margin-top: .65rem; align-self: flex-start; }
 @media (min-width: 560px) { .mtl__p { min-height: 3em; } }
+
+/* ============ r164 final polish (the launch-gate team) ============ */
+/* The week page's 22-week strip sits on a white .wk-doc card — retheme the
+   dark-card cells for light ground (scoped; the dark original is untouched). */
+.wk-doc .tl__gw { background: var(--rule-soft); }
+.wk-doc .tl__gw--aired { background: var(--lime); }
+.wk-doc .tl__gw--fwd { background: repeating-linear-gradient(45deg, rgba(124,179,66,.55) 0 3px, transparent 3px 6px); box-shadow: inset 0 0 0 1px var(--lime-dark); }
+.wk-doc .tl__gw--none { background: var(--white); box-shadow: inset 0 0 0 1.5px var(--ink-3); }
+.wk-doc .tl__gw--end { background: var(--white); box-shadow: 0 0 0 2px var(--lime); }
+.wk-doc .tl__grid-months { color: var(--ink-3); }
+.wk-doc .tl__grid-cap { color: var(--ink-3); }
+/* Always-open honesty drawers show no toggle glyph — their summary is inert. */
+details.mdet--keep > summary::before { content: "" !important; }
