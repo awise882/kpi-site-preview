@@ -3279,3 +3279,15 @@ details.mdet--keep > summary::before { content: "" !important; }
   html.scrub .wkx__hint { margin: 0 0 .55rem; }
   html.scrub .wkx__beats { height: min(60vh, 580px); }
 }
+
+/* ============ r171: one control, two jobs (Doug x Andres) ============ */
+/* The platform page had three menus saying the same five names. The section
+   rail is gone; the deck's own tab row is the switcher AND the wayfinder,
+   riding the scroll like the week desk toggle. */
+.pb--pin .pb__railwrap { margin-top: -.4rem; }
+@media (min-width: 1101px) {
+  .pb--pin .pb__railwrap { position: sticky; top: calc(var(--nav-h, 64px) + 8px);
+    z-index: 6; background: color-mix(in srgb, var(--paper) 92%, transparent);
+    backdrop-filter: blur(6px); border-radius: 16px; padding: .4rem .4rem .28rem; }
+  .pb--pin .pb__panel { scroll-margin-top: calc(var(--nav-h, 64px) + 100px); }
+}
