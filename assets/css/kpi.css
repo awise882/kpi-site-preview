@@ -3071,9 +3071,9 @@ details.mdet--keep > summary { display: block; pointer-events: none; font-weight
 .ptabs a { flex: 0 0 auto; padding: .6rem 0 .5rem; font-family: var(--mono);
   font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
   color: var(--ink-3); text-decoration: none; }
-.ptabs a i { font-style: normal; font-weight: 800; color: #A9BBC9; margin-right: .35em; }
+.ptabs a i { font-style: normal; font-weight: 800; color: var(--ink-3); margin-right: .35em; }
 .ptabs a:hover, .ptabs a:focus-visible, .ptabs a.is-on { color: var(--navy-ink); }
-.ptabs a.is-on i { color: var(--lime-dark); }
+.ptabs a.is-on i { color: var(--lime-text); }
 .ptabs__stamp { display: none; }
 @media (max-width: 640px) {
   .ptabs__in { gap: 1.05rem; }
@@ -3289,5 +3289,27 @@ details.mdet--keep > summary::before { content: "" !important; }
   .pb--pin .pb__railwrap { position: sticky; top: calc(var(--nav-h, 64px) + 8px);
     z-index: 6; background: color-mix(in srgb, var(--paper) 92%, transparent);
     backdrop-filter: blur(6px); border-radius: 16px; padding: .4rem .4rem .28rem; }
-  .pb--pin .pb__panel { scroll-margin-top: calc(var(--nav-h, 64px) + 100px); }
+  .pb--pin .pb__panel { scroll-margin-top: 12px; }
+}
+
+/* ============ r172 round-33 convergence ============ */
+/* Focus and hash scrolls clear the pinned deck row (WCAG 2.4.11). */
+html:has(.pb--pin) { scroll-padding-top: calc(var(--nav-h, 64px) + 145px); }
+/* The scoreboard specimen's crop reads as depth, not a bug. */
+.glimpse--h420 { -webkit-mask-image: linear-gradient(#000 76%, transparent 99%);
+  mask-image: linear-gradient(#000 76%, transparent 99%); }
+/* The mini-board header never jams at phone width. */
+.rc-scoreboard-cols { gap: 8px; }
+@media (max-width: 480px) { .rc-scoreboard-cols span:first-child { display: none; } }
+/* The pinned row's arrow-keys cue hides while stuck. */
+.pb--pin .pb__railwrap.is-stuck .pb__cue { display: none; }
+/* The flag keeps its numerals on the phone: white 1996, drawn line, lime 2026. */
+.lineage__mobile-nums { display: none; }
+@media (max-width: 559px) {
+  .lineage__mobile-nums { display: flex; align-items: center; justify-content: center;
+    gap: .7rem; margin: .3rem auto .55rem; max-width: 340px; }
+  .lineage__mobile-nums b { font-size: 2.1rem; font-weight: 800; letter-spacing: -.5px;
+    color: #fff; line-height: 1; }
+  .lineage__mobile-nums b.ln-2026 { color: var(--lime); }
+  .lineage__mobile-nums i { flex: 1 1 auto; border-top: 3px solid #3D5A73; }
 }
