@@ -754,8 +754,20 @@
       var p = ((ar.left + ar.width / 2 - br.left) / br.width) * 100;
       bar.style.setProperty('--pt-p', Math.max(0, Math.min(100, p)).toFixed(2) + '%');
     }
-    if (stamp) stamp.textContent = pad(idx + 1) + ' / ' + pad(map.length) +
-      ' \u00B7 ' + (m.a.getAttribute('data-t') || m.a.textContent).toUpperCase();
+    if (stamp) {
+      /* r172 (round 33, eight voices): the stamp speaks the entry's own number,
+         never its map position — an unnumbered entry (monitoring's clock, the
+         page map) prints label-only, and the denominator counts numbered stops. */
+      var lbl = (m.a.getAttribute('data-t') || m.a.textContent).toUpperCase();
+      var ni = m.a.querySelector('i');
+      if (ni) {
+        var nt = 0;
+        for (var q = 0; q < map.length; q++) if (map[q].a.querySelector('i')) nt++;
+        stamp.textContent = ni.textContent + ' / ' + pad(nt) + ' \u00B7 ' + lbl;
+      } else {
+        stamp.textContent = lbl;
+      }
+    }
   };
   var navH = 78;
   try { navH = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) || 78; } catch (e) {}
@@ -782,4 +794,21 @@
   }, { passive: true });
   window.addEventListener('resize', function () { current = -1; spy(); }, { passive: true });
   spy();
+})();
+
+
+/* r172: the pinned deck row hides its arrow-keys cue while stuck — the hint
+   belongs to the resting state, not to a floating bar over panel content. */
+(function () {
+  try {
+    var rw = document.querySelector('.pb--pin .pb__railwrap');
+    if (!rw || !('IntersectionObserver' in window)) return;
+    var s = document.createElement('i');
+    s.style.cssText = 'display:block;height:1px;margin-top:-1px;visibility:hidden';
+    rw.parentNode.insertBefore(s, rw);
+    new IntersectionObserver(function (en) {
+      var e = en[0];
+      rw.classList.toggle('is-stuck', !e.isIntersecting && e.boundingClientRect.top < 0);
+    }).observe(s);
+  } catch (e) {}
 })();

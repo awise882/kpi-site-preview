@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r171">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r172">
 <style>
   /* contact.html only. Built from existing custom properties, no new colors. */
   .form-shell { background: var(--paper); border: 1px solid var(--rule); border-radius: var(--r-lg); padding: clamp(20px, 3vw, 32px); }
@@ -118,7 +118,7 @@
            failure falls back to composing a mail message, and the form's own mailto
            action covers JS-off. Deploy details live in the production repo's docs. -->
       <div class="form-shell" id="demo-shell">
-        <h2>Tell us the race, or the market, and we will have it open when you dial in.</h2>
+        <h2>Tell us the race, or the market, and we&rsquo;ll have it open when you dial in.</h2>
         <p class="form-key">Fields marked <span class="req">*</span> are required.</p>
 
         <form id="demo-form" method="post" enctype="text/plain"
@@ -139,7 +139,7 @@
             <input type="text" id="c-race" name="race" aria-describedby="c-race-hint" maxlength="150"
                    placeholder="State + office, or your market">
             <p class="field-hint" id="c-race-hint">A race: the state and the office
-              are enough. Selling: the market, the footprint, or the app.</p>
+              are enough. Selling: the market, the footprint, or the app. Running more than one race? Name them all: one walkthrough covers the book.</p>
           </div>
 
           <!-- Ruling 49a: everything else folds shut; three fields stay visible. -->
@@ -176,8 +176,8 @@
 
           <p class="form-status" id="form-status" role="status" aria-live="polite" hidden></p>
 
-          <button class="btn btn--lime" type="submit">Request the walkthrough and we pull your race first</button>
-          <p class="small" style="margin:.55rem 0 0">We reply within one business day, same day for mid-flight asks. The reply comes from the team that built this, not a ticket queue.</p>
+          <button class="btn btn--lime" type="submit">Request the walkthrough</button>
+          <p class="small" style="margin:.55rem 0 0">We reply within one business day, same day for mid-flight asks. The reply comes from the team that built this.</p>
 
           <!-- Notice at collection. Keep this visible at the point of collection. The privacy page
                (privacy.html) carries the retention term and is linked from every footer. COUNSEL TO
@@ -196,7 +196,7 @@
           <div class="card__k">What happens next</div>
           <ol class="nextlines">
             <li><b>20 minutes on your race</b>, or your market&rsquo;s order
-              flow. Wrong read? You will know in the first five.</li>
+              flow. Wrong read? You&rsquo;ll know in the first five.</li>
             <li><b>Sign</b>: one org license, every seat; your whole book is already on the dashboards.</li>
           </ol>
           <p class="small" style="margin:.6rem 0 0">Rather skip the form? Straight to the desk:
@@ -353,7 +353,7 @@
     }
   } catch (e) {}
   var restore = function () {
-    if (btn) { btn.disabled = false; btn.textContent = 'Request the walkthrough and we pull your race first'; }
+    if (btn) { btn.disabled = false; btn.textContent = 'Request the walkthrough'; }
   };
 
   var showSent = function () {
@@ -422,6 +422,6 @@
   });
 })();
 </script>
-<script src="assets/js/site.js?v=r171"></script>
+<script src="assets/js/site.js?v=r172"></script>
 </body>
 </html>
