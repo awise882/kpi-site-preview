@@ -3260,3 +3260,28 @@ details.mdet--keep > summary::before { content: "" !important; }
   .hero-receipt .hr-sep { display: none !important; }
   .hero-receipt > span { display: block !important; padding: .12rem 0; }
 }
+
+/* ============ r166 owner batch (launch eve) ============ */
+/* THE FLAG: the team section gets its own dark band — drama earned by the
+   drawn artifact (big 1996 -> 2026 numerals), not floating type. */
+.section--flag { background: var(--navy-ink); border-top: 0 !important; }
+.section--flag .eyebrow { color: var(--lime); }
+.section--flag .built__big { color: #fff; font-size: clamp(1.8rem, 3.6vw, 2.7rem); max-width: 28ch; }
+.section--flag .built__sub { color: #B9CBDA; }
+.section--flag .built__sub b, .section--flag .built__sub .num { color: #fff; }
+.section--flag .built__awards { color: #8FA9BE; border-top: 1px dotted rgba(255,255,255,.28); }
+.section--flag .built__awards b { color: var(--lime); }
+.section--flag .lineage svg { max-width: 920px; }
+.section--flag .lineage__mobile { color: #B9CBDA; }
+/* The week desk toggle stays in frame through the pinned scrub (owner), and
+   the stage tightens under it. */
+@media (min-width: 760px) {
+  html.scrub .wk--live .wk__rail { position: sticky; top: calc(var(--nav-h, 64px) + 42px);
+    z-index: 6; background: color-mix(in srgb, var(--paper) 92%, transparent);
+    backdrop-filter: blur(6px); border-radius: 14px; padding: .3rem; }
+  html.scrub .wkx__pin { top: calc(var(--nav-h, 64px) + 138px);
+    min-height: calc(100vh - var(--nav-h, 64px) - 150px);
+    justify-content: flex-start; padding-top: .4rem; }
+  html.scrub .wkx__hint { margin: 0 0 .55rem; }
+  html.scrub .wkx__beats { height: min(60vh, 580px); }
+}
