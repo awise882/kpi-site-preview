@@ -713,6 +713,8 @@
         if (tab2) tab2.click();
       }
     }
+    /* r170 (Andres): the marker moves the moment you choose, not a beat later */
+    for (var ci = 0; ci < map.length; ci++) { if (map[ci].a === a) { apply(ci); break; } }
     bar.removeAttribute('data-open');
     if (stamp) stamp.setAttribute('aria-expanded', 'false');
   });
@@ -760,14 +762,20 @@
   var ticking = false;
   var spy = function () {
     ticking = false;
-    var y = window.scrollY + navH + 120;
-    var idx = 0;
+    /* r170: sections land ~220px down (nav + scroll-margin); the old +120
+       line sat above that, so the previous stop stayed lit after a click */
+    var y = window.scrollY + navH + 190;
+    /* r170: the floor is the first VISIBLE target, not entry zero — on the
+       platform deck the five targets are tab panels at one spot, and the old
+       zero-default snapped the marker back to Scoreboard after every click. */
+    var idx = -1;
     for (var i = 0; i < map.length; i++) {
       var el = map[i].el;
       if (el.offsetParent === null && !el.getClientRects().length) continue;
+      if (idx === -1) idx = i;
       if (el.getBoundingClientRect().top + window.scrollY <= y) idx = i;
     }
-    apply(idx);
+    apply(idx === -1 ? 0 : idx);
   };
   window.addEventListener('scroll', function () {
     if (!ticking) { ticking = true; requestAnimationFrame(spy); }
