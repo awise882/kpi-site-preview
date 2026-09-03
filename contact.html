@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r163">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r164">
 <style>
   /* contact.html only. Built from existing custom properties, no new colors. */
   .form-shell { background: var(--paper); border: 1px solid var(--rule); border-radius: var(--r-lg); padding: clamp(20px, 3vw, 32px); }
@@ -208,7 +208,7 @@
           <div class="card__k">Press inquiries</div>
           <!-- r106: the newsroom's citable-numbers card owns citation guidance; this points. -->
           <p class="small">Reporters can ask us to source a figure &mdash; we answer within
-            1 business day, same day on deadline. Write to
+            one business day, same day on deadline. Write to
             <a href="mailto:press@kpipolitical.com?subject=KPI%20site%20%5Bcontact%20page%5D">press@kpipolitical.com</a>. The citable
             numbers and the citation rules live on the <a href="press.html">newsroom
             page</a>.</p>
@@ -226,7 +226,7 @@
 
     <!-- The honesty stamp, applied to the demo itself: what we open in front of you
          carries the same honesty language every figure in the product carries. -->
-    <details class="mdet mdet--keep" style="margin:1.2rem 0 0"><summary>How to read the numbers</summary>
+    <details class="mdet mdet--keep" open style="margin:1.2rem 0 0"><summary>How to read the numbers</summary>
     <div class="stamp" style="max-width:78ch">
       <span><b>Posted through</b> the most recent complete day in each channel</span>
       <span><b>Channels</b> broadcast, local cable, radio order by order</span>
@@ -329,7 +329,7 @@
       name: cap(v('c-name'), 150),
       email: cap(v('c-email'), 150),
       subject: cap(v('c-race') || 'Demo request', 150),
-      description: cap(description + '\n\nSENT FROM: the contact form (kpi-site-preview r156)', 1000)
+      description: cap(description + '\n\nSENT FROM: the contact form', 1000)
     };
   };
 
@@ -372,7 +372,7 @@
      (a static preview, an offline moment) so nothing typed is lost. */
   var showMailReady = function (p) {
     var lines = ['Name: ' + p.name, 'Work email: ' + p.email, '', p.description, '',
-      'PATH: mail compose \u2014 no API handler on this host'].join('\r\n');
+      'PATH: mail compose \u2014 the form fell back to email'].join('\r\n');
     var subject = 'Demo request' + (v('c-org') ? ', ' + v('c-org') : '');
     window.location.href = 'mailto:info@kpipolitical.com?subject=' +
       encodeURIComponent(subject) + '&body=' + encodeURIComponent(lines);
@@ -422,6 +422,6 @@
   });
 })();
 </script>
-<script src="assets/js/site.js?v=r163"></script>
+<script src="assets/js/site.js?v=r164"></script>
 </body>
 </html>
