@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r176">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r177">
 <style>
   /* r106: every hero its own composition -- this page opens on the two desks
      themselves. Text left; the buyer's and seller's doors right. */
@@ -64,8 +64,9 @@
       <li class="nav__item"><a href="monitoring.html">Monitoring</a>
         <div class="nav__drop" aria-label="Section shortcuts">
           <a href="monitoring.html#alert-demo">Creative alerts</a>
-          <a href="monitoring.html#cross-screen">Streaming &middot; the TV-glass count</a>
+          <a href="monitoring.html#explore-market">Linear orders</a>
           <a href="monitoring.html#fcc-rates">FCC rates</a>
+          <a href="monitoring.html#streaming">Streaming</a>
         </div>
       </li>
       <li class="nav__item"><a href="platform.html">Platform</a>
@@ -87,9 +88,9 @@
       <li class="nav__item"><a href="polling.html">Voter Opinion</a>
         <div class="nav__drop" aria-label="Section shortcuts">
           <a href="polling.html#loop">The always-on poll</a>
-          <a href="polling.html#story">One campaign, start to finish</a>
+          <a href="polling.html#story">How it works</a>
           <a href="questions.html">The question library</a>
-          <a href="polling.html#offerings">Syndicated &amp; custom</a>
+          <a href="polling.html#offerings">Plans &amp; terms</a>
         </div>
       </li>
       <li class="nav__login"><a href="https://portal.kpipolitical.com">Log in</a></li>
@@ -724,9 +725,9 @@
               </g>
               <!-- axis titles + ticks -->
               <text x="12" y="26" font-family="Inter, sans-serif" font-size="15" font-weight="700" fill="#1F6E96" letter-spacing=".8">SHARE OF POLITICAL DOLLARS</text>
-              <text x="12" y="40" font-family="Inter, sans-serif" font-size="10.5" fill="#5B7085">estimated minimum</text>
+              <text x="12" y="40" font-family="Inter, sans-serif" font-size="13" fill="#5B7085">estimated minimum</text>
               <text x="415" y="510" text-anchor="middle" font-family="Inter, sans-serif" font-size="15" font-weight="700" fill="#1F6E96" letter-spacing=".8">SHARE OF VIEWING TIME</text>
-              <text x="415" y="524" text-anchor="middle" font-family="Inter, sans-serif" font-size="10.5" fill="#5B7085">measured smart-TV households</text>
+              <text x="415" y="524" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" fill="#5B7085">measured smart-TV households</text>
               <g font-family="Inter, sans-serif" font-size="10" fill="#5B7085">
                 <text x="100" y="474" text-anchor="end">0</text>
                 <text x="100" y="371" text-anchor="end">2.5</text>
@@ -741,7 +742,7 @@
               </g>
               <!-- the parity diagonal -->
               <line class="sd__diag" x1="110" y1="470" x2="720" y2="60" pathLength="1" stroke="#0D2E4A" stroke-width="1.6"/>
-              <text class="sd__diag-lab" x="716" y="46" text-anchor="end" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#40566A">parity: share of dollars = share of viewing</text>
+              <text class="sd__diag-lab" x="716" y="46" text-anchor="end" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#40566A">parity: share of dollars = share of viewing</text>
               <!-- services near or above the line: the money already flowing -->
               <g class="sd__dots" fill="#7D97AC" stroke="#FFFFFF" stroke-width="2">
                 <circle cx="635" cy="105" r="7"/>
@@ -765,7 +766,7 @@
                 <text x="390" y="432" font-family="Inter, sans-serif" font-size="14" font-weight="650" fill="#14232F">against 4% of the viewing time, under its share.</text>
                 <text x="390" y="450" font-family="Inter, sans-serif" font-size="12.5" fill="#40566A">The gap up to the line is the pitch.</text>
               </g>
-              <text x="110" y="546" font-family="Inter, sans-serif" font-size="10.5" fill="#5B7085">12 measured services in the covered set &middot; names print in the product</text>
+              <text x="110" y="546" font-family="Inter, sans-serif" font-size="12" fill="#5B7085">12 measured services in the covered set &middot; names print in the product</text>
             </svg>
             <p class="sd__hint small">Keep scrolling and the gap lights up.</p>
             <p class="sd__note">Statewide, the under-the-line services sum to <b class="num">+$510K</b> est.</p>
@@ -889,7 +890,7 @@
         <p class="card__k">Third-party proof your air ran</p>
         <p class="small" style="margin:0 0 .7rem">The receipt a political buyer&rsquo;s compliance desk asks for on make-goods, dated and independent:</p>
         <div class="wk-doc">
-          <div class="wk-doc__bar"><span class="wk-doc__brand">KPI &middot; Occurrence export</span><span class="wk-doc__stamp">SYNTHETIC ROWS &middot; REAL FORMAT</span></div>
+          <div class="wk-doc__bar"><span class="wk-doc__brand">KPI &middot; Occurrence export</span><span class="wk-doc__stamp"><span style="white-space:nowrap">SYNTHETIC ROWS</span> <span style="white-space:nowrap">&middot; REAL FORMAT</span></span></div>
           <div class="wk-doc__row"><span class="num">TUE 10:41:12 PM &middot; Columbus &middot; your service &middot; &ldquo;First Light&rdquo; :30</span><span class="num">aired &middot; independent read</span></div>
           <div class="wk-doc__row"><span class="num">TUE 10:52:47 PM &middot; Columbus &middot; your service &middot; &ldquo;First Light&rdquo; :30</span><span class="num">aired &middot; independent read</span></div>
           <div class="wk-doc__row"><span>third-party and dated</span><span class="wk-doc__hi num">independent &middot; the make-good sheet</span></div>
@@ -1004,6 +1005,6 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r176"></script>
+<script src="assets/js/site.js?v=r177"></script>
 </body>
 </html>
