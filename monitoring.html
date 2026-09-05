@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r176">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r177">
 <style>
   .fig-scroll > svg { min-width: 820px; }
   /* R69: the key graphic gets a phone-native stack; no panning a 1000px drawing */
@@ -85,8 +85,9 @@
       <li class="nav__item"><a href="monitoring.html">Monitoring</a>
         <div class="nav__drop" aria-label="Section shortcuts">
           <a href="monitoring.html#alert-demo">Creative alerts</a>
-          <a href="monitoring.html#cross-screen">Streaming &middot; the TV-glass count</a>
+          <a href="monitoring.html#explore-market">Linear orders</a>
           <a href="monitoring.html#fcc-rates">FCC rates</a>
+          <a href="monitoring.html#streaming">Streaming</a>
         </div>
       </li>
       <li class="nav__item"><a href="platform.html">Platform</a>
@@ -108,9 +109,9 @@
       <li class="nav__item"><a href="polling.html">Voter Opinion</a>
         <div class="nav__drop" aria-label="Section shortcuts">
           <a href="polling.html#loop">The always-on poll</a>
-          <a href="polling.html#story">One campaign, start to finish</a>
+          <a href="polling.html#story">How it works</a>
           <a href="questions.html">The question library</a>
-          <a href="polling.html#offerings">Syndicated &amp; custom</a>
+          <a href="polling.html#offerings">Plans &amp; terms</a>
         </div>
       </li>
       <li class="nav__login"><a href="https://portal.kpipolitical.com">Log in</a></li>
@@ -129,7 +130,7 @@
     <a href="#timeline" data-t="The clock">The clock</a>
     <a href="#alert-demo" data-t="Alerts"><i>01</i>Alerts</a>
     <a href="#explore-market" data-t="Linear orders"><i>02</i>Linear orders</a>
-    <a href="#fcc-rates" data-t="Rates"><i>03</i>Rates</a>
+    <a href="#fcc-rates" data-t="FCC rates"><i>03</i>FCC rates</a>
     <a href="#streaming" data-t="Streaming"><i>04</i>Streaming</a>
   </div>
   <i class="ptabs__dot" aria-hidden="true"></i>
@@ -155,15 +156,14 @@
       <div class="mhero__lane">
         <p class="mhero__k">Linear</p>
         <p class="mhero__p"><b>Broadcast, cable, radio</b>: order by order,
-          with filed rates in all <b>210</b> markets.</p>
+          with filed rates in every one of the <b>210</b> markets.</p>
         <p class="mhero__rcpt num">250K+ TV &amp; RADIO ORDERS ON FILE &middot; GROWING DAILY</p>
         <p class="mhero__rcpt num">THE SHAPE OF ONE: WKLD, CLEVELAND &middot; $84K &middot; 2 WEEKS &middot; POSTED JUN 9 &middot; SYNTHETIC</p>
         <a class="mhero__go" href="#explore-market">Order by order &rarr;</a>
       </div>
       <div class="mhero__lane mhero__lane--dark">
         <p class="mhero__k">Streaming</p>
-        <p class="mhero__p"><b>Streaming, measured</b> on the TV
-          glass, app by app, in <b>40M</b> homes: <b>1B+</b> impressions per day,
+        <p class="mhero__p"><b>Measured on the TV glass</b>, app by app, in <b>40M</b> homes: <b>1B+</b> impressions per day,
           weighted. A third of measured political TV impressions already runs here.</p>
         <svg class="mhero__bar" viewBox="0 0 300 56" role="img" aria-label="A third of measured political TV ad impressions run on streaming">
           <rect x="0" y="4" width="94" height="34" fill="#A8D14E"/>
@@ -219,7 +219,7 @@
           <span class="mtl__end mtl__end--l">minutes</span>
           <span class="mtl__end mtl__end--r">the dollars &rarr;</span>
         </div>
-        <p class="mtl__mlegend num" aria-hidden="true">01 ALERTS &middot; 02 LINEAR ORDERS &middot; 03 FCC RATES &middot; 04 STREAMING $</p>
+        <p class="mtl__mlegend num" aria-hidden="true"><span style="white-space:nowrap">01 ALERTS</span> &middot; <span style="white-space:nowrap">02 LINEAR ORDERS</span> &middot; <span style="white-space:nowrap">03 FCC RATES</span> &middot; <span style="white-space:nowrap">04 STREAMING&nbsp;$</span></p>
         <ol class="mtl__stops">
           <li class="mtl__stop mtl__stop--1">
             <p class="mtl__when num">MINUTES</p>
@@ -230,6 +230,7 @@
               <p class="pca__row num">&ldquo;DELIVERY PROTECTION ACT&rdquo; &middot; :30 &middot; HULU</p>
               <p class="pca__row num">CAPTURED 4:21:39 PM &rarr; INBOX 4:23:07 PM</p>
               <p class="pca__row num">TAPE + AI TRANSCRIPT ATTACHED &middot; BROADCAST OR NOT</p>
+              <p class="pca__row num">OVERNIGHT, ALSO REAL: FIRST AIR 5:24 AM &rarr; THE 8:20 SEND</p>
               <div class="mtl__frame" aria-hidden="true">
                 <img src="assets/media/five-borough-still.jpg" alt="" loading="lazy">
                 <svg class="mtl__play" width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><circle cx="15" cy="15" r="14" fill="rgba(8,36,59,.42)" stroke="rgba(255,255,255,.85)" stroke-width="1.2"/><path d="M12 9.5 21 15 12 20.5Z" fill="#fff"/></svg>
@@ -391,7 +392,7 @@
       <p class="lede">Pick a market and the picture redraws.<span
         class="kbd-hint"> Arrow keys move between markets.</span></p>
     </div>
-    <p class="small center num" data-rise style="letter-spacing:.03em;color:var(--ink-2);margin:-1.4rem 0 2.2rem"><span style="white-space:nowrap">WKLD &middot; EARLY NEWS &middot; :30</span> <span style="white-space:nowrap">&middot; $260 &middot; CLEARED IN CLASS</span>&ensp;&middot;&ensp;<span style="white-space:nowrap">CABLE &middot; ZONE 4 &middot; NEWS &middot; :30 &middot; $85</span>&ensp;&middot;&ensp;<span style="white-space:nowrap">AM DRIVE &middot; :60 &middot; $40</span><span class="tick-src">DOLLARS FROM ORDERS AND INVOICES, NOT RATINGS MODELS</span></p>
+    <p class="small center num" data-rise style="letter-spacing:.03em;color:var(--ink-2);margin:-1.4rem 0 2.2rem"><span style="white-space:nowrap">WKLD &middot; EARLY NEWS &middot; :30 &middot; $260</span> <span style="white-space:nowrap">&middot;&ensp;CLEARED IN CLASS</span> <span style="white-space:nowrap">&middot;&ensp;CABLE &middot; ZONE 4 &middot; NEWS &middot; :30 &middot; $85</span> <span style="white-space:nowrap">&middot;&ensp;AM DRIVE &middot; :60 &middot; $40</span><span class="tick-src">DOLLARS FROM ORDERS AND INVOICES, NOT RATINGS MODELS</span></p>
 
     <div class="aw" data-aw data-rise>
       <div class="aw__rail" role="tablist" aria-label="Markets in the North River Senate race">
@@ -581,7 +582,7 @@
           aria-label="A real market's rate read: Des Moines-Ames, from public FCC filings">
           <p class="pca__bar"><span>KPI &middot; FCC rate intelligence &middot; Des Moines&ndash;Ames, IA</span><span>real filed rates</span></p>
           <p class="pca__big">Avg <span class="num">$580</span> a spot &middot; <span class="num">2K</span> contracts
-            processed &middot; window <span class="num">Jan 29, 2025 &ndash; Nov 4, 2026</span></p>
+            processed &middot; window <span class="num">Jan&nbsp;29, 2025 &ndash; Nov&nbsp;4,&nbsp;2026</span></p>
           <p class="pca__row num">EARLY NEWS, PER :30 &middot; KCCI $1,444 &middot; WHO $1,258 &middot; WOI $486 &middot; KDSM $222 &middot; KFPX $125 &middot; KCWI $54</p>
           <p class="pca__row num">KDSM &middot; PRIME &middot; AVG $1,090: CANDIDATE $803 &middot; ISSUE $1,468 &middot; 51 ADVERTISERS &middot; 232 CONTRACTS</p>
           <svg class="pca__fig" viewBox="0 0 560 100" role="img" aria-label="Rate versus the market average, per station: KCCI at 1.5 times and WHO at 1.2 times sit above the market line; KDSM and WOI at 0.5, KFPX at 0.2 and KCWI at 0.1 sit below it">
@@ -874,6 +875,6 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r176"></script>
+<script src="assets/js/site.js?v=r177"></script>
 </body>
 </html>

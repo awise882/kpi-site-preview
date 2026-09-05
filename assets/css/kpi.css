@@ -3398,3 +3398,15 @@ html:has(.pb--pin) { scroll-padding-top: calc(var(--nav-h, 64px) + 145px); }
   .lineage__mspine .ms-mid { font-size: .62rem; font-weight: 800; letter-spacing: .12em;
     color: #8FA9BE; margin: .55rem 0; }
 }
+
+/* ============ r177 (round 35): phone reading polish ============ */
+/* the hero lede reads left-aligned on phones; nine centered lines was the
+   slowest block on the site */
+@media (max-width: 480px) {
+  .hero--home .hero-center .lede { text-align: left; }
+}
+/* the flag's service sentence drops the letterspaced-caps costume on phones */
+@media (max-width: 560px) {
+  .built__svc { text-transform: none; letter-spacing: normal;
+    font-family: var(--sans); font-size: .85rem; line-height: 1.55; }
+}
