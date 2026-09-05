@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r175">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r176">
 <style>
   /* Light, centered, airy hero, matching the live site: the announcement banner
      sits flush under the nav, then the display headline in the green-to-teal
@@ -443,13 +443,15 @@
   </div>
 </nav>
 <nav class="ptabs" aria-label="Sections on this page">
-  <button class="ptabs__stamp num" type="button" aria-label="Jump to a section on this page" aria-expanded="false" aria-controls="ptabs-menu"></button>
+  <button class="ptabs__stamp num" type="button" aria-expanded="false" aria-controls="ptabs-menu"><span class="sr-only">Jump to a section &mdash; you are at </span><span class="pt-st"></span></button>
   <div class="wrap ptabs__in" id="ptabs-menu">
     <span class="ptabs__k" aria-hidden="true">KPI &mdash;</span>
     <a href="#doors" data-t="The products"><i>01</i>The products</a>
     <a href="#morning" data-t="The morning"><i>02</i>The morning</a>
     <a href="#machine" data-t="The engine"><i>03</i>The engine</a>
-    <a href="#contact" data-t="Contact"><i>04</i>Contact</a>
+    <a href="#team" data-t="The team"><i>04</i>The team</a>
+    <a href="#press" data-t="Press"><i>05</i>Press</a>
+    <a href="#contact" data-t="Contact"><i>06</i>Contact</a>
   </div>
   <i class="ptabs__dot" aria-hidden="true"></i>
 </nav>
@@ -543,7 +545,7 @@
         <p class="small">See new campaigns launch, get the alert when new creative hits
           the air, and track every shift in spend and strategy, on your side and
           theirs. Every insight traces to a tape, an order, or a filing.</p>
-        <span class="press-card__go">What we monitor &rarr;</span>
+        <span class="press-card__go">See what it catches &rarr;</span>
       </a>
       <a class="card card--flag press-card" href="platform.html">
         <p class="card__k">The platform</p>
@@ -595,16 +597,16 @@
       <div class="who__grid">
         <a class="who__c" href="week.html#wk-buy"><b>Political agencies</b><span>Audit every
           buy against what actually cleared, and walk into the rate call holding the
-          receipts.</span><i>The buyer&rsquo;s week &rarr;</i></a>
-        <a class="who__c" href="monitoring.html"><b>Campaigns &amp; committees</b><span>Know
-          the minute the other side launches, what it costs them, and what the ad
-          says.</span><i>The launch alert &rarr;</i></a>
+          receipts.</span><u class="who__r num">$30 A SPOT UNDER YOUR QUOTE &rarr; $12K BACK</u><i>The buyer&rsquo;s week &rarr;</i></a>
+        <a class="who__c" href="monitoring.html#alert-demo"><b>Campaigns &amp; committees</b><span>Overnight
+          moves land in your morning report, with the whole race&rsquo;s money on one
+          screen.</span><u class="who__r num">FIRST AIR 5:24 AM &rarr; INBOX 8:20 AM</u><i>The launch alert &rarr;</i></a>
         <a class="who__c" href="week.html#wk-sell"><b>Stations &amp; publishers</b><span>Defend
           the rate card and find the political money booked around your
-          air.</span><i>The seller&rsquo;s desk &rarr;</i></a>
+          air.</span><u class="who__r num">THE AGENCY BUYING AROUND YOU: +$272K</u><i>The seller&rsquo;s desk &rarr;</i></a>
         <a class="who__c" href="press.html"><b>Political journalists</b><span>Date-stamped, citable
           numbers on deadline, and a desk that answers the same
-          day.</span><i>The press desk &rarr;</i></a>
+          day.</span><u class="who__r num">$1.2B ON FILE &middot; DATED &amp; CITABLE</u><i>The press desk &rarr;</i></a>
       </div>
     </div>
   </div>
@@ -676,7 +678,7 @@
         <span class="kw__k">Share check &middot; your air</span>
         <span class="kw__bar kw__bar--w"><i>MKT</i><span class="kw__tr"><span style="width:100%"></span></span><b class="num">25%</b></span>
         <span class="kw__bar kw__bar--w kw__bar--r"><i>HALE</i><span class="kw__tr"><span style="width:56%"></span></span><b class="num">14%</b></span>
-        <span class="kw__m"><b class="kw__up">11 pts under</b> her market split. The call writes itself</span>
+        <span class="kw__m"><b class="kw__up">11 pts under</b> her market split &middot; Wednesday&rsquo;s rate call</span>
       </div>
       <div class="kw__c kw__c--rate">
         <span class="kw__k">Rates &middot; what really cleared</span>
@@ -699,7 +701,7 @@
       </div>
             <span class="kw__c kw__c--deal num">KPI-PMP-2026-0841 <i>deal ID &middot; the audience lands in your seat</i></span>
     </div>
-    <a class="kw__more wrap" href="contact.html">+ 4 more reads on this wall &middot; the full wall opens live in the demo &rarr;</a>
+    <a class="kw__more wrap" href="contact.html">+ 7 more reads on this wall &middot; the full wall opens live in the demo &rarr;</a>
     <span class="kw__stamp">synthetic glimpses &middot; every dashboard opens live in the demo</span>
   </div>
 
@@ -711,11 +713,11 @@
     <div class="split" style="align-items:end" data-rise>
       <div>
         <p class="eyebrow">The monitoring network</p>
-        <h2 class="h-display">The engine behind the dashboards.</h2>
+        <h2 class="h-display">The engine feeding the dashboards.</h2>
       </div>
       <blockquote class="quote">
         <p>&ldquo;A Bloomberg console for campaigns.&rdquo;</p>
-        <cite>&mdash;&thinsp;<a href="https://campaignsandelections.com/industry-news/firms-unveil-new-ad-tracking-platform/" rel="noopener">Campaigns &amp; Elections, April 2025</a> &middot; at the platform&rsquo;s&nbsp;unveiling</cite>
+        <cite>&mdash;&thinsp;<a href="https://campaignsandelections.com/industry-news/firms-unveil-new-ad-tracking-platform/" rel="noopener">Campaigns &amp; Elections, April&nbsp;2025</a> &middot; <span class="cite-tail">at the platform&rsquo;s unveiling</span></cite>
       </blockquote>
     </div>
 
@@ -742,7 +744,7 @@
 </section>
 
 <!-- ============ THE FLAG (r166: the owner — "feels small... undramatic" — its own dark band) ============ -->
-<section class="section section--flag">
+<section class="section section--flag" id="team">
   <div class="wrap">
     <div class="built" data-rise>
       <p class="eyebrow eyebrow--plain" style="justify-content:center">The team behind it</p>
@@ -768,9 +770,13 @@
           <text x="14" y="108" font-family="Inter, sans-serif" font-size="8.5" font-weight="700" letter-spacing=".6" fill="#8FA9BE">THE FIRST POLITICAL AD TRACKER</text>
           <text x="626" y="108" text-anchor="end" font-family="Inter, sans-serif" font-size="8.5" font-weight="700" letter-spacing=".6" fill="#C4E07E">WE&rsquo;RE REDEFINING IT &middot; EVERY CHANNEL, THIS TIME</text>
         </svg>
-        <div class="lineage__mobile-nums" aria-hidden="true"><b>1996</b><i></i><b class="ln-2026">2026</b></div>
-        <p class="lineage__mobile num">1996 &middot; CMAG &mdash; THE FIRST POLITICAL AD
-          TRACKER<br>THE SAME TEAM &middot; 30 YEARS &middot; + CABLE &middot; + RADIO &middot; + STREAMING, CTV &amp; OTT<br>2026 &middot; KPI &mdash; WE&rsquo;RE REDEFINING IT &middot; EVERY CHANNEL, THIS&nbsp;TIME</p>
+        <div class="lineage__mspine num" aria-hidden="true">
+          <p class="ms-y">1996 <span>CMAG &middot; THE FIRST POLITICAL AD&nbsp;TRACKER</span></p>
+          <p class="ms-tick">+ CABLE &middot; + RADIO</p>
+          <p class="ms-mid">THE SAME TEAM &middot; 30 YEARS</p>
+          <p class="ms-tick">+ STREAMING &middot; CTV &amp; OTT</p>
+          <p class="ms-y ms-y--lime">2026 <span>KPI &middot; WE&rsquo;RE REDEFINING IT &middot; EVERY CHANNEL, THIS&nbsp;TIME</span></p>
+        </div>
       </div>
       <p class="built__awards num">THIS TEAM &middot; <b>75+ AWARDS</b> ACROSS THE LAST TWO CYCLES &mdash; POLLIES &middot; REED AWARDS &middot; CAMPAIGNTECH</p>
       <p class="built__awards num" style="border-top:0;padding-top:0;margin-top:.3rem">WHEN SOMETHING BREAKS MID-FLIGHT, THIS SAME TEAM PICKS UP &mdash; YOUR OWN ANALYST, NOT A TICKET QUEUE &middot; THIRTY YEARS OF CYCLES: WE&rsquo;VE SEEN EVERYTHING</p>
@@ -901,6 +907,6 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r175"></script>
+<script src="assets/js/site.js?v=r176"></script>
 </body>
 </html>

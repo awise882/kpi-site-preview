@@ -3331,3 +3331,70 @@ html:has(.pb--pin) { scroll-padding-top: calc(var(--nav-h, 64px) + 145px); }
 /* r174: the doors left the clipped kw collage — long phrase-spans in the door
    art must wrap now that nothing crops them (p .num is nowrap by default). */
 .press-card__art .pca__big .num { white-space: normal; }
+
+/* ============ r176 mobile love (round 34: 'mobile still needs design love') ============ */
+/* the who cards carry receipts, like everything else on this site */
+.who__c .who__r { display: block; text-decoration: none; font-family: var(--mono);
+  font-size: .62rem; letter-spacing: .05em; color: var(--ink-3);
+  border-top: 1px dashed var(--rule); padding-top: .45rem; margin-top: .15rem; }
+/* the clock's stops, named at phone width (dot labels are desktop-only) */
+.mtl__mlegend { display: none; }
+@media (max-width: 759px) {
+  .mtl__mlegend { display: block; margin: .5rem auto 0; text-align: center;
+    max-width: 21rem; font-size: .6rem; font-weight: 700; letter-spacing: .08em;
+    line-height: 1.7; color: var(--ink-3); } }
+/* the ticker's provenance stamp stands apart from the prices */
+.tick-src { display: block; margin-top: .45rem; font-size: .88em; color: var(--ink-3); }
+@media (max-width: 480px) {
+  /* delivery-lane rows and the worked-dollars links stack instead of colliding */
+  .lat2__row { flex-direction: column; gap: .18rem; }
+  .lat2__row span:last-child { text-align: left; }
+  /* the alert card's actions: primary first, everything full width */
+  .ac__actions { flex-direction: column; }
+  .ac__actions .btn { width: 100%; justify-content: center; }
+  .ac__actions .btn--lime { order: -1; }
+  /* the WKYC kicker stacks its two halves */
+  .pca__bar--stack { flex-direction: column; align-items: flex-start; gap: .12rem; }
+}
+/* deck tabs read as buttons, not floating words, on small screens */
+@media (max-width: 640px) {
+  .pb__tab[aria-selected="false"] { background: var(--white); border: 1px solid var(--rule); }
+}
+/* the C&E cite tail: one unit on desktop, its own line on phones */
+.cite-tail { white-space: nowrap; }
+@media (max-width: 560px) { .cite-tail { display: block; white-space: normal; } }
+/* beat claims rag evenly on phones */
+@media (max-width: 560px) { .wk__big { text-wrap: balance; } }
+/* every button row composes full-width on phones, like the hero and contact */
+@media (max-width: 520px) {
+  .btn-row .btn { flex: 1 1 auto; justify-content: center; }
+}
+/* the hero: the race box arrives before the receipt stack on phones */
+@media (max-width: 480px) {
+  .hero--home .hero-center { display: flex; flex-direction: column; }
+  .hero--home .hero-center .hero-receipt { order: 2; margin-top: 1.1rem; }
+  .hero--home .hero-center .hero-board { order: 3; }
+  .hero--home .hero-center .scroll-hint { order: 4; }
+}
+/* the flag's mobile spine: the timeline drawn vertically, not flattened to text */
+.lineage__mspine { display: none; }
+@media (max-width: 559px) {
+  .lineage__mspine { display: block; margin: .4rem 0 0 .35rem; padding-left: 1rem;
+    border-left: 3px solid #3D5A73; text-align: left; }
+  .lineage__mspine p { margin: 0; }
+  .lineage__mspine .ms-y { font-size: 1.9rem; font-weight: 800; letter-spacing: -.5px;
+    color: var(--white); line-height: 1.15; position: relative; }
+  .lineage__mspine .ms-y::before { content: ""; position: absolute; left: calc(-1rem - 8px);
+    top: .62em; width: 13px; height: 13px; border-radius: 50%; background: #E7EFF6; }
+  .lineage__mspine .ms-y--lime { color: var(--lime); margin-top: .55rem; }
+  .lineage__mspine .ms-y--lime::before { background: var(--lime); box-shadow: 0 0 0 3px #FFFFFF; }
+  .lineage__mspine .ms-y span { display: block; font-size: .6rem; font-weight: 700;
+    letter-spacing: .09em; color: #9FBFD6; margin-top: .1rem; }
+  .lineage__mspine .ms-y--lime span { color: #C4E07E; }
+  .lineage__mspine .ms-tick { font-size: .6rem; font-weight: 700; letter-spacing: .07em;
+    color: #7E97AB; margin: .55rem 0; position: relative; }
+  .lineage__mspine .ms-tick::before { content: ""; position: absolute; left: calc(-1rem - 3px);
+    top: .5em; width: 7px; height: 2px; background: #56748C; }
+  .lineage__mspine .ms-mid { font-size: .62rem; font-weight: 800; letter-spacing: .12em;
+    color: #8FA9BE; margin: .55rem 0; }
+}
