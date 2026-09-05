@@ -3405,7 +3405,9 @@ html:has(.pb--pin) { scroll-padding-top: calc(var(--nav-h, 64px) + 145px); }
 @media (max-width: 480px) {
   .hero--home .hero-center .lede { text-align: left; }
 }
-/* the flag's service sentence drops the letterspaced-caps costume on phones */
+/* the flag's service sentence: caps costume on desktop, sentence on phones
+   (r178: the string is typed sentence-case now; desktop re-caps it) */
+.built__svc { text-transform: uppercase; }
 @media (max-width: 560px) {
   .built__svc { text-transform: none; letter-spacing: normal;
     font-family: var(--sans); font-size: .85rem; line-height: 1.55; }
