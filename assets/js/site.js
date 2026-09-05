@@ -688,6 +688,7 @@
   bar.classList.add('ptabs--js');
   var links = Array.prototype.slice.call(bar.querySelectorAll('a[href^="#"]'));
   var stamp = bar.querySelector('.ptabs__stamp');
+  var stx = stamp ? (stamp.querySelector('.pt-st') || stamp) : null;
   var map = [];
   links.forEach(function (a) {
     var el = document.getElementById(a.getAttribute('href').slice(1));
@@ -763,9 +764,9 @@
       if (ni) {
         var nt = 0;
         for (var q = 0; q < map.length; q++) if (map[q].a.querySelector('i')) nt++;
-        stamp.textContent = ni.textContent + ' / ' + pad(nt) + ' \u00B7 ' + lbl;
+        stx.textContent = ni.textContent + ' / ' + pad(nt) + ' \u00B7 ' + lbl;
       } else {
-        stamp.textContent = lbl;
+        stx.textContent = lbl;
       }
     }
   };

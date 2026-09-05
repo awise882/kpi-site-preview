@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r175">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r176">
 <style>
   .fig-scroll > svg { min-width: 820px; }
   /* R69: the key graphic gets a phone-native stack; no panning a 1000px drawing */
@@ -123,7 +123,7 @@
   </div>
 </nav>
 <nav class="ptabs" aria-label="Sections on this page">
-  <button class="ptabs__stamp num" type="button" aria-label="Jump to a section on this page" aria-expanded="false" aria-controls="ptabs-menu"></button>
+  <button class="ptabs__stamp num" type="button" aria-expanded="false" aria-controls="ptabs-menu"><span class="sr-only">Jump to a section &mdash; you are at </span><span class="pt-st"></span></button>
   <div class="wrap ptabs__in" id="ptabs-menu">
     <span class="ptabs__k" aria-hidden="true">MONITORING &middot;</span>
     <a href="#timeline" data-t="The clock">The clock</a>
@@ -219,6 +219,7 @@
           <span class="mtl__end mtl__end--l">minutes</span>
           <span class="mtl__end mtl__end--r">the dollars &rarr;</span>
         </div>
+        <p class="mtl__mlegend num" aria-hidden="true">01 ALERTS &middot; 02 LINEAR ORDERS &middot; 03 FCC RATES &middot; 04 STREAMING $</p>
         <ol class="mtl__stops">
           <li class="mtl__stop mtl__stop--1">
             <p class="mtl__when num">MINUTES</p>
@@ -266,6 +267,7 @@
               <p class="pca__bar"><span>KPI &middot; FILED RATES</span><span>real</span></p>
               <p class="pca__row num">KDSM PRIME: CANDIDATE $803 &middot; ISSUE $1,468</p>
               <p class="pca__row num">EARLY NEWS: KCCI $1,444 &middot; WOI $486 &middot; KFPX $125</p>
+              <p class="pca__row num">51 ADVERTISERS &middot; 232 CONTRACTS ON FILE</p>
               <svg class="mtl__fig" viewBox="0 0 300 54" aria-hidden="true">
                 <line x1="0" y1="24" x2="300" y2="24" stroke="#8A5200" stroke-width="1" stroke-dasharray="4 3"/>
                 <text x="300" y="19" text-anchor="end" font-family="Inter,sans-serif" font-size="9" font-weight="800" fill="#8A5200">1.0&times; = MARKET AVG</text>
@@ -286,7 +288,7 @@
             <h3 class="mtl__name">Streaming dollars</h3>
             <p class="mtl__p">Detection in minutes; dollars estimated, never in the TV total.</p>
             <div class="press-card__art mtl__spec" role="img" aria-label="The daily CTV read, by app: Hulu, Max, Peacock and 285 more — Toledo prints $740K estimated as of August 14, at least $410K of it caught">
-              <p class="pca__bar"><span>KPI &middot; CTV DAILY &middot; BY APP</span><span>est.</span></p>
+              <p class="pca__bar pca__bar--stack"><span>KPI &middot; CTV DAILY &middot; BY APP</span><span>est.</span></p>
               <p class="pca__row num">HULU &middot; MAX &middot; PEACOCK &middot; +285 MORE APPS</p>
               <p class="pca__row num">TOLEDO: $740K EST. THRU AUG 14 &middot; $410K+ CAUGHT</p>
               <svg class="mtl__fig" viewBox="0 0 300 46" aria-hidden="true">
@@ -389,7 +391,7 @@
       <p class="lede">Pick a market and the picture redraws.<span
         class="kbd-hint"> Arrow keys move between markets.</span></p>
     </div>
-    <p class="small center num" data-rise style="letter-spacing:.03em;color:var(--ink-2);margin:-1.4rem 0 2.2rem"><span style="white-space:nowrap">WKLD &middot; EARLY NEWS &middot; :30</span> <span style="white-space:nowrap">&middot; $260 &middot; CLEARED IN CLASS</span>&ensp;&middot;&ensp;<span style="white-space:nowrap">CABLE &middot; ZONE 4 &middot; NEWS &middot; :30 &middot; $85</span>&ensp;&middot;&ensp;<span style="white-space:nowrap">AM DRIVE &middot; :60 &middot; $40</span><br>DOLLARS FROM ORDERS AND INVOICES, NOT RATINGS MODELS</p>
+    <p class="small center num" data-rise style="letter-spacing:.03em;color:var(--ink-2);margin:-1.4rem 0 2.2rem"><span style="white-space:nowrap">WKLD &middot; EARLY NEWS &middot; :30</span> <span style="white-space:nowrap">&middot; $260 &middot; CLEARED IN CLASS</span>&ensp;&middot;&ensp;<span style="white-space:nowrap">CABLE &middot; ZONE 4 &middot; NEWS &middot; :30 &middot; $85</span>&ensp;&middot;&ensp;<span style="white-space:nowrap">AM DRIVE &middot; :60 &middot; $40</span><span class="tick-src">DOLLARS FROM ORDERS AND INVOICES, NOT RATINGS MODELS</span></p>
 
     <div class="aw" data-aw data-rise>
       <div class="aw__rail" role="tablist" aria-label="Markets in the North River Senate race">
@@ -591,13 +593,13 @@
             <rect x="482" y="75" width="40" height="5" fill="#B7C6D2"/>
             <line x1="14" y1="80" x2="546" y2="80" stroke="#C7D5E0" stroke-width="2"/>
             <line x1="14" y1="36" x2="546" y2="36" stroke="#8A5200" stroke-width="1.5" stroke-dasharray="5 4"/>
-            <text x="546" y="30" text-anchor="end" font-family="Inter, sans-serif" font-size="8.5" font-weight="800" letter-spacing=".5" fill="#8A5200">1.0&times; = MARKET AVG, ALL DAYPARTS ($580)</text>
-            <text x="62" y="9" text-anchor="middle" font-size="10" font-weight="800" fill="#08243B">1.5&times;</text>
-            <text x="150" y="22" text-anchor="middle" font-size="10" font-weight="800" fill="#08243B">1.2&times;</text>
-            <text x="238" y="53" text-anchor="middle" font-size="10" font-weight="700" fill="#5A6B7C">0.5&times;</text>
-            <text x="326" y="53" text-anchor="middle" font-size="10" font-weight="700" fill="#5A6B7C">0.5&times;</text>
-            <text x="414" y="66" text-anchor="middle" font-size="10" font-weight="700" fill="#5A6B7C">0.2&times;</text>
-            <text x="502" y="70" text-anchor="middle" font-size="10" font-weight="700" fill="#5A6B7C">0.1&times;</text>
+            <text x="546" y="28" text-anchor="end" font-family="Inter, sans-serif" font-size="12" font-weight="800" letter-spacing=".4" fill="#8A5200">1.0&times; = MARKET AVG, ALL DAYPARTS ($580)</text>
+            <text x="62" y="9" text-anchor="middle" font-size="13" font-weight="800" fill="#08243B">1.5&times;</text>
+            <text x="150" y="22" text-anchor="middle" font-size="13" font-weight="800" fill="#08243B">1.2&times;</text>
+            <text x="238" y="53" text-anchor="middle" font-size="13" font-weight="700" fill="#5A6B7C">0.5&times;</text>
+            <text x="326" y="53" text-anchor="middle" font-size="13" font-weight="700" fill="#5A6B7C">0.5&times;</text>
+            <text x="414" y="66" text-anchor="middle" font-size="13" font-weight="700" fill="#5A6B7C">0.2&times;</text>
+            <text x="502" y="70" text-anchor="middle" font-size="13" font-weight="700" fill="#5A6B7C">0.1&times;</text>
             <text x="62" y="94" text-anchor="middle" font-size="9.5" font-weight="700" letter-spacing=".5" fill="#5A6B7C">KCCI</text>
             <text x="150" y="94" text-anchor="middle" font-size="9.5" font-weight="700" letter-spacing=".5" fill="#5A6B7C">WHO</text>
             <text x="238" y="94" text-anchor="middle" font-size="9.5" font-weight="700" letter-spacing=".5" fill="#5A6B7C">KDSM</text>
@@ -872,6 +874,6 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r175"></script>
+<script src="assets/js/site.js?v=r176"></script>
 </body>
 </html>

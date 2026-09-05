@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r175">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r176">
 <style>
   /* The "what it exports" line that closes each app section. */
   .exports { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; margin-top: 1.3rem; }
@@ -29,8 +29,9 @@
      mini. It sits still: the ambient float died with the auto-motion ruling. */
   .hero__grid { display: grid; gap: clamp(28px, 4vw, 64px); align-items: center; grid-template-columns: 1fr; }
   .hero-float { max-width: 440px; width: 100%; justify-self: center; }
-  /* r111 (mobile panel): the desktop board shot is unreadable texture at 390px. */
-  @media (max-width: 640px) { .hero .hero-float { display: none; } }
+  /* r176 (round-34, six personas): the receipt card returns to the phone hero —
+     it stacks full-width under the CTA instead of hiding. */
+  @media (max-width: 640px) { .hero .hero-float { max-width: 100%; margin-top: 1.3rem; } }
   @media (min-width: 960px) {
     .hero__grid { grid-template-columns: 1.2fr .8fr; }
     .hero-float { justify-self: end; }
@@ -481,6 +482,15 @@
 
 /* title bar */
 .rc-scoreboard-titlebar{ display:flex; align-items:center; gap:5px; margin-bottom:7px; }
+/* r176: at phone width the glimpse magnifies its top rows instead of shrinking
+   the whole 1440px board to squint size; the decorative scrub+filter rows yield
+   the room. Same board, readable type, fade-at-crop kept. */
+@media (max-width:480px){
+  .glimpse--h420 .rc-scoreboard{ width:74%; transform:scale(1.35); transform-origin:top left; }
+  .glimpse--h420 .rc-scoreboard-scrub,.glimpse--h420 .rc-scoreboard-filters{ display:none; }
+  .rc-scoreboard-titlebar{ flex-wrap:wrap; }
+  .rc-scoreboard-scope{ flex:1 0 100%; order:3; margin-top:2px; }
+}
 .rc-scoreboard-dot{
   width:6px; height:6px; border-radius:50%; background:#A8D14E;
   outline:1px solid rgba(8,36,59,.25); flex:0 0 auto;
@@ -1140,7 +1150,7 @@ tbody th.rcb2-m{font-weight:400;background:transparent}
        </p>
 
         <h3 class="mt3">Open the market: share of the flight, station by station</h3>
-    <figure class="app-shot" data-rise>
+    <figure class="app-shot app-shot--natural" data-rise>
       <img width="2400" height="960" src="assets/apps/app-drill-in.webp?v=r57" loading="lazy"
         alt="The drill-in: the Columbus market row opened into its stations, share of the flight and dollars per station, with the day's posted orders updating in nearly real time. Synthetic data.">
       <figcaption>Market &#8594; station &#8594; order &middot; synthetic data</figcaption>
@@ -1154,7 +1164,7 @@ tbody th.rcb2-m{font-weight:400;background:transparent}
     <div class="split split--rev" style="margin-bottom:1.8rem">
       <div>
         <p class="eyebrow">The Creative Explorer</p>
-        <h2>Every detected spot ships with tape, transcript and markets.</h2>
+        <h2>Watch any spot, lift the transcript, see every market it ran.</h2>
       </div>
       <div>
       <ul class="small">
@@ -1561,6 +1571,6 @@ tbody th.rcb2-m{font-weight:400;background:transparent}
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r175"></script>
+<script src="assets/js/site.js?v=r176"></script>
 </body>
 </html>
