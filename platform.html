@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r180">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r181">
 <style>
   /* The "what it exports" line that closes each app section. */
   .exports { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; margin-top: 1.3rem; }
@@ -333,7 +333,7 @@
   <div class="rc-scoreboard-titlebar">
     <span class="rc-scoreboard-dot" aria-hidden="true"></span>
     <span class="rc-scoreboard-title">Scoreboard</span>
-    <span class="rc-scoreboard-scope">&middot; National&thinsp;&middot;&thinsp;8-race synthetic sample</span>
+    <span class="rc-scoreboard-scope"><i class="rc-scope-sep" aria-hidden="true">&middot;</i> National&thinsp;&middot;&thinsp;8-race synthetic sample</span>
     <span class="rc-scoreboard-stamp">Posted through Aug 30, 2026</span>
   </div>
 
@@ -363,7 +363,7 @@
   <div class="rc-scoreboard-cols">
     <span>Race</span>
     <span class="rc-scoreboard-colmid"><span class="rc-colmid-long">D &#8592; share of committed money&thinsp;&#8594;&thinsp;R</span><span class="rc-colmid-short">D &#8592; share &#8594; R</span></span>
-    <span class="rc-scoreboard-colwk">Added&thinsp;&middot;&thinsp;wk of 8.24, to date &#8595;</span>
+    <span class="rc-scoreboard-colwk">Added&thinsp;&middot;&thinsp;wk of 8.24, to&nbsp;date&nbsp;&#8595;</span>
   </div>
 
   <div class="rc-scoreboard-body">
@@ -489,12 +489,14 @@
    the room. Same board, readable type, fade-at-crop kept. */
 .rc-colmid-short{ display:none; white-space:nowrap; }
 @media (max-width:480px){
-  .glimpse--h420 .rc-scoreboard{ width:74%; transform:scale(1.35); transform-origin:top left; }
+  .glimpse--h420 .rc-scoreboard{ width:72%; transform:scale(1.35); transform-origin:top left; }
   .glimpse--h420 .rc-scoreboard-scrub,.glimpse--h420 .rc-scoreboard-filters,.glimpse--h420 .rc-scoreboard-pills{ display:none; }
   .glimpse--h420 .rc-colmid-long{ display:none; }
   .glimpse--h420 .rc-colmid-short{ display:inline; }
   .rc-scoreboard-titlebar{ flex-wrap:wrap; }
   .rc-scoreboard-scope{ flex:1 0 100%; order:3; margin-top:2px; }
+  .rc-scope-sep{ display:none; }
+  .rc-scoreboard-stamp{ margin-right:10px; }
 }
 .rc-scoreboard-dot{
   width:6px; height:6px; border-radius:50%; background:#A8D14E;
@@ -876,7 +878,7 @@
         you reconcile.</p>
       <ul class="small">
         <li>Streaming rides with the grid, statewide and estimated</li>
-        <li>Sellers read this grid from the other side: <a href="week.html#sell-side">the full seller read</a></li>
+        <li>Sellers work this grid from the other side: <a href="week.html#sell-side">the full seller read</a></li>
       </ul>
       </div>
     </div>
@@ -1583,6 +1585,6 @@ tbody th.rcb2-m{font-weight:400;background:transparent}
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r180"></script>
+<script src="assets/js/site.js?v=r181"></script>
 </body>
 </html>

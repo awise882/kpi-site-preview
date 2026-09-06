@@ -2842,7 +2842,10 @@ details.mdet--keep > summary { display: block; pointer-events: none; font-weight
   .kbd-hint { display: none; }
   .tap-only { display: inline; }
   .pb--live .pb__rail { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; }
-  .pb--live .pb__tab:last-child { grid-column: 1 / -1; }
+  /* r181: the full-width last tab was written for platform's 5-tab rail;
+     week's 4-tab rail prints a clean 2x2 without it (M2, platform-seller) */
+  .pb--live .pb__rail--5 .pb__tab:last-child,
+  .pb--live .pb__rail--6 .pb__tab:last-child { grid-column: 1 / -1; }
 }
 
 /* ===== r127 — the teardown answered ===== */
@@ -3559,3 +3562,20 @@ details.mfoot > summary::before { content: "" !important; display: none !importa
 }
 /* the press housekeeping fold keeps the card voice */
 details.mdet--pk > summary { font-size: .78rem; letter-spacing: .05em; }
+
+/* ============ r181 mobile loop M2 (12 voices on one bug: the chip totals
+   clip — the chip stacks instead; plus the ticker diet and the sheet tail)
+   — phone-scoped; desktop pixel-identical ============ */
+@media (max-width: 560px) {
+  /* name / total / bar / delta each on their own line: every token prints whole */
+  .aw--live .aw__rail .aw__mkt { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  /* the stop-02 mono ticker keeps its provenance stamp; the rate rows are
+     desktop texture — the board below carries the dollars (adam) */
+  .mticker > span:not(.tick-src) { display: none; }
+}
+@media (max-width: 640px) {
+  .wvlead__tail { display: block; font-family: var(--mono); font-size: .6rem;
+    font-weight: 400; letter-spacing: .06em; color: var(--ink-3); margin-top: .2rem; }
+}
