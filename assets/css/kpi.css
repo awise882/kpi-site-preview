@@ -3445,7 +3445,7 @@ html:has(.pb--pin) { scroll-padding-top: calc(var(--nav-h, 64px) + 145px); }
   .ac__dl { gap: .5rem .9rem; }
   .ac__dl dd { font-size: .88rem; }
   /* market chips grid up instead of stacking */
-  .aw__rail { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .45rem; }
+  .aw--live .aw__rail { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .45rem; }
   .aw__mkt { padding: .5rem .4rem; }
   /* the six-station list yields to the drawn index one screen down */
   #fcc-rates .press-card__art--hero .pca__row:nth-of-type(3) { display: none; }
@@ -3456,7 +3456,7 @@ details.mfoot > summary { list-style: none; cursor: pointer; }
 details.mfoot > summary::-webkit-details-marker { display: none; }
 /* the generic .mdet +/− marker survives display:contents — the fold sign
    lives on the h4 instead */
-details.mfoot > summary::before { content: "" !important; }
+details.mfoot > summary::before { content: "" !important; display: none !important; }
 @media (min-width: 641px) {
   details.mfoot, details.mfoot > summary { display: contents; }
 }
@@ -3465,3 +3465,97 @@ details.mfoot > summary::before { content: "" !important; }
   details.mfoot > summary h4::after { content: " +"; color: #8FA9BE; }
   details.mfoot[open] > summary h4::after { content: " \2013"; }
 }
+
+/* ============ r180 mobile loop M1 (19 phone-only verdicts: the clock prints
+   each exhibit once, the matrix unpins, the sheet gets its lead, the footer
+   folds grow real tap targets) — phone-scoped; desktop pixel-identical ============ */
+/* elements that exist ONLY on phones */
+.m-only { display: none; }
+@media (max-width: 640px) { .m-only { display: block; } }
+/* the clock: stops 2-4 drop their drawn minis — the full artifacts, stamped,
+   live one swipe down in their own sections (stop 1 keeps the real tape) */
+@media (max-width: 640px) {
+  .mtl__stop--2 .mtl__fig, .mtl__stop--3 .mtl__fig, .mtl__stop--4 .mtl__fig { display: none; }
+  .mtl__stop--2 .mtl__spec, .mtl__stop--3 .mtl__spec, .mtl__stop--4 .mtl__spec { min-height: 0; padding: .55rem .95rem; }
+}
+/* the share diagonal prints finished on phones — the runway was dead thumb */
+@media (max-width: 640px) {
+  html.scrub .sd__scroller { height: auto; }
+  html.scrub .sd__pin { position: static; }
+  html.scrub .sd__hint { display: none !important; }
+  html.scrub .sd__dots circle:nth-of-type(n), html.scrub .sd__diag, html.scrub .sd__diag-lab,
+  html.scrub .sd__under, html.scrub .sd__under--2, html.scrub .sd__under--3,
+  html.scrub .sd__ann, html.scrub .sd__note { animation: none !important; }
+}
+/* the agency book magnifies its top rows at phone width (the r176 glimpse
+   pattern) instead of shrinking the call list to blur */
+@media (max-width: 480px) {
+  #agency-book .app-shot--natural { position: relative; }
+  #agency-book .app-shot--natural img { width: 200%; max-width: none; height: 260px;
+    object-fit: cover; object-position: left top; }
+  #agency-book .app-shot--natural::before { content: ""; position: absolute; left: 0; right: 0;
+    top: 196px; height: 64px; background: linear-gradient(rgba(255,255,255,0), #fff);
+    pointer-events: none; z-index: 1; }
+}
+/* the who band de-boxes on phones: four accent rows, receipts kept — the doors
+   keep the card language to themselves */
+@media (max-width: 640px) {
+  .who__grid { gap: 6px; }
+  .who__c { background: transparent; border: 0; border-left: 2px solid #00ACC1;
+    border-radius: 0; padding: .7rem 0 .7rem .95rem; box-shadow: none; }
+}
+/* the wave sheet's lead read (phones print it above the six rows) */
+@media (max-width: 640px) {
+  .wvlead { margin: .55rem 0 .2rem; font-family: var(--sans); font-weight: 800;
+    font-size: .92rem; letter-spacing: .02em; color: var(--navy-deep); }
+  .wvlead b { font-family: var(--mono); font-size: 1.45rem; letter-spacing: -.01em;
+    color: #4F7A25; vertical-align: -.08em; margin: 0 .1em; }
+}
+/* the polling wall says what it holds on phones */
+@media (max-width: 640px) {
+  .qf__more { margin: .8rem 0 0; font-size: .7rem; letter-spacing: .05em; color: #B9CFDF; }
+  .qf__more a { color: var(--lime); text-decoration: none; }
+  .qf__more a:hover, .qf__more a:focus-visible { text-decoration: underline; }
+}
+/* the press story run: one offer per line on phones */
+@media (max-width: 640px) {
+  .pstory { display: block; padding: .12rem 0; }
+  .pstory--stamp { color: var(--ink-3); margin-top: .2rem; }
+}
+/* the questions close: one button ask; the second drops to a text link */
+@media (max-width: 480px) {
+  .cta-final--q .btn-row .btn--outline { background: transparent; border-color: transparent;
+    box-shadow: none; padding: .3rem .5rem; text-decoration: underline; text-underline-offset: .22em; }
+}
+/* the library's domain chips run one scrollable row on phones */
+@media (max-width: 480px) {
+  #sx .sx-chips { flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch;
+    padding-bottom: .3rem; scrollbar-width: thin; }
+  #sx .sx-chip { white-space: nowrap; }
+}
+/* doug's footer refinement: each fold spans the row, 44px tap targets, the
+   marker rides the right edge on a hairline row */
+@media (max-width: 640px) {
+  .foot__grid > div { grid-column: 1 / -1; }
+  details.mfoot > summary { display: flex; align-items: center; justify-content: space-between;
+    min-height: 44px; padding: .5rem 0; border-top: 1px solid rgba(255,255,255,.14); }
+  details.mfoot > summary h4 { margin: 0; }
+  details.mfoot > summary h4::after { content: none; }
+  details.mfoot > summary::after { content: "+"; color: #8FA9BE; font-family: var(--mono);
+    font-size: 1rem; line-height: 1; }
+  details.mfoot[open] > summary::after { content: "\2212"; }
+  details.mfoot > ul { margin: .15rem 0 .7rem; }
+}
+/* every page's closing band breathes 44px at the bottom on phones */
+@media (max-width: 560px) { .cta-final { padding-bottom: 44px; } }
+/* the 3-across market chips wrap their totals and deltas at narrow widths;
+   under 380px the rail deals two across so no token has to break */
+@media (max-width: 560px) {
+  .aw--live .aw__rail .aw__mkt-tot { font-size: 1.05rem; white-space: normal; }
+  .aw--live .aw__rail .aw__mkt-delta { font-size: .62rem; line-height: 1.35; white-space: normal; }
+}
+@media (max-width: 380px) {
+  .aw--live .aw__rail { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+/* the press housekeeping fold keeps the card voice */
+details.mdet--pk > summary { font-size: .78rem; letter-spacing: .05em; }

@@ -744,6 +744,11 @@
     });
   }
 
+  /* r180 (M1, andres): a page may declare a tail band that sits outside every
+     stop (week's closing band behind the hidden seller story) — scrolled past
+     it, the stamp goes label-only instead of holding the last stop's number. */
+  var tailEl = document.querySelector('[data-spy-tail]');
+  var tailLbl = tailEl ? (tailEl.getAttribute('data-spy-tail') || '').toUpperCase() : '';
   var current = -1;
   var apply = function (idx) {
     if (idx === current) return;
@@ -787,6 +792,13 @@
       if (el.offsetParent === null && !el.getClientRects().length) continue;
       if (idx === -1) idx = i;
       if (el.getBoundingClientRect().top + window.scrollY <= y) idx = i;
+    }
+    if (tailEl && stx) {
+      var tb = tailEl.getBoundingClientRect().top + window.scrollY;
+      if (tb <= y) {
+        if (current !== -2) { current = -2; stx.textContent = tailLbl; }
+        return;
+      }
     }
     apply(idx === -1 ? 0 : idx);
   };

@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r179">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r180">
 <style>
   /* r106 (Adam): the loop IS the landing. Text left, the loop tape right, one
      viewport. The tape is the old ring redrawn in the house receipt grammar:
@@ -298,6 +298,20 @@
   html.scrub .mxs__step--c { animation: fade-in-soft 1s linear paused both !important; animation-delay: calc((0.40 - var(--scrub, 0)) / 0.10 * 1s) !important; }
   html.scrub .mxs__step--d { animation: fade-in-soft 1s linear paused both !important; animation-delay: calc((0.53 - var(--scrub, 0)) / 0.09 * 1s) !important; }
   html.scrub .mxs__step--e { animation: fade-in-soft 1s linear paused both !important; animation-delay: calc((0.64 - var(--scrub, 0)) / 0.08 * 1s) !important; }
+  /* r180 (M1, five voices): the phone prints the finished matrix — the pin is
+     desktop furniture. Labels at full ink, the 165M finale printed beneath. */
+  @media (max-width: 640px) {
+    html.scrub .mxs__scroller { height: auto; }
+    html.scrub .mxs__pin { position: static; }
+    html.scrub .mxs__hint { display: none !important; }
+    html.scrub .mxs__mxa, html.scrub .mxs__mxb, html.scrub .mxs__mxc,
+    html.scrub .mxs__mxd, html.scrub .mxs__mxe,
+    html.scrub .mxs__ann-big, html.scrub .mxs__ann-sub,
+    html.scrub .mxs__svg text, html.scrub .mxs__cap,
+    html.scrub .mxs__shell, html.scrub .mxs__steps,
+    html.scrub .mxs__step--a, html.scrub .mxs__step--b, html.scrub .mxs__step--c,
+    html.scrub .mxs__step--d, html.scrub .mxs__step--e { animation: none !important; }
+  }
   @media (max-width: 999px) {
     html.scrub .mxs__scroller { height: 300vh; }
     html.scrub .mxs__pin { top: 72px; }
@@ -305,6 +319,12 @@
   @media (max-width: 699px) {
     html.scrub .mxs__scroller { height: 240vh; }
     html.scrub .mxs__svg { max-width: 100%; }
+  }
+  /* r180: the <=640 unpin above must also beat this 240vh runway; and the
+     unpinned phone scene prints statically — no entrance choreography */
+  @media (max-width: 640px) {
+    html.scrub .mxs__scroller { height: auto; }
+    .mxs, .mxs * { animation: none !important; transition: none !important; }
   }
 
   /* the deal-ID plaque (chip grammar from the index targeting steps); lives in the flip book */
@@ -488,6 +508,7 @@
             </div>
           </div>
         </div>
+        <p class="qf__more num m-only">+ 20 MORE CYCLING ON THIS WALL &middot; <a href="questions.html">10,000+ IN THE LIBRARY &rarr;</a></p>
         <p class="qf__foot">Wordings with a QID are in the library today &middot; the rest show the kinds it carries</p>
       </div>
     </div>
@@ -588,8 +609,8 @@
   <div class="wrap">
     <div class="center" style="margin-bottom:1.6rem">
       <p class="eyebrow eyebrow--plain" style="justify-content:center">Labor Day to Election Day</p>
-      <h2>One flight, run live.</h2>
-      <p class="lede">The loop on a real calendar. Lay your race over it.</p>
+      <h2>Lay your race over a real calendar.</h2>
+      <p class="lede">The loop, on your dates.</p>
     </div>
 
     <!-- r108 (Adam): the campaign flip book. Labor Day to Election Day on one
@@ -604,7 +625,7 @@
           <span class="fb__folio" aria-hidden="true">01</span>
           <p class="fb__date">SEP 7 &middot; LABOR DAY</p>
           <h3 class="fb__h">The questions go in.</h3>
-          <p class="fb__p">The ballot test and the issue question, written with you,
+          <p class="fb__p m-cut">The ballot test and the issue question, written with you,
             and yours alone. In the field in days,
             nationally or inside a single district.</p>
           <div class="fb__qs" aria-hidden="true">
@@ -632,16 +653,16 @@
             <rect x="0" y="0" width="235" height="26" fill="#2E5E88"/>
             <text x="117.5" y="17" text-anchor="middle" font-family="Inter,sans-serif" font-size="9.5" font-weight="800" letter-spacing=".5" fill="#FFFFFF">WEEK 1 &middot; 2.1M DELIVERED</text>
           </svg>
-          <div class="fb__live" aria-hidden="true"><span class="fb__pulse"></span>live &middot; delivery prints with the answers</div>
+          <div class="fb__live m-cut" aria-hidden="true"><span class="fb__pulse"></span>live &middot; delivery prints with the answers</div>
           <p class="fb__fine num" style="margin-top:.5rem">delivery row &middot; synthetic example</p>
-          <p class="fb__tag">your seat or ours</p>
+          <p class="fb__tag m-cut">your seat or ours</p>
         </li>
         <li class="fb__page">
           <span class="fb__folio" aria-hidden="true">04</span>
           <p class="fb__date">MID-OCTOBER</p>
           <h3 class="fb__h">The second question.</h3>
           <p class="fb__ask">&ldquo;Seen, read, or heard anything about the race lately?&rdquo;</p>
-          <p class="fb__p">The recall wave, fielded to the same panel while the flight
+          <p class="fb__p m-cut">The recall wave, fielded to the same panel while the flight
             is still running.</p>
           <p class="fb__tag">custom &middot; wave 2 banks</p>
         </li>
@@ -691,7 +712,7 @@
           <div class="mxs__pin">
             <div class="mxs__bar">
               <span class="mxs__brand">KPI &times; CivicScience &middot; The declared matrix</span>
-              <span class="mxs__stamp">answers accrue daily &middot; figures as of Aug 2026</span>
+              <span class="mxs__stamp">answers accrue daily &middot; figures as of Aug&nbsp;2026</span>
             </div>
             <ol class="mxs__steps">
               <li class="mxs__step mxs__step--a"><b>One person</b>Answers layering over months.</li>
@@ -868,6 +889,7 @@
         <div class="press-card__art press-card__art--hero" role="group" style="margin:.7rem 0 0;text-align:left"
           aria-label="A wave topline sheet: synthetic data in the real format">
           <p class="pca__bar"><span>KPI &middot; Wave topline</span><span>synthetic &middot; real format</span></p>
+          <p class="wvlead m-only" aria-hidden="true">RECALL <b class="num">+9</b> WHERE THE FLIGHT RAN &middot; <span class="num">&plusmn;2.8&nbsp;PTS</span></p>
           <p class="pca__row num">WAVE 1 OF 3 &middot; n=1,204 &middot; FIELDED SEP 7&ndash;11, 2026 &middot; GOVERNOR</p>
           <p class="pca__row num">WEIGHTED TO THE FRAME YOUR RACE NEEDS: ADULTS &middot; REGISTERED &middot; LIKELY</p>
           <p class="pca__row num">ALWAYS-ON PANEL &middot; WEIGHTED ON LICENSED ATTRIBUTES &middot; ERROR PRINTED PER WAVE &middot; THIS ONE: &plusmn;2.8 PTS</p>
@@ -939,6 +961,6 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r179"></script>
+<script src="assets/js/site.js?v=r180"></script>
 </body>
 </html>
