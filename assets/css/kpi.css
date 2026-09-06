@@ -2317,7 +2317,8 @@ details.mdet[open] > summary::before { content: "\2212\00a0"; }
   .kw__cluster { grid-template-columns: 1fr !important; gap: .8rem !important; }
   .kw__cluster .kw__c:nth-child(odd), .kw__cluster .kw__c:nth-child(even) { transform: none !important; }
   .kw__c--player, .kw__c--pod, .kw__c--mix, .kw__c--stream, .kw__c--book,
-  .kw__c--share, .kw__c--rate, .kw__c--op, .kw__c--op2 { display: none !important; }
+  .kw__c--share, .kw__c--rate, .kw__c--op, .kw__c--op2,
+  .kw__c--deal { display: none !important; } /* r179: the bare deal chip is cryptic without its zone label */
   .kw__zone { border-top: 0 !important; padding-top: 0 !important; margin-top: 0 !important; }
   .kw__zone-k { display: none !important; }
   .kw__readline { display: none !important; }
@@ -3411,4 +3412,56 @@ html:has(.pb--pin) { scroll-padding-top: calc(var(--nav-h, 64px) + 145px); }
 @media (max-width: 560px) {
   .built__svc { text-transform: none; letter-spacing: normal;
     font-family: var(--sans); font-size: .85rem; line-height: 1.55; }
+}
+
+/* ============ r179 mobile diet (the owner: "mobile still feels super heavy
+   and i glaze over") — every rule phone-scoped; desktop pixel-identical ============ */
+/* the one hook every HTML-tagged cut uses */
+@media (max-width: 640px) { .m-cut { display: none !important; } }
+/* receipts breathe: rarer type pressure at phone width */
+@media (max-width: 640px) {
+  .pca__row, .who__r, .mhero__rcpt { letter-spacing: .02em; line-height: 1.62; }
+  /* the hero keeps its single biggest number; the rest wait one screen */
+  .hero--home .hero-receipt > span:not(:first-child) { display: none !important; }
+  /* one race on the phone scoreboard glimpse; stamps stay */
+  .hero-board .hb-row + .hb-row { display: none; }
+  /* doors 2-4: the art is a slim honesty strip, not a ledger */
+  .press-card__art.m-slim { min-height: 0; padding: .55rem .95rem; }
+}
+/* the phone rhythm: closer breath everywhere, extra runway before the two loud bands */
+@media (max-width: 560px) {
+  .section { padding: 44px 0; }
+  .section--mega { padding: 58px 0; }
+  section.kw.section, section.section--flag { padding-top: 64px; }
+  .mt3 { margin-top: 1.6rem; }
+  .scroll-hint { display: none; }
+  /* the who band tightens; its receipts stay (they are the doors' proof now) */
+  .who__grid { gap: 10px; }
+  .who__c { padding: .85rem 1rem; }
+  /* the flag spine keeps its spine; the two era ticks are desktop texture */
+  .lineage__mspine .ms-tick { display: none; }
+  /* the alert card: one primary action, a tighter meta plate */
+  .ac__actions .btn:not(.btn--lime) { display: none; }
+  .ac__dl { gap: .5rem .9rem; }
+  .ac__dl dd { font-size: .88rem; }
+  /* market chips grid up instead of stacking */
+  .aw__rail { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .45rem; }
+  .aw__mkt { padding: .5rem .4rem; }
+  /* the six-station list yields to the drawn index one screen down */
+  #fcc-rates .press-card__art--hero .pca__row:nth-of-type(3) { display: none; }
+}
+/* footer columns fold on phones; >=641px the wrapper is invisible (site.js
+   closes .mdet[open] at <=640, so desktop always renders open + contents) */
+details.mfoot > summary { list-style: none; cursor: pointer; }
+details.mfoot > summary::-webkit-details-marker { display: none; }
+/* the generic .mdet +/− marker survives display:contents — the fold sign
+   lives on the h4 instead */
+details.mfoot > summary::before { content: "" !important; }
+@media (min-width: 641px) {
+  details.mfoot, details.mfoot > summary { display: contents; }
+}
+@media (max-width: 640px) {
+  details.mfoot > summary h4 { margin-bottom: .4rem; }
+  details.mfoot > summary h4::after { content: " +"; color: #8FA9BE; }
+  details.mfoot[open] > summary h4::after { content: " \2013"; }
 }
