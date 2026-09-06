@@ -30,7 +30,7 @@
   var DATA = [];
   var picked = [];
   var state = { q: '', domain: '', cat: '' };
-  var PAGE = 60;
+  var PAGE = (window.matchMedia && window.matchMedia('(max-width: 640px)').matches) ? 15 : 60;
   var shown = PAGE;
 
   function esc(s) {
