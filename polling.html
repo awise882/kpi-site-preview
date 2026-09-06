@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r180">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r181">
 <style>
   /* r106 (Adam): the loop IS the landing. Text left, the loop tape right, one
      viewport. The tape is the old ring redrawn in the house receipt grammar:
@@ -325,6 +325,9 @@
   @media (max-width: 640px) {
     html.scrub .mxs__scroller { height: auto; }
     .mxs, .mxs * { animation: none !important; transition: none !important; }
+    /* r181 (judge-visual): the finished matrix FITS the phone card — no
+       sideways scroll hiding half the grid */
+    .mxs__shell .mxs__svg { min-width: 100%; }
   }
 
   /* the deal-ID plaque (chip grammar from the index targeting steps); lives in the flip book */
@@ -889,11 +892,11 @@
         <div class="press-card__art press-card__art--hero" role="group" style="margin:.7rem 0 0;text-align:left"
           aria-label="A wave topline sheet: synthetic data in the real format">
           <p class="pca__bar"><span>KPI &middot; Wave topline</span><span>synthetic &middot; real format</span></p>
-          <p class="wvlead m-only" aria-hidden="true">RECALL <b class="num">+9</b> WHERE THE FLIGHT RAN &middot; <span class="num">&plusmn;2.8&nbsp;PTS</span></p>
+          <p class="wvlead m-only">RECALL <b class="num">+9</b> WHERE THE FLIGHT RAN <span class="num">&middot;&nbsp;&plusmn;2.8&nbsp;PTS</span> <span class="wvlead__tail num">TOPLINE ATTACHED, ONE PAGE</span></p>
           <p class="pca__row num">WAVE 1 OF 3 &middot; n=1,204 &middot; FIELDED SEP 7&ndash;11, 2026 &middot; GOVERNOR</p>
           <p class="pca__row num">WEIGHTED TO THE FRAME YOUR RACE NEEDS: ADULTS &middot; REGISTERED &middot; LIKELY</p>
-          <p class="pca__row num">ALWAYS-ON PANEL &middot; WEIGHTED ON LICENSED ATTRIBUTES &middot; ERROR PRINTED PER WAVE &middot; THIS ONE: &plusmn;2.8 PTS</p>
-          <p class="pca__row num">RECALL +9 WHERE THE FLIGHT RAN &middot; TOPLINE ATTACHED, ONE PAGE</p>
+          <p class="pca__row num">ALWAYS-ON PANEL &middot; WEIGHTED ON LICENSED ATTRIBUTES &middot; ERROR PRINTED PER WAVE<span class="m-cut"> &middot; THIS ONE: &plusmn;2.8 PTS</span></p>
+          <p class="pca__row num m-cut">RECALL +9 WHERE THE FLIGHT RAN &middot; TOPLINE ATTACHED, ONE PAGE</p>
           <p class="pca__row num">THE FLIGHT BEHIND THE +9: $940K AIRED IN THOSE MARKETS, SAME DATES &middot; SYNTHETIC</p>
           <p class="pca__row num">THE OTHER SIDE, SAME MARKETS, SAME DATES: $1.3M AIRED &middot; SYNTHETIC</p>
         </div>
@@ -961,6 +964,6 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r180"></script>
+<script src="assets/js/site.js?v=r181"></script>
 </body>
 </html>
