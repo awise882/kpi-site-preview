@@ -3579,3 +3579,10 @@ details.mdet--pk > summary { font-size: .78rem; letter-spacing: .05em; }
   .wvlead__tail { display: block; font-family: var(--mono); font-size: .6rem;
     font-weight: 400; letter-spacing: .06em; color: var(--ink-3); margin-top: .2rem; }
 }
+
+/* ============ r182 mobile loop M3 crumbs — phone-scoped ============ */
+@media (max-width: 640px) {
+  /* the press story run's guarantee closes the list in the stamp voice */
+  .pstory--stamp { font-size: .62rem; letter-spacing: .08em; color: var(--ink-3);
+    border-top: 1px solid var(--rule-soft); padding-top: .35rem; margin-top: .35rem; }
+}
