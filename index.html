@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r183">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r184">
 <style>
   /* Light, centered, airy hero, matching the live site: the announcement banner
      sits flush under the nav, then the display headline in the green-to-teal
@@ -289,6 +289,7 @@
   .hero-tape a { color: inherit; text-decoration: none; }
   .hero-tape a:hover, .hero-tape a:focus-visible { color: #fff; text-decoration: underline;
     text-underline-offset: 3px; text-decoration-color: var(--lime); }
+  @media (min-width: 1200px) { .hero-tape { font-size: .63rem; } }
   /* the wire lines: the essay, retired */
   .hero-wl { margin: 1.15rem 0 0; max-width: 54ch; font-size: 1.02rem; line-height: 1.62;
     color: #B9CBDA; text-align: left; }
@@ -338,8 +339,12 @@
     .hero--desk .ht .ht__l { display: inline; }
     .hero--desk .ht .ht__k { display: block; margin-bottom: .7rem; }
     .hero-wire { padding-top: .65rem; }
-    .hw-src, .hw-line { display: none; }
-    .hw-in { justify-content: space-between; gap: .55rem; padding-bottom: .65rem; }
+    /* r184: the receipt keeps its noun on the phone — stamp + title, then the times */
+    .hw-line { display: none; }
+    .hw-src { font-size: .72rem; white-space: nowrap; }
+    .hw-ev { flex-basis: 100%; justify-content: space-between; }
+    @media (max-width: 374px) { .hw-ev { font-size: .58rem; } }
+    .hw-in { justify-content: space-between; gap: .5rem .55rem; padding-bottom: .65rem; }
     .hero--desk .hero-proclaim { font-size: 1.05rem; }
     .hero-tape { font-size: .64rem; line-height: 2.05; }
     .hero-wl { font-size: .97rem; }
@@ -350,7 +355,7 @@
     .hw-line { animation: grow-x .6s var(--smooth) backwards; }
     .hw-src { animation: rise .45s var(--smooth) .05s backwards; }
     .hw-ev { animation: rise .45s var(--smooth) .3s backwards; }
-    .hw-real { animation: ac-stamp .55s cubic-bezier(.2,1.4,.3,1) .95s backwards; }
+    .hw-real { animation: ac-stamp .55s cubic-bezier(.2,1.4,.3,1) .5s backwards; }
     .hero--desk .ht .ht__k { animation: rise .5s var(--smooth) .1s backwards; }
     .hero--desk .ht .ht__l:nth-of-type(2) { animation: rise .6s var(--smooth) .22s backwards; }
     .hero--desk .ht .ht__l:nth-of-type(3) { animation: rise .6s var(--smooth) .34s backwards; }
@@ -632,12 +637,12 @@
         <span class="ht__l ht__l--accent" data-t="Platform">Platform</span>
       </h1>
       <p class="hero-proclaim"><span class="hp-s">Every creative,</span> <span class="hp-s">every channel,</span> <span class="hp-s">every market.</span></p>
-      <p class="hero-tape num" aria-label="The numbers under the claim: over forty billion dollars in political ad spending tracked across cycles, 1.5 million ad airings per day, more than a quarter-million TV and radio orders on file, 288 streaming apps read in a single month&rsquo;s capture, all 210 markets">
+      <p class="hero-tape num" aria-label="The numbers under the claim: over forty billion dollars in political ad spending tracked across cycles, 1.5 million ad airings per day, more than a quarter-million TV and radio orders on file, all 210 markets, 288 streaming apps read in a single month&rsquo;s capture">
         <span><b>$40B+</b> TRACKED ACROSS CYCLES</span>
         <span><i class="hr-sep" aria-hidden="true">&middot;</i> <b>1.5M</b> AD AIRINGS PER DAY</span>
         <span><i class="hr-sep" aria-hidden="true">&middot;</i> <b>250K+</b> TV &amp; RADIO ORDERS ON FILE</span>
-        <span><i class="hr-sep" aria-hidden="true">&middot;</i> <a href="monitoring.html#streaming"><b>288</b> STREAMING APPS, ONE MONTH&rsquo;S CAPTURE</a></span>
         <span><i class="hr-sep" aria-hidden="true">&middot;</i> ALL <b>210</b> MARKETS</span>
+        <span><i class="hr-sep" aria-hidden="true">&middot;</i> <a href="monitoring.html#streaming"><b>288</b> STREAMING APPS, ONE MONTH&rsquo;S CAPTURE</a></span>
       </p>
       <p class="hero-wl"><b>Kinetiq Political Insights tracks political advertising as
         it happens</b>: every TV, cable, radio and streaming spot nationwide, and
@@ -654,7 +659,7 @@
       </div>
       <p class="small racebox-cap">A 20-minute walkthrough
         with your race&rsquo;s dashboards open when you dial in &middot;
-        <a href="week.html">see a buyer&rsquo;s week &rarr;</a></p>
+        <a href="week.html" style="white-space:nowrap">see a buyer&rsquo;s week &rarr;</a></p>
     </div>
 
     <div class="hero-proof">
@@ -691,9 +696,9 @@
         <h3>Political ads, caught as they air.</h3>
         <div class="press-card__art press-card__art--real">
           <p class="pca__bar"><span>KPI &middot; Creative alert</span><span>real alert</span></p>
-          <p class="pca__big">&ldquo;Delivery Protection Act&rdquo; &middot; :30 &middot; Five Borough Jobs Campaign</p>
-          <p class="pca__row num m-cut">FIRST CAPTURED AUG 26 &middot; 4:21:39 PM ET <span style="white-space:nowrap">&middot; IN&nbsp;INBOXES 4:23:07 PM ET</span></p>
-          <p class="pca__row m-cut">Hulu &middot; OTT &middot; nothing on broadcast yet &middot; tape + transcript attached</p>
+          <p class="pca__big">&ldquo;Amy Acton Hiked Taxes&rdquo; &middot; :30 &middot; WKYC, Cleveland</p>
+          <p class="pca__row num m-cut">FIRST AIR AUG&nbsp;30 &middot; 5:24:02 AM ET <span style="white-space:nowrap">&middot; IN&nbsp;THE&nbsp;INBOX 8:20 AM ET</span></p>
+          <p class="pca__row m-cut">Broadcast &middot; OH Governor &middot; an overnight catch, in the morning send &middot; tape + transcript attached</p>
                   </div>
         <p class="small">See new campaigns launch, get the alert when new creative hits
           the air, and track every shift in spend and strategy, on your side and
@@ -1060,6 +1065,6 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=r183"></script>
+<script src="assets/js/site.js?v=r184"></script>
 </body>
 </html>
