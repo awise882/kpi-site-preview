@@ -32,6 +32,14 @@
   .nr-partners__k { font-family: var(--label); text-transform: uppercase; letter-spacing: .14em;
     font-size: .68rem; font-weight: 800; color: #5A6B7C; margin: 0; }
   .nr-partners img { display: block; width: auto; opacity: .95; }
+  .nr-partners .pl-va { height: 46px; }
+  .nr-partners .pl-lo { height: 27px; position: relative; top: 3px; }
+  @media (max-width: 560px) {
+    .nr-partners { gap: .9rem 1.8rem; }
+    .nr-partners__k { flex-basis: 100%; }
+    .nr-partners .pl-va { height: 36px; }
+    .nr-partners .pl-lo { height: 21px; top: 2px; }
+  }
 </style>
 </head>
 <body>
@@ -201,8 +209,8 @@
     </article>
     <div class="nr-partners" data-rise>
       <p class="nr-partners__k">Working with</p>
-      <img src="assets/img/videoamp-logo.png?v=r187" alt="VideoAmp" style="height:46px">
-      <img src="assets/img/locality-logo.svg?v=r187" alt="Locality" style="height:27px">
+      <img class="pl-va" src="assets/img/videoamp-logo.png?v=r187" alt="VideoAmp">
+      <img class="pl-lo" src="assets/img/locality-logo.svg?v=r187" alt="Locality">
     </div>
   </div>
 </section>
