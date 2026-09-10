@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/kpi-favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/kpi-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/css/kpi.css?v=r186">
+<link rel="stylesheet" href="assets/css/kpi.css?v=r187">
 <style>
   /* press.html only: the newsroom. Existing tokens, no new colors. */
   .nr-release { max-width: 860px; margin-inline: auto; }
@@ -26,6 +26,20 @@
   .nr-dl .small { margin: 0; }
   .nr-dl .btn { margin-left: auto; }
   @media (max-width: 560px) { .nr-dl .btn { margin-left: 0; width: 100%; justify-content: center; } }
+  .nr-partners { max-width: 860px; margin: 2.4rem auto 0; padding-top: 1.5rem;
+    border-top: 1px solid var(--rule); display: flex; align-items: center;
+    gap: 1rem 2.4rem; flex-wrap: wrap; }
+  .nr-partners__k { font-family: var(--label); text-transform: uppercase; letter-spacing: .14em;
+    font-size: .68rem; font-weight: 800; color: #5A6B7C; margin: 0; }
+  .nr-partners img { display: block; width: auto; opacity: .95; }
+  .nr-partners .pl-va { height: 46px; }
+  .nr-partners .pl-lo { height: 27px; position: relative; top: 3px; }
+  @media (max-width: 560px) {
+    .nr-partners { gap: .9rem 1.8rem; }
+    .nr-partners__k { flex-basis: 100%; }
+    .nr-partners .pl-va { height: 36px; }
+    .nr-partners .pl-lo { height: 21px; top: 2px; }
+  }
 </style>
 </head>
 <body>
@@ -193,6 +207,11 @@
         <cite>Adam Wise, Kinetiq Political Insights</cite>
       </blockquote>
     </article>
+    <div class="nr-partners" data-rise>
+      <p class="nr-partners__k">Working with</p>
+      <img class="pl-va" src="assets/img/videoamp-logo.png?v=r187" alt="VideoAmp">
+      <img class="pl-lo" src="assets/img/locality-logo.svg?v=r187" alt="Locality">
+    </div>
   </div>
 </section>
 
@@ -303,6 +322,6 @@
 </footer>
 
 
-<script src="assets/js/site.js?v=r186"></script>
+<script src="assets/js/site.js?v=r187"></script>
 </body>
 </html>
