@@ -15,8 +15,9 @@ external dependencies (fonts, CSS, and JavaScript are all self-hosted in
 `assets/`). Any web server or static host that can serve files can run it.
 
 - **Source of truth:** this Git repository, branch `main`. As of handoff the
-  launch state is commit `19932eb` ("Merge r188"); deploy that or the current
-  `main` tip.
+  launch state is commit `9b15e11` (r189); deploy that or the current `main`
+  tip. **Do not deploy anything earlier** — r189 carries wording VideoAmp
+  requires ("integration", not "partnership").
 - **Size:** ~8.5 MB total.
 - **Preview of exactly what you're deploying:**
   https://awise882.github.io/kpi-site-preview/
@@ -44,7 +45,7 @@ is for GitHub Pages only — harmless anywhere else; copy it or skip it.
 1. Get the files:
    ```
    git clone https://github.com/awise882/kpi-site-preview.git
-   cd kpi-site-preview && git checkout 19932eb   # the r188 launch commit on main
+   cd kpi-site-preview && git checkout 9b15e11   # the r189 launch commit
    ```
 2. Copy **everything except `.git/`** to the web root, preserving structure:
    ```
