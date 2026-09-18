@@ -54,6 +54,12 @@ is for GitHub Pages only — harmless anywhere else; copy it or skip it.
    (Or connect the host directly to the repo's `main` branch — Netlify,
    Cloudflare Pages, S3+CloudFront, GitHub Pages with a custom domain all work
    with zero build configuration. Publish directory = repository root.)
+
+   **If production deploys from another repo** (e.g. the org's
+   `NMiQ/KPIPolitical.com` repo, which still holds the old site): copy this
+   tree into it — everything except `.git/` and `DEPLOY.md` — on a branch,
+   PR, merge, deploy as usual. This repo remains the source of truth for the
+   new site; the old repo's April state is expected, not a missing update.
 3. Point the domain (section 3), apply the server settings (section 4), then
    run the smoke test (section 6).
 
